@@ -340,4 +340,22 @@ Now does not block any incoming or outgoing requests.
 
 We do not currently offer support for the 3-D Secure protocol.
 
+## Is Now GDPR Compliant?
+
+We intend to be fully GDPR compliant. [Check out our privacy policy for more information](https://zeit.co/privacy).
+
+## Does zeit.world Supports DNSSEC?
+
+We do not currently offer support for DNSSEC.
+
+## Why does Now give me random URLs and how can I change it?
+
+Due the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run \`now\ you will get a new unique URL. To have a custom static URL you need to use the \`now alias\` command.
+
+> Read more on [Aliases and Domains](/docs/features/aliases).
+
+## How Can I Use a Separate Now Configuration for Staging and Production?
+
+You can have a \`now.staging.json\` file and a \`now.json\` for production and use the parameter \`--local-config=now.staging.json\` while deploying (or aliasing) to customize the configuration file to use.
+
 `)
