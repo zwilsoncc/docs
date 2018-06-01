@@ -11,7 +11,8 @@ export default withDoc({
   title: 'Continuous Integration with Travis CI',
   date: '13 Mar 2018',
   authors: [devisscher, sergio],
-  editUrl: 'pages/docs/continuous-integration/travis.js'
+  editUrl: 'pages/docs/continuous-integration/travis.js',
+  image: `${IMAGE_ASSETS_URL}/docs/ogp/travis-ci-guide.png`
 })(markdown(components)`
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
