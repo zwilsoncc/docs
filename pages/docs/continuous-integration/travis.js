@@ -9,6 +9,7 @@ import Caption from '../../../components/text/caption'
 // prettier-ignore
 export default withDoc({
   title: 'Continuous Integration with Travis CI',
+  description: 'Deploy your changes in your GitHub repositories after every push using Travis CI and Now',
   date: '13 Mar 2018',
   authors: [devisscher, sergio],
   editUrl: 'pages/docs/continuous-integration/travis.js',
