@@ -228,6 +228,15 @@ ${
   </Code>
 }
 
+#### \`static\` (object)
+
+If you are creating a deployment of type \`static\`, this optional property can contain an
+object with any of [these properties](https://github.com/zeit/serve-handler#options).
+
+For testing your static project locally (in development), we recommend
+using [serve](https://github.com/zeit/serve) as it will read your
+local deployment configuration file and adapt its behavior accordingly.
+
 #### \`api\` (string)
 
 The URL of the Now API which Now CLI and Now Desktop should interact with.
