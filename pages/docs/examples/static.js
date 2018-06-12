@@ -7,7 +7,10 @@ import Now from '../../../components/now/now'
 import { InternalLink } from '../../../components/text/link'
 import Image from '../../../components/image'
 import { Code } from '../../../components/text/code'
-import { TerminalInput } from '../../../components/text/terminal'
+import {
+  TerminalInput,
+  TerminalOutput
+} from '../../../components/text/terminal'
 
 // prettier-ignore
 export default withDoc({
@@ -26,7 +29,7 @@ Thankfully, our tools make deploying such a project just as easy as it is with a
 
 ## Setup
 
-Because basic static websites don't require any special tools in order to work, there's not much you need to do in order to prepare your own one. For the beginning, just create a directory and switch to it by running these commands in your terminal:
+Because basic static websites do not require any special tools in order to work, there is not much you need to do in order to prepare your own. For the beginning, just create a directory and switch to it by running these commands in your terminal:
 
 ${<TerminalInput>{`mkdir static-site\ncd static-site`}</TerminalInput>}
 
@@ -66,11 +69,11 @@ ${
   />
 }
 
-## Testing across Devices
+## Testing Your Project
 
-When developing a static project, you should always make sure that it works on various devices, not just on your own one. This can be solved by simply skipping to ${<InternalLink href="/docs/examples/static#deploying-the-site">Deploying</InternalLink>}, sending the link to somewhere else and then testing it from there.
+When developing a static project, you should always make sure that it works on various devices, not just on your own. This can be solved by simply skipping to ${<InternalLink href="/docs/examples/static#deploying-the-site">Deploying</InternalLink>}, sending the link to somewhere else and then testing it from there.
 
-This is a very good idea when working with people across the whole globe and having them try out your project for you. But if you only want to open it on a different device in your own home network, there's a specialized solution: [serve](https://github.com/zeit/serve).
+This is a very good idea when working with people across the whole globe and having them try out your project for you. But if you only want to open it on your personal device, there is a specialized solution: [serve](https://github.com/zeit/serve).
 
 Want to see what it does exactly? Easy! Simply start with installing it:
 
@@ -84,12 +87,11 @@ And then, finally, run it using this command:
 
 ${<TerminalInput>serve</TerminalInput>}
 
-Now you'll see a message containing two addresses:
+Now you will see a message like this one:
 
-* **"Local"**: The URL which you can open in the browser on the device where serve is running.
-* **"On Your Network"**: That's the address that you can open on different devices on the same network to see your project.
+${<TerminalOutput><b style={{fontWeight: 'normal', color: '#fd7cfc'}}>INFO:</b> Accepting connections at http://localhost:3000</TerminalOutput>}
 
-That easy! Now you can test the site on other platforms (like your phone) as well.
+It is that easy! Now you can click the link to open your project in the browser.
 
 You can stop \`serve\` by hitting \`CTRL + C\`.
 

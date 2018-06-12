@@ -15,7 +15,7 @@ export default withDoc({
   editUrl: 'pages/docs/deployment-types/static.js',
 })(markdown(components)`
 
-${<Now color="#000"/>} comes with a native support for static deployments. It considers all projects that don't have a \`Dockerfile\`, nor a \`package.json\` as a static deployment.
+${<Now color="#000"/>} comes with built-in support for static deployments. It considers all projects that don't have a \`Dockerfile\`, nor a \`package.json\`, a static deployment.
 
 Deploying such a static project is still as easy as running a single command:
 
@@ -23,36 +23,60 @@ ${<TerminalInput>now</TerminalInput>}
 
 ## Under the Hood
 
-The technology behind our servers is a Node.js module called [serve](https://github.com/zeit/serve), which you can download, fork, extend and even operate locally during development.
+Static deployments running on ${<Now color="#000"/>} are powered by [serve-handler](https://github.com/zeit/serve-handler), which you can download, fork, extend, and
+even operate locally during development by
+importing the module itself into an [existing server](https://github.com/zeit/serve#api) or
+using its [command line interface](https://github.com/zeit/serve).
 
-What does this mean for your team and your business? Great user experience with zero lock-in.
+What does this mean for your team and your business?
 
-If you can’t wait for us to add a certain capability to our static deployments support, you can just create a \`package.json\` like this:
+Great user experience with zero lock-in.
+
+## Customization
+
+In order to change the default behaviour of your static deployment running on ${<Now color="#000"/>}, you only need to
+create a ${<InlineCode>now.json</InlineCode>} file with a ${<InlineCode>static</InlineCode>} property that
+holds any of [these values](https://github.com/zeit/serve-handler#options).
+
+Here is an example for forcing [trailing slashes](https://github.com/zeit/serve-handler#trailingslash-boolean):
 
 ${
   <Code>{`{
-  "name": "extensible",
-  "scripts": {
-    "start": "serve ."
-  },
-  "dependencies": {
-    "serve": "latest"
+  "static": {
+    "trailingSlash": true
   }
 }`}</Code>
 }
 
-Then run \`now\`, and we will detect the presence of \`package.json\` and deploy it as a \`npm\` deployment.
+Then, once you run \`now\`, we will automatically upload this configuration to ${<Now color="#000"/>} and
+adjust the behavior of the deployment accordingly.
 
-## Behavior
+Furthermore, when developing locally, [serve](https://github.com/zeit/serve) can be used. If so, the same
+configuration file will be read and [serve](https://github.com/zeit/serve) will adapt itself.
 
-- If a ${<InlineCode>index.html</InlineCode>} file exists, it will be rendered
-- If only a single file was uploaded, the deployment URL will respond with it directly (you can
-still access it under its original path  - e.g.: ${<InlineCode>/image.png</InlineCode>})
-- When uploading multiple files, a directory listing will be displayed
+## Default Behavior
+
+If you do not overwrite the following configuration properties using a {<InlineCode>now.json</InlineCode>} file, they
+will be enabled by default for ${<Now color="#000"/>}:
+
+- ${<InlineCode>renderSingle</InlineCode>} set to ${<InlineCode>true</InlineCode>}
+- ${<InlineCode>cleanUrls</InlineCode>} set to ${<InlineCode>true</InlineCode>}
+- ${<InlineCode>headers</InlineCode>} contains a ${<InlineCode>ETag</InlineCode>} header for every file
+- ${<InlineCode>directoryListing</InlineCode>} set to ${<InlineCode>true</InlineCode>}
+
+You can read more about these properties [here](https://github.com/zeit/serve-handler#options).
+
+In order to receive the contents of directories, errors, and other meta information
+as JSON instead of HTML, you can set the following header on your request:
+
+${
+<Code>{`Accept: application/json`}</Code>
+}
 
 ### Deployment Inactivity
 
-Old deployments always stay around forever if you don't remove them using \`now remove\`.
+Deployments stay around forever if you do not remove them using \`now remove\`, like shown
+on [this page](http://localhost:3000/docs/features/now-cli#cloud-commands).
 
-However, the new static deployments, without the \`package.json\` are **never** put to sleep but are always quickly accessible.
+Static deployments are **never** put to sleep and are always **quickly accessible**.
 `)

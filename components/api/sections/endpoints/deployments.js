@@ -94,6 +94,12 @@ ${<InputTable>
     <BooleanCell status={false} />
     <Cell>A string indicating the session affinity algorithm. It could be <InlineCode>ip</InlineCode> or <InlineCode>random</InlineCode>.</Cell>
   </Row>
+  <Row>
+    <BoldCell>config</BoldCell>
+    <TypeCell>Map</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>An object containing any <InternalLink href="/docs/features/configuration#local-configuration">local configuration</InternalLink> property. Not all of these properties lead to changes in behavior on the platform (some are designed to be used only by Now CLI).</Cell>
+  </Row>
 </InputTable>}
 
 #### File
