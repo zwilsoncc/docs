@@ -77,7 +77,7 @@ Now, add an additional [alias](/docs/getting-started/assign-a-domain-name) to re
 
 ```
 {
-  "aliases": [
+  "alias": [
     "www.mycompany.com",
     "mycompany.com"
   ]
