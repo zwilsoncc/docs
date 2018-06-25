@@ -105,6 +105,9 @@ class Head extends React.PureComponent {
               this.props.image || `${IMAGE_ASSETS_URL}/zeit/twitter-card.png`
             }
           />
+          {this.props.image ? (
+            <meta property="twitter:image" content={this.props.image} />
+          ) : null}
           {this.props.video
             ? [
                 <meta property="og:type" content="video" key="0" />,
