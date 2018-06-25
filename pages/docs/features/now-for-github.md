@@ -5,10 +5,11 @@ import Image from '../../../components/image'
 import { TerminalInput } from '../../../components/text/terminal'
 
 export const meta = {
-title: 'Now for GitHub',
-description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work through pull requests.',
-date: '25 June 2018',
-editUrl: 'pages/docs/features/now-for-github.md'
+  title: 'Now for GitHub',
+  description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work through pull requests.',
+  date: '25 June 2018',
+  editUrl: 'pages/docs/features/now-for-github.md',
+  image: IMAGE_ASSETS_URL + '/docs/now-for-github/tw-card.png'
 }
 
 You can use [Now CLI](https://zeit.co/now) or the [Desktop app](https://zeit.co/docs/getting-started/five-minute-guide-to-now#installing-now-desktop) to deploy different versions of your app on-demand, but doing it for each and every change you make in a project can be tedious and cumbersome.
