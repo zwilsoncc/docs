@@ -1,5 +1,4 @@
-import markdown from 'markdown-in-js'
-import withDoc, { components } from '../../../lib/with-doc'
+import withDoc from '../../../lib/with-doc'
 import { arunoda } from '../../../lib/data/team'
 import Now from '../../../components/now/now'
 

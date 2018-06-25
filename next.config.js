@@ -1,6 +1,11 @@
+const remarkCapitalize = require('remark-capitalize')
 // Introduce MDX into the build
 const withMDX = require('@zeit/next-mdx')({
-  extension: /\.(md|mdx)?$/
+  extension: /\.(md|mdx)?$/,
+  options: {
+    mdPlugins: [remarkCapitalize],
+    hastPlugins: []
+  }
 })
 
 module.exports = withMDX({
