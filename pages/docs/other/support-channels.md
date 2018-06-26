@@ -25,7 +25,7 @@ We also have a [documentation for our API](https://zeit.co/api). If you want to 
 We have many [GitHub repositories](https://github.com/zeit) for almost every service or product we have. You can create issues in that repositories and the team and the community will help you as soon as possible. Some repositories you can access are [now-cloud](https://github.com/zeit/now-cloud), [now-cli](https://github.com/zeit/now-cli), [now-desktop](https://github.com/zeit/now-desktop), [now-client](https://github.com/zeit/now-client), [next.js](https://github.com/zeit/next.js), [hyper](https://github.com/zeit/hyper), [pkg](https://github.com/zeit/pkg), [micro](https://github.com/zeit/micro) and [more](https://github.com/zeit).
 
 ## zeit.chat
-Our community's Slack, there you can ask for help and either the community and the ZEIT Team will answer and help you solve any doubt you could have. You can access to it going to [zeit.chat](https://zeit.chat).
+Our community's Slack, there you can ask for help and either the community and the ZEIT Team will answer and help you solve any doubt you could have. You can access it by going to [zeit.chat](https://zeit.chat).
 
 ## Twitter
 You can use Twitter to send us a DM or mention to [@zeithq](https://twitter.com/zeithq) and a team member will contact you and help you with anything.
