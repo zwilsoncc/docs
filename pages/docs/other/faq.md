@@ -350,7 +350,7 @@ We do not currently offer support for DNSSEC.
 
 ## Why does Now give me random URLs and how can I change it?
 
-Due the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `now\ you will get a new unique URL. To have a custom static URL you need to use the `now alias` command.
+Due the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `now` you will get a new unique URL. To have a custom static URL you need to use the `now alias` command.
 
 > Read more on [Aliases and Domains](/docs/features/aliases).
 
