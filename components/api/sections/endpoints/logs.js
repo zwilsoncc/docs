@@ -32,7 +32,7 @@ function Logs(props) {
     markdown(components)`
 ${<Endpoint method="GET" url="/v1/now/deployments/:id/logs" />}
 
-Get the logs of a deployment by his ID.
+Get the logs of a deployment by its ID.
 
 #### Output
 ${<OutputTable>
