@@ -35,7 +35,7 @@ Once the output of the command matches the latest version on the site, go on to 
 
 As the first step, we need to setup a simple HTML webpage that shows a form (which can contain the message to sent) and a list of messages sent before.
 
-In turn, the first thing we'll do is create a new directory and move into it:
+In turn, the first thing we'll do is create a new directory, move into it, and create a `package.json`:
 
 ```
 {
