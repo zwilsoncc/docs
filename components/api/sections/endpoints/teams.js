@@ -396,7 +396,7 @@ ${<Request
   ],
   [
     markdown(components)`
-### Remove user to team
+### Remove user from team
     `
   ],
   [

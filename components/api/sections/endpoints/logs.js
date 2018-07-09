@@ -30,7 +30,7 @@ function Logs(props) {
   ],
   [
     markdown(components)`
-${<Endpoint method="GET" url="/v1/now/deployments/:id/logs" />}
+${<Endpoint method="GET" url="/v2/now/deployments/:id/events" />}
 
 Get the logs of a deployment by its ID.
 
@@ -184,7 +184,7 @@ ${<Table head={
 Example request:
 
 ${<Request
-  url="https://api.zeit.co/v1/now/deployments/Cm6WigEH9EBI4Uzs2WA6qOGe/logs"
+  url="https://api.zeit.co/v2/now/deployments/Cm6WigEH9EBI4Uzs2WA6qOGe/events"
   headers={{
     Authorization: `Bearer ${TOKEN}`,
   }}

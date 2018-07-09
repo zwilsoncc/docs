@@ -62,7 +62,7 @@ ${<Deprecated hash="#endpoints/certificates/submit-a-certificate">Replace a cert
       markdown(components)`
 The v2 endpoint has been deprecated. Use the ${<GenericLink href="/api#endpoints/certificates/submit-a-certificate">v3 endpoint</GenericLink>} instead. It's now labeled **Submit a Certificate**.
 
-Certificates can no longer be replaced. You can use this ${<InlineCode>PUT</InlineCode>} endpointto upload your own new certificate.
+Certificates can no longer be replaced. You can use this ${<InlineCode>PUT</InlineCode>} endpoint to upload your own new certificate.
 
 The ${<InlineCode>domains</InlineCode>} field is no longer accpeted. The Common Names
 are extracted from the certificate itself automatically.
