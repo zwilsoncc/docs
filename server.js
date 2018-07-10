@@ -1,11 +1,6 @@
 const next = require('next')
 const qs = require('querystring')
 const url = require('url')
-const LRUCache = require('lru-cache')
-
-const ssrCache = new LRUCache({
-  max: 500
-})
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -32,10 +27,7 @@ function removeEndSlash(fn) {
 
 function setAssetPrefixByHost(fn) {
   return (req, res) => {
-    if (req.headers.host === 'docs.zeit.sh') {
-      // Set the cloudinary custom origin which points to https://docs.zeit.sh
-      app.setAssetPrefix('https://assets.zeit.co/raw/upload/docs-assets')
-    } else if (/localhost/.test(req.headers.host)) {
+    if (/localhost/.test(req.headers.host)) {
       // Set the assetPrefix for localhost
       // It needs to be the http version
       app.setAssetPrefix(`http://${req.headers.host}`)
@@ -50,44 +42,36 @@ function setAssetPrefixByHost(fn) {
 }
 
 async function main(req, res, parsedUrl) {
+  // Redirect to /docs as that's the main page for this zone
   if (req.url === '/') {
-    res.writeHead(301, {
+    // 302 as it will be cached otherwise
+    res.writeHead(302, {
       Location: '/docs'
     })
     res.end()
     return
   }
 
-  const cacheKey = `prefix:${app.renderOpts.assetPrefix} path:${req.url}`
   const isNext = parsedUrl.path.includes('/_next/')
 
+  // In development we don't cache
+  // When the user is logged in we don't cache
+  // When the request is internal to Next.js we call handle immediately as Next.js will handle setting maxage
   if (dev || (req.headers.cookie || '').includes('token=') || isNext) {
     return handle(req, res, parsedUrl)
   }
 
-  if (ssrCache.has(cacheKey)) {
-    return ssrCache.get(cacheKey)
-  }
-
-  try {
-    const html = await app.renderToHTML(
-      req,
-      res,
-      parsedUrl.pathname,
-      parsedUrl.query
-    )
-    ssrCache.set(cacheKey, html, Infinity)
-    console.log(`CACHE MISS: ${parsedUrl.pathname}`) // eslint-disable-line no-console
-
-    return html
-  } catch (err) {
-    await app.renderError(err, req, res, parsedUrl.pathname, parsedUrl.query)
-  }
+  // s-maxage will cause Now CDN to cache the page for 1 hour (3600 seconds)
+  res.setHeader('Cache-Control', `public,s-maxage=3600`)
+  return handle(req, res, parsedUrl)
 }
 
 async function setup(handler) {
+  // Prepare Next.js for bootup
   await app.prepare()
+  // Remove ending slash
   return setAssetPrefixByHost(removeEndSlash(handler))
 }
 
+// Export a promise that micro will await before starting the server
 module.exports = setup(main)
