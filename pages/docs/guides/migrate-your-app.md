@@ -38,7 +38,7 @@ The first phase involves setting up your project in our infrastructure and ensur
 
 ### 1. Deploy to now
 
-In the very first step, we need deploy the project to <Now color="#000"/>. For most apps, all it takes is to run `now` in your project's directory. Please check out our <InternalLink href="/docs/getting-started/five-minute-guide-to-now">Getting Started</InternalLink> section in our documentation center for more details.
+In the very first step, we need to deploy the project to <Now color="#000"/>. For most apps, all it takes is to run `now` in your project's directory. Please check out our <InternalLink href="/docs/getting-started/five-minute-guide-to-now">Getting Started</InternalLink> section in our documentation center for more details.
 
 It is important to make sure the deployment is working before sending live production traffic to it. Take some time to ensure the deployment is working correctly.
 
@@ -62,7 +62,7 @@ Initially, the command will output something like this:
   external DNS server: _now.example.ai: b0981886d2c312e35c6b311cddd4eb0aea2e71a97d1e068b25f569527880f1bd
 </TerminalOutput>
 
-After you add this record in your DNS provider, you can re-run the initial command and it will succeed. You should get a message like this:
+After you add this record via your DNS provider, you can re-run the initial command and it will succeed. You should get a message like this:
 
 <TerminalOutput>
   &gt; Success! Domain example.ai (p3wTrMPkzpnKqoH6ml9xpfbj) added [3s]
@@ -78,7 +78,7 @@ When migrating from an existing domain, however, it's not possible for us to pro
 
 You may use your old SSL certificates, buy a new one, or if your hosting provider supports it, you can use Let's Encrypt to issue you a free SSL certificate for your site.
 
-To add the certificate, you will need three files: the key (`example.ai.key` below), certificate (`example.ai.crt`) and chain file (`ssl_provider.crt`). These are be provided to you when purchasing the SSL cert.
+To add the certificate, you will need three files: the key (`example.ai.key` below), certificate (`example.ai.crt`) and chain file (`ssl_provider.crt`). These are being provided to you when purchasing the SSL cert.
 
 To add your SSL certificate to be used for your domain, use the following command:
 
@@ -144,7 +144,7 @@ Make sure to run that command for all your other domains and subdomains.
 
 ### 6. Use zeit.world Nameservers
 
-To get all the benefits of the now workflow, we suggest using our DNS service <InternalLink href="/world">zeit.world</InternalLink>, optimized for both a great developer experience and fast lookup times.
+To get all the benefits of the Now workflow, we suggest using our DNS service <InternalLink href="/world">zeit.world</InternalLink>, optimized for both a great developer experience and fast lookup times.
 
 The best way to transition to it while preserving 100% uptime is to manually initialize the same DNS records that your external DNS currently has.
 

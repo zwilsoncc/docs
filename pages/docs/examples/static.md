@@ -26,11 +26,11 @@ Thankfully, our tools make deploying such a project just as easy as it is with a
 
 ## Setup
 
-Because basic static websites do not require any special tools in order to work, there is not much you need to do in order to prepare your own. For the beginning, just create a directory and switch to it by running these commands in your terminal:
+Because basic static websites do not require any special tools in order to work, there is not much you need to do in order to prepare your own. For the beginning, just create a directory and switch to it by running the following your terminal:
 
-<TerminalInput>mkdir static-site\ncd static-site</TerminalInput>
+<TerminalInput>mkdir static-site && cd static-site</TerminalInput>
 
-Inside that directory, use your favorite editor to create a `index.html` file with this content:
+Inside that directory, use your favorite editor to create an `index.html` file with this content:
 
 ```
 <img src={'http://assets.zeit.co/image/upload/v1503122848/front/logos/black-bg-logo.svg'}>
@@ -68,11 +68,11 @@ When developing a static project, you should always make sure that it works on v
 
 This is a very good idea when working with people across the whole globe and having them try out your project for you. But if you only want to open it on your personal device, there is a specialized solution: [serve](https://github.com/zeit/serve).
 
-Want to see what it does exactly? Easy! Simply start with installing it:
+Want to see what it does exactly? Easy! Simply start by installing it:
 
 <TerminalInput>npm install -g serve</TerminalInput>
 
-Afterwards, move into the directory containing your static site:
+Afterward, move into the directory containing your static site:
 
 <TerminalInput>cd static-site</TerminalInput>
 

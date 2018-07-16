@@ -48,10 +48,10 @@ Here's how the Cloudflare's DNS settings page looks after we've added the TXT re
 * Name: `ui`
 * Domain: `alias.zeit.co`
 
-> You can also use @ as the Name of the CNAME record. Then, the record applies for the root domain, `my-app.work`.
+> You can also use @ as the Name of the CNAME record. Then, the record applies to the root domain, `my-app.work`.
 
 
-Make sure to **uncheck** the cloud symbol for the Record. So, Cloudflare only acts as a DNS server for this sub domain.
+Make sure to **uncheck** the cloud symbol for the Record. So, Cloudflare only acts as a DNS server for this subdomain.
 (It should look like the below)
 
 <Image

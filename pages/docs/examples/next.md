@@ -33,7 +33,7 @@ Once the output of the command matches the latest version on the site, go on to 
 
 Let's start with creating a new empty directory and moving into it:
 
-<TerminalInput>mkdir next-app\ncd next-app</TerminalInput>
+<TerminalInput>mkdir next-app && cd next-app</TerminalInput>
 
 Next, create the project's `package.json` in that directory:
 
@@ -62,7 +62,7 @@ Now that we've told `next` what to do, we still need to install it. In order to 
   npm install next react react-dom --save
 </TerminalInput>
 
-The command shown above installs all three dependencies and adds them to your `package.json` file, so that you can install them again by just running `npm install` later.
+The command shown above installs all three dependencies and adds them to your `package.json` file so that you can install them again by just running `npm install` later.
 
 ## Adding Content
 
@@ -72,7 +72,7 @@ With most frameworks, you would now have to set up a router and tell it about th
 
 In turn, the next step will be to just add a directory named "pages". As the name indicates, this is where all pages of your application will be located. Based on the directory structure, each file will be mounted to a specific path.
 
-As an example, you can now add a `index.js` file inside that folder, which will be served when the / path is accessed on your app. Into this file, put this code:
+As an example, you can now add an `index.js` file inside that folder, which will be served when the / path is accessed on your app. Into this file, put this code:
 
 ```
 export default () => (
@@ -84,7 +84,7 @@ As you can see, we're exporting [JSX code](https://facebook.github.io/react/docs
 
 ## Trying out the Code
 
-[Next.js](https://zeit.co/blog/next) comes with a awesome development toolchain built-in. We've defined one of these commands <AnchorLink href="#setup">earlier</AnchorLink> in the `package.json` file we've created: The `dev` script (linked to the `next` command), which can be can run like this:
+[Next.js](https://zeit.co/blog/next) comes with an awesome development toolchain built-in. We've defined one of these commands <AnchorLink href="#setup">earlier</AnchorLink> in the `package.json` file we've created: The `dev` script (linked to the `next` command), which can be can run like this:
 
 <TerminalInput>npm run dev</TerminalInput>
 

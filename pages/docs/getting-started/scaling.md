@@ -86,7 +86,7 @@ Here's how to auto scale an app with the URL `hnode.now.sh`
 
 <TerminalInput>now scale hnode.now.sh 2 15</TerminalInput>
 
-Now the deployment behind `hnode.now.sh` runs with minimum of 2 instances and it can scale up to 15 instance as the traffic increases.
+Now the deployment behind `hnode.now.sh` runs with a minimum of 2 instances and it can scale up to 15 instances as the traffic increases.
 
 &#8203;<Now color="#000"/> will automatically start and kill instances based on the traffic `hnode.now.sh` receives.
 

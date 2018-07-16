@@ -17,7 +17,7 @@ export const meta = {
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
 
-In this guide we will setup our Travis CI pipeline to:
+In this guide, we will set up our Travis CI pipeline to:
 - Create a new deployment after each push to any branch
 - [Alias](/docs/features/aliases) your deployment made on the master branch with your [custom domain](/docs/getting-started/assign-a-domain-name)
 - Optionally; build an application inside Travis instead of with Now
@@ -28,7 +28,7 @@ The first thing you'll need is a token for your account. You can get this in the
 
 Head to the tokens page of your dashboard by navigating to your Account Settings and then clicking the "Tokens" link.
 
-By entering a name into the input labelled "Create a new token..." and subsequently pressing <kbd>Enter</kbd>, a new token will be created which you can copy to your clipboard by clicking `Copy`.
+By entering a name into the input labeled "Create a new token..." and subsequently pressing <kbd>Enter</kbd>, a new token will be created which you can copy to your clipboard by clicking `Copy`.
 
 With this token you can use Now with your account anywhere with the following command:
 
@@ -36,11 +36,11 @@ With this token you can use Now with your account anywhere with the following co
 
 <Caption>Replace <InlineCode>--token</InlineCode> with <InlineCode>-t</InlineCode> for short.</Caption>
 
-The `[TOKEN]` in the example command is replaced with token you copied from your Account Settings.
+The `[TOKEN]` in the example command is replaced with the token you copied from your Account Settings.
 
 ## Step 2: Preparing your project to use Travis
 
-First of all, make sure you've signed up with Travis and synced the repositories you'd like to use with Now previous to this. If you have yet to do this, read steps 1 and 2 of the Travis CI's ["To get started with Travis CI" guide](https://docs.travis-ci.com/user/getting-started). If you're configuring a public repository, you can use [travis-ci.org](https://travis-ci.org), otherwise if the repository is private, you'll need to use the paid version on [travis-ci.com](https://travis-ci.com).
+First of all, make sure you've signed up with Travis and synced the repositories you'd like to use with Now previous to this. If you have yet to do this, read steps 1 and 2 of the Travis CI's ["To get started with Travis CI" guide](https://docs.travis-ci.com/user/getting-started). If you're configuring a public repository, you can use [travis-ci.org](https://travis-ci.org), otherwise, if the repository is private, you'll need to use the paid version on [travis-ci.com](https://travis-ci.com).
 
 Now that you have your token and have set up your GitHub account with Travis, you can start integrating Travis into your project. Start by creating a `.travis.yml` file in the root of your repository.
 
@@ -81,11 +81,11 @@ deploy:
 
 As you may have noticed, the above script for the master branch uses the `now alias` command without providing the deployment URL and the alias to use. This can be achieved [using a configuration file](/docs/features/configuration). You can read more about it in ["How Do I Deploy and Alias in a Single Command?"](/docs/other/faq#how-do-i-deploy-and-alias-in-a-single-command) on our FAQ page.
 
-And that's it! Everytime you push something new to any branch it will create a new deployment and if the branch is master it will also move the project aliases to it.
+And that's it! Every time you push something new to any branch it will create a new deployment and if the branch is master it will also move the project aliases to it.
 
 ## Optional: Avoid building on Now (Instead build on Travis)
 
-In some cases you may prefer to build on Travis CI instead of directly on Now. If that's the case, this can be achieved modifying your `.travis.yml` and `now.json` files a little bit.
+In some cases, you may prefer to build on Travis CI instead of directly on Now. If that's the case, this can be achieved by modifying your `.travis.yml` and `now.json` files a little bit.
 
 ### Defining what to deploy
 

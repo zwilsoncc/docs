@@ -36,7 +36,7 @@ For more information on `now logs`, run the help command with:
   src={asset(`${IMAGE_ASSETS_URL}/docs/logs/help.png`)}
   width={650}
   height={470}
-  caption="Help of 'now logs'"
+  caption="The help command output of the 'now logs' command"
 />
 
 Here's an advance `now logs` command to let you inspect the last 10 HTTP GET requests.

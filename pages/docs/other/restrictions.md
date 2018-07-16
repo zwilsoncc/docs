@@ -72,7 +72,7 @@ that deployments created on any of the lower plans will
 be unblocked accordingly.
 
 In turn, you can **unblock your deployment** by either upgrading
-to a plan that is equal or higher than the one under which
+to a plan that is equal to or higher than the one under which
 the deployment was created, or re-deploying it.
 
 ### How Deployments Are Blocked
@@ -82,7 +82,7 @@ your deployment:
 
 - Deployments will return the status code `402` and
 a page letting you know about the failed payment. This message
-can be seen by anyone trying to access the deloyment.
+can be seen by anyone trying to access the deployment.
 
 - In addition to returning the error message, deployments
 will be scaled to 0 running instances. No code will

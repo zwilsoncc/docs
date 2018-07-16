@@ -69,12 +69,12 @@ Creates an MX record which makes the mail server located at `mail.awesome-now.us
   now <b>dns add zeit.rocks @ CAA '0 issue "comodo.com"'</b>
 </TerminalInput>
 
-Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows to issue certificates using [Comodo](https://ssl.comodo.com/) for `zeit.rocks` and any sub domain under it.
+Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing certificates using [Comodo](https://ssl.comodo.com/) for `zeit.rocks` and any subdomain under it.
 
 > In this case, you'll be in charge of certificate management for your domain.<br/>
 > Most probably, you'll need to use `CAA` records to:
 > 1. use a custom certificate for your <Now color="#000" /> deployment with <InternalLink href="/docs/features/certs#now-certs-replace">`now certs replace`</InternalLink>
-> 2. run an app outside of <Now color="#000" /> with TLS for a sub domain
+> 2. run an app outside of <Now color="#000" /> with TLS for a subdomain
 
 ### now dns rm &lt;ID&gt;
 

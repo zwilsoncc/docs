@@ -33,7 +33,7 @@ Once the output of the command matches the latest version on the site, go on to 
 
 ## Setup
 
-As the first step, we need to setup a simple HTML webpage that shows a form (which can contain the message to sent) and a list of messages sent before.
+As the first step, we need to set up a simple HTML webpage that shows a form (which can contain the message to sent) and a list of messages sent before.
 
 In turn, the first thing we'll do is create a new directory, move into it, and create a `package.json`:
 
@@ -53,7 +53,7 @@ The code above tells <Now color="#000" /> the name of the project ("realtime-cha
 
 <TerminalInput>npm install</TerminalInput>
 
-Now that [express](https://www.npmjs.com/package/express) is handled, you need to create a `index.js` file inside the directory and insert the following code:
+Now that [express](https://www.npmjs.com/package/express) is handled, you need to create an `index.js` file inside the directory and insert the following code:
 
 ```
 const app = require('express')()
@@ -92,7 +92,7 @@ And when pointing your browser to the address shown (`http://localhost:4000`):
 
 ## Serving HTML
 
-So far in `index.js`, we’re calling `res.send` and passing it a HTML string. Our code would look very confusing if we just placed our entire application’s HTML there. Instead, we’re going to create a `index.html` file and serve it.
+So far in `index.js`, we’re calling `res.send` and passing it an HTML string. Our code would look very confusing if we just placed our entire application’s HTML there. Instead, we’re going to create an `index.html` file and serve it.
 
 Let’s refactor our route handler to use `sendFile` instead:
 
@@ -138,7 +138,7 @@ To handle these, we'll be using the [socket.io](https://socket.io/) project. It 
 * A server that integrates with (or mounts on) the Node.JS HTTP Server: `socket.io`
 * A client library that loads on the browser side: `socket.io-client`
 
-During development, `socket.io` serves the client automatically for us, as we’ll see, so for now we only have to install one module:
+During development, `socket.io` serves the client automatically for us, as we’ll see, so, for now, we only have to install one module:
 
 <TerminalInput>npm install --save socket.io</TerminalInput>
 
@@ -174,9 +174,9 @@ Now, in `index.html`, we need to add the following snippet before the `</body>` 
 </script>
 ```
 
-That’s all it takes to load the `socket.io-client` package, which exposes a `io` global, and then connect.
+That’s all it takes to load the `socket.io-client` package, which exposes an `io` global, and then connect.
 
-Notice that I’m not specifying any URL when I call `io()`, since it defaults to trying to connect to the host that serves the page. If you now reload the server and the website you should see the console print “a user connected”.
+Notice that I’m not specifying any URL when I call `io()` since it defaults to trying to connect to the host that serves the page. If you now reload the server and the website you should see the console print “a user connected”.
 
 Try opening several tabs, and you’ll see several messages:
 
@@ -262,7 +262,7 @@ io.on('connection', socket => {
 })
 ```
 
-In this case, for the sake of simplicity we’ll send the message to everyone, including the sender.
+In this case, for the sake of simplicity, we’ll send the message to everyone, including the sender.
 
 ```
 io.on('connection', socket => {

@@ -22,7 +22,7 @@ However, if you'd like to provide a pre-built application or tool which only nee
 
 <TerminalInput>{'now <username>/<repository>'}</TerminalInput>
 
-When running this command for a certain [Git](https://git-scm.com/) repository of your choice (make sure to replace `<username>` and `<repository>`), the repository will be looked up on [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/) and [BitBucket](https://bitbucket.org/). When found, <Now color="#000" /> will automatically clone it, set any custom properties you've defined and deploy it.
+When running this command for a certain [Git](https://git-scm.com/) repository of your choice (make sure to replace `<username>` and `<repository>`), the repository will be looked up on [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), and [BitBucket](https://bitbucket.org/). When found, <Now color="#000" /> will automatically clone it, set any custom properties you've defined and deploy it.
 
 From there on, it will work just like any other deployment: You'll get a unique URL once the files have started uploading, your deployment will be initialized and then started up as usual.
 
@@ -93,6 +93,6 @@ This also means that you can easily point to commits:
 * Behind the curtains, the command line interface (now) will firstly clone the repository to your local device (in a hidden directory).<br/><br/>
 This ensures that even private repositories (or such that require a special form of authentication) will get cloned automatically without you having to specify any credentials. In addition, it's much more secure than cloning the code on the platform, because our system doesn't need to move any of your sensitive authentication data to our servers.
 
-* Afterwards, the regular mechanism for handling the upload of your files will be applied to the local directory that contains a clone of the repository you've defined before.
+* Afterward, the regular mechanism for handling the upload of your files will be applied to the local directory that contains a clone of the repository you've defined before.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

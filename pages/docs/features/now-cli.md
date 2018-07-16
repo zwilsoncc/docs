@@ -18,7 +18,7 @@ export const meta = {
 
 The `now` CLI is the main interface to the Now platform.
 
-It's available on macOS, Windows and Linux either via `npm` or as pre-built
+It's available on macOS, Windows, and Linux either via `npm` or as pre-built
 binaries. The recommended installation
 mechanism, however, is <InternalLink href="/download">Now Desktop</InternalLink> (which
 includes Now CLI and also ensures it's always up-to-date).
@@ -77,7 +77,7 @@ The following are the most important commands in Now CLI:
     </Column>
     <Column right>
       Let's you configure an alias for an existing deployment. You can read more about how
-      to take the maximum of functionality out of this sub command
+      to take the maximum of functionality out of this subcommand
       {' '}
       <InternalLink href="/docs/features/aliases">
         here
@@ -111,7 +111,7 @@ The following are the most important commands in Now CLI:
       {' '}
       <Now color="#000" />
       {' '}
-      will automatically provision certificates for your deployments. Using this sub command, you can
+      will automatically provision certificates for your deployments. Using this subcommand, you can
       see when they're expiring and upload your own ones (
       <InternalLink href="/docs/features/certs">
         read more
@@ -143,7 +143,7 @@ The following are the most important commands in Now CLI:
   <Row>
     <Column left><InlineCode noWrap>now open</InlineCode></Column>
     <Column right>
-      Running this sub command will open the latest deployment of the project within the current
+      Running this subcommand will open the latest deployment of the project within the current
       directory in your default browser (aliases won't be respected).
     </Column>
   </Row>
@@ -196,7 +196,7 @@ Manage your account straight from your terminal:
   </Row>
 </Table>
 
-To show the list of sub commands and options in your terminal, run this command:
+To show the list of subcommands and options in your terminal, run this command:
 
 <TerminalInput>now help</TerminalInput>
 
@@ -208,7 +208,7 @@ To show the list of sub commands and options in your terminal, run this command:
 * If `.npmignore` exists, we don't upload the contents that are defined in it and ignore the existence of .gitignore
 * If `.dockerignore` exists, we don't upload the contents that are defined in it and ignore the existence of .gitignore and .npmignore
 
-But it will get a little tricky if you're using the `files` property inside `package.json`: In that case, we follow [npm](https://www.npmjs.com/)'s behaviour. This means that if `files` exists (which as [per definition](https://docs.npmjs.com/files/package.json#files) defines which files **should** be uploaded), `.npmignore` will take precedence and have the final word on which items will be uploaded to <Now color="#000" />.
+But it will get a little tricky if you're using the `files` property inside `package.json`: In that case, we follow [npm](https://www.npmjs.com/)'s behavior. This means that if `files` exists (which as [per definition](https://docs.npmjs.com/files/package.json#files) defines which files **should** be uploaded), `.npmignore` will take precedence and have the final word on which items will be uploaded to <Now color="#000" />.
 
 This means that if you want to specify a list of files that should **never be ignored** when it comes to now, you should either use the `now.files` (not `files`) property inside `package.json` or the `files` property inside `now.json`:
 

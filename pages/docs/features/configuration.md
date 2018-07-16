@@ -14,7 +14,7 @@ This guide explains how to use these methods to configure and customize the defa
 
 In addition to the options available in the command line interface (like `--name` for setting the name of the deployment), we also support saving certain parameters into a config file of your choice.
 
-The types of configuration files can be devided into two groups:
+The types of configuration files can be divided into two groups:
 
 ## Local Configuration
 
@@ -24,7 +24,7 @@ specified using the `--local-config` flag in Now CLI).
 
 You can choose between creating a separate file for configuring Now (named `now.json`) or
 using the `package.json` file for this (if it's a Node.js project). Please note that
-it's **not possible to use both methods to configure Now** for a given project. If you use `now.json`, you can't include the `now` namespace within package.json, and viceversa.
+it's **not possible to use both methods to configure Now** for a given project. If you use `now.json`, you can't include the `now` namespace within package.json, and vice-versa.
 
 ### package.json
 
@@ -114,7 +114,7 @@ Set [scaling](/docs/features/scaling) rules for your deployment.
 
 As an
 example, the following configuration will ensure it is scaled
-to **at least 1 instance and 5 instances at maxium** in
+to **at least 1 instance and 5 instances at maximum** in
 our [SFO1](https://sfo.now.sh) datacenter:
 
 ```
@@ -142,13 +142,13 @@ the [BRU1](https://bru.now.sh) datacenter:
 }
 ```
 
-If you want to learn about different way of scaling your
+If you want to learn about different ways of scaling your
 deployment to multiple regions and datacenters, read
 the [feature guide](/docs/features/scaling).
 
 #### `dotenv` (boolean|string)
 
-Read environment variables from [dotenv](https://github.com/motdotla/dotenv) file.
+Read environment variables from the [dotenv](https://github.com/motdotla/dotenv) file.
 
 ```
 "dotenv": true
@@ -196,7 +196,7 @@ Controls if `_src` should be available or not. By default, this property is set 
 
 #### `engines` (object)
 
-In general, we recommend letting us choose the version, because it ensures that you always take advantage of the latest features, performance improvements and bug fixes.
+In general, we recommend letting us choose the version because it ensures that you always take advantage of the latest features, performance improvements and bug fixes.
 
 By default, all new deployments will come with the [latest stable version](https://nodejs.org/en/download/current/) of Node.js
 
@@ -235,7 +235,7 @@ and all clients of Now (Now CLI, Now Desktop, etc).
 
 By default, they live in a directory named `.now` in your
 home directory. Within it, you can find two files (which you
-can learn more about below). If you need to specifiy a different location of the directory, you can use
+can learn more about below). If you need to specify a different location of the directory, you can use
 the `--global-config` flag in Now CLI, which takes in a
 custom path to a directory containing the two files.
 
@@ -293,8 +293,8 @@ If you want, you can modify the order of this list manually.
 This file should not be touched manually. It contains the authentication information
 for all of your providers accessed through a Now client.
 
-In the case that you're uploading your global configurion setup to a potentially
-unsecure destination, we highly recommend ensuring that this file won't be uploaded,
+In the case that you're uploading your global configuration setup to a potentially
+insecure destination, we highly recommend ensuring that this file won't be uploaded,
 as it allows an attacker to gain access to your provider accounts.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

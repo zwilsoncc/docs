@@ -25,7 +25,7 @@ can be [scaled](/docs/getting-started/scaling) to multiple instances.
 Therefore, each "deployment" can consist of multiple "instances".
 
 Both personal and team accounts may own unlimited deployments. However, the
-number of running instances is limited your personal or team account's [current plan](/pricing).
+number of running instances is limited to your personal or team account's [current plan](/pricing).
 
 If you exceed your paid plan's limit for running instances, you will
 be charged the **On Demand price** (check the [On Demand plan](/pricing)) for
@@ -83,11 +83,11 @@ The storage limit of any plan is shown under the plan on [the pricing page](/pri
 
 At the moment there is no way to change this. We do have this on the roadmap though!
 
-For [enterprise customers](mailto:enterprise@zeit.co?subject=Custom%20Hardware%20Resources) we can offer customizations which include more resources for deployments.
+For [enterprise customers](mailto:enterprise@zeit.co?subject=Custom%20Hardware%20Resources), we offer customizations which include more resources for deployments.
 
 ## How Do I Update My Deployment's Files or Code?
 
-Deployments are immutable. This means they cannot be be modified after being created. To update your application, you need to deploy the new version using the command `now`, after that you will get a new unique deployment URL similar to `my-app-hjrehxuuih.now.sh`.
+Deployments are immutable. This means they cannot be modified after being created. To update your application, you need to deploy the new version using the command `now`, after that you will get a new unique deployment URL similar to `my-app-hjrehxuuih.now.sh`.
 
 This model enables a few interesting benefits:
 
@@ -96,16 +96,16 @@ You can just move your alias to an older deployment to have immediate rollbacks.
 - **Staging and Production deployments**<br />
   A new deployment gives you a unique URL you can use as staging, share it with co-workers or clients and then after it is confirmed it works you can upgrade it to production with a single command, `now alias`.
 - **Zero-Downtime deployment**<br />
-  Most services will require you to restart your server (eg. Node.js). Thanks to <Now color="#000" />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime in the deployment process.
+  Most services will require you to restart your server (eg. Node.js). Thanks to <Now color="#000" />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
 
 ## Can I Run a Database on the Now Platform?
 
 Now deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. However, using Docker it is possible to run a database in the same container of the HTTP API consuming it.
 
-Note that due the immutability of deployments there are many cases where you will lose the data of your database.
+Note that due to the immutability of deployments there are many cases where you will lose the data of your database.
 
 - A new deployment will have a newly created, fresh database.
-- Each [instance of the same deployment](docs/getting-started/scaling) will have it's own data.
+- Each [instance of the same deployment](docs/getting-started/scaling) will have its own data.
 - If the deployment freezes (has zero running instances), when it unfreezes the database will be cleared.
 
 We recommend that you run your database on a database hosting service. You can [ask our community for recommendations](/chat).
@@ -133,7 +133,7 @@ There is no way to disable SSL. All the <Now color="#000" /> deployments are HTT
 
 We will always try to replace any environment variable where the value starts with an `@` with a [secret](/docs/features/env-and-secrets). We have [an active issue for this on GitHub](https://github.com/zeit/now-cli/issues/1061).
 
-As a workaround you can setup a secret with a value starting with `@`.
+As a workaround, you can setup a secret with a value starting with `@`.
 
 ## Why Does My Deployment Occasionally Have Long Response Times?
 
@@ -141,7 +141,7 @@ Deployments have a [default scale configuration](/docs/getting-started/scaling#d
 
 This lets you have any amount of deployments without worrying about your currently running instances. They will be unfrozen when a new request comes and keeps the instance running for a while (eventually freezing from inactivity with no requests again).
 
-This behaviour can be completely avoided using the `now scale` command as described in [previous link](/docs/getting-started/scaling#default-scaling).
+This behavior can be completely avoided using the `now scale` command as described in the [previous link](/docs/getting-started/scaling#default-scaling).
 
 ## Can I Remove or Delete a Team?
 
@@ -223,7 +223,7 @@ Check our Ghost example repository.
 
 ## How Do I Add My Deployments to a List of Whitelisted Ip Addresses?
 
-The IP addresses of <Now color="#000" /> deployments are too dynamic and for that reason we don't provide a list of them.
+The IP addresses of <Now color="#000" /> deployments are too dynamic and for that reason, we don't provide a list of them.
 
 Our recommendation when connecting to external services (eg. a database) is to use a strong password and SSL.
 
@@ -235,7 +235,7 @@ Our recommendation when connecting to external services (eg. a database) is to u
 
 Any HTTP authentication should be implemented inside the deployment code
 
-For static sites you can use [zeit/serve](https://github.com/zeit/serve) with the `--auth` flag.
+For static sites, you can use [zeit/serve](https://github.com/zeit/serve) with the `--auth` flag.
 
 ## How Do I Use Private Npm Modules or Github Repositories?
 
@@ -291,7 +291,7 @@ Every time you need to run the task the first deployment must send an HTTP reque
 
 Remember to [scale](/docs/getting-started/scaling) the first deployment to [always have one running instance](/docs/getting-started/scaling#fixed-scaling).
 
-## How Can I Test How Much Request per Second I Can Handle with One Instance?
+## How Can I Test How Many Requests per Second I Can Handle with One Instance?
 
 It depends on your code. Each instance belonging to a paid account or team has [1GB of RAM and 1 CPU (OSS accounts have half of each)](/docs/other/faq#what-are-the-hardware-specifications-of-the-deployment-instances).
 
@@ -307,11 +307,11 @@ You can see those metrics on [your account](/dashboard) or team [dashboard](/blo
 
 ## Is It Possible to Upload Files to a Running Now Instance?
 
-Yes, it is possible under the `/tmp` folder. Note that each instance has it's own temporary directory, this mean you can lose those files under following conditions:
+Yes, it is possible under the `/tmp` folder. Note that each instance has its own temporary directory, this means you can lose those files under following conditions:
 
 - A new deployment will have a newly created temporary folder
-- Each [instance of the same deployment](docs/getting-started/scaling) will have it's own temporary folder.
-- If the deployment freeze (has zero running instances) when it unfreeze the temporary folder will be also cleared.
+- Each [instance of the same deployment](docs/getting-started/scaling) will have its own temporary folder.
+- If the deployment freeze (has zero running instances) when it unfreezes, the temporary folder will be also cleared.
 
 We recommend that you only do this for temporary files and use [now-storage](https://github.com/sergiodxa/now-storage) or another storage service for hosting those files indefinitely.
 
@@ -325,7 +325,7 @@ Attacks come in very different forms and sizes. Therefore, we offer more advance
 
 ZEIT's login is serverless. You just need your email address and don't need to remember yet another password.
 
-For custom requirements you can contact us at [enterprise@zeit.co](mailto:enterprise@zeit.co?subject=Advanced%20Authentication).
+For custom requirements, you can contact us at [enterprise@zeit.co](mailto:enterprise@zeit.co?subject=Advanced%20Authentication).
 
 ## Does Now Offer Support for IPv6?
 
@@ -350,7 +350,7 @@ We do not currently offer support for DNSSEC.
 
 ## Why does Now give me random URLs and how can I change it?
 
-Due the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `now` you will get a new unique URL. To have a custom static URL you need to use the `now alias` command.
+Due to the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `now` you will get a new unique URL. To have a custom static URL you need to use the `now alias` command.
 
 > Read more on [Aliases and Domains](/docs/features/aliases).
 

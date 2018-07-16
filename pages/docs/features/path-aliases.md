@@ -27,7 +27,7 @@ For example, let's say our app has two microservices as shown below:
 - api.our-domain.com
 ```
 
-As it is not a good idea to expose these urls to the public, we can map these services into our main domain like this:
+As it is not a good idea to expose these URLs to the public, we can map these services into our main domain like this:
 
 ```
 - our-domain.com/api/** -> api.our-domain.com
@@ -47,7 +47,7 @@ We can do a new mapping like this:
 
 After this, we will have whole new microservices set up. However, our end users do not need to know about these changes.
 
-> Hence, with this setup we can manage the architecture of our microservices and change them at will without downtime or having to notify users.
+> Hence, with this setup, we can manage the architecture of our microservices and change them at will without downtime or have to notify users.
 
 ## Path Alias
 
@@ -83,7 +83,7 @@ A rule should contain the `dest` field and one or many optional fields including
 
 The destination of each rule should be one of the following:
 
-- The unique now deployment url like `mysite-wcepelgodl.now.sh`
+- The unique now deployment URL like `mysite-wcepelgodl.now.sh`
 - An alias like `our-app-ui.now.sh`
 - An external hostname that may not point to a `now.sh` deployment.
 
@@ -131,7 +131,7 @@ Have a look at the rules we have introduced previously:
 }
 ```
 
-Destinations of these rules are unique <Now color="#000" /> deployment urls. They will be changed every time you deploy a new version. Therefore, you need to update the rules again and again.
+Destinations of these rules are unique <Now color="#000" /> deployment URLs. They will be changed every time you deploy a new version. Therefore, you need to update the rules again and again.
 
 It works, but there is a better way to do this.
 
@@ -147,11 +147,11 @@ Have a look at the following set of rules.
 }
 ```
 
-Now for the `dest` field, instead of the deployment url (`api-tuhpdtgoja.now.sh`), we now have an alias (`my-api.now.sh`).
+Now for the `dest` field, instead of the deployment URL (`api-tuhpdtgoja.now.sh`), we now have an alias (`my-api.now.sh`).
 
 Then we only need to set these rules once, unless you change the microservices setup.
 
-With this setup, let's say you've deployed a new version of the "api microservice" and its deployment url is `api-iewodtfalq.now.sh`.
+With this setup, let's say you've deployed a new version of the "api microservice" and its deployment URL is `api-iewodtfalq.now.sh`.
 
 Now simply map it to the alias like this:
 

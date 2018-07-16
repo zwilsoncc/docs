@@ -115,7 +115,7 @@ For convenience, we parse the URLs you supply as parameters to `now alias` to ex
 
 ## Custom Domains
 
-The same mechanism we explained above can be used to configure an **custom domain**.
+The same mechanism we explained above can be used to configure a **custom domain**.
 
 The command is almost exactly the same:
 

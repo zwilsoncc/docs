@@ -23,7 +23,7 @@ Since Facebook released their [GraphQL](http://graphql.org/) technology back in 
 
 Because of these advantages, it's a great alternative to [REST](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-Convinced? Then let's create a application that fetches data from a [GraphQL](http://graphql.org/) endpoint!
+Convinced? Then let's create an application that fetches data from a [GraphQL](http://graphql.org/) endpoint!
 
 ## Requirements
 
@@ -40,7 +40,7 @@ Once the output of the command matches the latest version on the site, go on to 
 Let's start with creating a new empty directory and moving into it:
 
 <TerminalInput>
-  {`mkdir graphql-api\ncd graphql-api`}
+  {`mkdir graphql-api && cd graphql-api`}
 </TerminalInput>
 
 Now let's create the project's `package.json` file inside that directory:
@@ -138,7 +138,7 @@ This works because inside the `package.json` file, there's a script property nam
 
 ### Installing "react-apollo"
 
-In order to make the application capable of loading data using [GraphQL](http://graphql.org/), we need to firstly install [react-apollo](https://www.npmjs.com/package/react-apollo), a package that provides all of the tools necessary for interacting with a [GraphQL](http://graphql.org/) API using [React](http://reactjs.com/).
+In order to make the application capable of loading data using [GraphQL](http://graphql.org/), we need to first install [react-apollo](https://www.npmjs.com/package/react-apollo), a package that provides all of the tools necessary for interacting with a [GraphQL](http://graphql.org/) API using [React](http://reactjs.com/).
 
 To install it, run this [command](https://docs.npmjs.com/cli/install) in a separate terminal tab (please ensure that you're inside the "graphq-client" directory):
 

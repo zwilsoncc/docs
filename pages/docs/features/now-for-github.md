@@ -56,7 +56,7 @@ npm token create --read-only
 Read more about npm tokens [here](https://docs.npmjs.com/getting-started/working_with_tokens#how-to-create-new-tokens).
 
 ### Step 2: Creating a Now secret
-You can utilise [Now Secrets](https://zeit.co/docs/getting-started/secrets) to prevent adding the token into your production code.
+You can utilize [Now Secrets](https://zeit.co/docs/getting-started/secrets) to prevent adding the token into your production code.
 
 <TerminalInput>
 now secrets add npm-token "your npm token value"

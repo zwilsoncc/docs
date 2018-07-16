@@ -118,7 +118,7 @@ You will then have an error like this:
   src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/alias-error.png`)}
   width={650}
   height={412}
-  caption="Error message you'll get when trying to alias a domain for the first time."
+  caption="The error message you'll get when trying to alias a domain for the first time."
 />
 
 &#8203;<Now color="000"/> wants to verify the ownership of your domain. That's why it throws an error.
@@ -134,7 +134,7 @@ Now you may access your app using <https://ui.my-app.work>
 
 ### Naked domains
 
-You can also use a naked domain like `my-app.work` with this method. In that case, you need to use a [ALIAS](https://support.dnsimple.com/articles/alias-record/) record instead of a CNAME record.
+You can also use a naked domain like `my-app.work` with this method. In that case, you need to use an [ALIAS](https://support.dnsimple.com/articles/alias-record/) record instead of a CNAME record.
 
 Some DNS providers do not have ALIAS records. In that case, the functionality of ALIAS records is managed using CNAME records.
 

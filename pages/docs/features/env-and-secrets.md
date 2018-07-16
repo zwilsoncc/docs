@@ -15,7 +15,7 @@ export const meta = {
 }
 
 
-If there's information or certain behaviour of your project that needs to differ depending on if it's running locally or on now, environment variables are the perfect solution.
+If there's information or certain behavior of your project that needs to differ depending on if it's running locally or on now, environment variables are the perfect solution.
 
 Not only do they avoid having to hardcode these settings (which is very important for sensitive information, which can't just be version-controlled), but they also allow you to access information about the current environment your code is running in.
 
@@ -72,9 +72,9 @@ Let's create a secret with an API key:
 
 Once it's created, you can rename it with `now secret rename` or delete it completely with `now secret rm`. For more examples and the full list of options and commands, run `now help secret`.
 
-> *Note*: The name of a secret can not be longer than 100 characters.
+> *Note*: The name of a secret cannot be longer than 100 characters.
 
-Afterwards, you can assign the secret to an environment variable. Here's an example of doing this using a command:
+Afterward, you can assign the secret to an environment variable. Here's an example of doing this using a command:
 
 <TerminalInput>
   now -e <P.B>MY_VARIABLE=@acme-api-key</P.B>
@@ -114,7 +114,7 @@ And we also have the capability to inherit from your shell's environment. To do 
 
 How about other programming languages? The same mechanism applies to any project with a `Dockerfile`. The variables you include will be available to your `RUN` and `CMD` instructions.
 
-You can even <InternalLink href="/docs/deployment-types/node#ignoring-devdependencies">prevent</InternalLink> `devDependencies` from being installed using a environment variable!
+You can even <InternalLink href="/docs/deployment-types/node#ignoring-devdependencies">prevent</InternalLink> `devDependencies` from being installed using an environment variable!
 
 Finally, our <InternalLink href="/api">API</InternalLink> users will find the new /now/secrets REST endpoints useful.
 

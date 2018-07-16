@@ -57,7 +57,7 @@ will be enabled by default for <Now color="#000"/>:
 
 - `renderSingle` set to `true`
 - `cleanUrls` set to `true`
-- `headers` contains a `ETag` header for every file
+- `headers` contains an `ETag` header for every file
 - `directoryListing` set to `true`
 
 You can read more about these properties [here](https://github.com/zeit/serve-handler#options).

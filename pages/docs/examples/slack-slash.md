@@ -39,7 +39,7 @@ Once the output of the command matches the latest version on the site, go on to 
 Now that Slack knows where to send requests to when the command is run, we can start building the service that responds to these requests. So let's create a new empty directory and move into it:
 
 <TerminalInput>
-  mkdir slash-command\ncd slash-command
+  mkdir slash-command && cd slash-command
 </TerminalInput>
 
 Next, create the project's `package.json` file in that directory:
@@ -63,14 +63,14 @@ Run this command in your terminal to install both using [npm](https://www.npmjs.
   npm install --save micro yahoo-weather
 </TerminalInput>
 
-Now create the `index.js` file and populate it with code. Load [yahoo-weather](https://www.npmjs.com/package/yahoo-weather) and [url](https://nodejs.org/api/url.html) (a native module for parsing URLs):
+Now create the `index.js` file and populate it with code. Load [yahoo-weather](https://www.npmjs.com/package/yahoo-weather) and [URL](https://nodejs.org/api/url.html) (a native module for parsing URLs):
 
 ```
 const weather = require('yahoo-weather')
 const url = require('url')
 ```
 
-Then you need to export the code which specifies the output rendered when the service is accessed by Slack. In our case, it's a function that retrieves the current weather and returns a message containing the condition in degrees celsius:
+Then you need to export the code which specifies the output rendered when the service is accessed by Slack. In our case, it's a function that retrieves the current weather and returns a message containing the condition in degrees Celsius:
 
 ```
 module.exports = async request => {
@@ -83,7 +83,7 @@ module.exports = async request => {
   const weatherInfo = await weather(query.text.toLowerCase())
   const temperature = weatherInfo.item.condition.temp
 
-  return 'It is ' + temperature + ' degrees celsius in ' + query.text + ' right now!'
+  return 'It is ' + temperature + ' degrees Celsius in ' + query.text + ' right now!'
 }
 ```
 
@@ -93,7 +93,7 @@ Now that we've covered the project's files, you can **deploy it** by running thi
 
 <TerminalInput>now</TerminalInput>
 
-Once <Now color="#000" /> has finished uploading the files, you'll see a URL that points to your freshly created slash command service. Now we're ready to tell the Slack platform about the service, so that it can send requests there.
+Once <Now color="#000" /> has finished uploading the files, you'll see a URL that points to your freshly created slash command service. Now we're ready to tell the Slack platform about the service so that it can send requests there.
 
 But in the case of a real service (not used for testing purposes), you would now have to <InternalLink href="/docs/features/aliases">assign an alias</InternalLink> to it.
 

@@ -25,7 +25,7 @@ export const meta = {
 
 If there is a new release
 of [Now CLI](https://zeit.co/download#now-cli) available, you will
-see a message similiar to this one appear in your terminal output:
+see a message similar to this one appear in your terminal output:
 
 <TerminalOutput><span style={updateMessage}>UPDATE AVAILABLE</span> The latest version of Now CLI is 8.4.0</TerminalOutput>
 
@@ -34,7 +34,7 @@ Now CLI. To make this as easy as possible, we have put together this
 guide for you.
 
 In order to know which action is the right one for you to take, you
-firstly need to ask yourself these questions:
+first need to ask yourself these questions:
 
 ## Is Now Desktop Installed and Running?
 
@@ -53,12 +53,12 @@ the latest update for Now CLI once a new release comes out.
 ## Did You Install Now CLI Manually?
 
 Firstly, you need to determine whether or not the instance
-of Now CLI intalled on your device is a [canary release](/blog/canary) or
+of Now CLI installed on your device is a [canary release](/blog/canary) or
 not by running this command:
 
 <TerminalInput>now --version</TerminalInput>
 
-If the output looks similiar to this (contains "canary", the exact version
+If the output looks similar to this (contains "canary", the exact version
 does not need to match), you can safely
 assume it is a canary release:
 

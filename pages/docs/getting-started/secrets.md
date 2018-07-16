@@ -25,8 +25,10 @@ That's where <Now color="#000"/> Secrets can help you. It's a configuration stor
 
 First, add some secrets:
 
-<TerminalInput>now secrets add my-app-mongo-url "user:password@mydb.com"
-now secrets add my-app-my-api-token "XXXXX"</TerminalInput>
+<TerminalInput>
+{`now secrets add my-app-mongo-url "user:password@mydb.com"
+now secrets add my-app-my-api-token "XXXXX"`}
+</TerminalInput>
 
 Then, you can get these values inside environment variables.<br/>
 Here's how to do that with `now.json`:
@@ -45,7 +47,6 @@ That's it.
 This `now.json` file no longer contains secret information and it's safe to add that to Git and share with anyone. Only the people who can deploy the app has access to these secrets.
 
 ## Operations
-
 You can perform a few sets of operations with <Now color="#000"/> Secrets, including adding, renaming and removing secrets. But you can't read secrets from the terminal.
 
 > **WARNING**:
@@ -67,7 +68,7 @@ You can get more information about <Now color="#000"/> Secrets by running the fo
 
 ## Secrets with New Lines
 
-Sometimes, you need to add secrets which has new lines (or any other special characters) in them (eg: certificates). But you won't be able to add them by simply using `now secrets add`.
+Sometimes, you need to add secrets which have newlines (or any other special characters) in them (eg: certificates). But you won't be able to add them by simply using `now secrets add`.
 
 Instead, you can encode the secret into [Base64](https://en.wikipedia.org/wiki/Base64) before adding it. Here's how you could do that on Mac/Linux with a single command:
 
@@ -80,6 +81,6 @@ const cert = Buffer.from(certFromtheSecret, 'base64').toString()
 ```
 
 > Base64 is a simple encoding algorithm which is available everywhere.<br/>
-> That's why we've used it. But it's okay to choose any text based encoding algorithm.
+> That's why we've used it. But it's okay to choose any text-based encoding algorithm.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

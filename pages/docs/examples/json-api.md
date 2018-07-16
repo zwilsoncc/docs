@@ -29,7 +29,7 @@ There are various ways to build one of these APIs. But for this example, I'm goi
 
 Before diving into building the microservice, please make sure that your instance of [Node](https://nodejs.org/) is up-to-date (at least version 6). Assuming that it's the case, continue with creating a directory and switch to it. Run this in your terminal:
 
-<TerminalInput>mkdir json-api\ncd json-api</TerminalInput>
+<TerminalInput>mkdir json-api && cd json-api</TerminalInput>
 
 Now let's create the project's files inside that directory. Start over with creating a `package.json`:
 
@@ -59,7 +59,7 @@ Next, install micro (the only dependency) by running npm's [install command](htt
 
 Once the command has finished running, you'll see a directory named `node_modules` containing your dependencies. Now that you've installed everything required, you can populate the source files with code.
 
-By default, `micro` will expect a `index.js` file to exist in your project's directory. However, if you want to run a different file, that's [also possible](https://github.com/zeit/micro#example). But for this example, we'll go with the default behaviour:
+By default, `micro` will expect an `index.js` file to exist in your project's directory. However, if you want to run a different file, that's [also possible](https://github.com/zeit/micro#example). But for this example, we'll go with the default behavior:
 
 ```
 module.exports = () => ({
@@ -89,7 +89,7 @@ Go to the URL returned (`http://0.0.0.0:3000`) and you should see something like
 
 That's great, isn't it? But we're not quite there yet! The next step is to take advantage of **async** and **await** by loading real data once the request comes in (then we'll send it back as the response).
 
-As example, we're going to retrieve the list of public members inside our [GitHub organization](https://github.com/zeit) using their [API](https://developer.github.com/v3/orgs/members/).
+As an example, we're going to retrieve the list of public members inside our [GitHub organization](https://github.com/zeit) using their [API](https://developer.github.com/v3/orgs/members/).
 
 In order to get there, the first thing we need to do is install [node-fetch](https://github.com/bitinn/node-fetch), a package that allows us to easily load data from an API endpoint and now that we already have a `package.json` in place, this only requires a command:
 
@@ -110,7 +110,7 @@ Done? Perfect! Then let's get over to updating `index.js`. First, we need to loa
 const fetch = require('node-fetch')
 ```
 
-Next, prepend the new `async` keyword (which allows us run asynchronous code inside it) to the exported function, use `fetch()` with GitHub's [endpoint URL](https://api.github.com/orgs/zeit/members), assign it to a constant and then parse the JSON in the response using the `.json()` method.
+Next, prepend the new `async` keyword (which allows us to run asynchronous code inside it) to the exported function, use `fetch()` with GitHub's [endpoint URL](https://api.github.com/orgs/zeit/members), assign it to a constant and then parse the JSON in the response using the `.json()` method.
 
 Once that's done, you only need to return the parsed JSON data. All in all, it should look like this:
 

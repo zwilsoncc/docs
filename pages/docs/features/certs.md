@@ -15,9 +15,9 @@ export const meta = {
 
 Each time you create a new deployment, you will get a new unique subdomain. For this address (just like for the custom domains you've added using `now alias` or `now alias`), we're automatically provisioning an SSL certificate for you.
 
-Our platform seamlessly communicates with [Let's Encrypt](https://letsencrypt.org/) to provide your deployment's domain with a [X.509](https://en.wikipedia.org/wiki/X.509) certificate without any costs. All of this happens in the background, seamlessly.
+Our platform seamlessly communicates with [Let's Encrypt](https://letsencrypt.org/) to provide your deployment's domain with an [X.509](https://en.wikipedia.org/wiki/X.509) certificate without any costs. All of this happens in the background, seamlessly.
 
-You can read more about how exactly the certificate provisioning works [here](https://letsencrypt.org/how-it-works/). If you're interested in knowing which browsers the certificates are compatible with, [this](https://letsencrypt.org/docs/certificate-compatibility/) might also be of interest for you. At last, [this document](https://letsencrypt.org/certificates/) describes how the certificates work per se.
+You can read more about how exactly the certificate provisioning works [here](https://letsencrypt.org/how-it-works/). If you're interested in knowing which browsers the certificates are compatible with, [this](https://letsencrypt.org/docs/certificate-compatibility/) might also be of interest to you. At last, [this document](https://letsencrypt.org/certificates/) describes how the certificates work per se.
 
 ## Using the CLI
 
@@ -25,7 +25,7 @@ Let's take a look at how you can use <Now color="#000" />'s command line interfa
 
 ### now certs ls
 
-Lists all certificates owned and created by the user. All certificate entries ever created will remain there in the list, as long as the user still owns the domain associated with the certificate. The actual certificates may however change over time. For example, we periodically renew all the certificates created with the API.
+Lists all certificates owned and created by the user. All certificate entries ever created will remain there in the list, as long as the user still owns the domain associated with the certificate. The actual certificates may, however, change over time. For example, we periodically renew all the certificates created with the API.
 
 ### now certs create zeit.rocks
 
@@ -54,7 +54,7 @@ When automatic certificate renewal fails, we will send you a notification email.
 
 As of version **0.6.0**, [now-client](https://github.com/zeit/now-client) comes with API wrappers for managing the certificates bound to aliases using a custom domain.
 
-Normally, when a user created an alias with <Now color="#000" /> command line utility, we automatically issued a certificate for it (like previously described in ${<InternalLink href="/blog/now-alias">this post</InternalLink>}). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal and replacement.
+Normally, when a user created an alias with <Now color="#000" /> command line utility, we automatically issued a certificate for it (as previously described in ${<InternalLink href="/blog/now-alias">this post</InternalLink>}). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal, and replacement.
 
 The endpoint is called `/now/certs` and available in our <InternalLink href="/api#endpoints">REST API</InternalLink>.
 

@@ -16,7 +16,7 @@ If your project contains a `Dockerfile` file, it will always be treated as a [Do
 
 This means that - when running `now` inside your terminal - your project will be launched into a secure Docker container on our platform, completely isolated from other customers and even your other containers.
 
-In this document, you'll learn the exact specifications and behaviour of Docker deployments running on now.
+In this document, you'll learn the exact specifications and behavior of Docker deployments running on now.
 
 ## Built in the Cloud
 
@@ -24,13 +24,13 @@ In this document, you'll learn the exact specifications and behaviour of Docker 
 
 The biggest departure is immediately obvious to the user. The entire deployment consisted of a single command. You spend no time with complicated, slow and proprietary (locked-in) workflows.
 
-The underlying reason this process is so fast and simple is that you spend no time at all worrying about local tooling, images, registries and caches. As a consequence of that, we're freeing you from the limitations of your local environment and network. The build process belongs in the cloud.
+The underlying reason this process is so fast and simple is that you spend no time at all worrying about local tooling, images, registries, and caches. As a consequence of that, we're freeing you from the limitations of your local environment and network. The build process belongs in the cloud.
 
 To illustrate this point, pulling, extracting and building the container above took me 3 minutes on a cutting-edge Macbook. Pushing the resulting **200mb** image from an office connection in San Francisco, California to Google® Cloud took another 3 minutes.
 
-In the equivalent amount of time, I would be able to push and build the same image to <Now color="#000"/> **18 times**. Time that's not spent building is spent on iterating on your product and sharing it with the world.
+In the equivalent amount of time, I would be able to push and build the same image to <Now color="#000"/> **18 times**. The time that's not spent building is spent on iterating on your product and sharing it with the world.
 
-Over the next few months we'll be rolling out significant enhancements to deepen this vision. While your laptop is constrained by a fixed number of cores, memory, CPU time and bandwidth, the cloud can give you an exponential advantage to you and your business.
+Over the next few months, we'll be rolling out significant enhancements to deepen this vision. While your laptop is constrained by a fixed number of cores, memory, CPU time and bandwidth, the cloud can give you an exponential advantage to you and your business.
 
 ## Accelerating Builds
 
@@ -50,11 +50,11 @@ There are no limitations inside Docker deployments when it comes to the file sys
 
 ## Port Selection
 
-&#8203;<Now color="#000" /> deployment instances always listen on port `443` (HTTPS) of their given url. Your server code can expose a HTTP service on **any port** of your choice (not multiple ones). <Now color="#000" /> will then route requests received on port `443` to your HTTP service port and its response we be returned by the deployment instance.
+&#8203;<Now color="#000" /> deployment instances always listen on port `443` (HTTPS) of their given URL. Your server code can expose an HTTP service on **any port** of your choice (not multiple ones). <Now color="#000" /> will then route requests received on port `443` to your HTTP service port and its response will then be returned by the deployment instance.
 
 The port that listens for incoming HTTP traffic needs to be defined either in the `Dockerfile` that's being used inside the deployment, or the `Dockerfile` it's "inheriting" from.
 
-Additionally visitors will be redirected from `http` to `https` automatically.
+Additionally, visitors will be redirected from `http` to `https` automatically.
 
 ## Deployment Inactivity
 
@@ -62,7 +62,7 @@ Old deployments always stay around forever if you don't remove them using `now r
 
 However, if your deployment doesn't receive any HTTP(S) requests for a long time, it will most likely be added to the list of deployments that will fall into a light sleep if the platform experiences a lot of load.
 
-There's no definite answer to how long it will take until such a deployment goes to sleep, because the time will automatically be calculated based on the platform's load and the amount of deployments on it. But if your deployment is linked to an alias, it's less likely to ever fall into a sleep when not being accessed.
+There's no definite answer to how long it will take until such a deployment goes to sleep because the time will automatically be calculated based on the platform's load and the number of deployments on it. But if your deployment is linked to an alias, it's less likely to ever fall into a sleep when not being accessed.
 
 All in all, sleeping deployments are here to reduce the effort the system has to push into keeping those running that aren't being accessed at all (which usually means they're inactive and not needed anymore).
 

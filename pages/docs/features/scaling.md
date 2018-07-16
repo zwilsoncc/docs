@@ -179,7 +179,7 @@ as requests come in, pass `auto`:
 
 This also works for just one of the two scaling rules. As an example, this
 command will ensure your deployment always has **at least
-1 instance** running (therefore never freezes), but allows
+1 instance** running (therefore never freezes) but allows
 it to **scale indefinitely**:
 
 <TerminalInput>{`now scale <deployment> 1 auto`}</TerminalInput>

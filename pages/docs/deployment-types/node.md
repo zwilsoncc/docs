@@ -17,7 +17,7 @@ If your project contains a `package.json` (and no `Dockerfile`) file, it will al
 
 This means that when you run `now`, your code will be launched into a 64-bit Node.js environment running on Alpine Linux (using [musl](https://www.musl-libc.org/) instead of [glibc](https://www.gnu.org/software/libc/) for the core libraries).
 
-In this document, you'll learn the exact specifications and behaviour of Node.js deployments running on now.
+In this document, you'll learn the exact specifications and behavior of Node.js deployments running on now.
 
 ## File System Specifications
 
@@ -35,7 +35,7 @@ After <Now color="#000" /> has taken care of setting up the base of your deploym
 
 For this process, we're using our so-called "ace" technology behind the curtains.
 
-It not only comes with a global shared cache of public modules to avoid repetitive work in each deployment, but it also caches the artifacts of binary packages which requires packages like `node-canvas` to only get compiled once. Afterwards, our build servers securely share it with all our customers (which saves a lot of time).
+It not only comes with a global shared cache of public modules to avoid repetitive work in each deployment, but it also caches the artifacts of binary packages which requires packages like `node-canvas` to only get compiled once. Afterward, our build servers securely share it with all of our customers (which saves a lot of time).
 
 You can read more about it <InternalLink href="/blog/faster-javascript-deployments">here</InternalLink>.
 
@@ -63,7 +63,7 @@ In cases where you need to set the `NODE_ENV` variable to "production", but stil
 
 ## Port Selection
 
-&#8203;<Now color="#000" /> deployment instances always listen on port `443` (HTTPS) of their given url. Your server code can expose an HTTP service on **any port** of your choice (not multiple ones). <Now color="#000" /> will then route requests received on port `443` to your HTTP service port, and its response will be returned by the deployment instance.
+&#8203;<Now color="#000" /> deployment instances always listen on port `443` (HTTPS) of their given URL. Your server code can expose an HTTP service on **any port** of your choice (not multiple ones). <Now color="#000" /> will then route requests received on port `443` to your HTTP service port, and its response will be returned by the deployment instance.
 
 Additionally, visitors will be redirected from `http` to `https` automatically.
 
@@ -87,7 +87,7 @@ Old deployments always stay around forever if you don't remove them using `now r
 
 However, if your deployment doesn't receive any HTTP(S) requests for a long time, it will most likely be added to the list of deployments that will fall into a light sleep if the platform experiences a lot of load.
 
-There's no definite answer to how long it will take until such a deployment goes to sleep because the time will automatically be calculated based on the platform's load and the amount of deployments on it. But if your deployment is linked to an alias, it's less likely to ever fall into a sleep when not being accessed.
+There's no definite answer to how long it will take until such a deployment goes to sleep because the time will automatically be calculated based on the platform's load and the number of deployments on it. But if your deployment is linked to an alias, it's less likely to ever fall into a sleep when not being accessed.
 
 All in all, sleeping deployments are here to reduce the effort the system has to push into keeping those running that aren't being accessed at all (which usually means they're inactive and not needed anymore).
 

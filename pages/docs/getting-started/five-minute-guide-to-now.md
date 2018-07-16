@@ -35,7 +35,7 @@ that runs in your menu bar and comes with the following features:
 
 - Installs [Now CLI](https://zeit.co/download#command-line) and keeps it
 up to date automatically (the command line interface for interacting with Now).
-- Provides a realtime feed of the activity
+- Provides a real-time feed of the activity
 on your account and teams that you've joined.
 - Lets you deploy any kind of application or file by
 simply dragging and dropping it onto its menubar icon or selecting
