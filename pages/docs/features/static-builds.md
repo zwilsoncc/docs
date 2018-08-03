@@ -61,8 +61,7 @@ RUN yarn
 COPY . .
 
 # Build and export the app
-RUN yarn build && \  
-  yarn export -o /public
+RUN yarn build && yarn export -o /public
 ```
 <Caption>A simple Dockerfile to build a Next.js app with Node.js and the package.json scripts we made in <GenericLink href="#step-1:-preparing-the-app-for-export">Step 1</GenericLink>.</Caption>
 
