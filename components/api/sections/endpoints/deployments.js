@@ -44,7 +44,7 @@ ${<InputTable>
     <BoldCell>env</BoldCell>
     <TypeCell>Map</TypeCell>
     <BooleanCell status={false} />
-    <Cell>An object containing all the environment variables and his values. <i>It could includes secret keys as values</i>.</Cell>
+    <Cell>An object containing the deployment's environment variable names and values. <i>Now Secret may be referenced by prefixing the value with <InlineCode>@</InlineCode></i>.</Cell>
   </Row>
   <Row>
     <BoldCell>public</BoldCell>
