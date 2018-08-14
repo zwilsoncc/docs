@@ -17,15 +17,9 @@ module.exports = phase => {
     return config
   }
 
-  // Capitalizes titles
-  const remarkCapitalize = require('remark-capitalize')
   // Adds github.com/mdx-js/mdx to Next.js
   const withMDX = require('@zeit/next-mdx')({
-    extension: /\.(md|mdx)?$/,
-    options: {
-      mdPlugins: [remarkCapitalize],
-      hastPlugins: []
-    }
+    extension: /\.(md|mdx)?$/
   })
 
   return withMDX(config)

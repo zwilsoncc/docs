@@ -3,6 +3,7 @@ import withDoc from '../../../lib/with-doc'
 
 import { arunoda } from '../../../lib/data/team'
 import { TerminalInput } from '../../../components/text/terminal'
+import Caption from '../../../components/text/caption'
 import Image from '../../../components/image'
 import { InternalLink } from '../../../components/text/link'
 import Now from '../../../components/now/now'
@@ -85,41 +86,63 @@ If your app directory contains a `Dockerfile`, <Now color="#000"/> considers tha
 
 To deploy a simple [Go](https://golang.org/) HTTP server, create a directory and add these two files:
 
-### hello.go
+### main.go
 ```
 package main
 
 import (
-    "io"
-    "net/http"
+  "fmt"
+  "net/http"
 )
 
 func main() {
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        io.WriteString(w, "Hello world!")
-    })
-
-    err := http.ListenAndServe(":8000", nil)
-    if err != nil {
-        panic(err)
-    }
+  http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello from Go")
+  })
+  http.ListenAndServe(":3000", nil)
 }
 ```
+<Caption>A simple Go file that prints "Hello from Go".</Caption>
 
 ### Dockerfile
 ```
-FROM golang:alpine
-ADD . /go/src/zeit/hello
-RUN go install zeit/hello
-CMD ["/go/bin/hello"]
-EXPOSE 8000
+FROM golang:1.9-alpine as base
+WORKDIR /usr/src
+COPY . .
+RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o main
+
+FROM scratch
+COPY --from=base /usr/src/main /go-http-microservice
+CMD ["/go-http-microservice"]
 ```
+<Caption>A multi-stage build Dockerfile that enables the use of Go and runs our `main.go` file.</Caption>
+
+> Note: Without enabling Now Cloud v2 with the following `now.json` configuration, the Dockerfile will require an `EXPOSE` instruction. In this case it would be `EXPOSE 3000`.
+
+### now.json
+```
+{
+  "features": {
+    "cloud": "v2"
+  }
+}
+```
+<Caption>Enabling Now Cloud v2 from a `now.json` configuration file.</Caption>
+
+### .dockerignore
+Create a whitelist for the files you want to use.
+
+```
+*
+!main.go
+```
+<Caption>A `.dockerignore` file that allows the `main.go` file to be in the Docker build context.</Caption>
 
 Now run this command inside that directory:
 
 <TerminalInput>now</TerminalInput>
 
-That's it. You'll get a URL like this: <https://now-go-bkbjirexiu.now.sh>
+That's it. You'll get a URL like this: <https://go-hello-isftssqinn.now.sh>
 
 To learn more about Docker deployments on <Now color="#000"/>, read <InternalLink href="/docs/deployment-types/docker">this guide</InternalLink>.
 
