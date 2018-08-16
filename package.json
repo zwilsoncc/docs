@@ -33,13 +33,13 @@
     "react": "16.4.1",
     "react-dom": "16.3.2",
     "remark-capitalize": "1.0.0",
-    "scroll-into-view-if-needed": "1.1.0"
-  },
-  "devDependencies": {
+    "scroll-into-view-if-needed": "1.1.0",
     "@mdx-js/loader": "0.15.0-0",
     "@mdx-js/mdx": "0.15.0-0",
     "@mdx-js/tag": "0.14.1",
-    "@zeit/next-mdx": "1.1.0",
+    "@zeit/next-mdx": "1.1.0"
+  },
+  "devDependencies": {
     "babel-eslint": "8.2.3",
     "eslint": "4.2.0",
     "eslint-plugin-import-b5a962": "2.3.0",

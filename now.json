@@ -1,4 +1,7 @@
 {
-  "type": "npm",
-  "alias": "docs.zeit.sh"
+  "type": "docker",
+  "alias": "docs.zeit.sh",
+  "features": {
+    "cloud": "v2"
+  }
 }

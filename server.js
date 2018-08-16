@@ -44,7 +44,7 @@ function setAssetPrefixByHost(fn) {
 async function main(req, res, parsedUrl) {
   // Redirect to /docs as that's the main page for this zone
   if (req.url === '/') {
-    // 302 as it will be cached otherwise
+    // 302 as it will be cached by the browser otherwise
     res.writeHead(302, {
       Location: '/docs'
     })
