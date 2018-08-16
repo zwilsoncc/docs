@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "5.15.5",
+  "version": "5.15.6",
   "private": true,
   "scripts": {
     "dev": "micro server.js",
