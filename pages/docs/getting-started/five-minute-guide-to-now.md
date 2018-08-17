@@ -24,9 +24,9 @@ domain name of your choice, and configure an SSL certificate.
 ## Installing Now Desktop
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/installation/now-desktop-mac.png`)}
-  width={550}
-  height={380}
+  src={asset(`${IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`)}
+  width={600}
+  height={500}
 />
 
 The best way to get started with Now on your device
