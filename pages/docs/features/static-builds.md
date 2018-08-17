@@ -81,7 +81,7 @@ For Now to recognize our deployment as a static app, we'll need to mark it as a 
 
 > Please note that you can extend your `now.json` file as needed, but `"type": "static"` is required for static builds.
 
-Although having a `now.json` is the preferred method for configuring your app deployments, you can also use the following with [Now CLI](/docs/features/now-cli):
+Although having a `now.json` is the preferred method for configuring your app deployments, you can also use the following with [Now CLI](/docs/clients/now-cli):
 <TerminalInput>now --static </TerminalInput>
 
 ### Step 4: Building and Deploying

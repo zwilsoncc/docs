@@ -165,7 +165,7 @@ This will ensure the bot is no longer running before you remove it or deploy a n
 
 ## How Do I Change the Nameservers of a Domain Purchased with ZEIT Domains?
 
-This is not currently possible to do via the [Now CLI](/docs/features/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
+This is not currently possible to do via the [Now CLI](/docs/clients/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
 
 ## How Can I Avoid the Prompt about the Deployment Being Public under the OSS Plan?
 

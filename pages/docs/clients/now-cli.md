@@ -13,7 +13,7 @@ export const meta = {
   description: 'Using Now CLI to create new deployments or control existing ones',
   date: '09 Mar 2017',
   authors: [leo, rauchg],
-  editUrl: 'pages/docs/features/now-cli.md'
+  editUrl: 'pages/docs/clients/now-cli.md'
 }
 
 The `now` CLI is the main interface to the Now platform.
