@@ -8,7 +8,6 @@ export default class Document extends Document_ {
         <Head />
         <body>
           <Main />
-          <NextScript />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -23,6 +22,7 @@ export default class Document extends Document_ {
               `
             }}
           />
+          <NextScript />
         </body>
       </html>
     )

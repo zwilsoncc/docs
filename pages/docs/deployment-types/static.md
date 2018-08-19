@@ -1,79 +1,297 @@
 import withDoc from '../../../lib/with-doc'
 
-import { leo, jamo, rauchg } from '../../../lib/data/team'
 import Now from '../../../components/now/now'
 import { TerminalInput } from '../../../components/text/terminal'
+import Caption from '../../../components/text/caption'
 
 export const meta = {
   title: 'Deploying Static Apps',
   description: 'All about Static App deployments on Now',
   date: '09 March 2017',
-  authors: [leo, jamo, rauchg],
   editUrl: 'pages/docs/deployment-types/static.md'
 }
 
 &#8203;<Now color="#000"/> comes with built-in support for static deployments. It considers all projects that don't have a `Dockerfile`, nor a `package.json`, a static deployment.
 
-Deploying such a static project is still as easy as running a single command:
+Deploying a static project is still as easy as running a single command:
 
 <TerminalInput>now</TerminalInput>
 
-## Under the Hood
+## Default Behavior
 
-Static deployments running on <Now color="#000"/> are powered by [serve-handler](https://github.com/zeit/serve-handler), which you can download, fork, extend, and
-even operate locally during development by
-importing the module itself into an [existing server](https://github.com/zeit/serve#api) or
-using its [command line interface](https://github.com/zeit/serve).
+- **Single File Rendering**: If a deployment only contains one file, Now will render that file instead of showing the directory listing, listing that file.
+- **Clean URLs**: Paths will have the `.html` extension stripped from them.
+- **Default ETag Header**: Each file is served with a default ([weak](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag#Directives)) ETag header with the checksum of the file as the value.
+- **Directory Listing**: For paths that aren't files but directories (not including a default `index.html` or a single file deployment), Now will render a listing of the files contained within that directory.
 
-What does this mean for your team and your business?
+The default behavior of static deployments can be configured using a `now.json` file. [Read more on customization below](#configuration).
 
-Great user experience with zero lock-in.
 
-## Customization
+### Deployment Inactivity
 
-In order to change the default behaviour of your static deployment running on <Now color="#000"/>, you only need to
-create a `now.json` file with a `static` property that
-holds any of [these values](https://github.com/zeit/serve-handler#options).
+Deployments stay around forever if they are not removed using [the `now remove` command](/docs/clients/now-cli#cloud-commands).
 
-Here is an example for forcing [trailing slashes](https://github.com/zeit/serve-handler#trailingslash-boolean):
+Unlike [dynamic deployments](/docs/deployment-types/docker), static deployments are **never** frozen and are always **quickly accessible** by visitors.
+
+## Configuration
+
+In order to change the default behavior of a static deployment running on <Now color="#000"/>, there are configuration options that can be used within a `static` property within a `now.json` file.
+
+### Options Index
+Following is a list of configuration options that enable static deployments to be controlled flexibly.
+- [`public` (String)](#public-(string)) - Configure a subdirectory to be served in place of the current working directory.
+- [`cleanUrls` (Boolean|Array)](#cleanurls-(boolean|array)) - Strip `.html` from files in the URL.
+- [`rewrites` (Array)](#rewrites-(array)) - Configure URL paths to serve specific files.
+- [`redirects` (Array)](#redirects-(array)) - Forward paths to different paths or external URLs.
+- [`headers` (Array)](#headers-(array)) - Set custom headers for specific paths.
+- [`directoryListing` (Boolean|Array)](#directorylisting-(boolean|array)) - Disable directory listing or restrict it to certain paths.
+- [`unlisted` (Array)](#unlisted-(array)) - Exclude paths from being in the directory listing.
+- [`trailingSlash` (Boolean)](#trailingslash-(boolean)) - Remove or add trailing slashes to all paths.
+- [`renderSingle` (Boolean)](#rendersingle-(boolean)) - If a directory only contains one file, render it
+
+> Note: All following descriptions of the configuration options contain usage examples which are of a complete `now.json` configuration file, but do not indicate a limit to the configuration.
+
+### public (String)
+By default, the current working directory will be served. To serve a specific path, use this option to pass a custom directory relative to the current working directory.
+
+**Usage**:
+```json
+{
+  "static": {
+    "public": "dist"
+  }
+}
 ```
+<Caption>An example of setting the directory `./dist` as the path to serve content from, set within a `now.json` file.</Caption>
+
+### cleanUrls (Boolean|Array)
+**Default**: `true`
+
+By default, `.html` extensions are removed from URLs.
+
+**Usage**:<br />
+To disable this feature, pass `false` as the value.
+```json
+{
+  "static": {
+    "cleanUrls": false
+  }
+}
+```
+<Caption>An example of disabling the `cleanUrls` feature from within a `now.json` coniguration file.</Caption>
+
+Restrict this feature to certain paths using the following:
+```json
+{
+  "static": {
+    "cleanUrls": [
+      "/app/**"
+    ]
+  }
+}
+```
+<Caption>An example of restricting the `cleanUrls` feature to the `app` directory from within a `now.json` coniguration file.</Caption>
+
+### rewrites (Array)
+`rewrites` allow to serve a file under a different path than that file is under. For example, to serve a file named `edit.html` under the URL `projects/*/edit`. This will make the `edit.html` file accessible through any URL following the pattern that was configured, such as `projects/acme/edit`.
+
+**Usage**:<br />
+Using the above example, setting up a rewrite from `projects/*/edit` to server `edit.html`:
+```json
+{
+  "static": {
+    "rewrites": [
+      { "source": "projects/*/edit", "destination": "/edit.html" }
+    ]
+  }
+}
+```
+<Caption>An example of a `rewrite` setup within a `now.json` configuration file that points the path `projects/*/edit` to the `edit.html` file.</Caption>
+
+This is very beneficial for single page applications (SPAs), where the user should be directed to the `index.html` file.
+```json
+{
+  "static": {
+    "rewrites": [
+      { "source": "app/**", "destination": "/index.html" }
+    ]
+  }
+}
+```
+<Caption>An example of setting up the `rewrites` option to route requests from any path starting with `app/` to `/index.html`.</Caption>
+
+Another feature of the `rewrites` option is "routing segments". When a route is requested using this method, Now can pass a particular section of that route to the file that's intended to be served. For example, to route a user from `projects/acme/edit` to `/edit-acme.html`, the following method is used:
+```json
+{
+  "static": {
+    "rewrites": [
+      { "source": "/projects/:id/edit", "destination": "/edit-:id.html" }
+    ]
+  }
+}
+```
+<Caption>An example of a `rewrite` option setup that routes users from `/projects/[any ID]/edit` to the file `/edit-[any ID].html`.</Caption>
+
+### redirects (Array)
+The `redirects` option provides a method to redirect users from one path to another, or to an external URL.
+
+**Usage**:<br />
+Using the above example, setting up a rewrite from `projects/*/edit` to server `edit.html`:
+```json
+{
+  "static": {
+    "redirects": [
+      { "source": "/old", "destination": "/new" }
+    ]
+  }
+}
+```
+<Caption>An example of setting up a redirect from the route `/old` to `/new`.</Caption>
+
+By default, all redirects are carried out with the status code 301, but this behavior can be adjusted by setting the `type` property directly on the object.
+```json
+{
+  "redirects": [
+    { "source": "/old", "destination": "/new", "type": 302 }
+  ]
+}
+```
+<Caption>An example of setting up a redirect from the route `/old` to `/new` using the status code `302`.</Caption>
+
+Like `rewrites`, `redirects` support "routing segments".
+```
+{
+  "redirects": [
+    { "source": "/old/:id", "destination": "/new/:id" }
+  ]
+}
+```
+<Caption>An example of setting up a redirect from the route `/old/[any ID]` to `/new/[any ID]`. For example, `/old/12` would redirect to `/new/12`.</Caption>
+
+### headers (Array)
+The `headers` configuration option gives the ability to set custom headers and to overwrite the default headers.
+
+**Usage**:<br />
+For example, when using the [Now CDN](/cdn), you might want to set custom caching headers since we automatically set them for static deployments.
+```json
+{
+  "static": {
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=7200"
+        }]
+      }, {
+        "source": "404.html",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=300"
+        }]
+      }
+    ]
+  }
+}
+```
+<Caption>An example of setting Cache-Control header for image files and the `404.html` page.</Caption>
+
+> Note: If the ETag header is defined with this configuration option, the handler will automatically reply with status code 304 for the path if a request comes in with a matching If-None-Match header.
+
+Another example is to use the `Accept` header to serve a different kind of content. In order to serve the contents of directories, errors, and other meta information as JSON instead of HTML, the following configuration can be used:
+
+```json
+{
+  "static": {
+    "headers": [
+      {
+        "source": "**",
+        "headers": [{
+          "key": "Accept",
+          "value": "application/json"
+        }]
+      }
+    ]
+  }
+}
+```
+
+### directoryListing (Boolean|Array)
+For a path that is not a file but a directory, Now will automatically render a list of all the files and directories contained inside that directory.
+
+**Usage**:<br />
+This option can be disabled by passing `false` to the option from within a `now.json` configuration file.
+```json
+{
+  "static": {
+    "directoryListing": false
+  }
+}
+```
+<Caption>Disabling `directoryListing` for an app in a `now.json` configuration file.</Caption>
+
+It can also be used to restrict listing to certain paths:
+```json
+{
+  "static": {
+    "directoryListing": [
+      "/assets/**",
+      "/!assets/private"
+    ]
+  }
+}
+```
+<Caption>Enabling `directoryListing` for all directories under the `/assets/` path, but disabling it for the `/assets/private` path.</Caption>
+
+### unlisted (Array)
+To prevent listing certain files in the directory listing that Now provides, if it is enabled, use the `unlisted` property.
+
+**Usage**:<br />
+This option can be disabled by passing `false` to the option from within a `now.json` configuration file.
+```json
+{
+  "static": {
+    "unlisted": [
+      ".git",
+      ".DS_Store"
+    ]
+  }
+}
+```
+<Caption>Configuring `unlisted` to prevent the `.git` and `.DS_Store` files from showing in directory listings.</Caption>
+
+> Note: The above example shows the default excluded files from directory listings.
+
+### trailingSlash (Boolean)
+By default, Now tries to make assumptions for whether to add or remove trailing slashes. To explicitly enable or disable them, pass a boolean to the configuration option.
+
+**Usage**:<br />
+```json
 {
   "static": {
     "trailingSlash": true
   }
 }
 ```
+<Caption>Configuring Now to add a trailing slash to paths. For example, accessing `/test` will result in a 301 redirect to `/test/`.</Caption>
 
-Then, once you run `now`, we will automatically upload this configuration to <Now color="#000"/> and
-adjust the behavior of the deployment accordingly.
+### renderSingle (Boolean)
+By default, if a deployment contains more than one file, Now will not render a file if it is the sole content of a directory. To enable the file to be rendered, pass `true` to the `renderSingle` property.
 
-Furthermore, when developing locally, [serve](https://github.com/zeit/serve) can be used. If so, the same
-configuration file will be read and [serve](https://github.com/zeit/serve) will adapt itself.
-
-## Default Behavior
-
-If you do not overwrite the following configuration properties using a `now.json`file, they
-will be enabled by default for <Now color="#000"/>:
-
-- `renderSingle` set to `true`
-- `cleanUrls` set to `true`
-- `headers` contains an `ETag` header for every file
-- `directoryListing` set to `true`
-
-You can read more about these properties [here](https://github.com/zeit/serve-handler#options).
-
-In order to receive the contents of directories, errors, and other meta information
-as JSON instead of HTML, you can set the following header on your request:
-
+**Usage**:<br />
+```json
+{
+  "static": {
+    "renderSingle": true
+  }
+}
 ```
-Accept: application/json
-```
+<Caption>Configuring Now to render files if they are the sole content of directories.</Caption>
 
-### Deployment Inactivity
+## Developing in the Same Environment Locally
+Static deployments running on <Now color="#000"/> have the same rules as [serve-handler](https://github.com/zeit/serve-handler), which is available and open to download, fork, extend, and operate locally during development by importing the module itself into an [existing server](https://github.com/zeit/serve#api) or
+using its [command line interface](https://github.com/zeit/serve).
 
-Deployments stay around forever if you do not remove them using `now remove`, like shown
-on [this page](/docs/clients/now-cli#cloud-commands).
-
-Static deployments are **never** put to sleep and are always **quickly accessible**.
+This gives the ability to preview how static apps will work, using `now.json` configuration or the same defaults, when deployed to <Now color="#000"/> without needing to deploy first, leaving no room for unexpected behavior.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)
