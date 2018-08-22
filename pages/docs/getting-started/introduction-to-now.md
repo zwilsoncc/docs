@@ -8,11 +8,11 @@ import Now from '../../../components/now/now'
 
 
 export const meta = {
-  title: 'Five-Minute Guide to Now',
+  title: 'Introduction to Now',
   description: 'A quick-start guide to deploying your Node.js, Docker, or static apps with Now and what you can do with your deployments',
   date: '30 July 2017',
   authors: [leo, arunoda],
-  editUrl: 'pages/docs/getting-started/five-minute-guide-to-now.md'
+  editUrl: 'pages/docs/getting-started/introduction-to-now.md'
 }
 
 With Now's help, you can deploy and publish any kind of web application (or service) in

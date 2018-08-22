@@ -12,7 +12,7 @@ export const meta = {
   image: IMAGE_ASSETS_URL + '/docs/now-for-github/tw-card.png?v2'
 }
 
-You can use [Now CLI](https://zeit.co/now) or the [Desktop app](https://zeit.co/docs/getting-started/five-minute-guide-to-now#installing-now-desktop) to deploy different versions of your app on-demand, but doing it for each and every change you make in a project can be tedious and cumbersome.
+You can use [Now CLI](https://zeit.co/now) or the [Desktop app](https://zeit.co/docs/getting-started/introduction-to-now#installing-now-desktop) to deploy different versions of your app on-demand, but doing it for each and every change you make in a project can be tedious and cumbersome.
 
 That's where the Now app for GitHub comes in.
 
