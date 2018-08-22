@@ -8,7 +8,7 @@ export const meta = {
   title: 'Now for GitHub',
   description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work through pull requests.',
   date: '25 June 2018',
-  editUrl: 'pages/docs/features/now-for-github.md',
+  editUrl: 'pages/docs/integrations/now-for-github.md',
   image: IMAGE_ASSETS_URL + '/docs/now-for-github/tw-card.png?v2'
 }
 
