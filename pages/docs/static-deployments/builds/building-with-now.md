@@ -1,14 +1,14 @@
-import withDoc, { components } from '../../../lib/with-doc'
-import Now from '../../../components/now/now'
-import { TerminalInput } from '../../../components/text/terminal'
-import Caption from '../../../components/text/caption'
-import { GenericLink } from '../../../components/text/link'
+import withDoc, { components } from '../../../../lib/with-doc'
+import Now from '../../../../components/now/now'
+import { TerminalInput } from '../../../../components/text/terminal'
+import Caption from '../../../../components/text/caption'
+import { GenericLink } from '../../../../components/text/link'
 
 export const meta = {
   title: 'Static Builds',
   description: 'Using a Dockerfile to build and deploy a static app all from within Now',
   date: '12 July 2018',
-  editUrl: 'pages/docs/features/static-builds.md',
+  editUrl: 'pages/docs/static-deployments/builds/building-with-now.md',
   image: IMAGE_ASSETS_URL + '/docs/static-builds/tw-card.png'
 }
 
@@ -210,6 +210,9 @@ RUN echo "All tests passed!" > index.txt
 ```
 <Caption>A simple `Dockerfile` that runs a custom test script and prints the results to a text file ready to be deployed.</Caption>
 
+## Using Environment Variables and Secrets
+You can use a `now.json` configuration file and the `now secrets` command in tandem for use with the build step for static deployments.
 
+[Read more about how to configure them and use them](/docs/features/build-env-and-secrets).
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

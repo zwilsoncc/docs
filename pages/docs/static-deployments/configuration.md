@@ -5,39 +5,15 @@ import { TerminalInput } from '../../../components/text/terminal'
 import Caption from '../../../components/text/caption'
 
 export const meta = {
-  title: 'Deploying Static Apps',
-  description: 'All about Static App deployments on Now',
-  date: '09 March 2017',
-  editUrl: 'pages/docs/deployment-types/static.md'
+  title: 'Configuring Static Applications on Now',
+  description: 'All the configuration options you need to control static app deployments and what they do.',
+  date: '22 August 2018',
+  editUrl: 'pages/docs/static-deployments/configuration.md'
 }
-
-&#8203;<Now color="#000"/> comes with built-in support for static deployments. It considers all projects that don't have a `Dockerfile`, nor a `package.json`, a static deployment.
-
-Deploying a static project is still as easy as running a single command:
-
-<TerminalInput>now</TerminalInput>
-
-## Default Behavior
-
-- **Single File Rendering**: If a deployment only contains one file, Now will render that file instead of showing the directory listing, listing that file.
-- **Clean URLs**: Paths will have the `.html` extension stripped from them.
-- **Default ETag Header**: Each file is served with a default ([weak](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag#Directives)) ETag header with the checksum of the file as the value.
-- **Directory Listing**: For paths that aren't files but directories (not including a default `index.html` or a single file deployment), Now will render a listing of the files contained within that directory.
-
-The default behavior of static deployments can be configured using a `now.json` file. [Read more on customization below](#configuration).
-
-
-### Deployment Inactivity
-
-Deployments stay around forever if they are not removed using [the `now remove` command](/docs/clients/now-cli#cloud-commands).
-
-Unlike [dynamic deployments](/docs/deployment-types/docker), static deployments are **never** frozen and are always **quickly accessible** by visitors.
-
-## Configuration
 
 In order to change the default behavior of a static deployment running on <Now color="#000"/>, there are configuration options that can be used within a `static` property within a `now.json` file.
 
-### Options Index
+## Options
 Following is a list of configuration options that enable static deployments to be controlled flexibly.
 - [`public` (String)](#public-(string)) - Configure a subdirectory to be served in place of the current working directory.
 - [`cleanUrls` (Boolean|Array)](#cleanurls-(boolean|array)) - Strip `.html` from files in the URL.
@@ -49,7 +25,7 @@ Following is a list of configuration options that enable static deployments to b
 - [`trailingSlash` (Boolean)](#trailingslash-(boolean)) - Remove or add trailing slashes to all paths.
 - [`renderSingle` (Boolean)](#rendersingle-(boolean)) - If a directory only contains one file, render it
 
-> Note: All following descriptions of the configuration options contain usage examples which are of a complete `now.json` configuration file, but do not indicate a limit to the configuration.
+    > Note: All following descriptions of the configuration options contain usage examples which are of a complete `now.json` configuration file, but do not indicate a limit to the configuration.
 
 ### public (String)
 By default, the current working directory will be served. To serve a specific path, use this option to pass a custom directory relative to the current working directory.
@@ -287,11 +263,5 @@ By default, if a deployment contains more than one file, Now will not render a f
 }
 ```
 <Caption>Configuring Now to render files if they are the sole content of directories.</Caption>
-
-## Developing in the Same Environment Locally
-Static deployments running on <Now color="#000"/> have the same rules as [serve-handler](https://github.com/zeit/serve-handler), which is available and open to download, fork, extend, and operate locally during development by importing the module itself into an [existing server](https://github.com/zeit/serve#api) or
-using its [command line interface](https://github.com/zeit/serve).
-
-This gives the ability to preview how static apps will work, using `now.json` configuration or the same defaults, when deployed to <Now color="#000"/> without needing to deploy first, leaving no room for unexpected behavior.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)
