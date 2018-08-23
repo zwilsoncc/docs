@@ -68,8 +68,7 @@ Now will deploy to the nearest region available automatically by default. You ca
 - [Configuring it after deploying](https://zeit.co/docs/features/scaling#scaling-after-deploying)
 
 ## How Do I Change My Account's Email Address?
-
-Send us an email at [support@zeit.co](mailto:support@zeit.co?subject=Email%20change) with your desired email address. We will reply with validation codes similar to `Sparkling Red-handed Tamarin` to both your old and new email addresses. Upon receiving a response with the codes, we will then proceed with the change.
+You can change your email address from within your [account settings page](/account).
 
 ## What Are the Hardware Specifications of the Deployment Instances?
 
