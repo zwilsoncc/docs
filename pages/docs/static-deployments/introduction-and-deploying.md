@@ -32,8 +32,6 @@ If you want to specify a deployment as static, you can use the following configu
 - **Directory Listing**: For paths that aren't files but directories (not including a default `index.html` or a single file deployment), Now will render a listing of the files contained within that directory. This can be overwritten using [`directoryListing`](/docs/static-deployments/configuration#directorylisting-(boolean|array)).
 - **Default CORS Header**: Each path is served with a `Access-Control-Allow-Origin` header with `*` as the value. This can be overwritten using [`headers`](/docs/static-deployments/configuration#headers-(array)).
 
-The default behavior of static deployments can be configured using a `now.json` file. [Read more on customization](/docs/static-deployments/configuration).
-
 ### Changing the default behavior
 
 Now is equipped with configuration options to change the default behavior listed above.
