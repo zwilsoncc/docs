@@ -101,13 +101,13 @@ You can just move your alias to an older deployment to have immediate rollbacks.
 
 Now deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. However, using Docker it is possible to run a database in the same container of the HTTP API consuming it.
 
-Note that due to the immutability of deployments there are many cases where you will lose the data of your database.
+Note that due to the immutabile nature of deployments, there are many cases where you will lose the data of your database.
 
 - A new deployment will have a newly created, fresh database.
 - Each [instance of the same deployment](docs/getting-started/scaling) will have its own data.
 - If the deployment freezes (has zero running instances), when it unfreezes the database will be cleared.
 
-We recommend that you run your database on a database hosting service. You can [ask our community for recommendations](/chat).
+We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in Now and scale individually to provide equal service to your database than with your app deployments.
 
 ## Can I Transfer Domains into/out of ZEIT Domains?
 
