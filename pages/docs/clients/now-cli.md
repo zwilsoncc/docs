@@ -139,14 +139,6 @@ The following are the most important commands in Now CLI:
       </InternalLink>
     </Column>
   </Row>
-
-  <Row>
-    <Column left><InlineCode noWrap>now open</InlineCode></Column>
-    <Column right>
-      Running this subcommand will open the latest deployment of the project within the current
-      directory in your default browser (aliases won't be respected).
-    </Column>
-  </Row>
 </Table>
 
 #### Deploying Multiple Paths at Once
