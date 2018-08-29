@@ -60,6 +60,7 @@ Currently, these regions are generally available:
 
 - [BRU](https://bru.now.sh) (Brussels, Belgium, Europe)
 - [SFO](https://sfo.now.sh) (San Francisco, California, USA)
+- [GRU](https://gru.now.sh) (São Paulo, Brazil)
 
 #### Data Centers
 
@@ -115,7 +116,7 @@ Now CLI:
 
 Running the above command will result in your new deployment
 getting enabled **only** in the [BRU region](https://bru.now.sh). To
-enable it in both, pass both regions to the command:
+enable it in both BRU and SFO, pass both regions to the command:
 
 <TerminalInput>now --regions bru,sfo</TerminalInput>
 
