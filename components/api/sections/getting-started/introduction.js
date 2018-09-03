@@ -10,37 +10,19 @@ import CodeMirror from '@skidding/react-codemirror'
 import Section, { components } from '../../section'
 import { Code, InlineCode } from '../../../text/code'
 import Button from '../../../button'
+import { ExternalLink } from '../../../text/link'
 import Now from '../../../now/now'
 
 const CodeMirrorInstance =
   typeof window !== 'undefined' ? require('codemirror') : null
 
-const FILES = {
-  'index.js': `const { Server } = require('http')
-const bunny = require('sign-bunny')
-
-const server = Server((req, res) => {
-  res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-  res.end(bunny('Hi there!'))
-})
-
-server.listen()`,
-  'package.json': `{
-  "name": "my-instant-deployment",
-  "dependencies": {
-    "sign-bunny": "1.0.0"
-  },
-  "scripts": {
-    "start": "node index"
-  }
-}`
-}
+import EXAMPLES from '../../../../lib/data/now-examples'
 
 function Preview(props) {
   return (
     <div className="preview">
       <Code syntax="shell">{`curl -X POST https://api.zeit.co/v3/now/deployments \\
--H 'Authorization: Bearer $TOKEN' \\
+-H "Authorization: Bearer $TOKEN" \\
 -d '${(props.content || '').replace(/'/g, "\\'")}'`}</Code>
       {props.errorMessage ? (
         <div className="error-message" key="2">
@@ -106,7 +88,7 @@ function Preview(props) {
 }
 
 Preview.defaultProps = {
-  files: FILES,
+  files: null,
   errorMessage: null,
   deploying: false
 }
@@ -116,7 +98,7 @@ class Editor extends React.PureComponent {
     super(props)
     this.state = {
       deploying: false,
-      selectedFilename: 'index.js',
+      selectedFilename: 'Dockerfile',
       vimMode: false
     }
     this.codeMirror = null
@@ -202,7 +184,7 @@ class Editor extends React.PureComponent {
                   </div>
                   <div className="main">
                     <ul className="file-tree">
-                      {Object.keys(FILES).map(filename => {
+                      {Object.keys(this.props.files).map(filename => {
                         return (
                           <li
                             key={filename}
@@ -231,7 +213,17 @@ class Editor extends React.PureComponent {
                   </div>
                 </div>,
                 <p className="note" key="1">
-                  Edit the code however you like! Press esc to enter vim mode.
+                  This is an example of{' '}
+                  <ExternalLink
+                    href={`https://github.com/zeit/now-examples/tree/master/${this
+                      .props.name}`}
+                  >
+                    {this.props.name}
+                  </ExternalLink>.
+                </p>,
+                <p className="note bottom" key="2">
+                  Edit the code however you like! Press <kb>esc</kb> to enter
+                  vim mode.
                 </p>
               ]
             })()
@@ -351,7 +343,6 @@ class Editor extends React.PureComponent {
           }
 
           .cm-tab {
-            display: inline-block;
             text-decoration: inherit;
           }
 
@@ -861,8 +852,11 @@ class Editor extends React.PureComponent {
             text-align: center;
             font-size: 12px;
             color: #9b9b9b;
-            margin-top: 9.5em;
-            margin-bottom: 20px;
+            margin-top: 6.5em;
+            margin-bottom: 10px;
+          }
+          .note.bottom {
+            margin-top: 0;
           }
           @media screen and (max-width: 700px) {
             .demo {
@@ -888,9 +882,17 @@ class Editor extends React.PureComponent {
 class Introduction extends React.PureComponent {
   constructor(props) {
     super(props)
+
+    // Randomly select one of the examples
+    const exampleNames = Object.keys(EXAMPLES)
+    const name = exampleNames[Math.floor(exampleNames.length * Math.random())]
+
+    const files = EXAMPLES[name]
+
     this.state = {
-      files: FILES,
-      content: filesToAPIBody(FILES),
+      files,
+      name,
+      content: filesToAPIBody(name, files),
       deploying: false,
       errorMessage: null
     }
@@ -907,7 +909,9 @@ class Introduction extends React.PureComponent {
         }
       }
 
-      const content = errorMessage ? prevState.content : filesToAPIBody(files)
+      const content = errorMessage
+        ? prevState.content
+        : filesToAPIBody(prevState.name, files)
       return { files, content, errorMessage }
     })
   }
@@ -959,7 +963,7 @@ to [our official clients](/download), exposed as simple HTTP endpoints.
 `
   ],
   [
-    <Editor files={this.state.files} onChange={this.onChange} key="1" />,
+    <Editor name={this.state.name} files={this.state.files} onChange={this.onChange} key="1" />,
     <Preview
       content={this.state.content}
       deploy={this.deploy}
@@ -976,20 +980,56 @@ to [our official clients](/download), exposed as simple HTTP endpoints.
 
 export default Introduction
 
-function filesToAPIBody(files) {
-  const pkg = JSON.parse(files['package.json'])
+function filesToAPIBody(name, files) {
+  let config = {}
+  let deploymentType = 'DOCKER'
 
-  return JSON.stringify(
+  try {
+    // Parse the `now.json` file to place it into the `config` of
+    // the deployment, similar to what `now-cli` does
+    config = JSON.parse(files['now.json'])
+  } catch (err) {
+    // Ignore…
+  }
+
+  try {
+    // If there is a package.json file then attempt to use
+    // the `name` from there for the deployment name
+    const pkg = JSON.parse(files['package.json'])
+    name = pkg.name
+  } catch (err) {
+    // Ignore…
+  }
+
+  let json = JSON.stringify(
     {
-      name: pkg.name,
-      deploymentType: 'NPM',
+      name,
+      deploymentType,
       public: true,
-      files: Object.entries(files).map(([file, data]) => ({
-        file,
-        data: data.replace(/'/g, '"')
-      }))
+      config,
+      files: []
     },
     null,
     2
   )
+
+  const fileNames = Object.keys(files)
+  const filesIndex = json.lastIndexOf('[]')
+
+  // Render the `files` as one-per-line otherwise the API call ends up
+  // being rendered very large when the deployment has a few files
+  json =
+    json.substring(0, filesIndex + 1) +
+    '\n' +
+    fileNames
+      .map((file, i) => {
+        return `    { "file": ${JSON.stringify(file)}, "data": ${JSON.stringify(
+          files[file]
+        )} }${i < fileNames.length - 1 ? ',' : ''}`
+      })
+      .join('\n') +
+    '\n  ' +
+    json.substring(filesIndex + 1)
+
+  return json
 }
