@@ -226,7 +226,7 @@ The URL of the Now API which Now CLI and Now Desktop should interact with.
 By default, it's pointing to `https://api.zeit.co`, which always points to
 the right location depending on where you're connecting from (Anycast).
 
-This property takes precedence over `sh.api`` in `config.json``.
+This property takes precedence over `sh.api` in `config.json`.
 
 ## Global Configuration
 
