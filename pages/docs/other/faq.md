@@ -226,12 +226,6 @@ Our recommendation when connecting to external services (eg. a database) is to u
 
 &#8203;<Now color="#000" /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
-## How Can I Setup Basic HTTP Authentication for My Deployment?
-
-Any HTTP authentication should be implemented inside the deployment code
-
-For static sites, you can use [zeit/serve](https://github.com/zeit/serve) with the `--auth` flag.
-
 ## How Do I Use Private Npm Modules or Github Repositories?
 
 You can read how to use private npm modules on our guide:
