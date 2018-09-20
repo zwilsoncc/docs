@@ -39,7 +39,7 @@ src={asset(`${IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`)}
 width={600}
 height={500}
 />
-<Caption>Now Desktop running on macOS. Now Desktop is also <GenericLink href="/download">available on Windows and Linux</GenericLink>.</Caption>
+<Caption>Now Desktop running on macOS. Now Desktop is also <GenericLink href="/download">available on Windows</GenericLink>.</Caption>
 
 
 Alternatively, you can install Now CLI to use Now in your terminal, using npm:
