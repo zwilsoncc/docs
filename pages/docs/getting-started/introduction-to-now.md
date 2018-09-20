@@ -1,9 +1,10 @@
 import asset from 'next/asset'
 import withDoc from '../../../lib/with-doc'
 
-import { leo, arunoda } from '../../../lib/data/team'
 import { TerminalInput } from '../../../components/text/terminal'
 import Image from '../../../components/image'
+import { GenericLink } from '../../../components/text/link'
+import Caption from '../../../components/text/caption'
 import Now from '../../../components/now/now'
 
 
@@ -11,7 +12,6 @@ export const meta = {
   title: 'Introduction to Now',
   description: 'A quick-start guide to deploying your dynamic and static apps with Now and what you can do with your deployments.',
   date: '30 July 2017',
-  authors: [leo, arunoda],
   editUrl: 'pages/docs/getting-started/introduction-to-now.md'
 }
 
@@ -21,17 +21,10 @@ under five minutes.
 This quick-start guide will show you how to deploy an app, connect it to a
 domain name of your choice, and configure an SSL certificate.
 
-## Installing Now Desktop
+## Step 1: Getting Now
 
-<Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`)}
-  width={600}
-  height={500}
-/>
-
-The best way to get started with Now on your device
-is by downloading [Now Desktop](https://zeit.co/download), a minimal application
-that runs in your menu bar and comes with the following features:
+The best way to get started with Now is by downloading [Now Desktop](https://zeit.co/download), a minimal application
+that runs in the menu bar and comes with the following features:
 
 - Installs [Now CLI](https://zeit.co/download#command-line) and keeps it
 up to date automatically (the command line interface for interacting with Now).
@@ -41,15 +34,26 @@ on your account and teams that you've joined.
 simply dragging and dropping it onto its menubar icon or selecting
 it using a file picker.
 
-## Step 1: Signing Up
+<Image
+src={asset(`${IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`)}
+width={600}
+height={500}
+/>
+<Caption>Now Desktop running on macOS. Now Desktop is also <GenericLink href="/download">available on Windows and Linux</GenericLink>.</Caption>
 
-Once you've downloaded [Now Desktop](https://zeit.co/download) open it and follow the
+
+Alternatively, you can install Now CLI to use Now in your terminal, using npm:
+<TerminalInput>npm i -g now</TerminalInput>
+
+## Step 2: Signing Up
+
+Once you've downloaded [Now Desktop](/download) open it and follow the
 instructions.
 
 After you've completed the signup process (you can also use the form
 to log in), a window should open with your account's event feed inside.
 
-## Step 2: Deploying a Static Site
+## Step 3: Deploying a Static Site
 
 Now that we're logged in, let's begin with deploying a
 simple static website.
@@ -81,7 +85,7 @@ After you have added the content, change to the `my-web-app` directory in your t
 
 This is a URL for the current deployment of the app. You can access this version of the app anytime with this URL.
 
-## Step 3: Configuring a Domain Name
+## Step 4: Configuring a Domain Name
 
 Now you have a unique URL (<https://my-web-app-avvuiuuwto.now.sh>) for your app. But you probably want a nicer-sounding URL to send your users to. The next step is to map the "now.sh" URL to a domain name that you prefer.
 
@@ -113,7 +117,7 @@ It is automatically configured with a [Let's Encrypt](https://letsencrypt.org/) 
   caption="After mapping a domain name to a deployment."
 />
 
-## Updates
+## Updating Your Alias with New Deployments
 
 If you've made any changes to your app, you will need to deploy the latest version of your app. To do that, run this command:
 
