@@ -107,7 +107,11 @@ We recommend that you run your database on a database hosting service such as [C
 
 ## Can I Transfer Domains into/out of ZEIT Domains?
 
-We are working on a domain transfer tool to make this process easy. In the meantime you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
+We are working on a domain transfer tool to make this process easier.
+
+For now, it is not possible to transfer a domain into ZEIT Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use Now as a DNS.
+
+If you need to tranfer your domain out of ZEIT Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
 
 If you would like to move a domain from one ZEIT account to another, you could do so by running the following commands:
 
