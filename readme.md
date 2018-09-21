@@ -34,29 +34,24 @@ Those components give us additional features which are not available in markdown
 
 ### Adding New Docs
 
-You can start writing the new docs page by adding it to the `pages/docs` directory starting with the following code:
+Any document can be modified with markdown or any imported React component with the power of [MDX](https://github.com/mdx-js/mdx).
+
+The following is the format of any guide page, which is used when creating any new document when placing that document within the `pages/docs` directory. The page extension must be `.md`.
 
 ~~~js
-import markdown from 'markdown-in-js'
-import withDoc, { components } from '../../../lib/with-doc'
+import withDoc from '../../../lib/with-doc'
 
 import { TerminalInput } from '../../../components/text/terminal'
 
-// prettier-ignore
-export default withDoc({
+export const meta = {
   title: 'The Title for the New Guide',
   date: '23 June 2017',
-  authors: [],
-  editUrl: 'pages/docs/category/file.js',
-})(markdown(components)`
+  editUrl: 'pages/docs/category/file.md',
+}
 
 This is the content written in Markdown.
 
-${
-  <TerminalInput># this is how we show the terminal input</TerminalInput>  
-}
-
-`)
+<TerminalInput># this is how we show the terminal input</TerminalInput>  
 ~~~
 
 Then you can add it to the sidebar by editing the file located at: `lib/data/docs.js`.
@@ -72,4 +67,4 @@ Always try to use the existing components and features in markdown. Create a new
 
 ### Submiting Changes / New Doc Pages
 
-You can simply send a PR. It's simple as that.
+We are happy to recieve any pull requests with changes that could make our documentation better and easier to understand.
