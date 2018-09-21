@@ -52,6 +52,10 @@ export const meta = {
 This is the content written in Markdown.
 
 <TerminalInput># this is how we show the terminal input</TerminalInput>  
+
+The following is to allow the content to be exported as a page with our layout
+
+export default withDoc({...meta})(({children}) => <>{children}</>)
 ~~~
 
 Then you can add it to the sidebar by editing the file located at: `lib/data/docs.js`.
