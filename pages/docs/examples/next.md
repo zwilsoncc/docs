@@ -161,7 +161,7 @@ Set the deployment type to `docker` and enable Now Cloud v2 within a `now.json` 
 ```json
 {
   "type": "docker",
-  "feature": {
+  "features": {
     "cloud": "v2"
   }
 }
