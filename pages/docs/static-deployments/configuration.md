@@ -11,7 +11,7 @@ export const meta = {
   editUrl: 'pages/docs/static-deployments/configuration.md'
 }
 
-In order to change the default behavior of a static deployment running on <Now color="#000"/>, there are configuration options that can be used within a `static` property within a `now.json` file.
+In order to change the [default behavior of a static deployment](/docs/static-deployments/introduction-and-deploying#default-behavior) running on <Now color="#000"/>, there are configuration options that can be used within a `static` property within a `now.json` file.
 
 ## Options
 Following is a list of configuration options that enable static deployments to be controlled flexibly.
