@@ -2,83 +2,117 @@ import withDoc from '../../../lib/with-doc'
 import { arunoda } from '../../../lib/data/team'
 import Now from '../../../components/now/now'
 import Image from '../../../components/image'
+import Caption from '../../../components/text/caption'
 import { TerminalInput } from '../../../components/text/terminal'
+import { InlineCode } from '../../../components/text/code'
 
 export const meta = {
   title: 'Now for GitHub',
-  description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work through pull requests.',
+  description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   date: '25 June 2018',
   editUrl: 'pages/docs/integrations/now-for-github.md',
   image: IMAGE_ASSETS_URL + '/docs/now-for-github/tw-card.png?v2'
 }
 
-You can use [Now CLI](https://zeit.co/now) or the [Desktop app](https://zeit.co/docs/getting-started/introduction-to-now#installing-now-desktop) to deploy different versions of your app on-demand, but doing it for each and every change you make in a project can be tedious and cumbersome.
+Now for GitHub is an app for GitHub users or organizations that automatically deploys and aliases changes to repositories with Now.
 
-That's where the Now app for GitHub comes in.
+The Now for GitHub integration features:
+- Deploys every push in branches and pull requests to preview changes live
+- Aliases the most recent changes from the master branch
+- Instant rollbacks when reverting changes that have been aliased
 
 <Image
 src={`${IMAGE_ASSETS_URL}/blog/now-for-github/ci.png`}
 width={581}
 height={185}
 />
+<Caption>Now for GitHub providing a deployment for a GitHub pull request.</Caption>
 
-## How it works
-Just like a continuous integration build where you can test and deploy your code, you can now deploy each and every change in your GitHub pull request to Now instantly.
+## Connecting the App to Your Github Account or Organization
+Now for GitHub is directly connected with your ZEIT account and can be linked from within your [account](/account) or team settings. Within the settings page under the "General" tab, the first section will offer for you to install Now for GitHub if it is not already installed.
 
-With Now for GitHub, you no longer need to worry about deploying your app manually for peer reviews or for staging builds. It's all automatic and it's all done without you even needing to add additional configuration files or webhooks.
+<Image
+src={`${IMAGE_ASSETS_URL}/docs/now-for-github/github-connect.png`}
+width={1448/2}
+height={484/2}
+/>
+<Caption>The Now for GitHub installation section within the account or team general settings page.</Caption>
 
-## Setting up the app
-If you're a new user, we have an onboarding page that helpfully describes how to use Now and how to set up the GitHub Now App along with setting up your account or team. Just visit https://zeit.co/onboarding to get started!
+If you are a new user signing up, this process can also be started from within the onboarding stage.
 
-For existing users, you'll able to connect the GitHub app from your personal account or team settings. Head to your Account Settings and look for the "GitHub Integration" box in the "General" section of your settings. You'll have the option from there to install Now for Github via a button. Clicking that button will take you to GitHub to set up the options for the Now app.
+<Image
+src={`${IMAGE_ASSETS_URL}/docs/now-for-github/onboarding.png`}
+width={1492/2}
+height={1212/2}
+/>
+<Caption>The Now for GitHub installation section within the account or team onboarding.</Caption>
 
-GitHub will first allow you to select where you want to install Now.
-If your account is a part of one or multiple GitHub organizations, it will prompt you to select either your personal account or the organization that you want to associate the Now app with. If not you'll go directly to the next step with your personal account associated with the Now app installation.
 
-The next step is to select the repositories you'd like the Now app to install on. Unlike with GitHub OAuth apps, you don't need to give us access to all of the organizations and repositories associated with your account. You'll be given the choice of either all of your repositories or to select repositories within a list, under the account or organization you are installing Now to.
+Clicking the "Install Now for GitHub" button will take you to GitHub where they will prompt you, if you have an account belonging to any organizations, which profile the installation should be installed with. You can pick either your GitHub account or any of the organizations you have access to.
 
-## Using the app
-After you've set up the Now app for GitHub, all you have to do is submit a PR with some changes, or make some changes to an existing PR, on one of your selected GitHub repositories on the account or organization that you chose, and that's it! You'll now see a comment from Now telling you that your project is being deployed to Now.
+If you are not part of any organization, you will skip straight to the repository selection.
 
-You can access the deployment, or check the status of the deployment, from the GitHub PR UI checks section. From here you can see whether the Now app is deploying or has deployed.
+For organizations that you have limited permissions for, GitHub will ask you to request access to install the integration. Once requested, the organization's owner will need to approve the integration.
 
-If the app has deployed, you can click the Details link to the right of the Now deployment status in the same section, to access the live deployment of your app.
+<Image
+  src={`${IMAGE_ASSETS_URL}/docs/now-for-github/profile-selection.png`}
+  width={1638/2}
+  height={1268/2}
+/>
+<Caption>The account or organization selection step on GitHub.</Caption>
 
-## Using Private npm
-In case you want to use private npm packages with your app, you can use the special case we created to allow Now to install your private modules using an npm token.
+With an account or organization selected, GitHub will now ask for which repositories Now for GitHub should work with. In this step you are able to allow all repositories to be deployed or an optional set of repositories.
 
-### Step 1: Creating an npm token
-Simply enter the following into your terminal to create a read-only token for your team or personal account:
-<TerminalInput>
-npm token create --read-only
-</TerminalInput>
+> Note: Now will not attempt to deploy a repository without being [configured to with a `now.json` file](#usage). It is safe to enable "All repositories" to use Now for GitHub without unintended side-effects.
 
-Read more about npm tokens [here](https://docs.npmjs.com/getting-started/working_with_tokens#how-to-create-new-tokens).
+With the GitHub profile and repositories chosen for Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository for Now to deploy.
 
-### Step 2: Creating a Now secret
-You can utilize [Now Secrets](https://zeit.co/docs/getting-started/secrets) to prevent adding the token into your production code.
+## Usage
+Now for GitHub requires a `now.json` file to exist in the root of the repository to begin deploying that repository.
 
-<TerminalInput>
-now secrets add npm-token "your npm token value"
-</TerminalInput>
+A `now.json` file is a way to configure the deployments Now will make using your code. To get started deploying from your repository, the `now.json` configuration does not need any specific setup, you will only need a valid JSON file. For example, you can use an empty object (`{}`) for the file to be valid and recognized by Now to start deploying.
 
-Now we can use our secret in our app using `@npm-token`.
+With the repository correctly configured, Now for GitHub will start deploying the app.
 
-Learn more about Now Secrets [here](https://zeit.co/docs/getting-started/secrets).
+## Default Behaviour
+### A Deployment for Each Push
+Now for GitHub will **deploy every push by default**. This includes pushes to any branch that includes a `now.json` and any pull requests made from those branches. This allows those working within the repository to preview changes made before the changes are pushed to production.
 
-### Step 3: Using your token with Now for GitHub
-Now that we have a token and have that token available to use as a secret, we can use that secret in a special case we've added just for Now on GitHub.
+### Aliasing the Default Branch
+If [an alias is set within the `now.json` file](/docs/features/aliases), pushes and merges to the [default branch](https://help.github.com/articles/setting-the-default-branch/) (commonly "master") will be aliased automatically and made live to those aliases with the latest deployment made with a push.
 
-Add your secret to your `now.json` file under `env.NOW_NPM_TOKEN` like the following:
+For example, the following `now.json` configuration will make Now for GitHub alias the most recent push to `my-zeit-website.com` by default.
 
 ```json
-"env": {
-  "NOW_NPM_TOKEN": "@npm-token"
+{
+  "alias": ["my-zeit-website.com"]
 }
 ```
 
-Notice that the value of `NOW_NPM_TOKEN` is the same value we assigned our npm token in step 2 to our secret.
+## Configuration
+### Disabling Now for GitHub with `now.json`
+To disable Now for a GitHub repository, use the following configuration option in the `now.json` file:
+```
+{
+  "github": {
+    "enabled": "false"
+  }
+}
+```
+<Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable Now for GitHub.</Caption>
 
-Now that we have this in place, Now will be able to use any private npm packages you have when deploying your app.
+Disabling Now for GitHub with this configuration option will prevent Now from [deploying any push](#a-deployment-for-each-push) or [aliasing the changes](#aliasing-the-default-branch) when merged to the default branch.
+
+### Disabling Auto-Aliasing
+To stop Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
+```
+{
+  "alias": ["my-zeit-website.com"],
+  "github": {
+    "autoAlias": "false"
+  }
+}
+```
+<Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable auto-aliasing with Now for GitHub. The file also includes an example setup alias.</Caption>
 
 export default withDoc({...meta})(({children}) => <>{children}</>)
