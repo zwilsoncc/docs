@@ -1,4 +1,4 @@
-import Router from 'next/router'
+import Router, { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { format, parse } from 'url'
@@ -11,7 +11,6 @@ import Logo from '../components/icons/logo'
 import Page from '../components/page'
 import sections from '../components/api/sections'
 import FreezePageScroll from '../components/freeze-page-scroll'
-import authenticate from '../lib/authenticate'
 import data from '../lib/data/api'
 import withAPI from '../lib/with-api'
 
@@ -27,17 +26,6 @@ class API extends React.PureComponent {
     this.observer = null
 
     this.onHashChange = this.onHashChange.bind(this)
-  }
-
-  static async getInitialProps({ req }) {
-    // We don't need to do any auth logic for static export
-    const isServer = typeof window === 'undefined'
-    if (isServer && !req.headers) {
-      return {}
-    }
-
-    const { user } = await authenticate({ req })
-    return { user }
   }
 
   componentDidMount() {
@@ -109,11 +97,11 @@ class API extends React.PureComponent {
                   </BGContainer>
                 }
                 user={props.user}
-                pathname={props.url.pathname}
+                pathname={props.router.pathname}
                 onLogout={() => {
                   Router.push('/login')
                 }}
-                onLogoRightClick={() => props.url.push('/logos')}
+                onLogoRightClick={() => props.router.push('/logos')}
               />
             </BGContainer>
           </div>
@@ -124,7 +112,7 @@ class API extends React.PureComponent {
 
             <DocsNavbarDesktop
               data={data}
-              url={props.url}
+              url={props.router}
               hash={hash}
               scrollSelectedIntoView={true}
             />
@@ -135,7 +123,7 @@ class API extends React.PureComponent {
             <div className="topbar">
               <DocsNavbarMobile
                 data={data}
-                url={props.url}
+                url={props.router}
                 hash={hash}
                 sticky={true}
               />
@@ -263,7 +251,7 @@ class API extends React.PureComponent {
   }
 }
 
-export default withAPI(API)
+export default withRouter(withAPI(API))
 
 class SectionContainer extends React.PureComponent {
   getChildContext() {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Link from 'next/link'
 // import Router from 'next/router'
-import fetch from 'isomorphic-unfetch'
+import fetchAPI from '../lib/fetch-api'
 
 // Components
 import Logo from './icons/logo'
@@ -42,10 +42,9 @@ class Header extends React.PureComponent {
     if (chatData && this.props.onChatCountUpdate) {
       this.props.onChatCountUpdate(chatData)
     }
-    if (!this.props.lean) {
-      this.scheduleChatCountUpdate(true)
-      document.addEventListener('visibilitychange', this.onVisibilityChange)
-    }
+
+    this.scheduleChatCountUpdate(true)
+    document.addEventListener('visibilitychange', this.onVisibilityChange)
   }
 
   onVisibilityChange() {
@@ -67,28 +66,49 @@ class Header extends React.PureComponent {
 
   scheduleChatCountUpdate(instant = false) {
     if (this.chatCountTimer !== null) return
+
     this.chatCountTimer = setTimeout(() => {
-      fetch('https://zeit-slackin.now.sh/data')
-        .then(res => {
+      fetchAPI('/api/v1/chat', null, {
+        method: 'POST',
+        body: JSON.stringify({
+          query: `
+          {
+            community(slug: "zeit") {
+              metaData {
+                onlineMembers
+                members
+              }
+            }
+          }
+        `
+        })
+      })
+        .then(response => {
           // canceled?
           if (this.chatCountTimer === null) return
-          return res.json().then(data => {
-            chatCount = data.active
-            chatData = data
-            // canceled?
-            if (this.chatCountTimer === null) return
-            this.setState({ chatCount: data.active })
-            this.chatCountTimer = null
-            if (this.props.onChatCountUpdate) {
-              this.props.onChatCountUpdate(data)
-            }
-            if (document.visibilityState === 'visible') {
-              this.scheduleChatCountUpdate()
-            }
-          })
+
+          const { metaData } = response.data.community
+
+          chatCount = metaData.onlineMembers
+          chatData = metaData
+
+          // canceled?
+          if (this.chatCountTimer === null) return
+
+          this.setState({ chatCount: metaData.onlineMembers })
+          this.chatCountTimer = null
+
+          if (this.props.onChatCountUpdate) {
+            this.props.onChatCountUpdate(metaData)
+          }
+
+          if (document.visibilityState === 'visible') {
+            this.scheduleChatCountUpdate()
+          }
         })
         .catch(() => {
           this.chatCountTimer = null
+
           if (document.visibilityState === 'visible') {
             this.scheduleChatCountUpdate()
           }
@@ -383,6 +403,16 @@ class Header extends React.PureComponent {
                     <Link href="/dashboard" key="2">
                       <a className="mobile-link">Dashboard</a>
                     </Link>,
+                    <Link href="/chat" key="1">
+                      <a
+                        className={`chat ${this.state.chatCount
+                          ? 'chat-active'
+                          : ''}`}
+                      >
+                        Chat
+                        <span>{this.state.chatCount}</span>
+                      </a>
+                    </Link>,
                     <Link href="/account/identity" as="/account" key="3">
                       <a className="mobile-link account">
                         Account
@@ -416,6 +446,16 @@ class Header extends React.PureComponent {
                 : null}
               {clean && !this.props.user
                 ? [
+                    <Link href="/chat" key="1">
+                      <a
+                        className={`chat ${this.state.chatCount
+                          ? 'chat-active'
+                          : ''}`}
+                      >
+                        Chat
+                        <span>{this.state.chatCount}</span>
+                      </a>
+                    </Link>,
                     <Link href="/login" key="2">
                       <a
                         className={
