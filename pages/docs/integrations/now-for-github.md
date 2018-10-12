@@ -95,7 +95,7 @@ To disable Now for a GitHub repository, use the following configuration option i
 ```
 {
   "github": {
-    "enabled": "false"
+    "enabled": false
   }
 }
 ```
