@@ -12,11 +12,11 @@ export const meta = {
   editUrl: 'pages/docs/other/faq.md'
 }
 
-## Where Can I See the Current Status of the Platform?
+## Where can I see the current status of the platform?
 
 Check our [status page](https://zeit-status.co) and [Twitter status account](https://twitter.com/zeit_status) to find current and real time updates.
 
-## What Is the Difference between Deployments and Instances?
+## What is the difference between deployments and instances?
 
 Whenever you upload files using Now CLI or Now Desktop, a new deployment is
 created. This deployment will only have one instance by default. However, every deployment
@@ -29,9 +29,9 @@ number of running instances is limited to your personal or team account's [curre
 
 If you exceed your paid plan's limit for running instances, you will
 be charged the **On Demand price** (check the [On Demand plan](/pricing)) for
-the additional instances.
+additional instances.
 
-## How Do I Deploy and Alias in a Single Command?
+## How do I deploy and alias in a single command?
 
 Create a [configuration file](/docs/features/configuration) with the keys [alias](/docs/features/configuration#alias-(string|array)) and [name](/docs/features/configuration#name-(string)) similar to this one:
 
@@ -48,11 +48,11 @@ Then run the following command:
 
 It will deploy your application under the configured name and then alias the latest deployment with the configured alias.
 
-## How Do I Remove an Old Deployment?
+## How do I remove an old deployment?
 
-Note that you do not need to remove an old deployment since it will eventually [freeze](/docs/guides/app-lifecycle-and-scalability#instances-&-scaling). If you keep it, you can easily rollback by just changing the alias.
+Note that you do not need to remove an old deployment since it will eventually [freeze](/docs/guides/app-lifecycle-and-scalability#instances-&-scaling). If you keep it, you can easily roll back by just changing the alias.
 
-But if you still want to remove it, it is possible using the following command:
+But if you still want to remove it, run the following command:
 
 <TerminalInput>now rm my-app --safe --yes</TerminalInput>
 
@@ -60,17 +60,18 @@ This command will remove all your non-aliased deployments with the name `my-app`
 
 <TerminalInput>now && now alias && now rm my-app --safe --yes</TerminalInput>
 
-## How Do I Pick the Deployment Region(S) for My Application?
+## How do I Ppck the deployment region(s) for my application?
 
-Now will deploy to the nearest region available automatically by default. You can override this behavior either
+Now will deploy to the nearest region available automatically by default. You can override this behavior by either:
 
-- [Configuring it while deploying](https://zeit.co/docs/features/scaling#scaling-while-deploying)
+- [Configuring it while deploying](https://zeit.co/docs/features/scaling#scaling-while-deploying) or
 - [Configuring it after deploying](https://zeit.co/docs/features/scaling#scaling-after-deploying)
 
-## How Do I Change My Account's Email Address?
+## How do I change my account's email address?
+
 You can change your email address from within your [account settings page](/account).
 
-## What Are the Hardware Specifications of the Deployment Instances?
+## What are the hardware specifications of the deployment instances?
 
 Each instance has up to 1GB of RAM and 1 CPU in [any paid plan](/pricing).
 
@@ -78,34 +79,34 @@ Deployments belonging to the OSS plan have half the resources of a paid plan.
 
 The storage limit of any plan is shown under the plan on [the pricing page](/pricing).
 
-## How Do I Allocate More Resources for My Application?
+## How do I allocate more resources for my application?
 
 At the moment there is no way to change this. We do have this on the roadmap though!
 
 For [enterprise customers](mailto:enterprise@zeit.co?subject=Custom%20Hardware%20Resources), we offer customizations which include more resources for deployments.
 
-## How Do I Update My Deployment's Files or Code?
+## How do I update my deployment's files or code?
 
-Deployments are immutable. This means they cannot be modified after being created. To update your application, you need to deploy the new version using the command `now`, after that you will get a new unique deployment URL similar to `my-app-hjrehxuuih.now.sh`.
+Deployments are immutable. This means they cannot be modified after being created. To update your application, you need to deploy the new version using the command `now`. After that, you will get a new unique deployment URL similar to `my-app-hjrehxuuih.now.sh`.
 
-This model enables a few interesting benefits:
+This model offers a few interesting benefits:
 
 - **Easy rollback**<br />
 You can just move your alias to an older deployment to have immediate rollbacks.
-- **Staging and Production deployments**<br />
-  A new deployment gives you a unique URL you can use as staging, share it with co-workers or clients and then after it is confirmed it works you can upgrade it to production with a single command, `now alias`.
+- **Staging and production deployments**<br />
+  A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `now alias`.
 - **Zero-Downtime deployment**<br />
   Most services will require you to restart your server (eg. Node.js). Thanks to <Now color="#000" />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
 
-## Can I Run a Database on the Now Platform?
+## Can I run a database on the Now platform?
 
-Now deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. However, using Docker it is possible to run a database in the same container of the HTTP API consuming it.
+Now deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
 
 However, due to the stateless nature of our deployments, everything you store will be reset upon the deployment instance getting recycled. The data also won't be shared across instances when [scaling](/docs/getting-started/scaling) and will be reset when unfreezing.
 
 We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in Now and scale individually to provide equal service to your database than with your app deployments.
 
-## Can I Transfer Domains into/out of ZEIT Domains?
+## Can I transfer domains into/out of ZEIT Domains?
 
 We are working on a domain transfer tool to make this process easier.
 
@@ -118,23 +119,23 @@ If you would like to move a domain from one ZEIT account to another, you could d
 1. From the current owner of the domain: `now domain rm domain.com`
 2. From the desired owner of the domain: `now domain add domain.com`
 
-After you have done this, the desired owner will be in possession of the domain and be able to utilize it with ZEIT and Now.
+After you have done this, the desired owner will be in possession of the domain and will be able to utilize it with ZEIT and Now.
 
-## Can I Use docker-compose with Now?
+## Can I use docker-compose with Now?
 
 At the moment <Now color="#000" /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now-cli/issues/294) to know when it will be supported.
 
-## How Do I Disable HTTPS and Just Use HTTP Instead?
+## How do I disable HTTPS and just use HTTP Instead?
 
-There is no way to disable SSL. All the <Now color="#000" /> deployments are HTTPS by default.
+There is no way to disable SSL. All <Now color="#000" /> deployments are HTTPS by default.
 
-## How Do I Specify an Environment Variable with a Value That Starts with `@`?
+## How do I specify an environment variable with a value that starts with `@`?
 
 We will always try to replace any environment variable where the value starts with an `@` with a [secret](/docs/features/env-and-secrets). We have [an active issue for this on GitHub](https://github.com/zeit/now-cli/issues/1061).
 
-As a workaround, you can setup a secret with a value starting with `@`.
+As a workaround, you can set up a secret with a value starting with `@`.
 
-## Why Does My Deployment Occasionally Have Long Response Times?
+## Why does my deployment occasionally have long response times?
 
 Deployments have a [default scale configuration](/docs/getting-started/scaling#default-scaling) which sets each deployment to freeze after a while from inactivity.
 
@@ -142,41 +143,39 @@ This lets you have any amount of deployments without worrying about your current
 
 This behavior can be completely avoided using the `now scale` command as described in the [previous link](/docs/getting-started/scaling#default-scaling).
 
-## Can I Remove or Delete a Team?
+## Can I remove or delete a team?
 
 You can delete a team by going to the 'Identity' section of the team's settings. Please note that this action is irreversible.
 
-## How Do I Create a Redirect from www.mysite.com to mysite.com?
+## How do I create a redirect from www.mysite.com to mysite.com?
 
-Check our guide on how to setup a redirect:
+Check out our [Setting up a Redirect with Now](/docs/guides/redirect) guide for instructions.
 
-> [Setting up a Redirect with Now](/docs/guides/redirect)
-
-## Can I Run a Bot on Now?
+## Can I run a bot on Now?
 
 Yes, you can! Remember to expose a single port running an HTTP server.
 
-If your bot is working in the background; before removing it, it is recommended that you manually scale your current bot deployment down to zero instances then deploy a new version. This avoids having your bot running multiple times.
+If your bot is working in the background, it is recommended that you manually scale your current bot deployment down to zero instances then deploy a new version _before_ removing it. This avoids having your bot running multiple times.
 
 <TerminalInput>now scale my-bot-hjnfyyugps.now.sh 0</TerminalInput>
 
 This will ensure the bot is no longer running before you remove it or deploy a new version.
 
-## How Do I Change the Nameservers of a Domain Purchased with ZEIT Domains?
+## How do I Change the nameservers of a domain purchased with ZEIT Domains?
 
 This is not currently possible to do via the [Now CLI](/docs/clients/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
 
-## How Can I Avoid the Prompt about the Deployment Being Public under the OSS Plan?
+## How can I avoid the prompt about the deployment being public under the OSS Plan?
 
 If you add the `--public` option when deploying, you will not be asked to confirm if you are aware the deployment's contents will be made public.
 
 <TerminalInput>now --public</TerminalInput>
 
-## How Do I Prevent My Deployment from Freezing?
+## How do I prevent my deployment from freezing?
 
 Check ["Why does my deployment occasionally have long response times?"](/docs/other/faq#why-does-my-deployment-occasionally-have-long-response-times)
 
-## If I Need a Special Invoice How Do I Get It?
+## If I need a special invoice, how do I get it?
 
 We send a receipt to your email address for every card transaction including a link to download the invoice as a PDF. Your invoice can also be downloaded from the [Usage section of your dashboard](https://zeit.co/dashboard/usage). For special invoicing requests, please contact us at [support@zeit.co](support@zeit.co?subject=Invoice) with the following information:
 
@@ -192,45 +191,45 @@ We send a receipt to your email address for every card transaction including a l
 
 Please note that we can only honor special invoicing requests that come from the personal account's email address or, in the event the request pertains to a team, the team owner's email address.
 
-## How Do I Remove or Delete My Account?
+## How do I remove or delete my account?
 
 Contact us at [support@zeit.co](support@zeit.co?subject=Remove%20account) from the account's email address.
 
-## How Many Levels of Subdomain Can I Use?
+## How many levels of subdomains can I use?
 
 You can define up to 10 levels of subdomains for a custom domain you own. For `.now.sh` domains you can only use one level.
 
-## How Do I Make My Deployments Private?
+## How do I make my deployments private?
 
 All the deployments made with a paid account or team are private by default.
 
-## Why Do I Still See the Source Code of My Deployment If It Is Private?
+## Why do I still see the source code of my deployment if it is private?
 
 If you are logged in to [zeit.co](/login), you can still access the source when going to `_src`.
 
-## Is It Possible to Host WordPress to Now Platform?
+## Is It possible to host WordPress on the Now Platform?
 
 Check our WordPress example repository.
 
 > [https://github.com/now-examples/wordpress](https://github.com/now-examples/wordpress)
 
-## Is It Possible to Host Ghost to Now Platform?
+## Is it possible to host Ghost on the Now Platform?
 
 Check our Ghost example repository.
 
 > [https://github.com/now-examples/ghost](https://github.com/now-examples/ghost)
 
-## How Do I Add My Deployments to a List of Whitelisted Ip Addresses?
+## How do I add my deployments to a list of whitelisted IP Addresses?
 
 The IP addresses of <Now color="#000" /> deployments are too dynamic and for that reason, we don't provide a list of them.
 
 Our recommendation when connecting to external services (eg. a database) is to use a strong password and SSL.
 
-## How Do I Setup an Email for My Domain Purchased with Now Domains?
+## How do I set up an email for a domain purchased through Now Domains?
 
 &#8203;<Now color="#000" /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
-## How Do I Use Private Npm Modules or Github Repositories?
+## How do I use private mpm modules or GitHub repositories?
 
 You can read how to use private npm modules on our guide:
 
@@ -240,43 +239,43 @@ For private GitHub repositories you can follow the GitHub guide:
 
 > [Easier builds and deployments using Git over HTTPS and OAuth](https://github.com/blog/1270-easier-builds-and-deployments-using-git-over-https-and-oauth)
 
-## Is It Possible to Reuse an Existing Alias?
+## Is it possible to reuse an existing alias?
 
 Yes, you can use `now alias` to move an existing alias from a deployment to another the same way you use it to assign it the first time.
 
 Note that you can not use an alias already used by another user until they remove it.
 
-## Why Does My Deployment Keep Running after I Have Removed It?
+## Why does my deployment keep running after I've removed it?
 
 The actual deletion of a deployment could take around a minute, but sometimes this could take longer. If your deployment is showing side-effects without a request (eg. a process running every N minutes), we recommend that you first scale it to zero instances and then remove it.
 
-## Does Now Supports Wildcard Subdomains?
+## Does Now support wildcard subdomains?
 
 We have support for [wildcard SSL certificates](https://zeit.co/blog/wildcard-certs), but wildcard subdomains are not currently supported.
 
-## Can I Have a Refund for a Domain Purchase?
+## Can I have a refund for a domain purchase?
 
-No, there is no way to release a domain after it was purchased until the next renewal date, because of that we can not give you a refund.
+Since there is no way to release a domain after it was purchased until the next renewal date, we can not give you a refund.
 
-If you do not want to renew a domain purchased with Now Domains; remove it with the following command:
+If you do not want to renew a domain purchased with Now Domains, remove it with the following command:
 
 <TerminalInput>now domain rm mysite.com</TerminalInput>
 
-## Do You Offer Custom Support or Help with Next.js?
+## Do you offer custom support or help with Next.js?
 
 Yes, we do. Let us know if you'd like our help at [enterprise@zeit.co](enterprise@zeit.co?subject=Next.js%20Custom%20Support).
 
-## Is It Possible to Remove the Logs of a Deployment?
+## Is it possible to remove deployment logs?
 
-At the moment this is not possible.
+This is not currently possible.
 
-## Is It Possible to Download the Files or Code of My Deployments?
+## Is it possible to download the files or code of my deployments?
 
-It is not possible to download files of a deployment from the CLI nor the web, contact us at [support@zeit.co](support@zeit.co?subject=Download%20Deployment%20Code) from the personal account's email address or, in the event the request pertains to a team, the team owner's email address and we can help you.
+It is not possible to download files of a deployment from the CLI nor the web. Contact us at [support@zeit.co](support@zeit.co?subject=Download%20Deployment%20Code) from the personal account's email address or, in the event the request pertains to a team, the team owner's email address, and we can help you.
 
-## How Do I Run Scheduled Tasks on the Now Platform?
+## How do I run scheduled tasks on the Now platform?
 
-While we do not have a built-in way to run scheduled tasks it is possible.
+While we do not have a built-in way to run scheduled tasks, it is possible.
 
 Create a deployment with a basic HTTP service running and initialize a `setInterval` and a second deployment with the code of your tasks running behind an HTTP server.
 
@@ -290,17 +289,17 @@ It depends on your code. Each instance belonging to a paid account or team has [
 
 The amount of HTTP requests you can have per instance is based on the previous information and your code.
 
-## Why Would I Require Autoscale and Not Just Use All My 10 Instances at the Same Time?
+## Why would I require autoscale and not just use all my 10 Instances at the same time?
 
 Your instance limit [(based on your plan)](/pricing) is per account not per deployment. For example; if you want to have more than one running deployment you need to share those instances. Using autoscale will let you have N amount of deployments and scale as required.
 
-## Where Do I See My Current Bandwidth and Logs Consumption?
+## Where do I see my current bandwidth and logs consumption?
 
 You can see those metrics on [your account](/dashboard) or team [dashboard](/blog/zeit-dashboard).
 
-## Is It Possible to Upload Files to a Running Now Instance?
+## Is it possible to upload files to a running Now instance?
 
-Yes, it is possible under the `/tmp` folder. Note that each instance has its own temporary directory, this means you can lose those files under following conditions:
+Yes, it is possible under the `/tmp` folder. Note that each instance has its own temporary directory, which means you can lose those files under following conditions:
 
 - A new deployment will have a newly created temporary folder
 - Each [instance of the same deployment](docs/getting-started/scaling) will have its own temporary folder.
@@ -308,32 +307,32 @@ Yes, it is possible under the `/tmp` folder. Note that each instance has its own
 
 We recommend that you only do this for temporary files and use [now-storage](https://github.com/sergiodxa/now-storage) or another storage service for hosting those files indefinitely.
 
-## How Do You Protect Deployments against DDoS Attacks?
+## How do you protect deployments against DDoS attacks?
 
 Both our DNS and HTTP(s) load balancing services have sophisticated DDoS protections in place.
 
 Attacks come in very different forms and sizes. Therefore, we offer more advanced protection in the [enterprise](mailto:enterprise@zeit.co?subject=Advanced%20DDoS%20Protection) tiers.
 
-## How Do I Setup a Password for My ZEIT Account?
+## How do I set up a password for my ZEIT Account?
 
 ZEIT's login is serverless. You just need your email address and don't need to remember yet another password.
 
 For custom requirements, you can contact us at [enterprise@zeit.co](mailto:enterprise@zeit.co?subject=Advanced%20Authentication).
 
-## Does Now Offer Support for IPv6?
+## Does Now offer support for IPv6?
 
 We do not currently offer support for IPv6.
 
-## Does Now Block Outgoing Connections in Any Way?
+## Does Now block outgoing connections in any way?
 
 We block ports 25 and 587 on Now deployments to avoid spam.
 Any other port is available for use.
 
-## Can I Use a 3-D Secure credit card with ZEIT?
+## Can I Uue a 3-D secure credit card with ZEIT?
 
 We do not currently offer support for the 3-D Secure protocol.
 
-## Is Now GDPR Compliant?
+## Is Now GDPR compliant?
 
 We intend to be fully GDPR compliant. [Check out our privacy policy for more information](https://zeit.co/privacy).
 
@@ -347,7 +346,7 @@ Due to the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-
 
 > Read more on [Aliases and Domains](/docs/features/aliases).
 
-## How Can I Use a Separate Now Configuration for Staging and Production?
+## How can I use a separate Now configuration for staging and production?
 
 You can have a `now.staging.json` file and a `now.json` for production and use the parameter `--local-config=now.staging.json` while deploying (or aliasing) to customize the configuration file to use.
 
