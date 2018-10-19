@@ -60,7 +60,7 @@ This command will remove all your non-aliased deployments with the name `my-app`
 
 <TerminalInput>now && now alias && now rm my-app --safe --yes</TerminalInput>
 
-## How do I Ppck the deployment region(s) for my application?
+## How do I pick the deployment region(s) for my application?
 
 Now will deploy to the nearest region available automatically by default. You can override this behavior by either:
 
