@@ -1,7 +1,7 @@
 {
   "version": 1,
   "type": "docker",
-  "alias": "docs-staging.zeit.sh",
+  "alias": "docs.zeit.sh",
   "features": {
     "cloud": "v2"
   }
