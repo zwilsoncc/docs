@@ -66,7 +66,7 @@ async function main(req, res, parsedUrl) {
   // Redirect to upgrade guide for v1
   if (req.url.endsWith('/docs/v1-upgrade')) {
     res.writeHead(302, {
-      Location: '/docs/v2/platform/upgrade-to-2.0'
+      Location: '/docs/v2/platform/upgrade-to-2-0'
     })
     res.end()
     return
