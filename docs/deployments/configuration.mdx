@@ -124,8 +124,15 @@ For more information, refer to [Builds](/docs/v2/deployments/builds) and [Builde
 **Valid values:** a list of route definitions.
 
 **Route object definition:**
-- `src`: A PCRE-compatible regular expression that matches each incoming pathname (excluding querystring)
+- `src`: A PCRE-compatible regular expression that matches each incoming pathname (excluding querystring).
 - `dest`: A destination pathname or full URL, including querystring, with the ability to embed capture groups as $1, $2…
+- `headers`: A set of headers to apply for responses.
+- `status`: A status code to respond with. Can be used in tandem with `Location: ` header to implement redirects.
+
+**Example:**
+
+The following example configures custom routes that map to static files and lambdas
+
 
 <Example>
 <P.B>Usage Example:</P.B>
@@ -136,8 +143,12 @@ For more information, refer to [Builds](/docs/v2/deployments/builds) and [Builde
     { "src": "*.js", "use": "@now/node" },
   ]
   "routes": [
-    { "src": "/custom-page", "dest": "index.html" },
-    { "src": "/api", "dest": "my-api.js" }
+    { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "index.html" },
+    { "src": "/api", "dest": "my-api.js" },
+    { "src": "/users/(?<id>[^/]", "dest": "users-api.js?id=$id" },
+    { "src": "/.*", "dest": "https://my-old-site.com"},
+    { "src": "/legacy", "status": 404},
+    { "src": "/redirect", "status": 301, "headers": { "Location": "https://zeit.co/" } }
   ]
 }`}</Code>
 </Example>
