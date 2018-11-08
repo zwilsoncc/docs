@@ -5,7 +5,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 
 ### Static Build (@now/static-build)
-This module takes a Node.js `package.json` file, installs all its dependencies, executes the `now-build` step and exposes the resulting `dist` directory as the [build output](build-output) for serving.
+This module takes a Node.js `package.json` file, installs all its dependencies, executes the `now-build` step and exposes the resulting `dist` directory as the [build output](/docs/v2/deployments/builds#source-and-outpu) for serving.
 
 #### When to use it
 
@@ -15,7 +15,7 @@ This Builder is very useful when you have source files that when built will be s
 
 #### How to use it
 
-First, decide on a directory where your statically generated site source code will reside. This can be the top level directory or a sub-directory inside a [monorepo](monorepo).
+First, decide on a directory where your statically generated site source code will reside. This can be the top level directory or a sub-directory inside a monorepo.
 
 In this example, we will use `@now/static-build` to build two Hugo websites statically.
 
@@ -37,26 +37,26 @@ Hugo requires that you download and configure a theme. For this example we ran i
 
 ```
 git init;\\
-  git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\\
-  echo 'theme = "ananke"' >> config.toml
-  ```
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\\
+echo 'theme = "ananke"' >> config.toml
+```
 
-  And create an example post in both `docs` and `blog`:
+And create an example post in both `docs` and `blog`:
 
-  <TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
+<TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
 
-  Make sure `node_modules` and `dist` are in [`.nowignore`](/docs/v2/deployments/ignoring-source-paths)`
+Make sure `node_modules` and `dist` are in [`.nowignore`](/docs/v2/deployments/ignoring-source-paths)
 
-  ```
-  node_modules
-  ```
+```
+node_modules
+```
 
-  Finally, for Now to know what to execute, add to `package.json`:
+Finally, for Now to know what to execute, add to `package.json`:
 
-  ```
-  "scripts": {
-    "now-build": "hugo -d dist"
-  }
+```
+"scripts": {
+  "now-build": "hugo -d dist"
+}
 ```
 
 Notice that `@now/static-build`:
