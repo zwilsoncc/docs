@@ -1,0 +1,49 @@
+### Overview
+
+Builders are modules that take a deployment's source and return an output, consisting of [either static files or dynamic Lambdas](/builds-source-and-output).
+
+#### When to Use Builders
+
+If your project has source files that require transformation to be served to users, Builders enable this ability when deploying.
+
+Whether [HTML files need to be minified](now/html-minifier), or dynamic content such as a [Node](now/node), [PHP](now/php), or [Go](now/go) app, need to be deployed, Builders offer the [flexibility and availability](/docs/v2/deployments/builders/developer-guide) needed to reach that goal.
+
+#### How to Use Builders
+
+Builders can be used in with Now by creating a `now.json` file in a project and then [using a `builds` property](/builds-doc) within that configuration:
+
+    {
+    	"builds": [
+    		{ "src": "*.html", "use": "@now/static" },
+    		{ "src": "date.js", "use": "@now/node" }
+    	]
+    }
+
+The `builds` property is an array of objects where each object is a build step, including a `src` and a `use` property, at least.
+
+The Builder will receive a list of files based on the `src` property's [glob](https://en.wikipedia.org/wiki/Glob_(programming)) value.
+
+#### Developing your Own Builder
+
+Extending the feature-set of a Now deployment is as simple as creating a Builder that, as previously mentioned, takes a list of files and outputs either static files or dynamic [Lambdas](/docs/v2/deployments/concepts/lambdas).
+
+[A full API reference is available to help with creating Builders.](/docs/v2/deployments/builders/developer-guide)
+
+#### Technical Details
+
+##### Caching data
+
+A builder can retain an archive of up to `100mb` of the filesystem at `build` time. The cache key is generated as a combination of
+
+- Deployment `name` (i.e.: the app name)
+- Team id or user id
+- Entrypoint path (e.g.: `api/users/index.go`)
+- Builder identifier including version (e.g.: `@now/go@0.0.1`)
+
+The cache will be invalidated if any of those items changes. The user can bypass the cache by running `now -f`.
+
+##### Limits
+
+- Builders can run for a maximum of 15 minutes before the execution times out.
+- The maximum cache archive size of a Builder is 100mb.
+- The cache TTL is 7 days.

@@ -1,0 +1,65 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import Card from '~/components/card'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+export const meta = {
+  title: 'Installation',
+  description: 'Preparing to deploy applications by installing the official Now clients or service integrations.'
+}
+
+## Installation
+
+We officially support clients and service integrations that communicates with our [Public API](/api) to enable simple deployment workflows.
+
+Our recommendation is to install:
+
+- [Now Desktop](#now-desktop) (which bundles [Now CLI](#now-cli)) to be able to quickly deploy while you develop and stay on top of your organization's events.
+- [Now for GitHub](#now-for-github) for a first-class [GitHub](https://github.com) integration that enables [push-to-deploy](#), [alias](#) to a [custom domain on merge](#), and much more.
+
+### Now Desktop
+The latest Now Desktop is [downloadable from our website](/download).
+
+Alternatively, install with [brew](https://brew.sh/):
+
+<TerminalInput>{`brew update
+brew cask install now`}</TerminalInput>
+
+### Now CLI
+The Now CLI is [open-source](https://github.com/zeit/now-cli) and distributed as binaries. It is very frequently updated and embeds helpful documentation on how to use it.
+
+To verify it's installed and get started, run:
+
+<TerminalInput>now help</TerminalInput>
+
+Run the following command to log in with your ZEIT account through Now CLI:
+<TerminalInput>now login</TerminalInput>
+
+<Note>
+  With <GenericLink href="#now-desktop">Now Desktop</GenericLink> installed, you can skip these instructions. Now CLI is packaged with Now Desktop and syncs login information and context between both clients. We encourage you to enable the option from within Now Desktop to install and keep your Now CLI up to date.
+</Note>
+
+#### From npm
+We distribute the [Now CLI Binaries](#from-binaries) via `npm`, for convenience and ease of distribution. If you already have `npm`, which comes with Node.js, you can run:
+<TerminalInput>npm i -g now</TerminalInput>
+
+#### From binaries
+The Now CLI binaries are [available from our website](/download#now-cli) for macOS, Windows, Linux, and Alpine Linux.
+
+These binaries do **not** need Node.js installed to run.
+
+### Now for GitHub
+Use the official Now for GitHub integration to automatically deploy each push and alias the latest iteration on the default branch.
+
+Now for GitHub can be installed from the [account settings page](/account):
+
+<Image
+src={`${IMAGE_ASSETS_URL}/docs/now-for-github/github-connect.png`}
+width={1448/2}
+height={484/2}
+/>
+<Caption>The Now for GitHub installation section within the account or team general settings page.</Caption>
+
+<Card title="Read Next: Deployment Basics" href="/docs/v2/deployments/basics">Use the Now clients or service integrations to deploy applications.</Card>

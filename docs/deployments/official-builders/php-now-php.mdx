@@ -1,0 +1,54 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### PHP (@now/php)
+
+The `@now/php` builder allows you to use any `.php` file.
+
+<Note>This builder will only include one PHP source file per <GenericLink href="/docs/v2/deployments/concepts/lambdas">Lambda</GenericLink>. In the future, it will automatically include its dependencies via static analysis.</Note>
+
+#### When to use it
+
+Whenever you want to use PHP.
+
+##### How to use it
+
+Define a `.php` file:
+
+```
+<?php phpinfo(); ?>
+```
+
+And a `now.json` like:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.php", "use": "@now/php" }
+  ]
+}
+```
+
+After running `now`, you'll get a URL like this: https://php-deployment-7z9gyzb8j.now.sh/
+
+#### Technical Details
+
+##### Entrypoint
+
+The entrypoint file must be a `.php` source file.
+
+##### Global variables
+
+All standard PHP variables like `$_GET`, `$_POST` are supported, with the exception of:
+
+- `$_SESSION`
+- `$_FILES`
+
+##### Version
+
+PHP 7 is implemented via the `go-php` package and bundled as a Go binary.

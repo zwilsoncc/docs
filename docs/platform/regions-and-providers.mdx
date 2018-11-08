@@ -1,0 +1,53 @@
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import { Table, Row, Column } from '~/components/table'
+
+export const meta = {
+  description: 'An listing and explanation of the regions and providers Now implements.'
+}
+
+## Regions and Providers
+
+The Now Platform acts as a Universal API and Overlay Network on top of existing cloud infrastructure providers.
+
+In some cases, the routing layer is in a different region from where [Now Lambdas](/docs/v2/deployments/concepts/lambdas) are invoked. The roundtrip latency between them is usually in the 1 millisecond to sub-millisecond range.
+
+<Table>
+  <Row header>
+    <Column left>Region ID</Column>
+    <Column>Reference Location</Column>
+    <Column>Provider Region<br /> (Routing)</Column>
+    <Column right>Provider Region<br /> (Now Lambdas)</Column>
+  </Row>
+
+  <Row>
+    <Column left>sfo1</Column>
+    <Column>San Francisco, CA, USA</Column>
+    <Column>AWS us-west-1</Column>
+    <Column right>AWS us-west-1</Column>
+  </Row>
+
+  <Row>
+    <Column left>bru1</Column>
+    <Column>Brussels, Belgium, Europe</Column>
+    <Column>GCP eu-west-1</Column>
+    <Column right>AWS eu-west-1</Column>
+  </Row>
+
+  <Row>
+    <Column left>gru1</Column>
+    <Column>Sao Paulo, Brazil</Column>
+    <Column>AWS sa-east-1</Column>
+    <Column right>AWS sa-east-1</Column>
+  </Row>
+
+  <Row>
+    <Column left>iad1</Column>
+    <Column>Washington DC, USA</Column>
+    <Column>AWS us-east-2</Column>
+    <Column right>AWS us-east-1</Column>
+  </Row>
+</Table>
+
+

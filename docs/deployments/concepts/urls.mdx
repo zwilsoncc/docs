@@ -1,0 +1,35 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import { InlineCode } from '~/components/text/code'
+
+### URLs
+A deployment is always associated with a unique URL, that has the following fundamental components:
+
+- The deployment subdomain, made up of:
+  - The deployment name
+  - A UID
+- The deployment suffix, which defaults to `now.sh` but is customizable with the [custom domain suffix add-on](/docs/v2/platform/add-ons#custom-deployment-suffix)
+
+<Image src={`https://assets.zeit.co/image/upload/v1540862385/front/docs/concepts/url-explainer.png`}
+width={1200/2}
+height={400/2}
+/>
+<Caption>A breakdown of a Now deployment URL structure.</Caption>
+
+#### Subdomain
+The subdomain can be at most `63` characters.
+
+#### Deployment name
+When a deployment is created, it must supply a `name`. If the user doesn't explicitly provide one, Now CLI will use the directory name.
+
+The name can take up, at most, `53` characters. It is always followed by a dash `-`.
+
+#### UID (Unique identifier)
+The UID is derived from a large cryptographically random number encoded as 9 alphanumeric characters.
+
+#### Suffix
+The default suffix for all deployments is `now.sh`. It's registered with Mozilla's [Public Suffix List](https://publicsuffix.org/).
+
+For enhanced isolation and security, we recommend configuring a [custom domain suffix](/docs/v2/platform/add-ons#custom-deployment-suffix).

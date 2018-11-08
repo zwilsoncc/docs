@@ -1,0 +1,37 @@
+import Example from '~/components/api/example'
+import { Code } from '~/components/text/code'
+import { HeadersTable, Row, Cell, BoldCell } from '~/components/api/table'
+
+## Rate Limits
+
+We limit the number of calls you can make over a certain period of time.
+Rate limits vary and are specified by the following header in all responses:
+
+<HeadersTable>
+  <Row>
+    <BoldCell>X-Rate-Limit-Limit</BoldCell>
+    <Cell>The maximum number of requests that the consumer is permitted to
+    make per minute.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>X-Rate-Limit-Remaining</BoldCell>
+    <Cell>The number of requests remaining in the current rate limit window.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>X-Rate-Limit-Reset</BoldCell>
+    <Cell>The time at which the current rate limit window resets in UTC
+    epoch seconds.</Cell>
+  </Row>
+</HeadersTable>
+
+When the rate limit is **exceeded** an error is returned with the status **429 Too Many Requests**:
+
+<Example>
+  <Code key="code">{`{
+  "error": {
+    "code": "rate_limited",
+    "message": "Rate limit exceeded",
+  }
+}`}</Code>
+</Example>
+

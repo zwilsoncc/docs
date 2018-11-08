@@ -1,0 +1,19 @@
+import Example from '~/components/api/example'
+import { Code, InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+
+## Versioning
+
+All endpoints and examples are designated with a specific version. Versions vary per endpoint and are not global.
+
+The response shape of a certain endpoint is not guaranteed to be fixed over time. In particular, we might add new keys to responses without bumping a version endpoint, which will be noted in the changelog.
+
+To ensure the security and correctness of your application, make sure to only read the keys from the response that your application needs. Don't proxy entire responses to third-parties without validation.
+
+Old versions of each endpoint are supported for as long as possible. When we intend to deprecate, we will notify users in the changelog section.
+
+<Example>
+  <span>Endpoint versions follow the base URL and come before the endpoint. For example, using version <InlineCode>6</InlineCode> of the <GenericLink href="#endpoints/deployments">deployments endpoint</GenericLink>:</span>
+  <Code>https://api.zeit.co/v6/now/deployments</Code>
+</Example>
+

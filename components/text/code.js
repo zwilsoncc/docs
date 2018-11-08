@@ -12,6 +12,7 @@ export const Code = ({ children, syntax }, { darkBg } = {}) => (
           white-space: pre;
           overflow: auto;
           -webkit-overflow-scrolling: touch;
+          background: white;
         }
         code {
           color: #bd10e0;
@@ -23,6 +24,7 @@ export const Code = ({ children, syntax }, { darkBg } = {}) => (
         }
         pre.dark {
           border-color: #333;
+          background: transparent;
         }
         .dark code {
           color: #fff;
@@ -39,13 +41,13 @@ Code.contextTypes = {
   darkBg: PropTypes.bool
 }
 
-export const InlineCode = ({ children, noWrap }) => (
+export const InlineCode = ({ children, noWrap, color }) => (
   <code className={noWrap && 'no-wrap'}>
     {children}
     <style jsx>
       {`
         code {
-          color: #bd10e0;
+          color: ${color ? color : '#bd10e0'};
           font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
             serif;
@@ -67,4 +69,10 @@ export const InlineCode = ({ children, noWrap }) => (
       `}
     </style>
   </code>
+)
+
+export const RequestHeader = ({ children, ...props }) => (
+  <InlineCode noWrap color="#067df7" {...props}>
+    {children}
+  </InlineCode>
 )

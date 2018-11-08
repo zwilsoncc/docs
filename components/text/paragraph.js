@@ -63,7 +63,7 @@ export const Quote = ({ children }, { darkBg } = {}) => (
         padding: 10px 20px;
         border-left: 5px solid #000;
         margin: 20px 0;
-        color: #888;
+        color: #444;
       }
 
       blockquote.dark {

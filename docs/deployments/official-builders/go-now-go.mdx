@@ -1,0 +1,54 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Go (@now/go)
+
+This builder takes in a Go program that defines a singular HTTP handler and outputs it as a [Lambda](/docs/v2/deployment/concepts/lambdas).
+
+#### When to use it
+
+Whenever you want to expose an API or a function written in Go.
+
+#### How to use it
+
+Define a `index.go` file inside a folder as follows:
+
+```
+package main
+
+import (
+        "fmt"
+        "net/http"
+)
+
+func Handler(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "<h1>Hello from Go on Now!</h1>")
+}
+```
+
+And define a `now.json` like:
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.go", "use": "@now/go" }
+  ]
+}
+```
+
+Notice that the API is cohesive with the `net/http` Go API. Your main entrypoint function **must be** called `Handler`.
+
+The example above can be seen live from the following URL: https://go-deployment-l78bij0fj.now.sh/
+
+#### Technical Details
+
+##### Entrypoint
+
+The entrypoint file must be a `.go` source file with a `Handler` function inside implementing the `net/http` API.
+
+##### Version
+
+Go 1.x is used.

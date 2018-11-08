@@ -4,7 +4,7 @@ export const H1 = ({ children }) => (
     <style jsx>
       {`
         h1 {
-          font-weight: 200;
+          font-weight: 400;
           font-size: 32px;
         }
       `}
@@ -84,7 +84,7 @@ export const H5 = ({ children }) => (
       {`
         h5 {
           font-weight: bold;
-          font-size: 15px;
+          font-size: 14px;
         }
       `}
     </style>

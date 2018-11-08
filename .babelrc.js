@@ -9,5 +9,9 @@ const env = {
 
 module.exports = {
   presets: ['next/babel'],
-  plugins: [['transform-define', env], 'markdown-in-js/babel']
+  plugins: [
+    ['transform-define', env],
+    'markdown-in-js/babel',
+    'babel-plugin-root-import'
+  ]
 }

@@ -1,0 +1,83 @@
+import Example from '~/components/api/example'
+import { Code } from '~/components/text/code'
+
+## Generic Errors
+
+These error codes are consistent for all endpoints.
+
+### Forbidden
+You're not authorized to use the endpoint. This usually happends due to missing an user token.
+
+> Is similar to the HTTP 403 Forbidden error.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "forbidden",
+      "message": "Not authorized"
+    }
+  }`}</Code>
+</Example>
+
+### Rate Limited
+You exceeded the maximum alloted requests.
+
+The limit of request is per endpoint basis so you could continue using another endpoints even if some of them give you this error.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "rate_limited",
+      "message": "Rate limit exceeded",
+    }
+  }`}</Code>
+</Example>
+
+### Bad Request
+There was an error with the request, the `error.message` would contain information about the issue.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "bad_request",
+      "message": "An english description of the error that just occurred",
+    }
+  }`}</Code>
+</Example>
+
+### Internal Server Error
+This errors is similar to the HTTP 500 Internal Server Error error code.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "internal_server_error",
+      "message": "An unexpected internal error occurred"
+    }
+  }`}</Code>
+</Example>
+
+### Resource Not Found
+The endpoint you're requesting doens't handle the method you defined. The error message will contain the methods the endpoint responds to.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "method_unknown",
+      "message": "This endpoint only responds to METHOD"
+    }
+  }`}</Code>
+</Example>
+
+### Method Unknown
+The endpoint you're requesting doens't handle the method you defined. The error message will contain the methods the endpoint responds to.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "method_unknown",
+      "message": "This endpoint only responds to METHOD"
+    }
+  }`}</Code>
+</Example>
+

@@ -1,0 +1,25 @@
+## Headers
+
+The following headers are included by the [**Basic CDN**](/docs/v2/routing/caching):
+
+### now: 1
+
+This header is used for identifying a response coming from the Now platform
+
+### server: now
+
+Similar to `now: 1`. This header can be overridden by other proxies (e.g.: Cloudflare)
+
+### x-now-cache
+
+Possible values: `HIT`, `MISS, and `BYPASS`.
+
+Determines whether the value was read from our edge cache
+
+### x-now-id
+
+Unique identifier for each request
+
+### x-now-trace
+
+Contains list of our data centers thru which the request has traversed

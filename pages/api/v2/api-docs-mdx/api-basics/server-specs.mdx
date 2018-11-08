@@ -1,0 +1,15 @@
+## Server Specs
+### Origins
+The Now API serves endpoints from Origin nodes located both in SFO1 (US West) and BRU1 (Brussels, Europe).
+
+Each request to any `api.zeit.co` endpoint, will be automatically resolved to the closest Origin location using Anycast. Allowing requests to be routed this way is the recommended way to use our API.
+
+If requests are desired to hit a certain location, however, the API can be accessed through individual URLs for each Origin. SFO1 can be resolved through `api-sfo1.zeit.co`, and BRU1 can be resolved through `api-bru1.zeit.co`.
+
+### HTTP and TLS
+The API supports HTTP versions 1, 1.1, and 2, although HTTP/2 is preferred.
+
+TLS 1.1 and 1.2 are supported, although TLS protocol 1.2 is recommended.
+
+For more information on TLS support, refer to the [SSL Labs report](https://www.ssllabs.com/ssltest/analyze.html?d=api.zeit.co&hideResults=on&latest).
+

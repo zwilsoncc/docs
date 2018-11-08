@@ -1,0 +1,97 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Node.js Server (@now/node-server)
+
+<Note>We <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node">recommend using <InlineCode>@now/node</InlineCode></GenericLink> to best leverage Node.js in a serverless environment. This Builder is production-ready but should only be used by advanced users.</Note>
+
+This Builder takes any Node.js [HTTP server](node-http-server) and wraps it inside a [lambda](lambda).
+
+#### When to use it
+
+To best take advantage of the [granularity of serverless](lambda-granularity), we recommend focusing on exposing function entrypoints to your APIs.
+
+However, to ease the upgrade process to Now 2.0, porting over old non-serverless applications or testing out the system with an existing app, we created and maintain `@node/node-server`.
+
+#### How to use it
+
+Point `@now/node-server` to a file that opens a HTTP server that listens on a port.
+
+In this example, we will set up an [Express.js](https://expressjs.com/) application and a vanilla HTTP server.
+
+First, we will create two directories inside `my-project`
+
+<TerminalInput>{`mkdir -p my-project/{node-http,express}`}</TerminalInput>
+
+We will ensure `node_modules` are ignored with [`.nowignore`](/docs/v2/deployments/ignoring-source-paths):
+
+```
+node_modules
+```
+
+Inside `express`, we will set up and install a basic express server:
+
+<TerminalInput>yarn add express</TerminalInput>
+
+And `express/index.js` as follows:
+```
+const app = require('express')()
+app.get('*', (req, res) => {
+  res.end('Hello from Express.js!');
+})
+app.listen();
+```
+
+Notice that `listen` does not receive a port, which means it can listen on an ephemeral port. `@now/node-server` works *with any port you listen on*.
+
+We will do the same with `node-http/index.js`:
+
+```
+require("http")
+  .createServer((req, res) => {
+    res.send("Hello from a vanilla server!");
+  })
+  .listen();
+```
+
+Finally we will configure a `now.json` that builds our directories concurrently to turn them into [Lambdas](/docs/v2/deployments/concepts/lambdas) that can be invoked on demand:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "*/index.js", "use": "@now/node-server" }
+  ]
+}
+```
+
+As a result, our deployment will have two routes:
+- `/express`
+- `/node-server`
+
+You can check them out live here: https://my-express-project-pugp5a7l8.now.sh/
+
+#### Technical Details
+
+##### Entrypoint
+
+The entrypoint is always a single file that when loaded via `require` opens **a single HTTP server port** where the main application listens.
+
+##### Dependencies installation
+
+The installation algorithm of dependencies works as follows:
+
+- If a `package-lock.json` is present, `npm install` is used
+- Otherwise, `yarn` is used.
+
+##### Private npm modules
+
+To install private npm modules, define `NPM_AUTH_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build-env) in `now.json`.
+
+##### Node.js version
+
+The Node.js version used is the latest in the **8 branch**.

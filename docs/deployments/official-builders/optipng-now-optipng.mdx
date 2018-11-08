@@ -1,0 +1,50 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Optipng (@now/optipng)
+
+This builder optimizes `.png` files using [optipng](http://optipng.sourceforge.net/).
+
+#### When to use it
+
+When you want to store in your repository png files that might or might not be optimized, but want to make sure they're always the smallest they can be, without losing quality, when served to your end users.
+
+#### How to use it
+
+We'll define a `index.html` file:
+
+```
+<h1>Hello there</h1>
+<img src="/photos/1.png" width="500" />
+```
+
+We will create a photos directory and download our sample PNG into it:
+
+<TerminalInput>{`mkdir photos
+curl https://file-aazttvugaa.now.sh/ -o photos/1.png`}</TerminalInput>
+
+Then we'll define our build step to optimize our images:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@now/static" },
+    { "src": "photos/*.png", "use": "@now/optipng" }
+  ]
+}
+```
+
+Notice that in addition to `@now/optipng` we are defining [`@now/static`](/docs/v2/deployments/official-builders/static-now-static). This is necessary because once a build is defined, Now only includes their outputs to prevent potential source code leakage. In turn, all additional source files you want to copy over need to be specified with [`@now/static`](/docs/v2/deployments/official-builders/static-now-static).
+
+The resulting deployment URL: https://optipng-deployment-p6gj9kt47.now.sh/
+
+#### Technical Details
+
+##### Entrypoint
+
+The entrypoint is always a `.png` file you want to optimize.

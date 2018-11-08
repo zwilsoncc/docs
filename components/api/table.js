@@ -1,5 +1,6 @@
 import React from 'react'
 import debounce from 'lodash.debounce'
+import { RequestHeader } from '../text/code'
 
 class ScrollerContainer extends React.PureComponent {
   state = { hasMoreScroll: false }
@@ -50,6 +51,7 @@ class ScrollerContainer extends React.PureComponent {
         <style jsx>{`
           main {
             position: relative;
+            margin-bottom: 24px;
           }
           .scroller {
             overflow-x: auto;
@@ -182,6 +184,11 @@ export function Cell({ children, isHead, center }) {
           td:last-child {
             padding-right: 0;
           }
+
+          :global(tr:last-child) td {
+            border-bottom-color: transparent;
+          }
+
           .center {
             text-align: center;
           }
@@ -194,7 +201,7 @@ export function Cell({ children, isHead, center }) {
 export function TypeCell({ children, ...props }) {
   return (
     <Cell {...props}>
-      <a className={props.isHead ? 'head' : null} href="/api#api-basics/types">
+      <a className={props.isHead ? 'head' : null} href="#api-basics/types">
         <span>{children}</span>
         {props.isHead ? <QuestionInCircle /> : null}
         <style jsx>
@@ -234,6 +241,16 @@ export function BoldCell({ children, ...props }) {
   return (
     <Cell {...props}>
       <b>{children}</b>
+    </Cell>
+  )
+}
+
+export function HeaderCell({ children, ...props }) {
+  return (
+    <Cell {...props}>
+      <RequestHeader>
+        <b>{children}</b>
+      </RequestHeader>
     </Cell>
   )
 }

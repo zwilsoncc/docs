@@ -1,0 +1,98 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Static Build (@now/static-build)
+This module takes a Node.js `package.json` file, installs all its dependencies, executes the `now-build` step and exposes the resulting `dist` directory as the [build output](build-output) for serving.
+
+#### When to use it
+
+This Builder is very useful when you have source files that when built will be served **statically**, but instead of pre-building yourself on a developer machine or CI, you want Now to do it in the cloud every time you deploy.
+
+<Note>At the moment, `@now/static-build` only supports build processes that can be expressed using Node.js and npm dependencies.</Note>
+
+#### How to use it
+
+First, decide on a directory where your statically generated site source code will reside. This can be the top level directory or a sub-directory inside a [monorepo](monorepo).
+
+In this example, we will use `@now/static-build` to build two Hugo websites statically.
+
+<TerminalInput>{`mkdir my-app
+  cd my-app`}</TerminalInput>
+
+  Install [hugo](https://gohugo.io/) so that you can use its bootstrapping tools, and run:
+
+  <TerminalInput>{`hugo new site docs
+    hugo new site blog`}</TerminalInput>
+
+    Go inside each directory and create a `package.json` file. We can use `yarn` to bootstrap it and also include `hugo` so that Now can build it:
+
+    <TerminalInput>
+    yarn add hugo-cli
+    </TerminalInput>
+
+    Hugo requires that you download and configure a theme. For this example we ran inside `docs` and `blog`:
+
+    ```
+    git init;\\
+      git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\\
+      echo 'theme = "ananke"' >> config.toml
+      ```
+
+      And create an example post in both `docs` and `blog`:
+
+      <TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
+
+      Make sure `node_modules` and `dist` are in `[.nowignore](/docs/v2/deployments/ignoring-source-paths)`
+
+      ```
+      node_modules
+      ```
+
+      Finally, for Now to know what to execute, add to `package.json`:
+
+      ```
+      "scripts": {
+        "now-build": "hugo -d dist"
+      }
+```
+
+Notice that `@now/static-build`:
+- Uses `package.json` as a way of getting dependencies and specifying your build
+- Will **only execute** your `now-build` script
+- Expects the output to go to `dist`
+
+Finally, we tell Now that we want to execute two builds for this deployment:
+
+```
+{
+  "version": 2,
+    "builds": [
+    { "src": "docs/package.json", "use": "@now/static-build" },
+    { "src": "blog/package.json", "use": "@now/static-build" }
+    ]
+}
+```
+
+#### Technical Details
+
+##### Entrypoint
+
+The `src` of each build you define with `@now/static` must be a `package.json` file.
+
+##### Dependencies installation
+
+The installation algorithm of dependencies works as follows:
+
+- If a `package-lock.json` is present, `npm install` is used
+- Otherwise, `yarn` is used.
+
+##### Private npm modules
+
+To install private npm modules, define `NPM_AUTH_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build-env) in `now.json`.
+
+##### Node.js version
+
+The Node.js version used is the latest in the **8 branch**.

@@ -1,0 +1,103 @@
+import Example from '~/components/api/example'
+import { Code, InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import {
+  InputTable,
+  OutputTable,
+  Row,
+  Cell,
+  TypeCell,
+  BoldCell,
+  BooleanCell
+} from '~/components/api/table'
+import Endpoint from '~/components/api/endpoint'
+import Request from '~/components/api/request'
+
+## Authentication
+
+### Request a login
+<Endpoint method="POST" url="/now/registration" />
+
+Request a new login for an user to get a token.
+
+#### Request Parameters
+<InputTable>
+  <Row>
+    <BoldCell>email</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The user email.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>tokenName</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The desired name for the token. It will be displayed on the <GenericLink href="https://zeit.co/account/tokens">user account details</GenericLink>.</Cell>
+  </Row>
+</InputTable>
+
+#### Response Parameters
+<OutputTable>
+  <Row>
+    <BoldCell>token</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The token used to verify the user accepted the login request.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>securityCode</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The code the user is going to receive on the email. <strong>Must</strong> be displayed to the user so he can verify the request is the correct.</Cell>
+  </Row>
+</OutputTable>
+
+<Example>
+  <span>Example request:</span>
+
+  <Request
+    method="POST"
+    url="https://api.zeit.co/now/registration"
+    headers={{
+      'Content-Type': 'application/json'
+    }}
+    body={{
+      "email": "user@mail.com",
+      "tokenName": "Your Client App Name"
+    }}
+  />
+
+  Example response:
+
+<Code syntax="json">{`{
+  "token": "T1dmvPu36nmyYisXAs7IRzcR",
+  "securityCode": "Practical Saola"
+}`}</Code>
+</Example>
+
+### Verify login
+<Endpoint method="GET" url="/now/registration/verify?email&token" />
+
+Verify the user accepted the login request and get a authentication token. The user email address and the token received after [requesting the login](#endpoints/authentication/request-a-login) must be added to the URL as a query string with the names `email` and `token`.
+
+#### Response Parameters
+<OutputTable>
+  <Row>
+    <BoldCell>token</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The user authentication token you can use as described in <GenericLink href="#api-basics/authentication">API Basics - Authentication</GenericLink>.</Cell>
+  </Row>
+</OutputTable>
+
+<Example>
+  <span>Example request:</span>
+
+  <Request
+    url="https://api.zeit.co/now/registration/verify?email=user@mail.com&token=T1dmvPu36nmyYisXAs7IRzcR"  
+  />
+
+  Example response:
+
+<Code syntax="json">{`{
+  "token": "sGkHhSH98wtJB0lyODZJ2bRe"
+}`}</Code>
+</Example>
+

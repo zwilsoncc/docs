@@ -1,0 +1,40 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Markdown (@now/md)
+This builder converts `.md` files into `.html`. It uses [remarkjs](https://github.com/remarkjs/remark) under the hood.
+
+#### When to use it
+When you want to create quick static websites from Markdown source files.
+
+#### How to use it
+We will define a `index.md` file:
+
+```
+# Hello World!
+
+## This is a subheading.
+
+An some content in markdown!
+```
+
+Then we will define our build step to optimize our images:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.md", "use": "@now/md" }
+  ]
+}
+```
+
+That's it. The result looks like this: https://markdown-deployment-bfc5zuwfx.now.sh
+
+#### Technical Details
+##### Entrypoint
+The entrypoint is always an `.md` file you want to convert to HTML.

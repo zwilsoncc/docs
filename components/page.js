@@ -13,7 +13,7 @@ class Page extends React.Component {
   render() {
     const { darkBg, children } = this.props
     return (
-      <div itemScope itemType="http://schema.org/WebPage">
+      <div className="page" itemScope itemType="http://schema.org/WebPage">
         {children}
         <Head>
           <style
@@ -46,6 +46,15 @@ class Page extends React.Component {
             html, body {
               background-color: ${darkBg ? '#000' : '#fff'};
               color: ${darkBg ? '#fff' : '#000'};
+            }
+
+            .page {
+              display: flex;
+              justify-content: center;
+              padding-top: 90px;
+              max-width: 100%;
+              position: relative;
+              margin: 0 auto;
             }
 
             ${darkBg

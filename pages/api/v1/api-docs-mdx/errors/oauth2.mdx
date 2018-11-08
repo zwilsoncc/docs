@@ -1,0 +1,19 @@
+import Example from '~/components/api/example'
+import { Code } from '~/components/text/code'
+
+## OAuth2 Errors
+
+These errors could occur when using any [OAuth2 related endpoint](#endpoints/oauth2).
+
+### Client Not Found
+The OAuth2 client ID could not be found or doesn't exists.
+
+<Example>
+  <Code>{`{
+    "error": {
+      "code": "not_found",
+      "message": "OAuth client doesn't not found: CLIENT_ID"
+    }
+  }`}</Code>
+</Example>
+

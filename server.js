@@ -54,6 +54,73 @@ async function main(req, res, parsedUrl) {
     return
   }
 
+  // Redirect directory listing explainer
+  if (req.url.endsWith('/docs/what-is-directory-listing')) {
+    res.writeHead(302, {
+      Location: '/docs/v2/routing/directory-listing'
+    })
+    res.end()
+    return
+  }
+
+  // Redirect to upgrade guide for v1
+  if (req.url.endsWith('/docs/v1-upgrade')) {
+    res.writeHead(302, {
+      Location: '/docs/v2/platform/upgrade-to-2.0'
+    })
+    res.end()
+    return
+  }
+
+  // Redirect to upgrade guide for v1 configuration to upgrade
+  if (req.url.endsWith('/docs/version-config')) {
+    res.writeHead(302, {
+      Location: '/docs/v2/deployments/configuration#version'
+    })
+    res.end()
+    return
+  }
+
+  // Redirect `router-status`
+  if (req.url.includes('/docs/router-status')) {
+    const code = req.url.split('/docs/router-status/')[1]
+    res.writeHead(302, {
+      Location: '/docs/v2/routing/status-codes' + (code ? `#${code}` : '')
+    })
+    res.end()
+    return
+  }
+
+  if (req.url.includes('/docs/') && !req.url.match(/(\/docs\/v[0-9])/)) {
+    // 302 as it will be cached by the browser otherwise
+    res.writeHead(302, {
+      Location: '/docs/v1/' + req.url.split('/docs/')[1]
+    })
+    res.end()
+    return
+  }
+
+  if (req.url.includes('/api#') && !req.url.match(/(\/api\/v[0-9])/)) {
+    // 302 as it will be cached by the browser otherwise
+    res.writeHead(302, {
+      Location: '/api/v1#' + req.url.split('/api#')[1]
+    })
+    res.end()
+    return
+  }
+
+  if (req.url.includes('/examples/')) {
+    const match = req.url.match('^/examples/([^/]+?)/?$')
+
+    if (match && match[1]) {
+      const query = Object.assign({}, req.query, {
+        exampleSlug: match[1]
+      })
+
+      return app.render(req, res, '/examples', query)
+    }
+  }
+
   const isNext = parsedUrl.path.includes('/_next/')
   const cookies = cookie.parse(req.headers.cookie || '')
 

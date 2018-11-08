@@ -65,6 +65,13 @@ export class NavLink extends React.Component {
     if (href === currentHref) return true
     if (href.includes('#')) {
       if (posts && posts.length && currentHref === href) return true
+      if (
+        posts &&
+        posts.length &&
+        props.level > 2 &&
+        (currentHref === href || currentHref.startsWith(href))
+      )
+        return true
       if ((!posts || !posts.length) && currentHref.startsWith(href)) return true
     }
     if (aliases.indexOf(currentHref) >= 0) return true
@@ -110,12 +117,10 @@ export class NavLink extends React.Component {
         )}
         <style jsx>{`
           div {
-            padding: 4px 10px 4px 30px;
+            padding: 4px 10px 4px 0;
           }
           div.selected {
-            border-left: 4px solid black;
             box-sizing: border-box;
-            padding-left: 26px;
           }
 
           a {
@@ -245,10 +250,6 @@ export default class DocsNavbarDesktop extends React.PureComponent {
 
           .category.level-1 {
             margin: 0 0 50px 0;
-          }
-
-          .label:not(.link) {
-            padding-left: 30px;
           }
 
           @media screen and (max-width: 950px) {

@@ -1,0 +1,49 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### HTML Minifier (@now/html-minifier)
+
+This builder optimizes `.html` files using [html-minifier](https://github.com/kangax/html-minifier).
+
+#### When to use it
+
+When you want your HTML source files to be minified so they are as small as possible (without any semantic changes) in production.
+
+#### How to use it
+
+We'll define a `index.html` file:
+
+```
+<!doctype html>
+<h1>
+  Hello
+  there
+  This is intentionally
+        long
+  </h1>
+```
+
+Then we'll define our build step to optimize our images:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.html", "use": "@now/html-minifier" }
+  ]
+}
+```
+
+When we deploy with `now` and `curl` the resulting deployment URL, we will notice the HTML has been compressed:
+```
+▲  curl https://optipng-deployment-f0hz0ny2d.now.sh/
+<!doctype html><h1>Hello there This is intentionally long</h1>
+```
+
+#### Technical Details
+##### Entrypoint
+The entrypoint is always a `.html` file you want to optimize.## HTML Minifier (@now/html-minifier)

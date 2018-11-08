@@ -1,13 +1,102 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { MDXProvider } from '@mdx-js/tag'
+import SectionContext from '~/components/api/section-context'
 import Heading from '../heading'
-import { PDIV, P } from '../text/paragraph'
+import { P, HR } from '../text/paragraph'
 import { UL, LI } from '../text/list'
-import { H3, H4 } from '../text/heading'
-import { InlineCode } from '../text/code'
-import { ExternalLink } from '../text/link'
+import { H1, H2, H3, H4 } from '../text/heading'
+import { InlineCode, Code } from '../text/code'
+import { GenericLink } from '../text/link'
 
-export default class Section extends React.PureComponent {
+class DocH2 extends React.PureComponent {
+  render() {
+    const { children, id } = this.props
+    return (
+      <Heading
+        lean={true}
+        offsetTop={175}
+        id={generateId(this.context.id, { children, id })}
+      >
+        <H2>{children}</H2>
+      </Heading>
+    )
+  }
+}
+
+DocH2.contextTypes = {
+  id: PropTypes.string
+}
+
+class DocH3 extends React.PureComponent {
+  render() {
+    const { children } = this.props
+    return <H3>{children}</H3>
+  }
+}
+
+DocH3.contextTypes = {
+  id: PropTypes.string
+}
+
+class DocH4 extends React.PureComponent {
+  render() {
+    const { children } = this.props
+    return <H4>{children}</H4>
+  }
+}
+
+DocH4.contextTypes = {
+  id: PropTypes.string
+}
+
+export const Quote = ({ children }, { darkBg } = {}) => (
+  <blockquote className={darkBg ? 'dark' : ''}>
+    {children}
+    <style jsx>{`
+      blockquote {
+        padding: 10px 20px;
+        border-left: 5px solid #000;
+        margin: 32px 0;
+        color: #000;
+      }
+
+      blockquote.dark {
+        border-left-color: #fff;
+        color: #888;
+      }
+
+      blockquote :global(div) {
+        margin: 0;
+      }
+    `}</style>
+  </blockquote>
+)
+
+Quote.contextTypes = {
+  darkBg: PropTypes.bool
+}
+
+export const components = {
+  p: P,
+  strong: P.B,
+  ul: UL,
+  li: LI,
+  h2: DocH2,
+  h3: DocH3,
+  h4: DocH4,
+  code: Code,
+  inlineCode: InlineCode,
+  a: GenericLink,
+  blockquote: Quote,
+  hr: HR
+}
+
+class APISection extends React.Component {
+  static childContextTypes = {
+    id: PropTypes.string
+  }
+
   getChildContext() {
     return { id: this.getId() }
   }
@@ -18,11 +107,11 @@ export default class Section extends React.PureComponent {
   }
 
   render() {
-    let { hideTitle, hideBottom, title } = this.props
+    let { hideTitle, hideBottom, title } = this.props.meta || {}
     const classes = ['section']
 
     if (!title) {
-      title = this.context.name
+      title = this.props.name
     }
 
     if (hideTitle) {
@@ -34,68 +123,40 @@ export default class Section extends React.PureComponent {
     }
 
     return (
-      <div className={classes.join(' ')}>
-        <div className="block title">
-          <div className="copy">
-            <Heading lean={true} offsetTop={95} id={this.getId()}>
-              <h1>{title}</h1>
-            </Heading>
-          </div>
-          <div className="example empty" />
-        </div>
-        {this.props.contents.map(([copy, example], i) => {
-          return (
-            <div key={i} className="block">
-              <div className="copy">{copy}</div>
-              <div className={'example' + (example ? '' : ' empty')}>
-                <DarkBG>{example}</DarkBG>
-              </div>
+      <MDXProvider components={components}>
+        <div className={classes.join(' ')}>
+          <div className="block title">
+            <div className="copy">
+              <Heading lean={true} offsetTop={95} id={this.getId()}>
+                <H1>{title}</H1>
+              </Heading>
             </div>
-          )
-        })}
+          </div>
+          <div className="block">{this.props.children}</div>
 
-        <style jsx>{`
+          <style jsx>{`
           .section {
             flex: 1;
             position: relative;
+            padding-top: 24px;
+            padding-bottom: 48px;
           }
 
-          h1 {
-            color: #000;
-            font-size: 26px;
-            line-height: 1.1;
-            font-weight: 400;
-            margin: 0 0 30px 0;
-            padding: 0;
-          }
-
-          .block {
-            display: flex;
+          .block > :global(div) {
             position: relative;
+            padding-left: 40px;
           }
 
-          .copy {
-            background: #fafafa;
-            display: flex;
-            flex-direction: column;
+          .block :global(h1) {
+            margin-top: 0;
           }
 
-          .example {
-            background: #000;
-            color: #999;
-            display: flex;
-            flex-direction: column;
+          .block :global(p + h2, p + h3) {
+            margin-top: 48px;
           }
 
-          .example :global(*::selection) {
-            background-color: #f81ce5;
-            color: #fff;
-          }
-
-          .copy,
-          .example {
-            padding: 0 50px;
-            width: 50%;
+          .block :global(* + h2) {
+            margin-top: 64px;
           }
 
           .block:first-child .copy,
@@ -131,15 +192,15 @@ export default class Section extends React.PureComponent {
               display: block;
               content: '';
               width: 100%;
-              background-image: linear-gradient(90deg, #eaeaea 50%, #333 50%);
+              background: #eaeaea;
+              position: absolute;
+              bottom: 0;
             }
 
             .section.hide-bottom::after {
               display: none;
             }
 
-            .example :global(div:first-child) > :global(pre) {
-              margin-top: 0 !important;
             }
           }
 
@@ -167,127 +228,29 @@ export default class Section extends React.PureComponent {
               display: none;
             }
           }
-        `}</style>
-      </div>
-    )
-  }
-}
 
-Section.childContextTypes = {
-  id: PropTypes.string
-}
-
-Section.contextTypes = {
-  hash: PropTypes.string,
-  name: PropTypes.string
-}
-
-class DarkBG extends React.PureComponent {
-  getChildContext() {
-    return { darkBg: true }
-  }
-
-  render() {
-    return this.props.children || null
-  }
-}
-
-DarkBG.childContextTypes = {
-  darkBg: PropTypes.bool
-}
-
-class DocH2 extends React.PureComponent {
-  render() {
-    const { children, id } = this.props
-    return (
-      <Heading
-        lean={true}
-        offsetTop={175}
-        id={generateId(this.context.id, { children, id })}
-      >
-        <H3>{children}</H3>
-      </Heading>
-    )
-  }
-}
-
-DocH2.contextTypes = {
-  id: PropTypes.string
-}
-
-class DocH3 extends React.PureComponent {
-  render() {
-    const { children, id } = this.props
-    return (
-      <Heading
-        lean={true}
-        offsetTop={175}
-        id={generateId(this.context.id, { children, id })}
-      >
-        <H4>{children}</H4>
-      </Heading>
-    )
-  }
-}
-
-DocH3.contextTypes = {
-  id: PropTypes.string
-}
-
-class DocH4 extends React.PureComponent {
-  render() {
-    return (
-      <h4>
-        {this.props.children}
-        <style jsx>{`
-          h4 {
-            margin-top: 50px;
+          @media screen and (max-width: 950px) {
+            .block > :global(div) {
+              padding-left: 0;
+            }
           }
         `}</style>
-      </h4>
+        </div>
+      </MDXProvider>
     )
   }
 }
 
-export const Quote = ({ children }, { darkBg } = {}) => (
-  <blockquote className={darkBg ? 'dark' : ''}>
-    {children}
-    <style jsx>{`
-      blockquote {
-        padding: 10px 20px;
-        border-left: 5px solid #000;
-        margin: 50px 0;
-        color: #000;
-      }
-
-      blockquote.dark {
-        border-left-color: #fff;
-        color: #888;
-      }
-
-      blockquote :global(div) {
-        margin: 0;
-      }
-    `}</style>
-  </blockquote>
+/* eslint-disable react/display-name */
+export default ({ ...meta } = {}) => ({ children }) => (
+  <SectionContext.Consumer>
+    {({ hash, name }) => (
+      <APISection meta={meta} hash={hash} name={name}>
+        {children}
+      </APISection>
+    )}
+  </SectionContext.Consumer>
 )
-
-Quote.contextTypes = {
-  darkBg: PropTypes.bool
-}
-
-export const components = {
-  p: PDIV,
-  strong: P.B,
-  ul: UL,
-  li: LI,
-  h2: DocH2,
-  h3: DocH3,
-  h4: DocH4,
-  code: InlineCode,
-  a: ExternalLink,
-  blockquote: Quote
-}
 
 function generateId(prefix, { id, children }) {
   if (!id) {

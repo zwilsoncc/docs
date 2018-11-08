@@ -2,6 +2,7 @@ const {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD
 } = require('next/constants')
+const path = require('path')
 
 module.exports = phase => {
   const config = {
@@ -19,7 +20,14 @@ module.exports = phase => {
 
   // Adds github.com/mdx-js/mdx to Next.js
   const withMDX = require('@zeit/next-mdx')({
-    extension: /\.(md|mdx)?$/
+    extension: /\.(md|mdx)?$/,
+    options: {
+      hastPlugins: [
+        require('./lib/plugin')({
+          docsRoot: path.resolve('./docs')
+        })
+      ]
+    }
   })
 
   return withMDX(config)

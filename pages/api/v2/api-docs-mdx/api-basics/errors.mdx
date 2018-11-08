@@ -1,0 +1,19 @@
+import Example from '~/components/api/example'
+import { Code } from '~/components/text/code'
+
+## Errors
+
+All API endpoints contain a `code` and `message` within the error responses, though some API endpoints extend the `error` object to contain other information. Each endpoint that does this will be documented in their appropriate section.
+
+While we recommend that you write error messages that fit your needs and provide your users with the best experience, our `message` fields are designed to be neutral, not contain sensitive information, and can be safely passed down to user interfaces.
+
+<Example>
+<span>For example, the response for unauthorized requests:</span>
+<Code>{`{
+  "error": {
+    "code": "forbidden",
+    "message": "Not authorized"
+  }
+}`}</Code>
+</Example>
+

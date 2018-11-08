@@ -27,10 +27,12 @@ export const TerminalInput = ({ children }, { darkBg = false }) => (
           -webkit-overflow-scrolling: touch;
           white-space: pre;
           overflow: auto;
+          background: white;
         }
 
         div span {
           display: block;
+          margin-right: 24px;
         }
 
         div span::before {

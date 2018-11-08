@@ -1,0 +1,34 @@
+import Example from '~/components/api/example'
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import { InlineCode, Code } from '~/components/text/code'
+import { P, Quote } from '~/components/text/paragraph'
+import Note from '~/components/text/note'
+
+## Authentication
+
+Requests to the Now API must provide an API token through the `Authorization` header.
+
+<Example>
+  <P>The <InlineCode>Authorization</InlineCode> header with a token:</P>
+
+  <Code>
+  Authorization: Bearer {(props.testingToken ? props.testingToken.token : '$TOKEN')}
+  </Code>
+</Example>
+
+API queries for resources owned by a team require a `teamId` query string at the end of the API endpoint URL and use the team's ID as the value.
+
+<Example>
+  <P>An API endpoint using a team ID with the <InlineCode>teamId</InlineCode> query string:</P>
+  <Code>
+  https://api.zeit.co/v6/now/deployments?teamId=[team ID]
+  </Code>
+</Example>
+
+<Note hint>You can find your own team's ID using the <GenericLink href="#endpoints/teams/list-all-your-teams"><InlineCode>teams</InlineCode> endpoint</GenericLink>.</Note>
+
+### Failed Authentication
+
+If authentication is unsuccessful for a request, the [error status code](#api-basics/errors) **403** is returned.
+

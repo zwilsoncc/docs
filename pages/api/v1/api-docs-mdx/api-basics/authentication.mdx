@@ -1,0 +1,27 @@
+import Example from '~/components/api/example'
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import { Code } from '~/components/text/code'
+import { Quote, P, PDIV } from '~/components/text/paragraph'
+
+## Authentication
+
+Provide your API token as part of the `Authorization` header.
+
+To act on resources owned by a team add `teamId` query string at the end of an API URL and use the teamId as the value.
+
+If the authentication is unsuccessful, the status code **403** is returned.
+
+<Example>
+  <Code>
+  Authorization: Bearer {(props.testingToken ? props.testingToken.token : '$TOKEN')}
+  </Code>
+  <Code>
+  https://api.zeit.co/example?teamId=team_123
+  </Code>
+  <Quote>
+  <P.B>Note:</P.B> {props.user ? 'Since you\'re logged in, ' : ['When ', <GenericLink href="/login" key="loggedin">logged in</GenericLink>, ',']} the examples in the API will contain your secret token. Don't share them! For example, to get a <GenericLink href="#endpoints/deployments/list-all-the-deployments">list of deployments</GenericLink> try the following:
+  </Quote>
+  <TerminalInput>curl -H "Authorization: Bearer {(props.testingToken ? props.testingToken.token : '$TOKEN')}" https://api.zeit.co/v2/now/deployments</TerminalInput>
+</Example>
+

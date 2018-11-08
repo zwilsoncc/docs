@@ -1,0 +1,63 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Next.js (@now/next)
+
+This builder takes a Next.js application, defined as `pages`, `next.config.js` and optionally a `package.json` file (with `next`, `react`, `react-dom`, etc), and converts them into a series of individual [Lambdas](/docs/v2/deployments/concepts/lambdas).
+
+It features built-in caching of `node_modules` and all the compiler artifacts for very fast  deployments.
+
+#### When to use it
+
+`@now/next` is the ideal way to ship a fast, production-ready Next.js application that scales automatically.
+
+#### How to use it
+
+Create a `pages` directory with some example pages, for example `pages/index.js`:
+
+```
+export default () => (
+  <div>
+    Hello world!
+  </div>
+)
+```
+
+For this example, we won't define a `package.json` with our dependencies. We'll let the builder automatically install them. We'll create a simple `next.config.js` file to use as our entrypoint for the build
+
+```
+module.exports = () => ({})
+```
+
+Then we'll define our build step in `now.json`:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@now/next" }
+  ]
+}
+```
+
+Upon deployment, we'll get a URL like this: https://next-js-deployment-kbbzal0ha.now.sh/
+
+#### Technical Details
+
+##### Entrypoint
+The entrypoint of this builder is a `next.config.js` file or a `package.json` file.
+
+##### Dependencies installation
+The installation algorithm of dependencies works as follows:
+
+- If a `package-lock.json` is present, `npm install` is used
+- Otherwise, `yarn` is used.
+
+##### Private npm modules
+To install private npm modules, define `NPM_AUTH_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build-env) in `now.json`.
+
+##### Node.js version
+The Node.js version used is the latest in the **8 branch**.

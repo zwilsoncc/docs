@@ -1,0 +1,59 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Static (@now/static)
+This module is used to include **source files** as [**Build outputs**](/docs/v2/deployments/builds#source-and-output). You can think of `@now/static` as a module that *copies over* files.
+
+##### When to use it
+When you deploy a project that has no [Builds](/docs/v2/deployments/builds) we serve the sources directly.
+
+For example, when you deploy a single file (`now photo.jpg`) or a directory with no `now.json` and/or no `builds` inside it.
+
+However, if you define a build step, Now will only include its outputs in the resulting deployment, as a security precaution to avoid serving unintended files to the public.
+
+In those circumstances, if you want to include unmodified source files as outputs, you can use `@now/static`.
+
+##### How to use it
+Suppose you have a directory with three files:
+
+- `function.js` - A Node.js function you want to expose.
+- `index.html` - A source file you **want to serve** without modification.
+- `README.md` - A source file you **never want to serve**.
+
+If your `now.json` looks like this:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "function.js", "use": "@now/node" }
+  ]
+}
+```
+
+Then only the build outputs of `@now/node` will be included: a [lambda](/docs/v2/deployments/concepts/lambdas).
+
+To see for yourself, check the resulting deployment [`https://builds-deployment-r33zqy3gu.now.sh`](https://builds-deployment-r33zqy3gu.now.sh) (and inspect its source code and outputs by appending `/_src`:  [`https://builds-deployment-r33zqy3gu.now.sh/_src`](https://builds-deployment-r33zqy3gu.now.sh/_src) ).
+
+To also serve `index.html`, you'll want to add a `@now/static` build:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "function.js", "use": "@now/node" },
+    { "src": "index.html", "use": "@now/static" }
+  ]
+}
+```
+
+You can see the resulting deployment in action here: [https://builds-deployment-2d7eouze2.now.sh](https://builds-deployment-2d7eouze2.now.sh)
+
+##### Technical Details
+
+###### Entrypoint
+
+You can specify any file or set of files as the `src` of a build that uses `@now/static`.

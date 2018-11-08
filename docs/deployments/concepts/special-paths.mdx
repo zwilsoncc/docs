@@ -1,0 +1,23 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import { InlineCode } from '~/components/text/code'
+
+### Special Paths
+All deployment URLs have two special pathnames:
+
+- `/_src`
+- `/_logs`
+
+#### Source view
+
+By appending `/_src` to a [deployment URL](/docs/v2/deployments/concepts/urls) or [alias](/docs/v2/domains-and-aliases/aliasing-a-deployment), the deployment inspector will be open and you'll be able to browse your deployment sources and [build](/docs/v2/deployments/builds) outputs.
+
+#### Logs view
+
+By appending `/_logs` to a [deployment URL](/docs/v2/deployments/concepts/urls) or [alias](/docs/v2/domains-and-aliases/aliasing-a-deployment), you will be able to see a realtime stream of logs from your deployment build processes and serverless invocations.
+
+#### Security considerations
+
+These pathnames redirect to `https://zeit.co` and *require logging in* to access any sensitive information. A 3rd-party can *never* access your source or logs by crafting a deployment URL with one of these paths.

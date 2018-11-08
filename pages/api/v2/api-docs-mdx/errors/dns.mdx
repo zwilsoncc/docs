@@ -1,0 +1,31 @@
+import Example from '~/components/api/example'
+import { Code } from '~/components/text/code'
+
+## DNS Errors
+
+These error code could happen when using any [DNS related endpoint](#endpoints/dns).
+
+### Missing DNS Record Name
+The DNS record key `name` is required and was not provided. It should be either a subdomain or `@` for the domain itself.
+
+<Example>
+<Code>{`{
+  "error": {
+    "code": "missing_name",
+    "message": "Missing \`name\` parameter"
+  }
+}`}</Code>
+</Example>
+
+### Missing DNS Record Type
+The DNS record key `name` is required and was not provided. It could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types).
+
+<Example>
+<Code>{`{
+  "error": {
+    "code": "missing_type",
+    "message": "Missing \`type\` parameter"
+  }
+}`}</Code>
+</Example>
+

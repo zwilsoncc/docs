@@ -15,7 +15,10 @@ function formatCurl({ url, method = 'GET', headers, body }) {
     if (typeof body !== 'string') {
       request = `${request} \\\n  -d '${JSON.stringify(body, null, 2)}'`
     } else {
-      request = `${request} \\\n  -d '${body}'`
+      request = `${request} \\\n  -d '${body.replace(
+        /(?:\\r\\n|\\r|\\n)/g,
+        '\n'
+      )}'`
     }
   }
 

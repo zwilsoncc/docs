@@ -1,0 +1,307 @@
+### Developer Guide
+
+A builder is an npm module that exposes a `build` function and optionally an `analyze` function and `prepareCache` function.
+
+In short:
+- The `analyze` function returns a unique fingerprint used for the purpose of [build de-duplication](/docs/v2/deployments/concepts/immutability). If the `analyze` function is not supplied, it's equivalent to it returning a random fingerprint for each build.
+- The `build` function returns a [Files](#files-map-file-lambda) datastructure that contains the [build outputs](/docs/v2/deployments/builds#source-and-output), which can be:
+    - Static files
+    - [Lambda](/docs/v2/deployments/concepts/lambdas) functions
+- The `prepareCache` function is equivalent to `build`, but it executes the instructions necessary to prepare a cache for the next run.
+
+The arguments these functions receive are:
+
+- `files`: All source files of the project as a [Files](#files-map-file-lambda) datastructure
+- `entrypoint`: Name of entrypoint file for this particular build job. Value `files[entrypoint]` is guaranteed to exist and be a valid [File](#files-map-file-lambda) reference. `entrypoint` is always a discrete file and never a glob, since globs are expanded into separate builds at deployment time.
+- `workPath`, a writable temporary directory where you are encouraged to perform your build process. This directory will be populated with the restored cache from the previous run (if any) for `analyze` and `build`.
+- `cachePath`, a writable temporary directory where you can build a cache for the next run. This is only passed to `prepareCache`
+- `config`, an arbitrary object passed from by the user in the [build definition](#defining-the-build-step) in `now.json`.
+
+The signatures of the functions are as follows:
+
+```
+analyze({
+  files: Files,
+  entrypoint: String,
+  workPath: String,
+  config: Object
+}) : String fingerprint
+```
+
+```
+build({
+  files: Files,
+  entrypoint: String,
+  workPath: String,
+  config: Object
+}) : Files output
+```
+
+```
+prepareCache({
+  files: Files,
+  entrypoint: String,
+  workPath: String,
+  cachePath: String,
+  config: Object
+}): Files cacheOutput
+```
+
+### Example: html-minifier
+
+Let's walk through what it takes to create a simple builder that takes in a HTML source file and yields a minified HTML static file as its build output.
+
+While this is a very simple builder, the approach demonstrated here can be used to return anything: one or more static files and/or one or more lambdas.
+
+To see the source code for this example, [check it out on GitHub](https://github.com/zeit/now-builders).
+
+### Setting up the module
+
+#### Defining the analyze step
+
+The `analyze` hook is optional. Its goal is to give the developer a tool to avoid wasting time *re-computing a build* that has already occurred.
+
+The return value of `analyze` is a *fingerprint*: a simple string that uniquely identifies the build process.
+
+If `analyze` is not specified, its behavior is to use as the fingerprint the combined checksums of **all the files in the same directory level as the entrypoint**. This is a default that errs on making sure that we re-execute builds when files *other than the entrypoint* (like dependencies, manifest files, etc) have changed.
+
+For our `html-minify` example, we know that HTML files don't have dependencies. Therefore, our analyze step can just return the `digest` of the entrypoint.
+
+Our `index.js` file looks as follows:
+
+```
+exports.analyze = function ({ files, entrypoint }) {
+  return files[entrypoint].digest;
+}
+```
+
+This means that we will only re-minify and re-create the build output *only if the file contents (and therefore its digest) change.*
+
+#### Defining the build step
+
+Your module will need some utilities to manipulate the datastructures we pass you, create new ones and alter the filesystem.
+
+To that end, we expose our API as part of a `@now/build-utils` package. This package is always loaded on your behalf, so make sure it's only included as `peerDependencies` in your `package.json`.
+
+Builders can include dependencies of their liking. In this case, we'll use the [html-minifier](/docs/v2/deployments/official-builders/html-minifier-now-html-minifier) npm package:
+
+```
+const htmlMinifer = require('html-minifer');
+
+exports.analyze = function ({ files, entrypoint }) {
+  return files[entrypoint].digest;
+}
+
+exports.build = function ({ files, entrypoint, config }) {
+  const stream = files[entrypoint].toStream();
+  const options = Object.assign({}, {}, config || {});
+  const { data } = await FileBlob.fromStream({ stream });
+  const content = data.toString();
+
+  const minified = minify(content, options);
+  const result = new FileBlob({ data: minified });
+
+  return { [entrypoint]: result };  // the code here
+}
+```
+
+#### Defining a `prepareCache` step
+
+If our builder had performed work that could be re-used in the next build invocation, we could define a `prepareCache` step.
+
+In this case, there are not intermediate artifacts that we can cache, and our `analyze` step already takes care of caching the full output based on the fingerprint of the input.
+
+### Technical Details
+
+#### Execution Context
+
+A [lambda](/docs/v2/deployments/concepts/lambdas) is created where the builder logic is executed. The lambda is run using the Node.js 8 runtime. A brand new sandbox is created for each deployment, for security reasons. The sandbox is cleaned up between executions to ensure no lingering temporary files are shared from build to build.
+
+All the APIs you export (`analyze`, `build` and `prepareCache`) are not guaranteed to be run in the same process, but the filesystem we expose (e.g.:  `workPath` and the results of calling [`getWritableDirectory`](/docs/v2/deployments/builders/developer-guide#fs-getwritabledirectory-string) ) is retained.
+
+If you need to share state between those steps, use the filesystem.
+
+#### Directory and Cache Lifecycle
+
+When a new build is created, we pre-populate the `workPath` supplied to `analyze` with the results of the `prepareCache` step of the previous build.
+
+The `analyze` step can modify that directory, and it will not be re-created when it's supplied to `build` and `prepareCache`.
+
+To learn how the cache key is computed and invalidated, refer to the [overview](/docs/v2/deployments/builders/overview#technical-details).
+
+#### Accessing Environment and Secrets
+
+The env and secrets specified by the user as `build.env` are passed to the builder process. This means you can access user env via `process.env` in Node.js.
+
+#### Utilities as peerDependencies
+
+When you publish your builder to npm, make sure to not specify `@now/build-utils` (as seen below in the API definitions) as a dependency, but rather as part of `peerDependencies`.
+
+### Types
+
+#### Files : map<File | Lambda>
+
+This is an abstract type that is implemented as a plain [JavaScript Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object). It's helpful to think of it as a virtual filesystem representation.
+
+An example of a valid `Files` object is:
+
+```
+{
+  "index.html": FileRef,
+  "api/index.js": Lambda
+}
+```
+
+#### File
+
+This is an abstract type. Valid `File` types include:
+
+- [`FileRef`](#fileref)
+- [`FileFsRef`](#filefsref)
+- [`FileBlob`](#fileblob)
+
+#### FileRef
+
+Exported as: `@now/build-utils/file-ref`
+
+This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that represents an abstract file instance stored in our platform, based on the file identifier string (its checksum). When a `Files` object is passed as an input to `analyze` or `build`, all its values will be instances of `FileRef`.
+
+**Properties:**
+
+- `mode : Number` file mode
+- `digest : String` a checksum that represents the file
+
+**Methods:**
+
+- `toStream() :Stream` creates a [Stream](https://nodejs.org/api/stream.html) of the file body
+
+#### FileFsRef
+
+Exported as: `@now/build-utils/file-fs-ref`
+
+This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that represents an abstract instance of a file present in the filesystem that the build process is executing in.
+
+**Properties:**
+
+- `mode : Number` file mode
+- `fsPath : String` a path of the file in file system
+
+**Methods:**
+
+- `static async fromStream({ mode : Number, stream :Stream, fsPath : String }) :FileFsRef` creates an instance of a [FileFsRef](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) from `Stream`, placing file at `fsPath` with `mode`
+- `toStream() :Stream` creates a [Stream](https://nodejs.org/api/stream.html) of the file body
+
+#### FileBlob
+
+Exported as: `@now/build-utils/file-blob`
+
+This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that represents an abstract instance of a file present in memory.
+
+**Properties:**
+
+- `mode : Number` file mode
+- `data : String | Buffer` the body of the file
+
+**Methods:**
+
+- `static async fromStream({ mode : Number, stream :Stream }) :FileBlob` creates an instance of a [FileBlob](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) from [`Stream`](https://nodejs.org/api/stream.html) with `mode`
+- `toStream() :Stream` creates a [Stream](https://nodejs.org/api/stream.html) of the file body
+
+#### Lambda
+
+Exported from: `@now/build-utils/lambda`
+
+This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that can be created by supplying `files`,  `handler` and `runtime` and `environment` as an object to the [`createLambda`](#createlambda-object-spec-lambda) helper. The instances of this class should not be created directly. Instead use a call to [`createLambda`](#createlambda-object-spec-lambda).
+
+**Properties:**
+
+- `files : Files` the internal filesystem of the lambda
+- `handler : String` path to handler file and (optionally) a function name it exports
+- `runtime : LambdaRuntime` the name of the lambda runtime
+- `environment : Object` key-value map of handler-related (aside of those passed by user) environment variables
+
+#### LambdaRuntime
+
+This is an abstract enumeration type that is implemented by one of the following possible `String` values:
+
+- `nodejs8.10`
+- `nodejs6.10`
+- `go1.x`
+- `java-1.8.0-openjdk`
+- `python3.6`
+- `python2.7`
+- `dotnetcore2.1`
+- `dotnetcore2.0`
+- `dotnetcore1.0`
+
+### JavaScript API
+
+The following is exposed by `@now/build-utils` to simplify the process of writing Builders, manipulating the file system, using the above types, etc.
+
+#### createLambda(Object spec) : Lambda
+
+Exported from: `@now/build-utils/lambda`
+
+Constructor for the [`Lambda`](#lambda) type.
+
+```
+const { createLambda } = require('@now/build-utils/lambda');
+const FileBlob = require('@now/build-utils/file-blob');
+await createLambda({
+  runtime: 'nodejs8.10',
+  handler: 'index.main',
+  files: {
+    'index.js': new FileBlob({ data: "exports.main = () => {}" })
+  }
+});
+```
+
+#### fs/download() : Files
+
+Exported as: `@now/build-utils/fs/download`
+
+This utility allows you to download the contents of a `Files` datastructure, therefore creating the filesystem represented in it.
+
+Since `Files` is an abstract way of representing files, you can think of `download` as a way of making that virtual filesystem *real*.
+
+```
+await download(files, workPath);
+```
+
+#### fs/glob() : Files
+
+Exported as: `@now/build-utils/fs/glob`
+
+This utility allows you to *scan* the filesystem and return a `Files` representation of the matched glob search string. It can be thought of as the reverse of [`download`](#fs-download-files).
+
+The following trivial example downloads everything to the filesystem, only to return it back (therefore just re-creating the passed-in `files`):
+
+```
+const glob = require('@now/build-utils/fs/glob')
+const download = require('@now/build-utils/fs/download')
+
+exports.build = ({ files, workPath }) => {
+  await download(files, workPath)
+  return glob('**', workPath);
+}
+```
+
+#### fs/getWritableDirectory() : String
+
+Exported as: `@now/build-utils/fs/get-writable-directory`
+
+In some occasions, you might want to write to a temporary directory
+
+#### fs/rename(Files) : Files
+
+Exported as: `@now/build-utils/fs/rename`
+
+Renames the keys of the [`Files`](#files-map-file-lambda) object, which represent the paths. For example, to rename `test.go` to `test` you can write:
+
+```
+const rename = require('@now/build-utils/fs/rename');
+rename({
+  'test.go': fileFsRef
+}, (path) => path.replace(/\.go$/, '');
+// returns new Files object
+```

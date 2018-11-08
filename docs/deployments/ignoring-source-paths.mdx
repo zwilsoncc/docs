@@ -1,0 +1,26 @@
+## Ignoring Source Paths
+
+We highly recommend including the file `.nowignore`. It is essential to deploying code to Now in a fast manner.
+
+In this document, you will learn the file's exact function and how to use it.
+
+### What Files Are Uploaded
+By default, all files within your project are uploaded (not served, just uploaded) to Now.
+
+In order to prevent a path within your project from being uploaded to Now, you need to create a `.nowignore` file and insert the path that you would like to ignore.
+
+The syntax of that file is exactly the same as of a `.gitignore` file (you can find the full specification [here](https://git-scm.com/docs/gitignore#_pattern_format)). As an example, this is how `.nowignore` would have to look if you wanted to prevent the directories `node_modules` and `dist` from being uploaded:
+
+```
+node_modules
+dist
+```
+
+We highly recommend taking advantage of this system for ignoring paths, as it will make creating deployments much faster (and cheaper).
+
+### What Files Are Served
+Only files that are matched by the `src` property of a **Build** are "considered for serving" (the **Builder** you defined decides whether a file is then actually served).
+
+If you did not define a `now.json` file containing one or more **Builds**, however, all files within your project will be served.
+
+The only **exceptions** are `now.json` and `.nowignore`, which will not be served if you did not explicitly define a **Build** with a `src` property that matches their names.

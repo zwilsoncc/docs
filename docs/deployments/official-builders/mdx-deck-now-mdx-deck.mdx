@@ -1,0 +1,46 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### mdx-deck (@now/mdx-deck)
+Create [mdx-deck](https://github.com/jxnblk/mdx-deck) decks with ease.
+
+This builder is similar to [`@now/static-build`](/docs/v2/deployments/official-builders/static-build-now-static-build), but instead of having to write a `package.json` file, it receives a `.mdx` file directly as an entrypoint, which it builds into a `index.html`, `main.js` and `main.html` files.
+
+#### When to use it
+
+When you need to quickly create a deck with no ceremony, configuration or custom npm packages.
+
+#### How to use it
+
+Define a `index.mdx` file with the following contents:
+
+```
+My slide
+---
+My second slide
+---
+My third slide
+```
+
+Then define the build inside `now.json`:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.mdx", "use": "@now/mdx-deck" }
+  ]
+}
+```
+
+Your resulting deck is statically built and served from our CDN: https://mdx-deck-deployment-714egk6ff.now.sh
+
+#### Technical details
+
+##### Entrypoint
+
+The entrypoint is always a `.mdx` file that follows the [mdx-deck](https://github.com/jxnblk/mdx-deck) format.

@@ -1,0 +1,823 @@
+import Example from '~/components/api/example'
+import { Code, InlineCode } from '~/components/text/code'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
+import { P, PDIV } from '~/components/text/paragraph'
+import { ExternalLink, InternalLink } from '~/components/text/link'
+import {
+  OutputTable,
+  InputTable,
+  HeadersTable,
+  Row,
+  Cell,
+  TypeCell,
+  BoldCell,
+  HeaderCell,
+  BooleanCell
+} from '~/components/api/table'
+import Endpoint from '~/components/api/endpoint'
+import Request from '~/components/api/request'
+
+## Deployments
+
+### Create a New Deployment
+<Endpoint method="POST" url="/v6/now/deployments" />
+
+Create a new deployment with all the required and intended data.
+
+Before creating a deployment, [upload any required files](#endpoints/deployments/upload-deployment-files) when they cannot be posted at once by inlining files.
+
+#### Request Parameters
+<InputTable>
+  <Row>
+    <BoldCell>name</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>A string with the project name used in the deployment URL. The name string has a max length of <InlineCode>52</InlineCode> characters.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>files</BoldCell>
+    <TypeCell>List</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>A list of objects with the files to be deployed.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>version</BoldCell>
+    <TypeCell>Integer</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The version of Now Platform to use. Must have the value of <InlineCode>2</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>env</BoldCell>
+    <TypeCell>Map</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>An object containing the deployment's environment variable names and values. <i>Secrets can be referenced by prefixing the value with <InlineCode>@</InlineCode></i>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>build.env</BoldCell>
+    <TypeCell>Map</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>An object containing the deployment's environment variable names and values to be passed to Builds. <i>Secrets can be referenced by prefixing the value with <InlineCode>@</InlineCode></i>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>builds</BoldCell>
+    <TypeCell>List</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>A list of Build objects used to build sources in a deployment. For example, <InlineCode noWrap>{`[{ "src": "*.php", "use": "@now/php" }]`}</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>routes</BoldCell>
+    <TypeCell>List</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; <InlineCode>{`[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`}</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>regions</BoldCell>
+    <TypeCell>List</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>An array of the regions the deployment should be deployed to. For example, <InlineCode>["sfo", "bru"]</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>public</BoldCell>
+    <TypeCell>Boolean</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>Whether a deployment's source and logs are available publically.</Cell>
+  </Row>
+</InputTable>
+
+##### Files
+Each item in the files array could be either a list of inlined files or a list of SHA1 strings used to match with [already uploaded files](#endpoints/deployments/upload-deployment-files).
+
+###### Inlined Files
+In the case you want to inline each file inside the create deployment request each item in the `files` key should have the following format:
+
+<Note>Inlined files, either as plain or base64 strings, are useful when a deployment has only a few small files that you can upload in a single request.</Note>
+
+<InputTable>
+  <Row>
+    <BoldCell>file</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The file name including the whole path, eg. <InlineCode>folder/file.js</InlineCode></Cell>
+  </Row>
+  <Row>
+    <BoldCell>data</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The file content, it could be either a base64 (useful for images, etc.) of the files or the plain content for source code.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>encoding</BoldCell>
+    <TypeCell>Enum</TypeCell>
+    <BooleanCell status={false} />
+    <Cell>The file encoding, it must be <InlineCode>base64</InlineCode> or <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode></Cell>
+  </Row>
+</InputTable>
+
+<Example>
+<span>Example request with inlined files:</span>
+<Request
+  url="https://api.zeit.co/v6/now/deployments"
+  method="POST"
+  headers={{
+  Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
+  'Content-Type': 'application/json'
+  }}
+  body={{
+    "name": "my-instant-deployment",
+    "version": 2,
+    "files": [
+      {
+        "file": "index.html",
+        "data": "<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href=\"https://zeit.co/api\">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>"
+      }
+    ]
+  }}
+/>
+
+</Example>
+
+###### SHA1 files
+In the case you want to first [upload each file](#endpoints/deployments/upload-deployment-files) and then create a deployment you need to pass the file name and the file content SHA1 which is going to be used to check the integrity and match the requests with the file.
+
+<Note>
+  <GenericLink href="#endpoints/deployments/upload-deployment-files">Uploading each file</GenericLink> and then creating the deployment with files using SHA1 strings is especially useful when uploading many, or big, files. This is helpful when retrying deployments without needing to upload the files again.
+</Note>
+
+<InputTable>
+  <Row>
+    <BoldCell>file</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The file name including the whole path, eg. <InlineCode>folder/file.js</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>sha</BoldCell>
+    <TypeCell>String</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The file SHA1 used to check the integrity.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>size</BoldCell>
+    <TypeCell>Integer</TypeCell>
+    <BooleanCell status={true} />
+    <Cell>The file size in bytes.</Cell>
+  </Row>
+</InputTable>
+
+<Example>
+<span>Example request:</span>
+<Request
+  url="https://api.zeit.co/v6/now/deployments"
+  method="POST"
+  headers={{
+    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    "name": "my-instant-deployment",
+    "version": 2,
+    "files": [
+      {
+        "file": "index.html",
+        "sha": "6938e4ed47a23f17ceb6dbd880ab18d2787e7946",
+        "size": 160
+      }
+    ]
+  }}
+/>
+
+<span>Example successful (<P.B>200</P.B>) response:</span>
+<Code>{`{
+  "id": "dpl_6EZWg2tkQevMN76UQzFgKsD2gaNR",
+  "url": "my-instant-deployment-2i7mwl1a1w.now.sh",
+  "name": "my-instant-deployment",
+  "meta": {},
+  "plan": "unlimited",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "READY",
+  "createdAt": 1540257237129,
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "builds": [
+    { "src": "**", "use": "@now/static" }
+  ],
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  }
+}`}</Code>
+</Example>
+
+#### Force a New Deployment
+To create a new deployment, with a new ID and URL, etc. if nothing has changed with the files intended to be deployed that were already previously deployed, use the `forceNew=1` URL parameter.
+
+<Example>
+<P.B>Example First Deployment</P.B>
+
+<PDIV>Request:</PDIV>
+<Request
+  method="POST"
+  url="https://api.zeit.co/v6/now/deployments"
+  headers={{
+    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    "name": "my-instant-deployment",
+    "version": 2,
+    "files": [
+      { "file": "index.html", "data": "<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href=\"https://zeit.co/api\">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>" }
+    ]
+  }}
+/>
+
+<PDIV>Successful Response:</PDIV>
+<Code>{`{
+  "id": "dpl_D6FpCMUYdba5bZFJvA46FLBMxM2W",
+  "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
+  "name": "my-instant-deployment",
+  "meta": {},
+  "plan": "unlimited",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "READY",
+  "createdAt": 1540257237129,
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "builds": [
+    { "src": "**", "use": "@now/static" }
+  ],
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  }
+}`}</Code>
+
+<P.B>Deploying again with the same request would yield the same response</P.B>, with the same ID and URL due to no differences to the files or configuration.
+
+<P.B>Example Second Deployment using <InlineCode>?forceNew=1</InlineCode></P.B>
+<P>Request:</P>
+<Request
+  method="POST"
+  url="https://api.zeit.co/v6/now/deployments?forceNew=1"
+  headers={{
+    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    "name": "my-instant-deployment",
+    "version": 2,
+    "files": [
+      { "file": "index.html", "data": "<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href=\"https://zeit.co/api\">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>" }
+    ]
+  }}
+/>
+
+<P.B>Deploying again with the same request using the <InlineCode>?forceNew=1</InlineCode> URL parameter would yield a new, different, response</P.B>, with a different ID and URL:
+<Code>{`{
+  "id": "dpl_5bQis7iG8EQxJMAEY92KxsE4WmQZ",
+  "url": "my-instant-deployment-613cx07atx.now.sh",
+  "name": "my-instant-deployment",
+  "meta": {},
+  "plan": "unlimited",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "READY",
+  "createdAt": 1540257454135,
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "builds": [
+    { "src": "**", "use": "@now/static" }
+  ],
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  }
+}`}</Code>
+</Example>
+
+#### Response Parameters
+<OutputTable>
+  <Row>
+    <BoldCell>id</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>A String holding the unique ID of the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>url</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>name</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The name of the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>version</BoldCell>
+    <TypeCell>Integer</TypeCell>
+    <Cell>The Now platform version the deployment is associated to.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>regions</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>The regions the deployment exists in, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>routes</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; <InlineCode>{`[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`}</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>builds</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a <InlineCode>src</InlineCode> and <InlineCode>use</InlineCode> describing the sources files that use Builds in the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>plan</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The pricing plan the deployment was made under.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>public</BoldCell>
+    <TypeCell>Boolean</TypeCell>
+    <Cell>A Boolean representing if the deployment is public or not. By default this is <InlineCode>false</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>ownerId</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The unique ID of the user or team the deployment belongs to.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>readyState</BoldCell>
+    <TypeCell>Enum</TypeCell>
+    <Cell>The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>createdAt</BoldCell>
+    <TypeCell>Date</TypeCell>
+    <Cell>A number containing the date when the deployment was created in milliseconds.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>createdIn</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The region where the deployment was first created, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
+  </Row>
+</OutputTable>
+
+<Example>
+<span>Example request:</span>
+<Request
+  method="POST"
+  url="https://api.zeit.co/v6/now/deployments"
+  headers={{
+    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    "name": "my-instant-deployment",
+    "version": 2,
+    "files": [
+      { "file": "index.html", "data": "<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href=\"https://zeit.co/api\">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>" }
+    ]
+  }}
+/>
+
+<span>Example successful (<P.B>200</P.B>) response:</span>
+<Code>{`{
+  "id": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
+  "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
+  "name": "my-instant-deployment",
+  "meta": {},
+  "plan": "unlimited",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "READY",
+  "createdAt": 1540257589405,
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "builds": [
+    { "src": "**", "use": "@now/static" }
+  ],
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  }
+}`}</Code>
+</Example>
+
+### Upload Deployment Files
+
+<Endpoint method="POST" url="/v2/now/files" />
+
+Before you create a deployment you need to upload the required files for that deployment. To do it you need to POST each file to this endpoint, after that's completed you'll need to POST to [create a new deployment](#endpoints/deployments/create-a-new-deployment).
+
+<Note>If you need to upload only a few small files for a deployment you could inline them when you're <GenericLink href="#endpoints/deployments/create-a-new-deployment">creating a new deployment</GenericLink>.</Note>
+
+#### Headers
+The POST needs to have the following headers:
+
+<HeadersTable>
+  <Row>
+    <HeaderCell>Content-Length</HeaderCell>
+    <Cell>The file size in bytes.</Cell>
+  </Row>
+  <Row>
+    <HeaderCell>x-now-digest</HeaderCell>
+    <Cell>The file SHA1 used to check the integrity.</Cell>
+  </Row>
+</HeadersTable>
+
+The file content must be placed inside the body of the request. In the case of a successful response you'll receive a status code **200** with an empty body.
+
+<Note>The file name is defined when you create the deployment.</Note>
+
+<Example>
+  <span>Example request:</span>
+
+  <Request
+    method="POST"
+    url="https://api.zeit.co/v2/now/files"
+    headers={{
+      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
+      'x-now-digest': '6938e4ed47a23f17ceb6dbd880ab18d2787e7946'
+    }}
+    body="<!doctype html>
+<html>\n
+  <head>\n
+    <title>My Instant Deployment</title>\n
+  </head>\n
+  <body>\n
+    &nbsp;<h1>My Instant Now Deployment</h1>\n
+    <p>Hello world!</p>\n
+  </body>
+</html>
+"
+  />
+</Example>
+
+### List Deployments
+<Endpoint method="GET" url="/v3/now/deployments" />
+
+List all the deployments under the account corresponding to the API token.
+
+If a deployment hasn't finished uploading (is incomplete), the `url` property will have a value of `null`.
+
+Each deployment is an object with the following keys:
+
+#### Response Parameters
+<OutputTable>
+  <Row>
+    <BoldCell>uid</BoldCell>
+    <TypeCell>ID</TypeCell>
+    <Cell>A string with the unique deployment ID you can use to get more information or remove it.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>name</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>A string with the deployment under which the deployment was created.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>url</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>created</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>A number containing the date when the deployment was created (<i>in timestamp</i>).</Cell>
+  </Row>
+  <Row>
+    <BoldCell>creator</BoldCell>
+    <TypeCell>Map</TypeCell>
+    <Cell>A map with the ID of the user who created the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>state</BoldCell>
+    <TypeCell>Enum</TypeCell>
+    <Cell>A string with the current deployment state, it could be one of the following <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
+  </Row>
+</OutputTable>
+
+### Get a Single Deployment
+<Endpoint method="GET" url="/v6/now/deployments/:id" />
+
+This endpoint allows you to retrieve information for a deployment by supplying its **:id** in the URL.
+
+One way to obtain a deployment ID is to [list all deployments](#endpoints/deployments/get-/now/deployments).
+
+#### Response Parameters
+<OutputTable>
+  <Row>
+    <BoldCell>id</BoldCell>
+    <TypeCell>ID</TypeCell>
+    <Cell>A String holding the unique ID of the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>url</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>name</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The name of the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>version</BoldCell>
+    <TypeCell>Integer</TypeCell>
+    <Cell>The Now platform version the deployment is associated with.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>regions</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>The regions the deployment exists in, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>routes</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; <InlineCode>{`[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`}</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>builds</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a <InlineCode>src</InlineCode> and <InlineCode>use</InlineCode> describing the sources files that use Builds in the deployment.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>plan</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The pricing plan the deployment was made under.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>public</BoldCell>
+    <TypeCell>Boolean</TypeCell>
+    <Cell>A Boolean representing if the deployment is public or not. By default this is <InlineCode>false</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>ownerId</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The unique ID of the user or team the deployment belongs to.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>readyState</BoldCell>
+    <TypeCell>Enum</TypeCell>
+    <Cell>The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>createdAt</BoldCell>
+    <TypeCell>Date</TypeCell>
+    <Cell>A number containing the date when the deployment was created in milliseconds.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>createdIn</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The region where the deployment was first created, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
+  </Row>
+</OutputTable>
+
+<Example>
+<PDIV>Example Request:</PDIV>
+<Request
+  method="GET"
+  url="https://api.zeit.co/v6/now/deployments/dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ"
+  headers={{
+    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+  }}
+/>
+
+<PDIV>Example Response:</PDIV>
+<Code>{`{
+  "id": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
+  "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
+  "name": "my-instant-deployment",
+  "version": 2
+  "meta": {},
+  "plan": "unlimited",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "READY",
+  "createdAt": 1540257589405,
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "builds": [
+    {
+      "use": "@now/static",
+      "src": "**"
+    }
+  ],
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  }
+}`}</Code>
+</Example>
+
+### Delete a Deployment
+<Endpoint method="DELETE" url="/v6/now/deployments/:id" />
+
+This API allows you to delete a deployment by supplying its **:id** in the URL.
+You can obtain the ID, for example, by [listing all deployments](#endpoints/deployments/get-/now/deployments).
+
+<Example>
+  <PDIV>Example request:</PDIV>
+
+  <Request
+    method="DELETE"
+    url="https://api.zeit.co/v5/now/deployments/dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd"
+    headers={{
+      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+    }}
+  />
+
+<PDIV>Example response:</PDIV>
+<Code>{`{
+  "uid": "dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd",
+  "state": "DELETED"
+}`}</Code>
+</Example>
+
+### List Deployment Files
+<Endpoint method="GET" url="/v5/now/deployments/:id/files" />
+
+This API allows you to retrieve the file structure of a deployment by supplying its **:id** in the URL.
+
+The body will contain entries for each child and directory, coupled with an ID of the file for content download.
+
+#### Response Parameters
+<OutputTable>
+  <Row>
+    <BoldCell>name</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The name of the file.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>type</BoldCell>
+    <TypeCell>Enum</TypeCell>
+    <Cell>If it's a <InlineCode>file</InlineCode> or a <InlineCode>directory</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>uid</BoldCell>
+    <TypeCell>ID</TypeCell>
+    <Cell>The unique ID of the file (only valid for <InlineCode>file</InlineCode> type)</Cell>
+  </Row>
+  <Row>
+    <BoldCell>children</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>The children files of the directory (only valid for <InlineCode>directory</InlineCode> type).</Cell>
+  </Row>
+</OutputTable>
+
+<Example>
+  <PDIV>Example request:</PDIV>
+
+  <Request
+    url="https://api.zeit.co/v5/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files"
+    headers={{
+      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+    }}
+  />
+
+  Example successful (**200**) response:
+
+<Code>{`[
+  {
+    "name": "index.html",
+    "type": "file",
+    "mode": 33206,
+    "uid": "6938e4ed47a23f17ceb6dbd880ab18d2787e7946"
+  },
+  {
+    "name": "static",
+    "type": "directory",
+    "mode": 16749,
+    "children": [
+      {
+        "name": "logo.png",
+        "type": "file",
+        "mode": 33188,
+        "uid": "c11e3ce950b69b959fcd691df973143271647714"
+      }
+    ]
+  }
+]`}</Code>
+</Example>
+
+### Get Single File Contents
+<Endpoint method="GET" url="/v5/now/deployments/:id/files/:fileId" />
+
+This API allows you to retrieve the file data of a file associated with a deployment by supplying its **:id** and **:fileId** in the URL.
+
+The body will contain the raw content of the file.
+
+<Example>
+  <PDIV>Example request:</PDIV>
+
+  <Request
+    url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
+    headers={{
+      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+    }}
+  />
+
+  Example successful (**200**) response:
+
+<Code>{`<!doctype html>
+<html>
+ <head>
+ <title>My Instant Deployment</title>
+ </head>
+ <body>
+ <h1>My Instant Now Deployment</h1>
+ <p>Hello world!</p>
+ </body>
+</html>`}</Code>
+</Example>
+
+### List Builds
+<Endpoint method="GET" url="/v5/now/deployments/:id/builds" />
+
+This endpoint retrieves a list of Build objects by supplying its **:id** in the URL.
+
+#### Response Parameters
+Each Build is an object with the following keys:
+
+<OutputTable>
+  <Row>
+    <BoldCell>id</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The unique ID of the Build.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>use</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The Builder the Build used to generate the output.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>createdIn</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The region where the Build was first created, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>deployedTo</BoldCell>
+    <TypeCell>List</TypeCell>
+    <Cell>The regions where the Build Output was finally deployed to after the build step.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>readyState</BoldCell>
+    <TypeCell>Enum</TypeCell>
+    <Cell>The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>readyStateAt</BoldCell>
+    <TypeCell>Date</TypeCell>
+    <Cell>The time at which the Build state was last modified.</Cell>
+  </Row>
+  <Row>
+    <BoldCell>path</BoldCell>
+    <TypeCell>String</TypeCell>
+    <Cell>The path of files the Build is assigned to.</Cell>
+  </Row>
+</OutputTable>
+
+<Example>
+<span>Example Request:</span>
+<Request
+  url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/builds"
+  headers={{
+    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+  }}
+/>
+<span>Example Successful (<P.B>200</P.B>) response:</span>
+<Code>{`{
+  "builds": [
+    {
+      "id": "hdl_kxfdc1962",
+      "use": "@now/static",
+      "config": {},
+      "createdIn": "sfo1",
+      "deployedTo": [],
+      "readyState": "READY",
+      "readyStateAt": 1540095775941,
+      "path": "index.html"
+    }
+  ]
+}`}</Code>
+</Example>
+

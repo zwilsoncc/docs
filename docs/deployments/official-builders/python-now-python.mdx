@@ -1,0 +1,62 @@
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import Image from '~/components/image'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+
+### Python (@now/python)
+
+This builder takes in a Python program that defines a singular HTTP handler and outputs it as a [Lambda](/docs/v2/deployment/concepts/lambdas).
+
+#### When to use it
+
+Whenever you want to expose an API or a function written in Python.
+
+#### How to use it
+
+Define a `index.py` file inside a folder as follows:
+
+```
+from http.server import BaseHTTPRequestHandler
+from cowpy import cow
+
+class handler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type','text/plain')
+        self.end_headers()
+        message = cow.Cowacter().milk('Hello from Python on Now Lambda!1111111')
+        self.wfile.write(message.encode())
+        return
+```
+
+Inside `requirements.txt` define:
+
+```
+cowpy==1.0.3
+```
+
+And define a `now.json` like:
+
+```
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.py", "use": "@now/python" }
+  ]
+}
+```
+
+The example above can be seen live as https://python-deployment-mhssg6mqx.now.sh/
+
+#### Technical Details
+
+##### Entrypoint
+
+The entrypoint file must be a `.py` source file with a `handler` that inherits from the `BaseHTTPRequestHandler` class.
+
+##### Dependencies
+This builder supports installing dependencies defined in the `requirements.txt` file.
+

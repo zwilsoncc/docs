@@ -1,5 +1,4 @@
 // Packages
-import PropTypes from 'prop-types'
 import React from 'react'
 import Link from 'next/link'
 // import Router from 'next/router'
@@ -7,7 +6,6 @@ import fetchAPI from '../lib/fetch-api'
 
 // Components
 import Logo from './icons/logo'
-import Arrow from './arrow'
 import Avatar from './avatar'
 import AvatarPopOverLink from './avatar-popover-link'
 
@@ -144,329 +142,118 @@ class Header extends React.PureComponent {
     }
   }
 
-  onLogoMouseEnter = () => {
-    // Router.prefetch('/logos')
-  }
-
   render() {
-    const { lean, currentTeamSlug, clean, user, pathname } = this.props
-    const { darkBg } = this.context
+    const { currentTeamSlug, user, pathname } = this.props
     const { section } = this.state
 
-    let pricingLinkProps = {
-      href: '/pricing'
-    }
-
-    if (user) {
-      pricingLinkProps.href = '/account/plan'
-
-      if (currentTeamSlug) {
-        pricingLinkProps.href = `/teams/settings/plan?teamSlug=${currentTeamSlug}`
-        pricingLinkProps.as = `/teams/${currentTeamSlug}/settings/plan`
-      }
-    }
-
-    let pricingIsActive = false
-    const currentPath = pathname.split('/').pop()
-
-    if (section === '/pricing' || currentPath === 'plan') {
-      pricingIsActive = true
-    }
-
     return (
-      <div
-        className={`
-        ${lean ? 'lean' : ''}
-        ${darkBg ? 'dark' : ''}
-      `}
-      >
+      <div>
         {this.state.logoutError && (
           <div className="logout-error">
             An error occurred while logging out ({this.state.logoutErrorCode})
           </div>
         )}
 
-        <header className={clean ? 'clean' : null}>
-          <a
-            href={
-              currentTeamSlug
-                ? `/teams/${currentTeamSlug}`
-                : this.props.user && !lean ? '/dashboard' : '/'
-            }
-            className="logo"
-            onMouseEnter={this.onLogoMouseEnter}
-            onContextMenu={this.onLogoRightClick}
-          >
-            {this.props.logo ? <span>{this.props.logo}</span> : <Logo />}
-          </a>
-          <div
-            className="menu-arrow"
-            onClick={event => {
-              event.currentTarget.classList.toggle('toggled')
-              this.setState({ responsive: !this.state.responsive })
-            }}
-          >
-            {!clean ? <Arrow /> : null}
-          </div>
-          <div
-            className={
-              'nav-container ' + (this.state.responsive ? 'responsive' : '')
-            }
-          >
-            {!clean ? (
+        <header>
+          <div className="header-content">
+            <a
+              href={
+                currentTeamSlug
+                  ? `/teams/${currentTeamSlug}`
+                  : user ? '/dashboard' : '/'
+              }
+              className="logo"
+              onMouseEnter={this.onLogoMouseEnter}
+              onContextMenu={this.onLogoRightClick}
+            >
+              {this.props.logo ? <span>{this.props.logo}</span> : <Logo />}
+            </a>
+            <div
+              className={
+                'nav-container ' + (this.state.responsive ? 'responsive' : '')
+              }
+            >
               <div className="nav left">
-                <Link href="/about">
-                  <a
-                    className={'/about' === this.state.section ? 'active' : ''}
-                  >
-                    About
+                <Link prefetch href="/docs">
+                  <a className={section === '/docs' ? 'active' : ''}>Docs</a>
+                </Link>
+
+                <Link prefetch href="/api">
+                  <a className={section === '/api' ? 'active' : ''}>
+                    API Reference
                   </a>
                 </Link>
-                <Link href="/blog">
-                  <a className={'/blog' === this.state.section ? 'active' : ''}>
-                    Blog
+
+                <Link prefetch href="/examples">
+                  <a className={section === '/examples' ? 'active' : ''}>
+                    Examples
                   </a>
-                </Link>
-                <Link href="/now">
-                  <a className={'/now' === this.state.section ? 'active' : ''}>
-                    Now
-                  </a>
-                </Link>
-                <Link href="/world">
-                  <a
-                    className={'/world' === this.state.section ? 'active' : ''}
-                  >
-                    World
-                  </a>
-                </Link>
-                <Link href="/domains">
-                  <a
-                    className={
-                      '/domains' === this.state.section ? 'active' : ''
-                    }
-                  >
-                    Domains
-                  </a>
-                </Link>
-                <Link href="/api">
-                  <a className={'/api' === this.state.section ? 'active' : ''}>
-                    Api
-                  </a>
-                </Link>
-                <Link href="/oss">
-                  <a className={'/oss' === this.state.section ? 'active' : ''}>
-                    OSS
-                  </a>
-                </Link>
-                <Link href="/docs">
-                  <a className={'/docs' === this.state.section ? 'active' : ''}>
-                    Docs
-                  </a>
-                </Link>
-                <Link {...pricingLinkProps}>
-                  <a className={pricingIsActive ? 'active' : ''}>Pricing</a>
                 </Link>
               </div>
-            ) : null}
 
-            <div className="nav right">
-              {!clean && !this.props.user
-                ? [
-                    <Link href="/download" key="0">
-                      <a
-                        className={
-                          ('/download' === this.state.section ? 'active' : '') +
-                          ' download'
-                        }
-                      >
-                        Download
-                      </a>
-                    </Link>,
-                    <Link key="-3" href="/day">
-                      <a
-                        className={
-                          ('/day' === this.state.section ? 'active' : '') +
-                          ' day'
-                        }
-                      >
-                        Day
-                      </a>
-                    </Link>,
-                    <Link key="-2" href="/tv">
-                      <a
-                        className={
-                          ('/tv' === this.state.section ? 'active' : '') + ' tv'
-                        }
-                      >
-                        TV
-                      </a>
-                    </Link>,
-                    <Link href="/chat" key="1">
-                      <a
-                        className={`chat ${this.state.chatCount
-                          ? 'chat-active'
-                          : ''}`}
-                      >
-                        Chat
-                        <span>{this.state.chatCount}</span>
-                      </a>
-                    </Link>,
-                    <Link href="/login" key="2">
-                      <a
-                        className={
-                          '/login' === this.state.section ? 'active' : ''
-                        }
-                      >
-                        Login
-                      </a>
-                    </Link>
-                  ]
-                : null}
-              {!clean && this.props.user
-                ? [
-                    <Link href="/download" key="0">
-                      <a
-                        className={
-                          ('/download' === this.state.section ? 'active' : '') +
-                          ' download'
-                        }
-                      >
-                        Download
-                      </a>
-                    </Link>,
-                    <Link key="-3" href="/day">
-                      <a
-                        className={
-                          ('/day' === this.state.section ? 'active' : '') +
-                          ' day'
-                        }
-                      >
-                        Day
-                      </a>
-                    </Link>,
-                    <Link key="-2" href="/tv">
-                      <a
-                        className={
-                          ('/tv' === this.state.section ? 'active' : '') + ' tv'
-                        }
-                      >
-                        TV
-                      </a>
-                    </Link>,
-                    <Link href="/chat" key="1">
-                      <a
-                        className={`chat ${this.state.chatCount
-                          ? 'chat-active'
-                          : ''}`}
-                      >
-                        Chat
-                        <span>{this.state.chatCount}</span>
-                      </a>
-                    </Link>,
-                    <Link href="/dashboard" key="2">
-                      <a className="mobile-link">Dashboard</a>
-                    </Link>,
-                    <Link href="/account/identity" as="/account" key="3">
-                      <a className="mobile-link account">
-                        Account
-                        <div className="avatar-container">
-                          <Avatar
-                            uid={this.props.user.uid}
-                            title={
-                              this.props.user.username || this.props.user.email
-                            }
-                            size={30}
-                            hash={this.props.user.avatar}
-                          />
-                        </div>
-                      </a>
-                    </Link>,
+              <div className="nav right">
+                {this.props.user && [
+                  <Link href="/dashboard" key="2">
+                    <a className="mobile-link">Dashboard</a>
+                  </Link>,
+                  <Link href="/chat" key="1">
                     <a
-                      onClick={this.onLogout}
-                      className="mobile-logout mobile-link"
-                      key="4"
+                      className={`chat ${this.state.chatCount
+                        ? 'chat-active'
+                        : ''}`}
                     >
-                      Logout
-                    </a>,
-                    <span key="avatar" className="avatar">
-                      <AvatarPopOverLink
-                        user={this.props.user}
-                        pathname={this.props.pathname}
-                        onLogout={this.onLogout}
-                      />
-                    </span>
-                  ]
-                : null}
-
-              {clean && this.props.user
-                ? [
-                    <Link href="/dashboard" key="2">
-                      <a className="mobile-link">Dashboard</a>
-                    </Link>,
-                    <Link href="/chat" key="1">
-                      <a
-                        className={`chat ${this.state.chatCount
-                          ? 'chat-active'
-                          : ''}`}
-                      >
-                        Chat
-                        <span>{this.state.chatCount}</span>
-                      </a>
-                    </Link>,
-                    <Link href="/account/identity" as="/account" key="3">
-                      <a className="mobile-link account">
-                        Account
-                        <div className="avatar-container">
-                          <Avatar
-                            uid={this.props.user.uid}
-                            title={
-                              this.props.user.username || this.props.user.email
-                            }
-                            size={30}
-                            hash={this.props.user.avatar}
-                          />
-                        </div>
-                      </a>
-                    </Link>,
+                      Chat
+                      <span>{this.state.chatCount}</span>
+                    </a>
+                  </Link>,
+                  <Link href="/account/identity" as="/account" key="3">
+                    <a className="mobile-link account">
+                      Account
+                      <div className="avatar-container">
+                        <Avatar
+                          uid={this.props.user.uid}
+                          title={
+                            this.props.user.username || this.props.user.email
+                          }
+                          size={30}
+                          hash={this.props.user.avatar}
+                        />
+                      </div>
+                    </a>
+                  </Link>,
+                  <a
+                    onClick={this.onLogout}
+                    className="mobile-logout mobile-link"
+                    key="4"
+                  >
+                    Logout
+                  </a>,
+                  <span key="avatar" className="avatar">
+                    <AvatarPopOverLink
+                      user={user}
+                      pathname={pathname}
+                      onLogout={this.onLogout}
+                    />
+                  </span>
+                ]}
+                {!this.props.user && [
+                  <Link href="/chat" key="1">
                     <a
-                      onClick={this.onLogout}
-                      className="mobile-logout mobile-link"
-                      key="4"
+                      className={`chat ${this.state.chatCount
+                        ? 'chat-active'
+                        : ''}`}
                     >
-                      Logout
-                    </a>,
-                    <span key="avatar" className="avatar">
-                      <AvatarPopOverLink
-                        user={this.props.user}
-                        pathname={this.props.pathname}
-                        onLogout={this.onLogout}
-                      />
-                    </span>
-                  ]
-                : null}
-              {clean && !this.props.user
-                ? [
-                    <Link href="/chat" key="1">
-                      <a
-                        className={`chat ${this.state.chatCount
-                          ? 'chat-active'
-                          : ''}`}
-                      >
-                        Chat
-                        <span>{this.state.chatCount}</span>
-                      </a>
-                    </Link>,
-                    <Link href="/login" key="2">
-                      <a
-                        className={
-                          '/login' === this.state.section ? 'active' : ''
-                        }
-                      >
-                        Login
-                      </a>
-                    </Link>
-                  ]
-                : null}
+                      Chat
+                      <span>{this.state.chatCount}</span>
+                    </a>
+                  </Link>,
+                  <Link href="/login" key="2">
+                    <a className={'/login' === section ? 'active' : ''}>
+                      Login
+                    </a>
+                  </Link>
+                ]}
+              </div>
             </div>
           </div>
         </header>
@@ -487,23 +274,19 @@ class Header extends React.PureComponent {
         <style jsx>
           {`
             header {
-              max-width: 900px;
-              margin: auto;
-              padding: 30px 0;
               position: relative;
+              background: white;
+              height: 90px;
+              border-bottom: 1px solid #eaeaea;
+              padding: 0 24px;
             }
 
-            header.clean {
-              max-width: 100%;
-              margin: 0 30px;
-            }
-
-            .lean .nav.left,
-            .lean .nav.right .day,
-            .lean .nav.right .download,
-            .lean .nav.right .chat,
-            .lean .nav.right .tv {
-              visibility: hidden;
+            .header-content {
+              max-width: 1000px;
+              margin: auto;
+              display: flex;
+              align-items: center;
+              height: 100%;
             }
 
             .nav > a {
@@ -513,16 +296,8 @@ class Header extends React.PureComponent {
               transition: color 0.2s ease;
             }
 
-            .nav > a {
-              color: #999;
-            }
-
             .nav > a:hover {
               color: #000;
-            }
-
-            .dark .nav > a:hover {
-              color: #fff;
             }
 
             .logout-error {
@@ -553,18 +328,21 @@ class Header extends React.PureComponent {
 
             a.logo {
               display: block;
-              width: 39px;
-              height: 35px;
+              width: 28px;
+              height: 25px;
               position: relative;
             }
 
+            .nav-container {
+              width: 100%;
+              display: flex;
+            }
+
             .nav {
-              margin-top: -2px;
               padding: 10px;
               padding-right: 0;
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
+              display: flex;
+              align-items: center;
             }
 
             .nav .chat {
@@ -593,19 +371,9 @@ class Header extends React.PureComponent {
               opacity: 1;
             }
 
-            .dark .nav .chat span {
-              background-color: #eee;
-              color: #444;
-            }
-
             .nav .chat:hover span {
               color: #fff;
               background-color: #000;
-            }
-
-            .dark .nav .chat:hover span {
-              background-color: #fff;
-              color: #000;
             }
 
             .nav a {
@@ -625,10 +393,6 @@ class Header extends React.PureComponent {
               color: #000;
             }
 
-            .dark .nav a.active {
-              color: #fff;
-            }
-
             .menu-arrow {
               display: none;
               width: 40px;
@@ -638,6 +402,7 @@ class Header extends React.PureComponent {
 
             .right {
               right: 0;
+              margin-left: auto;
             }
 
             .left {
@@ -654,10 +419,6 @@ class Header extends React.PureComponent {
 
             .title b {
               font-weight: bold;
-            }
-
-            .dark .title {
-              color: #fff;
             }
 
             @keyframes fadeOut {
@@ -698,22 +459,8 @@ class Header extends React.PureComponent {
               }
             }
 
-            .nav > a.download {
-              color: #ff0080;
-              transition: color 0.2s ease;
-            }
-
-            .nav > a.download:hover,
-            .dark .nav > a.download:hover {
-              color: #ff0080;
-            }
-
             .avatar {
               margin-left: 10px;
-            }
-
-            .lean .avatar {
-              filter: grayscale(100%);
             }
 
             .mobile-link {
@@ -723,20 +470,6 @@ class Header extends React.PureComponent {
             @media screen and (max-width: 950px) {
               header {
                 text-align: left;
-              }
-
-              header.clean {
-                margin: 0;
-              }
-
-              .clean .menu-arrow {
-                display: none;
-              }
-
-              .lean .nav.left,
-              .lean .nav.right .download,
-              .lean .nav.right .chat {
-                visibility: visible;
               }
 
               .nav {
@@ -768,20 +501,6 @@ class Header extends React.PureComponent {
                 font-weight: bold;
               }
 
-              .dark .nav a {
-                border-bottom-color: #333333;
-                color: #fff;
-              }
-
-              .dark .nav a:hover,
-              .dark .nav a.active {
-                background: #121212;
-              }
-
-              .dark .nav > a.download {
-                color: #ff0080;
-              }
-
               .nav-container {
                 display: none;
                 background: #fff;
@@ -809,22 +528,15 @@ class Header extends React.PureComponent {
                 margin-left: auto;
               }
 
-              .dark .nav-container {
-                background: #000;
-              }
-
               .nav-container.responsive {
-                display: block;
+                display: flex;
+                width: 100%;
                 margin-bottom: 20px;
               }
 
               .nav-container .left {
                 left: 0;
                 padding: 0;
-              }
-
-              .logo {
-                margin-left: 20px;
               }
 
               .menu-arrow {
@@ -839,10 +551,6 @@ class Header extends React.PureComponent {
 
               .menu-arrow {
                 fill: #000;
-              }
-
-              .dark .menu-arrow {
-                fill: #fff;
               }
 
               .menu-arrow.toggled {
@@ -866,10 +574,6 @@ class Header extends React.PureComponent {
       </div>
     )
   }
-}
-
-Header.contextTypes = {
-  darkBg: PropTypes.bool
 }
 
 export default Header
