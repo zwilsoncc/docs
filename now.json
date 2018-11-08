@@ -4,5 +4,11 @@
   "alias": "docs.zeit.sh",
   "features": {
     "cloud": "v2"
+  },
+  "limits": {
+    "maxConcurrentReqs": 100
+  },
+  "scale": {
+    "all": { "min": 0, "max": 10 }
   }
 }
