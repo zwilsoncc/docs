@@ -69,7 +69,7 @@ class APIPage extends Component {
   }
 
   handleVersionChange = event => {
-    const href = `/api/${event.target.value}`
+    const href = `/docs/api/${event.target.value}`
     this.props.router.push(href)
     this.handleIndexClick()
   }
@@ -176,8 +176,8 @@ class APIPage extends Component {
                           <a onClick={this.handleIndexClick}>Docs</a>
                         </Link>
                       </ToggleItem>
-                      <ToggleItem active={pathSection === '/api'}>
-                        <Link prefetch href="/api">
+                      <ToggleItem active={pathSection === '/docs/api'}>
+                        <Link prefetch href="/docs/api">
                           <a onClick={this.handleIndexClick}>Api Refence</a>
                         </Link>
                       </ToggleItem>
@@ -215,7 +215,7 @@ class APIPage extends Component {
                     <Note warning>
                       This API documentation is for <P.B>version 1</P.B> of the
                       Now platform. For the latest features, please see{' '}
-                      <GenericLink href="/api/v2">
+                      <GenericLink href="/docs/api/v2">
                         the version 2 API reference
                       </GenericLink>. If you have yet to upgrade, see the{' '}
                       <GenericLink href="/docs/v2/platform/upgrade-to-2-0">

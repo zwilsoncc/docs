@@ -56,6 +56,6 @@ As of version **0.6.0**, [now-client](https://github.com/zeit/now-client) comes 
 
 Normally, when a user created an alias with <Now color="#000" /> command line utility, we automatically issued a certificate for it (as previously described in ${<InternalLink href="/blog/now-alias">this post</InternalLink>}). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal, and replacement.
 
-The endpoint is called `/now/certs` and available in our <InternalLink href="/api#endpoints">REST API</InternalLink>.
+The endpoint is called `/now/certs` and available in our <InternalLink href="/docs/api#endpoints">REST API</InternalLink>.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

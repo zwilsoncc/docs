@@ -93,7 +93,11 @@ async function main(req, res, parsedUrl) {
     return
   }
 
-  if (req.url.includes('/docs/') && !req.url.match(/(\/docs\/v[0-9])/)) {
+  if (
+    req.url.includes('/docs/') &&
+    !req.url.match(/(\/docs\/v[0-9])/) &&
+    !req.url.includes('/docs/api')
+  ) {
     // 302 as it will be cached by the browser otherwise
     res.writeHead(302, {
       Location: '/docs/v1/' + req.url.split('/docs/')[1]
@@ -102,10 +106,13 @@ async function main(req, res, parsedUrl) {
     return
   }
 
-  if (req.url.includes('/api#') && !req.url.match(/(\/api\/v[0-9])/)) {
+  if (
+    (req.url.includes('/api#') || req.url.includes('/docs/api#')) &&
+    !req.url.match(/(\/api\/v[0-9])/)
+  ) {
     // 302 as it will be cached by the browser otherwise
     res.writeHead(302, {
-      Location: '/api/v1#' + req.url.split('/api#')[1]
+      Location: '/docs/api/v1#' + req.url.split('/api#')[1]
     })
     res.end()
     return

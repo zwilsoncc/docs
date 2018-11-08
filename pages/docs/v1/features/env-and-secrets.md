@@ -117,7 +117,7 @@ How about other programming languages? The same mechanism applies to any project
 
 You can even <InternalLink href="/docs/deployment-types/node#ignoring-devdependencies">prevent</InternalLink> `devDependencies` from being installed using an environment variable!
 
-Finally, our <InternalLink href="/api">API</InternalLink> users will find the new /now/secrets REST endpoints useful.
+Finally, our <InternalLink href="/docs/api">API</InternalLink> users will find the new /now/secrets REST endpoints useful.
 
 ## Default Variables
 

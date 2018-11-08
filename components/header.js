@@ -178,8 +178,8 @@ class Header extends React.PureComponent {
                   <a className={section === '/docs' ? 'active' : ''}>Docs</a>
                 </Link>
 
-                <Link prefetch href="/api">
-                  <a className={section === '/api' ? 'active' : ''}>
+                <Link prefetch href="/docs/api/v1">
+                  <a className={section === '/docs/api/v1' ? 'active' : ''}>
                     API Reference
                   </a>
                 </Link>

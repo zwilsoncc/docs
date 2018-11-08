@@ -16,7 +16,7 @@ Check our [Twitter status account](https://twitter.com/zeit_status) and our [sta
 Check the [documentation](/docs). There we have a lot of information about how you can use the CLI and the platform. It also has project examples and guides for integration with third-party services.
 
 ### API Documentation
-We also have a [documentation for our API](https://zeit.co/api). If you want to build something on top of our platform you will find a lot of information about how to do so there.
+We also have a [documentation for our API](https://zeit.co/docs/api). If you want to build something on top of our platform you will find a lot of information about how to do so there.
 
 ## GitHub
 We have many [GitHub repositories](https://github.com/zeit) for almost every service or product we have. You can create issues in those repositories and the team or community will help you as soon as possible. Some repositories you can access are [now-cloud](https://github.com/zeit/now-cloud), [now-cli](https://github.com/zeit/now-cli), [now-desktop](https://github.com/zeit/now-desktop), [now-client](https://github.com/zeit/now-client), [next.js](https://github.com/zeit/next.js), [hyper](https://github.com/zeit/hyper), [pkg](https://github.com/zeit/pkg), [micro](https://github.com/zeit/micro) and [more](https://github.com/zeit).

@@ -70,7 +70,7 @@ class APIPage extends Component {
   }
 
   handleVersionChange = event => {
-    const href = `/api/${event.target.value}`
+    const href = `/docs/api/${event.target.value}`
     this.props.router.push(href)
     this.handleIndexClick()
   }
@@ -183,8 +183,8 @@ class APIPage extends Component {
                           <a onClick={this.handleIndexClick}>Docs</a>
                         </Link>
                       </ToggleItem>
-                      <ToggleItem active={pathSection === '/api'}>
-                        <Link prefetch href="/api">
+                      <ToggleItem active={pathSection === '/docs/api'}>
+                        <Link prefetch href="/docs/api">
                           <a onClick={this.handleIndexClick}>Api Refence</a>
                         </Link>
                       </ToggleItem>

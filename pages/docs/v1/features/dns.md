@@ -84,6 +84,6 @@ Removes a record by ID, which is shown in the `now dns ls` listing. Note that it
 
 As of [now-client](https://github.com/zeit/now-client) version **0.7.0**, it comes with API wrappers for managing the DNS records within your own application.
 
-The endpoint is called `/domains/:domain/records` and is available in our <InternalLink href="/api#get-domain-records">REST API</InternalLink>.
+The endpoint is called `/domains/:domain/records` and is available in our <InternalLink href="/docs/api#get-domain-records">REST API</InternalLink>.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

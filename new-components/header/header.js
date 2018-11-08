@@ -78,7 +78,7 @@ class Header extends Component {
           <NavigationItem href="/docs" active={pathSection === '/docs'}>
             Docs
           </NavigationItem>
-          <NavigationItem href="/api" active={pathSection === '/api'}>
+          <NavigationItem href="/docs/api" active={pathSection === '/docs/api'}>
             API Reference
           </NavigationItem>
           <NavigationItem href="/examples" active={pathSection === '/examples'}>
