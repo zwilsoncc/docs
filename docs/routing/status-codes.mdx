@@ -36,70 +36,52 @@ The page could not be found
 
 ### List of Status Codes
 
-<Table>
-  <Row header>
-    <Column left>Status&nbsp;Code</Column>
-    <Column>Identifier</Column>
-    <Column right>Description</Column>
-  </Row>
+#### 303
+Type: `DEPLOYMENT_NOT_READY_REDIRECTING`
 
-<Row>
-    <Column left>303</Column>
-    <Column>`DEPLOYMENT_NOT_READY_REDIRECTING`</Column>
-    <Column right>Deployment not ready, redirecting to inspector.</Column>
-  </Row>
+Deployment not ready, redirecting to inspector.
 
-<Row>
-    <Column left>402</Column>
-    <Column>`DEPLOYMENT_BLOCKED`</Column>
-    <Column right>Your subscription was blocked.</Column>
-  </Row>
+#### 402
+Type: `DEPLOYMENT_BLOCKED`
 
-<Row>
-    <Column left>404</Column>
-    <Column>`NO_FILES_FOUND`</Column>
-    <Column right>There is no <b>Static File</b> or <b>Lambda</b> in your <b>Build Output</b> that matches this path.</Column>
-  </Row>
+Your subscription was blocked.
 
-<Row>
-    <Column left>404</Column>
-    <Column>`DEPLOYMENT_NOT_FOUND`</Column>
-    <Column right>The deployment you tried to access does not exist.</Column>
-  </Row>
+#### 404
+Type: `NO_FILES_FOUND`
 
-<Row>
-    <Column left>413</Column>
-    <Column>`LAMBDA_PAYLOAD_TOO_LARGE`</Column>
-    <Column right>The request's body is too large for invoking the <b>Lambda</b>.</Column>
-  </Row>
+There is no <b>Static File</b> or <b>Lambda</b> in your <b>Build Output</b> that matches this path.
 
-<Row>
-    <Column left>500</Column>
-    <Column>`INTERNAL_LAMBDA_NOT_FOUND`</Column>
-    <Column right>We were not able to locate the <b>Lambda</b> responsible for the path you tried to access.</Column>
-  </Row>
+#### 404
+Type: `DEPLOYMENT_NOT_FOUND`
 
-<Row>
-    <Column left>500</Column>
-    <Column>`INTERNAL_INVALID_LAMBDA_REGION`</Column>
-    <Column right>No <b>Lambda</b> was found in the region identifier attached to the deployment.</Column>
-  </Row>
+The deployment you tried to access does not exist.
 
-<Row>
-    <Column left>500</Column>
-    <Column>`INTERNAL_LAMBDA_INVOCATION_FAILED`</Column>
-    <Column right>The <b>Routing layer</b> was not able to invoke the <b>Lambda</b>.</Column>
-  </Row>
+#### 413
+Type: `LAMBDA_PAYLOAD_TOO_LARGE`
 
-<Row>
-    <Column left>502</Column>
-    <Column>`NO_STATUS_CODE_FROM_LAMBDA`</Column>
-    <Column right>The <b>Lambda</b> responsible for the path you tried to access did not reply with a status code.</Column>
-  </Row>
+The request's body is too large for invoking the <b>Lambda</b>.
 
-<Row>
-    <Column left>504</Column>
-    <Column>`LAMBDA_INVOCATION_TIMEOUT`</Column>
-    <Column right>The <b>Lambda</b> responsible for the path you tried to access did not reply in time.</Column>
-  </Row>
-</Table>
+#### 500
+Type: `INTERNAL_LAMBDA_NOT_FOUND`
+
+We were not able to locate the <b>Lambda</b> responsible for the path you tried to access.
+
+#### 500
+Type: `INTERNAL_INVALID_LAMBDA_REGION`
+
+No <b>Lambda</b> was found in the region identifier attached to the deployment.
+
+#### 500
+Type: `INTERNAL_LAMBDA_INVOCATION_FAILED`
+
+The <b>Routing layer</b> was not able to invoke the <b>Lambda</b>.
+
+#### 502
+Type: `NO_STATUS_CODE_FROM_LAMBDA`
+
+The <b>Lambda</b> responsible for the path you tried to access did not reply with a status code.
+
+#### 504
+Type: `LAMBDA_INVOCATION_TIMEOUT`
+
+The <b>Lambda</b> responsible for the path you tried to access did not reply in time.

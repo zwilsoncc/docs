@@ -26,7 +26,7 @@
   "pages/docs/v1/features/dns.md": "2018-11-08T14:44:32.393Z",
   "pages/docs/v1/features/env-and-secrets.md": "2018-11-08T14:44:32.394Z",
   "pages/docs/v1/features/github-integration.js": "2018-11-08T14:44:32.394Z",
-  "pages/docs/v1/features/index.js": "2018-11-08T14:44:32.394Z",
+  "pages/docs/v1/features/index.js": "2018-11-08T15:29:42.061Z",
   "pages/docs/v1/features/now-cli.js": "2018-11-08T14:44:32.394Z",
   "pages/docs/v1/features/now-for-github.js": "2018-11-08T14:44:32.394Z",
   "pages/docs/v1/features/path-aliases.md": "2018-11-08T14:44:32.395Z",
@@ -62,5 +62,6 @@
   "pages/docs/v1/static-deployments/builds/building-with-now.md": "2018-11-08T14:44:32.400Z",
   "pages/docs/v1/static-deployments/configuration.md": "2018-11-08T14:44:32.401Z",
   "pages/docs/v1/static-deployments/introduction-and-deploying.md": "2018-11-08T14:44:32.401Z",
-  "pages/docs/v2/index.js": "2018-11-08T14:44:32.405Z"
+  "pages/docs/v2/index.js": "2018-11-08T14:44:32.405Z",
+  "pages/docs/v2/platform/global-configuration.js": "2018-11-08T15:29:41.413Z"
 }

@@ -85,7 +85,9 @@ async function main(req, res, parsedUrl) {
   if (req.url.includes('/docs/router-status')) {
     const code = req.url.split('/docs/router-status/')[1]
     res.writeHead(302, {
-      Location: '/docs/v2/routing/status-codes' + (code ? `#${code}` : '')
+      Location:
+        '/docs/v2/routing/status-codes' +
+        (code ? `#list-of-status-codes/${code}` : '')
     })
     res.end()
     return
