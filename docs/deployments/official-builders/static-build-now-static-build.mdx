@@ -20,43 +20,43 @@ First, decide on a directory where your statically generated site source code wi
 In this example, we will use `@now/static-build` to build two Hugo websites statically.
 
 <TerminalInput>{`mkdir my-app
-  cd my-app`}</TerminalInput>
+cd my-app`}</TerminalInput>
 
-  Install [hugo](https://gohugo.io/) so that you can use its bootstrapping tools, and run:
+Install [hugo](https://gohugo.io/) so that you can use its bootstrapping tools, and run:
 
-  <TerminalInput>{`hugo new site docs
-    hugo new site blog`}</TerminalInput>
+<TerminalInput>{`hugo new site docs
+hugo new site blog`}</TerminalInput>
 
-    Go inside each directory and create a `package.json` file. We can use `yarn` to bootstrap it and also include `hugo` so that Now can build it:
+Go inside each directory and create a `package.json` file. We can use `yarn` to bootstrap it and also include `hugo` so that Now can build it:
 
-    <TerminalInput>
-    yarn add hugo-cli
-    </TerminalInput>
+<TerminalInput>
+yarn add hugo-cli
+</TerminalInput>
 
-    Hugo requires that you download and configure a theme. For this example we ran inside `docs` and `blog`:
+Hugo requires that you download and configure a theme. For this example we ran inside `docs` and `blog`:
 
-    ```
-    git init;\\
-      git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\\
-      echo 'theme = "ananke"' >> config.toml
-      ```
+```
+git init;\\
+  git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\\
+  echo 'theme = "ananke"' >> config.toml
+  ```
 
-      And create an example post in both `docs` and `blog`:
+  And create an example post in both `docs` and `blog`:
 
-      <TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
+  <TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
 
-      Make sure `node_modules` and `dist` are in `[.nowignore](/docs/v2/deployments/ignoring-source-paths)`
+  Make sure `node_modules` and `dist` are in [`.nowignore`](/docs/v2/deployments/ignoring-source-paths)`
 
-      ```
-      node_modules
-      ```
+  ```
+  node_modules
+  ```
 
-      Finally, for Now to know what to execute, add to `package.json`:
+  Finally, for Now to know what to execute, add to `package.json`:
 
-      ```
-      "scripts": {
-        "now-build": "hugo -d dist"
-      }
+  ```
+  "scripts": {
+    "now-build": "hugo -d dist"
+  }
 ```
 
 Notice that `@now/static-build`:
