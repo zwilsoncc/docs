@@ -16,9 +16,9 @@ Builds are defined in the `now.json` configuration file using [the `builds` prop
 }
 ```
 
-The above example instructs Now to consider all files with a `.js` extension (the pattern is defined in the `src` property) and pass them to an npm module named [`@now/node`](/docs/v2/deployments/builders/official-builders#@now-node).
+The above example instructs Now to consider all files with a `.js` extension (the pattern is defined in the `src` property) and pass them to an npm module named [`@now/node`](/docs/v2/deployments/official-builders/node-js-now-node).
 
-This [`@now/node`](/docs/v2/deployments/builders/official-builders#@now-node) module is called a [Builder](/docs/v2/deployments/builders/overview).
+This [`@now/node`](/docs/v2/deployments/official-builders/node-js-now-node) module is called a [Builder](/docs/v2/deployments/builders/overview).
 
 Builders take in all the files matched by the `src` property and transform those source files to a production-ready output.
 
@@ -34,7 +34,7 @@ However, if you [define a `builds` step](/docs/v2/deployments/configuration#buil
 
 <Note>Now will only include Builder outputs as a security precaution, if there is are <InlineCode>builds</InlineCode> defined, to avoid serving unintended files to the public.</Note>
 
-<Card title="See a Static Build Example" href="/docs/v2/deployments/builders/official-builders#@now-static">Take a look at an example of using Builds to deploy static files</Card>
+<Card title="See a Static Build Example" href="/docs/v2/deployments/official-builders/static-now-static">Take a look at an example of using Builds to deploy static files</Card>
 
 ### Configuration
 
@@ -54,8 +54,7 @@ The [Builder](#builders) responsible for handling the source is defined in the `
 The driving force behind the builds step of Now are the [Builders](/docs/v2/deployments/builders/overview). Each Builder takes the source it is given and produces an output, depending on the purpose of the builder.
 
 #### Official Builders
-
-To get you started with your project quickly and easily, we have made a set of official Builders. You can find the full list of official Builders [here](/docs/v2/deployments/builders/official-builders).
+To get you started with your project quickly and easily, we have made a set of official Builders. You can find the full list of official builders in the sidebar to the left.
 
 #### Creating a Builder
 
