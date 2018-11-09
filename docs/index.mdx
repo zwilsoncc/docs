@@ -1,13 +1,15 @@
-import GettingStarted from './getting-started/index.mdx'
-import Deployments from './deployments/index.mdx'
-import DomainsAndAliases from './domains-and-aliases/index.mdx'
-import Platform from './platform/index.mdx'
-import Routing from './routing/index.mdx'
-import Integrations from './integrations/index.mdx'
+import {toc as GettingStarted} from './getting-started/index.mdx'
+import {toc as Deployments} from './deployments/index.mdx'
+import {toc as DomainsAndAliases} from './domains-and-aliases/index.mdx'
+import {toc as Platform} from './platform/index.mdx'
+import {toc as Routing} from './routing/index.mdx'
+import {toc as Integrations} from './integrations/index.mdx'
 
-<GettingStarted />
-<Deployments />
-<DomainsAndAliases />
-<Platform />
-<Routing />
-<Integrations />
+export const toc = [
+  GettingStarted,
+  Deployments,
+  DomainsAndAliases,
+  Platform,
+  Routing,
+  Integrations
+]
