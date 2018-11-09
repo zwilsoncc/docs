@@ -1,6 +1,6 @@
-import DocPage from '~/new-components/docs-page/docs/page';
-import Page, { meta } from '~/docs/deployments/builds.mdx'
+import dynamic from 'next/dynamic'; const DocPage = dynamic(import(/* webpackChunkName: "docs-page" */ '~/new-components/docs-page/docs/page'))
+import Page from '~/docs/deployments/builds.mdx'
 
 <Page />
 
-export default DocPage(meta)
+export default DocPage
