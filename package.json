@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "./scripts/now-examples-fetch.sh && micro server.js",
     "build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build",
+    "now-build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build && next export -o dist",
     "start": "cross-env NODE_ENV=production micro server.js",
+    "export": "next export -o dist",
     "lint": "eslint .",
     "lint:staged": "lint-staged",
     "test": "npm run lint",
@@ -34,7 +36,7 @@
     "micro": "9.3.3",
     "mitt": "1.1.2",
     "ms": "2.1.1",
-    "next": "7.0.2",
+    "next": "7.0.2-canary.21",
     "nprogress": "0.2.0",
     "prop-types": "15.6.2",
     "ramda": "0.25.0",
