@@ -252,7 +252,10 @@ class ExamplesPage extends React.Component {
             <div className="category-wrapper">
               <div className="buttons">
                 <div className="fork-button">
-                  <IconExternalLink icon={<ForkIcon />} href={fork}>
+                  <IconExternalLink
+                    icon={<ForkIcon />}
+                    href={`https://github.com/zeit/now-examples/tree/master${fork}`}
+                  >
                     Fork
                   </IconExternalLink>
                 </div>
