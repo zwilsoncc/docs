@@ -86,7 +86,7 @@ To that end, we expose our API as part of a `@now/build-utils` package. This pac
 Builders can include dependencies of their liking. In this case, we'll use the [html-minifier](/docs/v2/deployments/official-builders/html-minifier-now-html-minifier) npm package:
 
 ```
-const htmlMinifer = require('html-minifer');
+const htmlMinifier = require('html-minifier');
 
 exports.analyze = function ({ files, entrypoint }) {
   return files[entrypoint].digest;
@@ -98,7 +98,7 @@ exports.build = function ({ files, entrypoint, config }) {
   const { data } = await FileBlob.fromStream({ stream });
   const content = data.toString();
 
-  const minified = minify(content, options);
+  const minified = htmlMinifier(content, options);
   const result = new FileBlob({ data: minified });
 
   return { [entrypoint]: result };  // the code here
