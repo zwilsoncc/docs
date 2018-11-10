@@ -143,7 +143,7 @@ const getDocPage = function getDocPage() {
                         </ToggleItem>
                         <ToggleItem active={pathSection === '/docs/api'}>
                           <Link prefetch href="/docs/api">
-                            <a onClick={this.handleIndexClick}>Api Refence</a>
+                            <a onClick={this.handleIndexClick}>API Reference</a>
                           </Link>
                         </ToggleItem>
                         <ToggleItem active={pathSection === '/examples'}>
