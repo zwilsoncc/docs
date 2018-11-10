@@ -115,8 +115,8 @@ const getDocPage = function getDocPage() {
         >
           <Page>
             <Head
-              description="A comprehensive guide to using the Now API and gaining control over the Now platform"
-              title={`Now API Documentation`}
+              description="The information center and documentation for how to use ZEIT Now and how it works."
+              title={`Now Documentation`}
               titlePrefix=""
               titleSuffix=" - ZEIT"
             />
