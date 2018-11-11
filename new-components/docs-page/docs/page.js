@@ -10,7 +10,6 @@ import Content from '~/new-components/layout/content'
 import Context from '~/new-components/docs-page/context'
 import DocsBuilder from '~/new-components/docs-builder'
 import DocsIndex from '~/new-components/docs-index'
-import getSection from '~/new-components/utils/get-section'
 import Head from '~/new-components/layout/head'
 import Header from '~/new-components/header'
 import Main from '~/new-components/layout/main'
@@ -97,7 +96,6 @@ const getDocPage = function getDocPage() {
 
     render() {
       const { children, currentTeamSlug, router, user } = this.props
-      const pathSection = getSection(router.pathname)
       const { navigationActive, version } = this.state
 
       return (
@@ -136,17 +134,19 @@ const getDocPage = function getDocPage() {
                   >
                     <div className="toggle-group-wrapper">
                       <ToggleGroup>
-                        <ToggleItem active={pathSection === '/docs'}>
+                        <ToggleItem active={router.pathname === '/docs'}>
                           <Link prefetch href="/docs">
                             <a onClick={this.handleIndexClick}>Docs</a>
                           </Link>
                         </ToggleItem>
-                        <ToggleItem active={pathSection === '/docs/api'}>
+                        <ToggleItem
+                          active={router.pathname.startsWith('/docs/api')}
+                        >
                           <Link prefetch href="/docs/api">
                             <a onClick={this.handleIndexClick}>API Reference</a>
                           </Link>
                         </ToggleItem>
-                        <ToggleItem active={pathSection === '/examples'}>
+                        <ToggleItem active={router.pathname === '/examples'}>
                           <Link prefetch href="/examples">
                             <a onClick={this.handleIndexClick}>Examples</a>
                           </Link>

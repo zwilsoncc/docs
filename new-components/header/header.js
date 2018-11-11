@@ -9,7 +9,6 @@ import Arrow from '../icons/arrow'
 import Avatar from '../avatar'
 import ChatCount from '../chat-count'
 import getDashboardHref from '../utils/get-dashboard-href'
-import getSection from '../utils/get-section'
 import LayoutHeader from '../layout/header'
 import Logo from '../icons/logo'
 import Plus from '../icons/plus'
@@ -66,7 +65,6 @@ class Header extends Component {
     } = this.props
     const { menuActive } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
-    const pathSection = getSection(router.pathname)
 
     return (
       <LayoutHeader className="header">
@@ -75,13 +73,22 @@ class Header extends Component {
         </a>
 
         <Navigation className="main-navigation">
-          <NavigationItem href="/docs" active={pathSection === '/docs'}>
+          <NavigationItem
+            href="/docs"
+            active={router.pathname.startsWith('/docs/v')}
+          >
             Docs
           </NavigationItem>
-          <NavigationItem href="/docs/api" active={pathSection === '/docs/api'}>
+          <NavigationItem
+            href="/docs/api"
+            active={router.pathname.startsWith('/docs/api')}
+          >
             API Reference
           </NavigationItem>
-          <NavigationItem href="/examples" active={pathSection === '/examples'}>
+          <NavigationItem
+            href="/examples"
+            active={router.pathname.startsWith('/examples')}
+          >
             Examples
           </NavigationItem>
         </Navigation>
