@@ -152,7 +152,9 @@ class APIPage extends Component {
             title={`Now API Documentation`}
             titlePrefix=""
             titleSuffix=" - ZEIT"
-          />
+          >
+            <meta name="robots" content="noindex" />
+          </Head>
 
           <Header
             currentTeamSlug={currentTeamSlug}

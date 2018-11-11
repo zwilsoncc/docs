@@ -27,7 +27,18 @@ import getSlugsForId from './get-slugs-for-id'
 import getHref from './get-href'
 import toc from './toc'
 
-const getDocPage = function getDocPage() {
+const DEFAULT_OPTIONS = {
+  title: 'Now Documentation',
+  description:
+    'The information center and documentation for how to use ZEIT Now and how it works.'
+}
+
+const getDocPage = function getDocPage(options = {}) {
+  const finalOptions = {
+    ...DEFAULT_OPTIONS,
+    ...options
+  }
+
   class DocPage extends Component {
     state = {
       activeId: null,
@@ -113,10 +124,10 @@ const getDocPage = function getDocPage() {
         >
           <Page>
             <Head
-              description="The information center and documentation for how to use ZEIT Now and how it works."
-              title={`Now Documentation`}
+              description={finalOptions.description}
+              title={finalOptions.title}
               titlePrefix=""
-              titleSuffix=" - ZEIT"
+              titleSuffix=" - ZEIT Now Documentation"
             />
 
             <Header
