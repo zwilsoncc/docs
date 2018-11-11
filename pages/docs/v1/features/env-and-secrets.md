@@ -123,7 +123,7 @@ Finally, our <InternalLink href="/docs/api">API</InternalLink> users will find t
 
 By default, all deployments expose these environment variables:
 
-* **NOW**: Set to `true`, for detecting <Now color="#000"/>.
+* **NOW**: Is set to `1`, for detecting <Now color="#000"/>.
 * **NOW_URL**: Contains the unique URL of your deployment. Even if your deployment was aliased, this variable will always contain the URL with the `.now.sh` suffix.
 
 export default withDoc({...meta})(({children}) => <>{children}</>)

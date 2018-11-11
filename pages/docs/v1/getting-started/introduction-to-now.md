@@ -68,7 +68,7 @@ First, create a directory called `my-web-app` and add the following content to a
   </body>
 </html>
 ```
-> Alternatively, use [Docker to deploy](https://github.com/zeit/now-examples#serverless-docker-v2) your dynamic applications, or use a `Dockerfile` to instruct Now [build an deploy your static applications](/docs/static-deployments/builds/building-with-now).
+> Alternatively, use [Docker to deploy](https://github.com/zeit/now-examples#serverless-docker-v2) your dynamic applications, or use a `Dockerfile` to instruct Now to [build and deploy your static applications](/docs/static-deployments/builds/building-with-now).
 
 After you have added the content, change to the `my-web-app` directory in your terminal and run this command:
 

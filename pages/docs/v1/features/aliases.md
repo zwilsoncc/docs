@@ -4,7 +4,7 @@ import withDoc, { components } from '~/lib/with-doc'
 
 import { rauchg } from '~/lib/data/team'
 import Now from '~/components/now/now'
-import { InternalLink } from '~/components/text/link'
+import { GenericLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
 import Image from '~/components/image'
 import { InlineCode } from '~/components/text/code'
@@ -154,7 +154,7 @@ After executing the `alias` above, just run `now domains ls` to see all the doma
 As you can see, there are two types of domains:
 
 * **external**: the domain is associated with a third-party nameserver provider like DNSimple.
-* **zeit.world**: the domain is hosted with ${<InternalLink href="/world">zeit.world</InternalLink>} and `now alias` automatically sets up records.
+* **zeit.world**: the domain is hosted with <GenericLink href="/world">zeit.world</GenericLink> and `now alias` automatically sets up records.
 
 Once a domain appears under `now domains ls`, **only you can point aliases to it** until you remove it from your account.
 

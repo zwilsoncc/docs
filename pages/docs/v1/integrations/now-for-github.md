@@ -109,7 +109,7 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
 {
   "alias": ["my-zeit-website.com"],
   "github": {
-    "autoAlias": "false"
+    "autoAlias": false
   }
 }
 ```
