@@ -34,7 +34,7 @@ By default, all of the deployments are configured like this:
 
 This means, when your deployment receives some traffic <Now color="#000"/> will start an instance. If your deployment doesn't receive any traffic for a while, <Now color="#000"/> will kill that instance.
 
-There's a fixed number of concurrent instances you can have based on the [plan](https://zeit.co/account/plan) you've chosen. But with this configuration, you can have as many as deployments you want.
+There's a fixed number of concurrent instances you can have based on the [plan](https://zeit.co/account/plan) you've chosen. But with this configuration, you can have as many deployments as you want.
 
 _Having older deployments which are **not active** will cost you nothing._
 
