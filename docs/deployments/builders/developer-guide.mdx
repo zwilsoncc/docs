@@ -4,7 +4,7 @@ A builder is an npm module that exposes a `build` function and optionally an `an
 
 In short:
 - The `analyze` function returns a unique fingerprint used for the purpose of [build de-duplication](/docs/v2/deployments/concepts/immutability). If the `analyze` function is not supplied, it's equivalent to it returning a random fingerprint for each build.
-- The `build` function returns a [Files](#files-map-file-lambda) datastructure that contains the [build outputs](/docs/v2/deployments/builds#source-and-output), which can be:
+- The `build` function returns a [Files](#files-map-file-lambda) datastructure that contains the [build outputs](/docs/v2/deployments/builds#sources-and-outputs), which can be:
     - Static files
     - [Lambda](/docs/v2/deployments/concepts/lambdas) functions
 - The `prepareCache` function is equivalent to `build`, but it executes the instructions necessary to prepare a cache for the next run.

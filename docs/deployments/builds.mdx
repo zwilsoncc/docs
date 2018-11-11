@@ -62,7 +62,7 @@ If you would like to learn how to create a custom Builder, follow the [Builder D
 
 ### Parallelization
 
-Every file matched by the `src` property (mentioned above) will trigger a new [**Build**](/docs/v2/deployments/builds#source-and-output). All of those **builds** are going to run **in parallel** after the deployment is created.
+Every file matched by the `src` property (mentioned above) will trigger a new [**Build**](#sources-and-outputs). All of those **builds** are going to run **in parallel** after the deployment is created.
 
 This means that each [**Builder**](/docs/v2/deployments/builders/overview) defined in the `builds` property will run asynchronously of each other and produce their intended output without being blocked on a thread.
 
