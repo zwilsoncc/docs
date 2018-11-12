@@ -142,11 +142,11 @@ The following example configures custom routes that map to static files and lamb
   "builds": [
     { "src": "*.html", "use": "@now/static" },
     { "src": "*.js", "use": "@now/node" },
-  ]
+  ],
   "routes": [
     { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "index.html" },
-    { "src": "/api", "dest": "my-api.js" },
-    { "src": "/users/(?<id>[^/]", "dest": "users-api.js?id=$id" },
+    { "src": "/api", "dest": "/my-api.js" },
+    { "src": "/users/(?<id>[^/]*)", "dest": "/users-api.js?id=$id" },
     { "src": "/.*", "dest": "https://my-old-site.com"},
     { "src": "/legacy", "status": 404},
     { "src": "/redirect", "status": 301, "headers": { "Location": "https://zeit.co/" } }
