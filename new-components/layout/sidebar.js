@@ -13,7 +13,7 @@ class Sidebar extends Component {
             background: #fff;
             border-right: 1px solid #eaeaea;
             bottom: 0;
-            overflow: scroll;
+            overflow-y: scroll;
             padding-bottom: 40px;
             padding-right: 24px;
             padding-top: 40px;
