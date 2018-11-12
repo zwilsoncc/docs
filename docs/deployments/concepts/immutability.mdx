@@ -4,6 +4,11 @@ import Image from '~/components/image'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 
+export const meta = {
+  title: 'Deployment Immutability',
+  description: 'A look at the concept of immutable deployments, the reasoning behind the behaviour, and the technical aspects of the implementation.'
+}
+
 ### Immutability
 For a Now deployment to be created, our API requires the client to include a description of the project directory structure and content, expressed as a series of [checksums](https://en.wikipedia.org/wiki/Checksum).
 
