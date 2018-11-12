@@ -88,11 +88,9 @@ Builders can include dependencies of their liking. In this case, we'll use the [
 ```
 const htmlMinifier = require('html-minifier');
 
-exports.analyze = function ({ files, entrypoint }) {
-  return files[entrypoint].digest;
-}
+exports.analyze = ({ files, entrypoint }) => files[entrypoint].digest;
 
-exports.build = function ({ files, entrypoint, config }) {
+exports.build = async ({ files, entrypoint, config }) => {
   const stream = files[entrypoint].toStream();
   const options = Object.assign({}, {}, config || {});
   const { data } = await FileBlob.fromStream({ stream });
@@ -101,7 +99,7 @@ exports.build = function ({ files, entrypoint, config }) {
   const minified = htmlMinifier(content, options);
   const result = new FileBlob({ data: minified });
 
-  return { [entrypoint]: result };  // the code here
+  return { [entrypoint]: result };
 }
 ```
 

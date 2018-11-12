@@ -12,12 +12,14 @@ Whether [HTML files need to be minified](/docs/v2/deployments/official-builders/
 
 Builders can be used in with Now by creating a `now.json` file in a project and then [using a `builds` property](/docs/v2/deployments/builds) within that configuration:
 
-    {
-    	"builds": [
-    		{ "src": "*.html", "use": "@now/static" },
-    		{ "src": "date.js", "use": "@now/node" }
-    	]
-    }
+```
+{
+  "builds": [
+    { "src": "*.html", "use": "@now/static" },
+    { "src": "date.js", "use": "@now/node" }
+  ]
+}
+```
 
 The `builds` property is an array of objects where each object is a build step, including a `src` and a `use` property, at least.
 
@@ -35,9 +37,9 @@ Extending the feature-set of a Now deployment is as simple as creating a Builder
 
 A builder can retain an archive of up to `100mb` of the filesystem at `build` time. The cache key is generated as a combination of
 
-- Deployment `name` (i.e.: the app name)
+- Deployment `name` (i.e., the app name)
 - Team id or user id
-- Entrypoint path (e.g.: `api/users/index.go`)
+- Entrypoint path (e.g., `api/users/index.go`)
 - Builder identifier including version (e.g.: `@now/go@0.0.1`)
 
 The cache will be invalidated if any of those items changes. The user can bypass the cache by running `now -f`.
