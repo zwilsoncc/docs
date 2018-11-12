@@ -18,7 +18,6 @@ import ExternalLinkIcon from '~/components/icons/external-link'
 import Input from '~/components/input'
 
 import * as bodyLocker from '~/new-components/utils/body-locker'
-import getSection from '~/new-components/utils/get-section'
 import Head from '~/new-components/layout/head'
 import Header from '~/new-components/header'
 import Main from '~/new-components/layout/main'
@@ -176,7 +175,6 @@ class ExamplesPage extends React.Component {
 
   render() {
     const { currentTeamSlug, router, user } = this.props
-    const pathSection = getSection(router.pathname)
     const { navigationActive, sidebar } = this.state
     const { name, demo, fork, content } = this.props.example
     const title = !this.props.initExample ? ` - ${name}` : ''
@@ -205,17 +203,17 @@ class ExamplesPage extends React.Component {
           <Sidebar active={navigationActive} innerRef={this.handleSidebarRef}>
             <div className="toggle-group-wrapper">
               <ToggleGroup>
-                <ToggleItem active={pathSection === '/docs'}>
+                <ToggleItem active={router.pathname.startsWith('/docs/v')}>
                   <Link prefetch href="/docs">
                     <a onClick={this.handleIndexClick}>Docs</a>
                   </Link>
                 </ToggleItem>
-                <ToggleItem active={pathSection === '/docs/api'}>
+                <ToggleItem active={router.pathname.startsWith('/docs/api')}>
                   <Link prefetch href="/docs/api">
-                    <a onClick={this.handleIndexClick}>Api Refence</a>
+                    <a onClick={this.handleIndexClick}>API Reference</a>
                   </Link>
                 </ToggleItem>
-                <ToggleItem active={pathSection === '/examples'}>
+                <ToggleItem active={router.pathname.startsWith('/examples')}>
                   <Link prefetch href="/examples">
                     <a onClick={this.handleIndexClick}>Examples</a>
                   </Link>

@@ -145,7 +145,9 @@ const getDocPage = function getDocPage(options = {}) {
                   >
                     <div className="toggle-group-wrapper">
                       <ToggleGroup>
-                        <ToggleItem active={router.pathname === '/docs'}>
+                        <ToggleItem
+                          active={router.pathname.startsWith('/docs/v')}
+                        >
                           <Link prefetch href="/docs">
                             <a onClick={this.handleIndexClick}>Docs</a>
                           </Link>
@@ -157,7 +159,9 @@ const getDocPage = function getDocPage(options = {}) {
                             <a onClick={this.handleIndexClick}>API Reference</a>
                           </Link>
                         </ToggleItem>
-                        <ToggleItem active={router.pathname === '/examples'}>
+                        <ToggleItem
+                          active={router.pathname.startsWith('/examples')}
+                        >
                           <Link prefetch href="/examples">
                             <a onClick={this.handleIndexClick}>Examples</a>
                           </Link>
