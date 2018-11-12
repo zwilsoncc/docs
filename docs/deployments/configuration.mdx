@@ -144,7 +144,7 @@ The following example configures custom routes that map to static files and lamb
     { "src": "*.js", "use": "@now/node" },
   ],
   "routes": [
-    { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "index.html" },
+    { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "/index.html" },
     { "src": "/api", "dest": "/my-api.js" },
     { "src": "/users/(?<id>[^/]*)", "dest": "/users-api.js?id=$id" },
     { "src": "/.*", "dest": "https://my-old-site.com"},
