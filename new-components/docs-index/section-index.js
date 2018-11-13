@@ -50,7 +50,7 @@ class SectionIndex extends Component {
           </Link>
         ) : (
           <span
-            className={cns('title', { active })}
+            className={cns('title sub-category-title', { active })}
             onClick={onClickLink}
             ref={this.handleRef}
           >
@@ -74,11 +74,15 @@ class SectionIndex extends Component {
           }
 
           .title {
-            color: #888;
+            color: #000;
             display: block;
             font-size: 14px;
             padding: 10px 0;
             text-decoration: none;
+          }
+
+          .sub-category-title {
+            color: #888;
           }
 
           .title:visited {
