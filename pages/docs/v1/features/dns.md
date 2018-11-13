@@ -1,4 +1,3 @@
-import markdown from 'markdown-in-js'
 import withDoc, { components } from '~/lib/with-doc'
 
 import { hbp, leo } from '~/lib/data/team'

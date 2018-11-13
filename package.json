@@ -27,13 +27,10 @@
     "cookie": "0.3.1",
     "cross-env": "5.2.0",
     "date-fns": "1.29.0",
-    "fs-extra": "7.0.0",
-    "global": "4.3.2",
     "intersection-observer": "0.5.0",
     "isomorphic-unfetch": "2.0.0",
     "js-cookie": "2.2.0",
     "lodash.debounce": "4.0.8",
-    "markdown-in-js": "1.1.4",
     "micro": "9.3.3",
     "mitt": "1.1.2",
     "ms": "2.1.1",
@@ -44,7 +41,6 @@
     "react": "16.6.0",
     "react-dom": "16.6.0",
     "react-markdown": "4.0.3",
-    "remark-capitalize": "1.0.0",
     "scroll-into-view-if-needed": "1.1.0",
     "unist-util-filter": "1.0.0",
     "unist-util-find-all-after": "1.0.2",
@@ -52,8 +48,7 @@
     "unist-util-find-all-between": "1.0.2",
     "unist-util-map": "^1.0.4",
     "unist-util-select": "1.5.0",
-    "unist-util-visit": "1.4.0",
-    "url-pattern": "1.0.3"
+    "unist-util-visit": "1.4.0"
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",

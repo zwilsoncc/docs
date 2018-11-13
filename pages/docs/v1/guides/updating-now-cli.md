@@ -1,4 +1,3 @@
-import markdown from 'markdown-in-js'
 import asset from 'next/asset'
 import withDoc from '~/lib/with-doc'
 
