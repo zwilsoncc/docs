@@ -4,6 +4,11 @@ import Image from '~/components/image'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 
+export const meta = {
+  title: 'Official Static Builds Builder (@now/static-build)',
+  description: 'The official Static Builds Builder for ZEIT Now. Run any package.json build script for your source files and deploy the result.'
+}
+
 ### Static Build (@now/static-build)
 This module takes a Node.js `package.json` file, installs all its dependencies, executes the `now-build` step and exposes the resulting `dist` directory as the [build output](/docs/v2/deployments/builds#source-and-outpu) for serving.
 

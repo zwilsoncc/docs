@@ -2,6 +2,11 @@ import Note from '~/components/text/note'
 import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
 
+export const meta = {
+  title: 'Builds',
+  description: 'Using Build steps to get a production-ready output for you ZEIT Now deployments from any source you give.'
+}
+
 ## Builds
 
 Builds are a step of deployments that transform sources into production ready outputs. Builds result in either **Static Files**, or [**Lambdas**](/docs/v2/deployments/concepts/lambdas) (which execute code and serve a dynamic response for every request).
