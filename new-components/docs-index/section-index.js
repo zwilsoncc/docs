@@ -74,7 +74,7 @@ class SectionIndex extends Component {
           }
 
           .title {
-            color: #000;
+            color: #888;
             display: block;
             font-size: 14px;
             padding: 10px 0;
