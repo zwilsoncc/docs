@@ -75,7 +75,7 @@ With the repository correctly configured, Now for GitHub will start deploying th
 ### A Deployment for Each Push
 Now for GitHub will **deploy every push by default**. This includes pushes to any branch that includes a `now.json` and any pull requests made from those branches. This allows those working within the repository to preview changes made before the changes are pushed to production.
 
-### Aliasing the Main Branch
+### Aliasing the Default Branch
 If [an alias is set within the `now.json` file](/docs/features/aliases), pushes and merges to the [default branch](https://help.github.com/articles/setting-the-default-branch/) (commonly "master") will be aliased automatically and made live to those aliases with the latest deployment made with a push.
 
 For example, the following `now.json` configuration will make Now for GitHub alias the most recent push to `my-zeit-website.com` by default.
@@ -98,10 +98,10 @@ To disable Now for a GitHub repository, use the following configuration option i
 ```
 <Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable Now for GitHub.</Caption>
 
-Disabling Now for GitHub with this configuration option will prevent Now from [deploying any push](#a-deployment-for-each-push) or [aliasing the changes](#aliasing-the-main-branch) when merged to the default branch.
+Disabling Now for GitHub with this configuration option will prevent Now from [deploying any push](#a-deployment-for-each-push) or [aliasing the changes](#aliasing-the-default-branch) when merged to the default branch.
 
 ### Disabling Auto-Aliasing
-To stop Now from [automatically aliasing the default branch](#aliasing-the-main-branch) to any alias setup within the `now.json` file, use the following configuration option.
+To stop Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
 ```
 {
   "alias": ["my-zeit-website.com"],
@@ -115,7 +115,7 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-main-
 ### Disable Commenting with Silent Mode
 To stop Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/v2/deployments/configuration) for the repository you want to stop this behaviour in.
 
-<Note>Although Now will stop commenting, it will not stop deploying the latest updates. For this configuration option, see <GenericLink href="#configuration/disabling-now-for-github-with">disabling Now for GitHub</GenericLink></Note>
+<Note>Although Now will stop commenting, it will not stop deploying the latest updates. For this configuration option, see <GenericLink href="#disabling-now-for-github-with-now.json">disabling Now for GitHub</GenericLink></Note>
 
 ```
 {

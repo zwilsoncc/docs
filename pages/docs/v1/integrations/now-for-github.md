@@ -115,8 +115,6 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
 ```
 <Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable auto-aliasing with Now for GitHub. The file also includes an example setup alias.</Caption>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
-
 ### Disable Commenting with Silent Mode
 You can enable the silent mode and ask us to stop commenting on pull requests and commits. Even though we stop adding comments, we will continue to add commit status.
 
@@ -129,3 +127,5 @@ This is a per repo setting. You can enable it by adding the following configurat
   } 
 }
 ```
+
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>
