@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
