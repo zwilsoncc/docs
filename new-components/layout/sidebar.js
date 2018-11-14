@@ -19,7 +19,7 @@ class Sidebar extends Component {
             padding-top: 40px;
             position: fixed;
             top: ${HEADER_HEIGHT}px;
-            width: 256px;
+            width: 280px;
             z-index: 1;
           }
 

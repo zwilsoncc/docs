@@ -5,7 +5,8 @@ const H2 = ({ children }) => (
       h2 {
         font-size: 32px;
         font-weight: normal;
-        margin-top: 42px;
+        margin-top: 32px;
+        line-height: 1.5;
       }
     `}</style>
   </h2>

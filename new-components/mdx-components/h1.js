@@ -3,9 +3,10 @@ const H1 = ({ children }) => (
     {children}
     <style jsx>{`
       h1 {
-        font-size: 40px;
+        font-size: 36px;
         font-weight: 400;
         margin-top: 0;
+        line-height: 1.333;
       }
     `}</style>
   </h1>

@@ -1,6 +1,28 @@
-import dynamic from 'next/dynamic'; const DocPage = dynamic(import(/* webpackChunkName: "docs-page" */ '~/new-components/docs-page/docs/page'))
-import Page from '~/docs/routing/caching.mdx'
+import Doc from '~/components/docs/doc'
 
-<Page />
+export const meta = {
+  title: 'Caching',
+  description: 'A guide for how ZEIT Now caches and how to control that caching.'
+}
 
-export default DocPage
+The routing layer equates to the number of regions contained within the [**Basic CDN**](/docs/v2/deployments/concepts/cdn-and-global-distribution#basic-cdn). On every single one of those regions, we are able to cache your content using an LRU mechanism.
+
+Whether you need to apply manual adjustments to your code in order for the responses to be cached depends on what kind of resources the **Builds** you defined are creating:
+
+## Caching Static Files
+
+There are no manual adjustments needed for caching **Static Files**. We set the `Cache-Control` header to `s-maxage=86400`, which ensures that the responses are cached for one day on all the regions within the **Basic CDN**.
+
+## Caching Lambda Responses
+
+In order to cache the response of a **Lambda** that was created by any of your **Builds**, you need to make sure to manually set the `Cache-Control` header and assign it a value that contains the `s-maxage` parameter (the equivalent of `max-age`, but for shared caches).
+
+You can read more about the suggested way to define this property [here](/docs/v2/deployments/concepts/cdn-and-global-distribution#full-cdn).
+
+## Sharding
+
+By default, your cache is shared with all the other customers and behaves as an [LRU (Least Recently Used)](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) mechanism.
+
+If you would like for your cache to be shared, please [contact our Sales team](mailto:sales@zeit.co).
+
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>
