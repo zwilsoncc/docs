@@ -1,4 +1,4 @@
-import { toc } from '~/docs/index.mdx'
+import toc from '~/lib/data/docs'
 
 function addDetails(structure) {
   return structure.map(category => ({

@@ -3,7 +3,9 @@ import getTOCForSlugs from './get-toc-for-slugs'
 const PREFIX = `/docs/v2`
 
 function _getHref({ category, section, entry, subEntry }) {
+
   const tocItem = getTOCForSlugs({ category, section, entry, subEntry })
+
   switch (tocItem.type) {
     case 'subEntry': {
       const tocEntry = getTOCForSlugs({ category, section, entry })

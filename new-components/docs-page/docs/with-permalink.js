@@ -1,8 +1,5 @@
-import Link from 'next/link'
 import PermalinkIcon from '../../icons/permakink'
 import Context from '../context'
-import getHref from './get-href'
-import getSlugsForId from './get-slugs-for-id'
 
 export default function withPermalink(Heading) {
   return function HeadingWithPermalink({ children }) {
@@ -10,12 +7,10 @@ export default function withPermalink(Heading) {
       <Context.Consumer>
         {({ id }) => (
           <Heading>
-            <Link {...getHref(getSlugsForId(id))}>
-              <a>
-                {children}
-                <PermalinkIcon size="0.4em" />
-              </a>
-            </Link>
+            <a>
+              {children}
+              <PermalinkIcon size="0.4em" />
+            </a>
             <style jsx>{`
               a {
                 align-items: center;
