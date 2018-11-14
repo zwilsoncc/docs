@@ -29,6 +29,7 @@ import Select from '~/components/select'
 import ToggleGroup, { ToggleItem } from '~/new-components/toggle-group'
 import withError from '~/lib/with-error'
 import EXAMPLES from '~/lib/data/now-examples-docs'
+import { UserContext } from '~/components/user-context'
 
 const DIV = props => (
   <div className="wrapper">
@@ -174,7 +175,7 @@ class ExamplesPage extends React.Component {
   }
 
   render() {
-    const { currentTeamSlug, router, user } = this.props
+    const { router } = this.props
     const { navigationActive, sidebar } = this.state
     const { name, demo, fork, content } = this.props.example
     const title = !this.props.initExample ? ` - ${name}` : ''
@@ -194,11 +195,16 @@ class ExamplesPage extends React.Component {
           titleSuffix=" - ZEIT"
         />
 
-        <Header
-          currentTeamSlug={currentTeamSlug}
-          onToggleNavigation={this.handleToggleNavigation}
-          user={user}
-        />
+        <UserContext.Consumer>
+          {({ user, userLoaded }) => (
+            <Header
+              onToggleNavigation={this.handleToggleNavigation}
+              user={user}
+              userLoaded={userLoaded}
+            />
+          )}
+        </UserContext.Consumer>
+
         <Main>
           <Sidebar active={navigationActive} innerRef={this.handleSidebarRef}>
             <div className="toggle-group-wrapper">

@@ -4,11 +4,13 @@ import getAvatarUrl from '../utils/get-avatar-url'
 
 const Avatar = ({ user, size, teamId = null }, { darkBg = false }) => (
   <span className={cn({ dark: darkBg })} style={{ width: size, height: size }}>
-    <img
-      alt={user.username || user.email}
-      title={user.username || user.email}
-      src={getAvatarUrl(user, teamId, size)}
-    />
+    {user && (
+      <img
+        alt={user.username || user.email}
+        title={user.username || user.email}
+        src={getAvatarUrl(user, teamId, size)}
+      />
+    )}
     <style jsx>{`
       span {
         border-radius: 100%;

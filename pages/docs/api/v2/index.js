@@ -24,6 +24,7 @@ import Select from '~/components/select'
 import Sidebar from '~/new-components/layout/sidebar'
 import ToggleGroup, { ToggleItem } from '~/new-components/toggle-group'
 import withPermalink from '~/new-components/docs-page/api/with-permalink'
+import { UserContext } from '~/components/user-context'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
 
@@ -136,7 +137,7 @@ class APIPage extends Component {
   )
 
   render() {
-    const { currentTeamSlug, router, user } = this.props
+    const { router } = this.props
     const { navigationActive, version } = this.state
     const active = {
       category: this.state.activeCategory,
@@ -161,11 +162,15 @@ class APIPage extends Component {
             titleSuffix=" - ZEIT"
           />
 
-          <Header
-            currentTeamSlug={currentTeamSlug}
-            onToggleNavigation={this.handleToggleNavigation}
-            user={user}
-          />
+          <UserContext.Consumer>
+            {({ user, userLoaded }) => (
+              <Header
+                onToggleNavigation={this.handleToggleNavigation}
+                user={user}
+                userLoaded={userLoaded}
+              />
+            )}
+          </UserContext.Consumer>
 
           <DocsBuilder docs={<ApiDocs />}>
             {({ structure }) => (

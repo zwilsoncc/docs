@@ -15,7 +15,7 @@ class ChatCount extends Component {
     this.fetchChatCount()
   }
 
-  componentWillUmount() {
+  componentWillUnmount() {
     clearInterval(this.timer)
   }
 

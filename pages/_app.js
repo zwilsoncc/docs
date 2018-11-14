@@ -1,6 +1,7 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-// import authenticate from '../lib/authenticate'
+import authenticate from '../lib/authenticate'
+import { UserContext } from '~/components/user-context'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -11,16 +12,29 @@ export default class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    // const { user } = await authenticate({ req })
-    const { user } = {}
-    return { pageProps, user }
+    return { pageProps }
+  }
+
+  state = {
+    user: {},
+    userLoaded: false
+  }
+
+  async componentDidMount() {
+    const { user } = await authenticate()
+    this.setState({
+      user,
+      userLoaded: true
+    })
   }
 
   render() {
-    const { Component, pageProps, user } = this.props
+    const { Component, pageProps } = this.props
     return (
       <Container>
-        <Component {...pageProps} user={user} />
+        <UserContext.Provider value={this.state}>
+          <Component {...pageProps} />
+        </UserContext.Provider>
       </Container>
     )
   }

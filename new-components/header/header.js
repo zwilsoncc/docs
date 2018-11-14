@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { Component, Fragment } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import Router, { withRouter } from 'next/router'
@@ -61,7 +61,8 @@ class Header extends Component {
       navigationActive,
       onToggleNavigation,
       router,
-      user
+      user,
+      userLoaded
     } = this.props
     const { menuActive } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
@@ -94,44 +95,55 @@ class Header extends Component {
         </Navigation>
 
         <Navigation className="user-navigation">
-          <NavigationItem className="chat" href="/chat">
-            Chat <ChatCount className="chat-count" />
-          </NavigationItem>
-          {!user ? (
-            <NavigationItem href="/login">Login</NavigationItem>
-          ) : (
-            <Menu
-              active={menuActive}
-              onClickOutside={this.handleClickOutsideMenu}
-              render={this.renderMenuTrigger}
-              style={{ minWidth: 200 }}
-            >
-              <MenuItem>
-                <Link prefetch href="/dashboard">
-                  <a>Dashboard</a>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link
-                  href="/teams/settings/url?isCreating=1"
-                  as="/teams/create"
-                >
-                  <a>
-                    Create a Team <Plus />
-                  </a>
-                </Link>
-              </MenuItem>
-              <MenuDivider />
-              <MenuItem>
-                <Link href="/account/identity" as="/account">
-                  <a>Account Settings</a>
-                </Link>
-              </MenuItem>
-              <MenuDivider />
-              <MenuItem>
-                <a onClick={this.handleLogout}>Logout</a>
-              </MenuItem>
-            </Menu>
+          {userLoaded && (
+            <Fragment>
+              {!user ? (
+                <Fragment>
+                  <NavigationItem className="chat" href="/chat">
+                    Chat <ChatCount className="chat-count" />
+                  </NavigationItem>
+                  <NavigationItem href="/login">Login</NavigationItem>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <NavigationItem className="chat" href="/chat">
+                    Chat <ChatCount className="chat-count" />
+                  </NavigationItem>
+                  <Menu
+                    active={menuActive}
+                    onClickOutside={this.handleClickOutsideMenu}
+                    render={this.renderMenuTrigger}
+                    style={{ minWidth: 200 }}
+                  >
+                    <MenuItem>
+                      <Link prefetch href="/dashboard">
+                        <a>Dashboard</a>
+                      </Link>
+                    </MenuItem>
+                    <MenuItem>
+                      <Link
+                        href="/teams/settings/url?isCreating=1"
+                        as="/teams/create"
+                      >
+                        <a>
+                          Create a Team <Plus />
+                        </a>
+                      </Link>
+                    </MenuItem>
+                    <MenuDivider />
+                    <MenuItem>
+                      <Link href="/account/identity" as="/account">
+                        <a>Account Settings</a>
+                      </Link>
+                    </MenuItem>
+                    <MenuDivider />
+                    <MenuItem>
+                      <a onClick={this.handleLogout}>Logout</a>
+                    </MenuItem>
+                  </Menu>
+                </Fragment>
+              )}
+            </Fragment>
           )}
         </Navigation>
 
@@ -152,6 +164,20 @@ class Header extends Component {
 
           :global(.chat:hover .chat-count) {
             background-color: #000;
+          }
+
+          @keyframes load {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          :global(.header .user-navigation) {
+            animation-name: load;
+            animation-duration: 1s;
           }
 
           .arrow-toggle {

@@ -25,6 +25,7 @@ import withPermalink from '~/new-components/docs-page/api/with-permalink'
 import Note from '~/components/text/note'
 import { P } from '~/components/text/paragraph'
 import { GenericLink } from '~/components/text/link'
+import { UserContext } from '~/components/user-context'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
 
@@ -129,7 +130,7 @@ class APIPage extends Component {
   }
 
   render() {
-    const { currentTeamSlug, router, user } = this.props
+    const { router } = this.props
     const { navigationActive, version } = this.state
     const active = {
       category: this.state.activeCategory,
@@ -156,11 +157,15 @@ class APIPage extends Component {
             <meta name="robots" content="noindex" />
           </Head>
 
-          <Header
-            currentTeamSlug={currentTeamSlug}
-            onToggleNavigation={this.handleToggleNavigation}
-            user={user}
-          />
+          <UserContext.Consumer>
+            {({ user, userLoaded }) => (
+              <Header
+                onToggleNavigation={this.handleToggleNavigation}
+                user={user}
+                userLoaded={userLoaded}
+              />
+            )}
+          </UserContext.Consumer>
 
           <DocsBuilder docs={<ApiDocs />}>
             {({ structure }) => (
