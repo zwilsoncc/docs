@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -253,4 +253,4 @@ Now you can do the same you did for the API. Deploy the client by running this c
 
 Open the URL provided by <Now color="#000" /> and you should see the "Hello world!" example again. This means that you did everything right and your first GraphQL application is online. Well done!
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

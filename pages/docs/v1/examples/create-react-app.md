@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import Now from '~/components/now/now'
 import { GenericLink } from '~/components/text/link'
@@ -104,4 +104,4 @@ Additionally, we can whitelist specific files or directories so that no unnecess
 With the configuration complete, when deploying, Now will recognize the options passed in and build the app as expected. All that is left to do is deploy:
 <TerminalInput>now</TerminalInput>
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

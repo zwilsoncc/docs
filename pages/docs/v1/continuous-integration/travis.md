@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { devisscher, sergio } from '~/lib/data/team'
 import { Code, InlineCode } from '~/components/text/code'
@@ -129,4 +129,4 @@ Since you are building your application on Travis, you don't want Now to try to 
 
 If the `now-build` script is defined, Now will use it instead of `build`. This lets you define it yourself in order to customize the build step on Now or just avoid building it on Now entirely.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

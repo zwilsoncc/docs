@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -83,4 +83,4 @@ const cert = Buffer.from(certFromtheSecret, 'base64').toString()
 > Base64 is a simple encoding algorithm which is available everywhere.<br/>
 > That's why we've used it. But it's okay to choose any text-based encoding algorithm.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

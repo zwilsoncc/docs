@@ -1,4 +1,4 @@
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import Now from '~/components/now/now'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
@@ -215,4 +215,4 @@ You can use a `now.json` configuration file and the `now secrets` command in tan
 
 [Read more about how to configure them and use them](/docs/features/build-env-and-secrets).
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

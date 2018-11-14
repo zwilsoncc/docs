@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -126,4 +126,4 @@ By default, all deployments expose these environment variables:
 * **NOW**: Is set to `1`, for detecting <Now color="#000"/>.
 * **NOW_URL**: Contains the unique URL of your deployment. Even if your deployment was aliased, this variable will always contain the URL with the `.now.sh` suffix.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

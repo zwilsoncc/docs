@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import { arunoda } from '~/lib/data/team'
 import Now from '~/components/now/now'
 import Image from '~/components/image'
@@ -115,7 +115,7 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
 ```
 <Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable auto-aliasing with Now for GitHub. The file also includes an example setup alias.</Caption>
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>
 
 ### Disable Commenting with Silent Mode
 You can enable the silent mode and ask us to stop commenting on pull requests and commits. Even though we stop adding comments, we will continue to add commit status.

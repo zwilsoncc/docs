@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { jamo, rauchg } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -162,4 +162,4 @@ And for a subdomain we would run:
 
 After that, simply update your domain's settings to point to any of our <InternalLink href="/world#1.-point-your-domains-to-our-nameservers">nameservers</InternalLink> and the migration will be complete!
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

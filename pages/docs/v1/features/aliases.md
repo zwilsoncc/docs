@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { rauchg } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -157,4 +157,4 @@ As you can see, there are two types of domains:
 
 Once a domain appears under `now domains ls`, **only you can point aliases to it** until you remove it from your account.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

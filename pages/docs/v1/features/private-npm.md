@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { rase, leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -52,4 +52,4 @@ We're committed to giving you the best experience when deploying as an individua
 
 Neither the `--forward-npm` flag nor the `forwardNpm` config property support npm's [enterprise plans](https://www.npmjs.com/enterprise) or packages hosted on a custom infrastructure at the moment. But don't worry, we're already working on it!
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

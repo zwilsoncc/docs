@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -102,4 +102,4 @@ Now the deployment behind `hnode.now.sh` runs with a minimum of 2 instances and 
 All the static deployments are infinitely scalable and they are auto scaled by default on all plans.
 So, you don't need to invoke `now scale` for static deployments.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

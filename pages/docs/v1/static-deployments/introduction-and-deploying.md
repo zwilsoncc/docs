@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import Now from '~/components/now/now'
 import { TerminalInput } from '~/components/text/terminal'
@@ -66,4 +66,4 @@ There a few steps after deploying a static app that are optional but very helpfu
 - [Configuring Static Deployments on Now](/docs/static-deployments/configuration)
 - [Creating a Build Step to Run on Now](/docs/static-deployments/builds/building-with-now)
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

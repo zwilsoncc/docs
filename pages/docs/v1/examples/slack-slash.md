@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -123,4 +123,4 @@ Hit **"Save Integration"** once you're done!
 
 You should now be able to run the `/weather` command from within Slack.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

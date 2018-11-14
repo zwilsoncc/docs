@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -64,4 +64,4 @@ Click any of your deployment URLs inside the dashboard and start searching logs.
   caption="Searching logs inside the web dashboard."
 />
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

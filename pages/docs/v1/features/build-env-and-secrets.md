@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
@@ -146,4 +146,4 @@ Through the deployment lifecycle, the build stage will execute with the configur
 
 An example repository is available to give a more in-depth look at a project that uses build-time environment variables and secrets.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

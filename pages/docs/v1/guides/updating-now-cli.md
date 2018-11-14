@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Image from '~/components/image'
@@ -92,4 +92,4 @@ To get the latest **canary update**, however, run this:
 
 <TerminalInput>yarn global add now@canary</TerminalInput>
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

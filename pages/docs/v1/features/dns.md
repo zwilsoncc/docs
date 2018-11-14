@@ -1,4 +1,4 @@
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { hbp, leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -85,4 +85,4 @@ As of [now-client](https://github.com/zeit/now-client) version **0.7.0**, it com
 
 The endpoint is called `/domains/:domain/records` and is available in our <InternalLink href="/docs/api#get-domain-records">REST API</InternalLink>.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

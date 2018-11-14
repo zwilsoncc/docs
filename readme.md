@@ -55,7 +55,7 @@ This is the content written in Markdown.
 
 The following is to allow the content to be exported as a page with our layout
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>
 ~~~
 
 Then you can add it to the sidebar by editing the file located at: `lib/data/docs.js`.

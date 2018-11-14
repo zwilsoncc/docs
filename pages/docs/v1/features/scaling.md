@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -234,4 +234,4 @@ Once you have executed such a command, the copy of your
 deployment running in the location of your choice can only
 scale automatically in between those boundaries.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

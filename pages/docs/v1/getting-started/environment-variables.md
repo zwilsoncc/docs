@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -52,4 +52,4 @@ After that, `now` will use above environment variables when you deploy your app.
 
 > It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <InternalLink href="/docs/getting-started/secrets"><Now color="#067df7"/> Secrets</InternalLink>.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

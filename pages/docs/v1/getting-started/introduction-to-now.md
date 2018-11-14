@@ -1,5 +1,5 @@
+import Doc from '~/components/docs/doc'
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
 
 import { TerminalInput } from '~/components/text/terminal'
 import Image from '~/components/image'
@@ -136,4 +136,4 @@ Your users can access the updated web app at <https://my-web-app.com>.
 
 These are just a few things you can do with <Now color="#000"/>. To do more with <Now color="#000"/>, follow the rest of the docs.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

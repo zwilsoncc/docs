@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import Now from '~/components/now/now'
 import { GenericLink } from '~/components/text/link'
@@ -218,4 +218,4 @@ With that, your app will be built and ran with Now, which will give you the resu
 
 [View the example application on the zeit/now-examples repository.](https://github.com/zeit/now-examples/tree/master/node-next.js)
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

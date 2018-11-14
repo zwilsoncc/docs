@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { sergio } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -86,4 +86,4 @@ Now, add an additional [alias](/docs/getting-started/assign-a-domain-name) to re
 
 Then, every time you run `now alias`, it will alias your app into both of your aliases.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

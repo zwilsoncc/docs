@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { rase, rauchg, jamo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -60,4 +60,4 @@ Instances are reported as unique instance identifiers and their corresponding in
 
 When an instance restarts for any reason (or exit code), we automatically restart the instance, so supervisor-like wrappers are not necessary. For example `forever`, `nodemon`, and `pm` are not necessary for an application to always stay running.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

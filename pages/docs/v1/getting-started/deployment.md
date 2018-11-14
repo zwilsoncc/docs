@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -146,4 +146,4 @@ That's it. You'll get a URL like this: <https://go-hello-isftssqinn.now.sh>
 
 To learn more about Docker deployments on <Now color="#000"/>, read <InternalLink href="/docs/deployment-types/docker">this guide</InternalLink>.
 
-export default withDoc({...meta})(({children}) => <div>{children}</div>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

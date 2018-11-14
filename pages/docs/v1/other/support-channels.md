@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 export const meta = {
   title: 'Support Channels',
@@ -30,4 +30,4 @@ You can use Twitter to send a DM to, or mention [@zeithq](https://twitter.com/ze
 ## Email
 Last but not least, you can reach out to us by email at [support@zeit.co](mailto:support@zeit.co). If you have very in-depth questions or queries related to private information (eg. billing issues) that you don't want to share in our other support channels, or you would just prefer to use email you can contact us and we will happily help you.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

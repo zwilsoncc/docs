@@ -144,4 +144,4 @@ Once <Now color="#000" /> has finished uploading the files, you'll see a URL tha
 
 But in the case of a real microservice, you would now have to <InternalLink href="/docs/features/aliases">assign an alias</InternalLink> to it.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -130,4 +130,4 @@ Finally, make sure to keep the above rule on the top of the list. Otherwise, it'
 
 For your next sub-domain, you only need to follow step 1.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

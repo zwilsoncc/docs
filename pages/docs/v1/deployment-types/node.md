@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -95,4 +95,4 @@ Sleeping deployments will wake up in a matter of seconds once a request comes in
 
 You can prevent a deployment from sleeping by scaling the minimum number of available instances to one or more, [as described in the scaling docs](/docs/getting-started/scaling).
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

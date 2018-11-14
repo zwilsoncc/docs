@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import { leo } from '~/lib/data/team'
 
 export const meta = {
@@ -99,4 +99,4 @@ If you need additional advice on how to unblock your
 deployments or prevent them from initially getting
 blocked, please contact us at [support@zeit.co](mailto:support@zeit.co).
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

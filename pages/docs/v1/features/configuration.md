@@ -1,5 +1,5 @@
 import Now from '~/components/now/now'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import { rauchg, leo } from '~/lib/data/team'
 
 export const meta = {
@@ -297,4 +297,4 @@ In the case that you're uploading your global configuration setup to a potential
 insecure destination, we highly recommend ensuring that this file won't be uploaded,
 as it allows an attacker to gain access to your provider accounts.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

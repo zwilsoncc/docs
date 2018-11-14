@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
@@ -136,4 +136,4 @@ You can also use a naked domain like `my-app.work` with this method. In that cas
 
 Some DNS providers do not have ALIAS records. In that case, the functionality of ALIAS records is managed using CNAME records.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

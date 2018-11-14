@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -70,5 +70,4 @@ Sleeping deployments will wake up in a matter of seconds once a request comes in
 
 You can prevent sleep if the number of minimum instances is set to a value larger than zero, as described in [App Lifecycle and Scalability](https://zeit.co/docs/guides/app-lifecycle-and-scalability).
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
-
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import Now from '~/components/now/now'
 import { TerminalInput } from '~/components/text/terminal'
@@ -264,4 +264,4 @@ By default, if a deployment contains more than one file, Now will not render a f
 ```
 <Caption>Configuring Now to render files if they are the sole content of directories.</Caption>
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

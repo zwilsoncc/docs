@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { sergio } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -350,4 +350,4 @@ Due to the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-
 
 You can have a `now.staging.json` file and a `now.json` for production and use the parameter `--local-config=now.staging.json` while deploying (or aliasing) to customize the configuration file to use.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

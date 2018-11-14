@@ -1,4 +1,4 @@
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo, rauchg } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -212,4 +212,4 @@ This means that if you want to specify a list of files that should **never be ig
 
 You can learn more about how to use this property <InternalLink href='/docs/features/configuration#"files"-(array)'>here</InternalLink>.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

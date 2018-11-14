@@ -1,5 +1,5 @@
 import asset from 'next/asset'
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -95,4 +95,4 @@ This ensures that even private repositories (or such that require a special form
 
 * Afterward, the regular mechanism for handling the upload of your files will be applied to the local directory that contains a clone of the repository you've defined before.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

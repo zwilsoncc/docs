@@ -1,4 +1,4 @@
-import withDoc, { components } from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo, jamo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -159,4 +159,4 @@ Now simply map it to the alias like this:
 
 You don't need to update path alias rules since `my-api.now.sh` points to the latest deployment.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

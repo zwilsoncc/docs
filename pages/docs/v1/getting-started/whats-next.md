@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import { arunoda } from '~/lib/data/team'
 import Now from '~/components/now/now'
 
@@ -19,4 +19,4 @@ For additional information, follow these links:
 * [Connect with our support channels](/docs/other/support-channels)
 * [Check the frequently asked questions (FAQ)](/docs/other/faq)
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

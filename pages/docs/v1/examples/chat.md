@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import asset from 'next/asset'
 
 import { leo } from '~/lib/data/team'
@@ -311,4 +311,4 @@ Once <Now color="#000" /> has finished uploading the files, you'll see a URL tha
 
 But in the case of a real website (not used for testing purposes), you would now have to <InternalLink href="/docs/features/aliases">assign an alias</InternalLink> to it.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

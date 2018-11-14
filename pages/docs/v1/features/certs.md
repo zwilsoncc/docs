@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 
 import { leo } from '~/lib/data/team'
 import Now from '~/components/now/now'
@@ -58,4 +58,4 @@ Normally, when a user created an alias with <Now color="#000" /> command line ut
 
 The endpoint is called `/now/certs` and available in our <InternalLink href="/docs/api#endpoints">REST API</InternalLink>.
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>

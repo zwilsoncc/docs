@@ -1,4 +1,4 @@
-import withDoc from '~/lib/with-doc'
+import Doc from '~/components/docs/doc'
 import { TerminalInput } from '~/components/text/terminal'
 import Image from '~/components/image'
 
@@ -73,4 +73,4 @@ You can disable the CDN for a given domain by running the following command:
 
 Alternatively, you can head to the [dashboard](https://zeit.co/dashboard) of your account or the team that holds the domain you want to enable the CDN for, then heading to the ['Domains' section](https://zeit.co/dashboard/domains). And deselecting the `CDN` checkbox. 
 
-export default withDoc({...meta})(({children}) => <>{children}</>)
+export default ({children}) => <Doc meta={meta}>{ children }</Doc>
