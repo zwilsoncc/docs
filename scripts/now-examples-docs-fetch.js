@@ -1,4 +1,5 @@
 const fs = require('fs')
+const fse = require('fs-extra')
 const { resolve } = require('path')
 
 async function main() {
@@ -48,17 +49,53 @@ async function main() {
       }
     })
     .filter(item => item !== undefined)
-    .sort((a, b) => {
-      if (a.name < b.name) return -1
-      if (a.name > b.name) return 1
-
-      return 0
-    })
     .reduce((obj, item) => {
       obj[item['slug']] = item
 
       return obj
     }, {})
+
+  try {
+    await fse.emptyDir(resolve(__dirname, `../pages/examples`))
+  } catch (err) {
+    //
+  }
+
+  Object.values(examples).map(async example => {
+    try {
+      await fse.outputFile(
+        resolve(__dirname, `../pages/examples/${example.slug}/index.js`),
+        `
+import Example from '~/components/examples/page'
+
+export const example = ${JSON.stringify(example, null, 2)}
+
+export default () => <Example example={example} />
+`
+      )
+    } catch (err) {
+      //
+    }
+  })
+
+  // Create index
+  // TODO: Make a cool index for examples
+  const firstExample = examples[Object.keys(examples)[0]]
+
+  try {
+    await fse.outputFile(
+      resolve(__dirname, `../pages/examples/index.js`),
+      `
+import Example from '~/components/examples/page'
+
+export const example = ${JSON.stringify(firstExample, null, 2)}
+
+export default () => <Example example={example} />
+`
+    )
+  } catch (err) {
+    //
+  }
 
   // eslint-disable-next-line no-console
   console.log(JSON.stringify(examples, null, 2))

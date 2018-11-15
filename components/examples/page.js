@@ -103,25 +103,6 @@ function wrapSidebar(sections) {
 }
 
 class ExamplesPage extends React.Component {
-  static getInitialProps = ({ query }) => {
-    let example
-    let initExample = false
-    const { exampleSlug } = query
-
-    if (exampleSlug === undefined) {
-      initExample = true
-      example = EXAMPLES[Object.keys(EXAMPLES)[0]]
-    } else {
-      example = EXAMPLES[exampleSlug]
-    }
-
-    if (!example) {
-      return { statusCode: 404 }
-    }
-
-    return { initExample, example }
-  }
-
   constructor(props) {
     super(props)
     const sidebarData = wrapSidebar(
@@ -182,7 +163,7 @@ class ExamplesPage extends React.Component {
 
     const active = {
       category: 'examples',
-      section: this.props.example ? this.props.example.name : null,
+      section: this.props.example ? this.props.example.slug : null,
       entry: null
     }
 
@@ -243,8 +224,7 @@ class ExamplesPage extends React.Component {
               activeItem={active}
               getHref={slugs => {
                 return {
-                  href: `/examples?exampleSlug=${slugs.section}`,
-                  as: `/examples/${slugs.section}`
+                  href: `/examples/${slugs.section}`
                 }
               }}
               onSectionActive={() => {}}

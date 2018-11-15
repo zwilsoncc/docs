@@ -2,6 +2,7 @@
 .next
 out
 lib/data/now-examples-docs.json
+pages/examples/*
 
 # dependencies
 node_modules

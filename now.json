@@ -5,7 +5,6 @@
     "use": "@now/static-build"
   }],
   "routes": [
-    { "src": "/examples/(?<slug>[^/]*)", "dest": "/examples?exampleSlug=$slug" },
     { "src": "^/docs/router-status/<code>", "dest": "/docs/v2/routing/status-codes#$code" }
   ]
 }
