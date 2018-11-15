@@ -112,7 +112,7 @@ class ExamplesPage extends React.Component {
       initExample = true
       example = EXAMPLES[Object.keys(EXAMPLES)[0]]
     } else {
-      example = EXAMPLES[query.exampleSlug]
+      example = EXAMPLES[exampleSlug]
     }
 
     if (!example) {

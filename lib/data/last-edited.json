@@ -16,7 +16,8 @@
   "pages/docs/api/v2/api-docs-mdx/getting-started/introduction.js": "2018-11-14T14:48:50.728Z",
   "pages/docs/api/v2/api-docs-mdx/getting-started/preview.js": "2018-11-14T14:48:50.728Z",
   "pages/docs/api/v2/index.js": "2018-11-14T23:40:26.024Z",
-  "pages/docs/index.js": "2018-11-08T14:44:32.387Z",
+  "pages/docs/index.js": "2018-11-15T00:15:09.024Z",
+  "pages/docs/v1-upgrade.js": "2018-11-15T00:01:01.965Z",
   "pages/docs/v1/clients/now-cli.md": "2018-11-14T14:27:42.745Z",
   "pages/docs/v1/continuous-integration/index.js": "2018-11-08T14:44:32.388Z",
   "pages/docs/v1/continuous-integration/travis.md": "2018-11-14T14:39:02.414Z",
@@ -79,5 +80,7 @@
   "pages/docs/v1/static-deployments/builds/building-with-now.md": "2018-11-14T14:28:31.985Z",
   "pages/docs/v1/static-deployments/configuration.md": "2018-11-14T14:28:06.584Z",
   "pages/docs/v1/static-deployments/introduction-and-deploying.md": "2018-11-14T14:28:16.834Z",
-  "pages/docs/v2/index.js": "2018-11-08T14:44:32.405Z"
+  "pages/docs/v2/index.js": "2018-11-08T14:44:32.405Z",
+  "pages/docs/version-config.js": "2018-11-15T00:03:00.746Z",
+  "pages/docs/what-is-directory-listing.js": "2018-11-14T23:59:26.384Z"
 }
