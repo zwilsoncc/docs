@@ -224,7 +224,8 @@ class ExamplesPage extends React.Component {
               activeItem={active}
               getHref={slugs => {
                 return {
-                  href: `/examples/${slugs.section}`
+                  href: `/examples/${slugs.section}`,
+                  as: `/examples/${slugs.section}`
                 }
               }}
               onSectionActive={() => {}}
