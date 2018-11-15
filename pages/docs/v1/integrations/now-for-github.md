@@ -5,6 +5,8 @@ import Image from '~/components/image'
 import Caption from '~/components/text/caption'
 import { TerminalInput } from '~/components/text/terminal'
 import { InlineCode } from '~/components/text/code'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
 
 export const meta = {
   title: 'Now for GitHub',
@@ -124,8 +126,41 @@ This is a per repo setting. You can enable it by adding the following configurat
 {
   "github": {
     "silent": true
-  } 
+  }
 }
 ```
+
+### Disable Auto Job Cancellation
+To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v1/features/configuration) for the repository that this behaviour should exist in.
+
+```
+{
+  "github": {
+    "autoJobCancelation": false
+  }
+}
+```
+
+## Included Environment Variables
+
+You may want to use different workflows and use different APIs based on Git information.<br/>
+In order to support that, Now will deploy your app with following built-in environment variables.
+
+```
+{
+"NODE_ENV": "production",
+"NOW_GITHUB_DEPLOYMENT": "1",
+"NOW_GITHUB_ORG": "zeit",
+"NOW_GITHUB_REPO": "simple-now-app",
+"NOW_GITHUB_COMMIT_ORG": "zeit",
+"NOW_GITHUB_COMMIT_REPO": "simple-now-app",
+"NOW_GITHUB_COMMIT_REF": "master",
+"NOW_GITHUB_COMMIT_SHA": "3019e532462d96a8113e8968102803e5ffbb9909",
+"NOW_GITHUB_COMMIT_AUTHOR_LOGIN": "arunoda",
+"NOW_GITHUB_COMMIT_AUTHOR_NAME": "Arunoda Susiripala"
+}
+```
+
+<Note>You can access these as <GenericLink href="/docs/v1/features/build-env-and-secrets">build environment variables</GenericLink> also.</Note>
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

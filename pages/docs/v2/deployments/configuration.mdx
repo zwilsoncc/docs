@@ -230,4 +230,19 @@ When set to `true`, [Now for GitHub](/docs/v2/integrations/now-for-github) will 
 }`}</Code>
 </Example>
 
+### github.autoJobCancelation
+**Type**: `Boolean`.
+
+When set to false, [Now for GitHub](/docs/v2/integrations/now-for-github) will always build pushes in sequence without cancelling a build for the most recent commit.
+
+<Example>
+<P.B>Usage Example:</P.B>
+<Code>{`{
+  "github": {
+    "autoJobCancelation": false
+  }
+}`}</Code>
+</Example>
+
+
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>
