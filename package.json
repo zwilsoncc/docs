@@ -7,7 +7,7 @@
     "build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build",
     "now-build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build && next export -o dist",
     "start": "cross-env NODE_ENV=production next start",
-    "export": "next export -o dist",
+    "export": "next export",
     "lint": "eslint .",
     "lint:staged": "lint-staged",
     "test": "npm run lint",

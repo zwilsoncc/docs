@@ -1,0 +1,10 @@
+*
+!*.js
+!package.json
+!yarn.lock
+!components
+!new-components
+!lib
+!pages
+!scripts
+!static
