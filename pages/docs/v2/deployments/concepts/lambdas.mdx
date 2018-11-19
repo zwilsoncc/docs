@@ -194,7 +194,7 @@ A lambda can execute for at most **15 minutes**. This is not configurable as of 
 It is possible to take advantage of global state from invocation to invocation if the underlying [container is re-used](/docs/v2/platform/regions-and-providers).
 
 ### Filesystem
-The filesystem is writable inside `/tmp` and persisted if the underlying [container is re-used](/docs/v2/platform/regions-and-providers).
+The filesystem is writable inside `/tmp` and persisted if the underlying [container is re-used](/docs/v2/platform/regions-and-providers). The `/tmp` directory is writeable for up to `512mb` or storage.
 
 ### Logging
 All output streams are captured and persisted. Each function can store up to 1,000 lines. Each deployment will aggregate up to 1,000 lines. Each line is defined as a string chunk of up to **1kb**.
