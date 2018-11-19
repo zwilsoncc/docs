@@ -1,10 +1,11 @@
 import Doc from '~/components/docs/doc'
 import { TerminalInput } from '~/components/text/terminal'
-import { InlineCode } from '~/components/text/code'
+import { Code, InlineCode } from '~/components/text/code'
 import { GenericLink } from '~/components/text/link'
 import Image from '~/components/image'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
+import Example from '~/components/api/example'
 
 export const meta = {
   title: 'Node.js Server Builder (@now/node-server)',
@@ -99,5 +100,18 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](/doc
 ### Node.js version
 
 The Node.js version used is the latest in the **8 branch**.
+
+### Maximum Lambda Bundle Size
+To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Node.js Server lambda is, by default, **`15mb`**.
+This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
+
+<Example>
+<span>Example <InlineCode>maxLambdaSize</InlineCode> configuration:</span>
+<Code>{`{
+  "builds": [
+    { "src": "*/index.js", "use": "@now/node-server", "config": { "maxLambdaSize": "20mb" } }
+  ]
+}`}</Code>
+</Example>
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

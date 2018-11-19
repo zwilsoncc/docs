@@ -3,7 +3,8 @@ import { TerminalInput } from '~/components/text/terminal'
 import { GenericLink } from '~/components/text/link'
 import Image from '~/components/image'
 import Caption from '~/components/text/caption'
-import { InlineCode } from '~/components/text/code'
+import { InlineCode, Code } from '~/components/text/code'
+import Example from '~/components/api/example'
 
 export const meta = {
   title: 'Lambdas',
@@ -169,7 +170,22 @@ To understand how the CPU allocation will work for your application, we recommen
 Each request body has a maximum payload limit of **5MB**.
 
 ### Maximum Bundle Size
-The maximum generated lambda size is **5MB**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details). This is not configurable as of now.
+**The default maximum generated lambda size is `5MB`**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details).
+
+This threshold is in place to uphold and maintain the serverless nature of Now. Since the serverless paradigm intends for your code to not be running unless it is needed, your code needs to be [cold-booted](#cold-and-hot-boots). The larger the code bundle that is being cold-booted, the larger the time it takes for the cold boot to finish. 
+
+Although this limit is in place, each [Builder](/docs/v2/deployments/builders/overview) may have a customised limit for the maximum lambda bundle size due to the nature of the underlying technology, which can also be configured by the user, whether the Builder has a custom limit or not.
+
+This configuration option, `maxLambdaSize`, accepts any byte value up to `50mb`.
+
+<Example>
+<Code>{`{
+  "builds": [
+    { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "15mb" } }
+  ]
+}`}</Code>
+<Caption>Using the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node">@now/node Builder</GenericLink> and configuring the <InlineCode>maxLambdaSize</InlineCode> within a <GenericLink href="/docs/v2/deployments/configuration#builds">now.json configuration file</GenericLink>.</Caption>
+</Example>
 
 ### Maximum Execution Duration
 A lambda can execute for at most **15 minutes**. This is not configurable as of now. If the limit is reached for a particular invocation, it will result in an error [504](/docs/v2/routing/status-codes).

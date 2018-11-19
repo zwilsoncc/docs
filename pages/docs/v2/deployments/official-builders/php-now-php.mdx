@@ -1,10 +1,11 @@
 import Doc from '~/components/docs/doc'
 import { TerminalInput } from '~/components/text/terminal'
-import { InlineCode } from '~/components/text/code'
+import { Code, InlineCode } from '~/components/text/code'
 import { GenericLink } from '~/components/text/link'
 import Image from '~/components/image'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
+import Example from '~/components/api/example'
 
 export const meta = {
   title: 'PHP Builder (@now/php)',
@@ -56,5 +57,19 @@ All standard PHP variables like `$_GET`, `$_POST` are supported, with the except
 ### Version
 
 PHP 7 is implemented via the `go-php` package and bundled as a Go binary.
+
+### Maximum Lambda Bundle Size
+To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a PHP lambda is, by default, **`10mb`**.
+
+This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
+
+<Example>
+<span>Example <InlineCode>maxLambdaSize</InlineCode> configuration:</span>
+<Code>{`{
+  "builds": [
+    { "src": "*.php", "use": "@now/php", "config": { "maxLambdaSize": "15mb" } }
+  ]
+}`}</Code>
+</Example>
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

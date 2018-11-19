@@ -1,9 +1,7 @@
 import Doc from '~/components/docs/doc'
-import { TerminalInput } from '~/components/text/terminal'
-import { InlineCode } from '~/components/text/code'
-import Image from '~/components/image'
+import { InlineCode, Code } from '~/components/text/code'
 import Caption from '~/components/text/caption'
-import Note from '~/components/text/note'
+import Example from '~/components/api/example'
 
 export const meta = {
   title: 'Go Builder (@now/go)',
@@ -54,5 +52,19 @@ The entrypoint file must be a `.go` source file with a `Handler` function inside
 
 ### Version
 Go 1.x is used.
+
+### Maximum Lambda Bundle Size
+To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Go lambda is, by default, **`10mb`**.
+
+This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
+
+<Example>
+<span>Example <InlineCode>maxLambdaSize</InlineCode> configuration:</span>
+<Code>{`{
+  "builds": [
+    { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
+  ]
+}`}</Code>
+</Example>
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>
