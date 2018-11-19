@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 const NavigationItem = ({ active, children, className, href }) => (
   <span className={cn({ active }, className)}>
-    <Link prefetch href={href}>
+    <Link prefetch href={href} as={href}>
       <a>{children}</a>
     </Link>
     <style jsx>{`

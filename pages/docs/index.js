@@ -1,3 +1,3 @@
-import redirect from '~/lib/redirect'
+import Introduction from './v2/getting-started/introduction-to-now.mdx'
 
-export default redirect('/docs/v2/getting-started/introduction-to-now')
+export default Introduction

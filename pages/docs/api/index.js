@@ -1,3 +1,3 @@
-import redirect from '~/lib/redirect'
+import API from '~/pages/docs/api/v2'
 
-export default redirect('/docs/api/v2')
+export default API

@@ -1,6 +1,7 @@
 const {
   PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD
+  PHASE_PRODUCTION_BUILD,
+  PHASE_EXPORT
 } = require('next/constants')
 
 module.exports = phase => {
@@ -8,8 +9,7 @@ module.exports = phase => {
     // Allow mdx and md files to be pages
     pageExtensions: ['jsx', 'js', 'mdx', 'md'],
 
-    // assetPrefix will be set dynamically in ./server.js
-    assetPrefix: ''
+    assetPrefix: phase === PHASE_EXPORT ? 'https://docs.zeit.sh' : ''
   }
 
   // This makes sure we only require build-time plugins at build time

@@ -1,6 +1,6 @@
 import cns from 'classnames'
 import Link from 'next/link'
-import { Component } from 'react'
+import { Component, Fragment } from 'react'
 import EntryIndex from './entry-index'
 
 class SectionIndex extends Component {
@@ -39,15 +39,28 @@ class SectionIndex extends Component {
     return (
       <li className="section-wrapper" key={section.slug}>
         {href ? (
-          <Link href={href} as={as} prefetch>
-            <a
-              className={cns('title', { active })}
-              onClick={onClickLink}
-              ref={this.handleRef}
-            >
-              {section.title}
-            </a>
-          </Link>
+          <Fragment>
+            {href.startsWith('#') ? (
+              <a
+                className={cns('title', { active })}
+                onClick={onClickLink}
+                ref={this.handleRef}
+                href={href}
+              >
+                {section.title}
+              </a>
+            ) : (
+              <Link href={href} as={as} prefetch>
+                <a
+                  className={cns('title', { active })}
+                  onClick={onClickLink}
+                  ref={this.handleRef}
+                >
+                  {section.title}
+                </a>
+              </Link>
+            )}
+          </Fragment>
         ) : (
           <span
             className={cns('title sub-category-title', { active })}

@@ -190,7 +190,12 @@ class ExamplesPage extends React.Component {
           <Sidebar active={navigationActive} innerRef={this.handleSidebarRef}>
             <div className="toggle-group-wrapper">
               <ToggleGroup>
-                <ToggleItem active={router.pathname.startsWith('/docs/v')}>
+                <ToggleItem
+                  active={
+                    router.pathname.startsWith('/docs') &&
+                    !router.pathname.startsWith('/docs/api')
+                  }
+                >
                   <Link prefetch href="/docs">
                     <a onClick={this.handleIndexClick}>Docs</a>
                   </Link>

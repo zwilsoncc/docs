@@ -36,7 +36,7 @@ class APIPage extends Component {
     activeEntry: null,
     activeSection: null,
     navigationActive: false,
-    version: this.props.router.asPath.split(/(v[0-9])/)[1]
+    version: this.props.router.asPath.split(/(v[0-9])/)[1] || 'v2'
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -182,7 +182,10 @@ class APIPage extends Component {
                   <div className="toggle-group-wrapper">
                     <ToggleGroup>
                       <ToggleItem
-                        active={router.pathname.startsWith('/docs/v')}
+                        active={
+                          router.pathname.startsWith('/docs') &&
+                          !router.pathname.startsWith('/docs/api')
+                        }
                       >
                         <Link prefetch href="/docs">
                           <a onClick={this.handleIndexClick}>Docs</a>

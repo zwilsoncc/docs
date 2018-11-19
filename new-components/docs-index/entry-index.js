@@ -22,14 +22,24 @@ class EntryIndex extends Component {
     })
     return (
       <li key={entry.slug} ref={this.handleRef}>
-        <Link href={href} as={as} prefetch>
+        {href.startsWith('#') ? (
           <a
             className={cns({ active: isEntryActive(this.props) })}
             onClick={onClickLink}
+            href={href}
           >
             {entry.title}
           </a>
-        </Link>
+        ) : (
+          <Link href={href} as={as} prefetch>
+            <a
+              className={cns({ active: isEntryActive(this.props) })}
+              onClick={onClickLink}
+            >
+              {entry.title}
+            </a>
+          </Link>
+        )}
         <style jsx>{`
           a {
             color: #000;

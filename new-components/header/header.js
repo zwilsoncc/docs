@@ -76,7 +76,10 @@ class Header extends Component {
         <Navigation className="main-navigation">
           <NavigationItem
             href="/docs"
-            active={router.pathname.startsWith('/docs/v')}
+            active={
+              router.pathname.startsWith('/docs') &&
+              !router.pathname.startsWith('/docs/api')
+            }
           >
             Docs
           </NavigationItem>
