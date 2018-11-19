@@ -6,7 +6,11 @@
     "redirects": [
       { "source": "/docs/router-status/:code", "destination": "/docs/v2/routing/status-codes#:code" },
       { "source": "/docs/router-status", "destination": "/docs/v2/routing/status-codes" },
-      { "source": "/docs/max-lambda-size", "destination": "/docs/v2/deployments/concepts/lambdas#maximum-bundle-size" }
+      { "source": "/docs/max-lambda-size", "destination": "/docs/v2/deployments/concepts/lambdas#maximum-bundle-size" },
+      { "source": "/docs/features/:rest", "destination": "/docs/v1/features/:rest" },
+      { "source": "/docs/static-deployments/:rest", "destination": "/docs/v1/static-deployments/:rest" },
+      { "source": "/docs/deployment-types/:rest", "destination": "/docs/v1/deployment-types/:rest" },
+      { "source": "/docs/guides/:rest", "destination": "/docs/v1/guides/:rest" }
     ]
   }
 }
