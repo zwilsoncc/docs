@@ -42,9 +42,9 @@ class ChatCount extends Component {
             display: inline-block;
             font-size: 8px;
             font-weight: bold;
-            line-height: 11px;
+            line-height: 0;
             margin-left: 10px;
-            padding: 2px 5px;
+            padding: 8px 5px;
             text-align: center;
             transition: all 1s ease;
             vertical-align: middle;

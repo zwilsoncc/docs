@@ -61,7 +61,7 @@ class Menu extends Component {
   }
 
   renderMenu = ({ active, position, align }) => {
-    const { className, children, triangleSize, fit, style } = this.props
+    const { className, children, triangleSize, fit, style, tip } = this.props
     const halfHypo = Math.sqrt(triangleSize ** 2 + triangleSize ** 2) / 2
     const bounds = this.triggerNode && this.triggerNode.getBoundingClientRect()
     const triggerWidth = bounds ? bounds.width : 0
@@ -76,59 +76,56 @@ class Menu extends Component {
             ref={this.handleMenuRef(innerRef)}
             style={style}
           >
+            {tip && (
+              <div className="triangle">
+                <Triangle />
+              </div>
+            )}
             {children}
             <style jsx>{`
               ul {
-                animation-duration: 200ms;
-                animation-fill-mode: forwards;
-                animation-fill-mode: forwards;
-                animation-iteration-count: 1;
-                animation-timing-function: ease-out;
                 background: #ffffff;
                 border-radius: 5px;
                 border: 1px solid #eee;
-                box-shadow: 0 18px 30px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.02);
                 list-style: none;
                 margin: 0;
                 padding: 8px 0;
                 position: relative;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(0);
+                transition: opacity 0.2s ease, transform 0.2s ease,
+                  box-shadow 0.4s ease;
               }
-
               ul.fit {
                 width: ${triggerWidth}px;
               }
-
               ul.bottom {
-                animation-name: show-bottom;
                 margin-top: ${halfHypo}px;
               }
-
               ul.top {
-                animation-name: show-top;
                 margin-bottom: ${halfHypo}px;
               }
-
-              @keyframes show-bottom {
-                from {
-                  opacity: 0;
-                  transform: translateY(-15px);
-                }
-
-                to {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
+              ul.active {
+                opacity: 1;
+                visibility: visible;
+                box-shadow: 0 18px 30px 0 rgba(0, 0, 0, 0.12);
               }
-
-              @keyframes show-top {
-                from {
-                  opacity: 0;
-                  transform: translateY(15px);
-                }
-                to {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
+              ul.active.bottom {
+                transform: translateY(3px);
+              }
+              ul.active.top {
+                transform: translateY(-3px);
+              }
+              .triangle {
+                display: block;
+                position: absolute;
+                right: 2px;
+                bottom: 100%;
+                line-height: 11px;
+                z-index: 1;
+                text-align: center;
               }
             `}</style>
           </ul>
@@ -161,3 +158,24 @@ class Menu extends Component {
 }
 
 export default Menu
+
+const Triangle = ({ direction }, { darkBg = false }) => (
+  <svg
+    width="24"
+    height="12"
+    viewBox="0 0 24 12"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill={darkBg ? '#000' : '#fff'}
+      strokeWidth="1px"
+      stroke={darkBg ? '#333' : '#eee'}
+      fillRule="evenodd"
+      d={direction === 'down' ? 'M20 0l-8 8-12-12' : 'M20 12l-8-8-12 12'}
+    />
+  </svg>
+)
+
+Triangle.contextTypes = {
+  darkBg: PropTypes.bool
+}

@@ -113,6 +113,7 @@ class Header extends Component {
                     Chat <ChatCount className="chat-count" />
                   </NavigationItem>
                   <Menu
+                    tip
                     active={menuActive}
                     onClickOutside={this.handleClickOutsideMenu}
                     render={this.renderMenuTrigger}
