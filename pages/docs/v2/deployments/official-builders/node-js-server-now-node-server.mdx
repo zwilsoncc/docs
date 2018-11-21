@@ -46,7 +46,7 @@ And `express/index.js` as follows:
 ```
 const app = require('express')()
 app.get('*', (req, res) => {
-  res.end('Hello from Express.js!');
+  res.send('Hello from Express.js!');
 })
 app.listen();
 ```
@@ -58,7 +58,7 @@ We will do the same with `node-http/index.js`:
 ```
 require("http")
   .createServer((req, res) => {
-    res.send("Hello from a vanilla server!");
+    res.end("Hello from a vanilla server!");
   })
   .listen();
 ```
