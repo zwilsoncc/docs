@@ -66,8 +66,8 @@ const Select = ({
           font-size: 14px;
           margin-right: -20px;
           padding: ${hasArrow ? '0 76px 0 16px' : '0 36px 0 16px'};
+          width: calc(100% + 20px);
           text-transform: none;
-          width: ${width || 'auto'};
         }
         select:-moz-focusring {
           color: transparent;
@@ -137,6 +137,7 @@ const Select = ({
         @-moz-document url-prefix() {
           select {
             margin-right: 0;
+            width: 100%;
             padding: ${hasArrow ? '0 56px 0 16px' : '0 16px'};
           }
         }
