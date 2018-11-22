@@ -1,3 +1,3 @@
 import redirect from '~/lib/redirect'
 
-export default redirect('/docs/integrations/now-for-github')
+export default redirect('/docs/v1/integrations/now-for-github')

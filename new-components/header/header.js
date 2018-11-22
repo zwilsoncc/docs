@@ -102,14 +102,14 @@ class Header extends Component {
             <Fragment>
               {!user ? (
                 <Fragment>
-                  <NavigationItem className="chat" href="/chat">
+                  <NavigationItem className="chat" href="https://zeit.co/chat">
                     Chat <ChatCount className="chat-count" />
                   </NavigationItem>
                   <NavigationItem href="/login">Login</NavigationItem>
                 </Fragment>
               ) : (
                 <Fragment>
-                  <NavigationItem className="chat" href="/chat">
+                  <NavigationItem className="chat" href="https://zeit.co/chat">
                     Chat <ChatCount className="chat-count" />
                   </NavigationItem>
                   <Menu

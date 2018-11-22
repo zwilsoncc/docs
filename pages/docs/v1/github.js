@@ -1,3 +1,3 @@
 import redirect from '~/lib/redirect'
 
-export default redirect('/docs/features/now-for-github')
+export default redirect('/docs/v1/features/now-for-github')
