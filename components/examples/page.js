@@ -236,6 +236,8 @@ class ExamplesPage extends React.Component {
               onSectionActive={() => {}}
               onClickLink={this.handleIndexClick}
               structure={sidebar}
+              setInitiallyActive={() => {}}
+              updateActive={() => {}}
             />
           </Sidebar>
           <Content>
