@@ -4,6 +4,20 @@ import { Component, Fragment } from 'react'
 import EntryIndex from './entry-index'
 
 class SectionIndex extends Component {
+  componentDidMount() {
+    const { category, getHref, section } = this.props
+    const { href, as } = getHref({
+      category: category.slug,
+      section: section.slug
+    })
+
+    this.props.setInitiallyActive({
+      href: as || href,
+      category: category.slug,
+      section: section.slug
+    })
+  }
+
   componentDidUpdate(prevProps) {
     if (isSectionActive(this.props) && !isSectionActive(prevProps)) {
       this.props.onSectionActive(this.rootNode)
@@ -25,8 +39,19 @@ class SectionIndex extends Component {
       onActive={this.props.onEntryActive}
       onClickLink={this.props.onClickLink}
       section={this.props.section}
+      updateActive={this.props.updateActive}
+      setInitiallyActive={this.props.setInitiallyActive}
     />
   )
+
+  handleClick = () => {
+    const { category, section } = this.props
+    this.props.updateActive({
+      category: category.slug,
+      section: section.slug
+    })
+    this.props.onClickLink()
+  }
 
   render() {
     const { category, getHref, section, onClickLink } = this.props
@@ -43,9 +68,9 @@ class SectionIndex extends Component {
             {href.startsWith('#') ? (
               <a
                 className={cns('title', { active })}
-                onClick={onClickLink}
+                onClick={this.handleClick}
                 ref={this.handleRef}
-                href={href}
+                href={as || href}
               >
                 {section.title}
               </a>
@@ -53,7 +78,7 @@ class SectionIndex extends Component {
               <Link href={href} as={as} prefetch>
                 <a
                   className={cns('title', { active })}
-                  onClick={onClickLink}
+                  onClick={this.handleClick}
                   ref={this.handleRef}
                 >
                   {section.title}

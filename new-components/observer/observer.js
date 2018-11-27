@@ -21,7 +21,7 @@ class Observer extends Component {
     return (
       <IObserver
         onIntersect={this.handleIntersect}
-        rootMargin="-50% 0% -50% 0%"
+        rootMargin="-120px 0% -100% 0%"
         threshold={[0, 1]}
         render={({ innerRef }) => {
           return (

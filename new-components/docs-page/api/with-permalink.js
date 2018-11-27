@@ -6,9 +6,12 @@ export default function withPermalink(Heading) {
   return function HeadingWithPermalink({ children }) {
     return (
       <Context.Consumer>
-        {({ slugs }) => (
+        {({ slugs, updateActive }) => (
           <Heading>
-            <a href={`#${getFragment(slugs)}`}>
+            <a
+              href={`#${getFragment(slugs)}`}
+              onClick={() => updateActive({ ...slugs })}
+            >
               {children}
               <PermalinkIcon size="0.4em" />
             </a>

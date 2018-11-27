@@ -3,6 +3,22 @@ import cns from 'classnames'
 import { Component } from 'react'
 
 class EntryIndex extends Component {
+  componentDidMount() {
+    const { category, getHref, section, entry } = this.props
+    const { href, as } = getHref({
+      category: category.slug,
+      section: section.slug,
+      entry: entry.slug
+    })
+
+    this.props.setInitiallyActive({
+      href: as || href,
+      category: category.slug,
+      section: section.slug,
+      entry: entry.slug
+    })
+  }
+
   componentDidUpdate(prevProps) {
     if (isEntryActive(this.props) && !isEntryActive(prevProps)) {
       this.props.onActive(this.rootNode)
@@ -13,8 +29,18 @@ class EntryIndex extends Component {
     this.rootNode = node
   }
 
+  handleClick = () => {
+    const { category, section, entry } = this.props
+    this.props.updateActive({
+      category: category.slug,
+      section: section.slug,
+      entry: entry.slug
+    })
+    this.props.onClickLink()
+  }
+
   render() {
-    const { category, entry, getHref, onClickLink, section } = this.props
+    const { category, entry, getHref, section } = this.props
     const { href, as } = getHref({
       category: category.slug,
       section: section.slug,
@@ -25,7 +51,7 @@ class EntryIndex extends Component {
         {href.startsWith('#') ? (
           <a
             className={cns({ active: isEntryActive(this.props) })}
-            onClick={onClickLink}
+            onClick={this.handleClick}
             href={href}
           >
             {entry.title}
@@ -34,7 +60,7 @@ class EntryIndex extends Component {
           <Link href={href} as={as} prefetch>
             <a
               className={cns({ active: isEntryActive(this.props) })}
-              onClick={onClickLink}
+              onClick={this.handleClick}
             >
               {entry.title}
             </a>

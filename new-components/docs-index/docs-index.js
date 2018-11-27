@@ -12,6 +12,8 @@ class DocsIndex extends Component {
         onSectionActive={this.props.onSectionActive}
         getHref={this.props.getHref}
         onClickLink={this.props.onClickLink}
+        updateActive={this.props.updateActive}
+        setInitiallyActive={this.props.setInitiallyActive}
       />
     )
   }

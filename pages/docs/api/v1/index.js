@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
 import Link from 'next/link'
+import { HEADER_HEIGHT } from '~/new-components/constants'
 
 import * as bodyLocker from '~/new-components/utils/body-locker'
 import changeHash from '~/new-components/utils/change-hash'
@@ -15,7 +16,6 @@ import getHref from '~/new-components/docs-page/api/get-href'
 import Head from '~/new-components/layout/head'
 import Header from '~/new-components/header'
 import Main from '~/new-components/layout/main'
-import Observer from '~/new-components/observer'
 import Page from '~/new-components/layout/page'
 import scrollToElement from '~/new-components/utils/scroll-to-element'
 import Select from '~/components/select'
@@ -31,9 +31,9 @@ import ApiDocs from './api-docs-mdx/index.mdx'
 
 class APIPage extends Component {
   state = {
-    activeCategory: null,
+    activeCategory: 'getting-started',
+    activeSection: 'introduction',
     activeEntry: null,
-    activeSection: null,
     navigationActive: false,
     version: this.props.router.asPath.split(/(v[0-9])/)[1]
   }
@@ -51,6 +51,31 @@ class APIPage extends Component {
           entry: this.state.activeEntry
         })
       )
+    }
+  }
+
+  updateActive = ({ category = null, section = null, entry = null }) => {
+    if (
+      this.state.activeCategory !== category ||
+      this.state.activeSection !== section ||
+      this.state.activeEntry !== entry
+    ) {
+      this.setState({
+        activeCategory: category,
+        activeSection: section,
+        activeEntry: entry
+      })
+    }
+  }
+
+  setInitiallyActive = ({
+    href,
+    category = null,
+    section = null,
+    entry = null
+  }) => {
+    if (this.props.router.asPath.endsWith(href)) {
+      this.updateActive({ category, section, entry })
     }
   }
 
@@ -95,38 +120,6 @@ class APIPage extends Component {
         navigationActive: !navigationActive
       }
     })
-  }
-
-  handleCategoryIntersect = category => {
-    const { activeCategory, activeSection, activeEntry } = this.state
-    if (activeCategory !== category || activeSection || activeEntry) {
-      this.setState({
-        activeCategory: category,
-        activeSection: null,
-        activeEntry: null
-      })
-    }
-  }
-
-  handleSectionIntersect = category => section => {
-    const { activeSection, activeEntry } = this.state
-    if (activeSection !== section || activeEntry) {
-      this.setState({
-        activeCategory: category,
-        activeSection: section,
-        activeEntry: null
-      })
-    }
-  }
-
-  handleEntryIntersect = (category, section) => entry => {
-    if (this.state.activeEntry !== entry) {
-      this.setState({
-        activeCategory: category,
-        activeSection: section,
-        activeEntry: entry
-      })
-    }
   }
 
   render() {
@@ -222,6 +215,8 @@ class APIPage extends Component {
                     onSectionActive={this.handleSectionActive}
                     onClickLink={this.handleIndexClick}
                     structure={structure}
+                    updateActive={this.updateActive}
+                    setInitiallyActive={this.setInitiallyActive}
                   />
                 </Sidebar>
                 <Content>
@@ -240,15 +235,18 @@ class APIPage extends Component {
                   {structure.map(category => {
                     const categorySlugs = { category: category.slug }
                     return (
-                      <div className="category-wrapper" key={category.slug}>
-                        <Context.Provider value={{ slugs: categorySlugs }}>
-                          <Observer
-                            fragment={getFragment(categorySlugs)}
-                            onIntersect={this.handleCategoryIntersect}
-                            value={category.slug}
-                          >
-                            {category.content}
-                          </Observer>
+                      <div
+                        className="category-wrapper"
+                        key={getFragment(categorySlugs)}
+                      >
+                        <span id={getFragment(categorySlugs)} />
+                        <Context.Provider
+                          value={{
+                            slugs: categorySlugs,
+                            updateActive: this.updateActive
+                          }}
+                        >
+                          {category.content}
                         </Context.Provider>
 
                         {category.sections.map(section => {
@@ -258,17 +256,18 @@ class APIPage extends Component {
                           }
 
                           return (
-                            <div key={section.slug}>
-                              <Context.Provider value={{ slugs: sectionSlugs }}>
-                                <Observer
-                                  fragment={getFragment(sectionSlugs)}
-                                  onIntersect={this.handleSectionIntersect(
-                                    category.slug
-                                  )}
-                                  value={section.slug}
-                                >
-                                  {section.content}
-                                </Observer>
+                            <div
+                              className="section-wrapper"
+                              key={getFragment(sectionSlugs)}
+                            >
+                              <span id={getFragment(sectionSlugs)} />
+                              <Context.Provider
+                                value={{
+                                  slugs: sectionSlugs,
+                                  updateActive: this.updateActive
+                                }}
+                              >
+                                {section.content}
                               </Context.Provider>
                               <div>
                                 {section.entries.map(entry => {
@@ -279,21 +278,20 @@ class APIPage extends Component {
                                   }
 
                                   return (
-                                    <Context.Provider
-                                      key={entry.slug}
-                                      value={{ slugs: entrySlugs }}
+                                    <div
+                                      className="entry-wrapper"
+                                      key={getFragment(entrySlugs)}
                                     >
-                                      <Observer
-                                        fragment={getFragment(entrySlugs)}
-                                        onIntersect={this.handleEntryIntersect(
-                                          category.slug,
-                                          section.slug
-                                        )}
-                                        value={entry.slug}
+                                      <span id={getFragment(entrySlugs)} />
+                                      <Context.Provider
+                                        value={{
+                                          slugs: entrySlugs,
+                                          updateActive: this.updateActive
+                                        }}
                                       >
                                         {entry.content}
-                                      </Observer>
-                                    </Context.Provider>
+                                      </Context.Provider>
+                                    </div>
                                   )
                                 })}
                               </div>
@@ -325,6 +323,17 @@ class APIPage extends Component {
 
             .category-wrapper:not(:last-child) {
               border-bottom: 1px solid #eaeaea;
+            }
+
+            .category-wrapper,
+            .section-wrapper,
+            .entry-wrapper {
+              position: relative;
+            }
+
+            span {
+              position: absolute;
+              top: -${HEADER_HEIGHT + 24}px;
             }
 
             .platform-select-title {

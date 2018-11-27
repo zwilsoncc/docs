@@ -13,6 +13,8 @@ class CategoryIndex extends Component {
         category={this.props.category}
         activeItem={this.props.activeItem}
         section={section}
+        updateActive={this.props.updateActive}
+        setInitiallyActive={this.props.setInitiallyActive}
       />
     )
   }
