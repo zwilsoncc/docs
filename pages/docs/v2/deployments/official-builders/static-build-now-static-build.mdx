@@ -10,7 +10,7 @@ export const meta = {
   description: 'The official Static Builds Builder for ZEIT Now. Run any package.json build script for your source files and deploy the result.'
 }
 
-This module takes a Node.js `package.json` file, installs all its dependencies, executes the `now-build` step and exposes the resulting `dist` directory as the [build output](/docs/v2/deployments/builds#source-and-outpu) for serving.
+This module takes a Node.js `package.json` file, installs all its dependencies, executes the `now-build` step and exposes the resulting `dist` directory as the [build output](/docs/v2/deployments/builds#sources-and-outputs) for serving.
 
 ## When to use it
 
@@ -66,9 +66,9 @@ Finally, for Now to know what to execute, add to `package.json`:
 ```
 
 Notice that `@now/static-build`:
-- Uses `package.json` as a way of getting dependencies and specifying your build
-- Will **only execute** your `now-build` script
-- Expects the output to go to `dist`
+- Uses `package.json` as a way of getting dependencies and specifying your build.
+- Will **only execute** your `now-build` script.
+- Expects the output to go to `dist`, or the directory defined as the value of the [config option `distDir`](#configuring-the-dist-directory).
 
 Finally, we tell Now that we want to execute two builds for this deployment:
 
@@ -78,6 +78,17 @@ Finally, we tell Now that we want to execute two builds for this deployment:
   "builds": [
     { "src": "docs/package.json", "use": "@now/static-build" },
     { "src": "blog/package.json", "use": "@now/static-build" }
+  ]
+}
+```
+
+## Configuring the `dist` directory
+If you want to configure a directory other than `dist` for your build output, you can pass an optional `distDir` option in the builder's config:
+ ```
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
   ]
 }
 ```
