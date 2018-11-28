@@ -113,7 +113,7 @@ And we also have the capability to inherit from your shell's environment. To do 
 
 <TerminalInput>now -e <P.B>MY_SHELL_VAR</P.B></TerminalInput>
 
-How about other programming languages? The same mechanism applies to any project with a `Dockerfile`. The variables you include will be available to your `RUN` and `CMD` instructions.
+How about other programming languages? The same mechanism applies to any project with a `Dockerfile`. The variables you include will be available to your `CMD` instruction.
 
 You can even <InternalLink href="/docs/deployment-types/node#ignoring-devdependencies">prevent</InternalLink> `devDependencies` from being installed using an environment variable!
 
