@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
+import cn from 'classnames'
+import { LinkWithHoverPrefetch } from '~/components/text/link'
 import qs from 'querystring'
 import { parse } from 'url'
 import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
@@ -101,7 +102,7 @@ export class NavLink extends React.Component {
     return (
       <div
         ref={ref => (this.node = ref)}
-        className={selected ? 'selected' : ''}
+        className={cn('nav-link', { selected })}
       >
         {// NOTE: use just anchor element for triggering `hashchange` event
         this.onlyHashChange() ? (
@@ -109,11 +110,9 @@ export class NavLink extends React.Component {
             {level > 2 && <span>-</span>} {info.name}
           </a>
         ) : (
-          <Link href={info.href} as={info.as || info.href} prefetch>
-            <a className={selected ? 'selected' : ''}>
-              {level > 2 && <span>-</span>} {info.name}
-            </a>
-          </Link>
+          <LinkWithHoverPrefetch href={info.href} as={info.as || info.href}>
+            {level > 2 && <span>-</span>} {info.name}
+          </LinkWithHoverPrefetch>
         )}
         <style jsx>{`
           div {
@@ -123,14 +122,14 @@ export class NavLink extends React.Component {
             box-sizing: border-box;
           }
 
-          a {
+          .nav-link :global(a) {
             text-decoration: none;
             font-size: 14px;
             color: #000;
             box-sizing: border-box;
           }
 
-          a.selected {
+          .selected :global(a) {
             font-weight: 600;
             color: #000;
           }
@@ -151,7 +150,7 @@ export class NavLink extends React.Component {
               padding-left: 0;
             }
 
-            a {
+            .nav-link :global(a) {
               display: block;
               padding: 20px 0;
             }

@@ -42,6 +42,7 @@ export default class Card extends Component {
             flex-direction: column;
             font-size: 14px;
             color: black;
+            text-decoration: none;
           }
 
           .card :global(h4) {

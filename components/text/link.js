@@ -1,4 +1,5 @@
-// Packages
+import { Component } from 'react'
+import { withRouter } from 'next/router'
 import NativeLink from 'next/link'
 import PropTypes from 'prop-types'
 
@@ -15,29 +16,31 @@ export const GenericLink = props => {
 }
 
 export const InternalLink = ({ href, as, children }, { darkBg } = {}) => (
-  <NativeLink prefetch href={href} as={as}>
-    <a className={darkBg ? 'dark' : ''}>
+  <LinkWithHoverPrefetch href={href} as={as}>
+    <span>
       {children}
 
-      <style jsx>
-        {`
-          a {
-            text-decoration: none;
-            color: #067df7;
-            font-size: inherit;
-          }
+      <style jsx>{`
+        span > :global(a) {
+          text-decoration: none;
+          color: #067df7;
+          font-size: inherit;
+        }
 
-          a:hover {
-            text-decoration: underline;
-          }
+        span > :global(a:hover) {
+          text-decoration: underline;
+        }
 
-          a.dark {
+        ${darkBg
+          ? `
+          span :global(a.dark) {
             color: #fff;
           }
-        `}
-      </style>
-    </a>
-  </NativeLink>
+        `
+          : ``};
+      `}</style>
+    </span>
+  </LinkWithHoverPrefetch>
 )
 
 InternalLink.contextTypes = {
@@ -401,3 +404,16 @@ IconExternalLink.contextTypes = {
   darkBg: PropTypes.bool,
   disabled: PropTypes.bool
 }
+
+class HoverPrefetchLink extends Component {
+  render() {
+    const { children, router, ...rest } = this.props
+    return (
+      <NativeLink {...rest}>
+        <a onMouseEnter={() => router.prefetch(this.props.href)}>{children}</a>
+      </NativeLink>
+    )
+  }
+}
+
+export const LinkWithHoverPrefetch = withRouter(HoverPrefetchLink)

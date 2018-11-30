@@ -50,6 +50,7 @@ export class SectionButton extends Component {
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
             margin-bottom: 24px;
             transition: box-shadow 0.2s ease, border 0.2s ease, color 0.2s ease;
+            text-decoration: none;
           }
 
           .section-button:nth-child(odd):not(:last-child) :global(a) {
