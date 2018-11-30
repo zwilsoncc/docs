@@ -8,6 +8,7 @@
       { "source": "/docs/router-status", "destination": "/docs/v2/routing/status-codes" },
       { "source": "/docs/max-lambda-size", "destination": "/docs/v2/deployments/concepts/lambdas#maximum-bundle-size" },
       { "source": "/docs/github", "destination": "/docs/v2/integrations/now-for-github" },
+      { "source": "/docs/aliasing", "destination": "/docs/v2/domains-and-aliases/aliasing-a-deployment" },
       { "source": "/docs/features/:rest", "destination": "/docs/v1/features/:rest" },
       { "source": "/docs/static-deployments/:rest", "destination": "/docs/v1/static-deployments/:rest" },
       { "source": "/docs/deployment-types/:rest", "destination": "/docs/v1/deployment-types/:rest" },
