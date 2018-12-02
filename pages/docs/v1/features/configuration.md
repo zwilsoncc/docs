@@ -41,6 +41,8 @@ All of the properties mentioned below can be used inside the `now.json` file:
 #### `version`
 Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
 
+The default version for Now deployments is [version 2](/docs/v1-upgrade).
+
 To explicitly use [version 1 of Now](/blog/now-2), use the following configuration in a `now.json` file.
 
 ```
