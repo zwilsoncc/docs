@@ -12,46 +12,15 @@ export const meta = {
 
 This guide explains how to use these methods to configure and customize the default behavior of Now CLI and Now Desktop.
 
-In addition to the options available in the command line interface (like `--name` for setting the name of the deployment), we also support saving certain parameters into a config file of your choice.
-
-The types of configuration files can be divided into two groups:
+In addition to the options available in the command line interface (like `--name` for setting the name of the deployment), we also support saving certain parameters into a config file, `now.json`.
 
 ## Local Configuration
 
-This describes the set of configuration rules that are applied per project. The configuration
-file always lives in the root directory of the project (except when a custom path is
-specified using the `--local-config` flag in Now CLI).
+This describes the set of configuration rules that are applied per project. The configuration file always lives in the root directory of the project (except when a custom path is specified using the `--local-config` flag in Now CLI).
 
-You can choose between creating a separate file for configuring Now (named `now.json`) or
-using the `package.json` file for this (if it's a Node.js project). Please note that
-it's **not possible to use both methods to configure Now** for a given project. If you use `now.json`, you can't include the `now` namespace within package.json, and vice-versa.
+## Configuration
 
-### package.json
-
-If you have a JavaScript-based project (like a Node.js server or a frontend with a `build` script), you are already using `package.json`.
-
-As a convenience, we allow for settings to be defined within the `now` namespace inside the file. For example, let's say you wanted to always alias a deployment to `cool.now.sh` upon deployment. Your `package.json` would look as follows:
-
-```
-{
-  "name": "my-node-project",
-  "dependencies": {
-    "micro": "latest"
-  },
-  "now": {
-    "alias": "cool"
-  },
-  "scripts": {
-    "start": "micro"
-  }
-}
-```
-
-For a list of all available options, refer to the "Settings" section below.
-
-### now.json
-
-For every type of deployment, including `package.json` ones, you can create a `now.json` file that contains your deployment's configuration.
+For every type of deployment, you can create a `now.json` file that contains your deployment's configuration.
 
 For example, consider a static deployment with some `.html` files in a directory called `my-website`.
 
@@ -63,11 +32,20 @@ Since no configuration is supplied, the deployment's name is obtained from the d
 }
 ```
 
-For a list of all available options, refer to the "Settings" section below.
+For a list of all available options, refer to the ["Settings"](#settings) section below.
 
 ### Settings
 
-All of the properties mentioned below can be used both in the `package.json` and inside the `now.json` file:
+All of the properties mentioned below can be used inside the `now.json` file:
+
+#### `version`
+Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
+
+To explicitly use [version 1 of Now](/blog/now-2), use the following configuration in a `now.json` file.
+
+```
+"version": 1
+```
 
 #### `name` (string)
 

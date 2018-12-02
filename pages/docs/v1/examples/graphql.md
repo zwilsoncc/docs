@@ -47,6 +47,7 @@ Now let's create the project's `package.json` file inside that directory:
 
 ```
 {
+  "version": 1,
   "name": "graphql-api",
   "scripts": {
     "start": "micro index.js"

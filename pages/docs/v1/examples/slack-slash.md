@@ -51,6 +51,7 @@ Next, create the project's `package.json` file in that directory:
 
 ```
 {
+  "version": 1,
   "name": "slash-command",
   "scripts": {
     "start": "micro index.js"

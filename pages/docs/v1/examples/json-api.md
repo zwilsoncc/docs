@@ -34,6 +34,7 @@ Now let's create the project's files inside that directory. Start over with crea
 
 ```
 {
+  "version": 1,
   "name": "json-api",
   "scripts": {
     "start": "micro"

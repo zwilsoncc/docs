@@ -48,8 +48,7 @@ Now, alias that into your `www` domain like this:
 
 Now, all the `www` traffic will be forwarded to your naked domain (in this case `mycompany.com`).
 
-> You only need to deploy this app once. 
-
+> You only need to deploy this app once.
 
 ## 2. Redirect Inside Your App
 

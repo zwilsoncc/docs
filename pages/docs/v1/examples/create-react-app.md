@@ -45,6 +45,7 @@ This configuration option will go in a `now.json` configuration file under the `
 
 ```json
 {
+  "version": 1,
   "type": "static",
   "static": {
     "rewrites": [

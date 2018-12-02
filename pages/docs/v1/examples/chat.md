@@ -39,6 +39,7 @@ In turn, the first thing we'll do is create a new directory, move into it, and c
 
 ```
 {
+  "version": 1,
   "name": "realtime-chat",
   "scripts": {
     "start": "node index"
