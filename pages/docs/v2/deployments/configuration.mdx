@@ -125,6 +125,7 @@ For more information, refer to [Builds](/docs/v2/deployments/builds) and [Builde
 
 **Route object definition:**
 - `src`: A PCRE-compatible regular expression that matches each incoming pathname (excluding querystring).
+- `methods`: A set of HTTP method types. If no method is provided, requests with any HTTP method will be a candidate for the route.
 - `dest`: A destination pathname or full URL, including querystring, with the ability to embed capture groups as $1, $2…
 - `headers`: A set of headers to apply for responses.
 - `status`: A status code to respond with. Can be used in tandem with `Location: ` header to implement redirects.
@@ -145,6 +146,7 @@ The following example configures custom routes that map to static files and lamb
   "routes": [
     { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "/index.html" },
     { "src": "/api", "dest": "/my-api.js" },
+    { "src": "/users", "methods": ["POST"], "dest": "/users-api.js" },
     { "src": "/users/(?<id>[^/]*)", "dest": "/users-api.js?id=$id" },
     { "src": "/.*", "dest": "https://my-old-site.com"},
     { "src": "/legacy", "status": 404},
