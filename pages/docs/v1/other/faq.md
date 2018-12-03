@@ -192,8 +192,7 @@ We send a receipt to your email address for every card transaction including a l
 Please note that we can only honor special invoicing requests that come from the personal account's email address or, in the event the request pertains to a team, the team owner's email address.
 
 ## How do I remove or delete my account?
-
-Contact us at [support@zeit.co](support@zeit.co?subject=Remove%20account) from the account's email address.
+You can delete your account in your [account settings](https://zeit.co/account).
 
 ## How many levels of subdomains can I use?
 
