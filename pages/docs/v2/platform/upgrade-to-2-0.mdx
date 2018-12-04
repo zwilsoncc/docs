@@ -83,7 +83,7 @@ This in turn enables:
 
 - Monorepo support
 - Multiple programming languages and frameworks to co-exist
-- Faster cold boot-up times due to refined [entrypoint granularity](/docs/v2/deployments/concepts/per-entrypoint-granularity)
+- Faster cold boot-up times due to refined [entrypoint granularity](/docs/v2/deployments/concepts/lambdas#per-entrypoint-granularity)
 - Faster build times by greater [parallelization](/docs/v2/deployments/builds#parallelization) and [deduplication](/docs/v2/deployments/builds#deduplication-analysis)
 
 ## No Daemons
@@ -246,7 +246,7 @@ It might be tempting to use the `now/node-server` Builder, as seen in [the examp
 
 Keep in mind, however, that one of the benefits of the serverless model, as the name implies, is not only **not to manage servers**, but also not to think in terms of **the server abstraction**.
 
-In other words, if you are writing `new Server()` (in whatever language you prefer), you might be missing out on the [**granularity benefits**](/docs/v2/deployments/concepts/per-entrypoint-granularity) of serverless.
+In other words, if you are writing `new Server()` (in whatever language you prefer), you might be missing out on the [**granularity benefits**](/docs/v2/deployments/concepts/lambdas#per-entrypoint-granularity) of serverless.
 
 For example, many people have throughout the years provided examples on how to deploy [express](https://expressjs.com), a Node.js framework, to AWS Lambda:
 
