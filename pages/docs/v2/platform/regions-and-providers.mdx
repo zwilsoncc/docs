@@ -2,7 +2,12 @@ import Doc from '~/components/docs/doc'
 import { GenericLink } from '~/components/text/link'
 import Image from '~/components/image'
 import Caption from '~/components/text/caption'
-import { Table, Row, Column } from '~/components/table'
+import {
+  Table,
+  TableCell as Cell,
+  TableHead,
+  TableRow as Row
+} from '~/new-components/mdx-components/table'
 
 export const meta = {
   title: 'Regions and Providers',
@@ -14,39 +19,39 @@ The Now Platform acts as a Universal API and Overlay Network on top of existing 
 In some cases, the routing layer is in a different region from where [Now Lambdas](/docs/v2/deployments/concepts/lambdas) are invoked. The roundtrip latency between them is usually in the 1 millisecond to sub-millisecond range.
 
 <Table>
-  <Row header>
-    <Column left>Region ID</Column>
-    <Column>Reference Location</Column>
-    <Column>Provider Region<br /> (Routing)</Column>
-    <Column right>Provider Region<br /> (Now Lambdas)</Column>
+  <TableHead>
+    <Cell left>Region ID</Cell>
+    <Cell>Reference Location</Cell>
+    <Cell>Provider Region (Routing)</Cell>
+    <Cell right>Provider Region (Now Lambdas)</Cell>
+  </TableHead>
+
+  <Row>
+    <Cell left>sfo1</Cell>
+    <Cell>San Francisco, CA, USA</Cell>
+    <Cell>AWS us-west-1</Cell>
+    <Cell right>AWS us-west-1</Cell>
   </Row>
 
   <Row>
-    <Column left>sfo1</Column>
-    <Column>San Francisco, CA, USA</Column>
-    <Column>AWS us-west-1</Column>
-    <Column right>AWS us-west-1</Column>
+    <Cell left>bru1</Cell>
+    <Cell>Brussels, Belgium, Europe</Cell>
+    <Cell>GCP eu-west-1</Cell>
+    <Cell right>AWS eu-west-1</Cell>
   </Row>
 
   <Row>
-    <Column left>bru1</Column>
-    <Column>Brussels, Belgium, Europe</Column>
-    <Column>GCP eu-west-1</Column>
-    <Column right>AWS eu-west-1</Column>
+    <Cell left>gru1</Cell>
+    <Cell>Sao Paulo, Brazil</Cell>
+    <Cell>AWS sa-east-1</Cell>
+    <Cell right>AWS sa-east-1</Cell>
   </Row>
 
   <Row>
-    <Column left>gru1</Column>
-    <Column>Sao Paulo, Brazil</Column>
-    <Column>AWS sa-east-1</Column>
-    <Column right>AWS sa-east-1</Column>
-  </Row>
-
-  <Row>
-    <Column left>iad1</Column>
-    <Column>Washington DC, USA</Column>
-    <Column>AWS us-east-2</Column>
-    <Column right>AWS us-east-1</Column>
+    <Cell left>iad1</Cell>
+    <Cell>Washington DC, USA</Cell>
+    <Cell>AWS us-east-2</Cell>
+    <Cell right>AWS us-east-1</Cell>
   </Row>
 </Table>
 

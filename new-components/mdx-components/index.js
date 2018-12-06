@@ -14,6 +14,7 @@ import Quote from './quote'
 import Strong from './strong'
 import UL from './ul'
 import Wrapper from './wrapper'
+import { Table, TableRow, TableCell } from './table'
 
 const components = {
   a: GenericLink,
@@ -31,6 +32,9 @@ const components = {
   p: P,
   strong: Strong,
   ul: UL,
+  tableRow: TableRow,
+  tableCell: TableCell,
+  table: Table,
   wrapper: Wrapper
 }
 
