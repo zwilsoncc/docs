@@ -1,14 +1,6 @@
 import Example from '~/components/api/example'
-import { Code, InlineCode } from '~/components/text/code'
-import {
-  InputTable,
-  OutputTable,
-  Row,
-  Cell,
-  TypeCell,
-  BoldCell,
-  BooleanCell
-} from '~/components/api/table'
+import { Code } from '~/components/text/code'
+import { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 
@@ -21,44 +13,20 @@ Retrieves a list of certificates issued for the authenticating user or
 information about the certificate issued for the common name specified in the URL.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>certs</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The list of issued certificates.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of issued certificates. |
 
 #### Certificate
 This is the format of each item in the `certs` list.
 
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the certificate.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>cns</BoldCell>
-    <TypeCell>List&lt;String&gt;</TypeCell>
-    <Cell>The common names for which domain the certificate was issued.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>created</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the certificate was created.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>expiration</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the certificate is going to expire.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>autoRenew</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>If the certificate is going to be automatically renewed.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the certificate. |
+| **cns** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | The common names for which domain the certificate was issued. |
+| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
+| **expiration** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate is going to expire. |
+| **autoRenew** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the certificate is going to be automatically renewed. |
 
 <Example>
   <span>Example request:</span>
@@ -92,33 +60,13 @@ Retrieves the information about the certificate issued for
 certificate id specified in the URL.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the certificate.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>cns</BoldCell>
-    <TypeCell>List&lt;String&gt;</TypeCell>
-    <Cell>The common names for which domain the certificate was issued.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>created</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the certificate was created.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>expiration</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the certificate is going to expire.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>autoRenew</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>If the certificate is going to be automatically renewed.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the certificate. |
+| **cns** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | The common names for which domain the certificate was issued. |
+| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
+| **expiration** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate is going to expire. |
+| **autoRenew** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the certificate is going to be automatically renewed. |
 
 <Example>
   <span>Example request:</span>
@@ -150,28 +98,15 @@ the body using **Let's Encrypt**.
 The body should contain \`domains\` array and it may contain \`renew\` field to renew an existing certificate.
 
 #### Request Parameters
-<InputTable>
-  <Row>
-    <BoldCell>domains</BoldCell>
-    <TypeCell>List&lt;String&gt;</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>A list of Common Names for which the certificate is being provisioned.</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **domains** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | Yes | A list of Common Names for which the certificate is being provisioned. |
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the issued certificate.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>created_at</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the certificate was created.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the issued certificate. |
+| **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
 
 <Example>
   <span>Example request:</span>
@@ -205,35 +140,16 @@ Create a new certificate entry with a user-supplied certificate.
 The body should contain `cert`, private `key`, and `ca` chain fields in PEM format.
 
 #### Request Parameters
-<InputTable>
-  <Row>
-    <BoldCell>ca</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>PEM formatted CA chain</Cell>
-  </Row>
-  <Row>
-    <BoldCell>cert</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>PEM formatted certificate</Cell>
-  </Row>
-  <Row>
-    <BoldCell>key</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>PEM formatted private key</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **ca** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted CA chain. |
+| **cert** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted certificate. |
+| **key** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted private key. |
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>created_at</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the certificate was created.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
 
 <Example>
   <span>Example request:</span>

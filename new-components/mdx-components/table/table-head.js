@@ -10,7 +10,7 @@ class TableHead extends Component {
   render() {
     const { children, innerRef, ...other } = this.props
     return (
-      <tr {...other} ref={innerRef}>
+      <thead {...other} ref={innerRef}>
         {Children.map(children, (child, index) => {
           if (!child) return null
           return cloneElement(child, {
@@ -18,7 +18,7 @@ class TableHead extends Component {
             tagName: 'th'
           })
         })}
-      </tr>
+      </thead>
     )
   }
 }

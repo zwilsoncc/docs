@@ -1,15 +1,6 @@
 import Example from '~/components/api/example'
-import { Code, InlineCode } from '~/components/text/code'
-import { ExternalLink } from '~/components/text/link'
-import {
-  Table,
-  OutputTable,
-  Row,
-  Cell,
-  TypeCell,
-  BoldCell,
-  FullWidthCell
-} from '~/components/api/table'
+import { Code } from '~/components/text/code'
+import { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 
@@ -21,150 +12,48 @@ import Request from '~/components/api/request'
 Get the logs of a deployment by its ID.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>logs</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The list of objects representing each log.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **logs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of objects representing each log. |
 
-#### Log
-<OutputTable>
-  <Row>
-    <BoldCell>object</BoldCell>
-    <TypeCell>Map</TypeCell>
-    <Cell>The log content as a map.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>text</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The log content as a string.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>deploymentId</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the deployment</Cell>
-  </Row>
-  <Row>
-    <BoldCell>id</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the log</Cell>
-  </Row>
-  <Row>
-    <BoldCell>context</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell></Cell>
-  </Row>
-  <Row>
-    <BoldCell>created</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the log was created.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>serial</BoldCell>
-    <TypeCell>Int</TypeCell>
-    <Cell></Cell>
-  </Row>
-  <Row>
-    <BoldCell>type</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>The type of log. The type could be <InlineCode>request</InlineCode>, <InlineCode>response</InlineCode>, <InlineCode>command</InlineCode> or <InlineCode>stdout</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>pid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The process unique identified which created the log.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>appName</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The deployment application name.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>date</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the log was created.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>region</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>The name of the region where the instance was running. The region could be any supported region, for example; <InlineCode>sfo</InlineCode>.</Cell>
-  </Row>
-</OutputTable>
+##### Log Object
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **object** | <HelpLink href="#api-basics/types">Map</HelpLink> | The log content as a map. |
+| **text** | <HelpLink href="#api-basics/types">String</HelpLink> | The log content as a string. |
+| **deploymentId** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the deployment. |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the log. |
+| **context** | <HelpLink href="#api-basics/types">String</HelpLink> | |
+| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the log was created. |
+| **serial** | <HelpLink href="#api-basics/types">Integer</HelpLink> | |
+| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The type of log. The type could be `request`, `response`, `command` or `stdout`. |
+| **pid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The process unique identified which created the log. |
+| **appName** | <HelpLink href="#api-basics/types">String</HelpLink> | The deployment application name. |
+| **date** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the log was created. |
+| **region** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The name of the region where the instance was running. The region could be any supported region, for example; `sfo`. |
 
-#### Log object key
+##### Log Object Key
 These are the usual keys of the key `object` of the logs.
 
-<OutputTable>
-  <Row>
-    <BoldCell>method</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A valid HTTP method.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>uri</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The URL which received the request.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>status</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A valid <ExternalLink href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</ExternalLink>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>protocol</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The protocol used for the log.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>bodyBytesSent</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The number of bytes sent in the body of the response.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>remoteAddr</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The IP address which sent the request.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>userAgent</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The user agent of the device which sent the request.</Cell>
-  </Row>
-  {/* <Row>
-    <BoldCell>referer</BoldCell>
-    <TypeCell></TypeCell>
-    <Cell></Cell>
-  </Row> */}
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **method** | <HelpLink href="#api-basics/types">String</HelpLink> | A valid HTTP method. |
+| **uri** | <HelpLink href="#api-basics/types">String</HelpLink> | The URL which received the request. |
+| **status** | <HelpLink href="#api-basics/types">String</HelpLink> | A valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). |
+| **protocol** | <HelpLink href="#api-basics/types">String</HelpLink> | The protocol used for the log. |
+| **bodyBytesSent** | <HelpLink href="#api-basics/types">String</HelpLink> | The number of bytes sent in the body of the response. |
+| **remoteAddr** | <HelpLink href="#api-basics/types">String</HelpLink> | The IP address which sent the request. |
+| **userAgent** | <HelpLink href="#api-basics/types">String</HelpLink> | The user agent of the device which sent the request. |
 
 #### Types
 These are the possible types of logs and what they mean.
 
-<Table head={
-  <Row>
-    <Cell isHead>Type</Cell>
-    <FullWidthCell isHead>Description</FullWidthCell>
-  </Row>
-}>
-  <Row>
-    <BoldCell>request</BoldCell>
-    <Cell>The log is an HTTP request.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>response</BoldCell>
-    <Cell>The log is an HTTP response.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>command</BoldCell>
-    <Cell>The log is a terminal command, e.g. <InlineCode>npm start</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>stdout</BoldCell>
-    <Cell>The log is anything the application wrote to console.</Cell>
-  </Row>
-</Table>
+| Type | Description |
+| -- | -- |
+| **request** | The log is an HTTP request. |
+| **response** | The log is an HTTP response. |
+| **command** | The log is a terminal command, e.g. `npm start`. |
+| **stdout** | The log is anything the application wrote to console. |
 
 <Example>
   <span>Example request:</span>

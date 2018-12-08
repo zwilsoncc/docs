@@ -18,41 +18,11 @@ The Now Platform acts as a Universal API and Overlay Network on top of existing 
 
 In some cases, the routing layer is in a different region from where [Now Lambdas](/docs/v2/deployments/concepts/lambdas) are invoked. The roundtrip latency between them is usually in the 1 millisecond to sub-millisecond range.
 
-<Table>
-  <TableHead>
-    <Cell left>Region ID</Cell>
-    <Cell>Reference Location</Cell>
-    <Cell>Provider Region (Routing)</Cell>
-    <Cell right>Provider Region (Now Lambdas)</Cell>
-  </TableHead>
-
-  <Row>
-    <Cell left>sfo1</Cell>
-    <Cell>San Francisco, CA, USA</Cell>
-    <Cell>AWS us-west-1</Cell>
-    <Cell right>AWS us-west-1</Cell>
-  </Row>
-
-  <Row>
-    <Cell left>bru1</Cell>
-    <Cell>Brussels, Belgium, Europe</Cell>
-    <Cell>GCP eu-west-1</Cell>
-    <Cell right>AWS eu-west-1</Cell>
-  </Row>
-
-  <Row>
-    <Cell left>gru1</Cell>
-    <Cell>Sao Paulo, Brazil</Cell>
-    <Cell>AWS sa-east-1</Cell>
-    <Cell right>AWS sa-east-1</Cell>
-  </Row>
-
-  <Row>
-    <Cell left>iad1</Cell>
-    <Cell>Washington DC, USA</Cell>
-    <Cell>AWS us-east-2</Cell>
-    <Cell right>AWS us-east-1</Cell>
-  </Row>
-</Table>
+| Region ID | Reference Location | Provider Region (Routing) | Provider Region (Now Lambdas) |
+|--|--|--|--|
+| sfo1 | San Francisco, CA, USA | AWS us-west-1 | AWS us-west-1 |
+| bru1 | Brussels, Belgium, Europe | GCP eu-west-1 | AWS eu-west-1 |
+| gru1 | Sao Paulo, Brazil | AWS sa-east-1 | AWS sa-east-1 |
+| iad1 | Washington DC, USA | AWS us-east-2 | AWS us-east-1 |
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

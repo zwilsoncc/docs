@@ -1,28 +1,17 @@
 import React from 'react'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
-import isComponentOfType from '~/new-components/utils/is-component-of-type'
-import filterReactChildren from '~/new-components/utils/filter-react-children'
-import TableBody from './table-body'
-import TableHead from './table-head'
-import TableRow from './table-row'
 
-const Table = ({ children, className, isHeadType, isRowType, ...other }) => {
-  const colsItems = filterReactChildren(children, item =>
-    isComponentOfType('col', item)
-  )
-  const headItems = filterReactChildren(children, isHeadType)
-  const bodyItems = filterReactChildren(children, isRowType)
+const Table = ({ children, className, ...other }) => {
   return (
     <table {...other} className={cn('table', className)}>
-      {colsItems.length > 0 && <colgroup>{colsItems}</colgroup>}
-      {headItems.length > 0 && <thead>{headItems}</thead>}
-      <TableBody isRowType={isRowType}>{bodyItems}</TableBody>
+      { children }
       <style jsx>{`
         table {
           border-collapse: separate;
           border-spacing: 0;
           width: 100%;
+          margin-bottom: 24px;
         }
 
         table :global(td:nth-child(1)) {
@@ -33,21 +22,21 @@ const Table = ({ children, className, isHeadType, isRowType, ...other }) => {
           border-right: 1px solid transparent;
         }
 
-        thead :global(th:nth-child(1)) {
+        table :global(thead th:nth-child(1)) {
           border-bottom: 1px solid #eaeaea;
           border-left: 1px solid #eaeaea;
           border-radius: 4px 0px 0px 4px;
           border-top: 1px solid #eaeaea;
         }
 
-        thead :global(th:last-child) {
+        table :global(thead th:last-child) {
           border-bottom: 1px solid #eaeaea;
           border-radius: 0 4px 4px 0;
           border-right: 1px solid #eaeaea;
           border-top: 1px solid #eaeaea;
         }
 
-        thead :global(th) {
+        table :global(thead th) {
           background: #fafafa;
           border-bottom: 1px solid #eaeaea;
           border-top: 1px solid #eaeaea;
@@ -68,10 +57,9 @@ const Table = ({ children, className, isHeadType, isRowType, ...other }) => {
         }
 
         table :global(td > div) {
-          align-items: center;
-          display: flex;
           min-height: 50px;
-          flex-flow: row wrap;
+          padding: 12px 0;
+          line-height: 24px;
         }
 
         table :global(td.multi-line > div) {
@@ -113,20 +101,13 @@ const Table = ({ children, className, isHeadType, isRowType, ...other }) => {
   )
 }
 
-const defaultIsRowType = item => isComponentOfType(TableRow, item)
-const defaultIsHeadType = item => isComponentOfType(TableHead, item)
-
 Table.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
-  isHeadType: PropTypes.func,
-  isRowType: PropTypes.func
+  className: PropTypes.string
 }
 
 Table.defaultProps = {
-  className: '',
-  isHeadType: defaultIsHeadType,
-  isRowType: defaultIsRowType
+  className: ''
 }
 
 export default Table

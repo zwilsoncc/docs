@@ -1,16 +1,7 @@
 import Example from '~/components/api/example'
 import { Code, InlineCode } from '~/components/text/code'
-import { GenericLink } from '~/components/text/link'
+import { GenericLink, HelpLink } from '~/components/text/link'
 import Now from '~/components/now/now'
-import {
-  InputTable,
-  OutputTable,
-  Row,
-  Cell,
-  TypeCell,
-  BoldCell,
-  BooleanCell
-} from '~/components/api/table'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 
@@ -26,53 +17,17 @@ a boolean value telling wheter an external nameserver is used to
 manage DNS records for the domain.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the domain.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The domain name</Cell>
-  </Row>
-  <Row>
-    <BoldCell>createdAt</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when it was created the registry.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>boughtAt</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>If it was purchased through {<Now color="#000" />} the date when it was purchased.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>expiresAt</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the domain is going to expire and need to be renewed.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>isExternal</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>If it is an <GenericLink href="/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname">externally handled domain</GenericLink></Cell>
-  </Row>
-  <Row>
-    <BoldCell>verified</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>If the domain has the ownership verified.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>aliases</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The list of aliases using the domain.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>certs</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The list domains or subdomains with an SSL certificated provisioned.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when it was created the registry. |
+| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
+| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain is going to expire and need to be renewed. |
+| **isExternal** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If it is an [externally handled domain](/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname). |
+| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
+| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of aliases using the domain. |
+| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list domains or subdomains with an SSL certificated provisioned. |
 
 <Example>
   <span>Example request:</span>
@@ -122,44 +77,18 @@ been created, the user may retry the same POST and the endpoint shall return
 `verified: true`, if the domain was verified successfully.
 
 #### Request Parameters
-<InputTable>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The domain name you want to add.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>serviceType</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <BooleanCell status={false} />
-    <Cell><InlineCode>external</InlineCode> for <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">externally handled domains</GenericLink>; <InlineCode>zeit.world</InlineCode> for managed.</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name you want to add. |
+| **serviceType** | <HelpLink href="#api-basics/types">Enum</HelpLink> | No | `external` for [externally handled domains](/docs/features/dns#adding-a-domain-using-external-nameservers); `zeit.world` for managed. |
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the domain.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>verified</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>If the domain has the ownership verified.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>verifyToken</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">token</GenericLink> required to verify the ownership of an external domain.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>created</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The date when the new domain was created.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the domain. |
+| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
+| **verifyToken** | <HelpLink href="#api-basics/types">String</HelpLink> | The [token](/docs/features/dns#adding-a-domain-using-external-nameservers) required to verify the ownership of an external domain. |
+| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the new domain was created. |
 
 <Example>
   <span>Example request adding a zeit.world domain:</span>
@@ -217,13 +146,9 @@ Delete a previously registered domain name from <Now color="#000" />.
 Deleting a domain will automatically remove any associated aliases.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the removed domain.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the removed domain. |
 
 <Example>
   <span>Example request:</span>
@@ -249,13 +174,9 @@ Deleting a domain will automatically remove any associated aliases.
 Check if a domain name _may_ be available to buy or not. The response is a JSON with the key `available` as a boolean.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>status</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>If the domain is available or not.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **status** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is available or not. |
 
 <Example>
   <span>Example request:</span>
@@ -280,18 +201,10 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 Check the price to purchase a domain and how long a single purchase period is. The response is a JSON with the key `price` as a number (always an integer) and a key `period` as a number indicating the number of years the domains could be held before paying again.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>price</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <Cell>The domain price.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>period</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <Cell>The time period by which the domain is purchased.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **price** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The domain price. |
+| **period** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The time period by which the domain is purchased. |
 
 <Example>
   <span>Example request:</span>
@@ -319,20 +232,10 @@ Purchase the specified domain, it receive the domain name as the key `name` insi
 In case of a successful purchase the returns with code 200 and an empty body.
 
 #### Request Parameters
-<InputTable>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The domain name you want to purchase.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>expectedPrice</BoldCell>
-    <TypeCell>Number</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>The price you expect to be charged for the purchase.</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name to purchase. |
+| **expectedPrice** | <HelpLink href="#api-basics/types">Integer</HelpLink> | No | The price you expect to be charged for the purchase. |
 
 <Example>
   <span>Example request:</span>

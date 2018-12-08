@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { withRouter } from 'next/router'
 import NativeLink from 'next/link'
 import PropTypes from 'prop-types'
+import CircledQuestion from '~/components/icons/circled-question'
 
 export const GenericLink = props => {
   if (props.href.startsWith('/docs') || props.href.startsWith('/api')) {
@@ -415,5 +416,41 @@ class HoverPrefetchLink extends Component {
     )
   }
 }
+
+export const HelpLink = ({ children, href, hasIcon, ...props }) => (
+  <a href={href} {...props} className={hasIcon ? 'icon' : ''}>
+    <span>{children}</span>
+    { hasIcon && <CircledQuestion /> }
+    <style jsx>{`
+      a {
+        text-decoration: none;
+        color: #666;
+        font-size: inherit;
+        display: flex;
+        cursor: pointer;
+      }
+      a.icon {
+        align-items: center;
+        color: inherit;
+        display: flex;
+      }
+      a:hover,
+      a.icon:hover {
+        color: #000;
+        text-decoration: underline dashed;
+      }
+      a.icon span {
+        margin-right: 5px;
+      }
+      a.icon:hover :global(svg circle) {
+        stroke: #000;
+      }
+      a.icon:hover :global(svg text) {
+        fill: #000;
+      }
+    `}</style>
+  </a>
+)
+
 
 export const LinkWithHoverPrefetch = withRouter(HoverPrefetchLink)

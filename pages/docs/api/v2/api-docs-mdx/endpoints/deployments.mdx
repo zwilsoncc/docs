@@ -1,20 +1,8 @@
 import Example from '~/components/api/example'
-import { Code, InlineCode } from '~/components/text/code'
+import { Code, InlineCode, RequestHeader } from '~/components/text/code'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import { GenericLink, HelpLink } from '~/components/text/link'
 import { P, PDIV } from '~/components/text/paragraph'
-import { ExternalLink, InternalLink } from '~/components/text/link'
-import {
-  OutputTable,
-  InputTable,
-  HeadersTable,
-  Row,
-  Cell,
-  TypeCell,
-  BoldCell,
-  HeaderCell,
-  BooleanCell
-} from '~/components/api/table'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 
@@ -28,62 +16,17 @@ Create a new deployment with all the required and intended data.
 Before creating a deployment, [upload any required files](#endpoints/deployments/upload-deployment-files) when they cannot be posted at once by inlining files.
 
 #### Request Parameters
-<InputTable>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>A string with the project name used in the deployment URL. The name string has a max length of <InlineCode>52</InlineCode> characters.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>files</BoldCell>
-    <TypeCell>List</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>A list of objects with the files to be deployed.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>version</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The version of Now Platform to use. Must have the value of <InlineCode>2</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>env</BoldCell>
-    <TypeCell>Map</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>An object containing the deployment's environment variable names and values. <i>Secrets can be referenced by prefixing the value with <InlineCode>@</InlineCode></i>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>build.env</BoldCell>
-    <TypeCell>Map</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>An object containing the deployment's environment variable names and values to be passed to Builds. <i>Secrets can be referenced by prefixing the value with <InlineCode>@</InlineCode></i>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>builds</BoldCell>
-    <TypeCell>List</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>A list of Build objects used to build sources in a deployment. For example, <InlineCode noWrap>{`[{ "src": "*.php", "use": "@now/php" }]`}</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>routes</BoldCell>
-    <TypeCell>List</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; <InlineCode>{`[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`}</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>regions</BoldCell>
-    <TypeCell>List</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>An array of the regions the deployment should be deployed to. For example, <InlineCode>["sfo", "bru"]</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>public</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>Whether a deployment's source and logs are available publically.</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | A string with the project name used in the deployment URL. The name string has a max length of `52` characters. |
+| **files** | <HelpLink href="#api-basics/types">List</HelpLink> | Yes | A list of objects with the files to be deployed. |
+| **version** | <HelpLink href="#api-basics/types">Integer</HelpLink> | Yes | The version of Now Platform to use. Must have the value of `2`. |
+| **env** | <HelpLink href="#api-basics/types">Map</HelpLink> | No | An object containing the deployment's environment variable names and values. _Secrets can be referenced by prefixing the value with `@`_. |
+| **build.env** | <HelpLink href="#api-basics/types">Map</HelpLink> | No | An object containing the deployment's environment variable names and values to be passed to Builds. _Secrets can be referenced by prefixing the value with `@`_. |
+| **builds** | <HelpLink href="#api-basics/types">List</HelpLink> | No | A list of Build objects used to build sources in a deployment. For example, <InlineCode noWrap>{`[{ "src": "*.php", "use": "@now/php" }]`}</InlineCode>. |
+| **routes** | <HelpLink href="#api-basics/types">List</HelpLink> | No | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`. |
+| **regions** | <HelpLink href="#api-basics/types">List</HelpLink> | No | An array of the regions the deployment should be deployed to. For example, `["sfo", "bru"]`. |
+| **public** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | No | Whether a deployment's source and logs are available publically. |
 
 ##### Files
 Each item in the files array could be either a list of inlined files or a list of SHA1 strings used to match with [already uploaded files](#endpoints/deployments/upload-deployment-files).
@@ -93,26 +36,13 @@ In the case you want to inline each file inside the create deployment request ea
 
 <Note>Inlined files, either as plain or base64 strings, are useful when a deployment has only a few small files that you can upload in a single request.</Note>
 
-<InputTable>
-  <Row>
-    <BoldCell>file</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The file name including the whole path, eg. <InlineCode>folder/file.js</InlineCode></Cell>
-  </Row>
-  <Row>
-    <BoldCell>data</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The file content, it could be either a base64 (useful for images, etc.) of the files or the plain content for source code.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>encoding</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>The file encoding, it must be <InlineCode>base64</InlineCode> or <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode></Cell>
-  </Row>
-</InputTable>
+
+
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **file** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The file name including the whole path, eg. `folder/file.js`. |
+| **data** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The file content, it could be either a base64 (useful for images, etc.) of the files or the plain content for source code. |
+| **encoding** | <HelpLink href="#api-basics/types">Enum</HelpLink> | No | The file content, it could be either a base64 (useful for images, etc.) of the files or the plain content for source code. |
 
 <Example>
 <span>Example request with inlined files:</span>
@@ -144,26 +74,11 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
   <GenericLink href="#endpoints/deployments/upload-deployment-files">Uploading each file</GenericLink> and then creating the deployment with files using SHA1 strings is especially useful when uploading many, or big, files. This is helpful when retrying deployments without needing to upload the files again.
 </Note>
 
-<InputTable>
-  <Row>
-    <BoldCell>file</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The file name including the whole path, eg. <InlineCode>folder/file.js</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>sha</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The file SHA1 used to check the integrity.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>size</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The file size in bytes.</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **file** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The file name including the whole path, eg. `folder/file.js`. |
+| **sha** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The file SHA1 used to check the integrity. |
+| **size** | <HelpLink href="#api-basics/types">Integer</HelpLink> | Yes | The file size in bytes. |
 
 <Example>
 <span>Example request:</span>
@@ -308,73 +223,21 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 </Example>
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>id</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A String holding the unique ID of the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>url</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The name of the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>version</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <Cell>The Now platform version the deployment is associated to.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>regions</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The regions the deployment exists in, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>routes</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; <InlineCode>{`[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`}</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>builds</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a <InlineCode>src</InlineCode> and <InlineCode>use</InlineCode> describing the sources files that use Builds in the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>plan</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The pricing plan the deployment was made under.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>public</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>A Boolean representing if the deployment is public or not. By default this is <InlineCode>false</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>ownerId</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The unique ID of the user or team the deployment belongs to.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>readyState</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>createdAt</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>A number containing the date when the deployment was created in milliseconds.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>createdIn</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The region where the deployment was first created, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **id** | <HelpLink href="#api-basics/types">String</HelpLink> | A String holding the unique ID of the deployment. |
+| **url** | <HelpLink href="#api-basics/types">String</HelpLink> | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The name of the deployment. |
+| **version** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The Now platform version the deployment is associated to. |
+| **regions** | <HelpLink href="#api-basics/types">List</HelpLink> | The regions the deployment exists in, e.g. `sfo1`. |
+| **routes** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`. |
+| **builds** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a `src` and `use` describing the sources files that use Builds in the deployment. |
+| **plan** | <HelpLink href="#api-basics/types">String</HelpLink> | The pricing plan the deployment was made under. |
+| **public** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | A Boolean representing if the deployment is public or not. By default this is `false`. |
+| **ownerId** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the user or team the deployment belongs to. |
+| **readyState** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | A number containing the date when the deployment was created in milliseconds. |
+| **createdIn** | <HelpLink href="#api-basics/types">String</HelpLink> | The region where the deployment was first created, e.g. `sfo1`. |
 
 <Example>
 <span>Example request:</span>
@@ -431,16 +294,10 @@ Before you create a deployment you need to upload the required files for that de
 #### Headers
 The POST needs to have the following headers:
 
-<HeadersTable>
-  <Row>
-    <HeaderCell>Content-Length</HeaderCell>
-    <Cell>The file size in bytes.</Cell>
-  </Row>
-  <Row>
-    <HeaderCell>x-now-digest</HeaderCell>
-    <Cell>The file SHA1 used to check the integrity.</Cell>
-  </Row>
-</HeadersTable>
+| Header | Description |
+| -- | -- |
+| **<RequestHeader>Content-Length</RequestHeader>** | The file size in bytes. |
+| **<RequestHeader>x-now-digest</RequestHeader>** | The file SHA1 used to check the integrity. |
 
 The file content must be placed inside the body of the request. In the case of a successful response you'll receive a status code **200** with an empty body.
 
@@ -480,38 +337,14 @@ If a deployment hasn't finished uploading (is incomplete), the `url` property wi
 Each deployment is an object with the following keys:
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>A string with the unique deployment ID you can use to get more information or remove it.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A string with the deployment under which the deployment was created.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>url</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>created</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A number containing the date when the deployment was created (<i>in timestamp</i>).</Cell>
-  </Row>
-  <Row>
-    <BoldCell>creator</BoldCell>
-    <TypeCell>Map</TypeCell>
-    <Cell>A map with the ID of the user who created the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>state</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>A string with the current deployment state, it could be one of the following <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | A string with the unique deployment ID you can use to get more information or remove it. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | A string with the deployment under which the deployment was created. |
+| **url** | <HelpLink href="#api-basics/types">String</HelpLink> | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`. |
+| **created** | <HelpLink href="#api-basics/types">String</HelpLink> | A number containing the date when the deployment was created (_in timestamp_). |
+| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | A map with the ID of the user who created the deployment. |
+| **state** | <HelpLink href="#api-basics/types">Enum</HelpLink> | A string with the current deployment state, it could be one of the following `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
 
 ### Get a Single Deployment
 <Endpoint method="GET" url="/v6/now/deployments/:id" />
@@ -521,73 +354,21 @@ This endpoint allows you to retrieve information for a deployment by supplying i
 One way to obtain a deployment ID is to [list all deployments](#endpoints/deployments/get-/now/deployments).
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>id</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>A String holding the unique ID of the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>url</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The name of the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>version</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <Cell>The Now platform version the deployment is associated with.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>regions</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The regions the deployment exists in, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>routes</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; <InlineCode>{`[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`}</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>builds</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a <InlineCode>src</InlineCode> and <InlineCode>use</InlineCode> describing the sources files that use Builds in the deployment.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>plan</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The pricing plan the deployment was made under.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>public</BoldCell>
-    <TypeCell>Boolean</TypeCell>
-    <Cell>A Boolean representing if the deployment is public or not. By default this is <InlineCode>false</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>ownerId</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The unique ID of the user or team the deployment belongs to.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>readyState</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>createdAt</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>A number containing the date when the deployment was created in milliseconds.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>createdIn</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The region where the deployment was first created, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | A String holding the unique ID of the deployment. |
+| **url** | <HelpLink href="#api-basics/types">String</HelpLink> | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The name of the deployment. |
+| **version** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The Now platform version the deployment is associated with. |
+| **regions** | <HelpLink href="#api-basics/types">List</HelpLink> | The regions the deployment exists in, e.g. `sfo1`. |
+| **routes** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`. |
+| **builds** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of objects containing the Builds for a particular set of sources in the deployment. Each object contains a `src` and `use` describing the sources files that use Builds in the deployment. |
+| **plan** | <HelpLink href="#api-basics/types">String</HelpLink> | The pricing plan the deployment was made under. |
+| **public** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | A Boolean representing if the deployment is public or not. By default this is `false`. |
+| **ownerId** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the user or team the deployment belongs to. |
+| **readyState** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | A number containing the date when the deployment was created in milliseconds. |
+| **createdIn** | <HelpLink href="#api-basics/types">String</HelpLink> | The region where the deployment was first created, e.g. `sfo1`. |
 
 <Example>
 <PDIV>Example Request:</PDIV>
@@ -661,28 +442,12 @@ This API allows you to retrieve the file structure of a deployment by supplying 
 The body will contain entries for each child and directory, coupled with an ID of the file for content download.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The name of the file.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>type</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>If it's a <InlineCode>file</InlineCode> or a <InlineCode>directory</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the file (only valid for <InlineCode>file</InlineCode> type)</Cell>
-  </Row>
-  <Row>
-    <BoldCell>children</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The children files of the directory (only valid for <InlineCode>directory</InlineCode> type).</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The name of the file. |
+| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | If it's a `file` or a `directory`. |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the file (only valid for `file` type). |
+| **children** | <HelpLink href="#api-basics/types">List</HelpLink> | The children files of the directory (only valid for `directory` type). |
 
 <Example>
   <PDIV>Example request:</PDIV>
@@ -758,43 +523,15 @@ This endpoint retrieves a list of Build objects by supplying its **:id** in the 
 #### Response Parameters
 Each Build is an object with the following keys:
 
-<OutputTable>
-  <Row>
-    <BoldCell>id</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The unique ID of the Build.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>use</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The Builder the Build used to generate the output.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>createdIn</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The region where the Build was first created, e.g. <InlineCode>sfo1</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>deployedTo</BoldCell>
-    <TypeCell>List</TypeCell>
-    <Cell>The regions where the Build Output was finally deployed to after the build step.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>readyState</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are <InlineCode>INITIALIZING</InlineCode>, <InlineCode>ANALYZING</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>DEPLOYING</InlineCode>, <InlineCode>READY</InlineCode>, or <InlineCode>ERROR</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>readyStateAt</BoldCell>
-    <TypeCell>Date</TypeCell>
-    <Cell>The time at which the Build state was last modified.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>path</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The path of files the Build is assigned to.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- | -- |
+| **id** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the Build. |
+| **use** | <HelpLink href="#api-basics/types">String</HelpLink> | The Builder the Build used to generate the output. |
+| **createdIn** | <HelpLink href="#api-basics/types">String</HelpLink> | The region where the Build was first created, e.g. `sfo1`. |
+| **deployedTo** | <HelpLink href="#api-basics/types">List</HelpLink> | The regions where the Build Output was finally deployed to after the build step. |
+| **readyState** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
+| **readyStateAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The time at which the Build state was last modified. |
+| **path** | <HelpLink href="#api-basics/types">String</HelpLink> | The path of files the Build is assigned to. |
 
 <Example>
 <span>Example Request:</span>

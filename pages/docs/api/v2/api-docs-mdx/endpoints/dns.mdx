@@ -1,15 +1,6 @@
 import Example from '~/components/api/example'
-import { Code, InlineCode } from '~/components/text/code'
-import { GenericLink } from '~/components/text/link'
-import {
-  InputTable,
-  OutputTable,
-  Row,
-  Cell,
-  TypeCell,
-  BoldCell,
-  BooleanCell
-} from '~/components/api/table'
+import { Code } from '~/components/text/code'
+import { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 
@@ -21,38 +12,14 @@ import Request from '~/components/api/request'
 Get a list of DNS records created for a domain name specified in the URL.
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>id</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the DNS record. Always prepended with <InlineCode>rec_</InlineCode>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>type</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <Cell>The type of record, it could be <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">any valid DNS record</GenericLink>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The subdomain which we're configuring or <InlineCode>@</InlineCode> for the domain itself.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>value</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>The record value.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>created</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A timestamp with the date when the record was created.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>updated</BoldCell>
-    <TypeCell>String</TypeCell>
-    <Cell>A timestamp with the date when we created the deployment.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the DNS record. Always prepended with `rec_`. |
+| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The subdomain which we're configuring or `@` for the domain itself. |
+| **value** | <HelpLink href="#api-basics/types">String</HelpLink> | The record value. |
+| **created** | <HelpLink href="#api-basics/types">String</HelpLink> | A timestamp with the date when the record was created. |
+| **updated** | <HelpLink href="#api-basics/types">String</HelpLink> | A timestamp with the date when we created the deployment. |
 
 <Example>
   <span>Example request:</span>
@@ -97,41 +64,18 @@ Create a DNS record for a domain specified in the URL. `mxPriority`
 field should be set for MX records and left out otherwise.
 
 #### Request Parameters
-<InputTable>
-  <Row>
-    <BoldCell>name</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The subdomain which we're configuring or <InlineCode>@</InlineCode> for the domain itself.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>type</BoldCell>
-    <TypeCell>Enum</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The type of record, it could be <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">any valid DNS record</GenericLink>.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>value</BoldCell>
-    <TypeCell>String</TypeCell>
-    <BooleanCell status={true} />
-    <Cell>The record value.</Cell>
-  </Row>
-  <Row>
-    <BoldCell>mxPriority</BoldCell>
-    <TypeCell>Integer</TypeCell>
-    <BooleanCell status={false} />
-    <Cell>The priority for MX records, is only required if the record <InlineCode>type</InlineCode> is <InlineCode>MX</InlineCode>.</Cell>
-  </Row>
-</InputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
+| -- | -- | -- | -- |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The subdomain which we're configuring or `@` for the domain itself. |
+| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | Yes | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
+| **value** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The record value. |
+| **mxPriority** | <HelpLink href="#api-basics/types">Integer</HelpLink> | No | The priority for MX records, is only required if the record `type` is `MX`. |
+
 
 #### Response Parameters
-<OutputTable>
-  <Row>
-    <BoldCell>uid</BoldCell>
-    <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the DNS record. Always prepended with <InlineCode>rec_</InlineCode>.</Cell>
-  </Row>
-</OutputTable>
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **uid** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the DNS record. Always prepended with `rec_`. |
 
 <Example>
   <span>Example request:</span>
