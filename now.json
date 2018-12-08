@@ -16,7 +16,7 @@
       { "source": "/docs/guides/:rest", "destination": "/docs/v1/guides/:rest" },
       { "source": "/docs/getting-started/:rest", "destination": "/docs/v1/getting-started/:rest" },
       { "source": "/docs/examples/:rest", "destination": "/docs/v1/examples/:rest" },
-      { "source": "/docs/others/:rest", "destination": "/docs/v1/others/:rest" },
+      { "source": "/docs/other/:rest", "destination": "/docs/v1/other/:rest" },
       { "source": "/docs/clients/:rest", "destination": "/docs/v1/clients/:rest" }
     ]
   }
