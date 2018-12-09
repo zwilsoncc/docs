@@ -4,10 +4,20 @@ import PropTypes from 'prop-types'
 
 const Table = ({ children, className, ...other }) => {
   return (
-    <table {...other} className={cn('table', className)}>
-      { children }
+    <div className="table-container">
+      <table {...other} className={cn('table', className)}>
+        {children}
+      </table>
       <style jsx>{`
+        .table-container {
+          margin: 0 -24px;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
         table {
+          min-width: 640px;
+          padding: 0 24px;
           border-collapse: separate;
           border-spacing: 0;
           width: 100%;
@@ -50,9 +60,10 @@ const Table = ({ children, className, ...other }) => {
         }
 
         table :global(th > div) {
-          align-items: center;
           display: flex;
-          min-height: 40px;
+          align-items: center;
+          padding: 10px 0;
+          line-height: 1.6;
           font-size: 12px;
         }
 
@@ -97,7 +108,7 @@ const Table = ({ children, className, ...other }) => {
           background-color: #fcfcfc;
         }
       `}</style>
-    </table>
+    </div>
   )
 }
 
