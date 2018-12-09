@@ -72,7 +72,7 @@ export const InlineCode = ({ children, noWrap, color }) => (
 )
 
 export const RequestHeader = ({ children, ...props }) => (
-  <InlineCode noWrap color="#067df7" {...props}>
+  <InlineCode noWrap color="#0076FF" {...props}>
     {children}
   </InlineCode>
 )

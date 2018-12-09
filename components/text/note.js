@@ -44,7 +44,7 @@ const Note = ({
         }
 
         .note.hint {
-          border-color: #067df7;
+          border-color: #0076FF;
         }
 
         .note.alert {
@@ -61,7 +61,7 @@ const Note = ({
         }
 
         .note.hint .note__type {
-          color: #067df7;
+          color: #0076FF;
         }
 
         .note.alert .note__type {

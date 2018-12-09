@@ -65,7 +65,7 @@ export class SectionButton extends Component {
             border-color: #dddddd;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             text-decoration: none;
-            color: #067df7;
+            color: #0076FF;
           }
 
           @media only screen and (max-width: 548px) {

@@ -9,7 +9,7 @@ export const InternalLink = ({ href, as, children }, { darkBg } = {}) => (
       <style jsx>{`
         a {
           text-decoration: none;
-          color: #067df7;
+          color: #0076FF;
           font-size: inherit;
         }
 
@@ -35,7 +35,7 @@ export const AnchorLink = ({ href, onClick, children }, { darkBg } = {}) => (
     <style jsx>{`
       a {
         text-decoration: none;
-        color: #067df7;
+        color: #0076FF;
         font-size: inherit;
       }
 
@@ -65,7 +65,7 @@ export const ExternalLink = ({ href, children }, { darkBg } = {}) => (
     <style jsx>{`
       a {
         text-decoration: none;
-        color: #067df7;
+        color: #0076FF;
         font-size: inherit;
       }
 

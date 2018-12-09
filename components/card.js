@@ -48,7 +48,7 @@ export default class Card extends Component {
           .card :global(h4) {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #067df7;
+            color: #0076FF;
             font-weight: 700;
           }
 

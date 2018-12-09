@@ -5,4 +5,4 @@ export const FONT_FAMILY_MONO =
   'Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif'
 
 export const COLOR_ERROR = '#FF001F'
-export const COLOR_SUCCESS = '#067DF7'
+export const COLOR_SUCCESS = '#0076FF'
