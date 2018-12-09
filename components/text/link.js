@@ -17,31 +17,30 @@ export const GenericLink = props => {
 }
 
 export const InternalLink = ({ href, as, children }, { darkBg } = {}) => (
-  <LinkWithHoverPrefetch href={href} as={as}>
-    <span>
+  <span>
+    <LinkWithHoverPrefetch href={href} as={as}>
       {children}
+    </LinkWithHoverPrefetch>
+    <style jsx>{`
+      span :global(a) {
+        text-decoration: none;
+        color: #067df7;
+        font-size: inherit;
+        cursor: pointer;
+      }
 
-      <style jsx>{`
-        span > :global(a) {
-          text-decoration: none;
-          color: #067df7;
-          font-size: inherit;
+      span :global(a:hover) {
+        text-decoration: underline;
+      }
+
+      ${darkBg
+        ? `
+        span :global(a.dark) {
+          color: #fff;
         }
-
-        span > :global(a:hover) {
-          text-decoration: underline;
-        }
-
-        ${darkBg
-          ? `
-          span :global(a.dark) {
-            color: #fff;
-          }
-        `
-          : ``};
-      `}</style>
-    </span>
-  </LinkWithHoverPrefetch>
+      ` : ``};
+    `}</style>
+  </span>
 )
 
 InternalLink.contextTypes = {
