@@ -162,15 +162,15 @@ To minimize the latency difference between a cold and boot instantiation, Now ai
 ## Capabilities and Limits
 
 ### CPU / Memory
-Now configures lambdas to have **3008MB** of available memory for builds, and the output lambdas to have **1024MB** of available memory. The amount of CPU allocated is proportional to the max memory limit.
+Now configures lambdas to have **3008mb** of available memory for builds, and the output lambdas to have **1024mb** of available memory. The amount of CPU allocated is proportional to the max memory limit.
 
 To understand how the CPU allocation will work for your application, we recommend testing and benchmarking.
 
 ### Maximum Request Body Size
-Each request body has a maximum payload limit of **5MB**.
+Each request body has a maximum payload limit of **5mb**.
 
 ### Maximum Bundle Size
-**The default maximum generated lambda size is `5MB`**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details).
+**The default maximum generated lambda size is `5mb`**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details).
 
 This threshold is in place to uphold and maintain the serverless nature of Now. Since the serverless paradigm intends for your code to not be running unless it is needed, your code needs to be [cold-booted](#cold-and-hot-boots). The larger the code bundle that is being cold-booted, the larger the time it takes for the cold boot to finish. 
 
