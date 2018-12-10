@@ -174,7 +174,7 @@ Each request body has a maximum payload limit of **5MB**.
 
 This threshold is in place to uphold and maintain the serverless nature of Now. Since the serverless paradigm intends for your code to not be running unless it is needed, your code needs to be [cold-booted](#cold-and-hot-boots). The larger the code bundle that is being cold-booted, the larger the time it takes for the cold boot to finish. 
 
-Although this limit is in place, each [Builder](/docs/v2/deployments/builders/overview) may have a customised limit for the maximum lambda bundle size due to the nature of the underlying technology, which can also be configured by the user, whether the Builder has a custom limit or not.
+Although this limit is in place, each [Builder](/docs/v2/deployments/builders/overview) may have a customized limit for the maximum lambda bundle size due to the nature of the underlying technology, which can also be configured by the user, whether the Builder has a custom limit or not.
 
 This configuration option, `maxLambdaSize`, accepts any byte value up to `50mb`.
 
