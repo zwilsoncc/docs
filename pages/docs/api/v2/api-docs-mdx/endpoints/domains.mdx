@@ -10,11 +10,7 @@ import Request from '~/components/api/request'
 ### List all the domains
 <Endpoint method="GET" url="/v2/domains" />
 
-Retrieves a list of domains registered for the authenticating user.
-Each domain entry contains an `aliases` array listing every
-alias associated with the domain. The field `isExternal` is
-a boolean value telling wheter an external nameserver is used to
-manage DNS records for the domain.
+Retrieves a list of domains registered for the authenticating user. The domain property `isExternal` is a boolean value telling whether an external nameserver is used to manage DNS records for the domain.
 
 #### Response Parameters
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
@@ -26,8 +22,6 @@ manage DNS records for the domain.
 | **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain is going to expire and need to be renewed. |
 | **isExternal** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If it is an [externally handled domain](/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname). |
 | **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
-| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of aliases using the domain. |
-| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list domains or subdomains with an SSL certificated provisioned. |
 
 <Example>
   <span>Example request:</span>
@@ -50,13 +44,7 @@ manage DNS records for the domain.
       "boughtAt": "2017-09-03T19:48:46.000Z",
       "expiresAt": "2018-09-03T19:48:46.555Z",
       "isExternal": false,
-      "verified": true,
-      "aliases": [
-          "tyyBofjOQzbTS5Q8Orif6YS1"
-      ],
-      "certs": [
-          "zeit.rocks"
-      ]
+      "verified": true
     }
   ]
 }`}</Code>
