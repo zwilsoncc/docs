@@ -3,15 +3,23 @@ import React from 'react'
 import Link from 'next/link'
 import Markdown from 'react-markdown'
 
-import { PDIV, P, Quote } from '~/components/text/paragraph'
-import { UL, LI } from '~/components/text/list'
-import { H2, H3, H4 } from '~/components/text/heading'
-import { InlineCode, Code } from '~/components/text/code'
-import {
-  LabeledExternalLink,
-  IconExternalLink,
-  GenericLink
-} from '~/components/text/link'
+import Code from '~/new-components/mdx-components/code'
+import GenericLink from '~/new-components/mdx-components/link'
+import H1 from '~/new-components/mdx-components/h1'
+import H2 from '~/new-components/mdx-components/h2'
+import H3 from '~/new-components/mdx-components/h3'
+import H4 from '~/new-components/mdx-components/h4'
+import H5 from '~/new-components/mdx-components/h5'
+import H6 from '~/new-components/mdx-components/h6'
+import InlineCode from '~/new-components/mdx-components/inline-code'
+import LI from '~/new-components/mdx-components/li'
+import P from '~/new-components/mdx-components/p'
+import Quote from '~/new-components/mdx-components/quote'
+import Strong from '~/new-components/mdx-components/strong'
+import UL from '~/new-components/mdx-components/ul'
+import Wrapper from '~/new-components/mdx-components/wrapper'
+
+import { LabeledExternalLink, IconExternalLink } from '~/components/text/link'
 import ForkIcon from '~/components/icons/fork'
 import SearchIcon from '~/components/icons/search'
 import ExternalLinkIcon from '~/components/icons/external-link'
@@ -31,35 +39,6 @@ import withError from '~/lib/with-error'
 import EXAMPLES from '~/lib/data/now-examples-docs'
 import { UserContext } from '~/components/user-context'
 
-const DIV = props => (
-  <div className="wrapper">
-    <PDIV {...props} />
-    <style jsx>{`
-      .wrapper {
-        margin: 0;
-      }
-    `}</style>
-  </div>
-)
-
-const H1 = ({ children }) => (
-  <h1>
-    {children}
-    <style jsx>
-      {`
-        h1 {
-          color: #000;
-          font-size: 26px;
-          line-height: 1.6;
-          font-weight: 400;
-          margin: 0;
-          padding: 0;
-        }
-      `}
-    </style>
-  </h1>
-)
-
 const CodeMarkdown = ({ language, value }) => (
   <Code syntax={language}>{value}</Code>
 )
@@ -67,22 +46,27 @@ const CodeMarkdown = ({ language, value }) => (
 const Headings = ({ level, children }) => {
   switch (level) {
     case 1:
-      return <H1>{children}</H1>
+      // This helps us put the title on above the custom buttons
+      return null
     case 2:
       return <H2>{children}</H2>
     case 3:
       return <H3>{children}</H3>
     case 4:
       return <H4>{children}</H4>
+    case 5:
+      return <H5>{children}</H5>
+    case 6:
+      return <H6>{children}</H6>
     default:
       return <p>{children}</p>
   }
 }
 
 export const mdxComponents = {
-  root: DIV,
+  root: Wrapper,
   paragraph: P,
-  strong: P.B,
+  strong: Strong,
   list: UL,
   listItem: LI,
   heading: Headings,
@@ -242,6 +226,7 @@ class ExamplesPage extends React.Component {
           </Sidebar>
           <Content>
             <div className="category-wrapper">
+              <H1>{name}</H1>
               <div className="buttons">
                 <div className="fork-button">
                   <IconExternalLink
@@ -301,7 +286,7 @@ class ExamplesPage extends React.Component {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
           }
 
           .fork-button {
