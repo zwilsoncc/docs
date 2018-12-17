@@ -9,9 +9,8 @@
     "start": "cross-env NODE_ENV=production next start",
     "export": "next export",
     "lint": "eslint .",
-    "lint:staged": "lint-staged",
     "test": "npm run lint",
-    "last:edited": "node scripts/last-edited && git add lib/data/last-edited.json"
+    "last:edited": "node scripts/last-edited"
   },
   "dependencies": {
     "@mdx-js/loader": "0.15.5",
@@ -55,9 +54,16 @@
     "eslint": "4.2.0",
     "eslint-plugin-import-b5a962": "2.3.0",
     "eslint-plugin-react": "7.1.0",
+    "execa": "1.0.0",
+    "husky": "1.2.1",
     "lint-staged": "4.0.0",
-    "pre-commit": "1.2.2",
     "prettier": "1.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-commit": "npm run last:edited"
+    }
   },
   "lint-staged": {
     "*.js": [
@@ -66,10 +72,6 @@
       "git add"
     ]
   },
-  "pre-commit": [
-    "last:edited",
-    "lint:staged"
-  ],
   "eslintConfig": {
     "parser": "babel-eslint",
     "parserOptions": {
