@@ -13,46 +13,34 @@ export const meta = {
 
 The `@now/node` Builder takes an entrypoint of a Node.js function, builds its dependencies (if any) and bundles them into a [Lambda](/docs/v2/deployments/concepts/lambdas).
 
-## When to use it
+## When to Use It
 
 This Builder is the recommended way to introduce any Node.js-based dynamic request handling into your codebases.
 
 It can be used directly (as a single file, like `my-function.js`), or you can define an `index.js` file inside a directory.
 
-## How to use it
+## How to Use It
 
-For this example, we will create a `cowsay` endpoint that we want to access as `my-deployment.url/api/cowsay`.
+For this example, we will create a `hello` endpoint that we want to access as `my-deployment.url/api/hello`.
 
 Let's create our project structure:
 
-<TerminalInput>{`mkdir -p my-project/api/cowsay
-cd my-project/api/cowsay`}</TerminalInput>
+<TerminalInput>{`mkdir -p my-node-project/api/hello
+cd my-node-project/api/hello`}</TerminalInput>
 
-Inside `myproject > api > cowsay` we will create the following files:
-- `index.js`
-- `package.json`
-- `yarn.lock`
-
-To do so, let's run `yarn` to add our [`cowsay`](https://www.npmjs.com/package/cowsay) module dependency:
-
-<TerminalInput>yarn add cowsay</TerminalInput>
-
-At this point, it is a good idea to define [a `.nowignore` file](/docs/v2/deployments/ignoring-source-paths) that contains:
-
-```
-node_modules
-```
+Inside `my-node-project > api > hello` we will create an `index.js` file.
 
 The `index.js` file exports a Node.js function that takes in the standard Node.js request and response objects:
 
 ```
 const { parse } = require("url");
-const cowsay = require("cowsay/build/cowsay.umd.js").say;
+
 module.exports = (req, res) => {
   const { query } = parse(req.url, true);
-  const { text = "Use query `text`" } = query;
-  res.end(cowsay({ text }));
+  const { name = "World" } = query;
+  res.end(`Hello ${name}!`);
 };
+
 ```
 
 The only step left is to define a build that will take this directory's entrypoint (`index.js`), build it and turn it into a lambda:
@@ -61,27 +49,27 @@ The only step left is to define a build that will take this directory's entrypoi
 {
   "version": 2,
   "builds": [
-    { "src": "api/cowsay/index.js", "use": "@now/node" }
+    { "src": "api/hello/index.js", "use": "@now/node" }
   ]
 }
 ```
 
-Our resulting deployment is here: https://myproject-okyyx65ht.now.sh.
+Our resulting deployment is here: https://my-node-project-5gkn6kqfy.now.sh/
 
-You can pass query parameters to make the cow change:
+You can pass query parameters to make the name change:
 
-<Image src={`https://assets.zeit.co/image/upload/v1541535420/front/docs/official-builders/serverless-cowsay-text.png`}
-  width={1456/2}
-  height={926/2}
+<Image src={`https://assets.zeit.co/image/upload/v1545360454/front/docs/official-builders/serverless-node.png`}
+  width={1376/2}
+  height={882/2}
 />
-<Caption>An illustration of the deployment <InlineCode>readyState</InlineCode> lifecycle.</Caption>
+<Caption>The lambda using the <InlineCode>name</InlineCode> query parameter to change the text using Node.js.</Caption>
 
 ## Technical Details
 
 ### Entrypoint
 The entrypoint of this Builder is always a JavaScript file that exposes a function. If you want to expose a server, look into `@now/node-server`, although that is not recommended.
 
-### Dependencies installation
+### Dependencies Installation
 The installation algorithm of dependencies works as follows:
 
 - If a `package-lock.json` is present, `npm install` is used
@@ -90,7 +78,7 @@ The installation algorithm of dependencies works as follows:
 ### Private npm modules
 To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
 
-### Node.js version
+### Node.js Version
 The Node.js version used is the latest in the **8 branch**.
 
 ### Maximum Lambda Bundle Size
