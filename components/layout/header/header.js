@@ -69,7 +69,7 @@ class Header extends Component {
 
     return (
       <LayoutHeader className="header">
-        <a className="logo" href={dashboard}>
+        <a className="logo" href={dashboard} aria-label="ZEIT Home">
           <Logo height="25px" width="28px" />
         </a>
 
