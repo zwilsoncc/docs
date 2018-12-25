@@ -1,8 +1,7 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo } from '~/lib/data/team'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 import {
   TerminalOutput,
   TerminalInput
@@ -18,7 +17,6 @@ export const meta = {
   title: 'Updating Now CLI',
   description: 'Updating Now CLI using Now Desktop or a package manager',
   date: '20 Jan 2018 11:34 AM PDT',
-  authors: [ leo ],
   editUrl: 'pages/docs/guides/updating-now-cli.md'
 }
 

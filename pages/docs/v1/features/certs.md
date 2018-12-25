@@ -1,7 +1,6 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
@@ -9,7 +8,6 @@ export const meta = {
   title: 'Managing SSL Certificates',
   description: 'SSL Certificates for your Now deployments and how you can easily manage them',
   date: '15 Mar 2017',
-  authors: [leo],
   editUrl: 'pages/docs/features/certs.md'
 }
 

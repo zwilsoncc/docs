@@ -1,6 +1,6 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
 

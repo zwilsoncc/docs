@@ -1,7 +1,6 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { devisscher, sergio } from '~/lib/data/team'
 import { Code, InlineCode } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
@@ -10,7 +9,6 @@ export const meta = {
   title: 'Continuous Integration with Travis CI',
   description: 'Deploy your changes in your GitHub repositories after every push using Travis CI and Now',
   date: '13 Mar 2018',
-  authors: [devisscher, sergio],
   editUrl: 'pages/docs/continuous-integration/travis.md',
   image: IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png'
 }

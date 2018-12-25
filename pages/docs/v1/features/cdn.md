@@ -1,6 +1,6 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 import { TerminalInput } from '~/components/text/terminal'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 
 export const meta = {
   title: 'The Now CDN',

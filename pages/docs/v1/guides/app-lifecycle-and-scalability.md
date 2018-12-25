@@ -1,16 +1,14 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { rase, rauchg, jamo } from '~/lib/data/team'
-import Now from '~/components/now/now'
-import Image from '~/components/image'
+import Now from '~/components/text/now'
+import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
   title: 'App Lifecycle and Scalability',
   description: 'A guide for your app\'s deployment lifecycle on Now and how to scale that deployment',
   date: '09 March 2017',
-  authors: [rase, rauchg, jamo],
   editUrl: 'pages/docs/guides/app-lifecycle-and-scalability.md'
 }
 

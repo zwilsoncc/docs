@@ -66,7 +66,7 @@ async function main() {
       await fse.outputFile(
         resolve(__dirname, `../pages/examples/${example.slug}/index.js`),
         `
-import Example from '~/components/examples/page'
+import Example from '~/components/layout/examples'
 
 export const example = ${JSON.stringify(example, null, 2)}
 
@@ -86,7 +86,7 @@ export default () => <Example example={example} />
     await fse.outputFile(
       resolve(__dirname, `../pages/examples/index.js`),
       `
-import Example from '~/components/examples/page'
+import Example from '~/components/layout/examples'
 
 export const example = ${JSON.stringify(firstExample, null, 2)}
 

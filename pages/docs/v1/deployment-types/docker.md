@@ -1,14 +1,12 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { Code } from '~/components/text/code'
 
 export const meta = {
   title: 'Deploying Docker Apps',
   description: 'Docker apps with Now and all about the deployments',
   date: '09 March 2017',
-  authors: [leo],
   editUrl: 'pages/docs/deployment-types/docker.md'
 }
 

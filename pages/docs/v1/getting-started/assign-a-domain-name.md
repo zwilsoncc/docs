@@ -1,17 +1,15 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 import { InternalLink } from '~/components/text/link'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 
 export const meta = {
   title: 'Assign a Domain Name',
   description: 'Using Now `alias` to assign a domain to your deployments',
   date: '2 August 2017',
-  authors: [arunoda],
   editUrl: 'pages/docs/getting-started/assign-a-domain-name.md'
 }
 

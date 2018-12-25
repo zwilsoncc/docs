@@ -1,4 +1,4 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'

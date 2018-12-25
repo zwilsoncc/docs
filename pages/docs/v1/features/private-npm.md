@@ -1,18 +1,16 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { rase, leo } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
 import { Code } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 
 export const meta = {
   title: 'Using Private npm Dependencies',
   description: 'Granting permissions for your deployments to use private npm scopes ',
   date: '12 Mar 2017',
-  authors: [rase, leo],
   editUrl: 'pages/docs/features/private-npm.md'
 }
 

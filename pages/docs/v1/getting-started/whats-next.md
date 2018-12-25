@@ -1,12 +1,10 @@
-import Doc from '~/components/docs/doc'
-import { arunoda } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Doc from '~/components/layout/docs'
+import Now from '~/components/text/now'
 
 export const meta = {
   title: 'What\'s Next',
   description: 'What\'s next after you\'ve got started with Now',
   date: '10 August 2017',
-  authors: [arunoda],
   editUrl: 'pages/docs/getting-started/whats-next.md'
 }
 

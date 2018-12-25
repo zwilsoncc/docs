@@ -3,9 +3,9 @@ import React from 'react'
 
 import Editor from './editor'
 import Preview from './preview'
-import TabSwitcher from '~/components/tab-switcher'
-import Example from '~/components/api/example'
-import Button from '~/components/button'
+import TabSwitcher from '~/components/layout/tab-switcher'
+import Example from '~/components/example'
+import Button from '~/components/buttons'
 
 const example = {
   name: 'simple-api-deployment',

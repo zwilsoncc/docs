@@ -1,9 +1,8 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 import asset from 'next/asset'
 
-import { leo } from '~/lib/data/team'
-import Now from '~/components/now/now'
-import Image from '~/components/image'
+import Now from '~/components/text/now'
+import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 import { InternalLink } from '~/components/text/link'
 
@@ -11,7 +10,6 @@ export const meta = {
   title: 'Building a Realtime Chat Webapp',
   description: 'Creating a chat webapp and hosting it with Now',
   date: '23 Feb 2017',
-  authors: [leo],
   editUrl: 'pages/docs/examples/chat.md'
 }
 

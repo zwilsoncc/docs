@@ -3,7 +3,7 @@ import React from 'react'
 import CodeMirror from '@skidding/react-codemirror'
 
 import FileIcon from '~/components/icons/file-icon'
-import Button from '~/components/button'
+import Button from '~/components/buttons'
 
 const example = {
   name: 'simple-now-deployment',

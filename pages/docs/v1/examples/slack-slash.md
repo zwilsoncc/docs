@@ -1,9 +1,8 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo } from '~/lib/data/team'
-import Now from '~/components/now/now'
-import Image from '~/components/image'
+import Now from '~/components/text/now'
+import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 import { InternalLink } from '~/components/text/link'
 
@@ -11,7 +10,6 @@ export const meta = {
   title: 'Building a Slash Command for Slack',
   description: 'Creating and hosting a slash-command for Slack with Now',
   date: '28 Feb 2017',
-  authors: [leo],
   editUrl: 'pages/docs/examples/slack-slash.md'
 }
 
@@ -107,7 +105,7 @@ Note: In the case of a real service (not used for testing purposes), you would n
 
 ## Step 3: Registering the Command
 
-Telling Slack about the command is pretty easy. 
+Telling Slack about the command is pretty easy.
 
 First, search [the Slack App Directory](https://slack.com/apps) for the "Slash Commands" application. Once you've found it, click on "Add Configuration" in the sidebar:
 
@@ -122,7 +120,7 @@ You'll be redirected to another page where you can enter the name of the snew la
 Now you should see a section named **Integration Settings**. There, we need to do the following:
 
 1. Add the address of our deployment to the **URL** field
-2. Select **GET** as the **Method** and 
+2. Select **GET** as the **Method** and
 3. Enter "Weather" in the **Customize Name** input.
 
 Optionally, you can also make the command show up in the **Autocomplete help text** section:

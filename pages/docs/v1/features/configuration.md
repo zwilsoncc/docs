@@ -1,12 +1,10 @@
-import Now from '~/components/now/now'
-import Doc from '~/components/docs/doc'
-import { rauchg, leo } from '~/lib/data/team'
+import Now from '~/components/text/now'
+import Doc from '~/components/layout/docs'
 
 export const meta = {
   title: 'Configuring Now',
   description: 'Configuring Now so that your deployments are exactly as you need them',
   date: '22 Feb 2017',
-  authors: [rauchg, leo],
   editUrl: 'pages/docs/features/configuration.md'
 }
 

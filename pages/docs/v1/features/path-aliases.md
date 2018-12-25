@@ -1,14 +1,12 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo, jamo } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
   title: 'Simplifying Microservices with Path Alias',
   description: 'Aliasing microservices to exist in different locations with your domain on Now',
   date: '15 Mar 2017',
-  authors: [leo, jamo],
   editUrl: 'pages/docs/features/path-aliases.md'
 }
 

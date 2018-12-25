@@ -1,18 +1,16 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { arunoda } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 import { InternalLink } from '~/components/text/link'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 
 export const meta = {
   title: 'Deployment',
   description: 'How to setup and deploy Node.js apps, Docker apps, or static websites with Now',
   date: '1 August 2017',
-  authors: [arunoda],
   editUrl: 'pages/docs/getting-started/deployment.md'
 }
 

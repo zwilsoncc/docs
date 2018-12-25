@@ -1,7 +1,7 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-import authenticate from '../lib/authenticate'
-import { UserContext } from '~/components/user-context'
+import authenticate from '~/lib/authenticate'
+import { UserContext } from '~/lib/user-context'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

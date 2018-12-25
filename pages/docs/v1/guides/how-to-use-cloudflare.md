@@ -1,16 +1,14 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { arunoda } from '~/lib/data/team'
-import Now from '~/components/now/now'
-import Image from '~/components/image'
+import Now from '~/components/text/now'
+import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
   title: 'How to Use Cloudflare with Now',
   description: 'Using Cloudflare as a DNS Server or Proxy Server with Now',
   date: '11 Jan 2018 11:34 AM PDT',
-  authors: [arunoda],
   editUrl: 'pages/docs/guides/how-to-use-cloudflare.md'
 }
 

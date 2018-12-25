@@ -1,6 +1,6 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { GenericLink } from '~/components/text/link'
 import { InlineCode } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'

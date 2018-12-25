@@ -1,11 +1,10 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { rauchg } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { GenericLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import {
   TerminalInput,
@@ -17,7 +16,6 @@ export const meta = {
   title: 'Aliases and Domains',
   description: 'All you need to know about assigning domains to your Now deployments',
   date: '21 Feb 2017',
-  authors: [rauchg],
   editUrl: 'pages/docs/features/aliases.md'
 }
 

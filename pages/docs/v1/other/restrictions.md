@@ -1,11 +1,9 @@
-import Doc from '~/components/docs/doc'
-import { leo } from '~/lib/data/team'
+import Doc from '~/components/layout/docs'
 
 export const meta = {
   title: 'Restrictions',
   description: 'A guide to what restrictions you have when deploying to Now',
   date: '20 Mar 2018',
-  authors: [leo],
   editUrl: 'pages/docs/other/restrictions.md'
 }
 

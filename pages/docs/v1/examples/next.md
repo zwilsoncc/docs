@@ -1,11 +1,11 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { GenericLink } from '~/components/text/link'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {

@@ -1,5 +1,5 @@
-import Doc from '~/components/docs/doc'
-import Now from '~/components/now/now'
+import Doc from '~/components/layout/docs'
+import Now from '~/components/text/now'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'

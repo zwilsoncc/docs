@@ -1,11 +1,10 @@
 import asset from 'next/asset'
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
-import Image from '~/components/image'
+import { Image } from '~/components/media'
 import { Code } from '~/components/text/code'
 import {
   TerminalInput,
@@ -16,7 +15,6 @@ export const meta = {
   title: 'Building a Basic JSON API',
   description: 'Building a basic JSON API with Micro and deploying it with Now',
   date: '20 Feb 2017',
-  authors: [leo],
   editUrl: 'pages/docs/examples/json-api.md'
 }
 

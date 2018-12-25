@@ -1,16 +1,16 @@
-const Plus = ({ size = 14 }) => (
+const Plus = ({ className, width = 14 }) => (
   <svg
-    width={size}
-    height={size}
+    className={className}
+    height={width}
+    width={width}
     viewBox="174 112 11 12"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g
-      opacity=".25"
       fill="none"
       fillRule="evenodd"
       strokeLinecap="square"
-      stroke="#000"
+      stroke="currentColor"
     >
       <path d="M179.5 113v10M174.5 118h10" />
     </g>

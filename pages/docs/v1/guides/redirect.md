@@ -1,13 +1,11 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { sergio } from '~/lib/data/team'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
   title: 'Setting up a Redirect with Now',
   description: 'Redirecting your Now deployed app using Now Alias or from within your app',
   date: '5 Nov 2017',
-  authors: [sergio],
   editUrl: 'pages/docs/guides/redirect.md'
 }
 

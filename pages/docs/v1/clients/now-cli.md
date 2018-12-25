@@ -1,17 +1,14 @@
-import Doc from '~/components/docs/doc'
+import Doc from '~/components/layout/docs'
 
-import { leo, rauchg } from '~/lib/data/team'
-import Now from '~/components/now/now'
+import Now from '~/components/text/now'
 import { InlineCode } from '~/components/text/code'
 import { InternalLink, GenericLink } from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
-import { Table, Row, Column } from '~/components/table'
 
 export const meta = {
   title: 'Now\'s Command Line Interface',
   description: 'Using Now CLI to create new deployments or control existing ones',
   date: '09 Mar 2017',
-  authors: [leo, rauchg],
   editUrl: 'pages/docs/clients/now-cli.md'
 }
 
@@ -29,116 +26,16 @@ commands grouped by different concerns.
 
 The following are the most important commands in Now CLI:
 
-<Table>
-  <Row header>
-    <Column left>Syntax</Column>
-    <Column right>Description</Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now [path] ...</InlineCode>
-    </Column>
-    <Column right>
-      When you invoke <InlineCode>now</InlineCode>, the files within the current directory will be uploaded to <Now color="#000" /> and a new deployment will be created.<br/><br/>After that, you'll instantly receive its URL so that you can share it with other people around the globe.
-      <br/><br/>
-      The <InlineCode>[path]</InlineCode> can either be a file (leads to a static deployment) or
-      a directory (the deployment type will be determined depending
-      on the contents). If you provide <InlineCode>[path]</InlineCode>, you'll need to use the parameter <InlineCode>--local-config=../now.json</InlineCode> or just <InlineCode>-A ../now.json</InlineCode> to tell the CLI where to read the configuration.
-      <br/><br/>
-      If you want to deploy multiple paths at
-      once, <GenericLink href="#deploying-multiple-projects-at-once">read this</GenericLink>.
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now ls|list [app]</InlineCode>
-    </Column>
-    <Column right>
-      Show a list of all deployments. If <InlineCode>[app]</InlineCode> is defined, it will only
-      list the deployments under that namespace.
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now rm|remove [id]</InlineCode>
-    </Column>
-    <Column right>
-      Remove a deployment from our platform. The <InlineCode>[id]</InlineCode> parameter can either be the URL of your deployment (e.g. <InlineCode>https://static-ytbbrhoggd.now.sh</InlineCode> or the hostname (e.g. <InlineCode>static-ytbbrhoggd.now.sh</InlineCode>).
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now ln|alias [id] [url]</InlineCode>
-    </Column>
-    <Column right>
-      Let's you configure an alias for an existing deployment. You can read more about how
-      to take the maximum of functionality out of this subcommand
-      {' '}
-      <InternalLink href="/docs/features/aliases">
-        here
-      </InternalLink>
-      .
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now domains [name]</InlineCode>
-    </Column>
-    <Column right>
-      Allows you to manage your domain names directly from the command line (before using
-      them as aliases with
-      {' '}
-      <InlineCode noWrap>now alias</InlineCode>
-      ). Read more about it
-      {' '}
-      <InternalLink href="/docs/features/aliases">
-        here
-      </InternalLink>
-      .
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left><InlineCode noWrap>now certs [cmd]</InlineCode></Column>
-    <Column right>
-      By default,
-      {' '}
-      <Now color="#000" />
-      {' '}
-      will automatically provision certificates for your deployments. Using this subcommand, you can
-      see when they're expiring and upload your own ones (
-      <InternalLink href="/docs/features/certs">
-        read more
-      </InternalLink>
-      ).
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now secrets [name]</InlineCode>
-    </Column>
-    <Column right>
-      <InternalLink href="/docs/features/env-and-secrets">
-        Read more
-      </InternalLink>
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left><InlineCode noWrap>now dns [name]</InlineCode></Column>
-    <Column right>
-      <InternalLink href="/docs/features/dns">
-        Read more
-      </InternalLink>
-    </Column>
-  </Row>
-</Table>
+| Syntax | Description |
+| -- | -- |
+| <InlineCode noWrap>now [path] ...</InlineCode> | When you invoke `now`, the files within the current directory will be uploaded to <Now color="#000" /> and a new deployment will be created.<br/><br/>After that, you'll instantly receive its URL so that you can share it with other people around the globe.  <br/><br/> The `[path]` can either be a file (leads to a static deployment) or a directory (the deployment type will be determined depending on the contents). If you provide `[path]`, you'll need to use the parameter `--local-config=../now.json` or just `-A ../now.json` to tell the CLI where to read the configuration.  <br/><br/> If you want to deploy multiple paths at once, [read this](#deploying-multiple-projects-at-once).
+| <InlineCode noWrap>now ls&#124;list [app]</InlineCode> | Show a list of all deployments. If `[app]` is defined, it will only list the deployments under that namespace. |
+| <InlineCode noWrap>now rm&#124;remove [id]</InlineCode> | Remove a deployment from our platform. The `[id]` parameter can either be the URL of your deployment (e.g. `https://static-ytbbrhoggd.now.sh` or the hostname (e.g. `static-ytbbrhoggd.now.sh`. |
+| <InlineCode noWrap>now ln&#124;alias [id] [url]</InlineCode> | Let's you configure an alias for an existing deployment. You can read more about how to take the maximum of functionality out of this subcommand [here](/docs/v1/features/aliases). |
+| <InlineCode noWrap>now domains [name]</InlineCode> | Allows you to manage your domain names directly from the command line (before using them as aliases with <InlineCode noWrap>now alias</InlineCode>). Read more about it [here](/docs/v1/features/aliases). |
+| <InlineCode noWrap>now certs [cmd]</InlineCode> | By default, <Now color="#000" /> will automatically provision certificates for your deployments. Using this subcommand, you can see when they're expiring and upload your own ones ([read more](/docs/v1/features/certs)). |
+| <InlineCode noWrap>now secrets [name]</InlineCode> | [Read more](/docs/v1/features/env-and-secrets). |
+| <InlineCode noWrap>now dns [name]</InlineCode> | [Read more](/docs/features/dns). |
 
 #### Deploying Multiple Paths at Once
 
@@ -163,29 +60,10 @@ result will be a single URL.
 
 Manage your account straight from your terminal:
 
-<Table>
-  <Row header>
-    <Column left>Syntax</Column>
-    <Column right>Description</Column>
-  </Row>
-
-  <Row>
-    <Column left><InlineCode noWrap>now billing|cc</InlineCode></Column>
-    <Column right>
-      Easily add or remove credits cards from your account and adjust billing methods.
-    </Column>
-  </Row>
-
-  <Row>
-    <Column left>
-      <InlineCode noWrap>now upgrade|downgrade [plan]</InlineCode>
-    </Column>
-    <Column right>
-      Switch your plan from within the command line interface. Even after the command is run,
-      we don't require you to use a web interface. The whole process happens directly in your terminal.
-    </Column>
-  </Row>
-</Table>
+| Syntax | Description |
+| -- | -- |
+| <InlineCode noWrap>now billing&#124;cc</InlineCode> | Easily add or remove credits cards from your account and adjust billing methods. |
+| <InlineCode noWrap>now upgrade&#124;downgrade [plan]</InlineCode> | Switch your plan from within the command line interface. Even after the command is run, we don't require you to use a web interface. The whole process happens directly in your terminal. |
 
 To show the list of subcommands and options in your terminal, run this command:
 
