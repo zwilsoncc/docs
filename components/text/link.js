@@ -5,7 +5,11 @@ import PropTypes from 'prop-types'
 import CircledQuestion from '~/components/icons/circled-question'
 
 export const GenericLink = props => {
-  if (props.href.startsWith('/docs') || props.href.startsWith('/api')) {
+  if (
+    props.href.startsWith('/docs') ||
+    props.href.startsWith('/api') ||
+    props.href.startsWith('/examples')
+  ) {
     return <InternalLink {...props} />
   }
 
@@ -24,7 +28,7 @@ export const InternalLink = ({ href, as, children }, { darkBg } = {}) => (
     <style jsx>{`
       span :global(a) {
         text-decoration: none;
-        color: #0076FF;
+        color: #0076ff;
         font-size: inherit;
         cursor: pointer;
       }
@@ -38,7 +42,8 @@ export const InternalLink = ({ href, as, children }, { darkBg } = {}) => (
         span :global(a.dark) {
           color: #fff;
         }
-      ` : ``};
+      `
+        : ``};
     `}</style>
   </span>
 )
@@ -55,7 +60,7 @@ export const AnchorLink = ({ href, onClick, children }, { darkBg } = {}) => (
       {`
         a {
           text-decoration: none;
-          color: #0076FF;
+          color: #0076ff;
           font-size: inherit;
         }
 
@@ -88,7 +93,7 @@ export const ExternalLink = ({ href, children }, { darkBg } = {}) => (
       {`
         a {
           text-decoration: none;
-          color: #0076FF;
+          color: #0076ff;
           font-size: inherit;
         }
 
@@ -419,7 +424,7 @@ class HoverPrefetchLink extends Component {
 export const HelpLink = ({ children, href, hasIcon, ...props }) => (
   <a href={href} {...props} className={hasIcon ? 'icon' : ''}>
     <span>{children}</span>
-    { hasIcon && <CircledQuestion /> }
+    {hasIcon && <CircledQuestion />}
     <style jsx>{`
       a {
         text-decoration: none;
@@ -450,6 +455,5 @@ export const HelpLink = ({ children, href, hasIcon, ...props }) => (
     `}</style>
   </a>
 )
-
 
 export const LinkWithHoverPrefetch = withRouter(HoverPrefetchLink)
