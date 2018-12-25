@@ -5,26 +5,20 @@ You can access this documentation online at https://zeit.co/docs .
 
 ### Running Locally
 
-Download the copy of this repostory. 
+To get started developing locally, clone this repository, `cd` into the directory, and then install the dependencies:
 
 ~~~sh
-git clone https://github.com/zeit/docs.git
+yarn
 ~~~
 
-Then visit to the downloaded repository and install dependencies with:
-
-~~~sh
-npm install 
-~~~
-
-Then you can run the app with:
+Next, you can run the app with:
 (The app is written in [Next.js](https://github.com/zeit/next.js))
 
 ~~~sh
-npm run dev
+yarn dev
 ~~~
 
-Now the documentation is running at http://localhost:3000/docs.
+Now the documentation is running at http://localhost:3000/.
 
 ### Editing Docs Content
 
@@ -39,26 +33,25 @@ Any document can be modified with markdown or any imported React component with 
 The following is the format of any guide page, which is used when creating any new document when placing that document within the `pages/docs` directory. The page extension must be `.md`.
 
 ~~~js
-import withDoc from '../../../lib/with-doc'
+import withDoc from '~/components/layout/docs'
 
-import { TerminalInput } from '../../../components/text/terminal'
+import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
   title: 'The Title for the New Guide',
-  date: '23 June 2017',
-  editUrl: 'pages/docs/category/file.md',
+  date: '1 January 2019'
 }
 
-This is the content written in Markdown.
+This is the content written in Markdown with MDX!.
 
-<TerminalInput># this is how we show the terminal input</TerminalInput>  
+<TerminalInput># this is how we show the terminal input</TerminalInput>
 
-The following is to allow the content to be exported as a page with our layout
+The following is to allow the content to be exported as a page with our layout.
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>
 ~~~
 
-Then you can add it to the sidebar by editing the file located at: `lib/data/docs.js`.
+Then you can add it to the sidebar by editing the file located at: `lib/data/[version]/docs.js`.
 
 ### Adding Images and Assets
 
@@ -66,9 +59,7 @@ You can add images and assets into the `static` directory. Always try to avoid u
 If you are creating a new docs page, keep you images inside a subdirectory under `static/docs`.
 
 ### New Components
-
 Always try to use the existing components and features in markdown. Create a new component or use a component from NPM, unless there is no other option.
 
 ### Submiting Changes / New Doc Pages
-
 We are happy to recieve any pull requests with changes that could make our documentation better and easier to understand.
