@@ -1,2 +1,4 @@
-node_modules
+.next
 deploy-server/node_modules
+dist
+pages/examples
