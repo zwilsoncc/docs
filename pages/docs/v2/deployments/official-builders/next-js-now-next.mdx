@@ -5,11 +5,14 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Example from '~/components/example'
+import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'Next.js Builder (@now/next)',
   description: 'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.'
 }
+
+<Tag>Status: Beta</Tag>
 
 This builder takes a Next.js application, defined as `pages`, `next.config.js` and optionally a `package.json` file (with `next`, `react`, `react-dom`, etc), and converts them into a series of individual [Lambdas](/docs/v2/deployments/concepts/lambdas).
 
