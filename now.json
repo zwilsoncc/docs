@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "alias": "docs.zeit.sh",
+  "alias": "docs.internal.zeit.sh",
   "type": "static",
   "static": {
     "redirects": [
