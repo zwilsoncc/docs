@@ -7,7 +7,8 @@ import { InlineCode } from '~/components/text/code'
 
 export const meta = {
   title: 'Deployment Lifecycle',
-  description: 'An in-depth look at the concept of a deployment lifecycle on the ZEIT Now platform.'
+  description:
+    'An in-depth look at the concept of a deployment lifecycle on the ZEIT Now platform.'
 }
 
 The lifecycle of a deployment determines its readiness to accept user requests and serve traffic.
@@ -15,8 +16,8 @@ The lifecycle of a deployment determines its readiness to accept user requests a
 From an [API](/docs/api) standpoint, each deployment has a `readyState` field which can take one of the following values:
 
 - `INITIALIZING` a deployment in this state is waiting on [builds](/docs/v2/deployments/builds) to complete
-    - `ERROR` one or more builds failed
-    - `READY` builds completed successfully or none were specified
+  - `ERROR` one or more builds failed
+  - `READY` builds completed successfully or none were specified
 
 <Image src={`https://assets.zeit.co/image/upload/v1540850540/front/docs/concepts/lifecycle.svg`}
 width={401}
@@ -29,6 +30,7 @@ When a deployment is `READY`, our system guarantees that it can be served at any
 No further state transitions are necessary, and all deployment entrypoints are expected to be served within milliseconds.
 
 #### Builds Lifecycle
+
 When a deployment has more than one underlying [builds](/docs/v2/deployments/builds), each build has its own states and lifecycle.
 
 Now CLI displays and updates the evolution of the builds' states until the deployment completes.
@@ -43,14 +45,14 @@ Each build process goes through:
 
 - `INITIALIZING` the initial state
 - `ANALYZING` to determine if the build has to be performed or it can be de-duplicated
-    - `BUILDING` while executing the [Builder](/docs/v2/deployments/builders/overview) code
-        - `UPLOADING` to upload the files and resulting lambdas
-            - `DEPLOYING` to deploy the necessary files and functions
-                - `READY` if the deployment is successful
-                - `ERROR` if the deployment fails
-            - `ERROR` if an upload fails
-        - `ERROR` if an error occurs during the build code executions
-    - `READY` if no build is necessary
-    - `ERROR` if an error occurs during the analysis code execution
+  - `BUILDING` while executing the [Builder](/docs/v2/deployments/builders/overview) code
+    - `UPLOADING` to upload the files and resulting lambdas
+      - `DEPLOYING` to deploy the necessary files and functions
+        - `READY` if the deployment is successful
+        - `ERROR` if the deployment fails
+      - `ERROR` if an upload fails
+    - `ERROR` if an error occurs during the build code executions
+  - `READY` if no build is necessary
+  - `ERROR` if an error occurs during the analysis code execution
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

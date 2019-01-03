@@ -212,9 +212,11 @@ class Head extends React.PureComponent {
               "headline": "${this.props.ogTitle ||
                 this.props.title ||
                 'ZEIT Documentation'}",
-              ${this.props.description
-                ? '"description": "' + this.props.description + '",'
-                : null}
+              ${
+                this.props.description
+                  ? '"description": "' + this.props.description + '",'
+                  : null
+              }
               "image": "${this.props.image ||
                 `${IMAGE_ASSETS_URL}/zeit/twitter-card.png`}",
               "name": "${titlePrefix +
@@ -222,12 +224,16 @@ class Head extends React.PureComponent {
                   this.props.title ||
                   'ZEIT Documentation') +
                 titleSuffix}",
-              "dateModified": "${this.props.lastEdited
-                ? this.props.lastEdited.toISOString()
-                : null}",
-              "lastReviewed": "${this.props.lastEdited
-                ? this.props.lastEdited.toISOString()
-                : null}",
+              "dateModified": "${
+                this.props.lastEdited
+                  ? this.props.lastEdited.toISOString()
+                  : null
+              }",
+              "lastReviewed": "${
+                this.props.lastEdited
+                  ? this.props.lastEdited.toISOString()
+                  : null
+              }",
               "author": {
                 "@type": "Person",
                 "name": "ZEIT"
@@ -280,9 +286,11 @@ class Head extends React.PureComponent {
             }
 
             #nprogress .peg {
-              box-shadow: ${darkBg
-                ? '0 0 10px #fff, 0 0 5px #fff'
-                : '0 0 10px #ccc, 0 0 5px #ccc'};
+              box-shadow: ${
+                darkBg
+                  ? '0 0 10px #fff, 0 0 5px #fff'
+                  : '0 0 10px #ccc, 0 0 5px #ccc'
+              };
             }
           `}
           </style>

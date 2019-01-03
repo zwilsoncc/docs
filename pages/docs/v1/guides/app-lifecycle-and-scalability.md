@@ -6,10 +6,10 @@ import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'App Lifecycle and Scalability',
-  description: 'A guide for your app\'s deployment lifecycle on Now and how to scale that deployment',
-  date: '09 March 2017',
-  editUrl: 'pages/docs/guides/app-lifecycle-and-scalability.md'
+title: 'App Lifecycle and Scalability',
+description: 'A guide for your app\'s deployment lifecycle on Now and how to scale that deployment',
+date: '09 March 2017',
+editUrl: 'pages/docs/guides/app-lifecycle-and-scalability.md'
 }
 
 In this guide, we are going to have a look at how <Now color="#000"/> deploy and manage your app inside its infrastructure.
@@ -17,18 +17,18 @@ In this guide, we are going to have a look at how <Now color="#000"/> deploy and
 ## App Lifecycle
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/api/deployment-state.png`)}
-  width={600}
-  height={267}
+src={asset(`${IMAGE_ASSETS_URL}/api/deployment-state.png`)}
+width={600}
+height={267}
 />
 
 Your app's deployments flow through a certain set of states throughout their lifecycle.
 
-* **DEPLOYING**: Files an deployment metadata is collected to boot it up.
-* **BOOTED**: When a deployment is first created, it's running environment is prepared and started. After this is completed, the state is set to `BOOTED`.
-* **BUILDING**: After the deployment infrastructure is up and running, the deployment is built. For `docker` based deployments, this means `docker build` and persisting the resulting docker image.<br/>
-For `npm` based deployments it means running `npm install` and `npm run build`. Static deployments currently don't have a build step and jump directly to `READY`.
-* **READY** or **BUILD_ERROR**: If the build as successful, the deployment will start and move to the `READY` state, which means it's ready to receive and serve traffic. For `npm` deployments it means `npm start`, and for `docker` deployments `docker run`.
+- **DEPLOYING**: Files an deployment metadata is collected to boot it up.
+- **BOOTED**: When a deployment is first created, it's running environment is prepared and started. After this is completed, the state is set to `BOOTED`.
+- **BUILDING**: After the deployment infrastructure is up and running, the deployment is built. For `docker` based deployments, this means `docker build` and persisting the resulting docker image.<br/>
+  For `npm` based deployments it means running `npm install` and `npm run build`. Static deployments currently don't have a build step and jump directly to `READY`.
+- **READY** or **BUILD_ERROR**: If the build as successful, the deployment will start and move to the `READY` state, which means it's ready to receive and serve traffic. For `npm` deployments it means `npm start`, and for `docker` deployments `docker run`.
 
 If, however, the build is unsuccessful, the deployment ends up in a `BUILD_ERROR` state, and logs can be inspected to see what went wrong. In this case, the deployment will not be retried.
 

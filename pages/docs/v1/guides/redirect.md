@@ -3,10 +3,10 @@ import Doc from '~/components/layout/docs'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Setting up a Redirect with Now',
-  description: 'Redirecting your Now deployed app using Now Alias or from within your app',
-  date: '5 Nov 2017',
-  editUrl: 'pages/docs/guides/redirect.md'
+title: 'Setting up a Redirect with Now',
+description: 'Redirecting your Now deployed app using Now Alias or from within your app',
+date: '5 Nov 2017',
+editUrl: 'pages/docs/guides/redirect.md'
 }
 
 You usually want your users to access your site with or without `www`. The best way to achieve this is to redirect all the traffic coming to the `www` domain to your app's naked domain.

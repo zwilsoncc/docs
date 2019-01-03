@@ -6,10 +6,10 @@ import { Image } from '~/components/media'
 import Now from '~/components/text/now'
 
 export const meta = {
-  title: 'Logs',
-  description: 'Using Now logs to keep track of your deployment activity',
-  date: '4 August 2017',
-  editUrl: 'pages/docs/getting-started/logs.md'
+title: 'Logs',
+description: 'Using Now logs to keep track of your deployment activity',
+date: '4 August 2017',
+editUrl: 'pages/docs/getting-started/logs.md'
 }
 
 Logs are important because it allows you to see what's happening inside the app, especially when a crisis happens. <Now color="#000"/> keeps logs of all of your deployments and allows you to search them.
@@ -31,10 +31,10 @@ For more information on `now logs`, run the help command with:
 <TerminalInput>now logs --help</TerminalInput>
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/logs/help.png`)}
-  width={650}
-  height={470}
-  caption="The help command output of the 'now logs' command"
+src={asset(`${IMAGE_ASSETS_URL}/docs/logs/help.png`)}
+width={650}
+height={470}
+caption="The help command output of the 'now logs' command"
 />
 
 Here's an advanced `now logs` command to let you inspect the last 10 HTTP GET requests.
@@ -42,10 +42,10 @@ Here's an advanced `now logs` command to let you inspect the last 10 HTTP GET re
 <TerminalInput>now logs -a -q "GET" -n 10 my-web-app.com</TerminalInput>
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/logs/last-10-get-requests.png`)}
-  width={650}
-  height={470}
-  caption="Last 10 HTTP GET requests."
+src={asset(`${IMAGE_ASSETS_URL}/docs/logs/last-10-get-requests.png`)}
+width={650}
+height={470}
+caption="Last 10 HTTP GET requests."
 />
 
 ## Via Dashboard
@@ -56,10 +56,10 @@ Click any of your deployment URLs inside the dashboard and start searching logs.
 > You may need to click the "Logs" link on the header (top right) to see logs.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/logs/now-dashboard-logs.png`)}
-  width={650}
-  height={445}
-  caption="Searching logs inside the web dashboard."
+src={asset(`${IMAGE_ASSETS_URL}/docs/logs/now-dashboard-logs.png`)}
+width={650}
+height={445}
+caption="Searching logs inside the web dashboard."
 />
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

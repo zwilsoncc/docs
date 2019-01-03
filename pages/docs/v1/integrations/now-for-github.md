@@ -8,16 +8,17 @@ import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Now for GitHub',
-  description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
-  date: '25 June 2018',
-  editUrl: 'pages/docs/integrations/now-for-github.md',
-  image: IMAGE_ASSETS_URL + '/docs/now-for-github/tw-card.png?v2'
+title: 'Now for GitHub',
+description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
+date: '25 June 2018',
+editUrl: 'pages/docs/integrations/now-for-github.md',
+image: IMAGE_ASSETS_URL + '/docs/now-for-github/tw-card.png?v2'
 }
 
 Now for GitHub is an app for GitHub users or organizations that automatically deploys and aliases changes to repositories with Now.
 
 The Now for GitHub integration features:
+
 - Deploys every push in branches and pull requests to preview changes live
 - Aliases the most recent changes from the master branch
 - Instant rollbacks when reverting changes that have been aliased
@@ -27,9 +28,11 @@ src={`${IMAGE_ASSETS_URL}/blog/now-for-github/ci.png`}
 width={581}
 height={185}
 />
+
 <Caption>Now for GitHub providing a deployment for a GitHub pull request.</Caption>
 
 ## Connecting the App to Your Github Account or Organization
+
 Now for GitHub is directly connected with your ZEIT account and can be linked from within your [account](/account) or team settings. Within the settings page under the "General" tab, the first section will offer for you to install Now for GitHub if it is not already installed.
 
 <Image
@@ -37,6 +40,7 @@ src={`${IMAGE_ASSETS_URL}/docs/now-for-github/github-connect.png`}
 width={1448/2}
 height={484/2}
 />
+
 <Caption>The Now for GitHub installation section within the account or team general settings page.</Caption>
 
 If you are a new user signing up, this process can also be started from within the onboarding stage.
@@ -46,8 +50,8 @@ src={`${IMAGE_ASSETS_URL}/docs/now-for-github/onboarding.png`}
 width={1492/2}
 height={1212/2}
 />
-<Caption>The Now for GitHub installation section within the account or team onboarding.</Caption>
 
+<Caption>The Now for GitHub installation section within the account or team onboarding.</Caption>
 
 Clicking the "Install Now for GitHub" button will take you to GitHub where they will prompt you, if you have an account belonging to any organizations, which profile the installation should be installed with. You can pick either your GitHub account or any of the organizations you have access to.
 
@@ -56,19 +60,21 @@ If you are not part of any organization, you will skip straight to the repositor
 For organizations that you have limited permissions for, GitHub will ask you to request access to install the integration. Once requested, the organization's owner will need to approve the integration.
 
 <Image
-  src={`${IMAGE_ASSETS_URL}/docs/now-for-github/profile-selection.png`}
-  width={1638/2}
-  height={1268/2}
+src={`${IMAGE_ASSETS_URL}/docs/now-for-github/profile-selection.png`}
+width={1638/2}
+height={1268/2}
 />
+
 <Caption>The account or organization selection step on GitHub.</Caption>
 
 With an account or organization selected, GitHub will now ask for which repositories Now for GitHub should work with. In this step you are able to allow all repositories to be deployed or an optional set of repositories.
 
-> Note: Now will not attempt to deploy a repository without being [configured to with a `now.json` file](#usage). It is safe to enable "All repositories" to use Now for GitHub without unintended side-effects.
+<Note>Now will not attempt to deploy a repository without being <GenericLink href="#usage">configured to with a <InlineCode>now.json</InlineCode> file</GenericLink>. It is safe to enable "All repositories" to use Now for GitHub without unintended side-effects.</Note>
 
 With the GitHub profile and repositories chosen for Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository for Now to deploy.
 
 ## Usage
+
 Now for GitHub requires a `now.json` file to exist in the root of the repository to begin deploying that repository.
 
 A `now.json` file is a way to configure the deployments Now will make using your code. To get started deploying from your repository, the `now.json` configuration does not need any specific setup, you will only need a valid JSON file. For example, you can use an empty object (`{}`) for the file to be valid and recognized by Now to start deploying.
@@ -76,10 +82,13 @@ A `now.json` file is a way to configure the deployments Now will make using your
 With the repository correctly configured, Now for GitHub will start deploying the app.
 
 ## Default Behaviour
+
 ### A Deployment for Each Push
+
 Now for GitHub will **deploy every push by default**. This includes pushes to any branch that includes a `now.json` and any pull requests made from those branches. This allows those working within the repository to preview changes made before the changes are pushed to production.
 
 ### Aliasing the Default Branch
+
 If [an alias is set within the `now.json` file](/docs/features/aliases), pushes and merges to the [default branch](https://help.github.com/articles/setting-the-default-branch/) (commonly "master") will be aliased automatically and made live to those aliases with the latest deployment made with a push.
 
 For example, the following `now.json` configuration will make Now for GitHub alias the most recent push to `my-zeit-website.com` by default.
@@ -91,8 +100,11 @@ For example, the following `now.json` configuration will make Now for GitHub ali
 ```
 
 ## Configuration
+
 ### Disabling Now for GitHub with `now.json`
+
 To disable Now for a GitHub repository, use the following configuration option in the `now.json` file:
+
 ```
 {
   "github": {
@@ -100,12 +112,15 @@ To disable Now for a GitHub repository, use the following configuration option i
   }
 }
 ```
+
 <Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable Now for GitHub.</Caption>
 
 Disabling Now for GitHub with this configuration option will prevent Now from [deploying any push](#a-deployment-for-each-push) or [aliasing the changes](#aliasing-the-default-branch) when merged to the default branch.
 
 ### Disabling Auto-Aliasing
+
 To stop Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
+
 ```
 {
   "alias": ["my-zeit-website.com"],
@@ -114,9 +129,11 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
   }
 }
 ```
+
 <Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable auto-aliasing with Now for GitHub. The file also includes an example setup alias.</Caption>
 
 ### Disable Commenting with Silent Mode
+
 You can enable the silent mode and ask us to stop commenting on pull requests and commits. Even though we stop adding comments, we will continue to add commit status.
 
 This is a per repo setting. You can enable it by adding the following configuration option to the `now.json` file:
@@ -130,6 +147,7 @@ This is a per repo setting. You can enable it by adding the following configurat
 ```
 
 ### Disable Auto Job Cancellation
+
 To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v1/features/configuration) for the repository that this behaviour should exist in.
 
 ```

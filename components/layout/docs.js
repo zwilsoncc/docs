@@ -199,10 +199,12 @@ class withDoc extends React.Component {
                     platform. For the latest features, please see{' '}
                     <GenericLink href="/docs/v2">
                       the version 2 documentation
-                    </GenericLink>. If you have yet to upgrade, see the{' '}
+                    </GenericLink>
+                    . If you have yet to upgrade, see the{' '}
                     <GenericLink href="/docs/v2/platform/upgrade-to-2-0">
                       upgrade guide
-                    </GenericLink>.
+                    </GenericLink>
+                    .
                   </Note>
                 )}
                 <H1 itemProp="headline">{meta.title}</H1>

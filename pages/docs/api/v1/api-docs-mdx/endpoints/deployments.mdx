@@ -13,37 +13,55 @@ import {
 } from '~/components/api/table'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
+import Note from '~/components/text/note'
 
 ## Deployments
 
 ### Create a new deployment
+
 <Endpoint method="POST" url="/v3/now/deployments" />
 
 Create a new deployment on the fly by supplying all the required data.
 
 Before you create the deployment, you need to [upload any required files](#endpoints/deployments/upload-deployment-files) when they cannot be posted at once.
 
-> **NOTE:** The code and logs under the OSS plan will be public.
+<Note>The code and logs under the OSS plan will be public.</Note>
 
 #### Input
+
 <InputTable>
   <Row>
     <BoldCell>env</BoldCell>
     <TypeCell>Map</TypeCell>
     <BooleanCell status={false} />
-    <Cell>An object containing the deployment's environment variable names and values. <i>Now Secret may be referenced by prefixing the value with <InlineCode>@</InlineCode></i>.</Cell>
+    <Cell>
+      An object containing the deployment's environment variable names and
+      values.{' '}
+      <i>
+        Now Secret may be referenced by prefixing the value with{' '}
+        <InlineCode>@</InlineCode>
+      </i>
+      .
+    </Cell>
   </Row>
   <Row>
     <BoldCell>public</BoldCell>
     <TypeCell>Boolean</TypeCell>
     <BooleanCell status={true} />
-    <Cell>A boolean indicating if the deployment is public. For every deployment done under the OSS plan, this needs to be set to <InlineCode>true</InlineCode>.</Cell>
+    <Cell>
+      A boolean indicating if the deployment is public. For every deployment
+      done under the OSS plan, this needs to be set to{' '}
+      <InlineCode>true</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>forceNew</BoldCell>
     <TypeCell>Boolean</TypeCell>
     <BooleanCell status={false} />
-    <Cell>A boolean indicating if a new deployment should be forced (this create a new deployment even if the files are the same as the latest one).</Cell>
+    <Cell>
+      A boolean indicating if a new deployment should be forced (this create a
+      new deployment even if the files are the same as the latest one).
+    </Cell>
   </Row>
   <Row>
     <BoldCell>name</BoldCell>
@@ -55,7 +73,11 @@ Before you create the deployment, you need to [upload any required files](#endpo
     <BoldCell>deploymentType</BoldCell>
     <TypeCell>Enum</TypeCell>
     <BooleanCell status={true} />
-    <Cell>A string indicating the type of deployment, it could be <InlineCode>NPM</InlineCode>, <InlineCode>DOCKER</InlineCode> or <InlineCode>STATIC</InlineCode>.</Cell>
+    <Cell>
+      A string indicating the type of deployment, it could be{' '}
+      <InlineCode>NPM</InlineCode>, <InlineCode>DOCKER</InlineCode> or{' '}
+      <InlineCode>STATIC</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>registryAuthToken</BoldCell>
@@ -73,26 +95,45 @@ Before you create the deployment, you need to [upload any required files](#endpo
     <BoldCell>engines</BoldCell>
     <TypeCell>Map</TypeCell>
     <BooleanCell status={false} />
-    <Cell>A map with the desired Node.js version (<i>only for NPM deployments</i>) defined as the <ExternalLink href="https://docs.npmjs.com/files/package.json#engines">package.json engines</ExternalLink> key.</Cell>
+    <Cell>
+      A map with the desired Node.js version (<i>only for NPM deployments</i>)
+      defined as the{' '}
+      <ExternalLink href="https://docs.npmjs.com/files/package.json#engines">
+        package.json engines
+      </ExternalLink>{' '}
+      key.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>sessionAffinity</BoldCell>
     <TypeCell>Enum</TypeCell>
     <BooleanCell status={false} />
-    <Cell>A string indicating the session affinity algorithm. It could be <InlineCode>ip</InlineCode> or <InlineCode>random</InlineCode>.</Cell>
+    <Cell>
+      A string indicating the session affinity algorithm. It could be{' '}
+      <InlineCode>ip</InlineCode> or <InlineCode>random</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>config</BoldCell>
     <TypeCell>Map</TypeCell>
     <BooleanCell status={false} />
-    <Cell>An object containing any <InternalLink href="/docs/features/configuration#local-configuration">local configuration</InternalLink> property. Not all of these properties lead to changes in behavior on the platform (some are designed to be used only by Now CLI).</Cell>
+    <Cell>
+      An object containing any{' '}
+      <InternalLink href="/docs/features/configuration#local-configuration">
+        local configuration
+      </InternalLink>{' '}
+      property. Not all of these properties lead to changes in behavior on the
+      platform (some are designed to be used only by Now CLI).
+    </Cell>
   </Row>
 </InputTable>
 
 #### File
+
 Each item in the files array could be either a list of inlined files or a list of SHA1 strings used to match with [already uploaded files](#endpoints/deployments/upload-deployment-files).
 
 ##### Inlined files
+
 In the case you want to inline each file inside the create deployment request each item in the `files` key should have the following format:
 
 > **Note**: Inline file either as plain or base64 strings is useful when a deployment have only a few small files you can upload in a single request.
@@ -102,23 +143,34 @@ In the case you want to inline each file inside the create deployment request ea
     <BoldCell>file</BoldCell>
     <TypeCell>String</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The file name including the whole path, eg. <InlineCode>folder/file.js</InlineCode></Cell>
+    <Cell>
+      The file name including the whole path, eg.{' '}
+      <InlineCode>folder/file.js</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>data</BoldCell>
     <TypeCell>String</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The file content, it could be either a base64 (useful for images, etc.) of the files or the plain content for source code.</Cell>
+    <Cell>
+      The file content, it could be either a base64 (useful for images, etc.) of
+      the files or the plain content for source code.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>encoding</BoldCell>
     <TypeCell>Enum</TypeCell>
     <BooleanCell status={false} />
-    <Cell>The file encoding, it must be <InlineCode>base64</InlineCode> or <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode></Cell>
+    <Cell>
+      The file encoding, it must be <InlineCode>base64</InlineCode> or{' '}
+      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>
+      .
+    </Cell>
   </Row>
 </InputTable>
 
 ##### SHA1 files
+
 In the case you want to first [upload each file](#endpoints/deployments/upload-deployment-files) and then create a deployment you need to pass the file name and the file content SHA1 which is going to be used to check the integrity and match the requests with the file.
 
 > **Note**: [Upload each file](#endpoints/deployments/upload-deployment-files) and then create the deployment with the SHA1 string is specially useful when you have to either upload many or big files. That allow you to retry file uploads in case of a network error.
@@ -128,61 +180,66 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
     <BoldCell>file</BoldCell>
     <TypeCell>String</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The file name including the whole path, eg. <InlineCode>folder/file.js</InlineCode></Cell>
+    <Cell>
+      The file name including the whole path, eg.{' '}
+      <InlineCode>folder/file.js</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>sha</BoldCell>
     <TypeCell>String</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The file SHA1 used to check integrity</Cell>
+    <Cell>The file SHA1 used to check integrity.</Cell>
   </Row>
   <Row>
     <BoldCell>size</BoldCell>
     <TypeCell>Integer</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The file size in bytes</Cell>
+    <Cell>The file size in bytes.</Cell>
   </Row>
 </InputTable>
 
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v3/now/deployments"
-    method="GET"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "my-instant-deployment",
-      "env": {
-        "NODE_ENV": "production"
+<Request
+  url="https://api.zeit.co/v3/now/deployments"
+  method="GET"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'my-instant-deployment',
+    env: {
+      NODE_ENV: 'production'
+    },
+    public: false,
+    forceNew: true,
+    files: [
+      {
+        file: 'package.json',
+        sha: '514b5ffa5ef016df7f5f42370157d49f97526a42',
+        size: 145
       },
-      "public": false,
-      "forceNew": true,
-      "files": [
-        {
-          "file": "package.json",
-          "sha": "514b5ffa5ef016df7f5f42370157d49f97526a42",
-          "size": 145
-        },
-        {
-          "file": "server/index.js",
-          "sha": "9d8b952309b28f468919f4a585e18b63a14457f2",
-          "size": 161
-        }
-      ],
-      "deploymentType": "NPM",
-      "registryAuthToken": "this-is-my-npm-token",
-      "engines": {
-        "node": "^8.0.0"
-      },
-      "sessionAffinity": "ip"
-    }}
-  />
+      {
+        file: 'server/index.js',
+        sha: '9d8b952309b28f468919f4a585e18b63a14457f2',
+        size: 161
+      }
+    ],
+    deploymentType: 'NPM',
+    registryAuthToken: 'this-is-my-npm-token',
+    engines: {
+      node: '^8.0.0'
+    },
+    sessionAffinity: 'ip'
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "totalSize": 0,
@@ -203,16 +260,19 @@ Before you create a deployment you need to upload the required files for that de
 > **Note**: If you need to upload only a few small files for a deployment you could inline them when you're [creating a new deployment](#endpoints/deployments/create-a-new-deployment).
 
 #### Headers
+
 The POST needs to have the following headers:
 
 <HeadersTable>
   <Row>
     <BoldCell>Content-Type</BoldCell>
-    <Cell>With the value <InlineCode>application/octet-stream</InlineCode></Cell>
+    <Cell>
+      With the value <InlineCode>application/octet-stream</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>Content-Length</BoldCell>
-    <Cell>The file size in bytes</Cell>
+    <Cell>The file size in bytes.</Cell>
   </Row>
   <Row>
     <BoldCell>x-now-digest</BoldCell>
@@ -220,37 +280,39 @@ The POST needs to have the following headers:
   </Row>
   <Row>
     <BoldCell>x-now-size</BoldCell>
-    <Cell>The file size in bytes</Cell>
+    <Cell>The file size in bytes.</Cell>
   </Row>
 </HeadersTable>
 
 The file content must be placed inside the body of the request. In the case of a successful response you'll receive a status code **200** with an empty body.
 
-> **NOTE:** The file name is defined when you create the deployment.
+<Note>The file name is defined when you create the deployment.</Note>
 
 <Example>
   Example request:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/now/files"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/octet-stream',
-      'Content-Length': 145,
-      'x-now-digest': '514b5ffa5ef016df7f5f42370157d49f97526a42',
-      'x-now-size': 145
-    }}
-    body={{
-    "name": "my-instant-deployment",
-    "dependencies": {
-      "sign-bunny": "1.0.0"
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/now/files"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/octet-stream',
+    'Content-Length': 145,
+    'x-now-digest': '514b5ffa5ef016df7f5f42370157d49f97526a42',
+    'x-now-size': 145
+  }}
+  body={{
+    name: 'my-instant-deployment',
+    dependencies: {
+      'sign-bunny': '1.0.0'
     },
-    "scripts": {
-      "start": "node server/index.js"
+    scripts: {
+      start: 'node server/index.js'
     }
   }}
-  />
+/>
 
   <Request
     method="POST"
@@ -270,6 +332,7 @@ The file content must be placed inside the body of the request. In the case of a
 </Example>
 
 ### List all the deployments
+
 <Endpoint method="GET" url="/v2/now/deployments" />
 
 List all the deployments under the account corresponding to the API token.
@@ -279,26 +342,38 @@ If a deployment hasn't finished uploading (is incomplete), the `url` property wi
 Each deployment is an object with the following keys:
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>A string with the unique deployment ID you can use to get more information or remove it.</Cell>
+    <Cell>
+      A string with the unique deployment ID you can use to get more information
+      or remove it.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>name</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>A string with the deployment under which the deployment was created.</Cell>
+    <Cell>
+      A string with the deployment under which the deployment was created.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>url</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.</Cell>
+    <Cell>
+      A string with the unique URL of the deployment. If it hasn't finished
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>created</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>A number containing the date when the deployment was created (<i>in timestamp</i>).</Cell>
+    <Cell>
+      A number containing the date when the deployment was created (
+      <i>in timestamp</i>).
+    </Cell>
   </Row>
   <Row>
     <BoldCell>creator</BoldCell>
@@ -308,21 +383,39 @@ Each deployment is an object with the following keys:
   <Row>
     <BoldCell>state</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>A string with the current deployment state, it could be one of the following <InlineCode>DEPLOYING</InlineCode>, <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>BUILD_ERROR</InlineCode> or <InlineCode>FROZEN</InlineCode></Cell>
+    <Cell>
+      A string with the current deployment state, it could be one of the
+      following <InlineCode>DEPLOYING</InlineCode>,{' '}
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
+      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
+        BUILD_ERROR
+      </InlineCode> or <InlineCode>FROZEN</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>type</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>A string defining the deployment type, it could be: <InlineCode>NPM</InlineCode>, <InlineCode>DOCKER</InlineCode> or <InlineCode>STATIC</InlineCode></Cell>
+    <Cell>
+      A string defining the deployment type, it could be:{' '}
+      <InlineCode>NPM</InlineCode>, <InlineCode>DOCKER</InlineCode> or{' '}
+      <InlineCode>STATIC</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>scale</BoldCell>
     <TypeCell>Map</TypeCell>
-    <Cell>An object with the current <InternalLink href="/docs/getting-started/scaling">scale configuration</InternalLink> of the deployment.</Cell>
+    <Cell>
+      An object with the current{' '}
+      <InternalLink href="/docs/getting-started/scaling">
+        scale configuration
+      </InternalLink>{' '}
+      of the deployment.
+    </Cell>
   </Row>
 </OutputTable>
 
 #### Scale configuration
+
 The scale configuration object always have the following structure:
 
 <OutputTable>
@@ -349,7 +442,9 @@ Example request:
 <Request
   url="https://api.zeit.co/v2/now/deployments"
   headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
   }}
 />
 
@@ -410,6 +505,7 @@ Example successful (**200**) response:
 </Example>
 
 ### Get a single deployment
+
 <Endpoint method="GET" url="/v2/now/deployments/:id" />
 
 This API allows you to retrieve a deployment by supplying its **:id** in the URL.
@@ -417,26 +513,45 @@ This API allows you to retrieve a deployment by supplying its **:id** in the URL
 You can obtain this, for example, by [listing all deployments](#endpoints/deployments/get-/now/deployments).
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>A string with the unique deployment ID you can use to get more information or remove it.</Cell>
+    <Cell>
+      A string with the unique deployment ID you can use to get more information
+      or remove it.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>host</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.</Cell>
+    <Cell>
+      A string with the unique URL of the deployment. If it hasn't finished
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
+      .
+    </Cell>
   </Row>
   <Row>
     <BoldCell>state</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>A string with the current deployment state, it could be one of the following: <InlineCode>DEPLOYING</InlineCode>, <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>, <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>BUILD_ERROR</InlineCode> or <InlineCode>FROZEN</InlineCode></Cell>
+    <Cell>
+      A string with the current deployment state, it could be one of the
+      following: <InlineCode>DEPLOYING</InlineCode>,{' '}
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
+      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
+        BUILD_ERROR
+      </InlineCode> or <InlineCode>FROZEN</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>type</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>A string defining the deployment type, it could be <InlineCode>NPM</InlineCode>, <InlineCode>DOCKER</InlineCode> or <InlineCode>STATIC</InlineCode>.</Cell>
+    <Cell>
+      A string defining the deployment type, it could be{' '}
+      <InlineCode>NPM</InlineCode>, <InlineCode>DOCKER</InlineCode> or{' '}
+      <InlineCode>STATIC</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>stateTs</BoldCell>
@@ -446,11 +561,18 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
   <Row>
     <BoldCell>scale</BoldCell>
     <TypeCell>Map</TypeCell>
-    <Cell>An object with the current <InternalLink href="/docs/getting-started/scaling">scale configuration</InternalLink> of the deployment.</Cell>
+    <Cell>
+      An object with the current{' '}
+      <InternalLink href="/docs/getting-started/scaling">
+        scale configuration
+      </InternalLink>{' '}
+      of the deployment.
+    </Cell>
   </Row>
 </OutputTable>
 
 #### Scale configuration
+
 The scale configuration object will always be an object with the following structure:
 
 <OutputTable>
@@ -477,7 +599,9 @@ Example request:
 <Request
   url="https://api.zeit.co/v2/now/deployments/ChbZiZe84CKtod6rmCIRRvYR"
   headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
   }}
 />
 
@@ -497,6 +621,7 @@ Example successful (**200**) response:
 </Example>
 
 ### Delete a deployment
+
 <Endpoint method="DELETE" url="/v2/now/deployments/:id" />
 
 This API allows you to delete a deployment by supplying its **:id** in the URL.
@@ -515,6 +640,7 @@ You can obtain the ID, for example, by [listing all deployments](#endpoints/depl
 </Example>
 
 ### List deployment files
+
 <Endpoint method="GET" url="/v2/now/deployments/:id/files" />
 
 This API allows you to retrieve the file structure of a deployment by supplying its **:id** in the URL.
@@ -522,6 +648,7 @@ This API allows you to retrieve the file structure of a deployment by supplying 
 The body will contain entries for each child and directory, coupled with an ID of the file for content download.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>name</BoldCell>
@@ -531,31 +658,42 @@ The body will contain entries for each child and directory, coupled with an ID o
   <Row>
     <BoldCell>type</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>If it's a <InlineCode>file</InlineCode> or a <InlineCode>directory</InlineCode>.</Cell>
+    <Cell>
+      If it's a <InlineCode>file</InlineCode> or a{' '}
+      <InlineCode>directory</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>uid</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the file (only valid for <InlineCode>file</InlineCode> type)</Cell>
+    <Cell>
+      The unique ID of the file (only valid for <InlineCode>file</InlineCode>{' '}
+      type).
+    </Cell>
   </Row>
   <Row>
     <BoldCell>children</BoldCell>
     <TypeCell>List</TypeCell>
-    <Cell>The children files of the directory (only valid for <InlineCode>directory</InlineCode> type).</Cell>
+    <Cell>
+      The children files of the directory (only valid for{' '}
+      <InlineCode>directory</InlineCode> type).
+    </Cell>
   </Row>
 </OutputTable>
 
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/now/deployments/ChbZiZe84CKtod6rmCIRRvYR/files"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/now/deployments/ChbZiZe84CKtod6rmCIRRvYR/files"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`[
     {
@@ -578,6 +716,7 @@ The body will contain entries for each child and directory, coupled with an ID o
 </Example>
 
 ### Get a single file content
+
 <Endpoint method="GET" url="/v2/now/deployments/:id/files/:fileId" />
 
 This API allows you to retrieve the file data of a file associated with a deployment by supplying its **:id** and **:fileId** in the URL.
@@ -587,14 +726,16 @@ The body will contain the raw content of the file
 <Example>
   Example request:
 
-  <Request
-    method="https://api.zeit.co/v2/now/deployments/ChbZiZe84CKtod6rmCIRRvYR/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  method="https://api.zeit.co/v2/now/deployments/ChbZiZe84CKtod6rmCIRRvYR/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`require("http").Server((req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -603,20 +744,23 @@ The body will contain the raw content of the file
 </Example>
 
 ### Get deployment instances
+
 <Endpoint method="GET" url="/v1/now/deployments/:id/instances" />
 
 Get the list of instances unique URL of a deployment.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>instances</BoldCell>
     <TypeCell>List</TypeCell>
-    <Cell>A list of maps with the instance information</Cell>
+    <Cell>A list of maps with the instance information.</Cell>
   </Row>
 </OutputTable>
 
 #### Instance
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
@@ -626,21 +770,26 @@ Get the list of instances unique URL of a deployment.
   <Row>
     <BoldCell>url</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>The instance unique url. Is the deployment unique URL with the instance <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>.</Cell>
+    <Cell>
+      The instance unique url. Is the deployment unique URL with the instance{' '}
+      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>.
+    </Cell>
   </Row>
 </OutputTable>
 
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v1/now/deployments/DguxFCKb5RdNmTw20KGwb42H/instances"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v1/now/deployments/DguxFCKb5RdNmTw20KGwb42H/instances"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example response:
+Example response:
 
   <Code syntax="json">{`{
     "instances": [
@@ -653,13 +802,15 @@ Get the list of instances unique URL of a deployment.
 </Example>
 
 ### Set scale configuration
+
 <Endpoint method="POST" url="/v1/now/deployments/:id/instances" />
 
 Configure the minimum and maximum amount of instances desired for the given deployment.
 
-> **Note**: The deployment *must* be on the `READY` state to scale it.
+> **Note**: The deployment _must_ be on the `READY` state to scale it.
 
 #### Input
+
 <InputTable>
   <Row>
     <BoldCell>min</BoldCell>
@@ -676,6 +827,7 @@ Configure the minimum and maximum amount of instances desired for the given depl
 </InputTable>
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>min</BoldCell>
@@ -692,24 +844,25 @@ Configure the minimum and maximum amount of instances desired for the given depl
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v1/now/deployments/2sS6QiQppD9moBzhmX34Y21H/instances"
-    method="POST"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "min": 1,
-      "max": 10
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v1/now/deployments/2sS6QiQppD9moBzhmX34Y21H/instances"
+  method="POST"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    min: 1,
+    max: 10
+  }}
+/>
 
-  Example response:
+Example response:
 
   <Code syntax="json">{`{
     "min": 1,
     "max": 10
   }`}</Code>
 </Example>
-

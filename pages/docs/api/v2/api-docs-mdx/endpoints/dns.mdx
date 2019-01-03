@@ -7,11 +7,14 @@ import Request from '~/components/api/request'
 ## DNS
 
 ### List all the DNS records of a domain
+
 <Endpoint method="GET" url="/v2/domains/:domain/records" />
 
 Get a list of DNS records created for a domain name specified in the URL.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the DNS record. Always prepended with `rec_`. |
@@ -24,14 +27,16 @@ Get a list of DNS records created for a domain name specified in the URL.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v2/domains/zeit.rocks/records"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains/zeit.rocks/records"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "records": [
@@ -58,12 +63,15 @@ Get a list of DNS records created for a domain name specified in the URL.
 </Example>
 
 ### Create a new DNS record
+
 <Endpoint method="POST" url="/v2/domains/:domain/records" />
 
 Create a DNS record for a domain specified in the URL. `mxPriority`
 field should be set for MX records and left out otherwise.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The subdomain which we're configuring or `@` for the domain itself. |
@@ -71,8 +79,9 @@ field should be set for MX records and left out otherwise.
 | **value** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The record value. |
 | **mxPriority** | <HelpLink href="#api-basics/types">Integer</HelpLink> | No | The priority for MX records, is only required if the record `type` is `MX`. |
 
-
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the DNS record. Always prepended with `rec_`. |
@@ -80,22 +89,24 @@ field should be set for MX records and left out otherwise.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains/zeit.rocks/records"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "subdomain",
-      "type": "MX",
-      "value": "mail.zeit.rocks",
-      "mxPriority": 10
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains/zeit.rocks/records"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'subdomain',
+    type: 'MX',
+    value: 'mail.zeit.rocks',
+    mxPriority: 10
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   uid: "rec_V0fra8eEgQwEpFhYG2vTzC3K"
@@ -103,6 +114,7 @@ field should be set for MX records and left out otherwise.
 </Example>
 
 ### Remove a DNS record
+
 <Endpoint method="DELETE" url="/v2/domains/:domain/records/:recId" />
 
 Delete a DNS record created for a domain name, where both the domain
@@ -120,4 +132,3 @@ successfully the endpoint returns with code 200 and an empty body.
     }}
   />
 </Example>
-

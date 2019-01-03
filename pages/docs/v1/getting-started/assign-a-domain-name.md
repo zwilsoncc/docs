@@ -7,10 +7,10 @@ import { InternalLink } from '~/components/text/link'
 import Now from '~/components/text/now'
 
 export const meta = {
-  title: 'Assign a Domain Name',
-  description: 'Using Now `alias` to assign a domain to your deployments',
-  date: '2 August 2017',
-  editUrl: 'pages/docs/getting-started/assign-a-domain-name.md'
+title: 'Assign a Domain Name',
+description: 'Using Now `alias` to assign a domain to your deployments',
+date: '2 August 2017',
+editUrl: 'pages/docs/getting-started/assign-a-domain-name.md'
 }
 
 When you deploy an app with <Now color="000"/>, you will have a unique deployment URL like this: <https://my-web-app-avvuiuuwto.now.sh>.
@@ -22,10 +22,10 @@ However, you cannot ask your users to visit those addresses. This is because the
 Hence, you need a fixed domain name.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/custom-domain.png`)}
-  width={600}
-  height={325}
-  caption="Our sample static app with a fixed domain name."
+src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/custom-domain.png`)}
+width={600}
+height={325}
+caption="Our sample static app with a fixed domain name."
 />
 
 In this guide, we are going to map a domain name into one of those deployment URLs of your app by using the `now alias` command.
@@ -62,10 +62,10 @@ Here, we are attempting to assign the `my-web-app.com` domain name to the above 
 After the confirmation, <Now color="000"/> will handle all the technical details for you and allow your users to access your app using <https://my-web-app.com>.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/buy-domain.png`)}
-  width={650}
-  height={412}
-  caption="Confirmation you'll get after assigning a custom domain."
+src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/buy-domain.png`)}
+width={650}
+height={412}
+caption="Confirmation you'll get after assigning a custom domain."
 />
 
 > In this process, <Now color="000"/> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
@@ -78,9 +78,9 @@ If you already have a domain name, this is the best option for you. With this me
 
 First of all, you need to point your domain's nameservers to our [global DNS service](https://zeit.co/world). Here is how to do that:
 
-* Visit your domain name provider and find a place where you can add custom nameservers.
-* Select two or more nameservers from [this list](https://zeit.co/world#get-started).
-* Set them as custom nameservers for your domain.
+- Visit your domain name provider and find a place where you can add custom nameservers.
+- Select two or more nameservers from [this list](https://zeit.co/world#get-started).
+- Set them as custom nameservers for your domain.
 
 For example, assume that your domain name is `my-custom-domain.com`.
 
@@ -111,16 +111,16 @@ After that, run the following command:
 You will then have an error like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/alias-error.png`)}
-  width={650}
-  height={412}
-  caption="The error message you'll get when trying to alias a domain for the first time."
+src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/alias-error.png`)}
+width={650}
+height={412}
+caption="The error message you'll get when trying to alias a domain for the first time."
 />
 
 &#8203;<Now color="000"/> wants to verify the ownership of your domain. That's why it throws an error.
 
-* Next, add the TXT record as mentioned above error message.
-* Run the `now alias` command again:
+- Next, add the TXT record as mentioned above error message.
+- Run the `now alias` command again:
 
 <TerminalInput>now alias https://my-web-app-avvuiuuwto.now.sh ui.my-app.work</TerminalInput>
 

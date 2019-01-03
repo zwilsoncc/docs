@@ -9,6 +9,7 @@ import Request from '~/components/api/request'
 ## Deployments
 
 ### Create a New Deployment
+
 <Endpoint method="POST" url="/v6/now/deployments" />
 
 Create a new deployment with all the required and intended data.
@@ -16,6 +17,8 @@ Create a new deployment with all the required and intended data.
 Before creating a deployment, [upload any required files](#endpoints/deployments/upload-deployment-files) when they cannot be posted at once by inlining files.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | A string with the project name used in the deployment URL. The name string has a max length of `52` characters. |
@@ -29,15 +32,19 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | **public** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | No | Whether a deployment's source and logs are available publically. |
 
 ##### Files
+
 Each item in the files array could be either a list of inlined files or a list of SHA1 strings used to match with [already uploaded files](#endpoints/deployments/upload-deployment-files).
 
 ###### Inlined Files
+
 In the case you want to inline each file inside the create deployment request each item in the `files` key should have the following format:
 
-<Note>Inlined files, either as plain or base64 strings, are useful when a deployment has only a few small files that you can upload in a single request.</Note>
+<Note>
+  Inlined files, either as plain or base64 strings, are useful when a deployment
+  has only a few small files that you can upload in a single request.
+</Note>
 
-
-
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **file** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The file name including the whole path, eg. `folder/file.js`. |
@@ -68,12 +75,19 @@ In the case you want to inline each file inside the create deployment request ea
 </Example>
 
 ###### SHA1 files
+
 In the case you want to first [upload each file](#endpoints/deployments/upload-deployment-files) and then create a deployment you need to pass the file name and the file content SHA1 which is going to be used to check the integrity and match the requests with the file.
 
 <Note>
-  <GenericLink href="#endpoints/deployments/upload-deployment-files">Uploading each file</GenericLink> and then creating the deployment with files using SHA1 strings is especially useful when uploading many, or big, files. This is helpful when retrying deployments without needing to upload the files again.
+  <GenericLink href="#endpoints/deployments/upload-deployment-files">
+    Uploading each file
+  </GenericLink>{' '}
+  and then creating the deployment with files using SHA1 strings is especially
+  useful when uploading many, or big, files. This is helpful when retrying
+  deployments without needing to upload the files again.
 </Note>
 
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **file** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The file name including the whole path, eg. `folder/file.js`. |
@@ -129,6 +143,7 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
 </Example>
 
 #### Force a New Deployment
+
 To create a new deployment, with a new ID and URL, etc. if nothing has changed with the files intended to be deployed that were already previously deployed, use the `forceNew=1` URL parameter.
 
 <Example>
@@ -223,6 +238,8 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 </Example>
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **id** | <HelpLink href="#api-basics/types">String</HelpLink> | A String holding the unique ID of the deployment. |
@@ -289,11 +306,20 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 
 Before you create a deployment you need to upload the required files for that deployment. To do it you need to POST each file to this endpoint, after that's completed you'll need to POST to [create a new deployment](#endpoints/deployments/create-a-new-deployment).
 
-<Note>If you need to upload only a few small files for a deployment you could inline them when you're <GenericLink href="#endpoints/deployments/create-a-new-deployment">creating a new deployment</GenericLink>.</Note>
+<Note>
+  If you need to upload only a few small files for a deployment you could inline
+  them when you're{' '}
+  <GenericLink href="#endpoints/deployments/create-a-new-deployment">
+    creating a new deployment
+  </GenericLink>
+  .
+</Note>
 
 #### Headers
+
 The POST needs to have the following headers:
 
+<!-- prettier-ignore -->
 | Header | Description |
 | -- | -- |
 | **<RequestHeader>Content-Length</RequestHeader>** | The file size in bytes. |
@@ -328,6 +354,7 @@ The file content must be placed inside the body of the request. In the case of a
 </Example>
 
 ### List Deployments
+
 <Endpoint method="GET" url="/v3/now/deployments" />
 
 List all the deployments under the account corresponding to the API token.
@@ -337,6 +364,8 @@ If a deployment hasn't finished uploading (is incomplete), the `url` property wi
 Each deployment is an object with the following keys:
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | A string with the unique deployment ID you can use to get more information or remove it. |
@@ -347,6 +376,7 @@ Each deployment is an object with the following keys:
 | **state** | <HelpLink href="#api-basics/types">Enum</HelpLink> | A string with the current deployment state, it could be one of the following `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
 
 ### Get a Single Deployment
+
 <Endpoint method="GET" url="/v6/now/deployments/:id" />
 
 This endpoint allows you to retrieve information for a deployment by supplying its **:id** in the URL.
@@ -354,6 +384,8 @@ This endpoint allows you to retrieve information for a deployment by supplying i
 One way to obtain a deployment ID is to [list all deployments](#endpoints/deployments/get-/now/deployments).
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | A String holding the unique ID of the deployment. |
@@ -411,6 +443,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 </Example>
 
 ### Delete a Deployment
+
 <Endpoint method="DELETE" url="/v6/now/deployments/:id" />
 
 This API allows you to delete a deployment by supplying its **:id** in the URL.
@@ -419,13 +452,15 @@ You can obtain the ID, for example, by [listing all deployments](#endpoints/depl
 <Example>
   <PDIV>Example request:</PDIV>
 
-  <Request
-    method="DELETE"
-    url="https://api.zeit.co/v5/now/deployments/dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  method="DELETE"
+  url="https://api.zeit.co/v5/now/deployments/dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
 <PDIV>Example response:</PDIV>
 <Code>{`{
@@ -435,6 +470,7 @@ You can obtain the ID, for example, by [listing all deployments](#endpoints/depl
 </Example>
 
 ### List Deployment Files
+
 <Endpoint method="GET" url="/v5/now/deployments/:id/files" />
 
 This API allows you to retrieve the file structure of a deployment by supplying its **:id** in the URL.
@@ -442,6 +478,8 @@ This API allows you to retrieve the file structure of a deployment by supplying 
 The body will contain entries for each child and directory, coupled with an ID of the file for content download.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The name of the file. |
@@ -452,14 +490,16 @@ The body will contain entries for each child and directory, coupled with an ID o
 <Example>
   <PDIV>Example request:</PDIV>
 
-  <Request
-    url="https://api.zeit.co/v5/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v5/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`[
   {
@@ -485,6 +525,7 @@ The body will contain entries for each child and directory, coupled with an ID o
 </Example>
 
 ### Get Single File Contents
+
 <Endpoint method="GET" url="/v5/now/deployments/:id/files/:fileId" />
 
 This API allows you to retrieve the file data of a file associated with a deployment by supplying its **:id** and **:fileId** in the URL.
@@ -494,14 +535,16 @@ The body will contain the raw content of the file.
 <Example>
   <PDIV>Example request:</PDIV>
 
-  <Request
-    url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`<!doctype html>
 <html>
@@ -516,13 +559,16 @@ The body will contain the raw content of the file.
 </Example>
 
 ### List Builds
+
 <Endpoint method="GET" url="/v5/now/deployments/:id/builds" />
 
 This endpoint retrieves a list of Build objects by supplying its **:id** in the URL.
 
 #### Response Parameters
+
 Each Build is an object with the following keys:
 
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **id** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the Build. |
@@ -534,15 +580,19 @@ Each Build is an object with the following keys:
 | **path** | <HelpLink href="#api-basics/types">String</HelpLink> | The path of files the Build is assigned to. |
 
 <Example>
-<span>Example Request:</span>
-<Request
-  url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/builds"
-  headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-  }}
-/>
-<span>Example Successful (<P.B>200</P.B>) response:</span>
-<Code>{`{
+  <span>Example Request:</span>
+  <Request
+    url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/builds"
+    headers={{
+      Authorization: `Bearer ${
+        props.testingToken ? props.testingToken.token : '$TOKEN'
+      }`
+    }}
+  />
+  <span>
+    Example Successful (<P.B>200</P.B>) response:
+  </span>
+  <Code>{`{
   "builds": [
     {
       "id": "hdl_kxfdc1962",
@@ -557,4 +607,3 @@ Each Build is an object with the following keys:
   ]
 }`}</Code>
 </Example>
-

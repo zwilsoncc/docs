@@ -5,18 +5,19 @@ import Caption from '~/components/text/caption'
 
 export const meta = {
   title: 'Regions and Providers',
-  description: 'An listing and explanation of the regions and providers Now implements.'
+  description:
+    'An listing and explanation of the regions and providers Now implements.'
 }
 
 The Now Platform acts as a Universal API and Overlay Network on top of existing cloud infrastructure providers.
 
 In some cases, the routing layer is in a different region from where [Now Lambdas](/docs/v2/deployments/concepts/lambdas) are invoked. The roundtrip latency between them is usually in the 1 millisecond to sub-millisecond range.
 
-| Region ID | Reference Location | Provider Region (Routing) | Provider Region (Now Lambdas) |
-|--|--|--|--|
-| sfo1 | San Francisco, CA, USA | AWS us-west-1 | AWS us-west-1 |
-| bru1 | Brussels, Belgium, Europe | GCP europe-west1 | AWS eu-central-1 |
-| gru1 | Sao Paulo, Brazil | AWS sa-east-1 | AWS sa-east-1 |
-| iad1 | Washington DC, USA | AWS us-east-1 | AWS us-east-1 |
+| Region ID | Reference Location        | Provider Region (Routing) | Provider Region (Now Lambdas) |
+| --------- | ------------------------- | ------------------------- | ----------------------------- |
+| sfo1      | San Francisco, CA, USA    | AWS us-west-1             | AWS us-west-1                 |
+| bru1      | Brussels, Belgium, Europe | GCP europe-west1          | AWS eu-central-1              |
+| gru1      | Sao Paulo, Brazil         | AWS sa-east-1             | AWS sa-east-1                 |
+| iad1      | Washington DC, USA        | AWS us-east-1             | AWS us-east-1                 |
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

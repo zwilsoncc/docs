@@ -56,19 +56,21 @@ export default class Page extends Component {
               position: relative;
             }
 
-            ${this.props.darkBg
-              ? `
+            ${
+              this.props.darkBg
+                ? `
               ::selection {
                 background-color: #f81ce5;
                 color: #fff;
               }
             `
-              : `
+                : `
               ::selection {
                 background-color: #79FFE1;
                 color: #000;
               }
-            `}
+            `
+            }
           `
             }}
           />

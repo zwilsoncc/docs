@@ -3,15 +3,15 @@ import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
 import {
-  TerminalInput,
-  TerminalOutput
+TerminalInput,
+TerminalOutput
 } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Migrate Your App to Now Without a Downtime',
-  description: 'Migrating your app from other hosting services to Now without incurring downtime',
-  date: '04 Apr 2017 9:42 AM PDT',
-  editUrl: 'pages/docs/guides/migrate-your-app.md'
+title: 'Migrate Your App to Now Without a Downtime',
+description: 'Migrating your app from other hosting services to Now without incurring downtime',
+date: '04 Apr 2017 9:42 AM PDT',
+editUrl: 'pages/docs/guides/migrate-your-app.md'
 }
 
 Migrations between different hosting services can be a daunting task. To help you migrate your current deployments to <Now color="#000"/>, we have prepared this step-by-step guide.

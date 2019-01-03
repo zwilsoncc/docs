@@ -7,10 +7,10 @@ import { Image } from '~/components/media'
 import Now from '~/components/text/now'
 
 export const meta = {
-  title: 'Scaling',
-  description: 'Handling increased traffic by scaling your Now deployments',
-  date: '10 August 2017',
-  editUrl: 'pages/docs/getting-started/scaling.md'
+title: 'Scaling',
+description: 'Handling increased traffic by scaling your Now deployments',
+date: '10 August 2017',
+editUrl: 'pages/docs/getting-started/scaling.md'
 }
 
 Deploying an app is just the start. We need to scale our app as our user base grows. It could be a linear growth or random spikes in certain times.
@@ -27,8 +27,8 @@ Each deployment has a minimum and maximum amount of instances it can have. Based
 
 By default, all of the deployments are configured like this:
 
-* min: 0
-* max: 1
+- min: 0
+- max: 1
 
 This means, when your deployment receives some traffic <Now color="#000"/> will start an instance. If your deployment doesn't receive any traffic for a while, <Now color="#000"/> will kill that instance.
 
@@ -49,13 +49,13 @@ Here's how you can do that:
 In this case, <Now color="#000"/> will set the `min` and `max` instance settings to 3.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/fixed-scaling.png`)}
-  width={650}
-  height={467}
-  caption="The deployment is scaled to 3 instances and you can see the URLs for each of those instances."
+src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/fixed-scaling.png`)}
+width={650}
+height={467}
+caption="The deployment is scaled to 3 instances and you can see the URLs for each of those instances."
 />
 
-### With "now alias"
+### With `now alias`
 
 Here, `hello-node-lwbxweoqjo.now.sh` is one of our deployment URL. Instead, you can scale a "domain name" you mapped with `now alias`.
 
@@ -68,10 +68,10 @@ Then it'll scale the deployment behind the alias. (in this case, the alias is `h
 If you run `now alias` again, it'll scale the new deployment accordingly and scale down the old deployment to the <InternalLink href="/docs/getting-started/scaling#default-scaling">default scaling setup</InternalLink>.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/now-alias.png`)}
-  width={650}
-  height={467}
-  caption="Aliasing “hello-node-zhlrfgchkd.now.sh” to “hnode” changes it's scaling settings and “hnode”'s previous deployment."
+src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/now-alias.png`)}
+width={650}
+height={467}
+caption="Aliasing “hello-node-zhlrfgchkd.now.sh” to “hnode” changes it's scaling settings and “hnode”'s previous deployment."
 />
 
 ## Auto Scaling
@@ -89,10 +89,10 @@ Now the deployment behind `hnode.now.sh` runs with a minimum of 2 instances and 
 &#8203;<Now color="#000"/> will automatically start and kill instances based on the traffic `hnode.now.sh` receives.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/auto-scaling.png`)}
-  width={650}
-  height={335}
-  caption="Auto scaling in action."
+src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/auto-scaling.png`)}
+width={650}
+height={335}
+caption="Auto scaling in action."
 />
 
 ## Static Deployments

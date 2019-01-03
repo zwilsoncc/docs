@@ -13,6 +13,6 @@ package-lock.json
 # logs
 *.log
 
-
 # other
 .DS_Store
+.idea

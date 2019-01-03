@@ -6,7 +6,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'Go Builder (@now/go)',
-  description: 'The official Go Builder for ZEIT Now. Serverless invokable functions from Go source code for ZEIT Now deployments.'
+  description:
+    'The official Go Builder for ZEIT Now. Serverless invokable functions from Go source code for ZEIT Now deployments.'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -35,6 +36,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 ```
 
 And define a `now.json` like:
+
 ```
 {
   "version": 2,
@@ -49,25 +51,30 @@ Notice that the API is cohesive with the `net/http` Go API. Your main entrypoint
 The example above can be seen live from the following URL: https://go-deployment-l78bij0fj.now.sh/
 
 ## Technical Details
+
 ### Entrypoint
 
 The entrypoint file must be a `.go` source file with a `Handler` function inside implementing the `net/http` API.
 
 ### Version
+
 Go 1.x is used.
 
 ### Maximum Lambda Bundle Size
+
 To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Go lambda is, by default, **`10mb`**.
 
 This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
 
 <Example>
-<span>Example <InlineCode>maxLambdaSize</InlineCode> configuration:</span>
-<Code>{`{
+  <span>
+    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
+  </span>
+  <Code>{`{
   "builds": [
     { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
   ]
 }`}</Code>
 </Example>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

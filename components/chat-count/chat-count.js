@@ -74,7 +74,9 @@ async function getChatCount() {
       })
     })
 
-    const { community: { metaData: chatData } } = data
+    const {
+      community: { metaData: chatData }
+    } = data
     const { onlineMembers } = chatData
     return onlineMembers
   } catch (error) {

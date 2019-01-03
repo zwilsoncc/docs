@@ -2,7 +2,8 @@ import Doc from '~/components/layout/docs'
 
 export const meta = {
   title: 'Compression',
-  description: 'How ZEIT Now serves content with compression and which methods are used.'
+  description:
+    'How ZEIT Now serves content with compression and which methods are used.'
 }
 
 Because the routing layer already implements two compression methods ([Gzip](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) and [Brotli](https://en.wikipedia.org/wiki/Brotli)), we highly recommend leveraging them instead of making the code you are deploying to Now handle the compression.
@@ -27,4 +28,4 @@ Accept-Encoding: gzip
 
 Assuming that the program requesting resources from any of your deployments defines the header like mentioned above, it is served compressed responses automatically.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

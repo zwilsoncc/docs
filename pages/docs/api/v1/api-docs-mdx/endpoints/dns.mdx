@@ -16,26 +16,40 @@ import Request from '~/components/api/request'
 ## DNS
 
 ### List all the DNS records of a domain
+
 <Endpoint method="GET" url="/v2/domains/:domain/records" />
 
 Get a list of DNS records created for a domain name specified in the URL.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>id</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the DNS record. Always prepended with <InlineCode>rec_</InlineCode>.</Cell>
+    <Cell>
+      The unique ID of the DNS record. Always prepended with{' '}
+      <InlineCode>rec_</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>type</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>The type of record, it could be <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">any valid DNS record</GenericLink>.</Cell>
+    <Cell>
+      The type of record, it could be{' '}
+      <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">
+        any valid DNS record
+      </GenericLink>
+      .
+    </Cell>
   </Row>
   <Row>
     <BoldCell>name</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>The subdomain which we're configuring or <InlineCode>@</InlineCode> for the domain itself.</Cell>
+    <Cell>
+      The subdomain which we're configuring or <InlineCode>@</InlineCode> for
+      the domain itself.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>value</BoldCell>
@@ -57,14 +71,16 @@ Get a list of DNS records created for a domain name specified in the URL.
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/domains/zeit.rocks/records"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains/zeit.rocks/records"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "records": [
@@ -91,24 +107,35 @@ Get a list of DNS records created for a domain name specified in the URL.
 </Example>
 
 ### Create a new DNS record
+
 <Endpoint method="POST" url="/v2/domains/:domain/records" />
 
 Create a DNS record for a domain specified in the URL. `mxPriority`
 field should be set for MX records and left out otherwise.
 
 #### Input
+
 <InputTable>
   <Row>
     <BoldCell>name</BoldCell>
     <TypeCell>String</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The subdomain which we're configuring or <InlineCode>@</InlineCode> for the domain itself.</Cell>
+    <Cell>
+      The subdomain which we're configuring or <InlineCode>@</InlineCode> for
+      the domain itself.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>type</BoldCell>
     <TypeCell>Enum</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The type of record, it could be <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">any valid DNS record</GenericLink>.</Cell>
+    <Cell>
+      The type of record, it could be{' '}
+      <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">
+        any valid DNS record
+      </GenericLink>
+      .
+    </Cell>
   </Row>
   <Row>
     <BoldCell>value</BoldCell>
@@ -120,38 +147,47 @@ field should be set for MX records and left out otherwise.
     <BoldCell>mxPriority</BoldCell>
     <TypeCell>Integer</TypeCell>
     <BooleanCell status={false} />
-    <Cell>The priority for MX records, is only required if the record <InlineCode>type</InlineCode> is <InlineCode>MX</InlineCode>.</Cell>
+    <Cell>
+      The priority for MX records, is only required if the record{' '}
+      <InlineCode>type</InlineCode> is <InlineCode>MX</InlineCode>.
+    </Cell>
   </Row>
 </InputTable>
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>The unique ID of the DNS record. Always prepended with <InlineCode>rec_</InlineCode>.</Cell>
+    <Cell>
+      The unique ID of the DNS record. Always prepended with{' '}
+      <InlineCode>rec_</InlineCode>.
+    </Cell>
   </Row>
 </OutputTable>
 
 <Example>
   Example request:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains/zeit.rocks/records"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "subdomain",
-      "type": "MX",
-      "value": "mail.zeit.rocks",
-      "mxPriority": 10
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains/zeit.rocks/records"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'subdomain',
+    type: 'MX',
+    value: 'mail.zeit.rocks',
+    mxPriority: 10
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     uid: "rec_V0fra8eEgQwEpFhYG2vTzC3K"
@@ -159,6 +195,7 @@ field should be set for MX records and left out otherwise.
 </Example>
 
 ### Remove a DNS record
+
 <Endpoint method="DELETE" url="/v2/domains/:domain/records/:recId" />
 
 Delete a DNS record created for a domain name, where both the domain
@@ -176,4 +213,3 @@ succesfully the endpoint returns with code 200 and an empty body.
     }}
   />
 </Example>
-

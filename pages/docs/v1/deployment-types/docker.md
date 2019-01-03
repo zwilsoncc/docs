@@ -4,10 +4,10 @@ import Now from '~/components/text/now'
 import { Code } from '~/components/text/code'
 
 export const meta = {
-  title: 'Deploying Docker Apps',
-  description: 'Docker apps with Now and all about the deployments',
-  date: '09 March 2017',
-  editUrl: 'pages/docs/deployment-types/docker.md'
+title: 'Deploying Docker Apps',
+description: 'Docker apps with Now and all about the deployments',
+date: '09 March 2017',
+editUrl: 'pages/docs/deployment-types/docker.md'
 }
 
 If your project contains a `Dockerfile` file, it will always be treated as a [Docker](https://www.docker.com/) deployment.

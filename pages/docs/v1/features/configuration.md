@@ -2,10 +2,10 @@ import Now from '~/components/text/now'
 import Doc from '~/components/layout/docs'
 
 export const meta = {
-  title: 'Configuring Now',
-  description: 'Configuring Now so that your deployments are exactly as you need them',
-  date: '22 Feb 2017',
-  editUrl: 'pages/docs/features/configuration.md'
+title: 'Configuring Now',
+description: 'Configuring Now so that your deployments are exactly as you need them',
+date: '22 Feb 2017',
+editUrl: 'pages/docs/features/configuration.md'
 }
 
 This guide explains how to use these methods to configure and customize the default behavior of Now CLI and Now Desktop.
@@ -37,6 +37,7 @@ For a list of all available options, refer to the ["Settings"](#settings) sectio
 All of the properties mentioned below can be used inside the `now.json` file:
 
 #### `version` (number)
+
 Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
 
 The default version for Now deployments is [version 2](/docs/v1-upgrade).
@@ -170,7 +171,6 @@ Controls if `_src` should be available or not. By default, this property is set 
 ```
 "public": true
 ```
-
 
 #### `engines` (object)
 

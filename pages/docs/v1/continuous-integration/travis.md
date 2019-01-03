@@ -4,18 +4,20 @@ import Doc from '~/components/layout/docs'
 import { Code, InlineCode } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
 
 export const meta = {
-  title: 'Continuous Integration with Travis CI',
-  description: 'Deploy your changes in your GitHub repositories after every push using Travis CI and Now',
-  date: '13 Mar 2018',
-  editUrl: 'pages/docs/continuous-integration/travis.md',
-  image: IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png'
+title: 'Continuous Integration with Travis CI',
+description: 'Deploy your changes in your GitHub repositories after every push using Travis CI and Now',
+date: '13 Mar 2018',
+editUrl: 'pages/docs/continuous-integration/travis.md',
+image: IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png'
 }
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
 
 In this guide, we will set up our Travis CI pipeline to:
+
 - Create a new deployment after each push to any branch
 - [Alias](/docs/features/aliases) your deployment made on the master branch with your [custom domain](/docs/getting-started/assign-a-domain-name)
 - Optionally; build an application inside Travis instead of with Now
@@ -44,9 +46,10 @@ Now that you have your token and have set up your GitHub account with Travis, yo
 
 Next, go to the desired repository's settings in Travis (e.g. `https://travis-ci.org/:username/:repository/settings`) and add a new environment variable with the value of your newly created Now token. If you call it `NOW_TOKEN` you can then use it inside Travis CI configuration like the following for example:
 
+<!-- prettier-ignore -->
 <TerminalInput>now --token $NOW_TOKEN</TerminalInput>
 
-> *Note*: You can use any name for your environment variable, just change the name that you entered into the repositories settings in Travis CI with your own variable name and then use that name with `$` at the beginning like the example above.
+<Note>You can use any name for your environment variable, just change the name that you entered into the repositories settings in Travis CI with your own variable name and then use that name with <InlineCode>\$</InlineCode> at the beginning like the example above.</Note>
 
 ## Step 3: Configuring Travis to deploy with Now using your Token
 
@@ -75,7 +78,7 @@ deploy:
       master: true
 ```
 
-> *Note*: If you are deploying using an OSS account you will have to add the `--public` argument with the Now commands to avoid being asked if you are sure you want your deployment to be public, which will block the build; awaiting user input.
+<Note>If you are deploying using an OSS account you will have to add the <InlineCode>--public</InlineCode> argument with the Now commands to avoid being asked if you are sure you want your deployment to be public, which will block the build; awaiting user input.</Note>
 
 As you may have noticed, the above script for the master branch uses the `now alias` command without providing the deployment URL and the alias to use. This can be achieved [using a configuration file](/docs/features/configuration). You can read more about it in ["How Do I Deploy and Alias in a Single Command?"](/docs/other/faq#how-do-i-deploy-and-alias-in-a-single-command) on our FAQ page.
 
@@ -87,7 +90,7 @@ In some cases, you may prefer to build on Travis CI instead of directly on Now. 
 
 ### Defining what to deploy
 
-If you decide to build your application on Travis CI you will not need to deploy your source code, if that's the case you can use a [configuration file with the `files` key](/docs/features/configuration#files-(array)) to specify what to deploy.
+If you decide to build your application on Travis CI you will not need to deploy your source code, if that's the case you can use a [configuration file with the `files` key](</docs/features/configuration#files-(array)>) to specify what to deploy.
 
 If you are building a [Next.js](https://github.com/zeit/next.js) application with a [custom server](https://github.com/zeit/next.js#custom-server-and-routing) you can add the following to your configuration file.
 
@@ -113,7 +116,7 @@ To run your build on Travis CI you only need to change your `.travis.yml` file t
 script: npm run build
 ```
 
-> *Note*: This will make Travis CI run the build script instead of the test script, you can add a prebuild or postbuild step to run tests
+<Note>This will make Travis CI run the build script instead of the test script, you can add a prebuild or postbuild step to run tests.</Note>
 
 Since you are building your application on Travis, you don't want Now to try to build it. To avoid this you can add the following simple script to your `package.json`.
 

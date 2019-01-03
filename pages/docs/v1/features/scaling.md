@@ -7,10 +7,10 @@ import { InlineCode } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Global Scaling',
-  description: 'Scaling your deployments to be instances in multiple global locations with Now',
-  date: '01 Apr 2018',
-  editUrl: 'pages/docs/features/scaling.md'
+title: 'Global Scaling',
+description: 'Scaling your deployments to be instances in multiple global locations with Now',
+date: '01 Apr 2018',
+editUrl: 'pages/docs/features/scaling.md'
 }
 
 In this feature guide, you will learn how to globally distribute
@@ -39,9 +39,9 @@ that you understand the meaning of the
 following terms (sorted by least granular to most granular):
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/region-graph.png`)}
-  width={600}
-  height={267}
+src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/region-graph.png`)}
+width={600}
+height={267}
 />
 
 #### Regions
@@ -89,11 +89,11 @@ copies ("Instances") of that deployment might be automatically
 created if the following statements are true:
 
 - The personal account or team you have created the deployment with
-is currently on a paid plan and not [restricted](/docs/other/restrictions) in
-any way.
+  is currently on a paid plan and not [restricted](/docs/other/restrictions) in
+  any way.
 - Your deployment is receiving a lot of traffic from the outside
-or you have
-configured [scaling rules](#pre-defining-scaling-rules) for the [datacenter](#datacenters).
+  or you have
+  configured [scaling rules](#pre-defining-scaling-rules) for the [datacenter](#datacenters).
 
 Within each [data center](#datacenter), your deployment can consist
 of up to 10 instances. If you want to increase this limit,
@@ -127,7 +127,7 @@ If you want to scale to all regions, you can do it like this:
 
 In cases where you want to enable every new deployment of a specific
 project in multiple regions, you can pre-define scaling rules in
-your local configuration file [like this](/docs/features/configuration#scale-(object)).
+your local configuration file [like this](</docs/features/configuration#scale-(object)>).
 
 Once that has been done, these rules will be automatically
 applied when `now` is run. In turn,
@@ -148,9 +148,9 @@ rules from our system:
 
 - **Minimum:** 0 ([freezes](/docs/guides/app-lifecycle-and-scalability#instances-&-scaling) if no requests come in)
 - **Maximum:** 10 (if created on a paid plan, the deployment may be
-automatically
-scaled to up to 10 [instances](#instances) if a significant amount
-of requests come in)
+  automatically
+  scaled to up to 10 [instances](#instances) if a significant amount
+  of requests come in)
 
 In order to lock the number of [instances](#instances) of a specific
 deployment, you can run this command:
@@ -213,9 +213,9 @@ scaling rules set in the target location:
 
 - **Minimum:** 0 ([freezes](/docs/guides/app-lifecycle-and-scalability#instances-&-scaling) if no requests come in)
 - **Maximum:** 10 (if created on a paid plan, the deployment may be
-automatically
-scaled to up to 10 [instances](#instances) if a lot
-of requests come in)
+  automatically
+  scaled to up to 10 [instances](#instances) if a lot
+  of requests come in)
 
 In order to lock a region or data center to specific scaling rules, you
 can still append them as you would do

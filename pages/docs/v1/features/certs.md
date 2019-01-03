@@ -5,10 +5,10 @@ import { InternalLink } from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Managing SSL Certificates',
-  description: 'SSL Certificates for your Now deployments and how you can easily manage them',
-  date: '15 Mar 2017',
-  editUrl: 'pages/docs/features/certs.md'
+title: 'Managing SSL Certificates',
+description: 'SSL Certificates for your Now deployments and how you can easily manage them',
+date: '15 Mar 2017',
+editUrl: 'pages/docs/features/certs.md'
 }
 
 Each time you create a new deployment, you will get a new unique subdomain. For this address (just like for the custom domains you've added using `now alias` or `now alias`), we're automatically provisioning an SSL certificate for you.
@@ -52,7 +52,7 @@ When automatic certificate renewal fails, we will send you a notification email.
 
 As of version **0.6.0**, [now-client](https://github.com/zeit/now-client) comes with API wrappers for managing the certificates bound to aliases using a custom domain.
 
-Normally, when a user created an alias with <Now color="#000" /> command line utility, we automatically issued a certificate for it (as previously described in ${<InternalLink href="/blog/now-alias">this post</InternalLink>}). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal, and replacement.
+Normally, when a user created an alias with <Now color="#000" /> command line utility, we automatically issued a certificate for it (as previously described in <InternalLink href="/blog/now-alias">this post</InternalLink>). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal, and replacement.
 
 The endpoint is called `/now/certs` and available in our <InternalLink href="/docs/api#endpoints">REST API</InternalLink>.
 

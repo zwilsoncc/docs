@@ -1,4 +1,7 @@
 import Doc from '~/components/layout/docs'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
+import { P } from '~/components/text/paragraph'
 
 export const meta = {
   title: 'Encryption',
@@ -17,7 +20,11 @@ Location: https://<your-deployment-host>
 
 It is not possible to disable this redirection or prevent the **Deployment** from being served over HTTPS as it is considered an industry standard to serve web contents over a secure connection.
 
-**NOTE:** If the client that as issuing requests to your **Deployment** wants to establish a WebSocket connection, please ensure it is connecting using HTTPS directly, as the WSS protocol does not support redirections.
+<Note>
+  if the client that as issuing requests to your <P.B>Deployment</P.B> wants to
+  establish a WebSocket connection, please ensure it is connecting using HTTPS
+  directly, as the WSS protocol does not support redirections.
+</Note>
 
 ## Supported TLS Versions
 
@@ -45,7 +52,14 @@ max-age=31536000; includeSubDomains;
 
 Theoretically, you could set the `max-age` parameter to a different value (it indicates how long the client should remember that your site is only accessible over HTTPS), but since we do not allow connections made over HTTP, there is no point in setting it to a shorter value, as the client can just remember it forever.
 
-**NOTE:** You can try whether your site qualifies for HSTS Preloading [here](https://hstspreload.org/). It also allows submitting the domain to Google Chrome's hardcoded HSTS list. Making it onto that least means your site will become even faster, as it is always accessed over HTTPS right away (instead of the browser following the redirection issued by our **Routing** layer).
+<Note>
+  you can try whether your site qualifies for HSTS Preloading{' '}
+  <GenericLink href="https://hstspreload.org/">here</GenericLink>. It also
+  allows submitting the domain to Google Chrome's hardcoded HSTS list. Making it
+  onto that least means your site will become even faster, as it is always
+  accessed over HTTPS right away (instead of the browser following the
+  redirection issued by our <P.B>Routing</P.B> layer).
+</Note>
 
 ## How Certificates Are Handled
 
@@ -59,4 +73,4 @@ Then, once a hostname is requested, the certificate and key are read from the da
 
 Any features of the encryption mechanism that were left uncovered are documented [here](https://www.ssllabs.com/ssltest/analyze.html?d=zeit.co). You only need to make sure to select any IP address of your choice (it does not matter which one you pick – the results are the same for all).
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

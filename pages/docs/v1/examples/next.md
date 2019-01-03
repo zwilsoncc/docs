@@ -9,16 +9,17 @@ import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Building and Deploying a Next.js Application',
-  description: 'Get started building and deploying a basic Next.js application with Now',
-  date: '10 September 2018',
-  editUrl: 'pages/docs/examples/next.md',
-  image: IMAGE_ASSETS_URL + '/docs/examples/next/twitter-card.png'
+title: 'Building and Deploying a Next.js Application',
+description: 'Get started building and deploying a basic Next.js application with Now',
+date: '10 September 2018',
+editUrl: 'pages/docs/examples/next.md',
+image: IMAGE_ASSETS_URL + '/docs/examples/next/twitter-card.png'
 }
 
 [Next.js](http://nextjs.org) is a lightweight framework for creating static and server-rendered applications, which abstracts away all of the complicated parts required for creating a [React](http://reactjs.com/) application.
 
 ## Get Started with Next.js
+
 To start, create a directory for the Next.js application to go into:
 <TerminalInput>mkdir next-app && cd next-app</TerminalInput>
 
@@ -32,6 +33,7 @@ yarn add next react react-dom
 > Alternatively, use [npm](npmjs.org) to install these packages by using `npm install next react react-dom --save`.
 
 Next, create the project's `package.json` in that directory:
+
 ```json
 {
   "name": "next-app",
@@ -42,9 +44,11 @@ Next, create the project's `package.json` in that directory:
   }
 }
 ```
+
 <Caption>The name and scripts content of a basic Next.js application within a <InlineCode>package.json</InlineCode> file.</Caption>
 
 Alternatively, you can statically export a Next.js application by using an additional script within the `"scripts"` section:
+
 ```
 "export": "next export"
 ```
@@ -60,6 +64,7 @@ In turn, the next step will be to add a directory named "pages". As the name ind
 For example, add an `index.js` file inside the "pages" directory, which will be served when the `/` path is accessed on the app. Similarly, `about.js` will route to `/about`.
 
 Into the `index.js` file, place the following code:
+
 ```
 export default () => (
   <p>Welcome to Next.js!</p>
@@ -81,17 +86,17 @@ When running the command, Next.js will build the code and serve it on the addres
 This is how it should look:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/next/running.png`)}
-  width="550"
-  height="309"
+src={asset(`${IMAGE_ASSETS_URL}/docs/next/running.png`)}
+width="550"
+height="309"
 />
 
 You can now go to <http://localhost:3000> in your browser and see the rendered markup:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/next/output.png`)}
-  width="550"
-  height="307"
+src={asset(`${IMAGE_ASSETS_URL}/docs/next/output.png`)}
+width="550"
+height="307"
 />
 
 Now the application is **ready to be deployed**.
@@ -99,15 +104,19 @@ Now the application is **ready to be deployed**.
 For more information on Next.js, visit [the website](https://nextjs.org) and [the documentation](https://nextjs.org).
 
 ## Deploying the App
+
 There are two methods for deploying a Next.js application due to the ability of Next being able to both render server-side and statically at build-time.
 
 ### Deploying Statically
+
 For statically exported Next.js applications using `next export` in the package.json scripts, as noted in the [Getting Started](#get-started-with-next.js) portion of this example guide, Now supports the static export by default.
 
 [Static Builds on Now](/docs/static-deployments/builds/building-with-now) allow Next.js apps to be built and deployed all with one command.
 
 ### Building the App on Now
+
 To build the app when deploying, first set the type of deployment to `static` within a `now.json` configuration file:
+
 ```json
 {
   "type": "static"
@@ -135,9 +144,11 @@ COPY . .
 # Build the app and export the static files to the `public` directory
 RUN yarn build && yarn export -o /public
 ```
+
 <Caption>A <InlineCode>Dockerfile</InlineCode> containing the build instructions for a static Next.js application.</Caption>
 
 Additionally, create a `.dockerignore` file to whitelist the files needed to avoid deploying anything unnecessary:
+
 ```
 *
 !pages
@@ -145,6 +156,7 @@ Additionally, create a `.dockerignore` file to whitelist the files needed to avo
 !package.json
 !yarn.lock
 ```
+
 <Caption>A <InlineCode>.dockerignore</InlineCode> file whitelisting necessary directories and files for deployment.</Caption>
 
 With the configuration set and the build instructions defined, the app is ready to be deployed and built with just one command:
@@ -155,9 +167,11 @@ The app will be then built and deployed with Now, providing you with a deploymen
 [View the example application on the zeit/now-examples repository.](https://github.com/zeit/now-examples/tree/master/static-next.js)
 
 ### Deploying a Server-Rendered Next.js App
+
 To deploy a server-rendered Next.js application, all that's needed is to set the deployment type and create instructions for how Now can run the app within the deployment.
 
 Set the deployment type to `docker` and enable Now Cloud v2 within a `now.json` file:
+
 ```json
 {
   "type": "docker",
@@ -168,6 +182,7 @@ Set the deployment type to `docker` and enable Now Cloud v2 within a `now.json` 
 ```
 
 Then, create a `Dockerfile` with the instructions to prepare and start the server that will render the Next.js application:
+
 ```
 # Use a Node.js image and assign it as our build
 FROM mhart/alpine-node:10 as build
@@ -200,9 +215,11 @@ COPY --from=build /usr/src .
 # Start the server for Next.js using Node.js
 CMD ["next", "start"]
 ```
+
 <Caption>A <InlineCode>Dockerfile</InlineCode> utilizing <GenericLink href="https://docs.docker.com/develop/develop-images/multistage-build/">multi-stage builds</GenericLink> to produce a minimal final image which, in combination with Now Cloud v2, helps with fast cold-boot times and performance.</Caption>
 
 Additionally, with a `.dockerignore` file, we avoid deploying any unnecessary files:
+
 ```
 *
 !pages

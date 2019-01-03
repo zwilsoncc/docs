@@ -17,6 +17,7 @@ import Request from '~/components/api/request'
 ## Domains
 
 ### List all the domains
+
 <Endpoint method="GET" url="/v2/domains" />
 
 Retrieves a list of domains registered for the authenticating user.
@@ -26,6 +27,7 @@ a boolean value telling wheter an external nameserver is used to
 manage DNS records for the domain.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
@@ -35,7 +37,7 @@ manage DNS records for the domain.
   <Row>
     <BoldCell>name</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>The domain name</Cell>
+    <Cell>The domain name.</Cell>
   </Row>
   <Row>
     <BoldCell>createdAt</BoldCell>
@@ -45,17 +47,28 @@ manage DNS records for the domain.
   <Row>
     <BoldCell>boughtAt</BoldCell>
     <TypeCell>Date</TypeCell>
-    <Cell>If it was purchased through {<Now color="#000" />} the date when it was purchased.</Cell>
+    <Cell>
+      If it was purchased through {<Now color="#000" />} the date when it was
+      purchased.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>expiresAt</BoldCell>
     <TypeCell>Date</TypeCell>
-    <Cell>The date when the domain is going to expire and need to be renewed.</Cell>
+    <Cell>
+      The date when the domain is going to expire and need to be renewed.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>isExternal</BoldCell>
     <TypeCell>Boolean</TypeCell>
-    <Cell>If it is an <GenericLink href="/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname">externally handled domain</GenericLink></Cell>
+    <Cell>
+      If it is an{' '}
+      <GenericLink href="/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname">
+        externally handled domain
+      </GenericLink>
+      .
+    </Cell>
   </Row>
   <Row>
     <BoldCell>verified</BoldCell>
@@ -70,21 +83,25 @@ manage DNS records for the domain.
   <Row>
     <BoldCell>certs</BoldCell>
     <TypeCell>List</TypeCell>
-    <Cell>The list domains or subdomains with a SSL certificated provisioned.</Cell>
+    <Cell>
+      The list domains or subdomains with a SSL certificated provisioned.
+    </Cell>
   </Row>
 </OutputTable>
 
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/domains"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "domains": [
@@ -108,6 +125,7 @@ manage DNS records for the domain.
 </Example>
 
 ### Add a new domain
+
 <Endpoint method="POST" url="/v2/domains" />
 
 Register a new domain name with <Now color="#000" /> for the authenticating
@@ -122,6 +140,7 @@ been created, the user may retry the same POST and the endpoint shall return
 `verified: true`, if the domain was verified succesfully.
 
 #### Input
+
 <InputTable>
   <Row>
     <BoldCell>name</BoldCell>
@@ -133,11 +152,18 @@ been created, the user may retry the same POST and the endpoint shall return
     <BoldCell>serviceType</BoldCell>
     <TypeCell>Enum</TypeCell>
     <BooleanCell status={false} />
-    <Cell><InlineCode>external</InlineCode> for <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">externally handled domain</GenericLink>; <InlineCode>zeit.world</InlineCode> for managed.</Cell>
+    <Cell>
+      <InlineCode>external</InlineCode> for{' '}
+      <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">
+        externally handled domain
+      </GenericLink>
+      ; <InlineCode>zeit.world</InlineCode> for managed.
+    </Cell>
   </Row>
 </InputTable>
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
@@ -152,7 +178,13 @@ been created, the user may retry the same POST and the endpoint shall return
   <Row>
     <BoldCell>verifyToken</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>The <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">token</GenericLink> required to verify the ownership of an external domain.</Cell>
+    <Cell>
+      The{' '}
+      <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">
+        token
+      </GenericLink>{' '}
+      required to verify the ownership of an external domain.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>created</BoldCell>
@@ -164,43 +196,47 @@ been created, the user may retry the same POST and the endpoint shall return
 <Example>
   Example request adding a zeit.world domain:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "zeit.rocks",
-      "serviceType": "zeit.world"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'zeit.rocks',
+    serviceType: 'zeit.world'
+  }}
+/>
 
-  Successful (**200**) response:
+Successful (**200**) response:
 
-  <Code>{`{
+<Code>{`{
     uid: "V0fra8eEgQwEpFhYG2vTzC3K",
     verified: true,
     created: "2016-09-23T11:53:38.600Z"
   }`}</Code>
 
-  Example request adding a unverified external domain:
+Example request adding a unverified external domain:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "awesome-now.us",
-      "serviceType": "zeit.world"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'awesome-now.us',
+    serviceType: 'zeit.world'
+  }}
+/>
 
-  Successful (**200**) response:
+Successful (**200**) response:
 
   <Code>{`{
     uid: "V0fra8eEgQwEpFhYG2vTzC3K",
@@ -211,12 +247,14 @@ been created, the user may retry the same POST and the endpoint shall return
 </Example>
 
 ### Remove a domain by name
+
 <Endpoint method="DELETE" url="/v2/domains/:name" />
 
 Delete a previously registered domain name from <Now color="#000" />.
 Deleting a domain will automatically remove any associated aliases.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
@@ -228,15 +266,17 @@ Deleting a domain will automatically remove any associated aliases.
 <Example>
   Example request:
 
-  <Request
-    method="DELETE"
-    url="https://api.zeit.co/v2/domains/zeit.rocks"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  method="DELETE"
+  url="https://api.zeit.co/v2/domains/zeit.rocks"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     uid: "V0fra8eEgQwEpFhYG2vTzC3K"
@@ -244,11 +284,13 @@ Deleting a domain will automatically remove any associated aliases.
 </Example>
 
 ### Check a domain availability
+
 <Endpoint method="GET" url="/v2/domains/status?name" />
 
 Check if a domain name _may_ be available to buy or not. The response is a JSON with the key `available` as a boolean.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>status</BoldCell>
@@ -260,14 +302,16 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/domains/status?name=zeit.rocks"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains/status?name=zeit.rocks"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "status": false
@@ -275,11 +319,13 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 </Example>
 
 ### Check the price of a domain
+
 <Endpoint method="GET" url="/v2/domains/price?name" />
 
 Check the price to purchase a domain and how long a single purchase period is. The response is a JSON with the key `price` as a number (always an integer) and a key `period` as a number indicating the amount of years the domains could be hold before paying again.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>price</BoldCell>
@@ -296,14 +342,16 @@ Check the price to purchase a domain and how long a single purchase period is. T
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/domains/price?name=zeit.rocks"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains/price?name=zeit.rocks"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "price": 17,
@@ -312,6 +360,7 @@ Check the price to purchase a domain and how long a single purchase period is. T
 </Example>
 
 ### Purchase a domain
+
 <Endpoint method="POST" url="/v2/domains/buy" />
 
 Purchase the specified domain, it receive the domain name as the key `name` inside the request body.
@@ -319,6 +368,7 @@ Purchase the specified domain, it receive the domain name as the key `name` insi
 In case of a successful purchase the returns with code 200 and an empty body.
 
 #### Input
+
 <InputTable>
   <Row>
     <BoldCell>name</BoldCell>
@@ -337,19 +387,21 @@ In case of a successful purchase the returns with code 200 and an empty body.
 <Example>
   Example request:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains/buy"
-    headers={{
-      Authorization: `Bearer ${(props.testingtoken ? props.testingtoken.token : '$token')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "zeit.rocks"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains/buy"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingtoken ? props.testingtoken.token : '$token'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'zeit.rocks'
+  }}
+/>
 
-  Example failed **403** response:
+Example failed **403** response:
 
   <Code>{`{
     "error": {
@@ -358,4 +410,3 @@ In case of a successful purchase the returns with code 200 and an empty body.
     }
   }`}</Code>
 </Example>
-

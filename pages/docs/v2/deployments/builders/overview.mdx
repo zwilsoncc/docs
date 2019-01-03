@@ -6,7 +6,8 @@ import { GenericLink } from '~/components/text/link'
 
 export const meta = {
   title: 'Builders Overview',
-  description: 'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.'
+  description:
+    'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.'
 }
 
 Builders are modules that take a deployment's source and return an output, consisting of [either static files or dynamic Lambdas](/docs/v2/deployments/builds#sources-and-outputs).
@@ -32,7 +33,7 @@ Builders can be used in with Now by creating a `now.json` file in a project and 
 
 The `builds` property is an array of objects where each object is a build step, including a `src` and a `use` property, at least.
 
-The Builder will receive a list of files based on the `src` property's [glob](https://en.wikipedia.org/wiki/Glob_(programming)) value.
+The Builder will receive a list of files based on the `src` property's [glob](<https://en.wikipedia.org/wiki/Glob_(programming)>) value.
 
 ## Developing your Own Builder
 
@@ -44,7 +45,7 @@ Extending the feature-set of a Now deployment is as simple as creating a Builder
 
 ### Caching Data
 
-A builder can retain an archive of up to `100mb` of the filesystem at `build` time. The cache key is generated as a combination of
+A builder can retain an archive of up to `100mb` of the filesystem at `build` time. The cache key is generated as a combination of:
 
 - Deployment `name` (i.e., the app name)
 - Team id or user id
@@ -61,17 +62,28 @@ The cache will be invalidated if any of those items changes. The user can bypass
 - Default lambda bundled output size is **5mb**, however, [configurable](#configuring-lambda-bundle-size).
 
 #### Configuring Lambda Bundle Size
+
 Each lambda output, by default, has a bundle size limit of **5mb** to [help keep cold boot times low](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size), but can be configured up to **50mb** with the [`maxLambdaSize` config option](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size).
 
 The lambda threshold can also be defined by the builder that outputs the lambda (for example, [@now/go, by default, is **15mb**](/docs/v2/deployments/official-builders/go-now-go#maximum-lambda-bundle-size)), but the user configuration takes precedence.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "builds": [
     { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
   ]
 }`}</Code>
-<Caption>Using the <GenericLink href="/docs/v2/deployments/official-builders/go-now-go">@now/go Builder</GenericLink> and configuring the <InlineCode>maxLambdaSize</InlineCode> within a <GenericLink href="/docs/v2/deployments/configuration#builds">now.json configuration file</GenericLink>.</Caption>
+  <Caption>
+    Using the{' '}
+    <GenericLink href="/docs/v2/deployments/official-builders/go-now-go">
+      @now/go Builder
+    </GenericLink>{' '}
+    and configuring the <InlineCode>maxLambdaSize</InlineCode> within a{' '}
+    <GenericLink href="/docs/v2/deployments/configuration#builds">
+      now.json configuration file
+    </GenericLink>
+    .
+  </Caption>
 </Example>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

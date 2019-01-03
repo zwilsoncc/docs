@@ -9,7 +9,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'Markdown Builder (@now/md)',
-  description: 'The official Markdown Builder for ZEIT Now. Transform markdown sources to a HTML output for ZEIT Now deployments.'
+  description:
+    'The official Markdown Builder for ZEIT Now. Transform markdown sources to a HTML output for ZEIT Now deployments.'
 }
 
 <Tag>Status: Stable</Tag>
@@ -17,9 +18,11 @@ export const meta = {
 This builder converts `.md` files into `.html`. It uses [remarkjs](https://github.com/remarkjs/remark) under the hood.
 
 ## When to use it
+
 When you want to create quick static websites from Markdown source files.
 
 ## How to use it
+
 We will define a `index.md` file:
 
 ```
@@ -44,7 +47,9 @@ Then we will define our build step to optimize our images:
 That's it. The result looks like this: https://markdown-deployment-bfc5zuwfx.now.sh
 
 ## Technical Details
+
 ### Entrypoint
+
 The entrypoint is always an `.md` file you want to convert to HTML.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

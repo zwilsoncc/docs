@@ -7,19 +7,24 @@ import Request from '~/components/api/request'
 ## Certificates
 
 ### List all the certificates
+
 <Endpoint method="GET" url="/v3/now/certs" />
 
 Retrieves a list of certificates issued for the authenticating user or
 information about the certificate issued for the common name specified in the URL.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of issued certificates. |
 
 #### Certificate
+
 This is the format of each item in the `certs` list.
 
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the certificate. |
@@ -31,14 +36,16 @@ This is the format of each item in the `certs` list.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v3/now/certs"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v3/now/certs"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "certs": [
@@ -54,12 +61,15 @@ This is the format of each item in the `certs` list.
 </Example>
 
 ### Get a single certificate
-<Endpoint method="GET" url="/v3/now/certs/:id"/>
+
+<Endpoint method="GET" url="/v3/now/certs/:id" />
 
 Retrieves the information about the certificate issued for
 certificate id specified in the URL.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the certificate. |
@@ -71,14 +81,16 @@ certificate id specified in the URL.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v3/now/certs/oAjf6y9pxZgCJyQfrclN"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v3/now/certs/oAjf6y9pxZgCJyQfrclN"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (200) response:
+Example successful (200) response:
 
 <Code>{`{
   "cns": ["wow.zeit.co"],
@@ -90,19 +102,24 @@ certificate id specified in the URL.
 </Example>
 
 ### Create a new certificate
-<Endpoint method="POST" url="/v3/now/certs"/>
 
-Issues and stores a new certificate for the common names given in 
+<Endpoint method="POST" url="/v3/now/certs" />
+
+Issues and stores a new certificate for the common names given in
 the body using **Let's Encrypt**.
 
 The body should contain \`domains\` array and it may contain \`renew\` field to renew an existing certificate.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **domains** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | Yes | A list of Common Names for which the certificate is being provisioned. |
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the issued certificate. |
@@ -111,20 +128,22 @@ The body should contain \`domains\` array and it may contain \`renew\` field to 
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v3/now/certs"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "domains": ["testing.zeit.co"],
-      "renew": true
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v3/now/certs"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    domains: ['testing.zeit.co'],
+    renew: true
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "uid": "zWsFytQUFlkUWaR7nWdwS7xR"
@@ -133,6 +152,7 @@ The body should contain \`domains\` array and it may contain \`renew\` field to 
 </Example>
 
 ### Submit a certificate
+
 <Endpoint method="PUT" url="/v3/now/certs" />
 
 Create a new certificate entry with a user-supplied certificate.
@@ -140,6 +160,8 @@ Create a new certificate entry with a user-supplied certificate.
 The body should contain `cert`, private `key`, and `ca` chain fields in PEM format.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **ca** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted CA chain. |
@@ -147,6 +169,8 @@ The body should contain `cert`, private `key`, and `ca` chain fields in PEM form
 | **key** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted private key. |
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
@@ -154,21 +178,23 @@ The body should contain `cert`, private `key`, and `ca` chain fields in PEM form
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="PUT"
-    url="https://api.zeit.co/v3/now/certs"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "ca": "PEM formatted CA chain",
-      "cert": "PEM formatted certificate",
-      "key": "PEM formatted private key"
-    }}
-  />
+<Request
+  method="PUT"
+  url="https://api.zeit.co/v3/now/certs"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    ca: 'PEM formatted CA chain',
+    cert: 'PEM formatted certificate',
+    key: 'PEM formatted private key'
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "created_at": 2016-06-01T21:03:10.420Z"
@@ -176,6 +202,7 @@ The body should contain `cert`, private `key`, and `ca` chain fields in PEM form
 </Example>
 
 ### Delete a certificate
+
 <Endpoint method="DELETE" url="/v3/now/certs/:id" />
 
 Delete an existing certificate entry. If the certificate entry was
@@ -193,4 +220,3 @@ an empty body; Otherwise an error object is returned.
     }}
   />
 </Example>
-

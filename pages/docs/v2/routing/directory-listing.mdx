@@ -5,7 +5,8 @@ import Caption from '~/components/text/caption'
 
 export const meta = {
   title: 'Directory Listing',
-  description: 'Directory listings are shown for deployments that have no index files.'
+  description:
+    'Directory listings are shown for deployments that have no index files.'
 }
 
 The content of any path that does not contain an **Index File** (within a deployment) is rendered using our **Directory Listing**.
@@ -67,4 +68,4 @@ In the example above, the `/example` route (which is a directory without an **In
 
 Furthermore, we are setting a status code of `404` to accompany the response.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

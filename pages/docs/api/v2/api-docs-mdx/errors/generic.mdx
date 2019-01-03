@@ -7,12 +7,13 @@ import Note from '~/components/text/note'
 These error codes are consistent for all endpoints.
 
 ### Forbidden
+
 You're not authorized to use the endpoint. This usually happens due to missing an user token.
 
 <Note>Similar to the HTTP 403 Forbidden error.</Note>
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "forbidden",
     "message": "Not authorized"
@@ -21,12 +22,13 @@ You're not authorized to use the endpoint. This usually happens due to missing a
 </Example>
 
 ### Rate Limited
+
 You exceeded the maximum alloted requests.
 
 The limit of request is per endpoint basis so you could continue using another endpoints even if some of them give you this error.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "rate_limited",
     "message": "Rate limit exceeded",
@@ -35,10 +37,11 @@ The limit of request is per endpoint basis so you could continue using another e
 </Example>
 
 ### Bad Request
+
 There was an error with the request, the `error.message` would contain information about the issue.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "bad_request",
     "message": "An english description of the error that just occurred",
@@ -47,10 +50,11 @@ There was an error with the request, the `error.message` would contain informati
 </Example>
 
 ### Internal Server Error
+
 This errors is similar to the HTTP 500 Internal Server Error error code.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "internal_server_error",
     "message": "An unexpected internal error occurred"
@@ -59,10 +63,11 @@ This errors is similar to the HTTP 500 Internal Server Error error code.
 </Example>
 
 ### Resource Not Found
+
 The endpoint you're requesting does not handle the method you defined. The error message will contain the methods the endpoint responds to.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "method_unknown",
     "message": "This endpoint only responds to METHOD"
@@ -71,14 +76,14 @@ The endpoint you're requesting does not handle the method you defined. The error
 </Example>
 
 ### Method Unknown
+
 The endpoint you're requesting does not handle the method you defined. The error message will contain the methods the endpoint responds to.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "method_unknown",
     "message": "This endpoint only responds to METHOD"
   }
 }`}</Code>
 </Example>
-

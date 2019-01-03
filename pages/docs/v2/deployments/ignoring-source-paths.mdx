@@ -2,7 +2,8 @@ import Doc from '~/components/layout/docs'
 
 export const meta = {
   title: 'Ignoring Source Paths',
-  description: 'Using a .nowignore file to prevent deploying source paths for speed and security.'
+  description:
+    'Using a .nowignore file to prevent deploying source paths for speed and security.'
 }
 
 We highly recommend including the file `.nowignore`. It is essential to deploying code to Now in a fast manner.
@@ -10,6 +11,7 @@ We highly recommend including the file `.nowignore`. It is essential to deployin
 In this document, you will learn the file's exact function and how to use it.
 
 ### What Files Are Uploaded
+
 By default, all files within your project are uploaded (not served, just uploaded) to Now.
 
 In order to prevent a path within your project from being uploaded to Now, you need to create a `.nowignore` file and insert the path that you would like to ignore.
@@ -24,10 +26,11 @@ dist
 We highly recommend taking advantage of this system for ignoring paths, as it will make creating deployments much faster (and cheaper).
 
 ### What Files Are Served
+
 Only files that are matched by the `src` property of a **Build** are "considered for serving" (the **Builder** you defined decides whether a file is then actually served).
 
 If you did not define a `now.json` file containing one or more **Builds**, however, all files within your project will be served.
 
 The only **exceptions** are `now.json` and `.nowignore`, which will not be served if you did not explicitly define a **Build** with a `src` property that matches their names.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

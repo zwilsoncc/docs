@@ -9,7 +9,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'MDX Deck Builder (@now/mdx-deck)',
-  description: 'The official MDX Deck Builder for ZEIT Now. Deploy MDX Deck applications with minimal setup and a single entrypoint.'
+  description:
+    'The official MDX Deck Builder for ZEIT Now. Deploy MDX Deck applications with minimal setup and a single entrypoint.'
 }
 
 <Tag>Status: Stable</Tag>
@@ -53,4 +54,4 @@ Your resulting deck is statically built and served from our CDN: https://mdx-dec
 
 The entrypoint is always a `.mdx` file that follows the [mdx-deck](https://github.com/jxnblk/mdx-deck) format.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

@@ -4,10 +4,10 @@ import Now from '~/components/text/now'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Frequently Asked Questions',
-  description: 'The answers to our most frequently asked questions for Now and other ZEIT products and services',
-  date: '30 Jan 2018',
-  editUrl: 'pages/docs/other/faq.md'
+title: 'Frequently Asked Questions',
+description: 'The answers to our most frequently asked questions for Now and other ZEIT products and services',
+date: '30 Jan 2018',
+editUrl: 'pages/docs/other/faq.md'
 }
 
 ## Where can I see the current status of the platform?
@@ -31,7 +31,7 @@ additional instances.
 
 ## How do I deploy and alias in a single command?
 
-Create a [configuration file](/docs/features/configuration) with the keys [alias](/docs/features/configuration#alias-(string|array)) and [name](/docs/features/configuration#name-(string)) similar to this one:
+Create a [configuration file](/docs/features/configuration) with the keys [alias](</docs/features/configuration#alias-(string|array)>) and [name](</docs/features/configuration#name-(string)>) similar to this one:
 
 ```
 {
@@ -90,7 +90,7 @@ Deployments are immutable. This means they cannot be modified after being create
 This model offers a few interesting benefits:
 
 - **Easy rollback**<br />
-You can just move your alias to an older deployment to have immediate rollbacks.
+  You can just move your alias to an older deployment to have immediate rollbacks.
 - **Staging and production deployments**<br />
   A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `now alias`.
 - **Zero-Downtime deployment**<br />
@@ -190,6 +190,7 @@ We send a receipt to your email address for every card transaction including a l
 Please note that we can only honor special invoicing requests that come from the personal account's email address or, in the event the request pertains to a team, the team owner's email address.
 
 ## How do I remove or delete my account?
+
 You can delete your account in your [account settings](https://zeit.co/account).
 
 ## How many levels of subdomains can I use?

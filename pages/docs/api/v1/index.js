@@ -226,10 +226,12 @@ class APIPage extends Component {
                       Now platform. For the latest features, please see{' '}
                       <GenericLink href="/docs/api/v2">
                         the version 2 API reference
-                      </GenericLink>. If you have yet to upgrade, see the{' '}
+                      </GenericLink>
+                      . If you have yet to upgrade, see the{' '}
                       <GenericLink href="/docs/v2/platform/upgrade-to-2-0">
                         upgrade guide
-                      </GenericLink>.
+                      </GenericLink>
+                      .
                     </Note>
                   </div>
                   {structure.map(category => {

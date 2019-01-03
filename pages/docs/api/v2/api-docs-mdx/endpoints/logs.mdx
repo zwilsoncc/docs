@@ -7,16 +7,21 @@ import Request from '~/components/api/request'
 ## Logs
 
 ### Get deployment logs
+
 <Endpoint method="GET" url="/v2/now/deployments/:id/events" />
 
 Get the logs of a deployment by its ID.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **logs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of objects representing each log. |
 
 ##### Log Object
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **object** | <HelpLink href="#api-basics/types">Map</HelpLink> | The log content as a map. |
@@ -33,8 +38,10 @@ Get the logs of a deployment by its ID.
 | **region** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The name of the region where the instance was running. The region could be any supported region, for example; `sfo`. |
 
 ##### Log Object Key
+
 These are the usual keys of the key `object` of the logs.
 
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **method** | <HelpLink href="#api-basics/types">String</HelpLink> | A valid HTTP method. |
@@ -46,26 +53,29 @@ These are the usual keys of the key `object` of the logs.
 | **userAgent** | <HelpLink href="#api-basics/types">String</HelpLink> | The user agent of the device which sent the request. |
 
 #### Types
+
 These are the possible types of logs and what they mean.
 
-| Type | Description |
-| -- | -- |
-| **request** | The log is an HTTP request. |
-| **response** | The log is an HTTP response. |
-| **command** | The log is a terminal command, e.g. `npm start`. |
-| **stdout** | The log is anything the application wrote to console. |
+| Type         | Description                                           |
+| ------------ | ----------------------------------------------------- |
+| **request**  | The log is an HTTP request.                           |
+| **response** | The log is an HTTP response.                          |
+| **command**  | The log is a terminal command, e.g. `npm start`.      |
+| **stdout**   | The log is anything the application wrote to console. |
 
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v2/now/deployments/Cm6WigEH9EBI4Uzs2WA6qOGe/events"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/now/deployments/Cm6WigEH9EBI4Uzs2WA6qOGe/events"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`{
   "logs": [
@@ -147,4 +157,3 @@ These are the possible types of logs and what they mean.
   ]
 }`}</Code>
 </Example>
-

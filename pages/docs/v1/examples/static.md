@@ -5,15 +5,15 @@ import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
 import { Image } from '~/components/media'
 import {
-  TerminalInput,
-  TerminalOutput
+TerminalInput,
+TerminalOutput
 } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Building a Static Website',
-  description: 'Creating and deploying a static website with Now',
-  date: '23 Feb 2017',
-  editUrl: 'pages/docs/examples/static.md'
+title: 'Building a Static Website',
+description: 'Creating and deploying a static website with Now',
+date: '23 Feb 2017',
+editUrl: 'pages/docs/examples/static.md'
 }
 
 With just a single command, even complex Node applications or Docker containers can be deployed with Now.
@@ -55,9 +55,9 @@ The code basically loads ZEIT's logo from our content delivery network and shows
 This is how it will look in the browser when opening the file:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/static/browser.png`)}
-  width="550"
-  height="319"
+src={asset(`${IMAGE_ASSETS_URL}/docs/static/browser.png`)}
+width="550"
+height="319"
 />
 
 ## Testing Your Project

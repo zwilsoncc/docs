@@ -1,3 +1,4 @@
 .next
 dist
+lib/data/last-edited.json
 pages/examples

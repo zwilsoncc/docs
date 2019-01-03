@@ -2,16 +2,18 @@ import Doc from '~/components/layout/docs'
 
 export const meta = {
   title: 'Builders Developer Guide',
-  description: 'How to create a Builder to take ZEIT Now deployment sources and output either static files or lambdas with almost limitless possibilities.'
+  description:
+    'How to create a Builder to take ZEIT Now deployment sources and output either static files or lambdas with almost limitless possibilities.'
 }
 
 A builder is an npm module that exposes a `build` function and optionally an `analyze` function and `prepareCache` function.
 
 In short:
+
 - The `analyze` function returns a unique fingerprint used for the purpose of [build de-duplication](/docs/v2/deployments/concepts/immutability). If the `analyze` function is not supplied, it's equivalent to it returning a random fingerprint for each build.
 - The `build` function returns a [Files](#files-map-file-lambda) datastructure that contains the [build outputs](/docs/v2/deployments/builds#sources-and-outputs), which can be:
-    - Static files
-    - [Lambda](/docs/v2/deployments/concepts/lambdas) functions
+  - Static files
+  - [Lambda](/docs/v2/deployments/concepts/lambdas) functions
 - The `prepareCache` function is equivalent to `build`, but it executes the instructions necessary to prepare a cache for the next run.
 
 The arguments these functions receive are:
@@ -64,11 +66,11 @@ To see the source code for this example, [check it out on GitHub](https://github
 
 ### Defining the analyze step
 
-The `analyze` hook is optional. Its goal is to give the developer a tool to avoid wasting time *re-computing a build* that has already occurred.
+The `analyze` hook is optional. Its goal is to give the developer a tool to avoid wasting time _re-computing a build_ that has already occurred.
 
-The return value of `analyze` is a *fingerprint*: a simple string that uniquely identifies the build process.
+The return value of `analyze` is a _fingerprint_: a simple string that uniquely identifies the build process.
 
-If `analyze` is not specified, its behavior is to use as the fingerprint the combined checksums of **all the files in the same directory level as the entrypoint**. This is a default that errs on making sure that we re-execute builds when files *other than the entrypoint* (like dependencies, manifest files, etc) have changed.
+If `analyze` is not specified, its behavior is to use as the fingerprint the combined checksums of **all the files in the same directory level as the entrypoint**. This is a default that errs on making sure that we re-execute builds when files _other than the entrypoint_ (like dependencies, manifest files, etc) have changed.
 
 For our `html-minify` example, we know that HTML files don't have dependencies. Therefore, our analyze step can just return the `digest` of the entrypoint.
 
@@ -80,7 +82,7 @@ exports.analyze = function ({ files, entrypoint }) {
 }
 ```
 
-This means that we will only re-minify and re-create the build output *only if the file contents (and therefore its digest) change.*
+This means that we will only re-minify and re-create the build output _only if the file contents (and therefore its digest) change._
 
 ### Defining the build step
 
@@ -120,7 +122,7 @@ In this case, there are not intermediate artifacts that we can cache, and our `a
 
 A [lambda](/docs/v2/deployments/concepts/lambdas) is created where the builder logic is executed. The lambda is run using the Node.js 8 runtime. A brand new sandbox is created for each deployment, for security reasons. The sandbox is cleaned up between executions to ensure no lingering temporary files are shared from build to build.
 
-All the APIs you export (`analyze`, `build` and `prepareCache`) are not guaranteed to be run in the same process, but the filesystem we expose (e.g.:  `workPath` and the results of calling [`getWritableDirectory`](/docs/v2/deployments/builders/developer-guide#fs-getwritabledirectory-string) ) is retained.
+All the APIs you export (`analyze`, `build` and `prepareCache`) are not guaranteed to be run in the same process, but the filesystem we expose (e.g.: `workPath` and the results of calling [`getWritableDirectory`](/docs/v2/deployments/builders/developer-guide#fs-getwritabledirectory-string) ) is retained.
 
 If you need to share state between those steps, use the filesystem.
 
@@ -214,7 +216,7 @@ This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaSc
 
 Exported from: `@now/build-utils/lambda`
 
-This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that can be created by supplying `files`,  `handler` and `runtime` and `environment` as an object to the [`createLambda`](#createlambda-object-spec-lambda) helper. The instances of this class should not be created directly. Instead use a call to [`createLambda`](#createlambda-object-spec-lambda).
+This is a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that can be created by supplying `files`, `handler` and `runtime` and `environment` as an object to the [`createLambda`](#createlambda-object-spec-lambda) helper. The instances of this class should not be created directly. Instead use a call to [`createLambda`](#createlambda-object-spec-lambda).
 
 **Properties:**
 
@@ -265,7 +267,7 @@ Exported as: `@now/build-utils/fs/download`
 
 This utility allows you to download the contents of a `Files` datastructure, therefore creating the filesystem represented in it.
 
-Since `Files` is an abstract way of representing files, you can think of `download` as a way of making that virtual filesystem *real*.
+Since `Files` is an abstract way of representing files, you can think of `download` as a way of making that virtual filesystem _real_.
 
 ```
 await download(files, workPath);
@@ -275,7 +277,7 @@ await download(files, workPath);
 
 Exported as: `@now/build-utils/fs/glob`
 
-This utility allows you to *scan* the filesystem and return a `Files` representation of the matched glob search string. It can be thought of as the reverse of [`download`](#fs-download-files).
+This utility allows you to _scan_ the filesystem and return a `Files` representation of the matched glob search string. It can be thought of as the reverse of [`download`](#fs-download-files).
 
 The following trivial example downloads everything to the filesystem, only to return it back (therefore just re-creating the passed-in `files`):
 
@@ -293,7 +295,7 @@ exports.build = ({ files, workPath }) => {
 
 Exported as: `@now/build-utils/fs/get-writable-directory`
 
-In some occasions, you might want to write to a temporary directory
+In some occasions, you might want to write to a temporary directory.
 
 ### fs/rename(Files) : Files
 
@@ -309,4 +311,4 @@ rename({
 // returns new Files object
 ```
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

@@ -131,11 +131,13 @@ export default class Editor extends React.PureComponent {
                 <p className="note" key="1">
                   This is an example of{' '}
                   <GenericLink
-                    href={`https://github.com/zeit/now-examples/tree/master/${this
-                      .props.name}`}
+                    href={`https://github.com/zeit/now-examples/tree/master/${
+                      this.props.name
+                    }`}
                   >
                     {this.props.name}
-                  </GenericLink>.
+                  </GenericLink>
+                  .
                 </p>,
                 <p className="note bottom" key="2">
                   Edit the code however you like! Press <kbd>esc</kbd> to enter

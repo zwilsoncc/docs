@@ -7,7 +7,8 @@ import Caption from '~/components/text/caption'
 
 export const meta = {
   title: 'Users and Teams',
-  description: 'Using ZEIT Now with a scope of a user or a team and how to manage them.'
+  description:
+    'Using ZEIT Now with a scope of a user or a team and how to manage them.'
 }
 
 There are identity forms available on Now, called "scopes": Users and teams.
@@ -31,7 +32,6 @@ Once they have created their own user account, you can create a team by clicking
 <Caption>Creating a team from the account picker from the <GenericLink href="/dashboard">account dashboard</GenericLink>.</Caption>
 
 After clicking the link, you will be asked to select whether you would like to set up your team with GitHub directly (which we highly suggest) and then to enter the URL of your future team. For this, please choose an accurate representation of your team's name:
-
 
 <Image src={`https://assets.zeit.co/image/upload/v1541367164/front/docs/users-and-teams/team-url.png`}
   width={1508/2}
@@ -83,9 +83,7 @@ Click on the triangle in your menubar, then select the avatar of your team in th
 
 Run the following command and pick the user or team of your choice:
 
-<TerminalInput>
-now switch
-</TerminalInput>
+<TerminalInput>now switch</TerminalInput>
 
 You can also run this command with the slug of a team or username you would like to switch to:
 
@@ -125,6 +123,12 @@ With this GET parameter attached, the response will of the URL above will now in
 
 However, you still need to attach a token of your user account as described [here](/docs/api#api-basics/authentication). In turn, this user account needs to be a member of the team you would like to access over the API.
 
-<Note>For more information on the teams API endpoint, see our <GenericLink href="/docs/api/v2#endpoints/teams">API reference documentation</GenericLink>.</Note>
+<Note>
+  For more information on the teams API endpoint, see our{' '}
+  <GenericLink href="/docs/api/v2#endpoints/teams">
+    API reference documentation
+  </GenericLink>
+  .
+</Note>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

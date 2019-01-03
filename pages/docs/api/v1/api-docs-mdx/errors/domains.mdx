@@ -6,6 +6,7 @@ import { Code } from '~/components/text/code'
 These error code could happen when using any [domains related endpoints](#endpoints/domains).
 
 ### Domain Forbidden
+
 You don't have access to the domain, this usually mean this domains is owned by another account or team.
 
 The domain is specified in the message and the `DOMAIN` key.
@@ -21,6 +22,7 @@ The domain is specified in the message and the `DOMAIN` key.
 </Example>
 
 ### Domain Name Not Found
+
 The domain name could not be found in our system. Try to [add it first](#endpoints/domains/add-a-new-domain).
 
 <Example>
@@ -33,6 +35,7 @@ The domain name could not be found in our system. Try to [add it first](#endpoin
 </Example>
 
 ### Missing Domain Name
+
 The domain name wasn't specified in the URL. This means you tried to use an endpoint which require you to define the domain name in the URL but didn't defined it.
 
 <Example>
@@ -45,6 +48,7 @@ The domain name wasn't specified in the URL. This means you tried to use an endp
 </Example>
 
 ### Conflicting Certificates
+
 You must [remove the certificates](#endpoints/certificates/delete-a-certificate) described in the error before removing the domains.
 
 The certificates are specified in the `CERT_CNS` key.
@@ -60,6 +64,7 @@ The certificates are specified in the `CERT_CNS` key.
 </Example>
 
 ### Conflicting Aliases
+
 You must [remove the aliases](#endpoints/aliases/remove-an-alias) described in the error before removing the domains.
 
 The aliases are specified in the `ALIASES` key.
@@ -75,6 +80,7 @@ The aliases are specified in the `ALIASES` key.
 </Example>
 
 ### Not Modified
+
 When trying to modify a domain nothing was required to change.
 
 <Example>
@@ -87,6 +93,7 @@ When trying to modify a domain nothing was required to change.
 </Example>
 
 ### Missing Domain Name in Body
+
 When trying to add a domain the name wasn't present in the request body.
 
 <Example>
@@ -99,6 +106,7 @@ When trying to add a domain the name wasn't present in the request body.
 </Example>
 
 ### Invalid Domain Name
+
 The domain name defined in the request body is invalid.
 
 The name is specified in the error as the `NAME` key.
@@ -114,6 +122,7 @@ The name is specified in the error as the `NAME` key.
 </Example>
 
 ### Custom Domain Needs a Plan Upgrade
+
 In order to add a custom domain to your account or team you need to upgrade to a paid plan.
 
 <Example>
@@ -126,6 +135,7 @@ In order to add a custom domain to your account or team you need to upgrade to a
 </Example>
 
 ### Domain Already Exists
+
 The domain name you're trying to add already exists.
 
 The domain name and his current ID are received in the `NAME` and `DOMAIN_ID` keys.
@@ -142,6 +152,7 @@ The domain name and his current ID are received in the `NAME` and `DOMAIN_ID` ke
 </Example>
 
 ### Can't Create the Domain
+
 The domain name can't be created. Most probably it couldn't be verified.
 
 <Example>
@@ -154,6 +165,7 @@ The domain name can't be created. Most probably it couldn't be verified.
 </Example>
 
 ### Failed to Add Domain after Purchase
+
 We were able to purchase a domain for you but we had an error when trying to add it to your account. Please contact us on [zeit.chat](/chat) or via [support@zeit.com](mailto:support@zeit.co).
 
 <Example>
@@ -166,6 +178,7 @@ We were able to purchase a domain for you but we had an error when trying to add
 </Example>
 
 ### Unable to Determine the Domain Price
+
 We're unable to determine the domain price of a domain.
 
 <Example>
@@ -178,6 +191,7 @@ We're unable to determine the domain price of a domain.
 </Example>
 
 ### Domain price mismatch
+
 The `expectedPrice` supplied in the request body doesn't match the actual domain price, which is specificed in the `actualPrice` key.
 
 <Example>
@@ -191,6 +205,7 @@ The `expectedPrice` supplied in the request body doesn't match the actual domain
 </Example>
 
 ### Domain Is Not Available
+
 The domain name is not available to be purchased.
 
 <Example>
@@ -203,6 +218,7 @@ The domain name is not available to be purchased.
 </Example>
 
 ### Invalid Domain
+
 The domain name or TLD is invalid or not supported.
 
 <Example>
@@ -215,6 +231,7 @@ The domain name or TLD is invalid or not supported.
 </Example>
 
 ### Domain Not Found
+
 The domain you're trying to get information about could not be found or doesn't exists.
 
 <Example>
@@ -227,6 +244,7 @@ The domain you're trying to get information about could not be found or doesn't 
 </Example>
 
 ### Missing DNS Record Name
+
 The DNS record key `name` is required and was not provided. It should be either a subdomain or `@` for the domain itself.
 
 <Example>
@@ -239,6 +257,7 @@ The DNS record key `name` is required and was not provided. It should be either 
 </Example>
 
 ### Missing DNS Record Type
+
 The DNS record key `type` is required and was not provided. It could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types).
 
 <Example>
@@ -249,4 +268,3 @@ The DNS record key `type` is required and was not provided. It could be [any val
     }
   }`}</Code>
 </Example>
-

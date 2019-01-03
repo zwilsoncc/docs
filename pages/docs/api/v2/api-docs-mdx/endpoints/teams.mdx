@@ -9,11 +9,14 @@ import Request from '~/components/api/request'
 ## Teams
 
 ### Create a team
+
 <Endpoint method="POST" url="/v1/teams" />
 
 Create a new team under your account. You need to send a `POST` request with the desired team slug.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **slug** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The desired slug for the team. |
@@ -21,19 +24,21 @@ Create a new team under your account. You need to send a `POST` request with the
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v1/teams"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "slug": "a-random-team"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v1/teams"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    slug: 'a-random-team'
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`{
   "id": "team_LLHUOMOoDlqOp8wPE4kFo9pE"
@@ -41,11 +46,14 @@ Create a new team under your account. You need to send a `POST` request with the
 </Example>
 
 ### List all your teams
+
 <Endpoint method="GET" url="/v1/teams" />
 
 Get a list of all the team you belong to.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **teams** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of each team member as described on [Get single team information](#endpoints/teams/get-single-team-information). |
@@ -53,14 +61,16 @@ Get a list of all the team you belong to.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v1/teams"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v1/teams"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`{
   "teams": [
@@ -77,14 +87,18 @@ Get a list of all the team you belong to.
 </Example>
 
 ### Get single team information
+
 <Endpoint>
-  GET /v1/teams/:id<br />
+  GET /v1/teams/:id
+  <br />
   GET /v1/teams?slug
 </Endpoint>
 
 Get the information of a specific team, it could be used either passing the `:id` in the URL or the team `slug` as a query parameter.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The team unique identifier. Always prepended by `team_`. |
@@ -96,14 +110,16 @@ Get the information of a specific team, it could be used either passing the `:id
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`{
   "id": "team_ofwUZockJlL53hINUGCc1ONW",
@@ -116,13 +132,18 @@ Get the information of a specific team, it could be used either passing the `:id
 </Example>
 
 ### Update team information
+
 <Endpoint method="PATCH" url="/v1/teams/:id" />
 
 Update the information of the team defined with the id. You need to send a `PATCH` request with a body containing the information you want to change.
 
-<Note>You need to be <InlineCode>OWNER</InlineCode> to use it.</Note>
+<Note>
+  You need to be <InlineCode>OWNER</InlineCode> to use it.
+</Note>
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **slug** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The new team slug. |
@@ -131,19 +152,21 @@ Update the information of the team defined with the id. You need to send a `PATC
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="PATCH"
-    url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "My Cool Team"
-    }}
-  />
+<Request
+  method="PATCH"
+  url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'My Cool Team'
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`{
   "id": "team_ofwUZockJlL53hINUGCc1ONW",
@@ -155,11 +178,14 @@ Update the information of the team defined with the id. You need to send a `PATC
 </Example>
 
 ### Get list of team members
+
 <Endpoint method="GET" url="/v1/teams/:id/members" />
 
 Get the list of team members of the team defined in the URL. The response is a list of maps with the following format.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The team member unique identifier. |
@@ -170,14 +196,16 @@ Get the list of team members of the team defined in the URL. The response is a l
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW/members"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW/members"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`[
   {
@@ -196,18 +224,25 @@ Get the list of team members of the team defined in the URL. The response is a l
 </Example>
 
 ### Invite user to team
+
 <Endpoint method="POST" url="/v1/teams/:id/members" />
 
 Invite a user to join the team specified in the URL. To use it send a `POST` request with the user email in the body.
 
-<Note>You need to be <InlineCode>OWNER</InlineCode> to use it.</Note>
+<Note>
+  You need to be <InlineCode>OWNER</InlineCode> to use it.
+</Note>
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **email** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The email address of the user to invite. |
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the invited user. |
@@ -216,19 +251,21 @@ Invite a user to join the team specified in the URL. To use it send a `POST` req
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW/members"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "email": "user@mail.com"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW/members"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    email: 'user@mail.com'
+  }}
+/>
 
-  Example response:
+Example response:
 
 <Code syntax="json">{`{
   "uid": "kr1PsOIzqEL5Xg6M4VZcZosf",
@@ -237,13 +274,18 @@ Invite a user to join the team specified in the URL. To use it send a `POST` req
 </Example>
 
 ### Change user role
+
 <Endpoint method="PATCH" url="/v1/teams/:id/members/:userId" />
 
 Change the role of an user inside a team member. To change it send a `PATCH` request, if the change is done you will receive a 200 status code with an empty body.
 
-<Note>You need to be <InlineCode>OWNER</InlineCode> to use it.</Note>
+<Note>
+  You need to be <InlineCode>OWNER</InlineCode> to use it.
+</Note>
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **role** | <HelpLink href="#api-basics/types">Enum</HelpLink> | Yes | The new role of the team member, it could be `OWNER` or `MEMBER`. |
@@ -265,11 +307,15 @@ Change the role of an user inside a team member. To change it send a `PATCH` req
 </Example>
 
 ### Remove user from team
+
 <Endpoint method="DELETE" url="/v1/teams/:id/members/:userId" />
 
 Remove the specified user from a team.
 
-<Note>You need to be <InlineCode>OWNER</InlineCode> to use it and the user <P.B>must not</P.B> be an owner themselves.</Note>
+<Note>
+  You need to be <InlineCode>OWNER</InlineCode> to use it and the user{' '}
+  <P.B>must not</P.B> be an owner themselves.
+</Note>
 
 <Example>
   <span>Example request:</span>
@@ -282,4 +328,3 @@ Remove the specified user from a team.
     }}
   />
 </Example>
-

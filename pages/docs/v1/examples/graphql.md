@@ -8,16 +8,16 @@ import { AnchorLink, InternalLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
 
 export const meta = {
-  title: 'Building a Basic GraphQL Application',
-  date: '01 March 2017',
-  editUrl: 'pages/docs/examples/graphql.md',
+title: 'Building a Basic GraphQL Application',
+date: '01 March 2017',
+editUrl: 'pages/docs/examples/graphql.md',
 }
 
 Since Facebook released their [GraphQL](http://graphql.org/) technology back in 2015, it has evolved into a wonderful query language perfectly suited for all kinds of today's API endpoints. Why?
 
-* Comes with a much more definite way of describing the data passed through your API.
-* Allows the client to fetch many resources in a single request, rather than forcing it to send multiple ones to different endpoints.
-* Built from the ground up so that only data requested by the client is sent back. This makes [GraphQL](http://graphql.org/) apps react quickly even on slow mobile network connections.
+- Comes with a much more definite way of describing the data passed through your API.
+- Allows the client to fetch many resources in a single request, rather than forcing it to send multiple ones to different endpoints.
+- Built from the ground up so that only data requested by the client is sent back. This makes [GraphQL](http://graphql.org/) apps react quickly even on slow mobile network connections.
 
 Because of these advantages, it's a great alternative to [REST](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
@@ -57,9 +57,9 @@ The code above tells <Now color="#000" /> the name of the project ("graphql-api"
 
 Next, we need to install a few packages:
 
-* [micro](https://github.com/zeit/micro) (a library of ours - makes building a [microservice](https://zeit.co/docs/examples/json-api) a breeze)
-* [express-graphql](https://github.com/graphql/express-graphql) and [graphql](https://www.npmjs.com/package/graphql) (add support for the query language)
-* [micro-cors](https://www.npmjs.com/package/micro-cors) (responsible for setting the correct CORS headers for every response)
+- [micro](https://github.com/zeit/micro) (a library of ours - makes building a [microservice](https://zeit.co/docs/examples/json-api) a breeze)
+- [express-graphql](https://github.com/graphql/express-graphql) and [graphql](https://www.npmjs.com/package/graphql) (add support for the query language)
+- [micro-cors](https://www.npmjs.com/package/micro-cors) (responsible for setting the correct CORS headers for every response)
 
 Run this command in your terminal to install them using [npm](https://www.npmjs.com/):
 
@@ -102,9 +102,9 @@ module.exports = CORS(server({ schema, rootValue }))
 Now you should be able to run `npm start` inside the directory containing the API and you should be handed a URL which will show the following when opened in a browser window:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/graphql/api.png`)}
-  width="550"
-  height="307"
+src={asset(`${IMAGE_ASSETS_URL}/docs/graphql/api.png`)}
+width="550"
+height="307"
 />
 
 On the first glance, it looks like an error. Well... It actually is one.
@@ -222,9 +222,9 @@ You should now be able to access the app on the address you saw in the terminal 
 In the browser, the client should look like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/graphql/client.png`)}
-  width="550"
-  height="307"
+src={asset(`${IMAGE_ASSETS_URL}/docs/graphql/client.png`)}
+width="550"
+height="307"
 />
 
 ## Deploying the Client

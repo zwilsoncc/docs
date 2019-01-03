@@ -7,15 +7,15 @@ import { P } from '~/components/text/paragraph'
 import { Image } from '~/components/media'
 import { Code } from '~/components/text/code'
 import {
-  TerminalInput,
-  TerminalOutput
+TerminalInput,
+TerminalOutput
 } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Building a Basic JSON API',
-  description: 'Building a basic JSON API with Micro and deploying it with Now',
-  date: '20 Feb 2017',
-  editUrl: 'pages/docs/examples/json-api.md'
+title: 'Building a Basic JSON API',
+description: 'Building a basic JSON API with Micro and deploying it with Now',
+date: '20 Feb 2017',
+editUrl: 'pages/docs/examples/json-api.md'
 }
 
 Nowadays, every properly built application requires at least one API endpoint where it can load data from.
@@ -45,9 +45,9 @@ Now let's create the project's files inside that directory. Start over with crea
 
 As you can see, this file now contains three properties:
 
-* `name` tells <Now color="#000" /> the name of the deployment
-* `scripts` will make the micro command run when starting the deployment
-* `dependencies` tells Node.js to download the latest version micro
+- `name` tells <Now color="#000" /> the name of the deployment
+- `scripts` will make the micro command run when starting the deployment
+- `dependencies` tells Node.js to download the latest version micro
 
 Next, install micro (the only dependency) by running npm's [install command](https://docs.npmjs.com/cli/install):
 
@@ -78,9 +78,9 @@ BOOM! The service will start running and you'll see a message like this one show
 Go to the URL returned (`http://0.0.0.0:3000`) and you should see something like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/json-api/date.png`)}
-  width="550"
-  height="279"
+src={asset(`${IMAGE_ASSETS_URL}/docs/json-api/date.png`)}
+width="550"
+height="279"
 />
 
 ## Retrieving and Sending Data
@@ -128,9 +128,9 @@ Now save the file and run it the service again (if it's still running, stop it u
 Assuming that you've followed this post to this point, you should now see able to open `http://0.0.0.0:3000` in your browser and see a list of all public members of the [ZEIT organization](https://github.com/zeit) on GitHub:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/json-api/members.png`)}
-  width="600"
-  height="373"
+src={asset(`${IMAGE_ASSETS_URL}/docs/json-api/members.png`)}
+width="600"
+height="373"
 />
 
 ## Deploying the Service

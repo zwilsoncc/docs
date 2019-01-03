@@ -8,11 +8,14 @@ import Request from '~/components/api/request'
 ## Domains
 
 ### List all the domains
+
 <Endpoint method="GET" url="/v2/domains" />
 
 Retrieves a list of domains registered for the authenticating user. The domain property `isExternal` is a boolean value telling whether an external nameserver is used to manage DNS records for the domain.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
@@ -26,14 +29,16 @@ Retrieves a list of domains registered for the authenticating user. The domain p
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v2/domains"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "domains": [
@@ -51,6 +56,7 @@ Retrieves a list of domains registered for the authenticating user. The domain p
 </Example>
 
 ### Add a new domain
+
 <Endpoint method="POST" url="/v2/domains" />
 
 Register a new domain name with <Now color="#000" /> for the authenticating
@@ -65,12 +71,16 @@ been created, the user may retry the same POST and the endpoint shall return
 `verified: true`, if the domain was verified successfully.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name you want to add. |
 | **serviceType** | <HelpLink href="#api-basics/types">Enum</HelpLink> | No | `external` for [externally handled domains](/docs/features/dns#adding-a-domain-using-external-nameservers); `zeit.world` for managed. |
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the domain. |
@@ -81,20 +91,22 @@ been created, the user may retry the same POST and the endpoint shall return
 <Example>
   <span>Example request adding a zeit.world domain:</span>
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "zeit.rocks",
-      "serviceType": "zeit.world"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'zeit.rocks',
+    serviceType: 'zeit.world'
+  }}
+/>
 
-  Successful (**200**) response:
+Successful (**200**) response:
 
 <Code>{`{
   uid: "V0fra8eEgQwEpFhYG2vTzC3K",
@@ -102,22 +114,24 @@ been created, the user may retry the same POST and the endpoint shall return
   created: "2016-09-23T11:53:38.600Z"
 }`}</Code>
 
-  Example request adding a unverified external domain:
+Example request adding a unverified external domain:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "awesome-now.us",
-      "serviceType": "zeit.world"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'awesome-now.us',
+    serviceType: 'zeit.world'
+  }}
+/>
 
-  Successful (**200**) response:
+Successful (**200**) response:
 
 <Code>{`{
   uid: "V0fra8eEgQwEpFhYG2vTzC3K",
@@ -128,12 +142,15 @@ been created, the user may retry the same POST and the endpoint shall return
 </Example>
 
 ### Remove a domain by name
+
 <Endpoint method="DELETE" url="/v2/domains/:name" />
 
 Delete a previously registered domain name from <Now color="#000" />.
 Deleting a domain will automatically remove any associated aliases.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the removed domain. |
@@ -141,15 +158,17 @@ Deleting a domain will automatically remove any associated aliases.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="DELETE"
-    url="https://api.zeit.co/v2/domains/zeit.rocks"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  method="DELETE"
+  url="https://api.zeit.co/v2/domains/zeit.rocks"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   uid: "V0fra8eEgQwEpFhYG2vTzC3K"
@@ -157,11 +176,14 @@ Deleting a domain will automatically remove any associated aliases.
 </Example>
 
 ### Check a domain availability
+
 <Endpoint method="GET" url="/v2/domains/status?name" />
 
 Check if a domain name _may_ be available to buy or not. The response is a JSON with the key `available` as a boolean.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **status** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is available or not. |
@@ -169,14 +191,16 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v2/domains/status?name=zeit.rocks"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains/status?name=zeit.rocks"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "status": false
@@ -184,11 +208,14 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 </Example>
 
 ### Check the price of a domain
+
 <Endpoint method="GET" url="/v2/domains/price?name" />
 
 Check the price to purchase a domain and how long a single purchase period is. The response is a JSON with the key `price` as a number (always an integer) and a key `period` as a number indicating the number of years the domains could be held before paying again.
 
 #### Response Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
 | **price** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The domain price. |
@@ -197,14 +224,16 @@ Check the price to purchase a domain and how long a single purchase period is. T
 <Example>
   <span>Example request:</span>
 
-  <Request
-    url="https://api.zeit.co/v2/domains/price?name=zeit.rocks"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/domains/price?name=zeit.rocks"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
 <Code>{`{
   "price": 17,
@@ -213,6 +242,7 @@ Check the price to purchase a domain and how long a single purchase period is. T
 </Example>
 
 ### Purchase a domain
+
 <Endpoint method="POST" url="/v2/domains/buy" />
 
 Purchase the specified domain, it receive the domain name as the key `name` inside the request body.
@@ -220,6 +250,8 @@ Purchase the specified domain, it receive the domain name as the key `name` insi
 In case of a successful purchase the returns with code 200 and an empty body.
 
 #### Request Parameters
+
+<!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name to purchase. |
@@ -228,19 +260,21 @@ In case of a successful purchase the returns with code 200 and an empty body.
 <Example>
   <span>Example request:</span>
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/domains/buy"
-    headers={{
-      Authorization: `Bearer ${(props.testingtoken ? props.testingtoken.token : '$token')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      "name": "zeit.rocks"
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/domains/buy"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingtoken ? props.testingtoken.token : '$token'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    name: 'zeit.rocks'
+  }}
+/>
 
-  Example failed **403** response:
+Example failed **403** response:
 
 <Code>{`{
   "error": {
@@ -249,4 +283,3 @@ In case of a successful purchase the returns with code 200 and an empty body.
   }
 }`}</Code>
 </Example>
-

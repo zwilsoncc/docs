@@ -3,21 +3,21 @@ import Doc from '~/components/layout/docs'
 
 import { Image } from '~/components/media'
 import {
-  TerminalOutput,
-  TerminalInput
+TerminalOutput,
+TerminalInput
 } from '~/components/text/terminal'
 
 export const updateMessage = {
-  color: 'white',
-  background: '#FF0000',
-  padding: '1px 3px'
+color: 'white',
+background: '#FF0000',
+padding: '1px 3px'
 }
 
 export const meta = {
-  title: 'Updating Now CLI',
-  description: 'Updating Now CLI using Now Desktop or a package manager',
-  date: '20 Jan 2018 11:34 AM PDT',
-  editUrl: 'pages/docs/guides/updating-now-cli.md'
+title: 'Updating Now CLI',
+description: 'Updating Now CLI using Now Desktop or a package manager',
+date: '20 Jan 2018 11:34 AM PDT',
+editUrl: 'pages/docs/guides/updating-now-cli.md'
 }
 
 If there is a new release
@@ -39,9 +39,9 @@ If that is the case, you do not need to do anything – other than
 ensuring this option is marked as enabled in [Now Desktop](/download):
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/blog/improved-cli-updates/update-option.png`)}
-  width={385}
-  height={228}
+src={asset(`${IMAGE_ASSETS_URL}/blog/improved-cli-updates/update-option.png`)}
+width={385}
+height={228}
 />
 
 As long as that is the case, you will automatically receive

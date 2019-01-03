@@ -16,11 +16,13 @@ import Request from '~/components/api/request'
 ## Logs
 
 ### Get deployment logs
+
 <Endpoint method="GET" url="/v2/now/deployments/:id/events" />
 
 Get the logs of a deployment by its ID.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>logs</BoldCell>
@@ -30,6 +32,7 @@ Get the logs of a deployment by its ID.
 </OutputTable>
 
 #### Log
+
 <OutputTable>
   <Row>
     <BoldCell>object</BoldCell>
@@ -44,17 +47,17 @@ Get the logs of a deployment by its ID.
   <Row>
     <BoldCell>deploymentId</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>The unique identified of the deployment</Cell>
+    <Cell>The unique identified of the deployment.</Cell>
   </Row>
   <Row>
     <BoldCell>id</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the log</Cell>
+    <Cell>The unique identifier of the log.</Cell>
   </Row>
   <Row>
     <BoldCell>context</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell></Cell>
+    <Cell />
   </Row>
   <Row>
     <BoldCell>created</BoldCell>
@@ -64,12 +67,16 @@ Get the logs of a deployment by its ID.
   <Row>
     <BoldCell>serial</BoldCell>
     <TypeCell>Int</TypeCell>
-    <Cell></Cell>
+    <Cell />
   </Row>
   <Row>
     <BoldCell>type</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>The type of log, it could be <InlineCode>request</InlineCode>, <InlineCode>response</InlineCode>, <InlineCode>command</InlineCode> or <InlineCode>stdout</InlineCode>.</Cell>
+    <Cell>
+      The type of log, it could be <InlineCode>request</InlineCode>,{' '}
+      <InlineCode>response</InlineCode>, <InlineCode>command</InlineCode> or{' '}
+      <InlineCode>stdout</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>pid</BoldCell>
@@ -89,11 +96,15 @@ Get the logs of a deployment by its ID.
   <Row>
     <BoldCell>region</BoldCell>
     <TypeCell>Enum</TypeCell>
-    <Cell>The name of the region where the instance was running. It could be <InlineCode>now-sfo</InlineCode>.</Cell>
+    <Cell>
+      The name of the region where the instance was running. It could be{' '}
+      <InlineCode>now-sfo</InlineCode>.
+    </Cell>
   </Row>
 </OutputTable>
 
 #### Log object key
+
 This are the usual keys of the key `object` of the logs.
 
 <OutputTable>
@@ -110,7 +121,13 @@ This are the usual keys of the key `object` of the logs.
   <Row>
     <BoldCell>status</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>A valid <ExternalLink href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status code</ExternalLink>.</Cell>
+    <Cell>
+      A valid{' '}
+      <ExternalLink href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">
+        HTTP status code
+      </ExternalLink>
+      .
+    </Cell>
   </Row>
   <Row>
     <BoldCell>protocol</BoldCell>
@@ -140,14 +157,17 @@ This are the usual keys of the key `object` of the logs.
 </OutputTable>
 
 #### Types
+
 These are the possible types of logs and what they mean.
 
-<Table head={
-  <Row>
-    <Cell isHead>Type</Cell>
-    <FullWidthCell isHead>Description</FullWidthCell>
-  </Row>
-}>
+<Table
+  head={
+    <Row>
+      <Cell isHead>Type</Cell>
+      <FullWidthCell isHead>Description</FullWidthCell>
+    </Row>
+  }
+>
   <Row>
     <BoldCell>request</BoldCell>
     <Cell>The log is a HTTP request.</Cell>
@@ -158,7 +178,9 @@ These are the possible types of logs and what they mean.
   </Row>
   <Row>
     <BoldCell>command</BoldCell>
-    <Cell>The log is a terminal command, e.g. <InlineCode>npm start</InlineCode>.</Cell>
+    <Cell>
+      The log is a terminal command, e.g. <InlineCode>npm start</InlineCode>.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>stdout</BoldCell>
@@ -169,14 +191,16 @@ These are the possible types of logs and what they mean.
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/now/deployments/Cm6WigEH9EBI4Uzs2WA6qOGe/events"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/now/deployments/Cm6WigEH9EBI4Uzs2WA6qOGe/events"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example response:
+Example response:
 
   <Code syntax="json">{`{
     "logs": [
@@ -258,4 +282,3 @@ These are the possible types of logs and what they mean.
     ]
   }`}</Code>
 </Example>
-

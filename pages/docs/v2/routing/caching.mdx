@@ -2,7 +2,8 @@ import Doc from '~/components/layout/docs'
 
 export const meta = {
   title: 'Caching',
-  description: 'A guide for how ZEIT Now caches and how to control that caching.'
+  description:
+    'A guide for how ZEIT Now caches and how to control that caching.'
 }
 
 The routing layer equates to the number of regions contained within the [**Basic CDN**](/docs/v2/deployments/concepts/cdn-and-global-distribution#basic-cdn). On every single one of those regions, we are able to cache your content using an LRU mechanism.
@@ -21,8 +22,8 @@ You can read more about the suggested way to define this property [here](/docs/v
 
 ## Sharding
 
-By default, your cache is shared with all the other customers and behaves as an [LRU (Least Recently Used)](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) mechanism.
+By default, your cache is shared with all the other customers and behaves as an [LRU (Least Recently Used)](<https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)>) mechanism.
 
 If you would like for your cache to be shared, please [contact our Sales team](mailto:sales@zeit.co).
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

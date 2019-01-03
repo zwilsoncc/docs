@@ -5,17 +5,17 @@ import { InternalLink } from '~/components/text/link'
 import Now from '~/components/text/now'
 
 export const meta = {
-  title: 'Environment Variables',
-  description: 'Setting up environment variables to use in your deployed Now apps',
-  date: '6 August 2017',
-  editUrl: 'pages/docs/getting-started/environment-variables.md'
+title: 'Environment Variables',
+description: 'Setting up environment variables to use in your deployed Now apps',
+date: '6 August 2017',
+editUrl: 'pages/docs/getting-started/environment-variables.md'
 }
 
 Almost every app needs to get configurations at runtime. These configurations could be anything, including:
 
-* Database connection details
-* Third-party API keys
-* Different customization parameters
+- Database connection details
+- Third-party API keys
+- Different customization parameters
 
 The best way to expose these configurations is to do so with [environment variables](https://en.wikipedia.org/wiki/Environment_variable), which is a universally available method that works across various programming languages, operating systems and hosting providers.
 
@@ -34,9 +34,10 @@ If your app is a Node.js app, here's how you can do that:
 const { MONGO_URL, MY_API_TOKEN } = process.env
 ```
 
-## Via “now.json”
+## Via `now.json`
 
 You can also expose these environment variables with [now.json](https://zeit.co/docs/features/configuration). For that, create a file named `now.json` inside your app root and add environment variables like this:
+
 ```
 {
   "env": {

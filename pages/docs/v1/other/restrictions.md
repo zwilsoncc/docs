@@ -1,10 +1,10 @@
 import Doc from '~/components/layout/docs'
 
 export const meta = {
-  title: 'Restrictions',
-  description: 'A guide to what restrictions you have when deploying to Now',
-  date: '20 Mar 2018',
-  editUrl: 'pages/docs/other/restrictions.md'
+title: 'Restrictions',
+description: 'A guide to what restrictions you have when deploying to Now',
+date: '20 Mar 2018',
+editUrl: 'pages/docs/other/restrictions.md'
 }
 
 The purpose of this page is to guide you through
@@ -79,19 +79,19 @@ In both cases, these restrictions will be enforced upon
 your deployment:
 
 - Deployments will return the status code `402` and
-a page letting you know about the failed payment. This message
-can be seen by anyone trying to access the deployment.
+  a page letting you know about the failed payment. This message
+  can be seen by anyone trying to access the deployment.
 
 - In addition to returning the error message, deployments
-will be scaled to 0 running instances. No code will
-be executed anymore.
+  will be scaled to 0 running instances. No code will
+  be executed anymore.
 
 In the case that your account or team was suspended because of
 failed payments, the following will apply as well:
 
 - API requests with the `Accept header` header
-set to `application/json` will result in a JSON response
-with the `error.code` property set to `payment_required`.
+  set to `application/json` will result in a JSON response
+  with the `error.code` property set to `payment_required`.
 
 If you need additional advice on how to unblock your
 deployments or prevent them from initially getting

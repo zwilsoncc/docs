@@ -9,7 +9,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'Node.js Builder (@now/node)',
-  description: 'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.'
+  description:
+    'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.'
 }
 
 <Tag>Status: Stable</Tag>
@@ -70,31 +71,38 @@ You can pass query parameters to make the name change:
 ## Technical Details
 
 ### Entrypoint
+
 The entrypoint of this Builder is always a JavaScript file that exposes a function. If you want to expose a server, look into `@now/node-server`, although that is not recommended.
 
 ### Dependencies Installation
+
 The installation algorithm of dependencies works as follows:
 
 - If a `package-lock.json` is present, `npm install` is used
 - Otherwise, `yarn` is used.
 
 ### Private npm modules
+
 To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
 
 ### Node.js Version
+
 The Node.js version used is the latest in the **8 branch**.
 
 ### Maximum Lambda Bundle Size
+
 To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Node.js output lambda is, by default, **`5mb`**.
 This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
 
 <Example>
-<span>Example <InlineCode>maxLambdaSize</InlineCode> configuration:</span>
-<Code>{`{
+  <span>
+    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
+  </span>
+  <Code>{`{
   "builds": [
     { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "10mb" } }
   ]
 }`}</Code>
 </Example>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

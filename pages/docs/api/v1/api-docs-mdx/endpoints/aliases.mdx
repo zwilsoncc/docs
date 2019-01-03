@@ -16,12 +16,14 @@ import Request from '~/components/api/request'
 ## Aliases
 
 ### List all the aliases
+
 <Endpoint method="GET" url="/v2/now/aliases" />
 
 Retrieves all of the active now aliases for the authenticating user.
 The body will contain an entry for each alias.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>uid</BoldCell>
@@ -31,7 +33,10 @@ The body will contain an entry for each alias.
   <Row>
     <BoldCell>alias</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>The alias name, it could be a <InlineCode>.now.sh</InlineCode> subdomain or a custom domain.</Cell>
+    <Cell>
+      The alias name, it could be a <InlineCode>.now.sh</InlineCode> subdomain
+      or a custom domain.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>created</BoldCell>
@@ -51,11 +56,15 @@ The body will contain an entry for each alias.
   <Row>
     <BoldCell>rules</BoldCell>
     <TypeCell>List</TypeCell>
-    <Cell>The configured rules for <InternalLink href="/docs/features/path-aliases">path alias</InternalLink></Cell>
+    <Cell>
+      The configured rules for{' '}
+      <InternalLink href="/docs/features/path-aliases">path alias</InternalLink>.
+    </Cell>
   </Row>
 </OutputTable>
 
 #### Deployment
+
 This is the format of the `deployment` described above.
 
 <OutputTable>
@@ -74,14 +83,16 @@ This is the format of the `deployment` described above.
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/now/aliases"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/now/aliases"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "aliases": [
@@ -114,12 +125,14 @@ This is the format of the `deployment` described above.
 </Example>
 
 ### Remove an alias
+
 <Endpoint method="DELETE" url="/v2/now/aliases/:id" />
 
 The API allows you to delete an alias by supplying the alias `:id` in the url.
 You can obtain this id from the list of aliases.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>status</BoldCell>
@@ -131,15 +144,17 @@ You can obtain this id from the list of aliases.
 <Example>
   Example request:
 
-  <Request
-    method="DELETE"
-    url="https://api.zeit.co/v2/now/aliases/2WjyKQmM8ZnGcJsPWMrHRHrE"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  method="DELETE"
+  url="https://api.zeit.co/v2/now/aliases/2WjyKQmM8ZnGcJsPWMrHRHrE"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "status": "SUCCESS"
@@ -147,6 +162,7 @@ You can obtain this id from the list of aliases.
 </Example>
 
 ### List aliases by deployment
+
 <Endpoint method="GET" url="/v2/now/deployments/:id/aliases" />
 
 Retrieves all of the aliases for the deployment with the given `:id`.
@@ -154,6 +170,7 @@ The authenticating user must own this deployment.
 The body will contain an entry for each alias.
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>aliases</BoldCell>
@@ -163,6 +180,7 @@ The body will contain an entry for each alias.
 </OutputTable>
 
 #### Alias
+
 This is the format of each item in the `aliases` list.
 
 <OutputTable>
@@ -174,7 +192,10 @@ This is the format of each item in the `aliases` list.
   <Row>
     <BoldCell>alias</BoldCell>
     <TypeCell>String</TypeCell>
-    <Cell>The alias name, it could be a <InlineCode>.now.sh</InlineCode> subdomain or a custom domain.</Cell>
+    <Cell>
+      The alias name, it could be a <InlineCode>.now.sh</InlineCode> subdomain
+      or a custom domain.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>created</BoldCell>
@@ -186,14 +207,16 @@ This is the format of each item in the `aliases` list.
 <Example>
   Example request:
 
-  <Request
-    url="https://api.zeit.co/v2/now/deployments/7Npest0z1zW5QVFfNDBId4BW/aliases"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-    }}
-  />
+<Request
+  url="https://api.zeit.co/v2/now/deployments/7Npest0z1zW5QVFfNDBId4BW/aliases"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
 
-  Example successful (**200**) response:
+Example successful (**200**) response:
 
   <Code>{`{
     "aliases": [
@@ -207,6 +230,7 @@ This is the format of each item in the `aliases` list.
 </Example>
 
 ### Assign an alias to a deployment
+
 <Endpoint method="POST" url="/v2/now/deployments/:id/aliases" />
 
 Creates a new alias for the deployment with the given `:id`. The authenticated user must own this deployment.
@@ -216,21 +240,28 @@ The JSON body of the POST should contain an `alias` key with the desired alias (
 If the desired alias was used before it will be removed from the old deployment and assigned to the new one.
 
 #### Input
+
 <InputTable>
   <Row>
     <BoldCell>alias</BoldCell>
     <TypeCell>String</TypeCell>
     <BooleanCell status={true} />
-    <Cell>The alias we want to assign to the deployment defined in the URL.</Cell>
+    <Cell>
+      The alias we want to assign to the deployment defined in the URL.
+    </Cell>
   </Row>
 </InputTable>
 
 #### Output
+
 <OutputTable>
   <Row>
     <BoldCell>oldID</BoldCell>
     <TypeCell>ID</TypeCell>
-    <Cell>The unique identifier of the previously aliased deployment, only received when the alias was used before.</Cell>
+    <Cell>
+      The unique identifier of the previously aliased deployment, only received
+      when the alias was used before.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>ui</BoldCell>
@@ -247,28 +278,29 @@ If the desired alias was used before it will be removed from the old deployment 
 <Example>
   Example request:
 
-  <Request
-    method="POST"
-    url="https://api.zeit.co/v2/now/deployments/7Npest0z1zW5QVFfNDBId4BW/aliases"
-    headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
-      'Content-Type': 'application/json'
-    }}
-    body={{
-      alias: 'my-alias.now.sh'
-    }}
-  />
+<Request
+  method="POST"
+  url="https://api.zeit.co/v2/now/deployments/7Npest0z1zW5QVFfNDBId4BW/aliases"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`,
+    'Content-Type': 'application/json'
+  }}
+  body={{
+    alias: 'my-alias.now.sh'
+  }}
+/>
 
-  Example successful (**200**) response for new alias:
+Example successful (**200**) response for new alias:
 
-  <Code>{`{
+<Code>{`{
     "uid": "2WjyKQmM8ZnGcJsPWMrHRHrE",
     "created": "2016-06-02T21:01:40.950Z"
   }`}</Code>
 
-
-  Example successful (**200**) response for alias with existing deployment
-  (\`oldId\` is the id of the previous deployment):
+Example successful (**200**) response for alias with existing deployment
+(<InlineCode>oldId</InlineCode> is the id of the previous deployment):
 
   <Code>{`{
     "oldId": "c9MrOWGzdJSfPxqyTDYhdEGN",
@@ -276,4 +308,3 @@ If the desired alias was used before it will be removed from the old deployment 
     "created": "2016-06-02T21:01:40.950Z"
   }`}</Code>
 </Example>
-

@@ -7,10 +7,10 @@ import { TerminalInput } from '~/components/text/terminal'
 import { InternalLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Building a Realtime Chat Webapp',
-  description: 'Creating a chat webapp and hosting it with Now',
-  date: '23 Feb 2017',
-  editUrl: 'pages/docs/examples/chat.md'
+title: 'Building a Realtime Chat Webapp',
+description: 'Creating a chat webapp and hosting it with Now',
+date: '23 Feb 2017',
+editUrl: 'pages/docs/examples/chat.md'
 }
 
 Writing a chat application with popular web applications stacks like LAMP (PHP) has traditionally been very hard. It involves polling the server for changes, keeping track of timestamps, and it’s a lot slower than it should be.
@@ -69,24 +69,24 @@ server.listen(4000, () => {
 
 This translates into the following:
 
-* Express initializes `app` to be a function handler that you can supply to an HTTP server (as seen in line 2).
-* We define a route handler `/` that gets called when we hit our website home.
-* We make the HTTP server available on port 3000.
+- Express initializes `app` to be a function handler that you can supply to an HTTP server (as seen in line 2).
+- We define a route handler `/` that gets called when we hit our website home.
+- We make the HTTP server available on port 3000.
 
 Now, when running `npm run start` inside your terminal, you should see the following:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/server.png`)}
-  width={550}
-  height={345}
+src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/server.png`)}
+width={550}
+height={345}
 />
 
 And when pointing your browser to the address shown (`http://localhost:4000`):
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/hello-world.png`)}
-  width={550}
-  height={307}
+src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/hello-world.png`)}
+width={550}
+height={307}
 />
 
 ## Serving HTML
@@ -125,17 +125,17 @@ And populate `index.html` with the following:
 If you restart the process (by hitting `control + C` and running `npm run start` again) and refresh the page it should look like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/form.png`)}
-  width={550}
-  height={307}
+src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/form.png`)}
+width={550}
+height={307}
 />
 
 ## Integrating Web Sockets
 
 To handle these, we'll be using the [socket.io](https://socket.io/) project. It consists of two packages:
 
-* A server that integrates with (or mounts on) the Node.JS HTTP Server: `socket.io`
-* A client library that loads on the browser side: `socket.io-client`
+- A server that integrates with (or mounts on) the Node.JS HTTP Server: `socket.io`
+- A client library that loads on the browser side: `socket.io-client`
 
 During development, `socket.io` serves the client automatically for us, as we’ll see, so, for now, we only have to install one module:
 
@@ -180,9 +180,9 @@ Notice that I’m not specifying any URL when I call `io()` since it defaults to
 Try opening several tabs, and you’ll see several messages:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/connected.png`)}
-  width={550}
-  height={345}
+src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/connected.png`)}
+width={550}
+height={345}
 />
 
 Each socket also fires a special `disconnect` event:
@@ -200,9 +200,9 @@ io.on('connection', socket => {
 Then if you refresh a tab several times you can see it in action:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/disconnected.png`)}
-  width={550}
-  height={345}
+src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/disconnected.png`)}
+width={550}
+height={345}
 />
 
 ## Emitting Events
@@ -295,9 +295,9 @@ And on the client side when we capture a `chat message` event we’ll include it
 And that completes our chat application, in about **20 lines of code**! You can now send messages between two clients:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/result.gif`)}
-  width={600}
-  height={572}
+src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/result.gif`)}
+width={600}
+height={572}
 />
 
 ## Deploying the App

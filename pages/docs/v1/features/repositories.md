@@ -8,10 +8,10 @@ import { Image } from '~/components/media'
 import { P } from '~/components/text/paragraph'
 
 export const meta = {
-  title: 'Deploying Git Repositories',
-  description: 'Targetting and deploying a Git repository with Now',
-  date: '12 Mar 2017',
-  editUrl: 'pages/docs/features/repositories.md'
+title: 'Deploying Git Repositories',
+description: 'Targetting and deploying a Git repository with Now',
+date: '12 Mar 2017',
+editUrl: 'pages/docs/features/repositories.md'
 }
 
 If you're developing a project that requires local changes before it can be deployed (like a regular application), running just now is the right way to move your code into the cloud.
@@ -47,9 +47,9 @@ That's it!
 Once <Now color="#000" /> fetches the repository, you'll see just what you're used to: A link to the deployment, the repository will be deployed and the logs will be printed out. Once the repo has finished uploading, you'll see the invitation page:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/git-repositories/slackin.png`)}
-  width="550"
-  height="420"
+src={asset(`${IMAGE_ASSETS_URL}/docs/git-repositories/slackin.png`)}
+width="550"
+height="420"
 />
 
 ## Selecting a Git Reference
@@ -88,9 +88,9 @@ This also means that you can easily point to commits:
 
 ## How It Works
 
-* Behind the curtains, the command line interface (now) will firstly clone the repository to your local device (in a hidden directory).<br/><br/>
-This ensures that even private repositories (or such that require a special form of authentication) will get cloned automatically without you having to specify any credentials. In addition, it's much more secure than cloning the code on the platform, because our system doesn't need to move any of your sensitive authentication data to our servers.
+- Behind the curtains, the command line interface (now) will firstly clone the repository to your local device (in a hidden directory).<br/><br/>
+  This ensures that even private repositories (or such that require a special form of authentication) will get cloned automatically without you having to specify any credentials. In addition, it's much more secure than cloning the code on the platform, because our system doesn't need to move any of your sensitive authentication data to our servers.
 
-* Afterward, the regular mechanism for handling the upload of your files will be applied to the local directory that contains a clone of the repository you've defined before.
+- Afterward, the regular mechanism for handling the upload of your files will be applied to the local directory that contains a clone of the repository you've defined before.
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

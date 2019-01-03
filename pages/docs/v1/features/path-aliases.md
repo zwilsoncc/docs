@@ -4,10 +4,10 @@ import Now from '~/components/text/now'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Simplifying Microservices with Path Alias',
-  description: 'Aliasing microservices to exist in different locations with your domain on Now',
-  date: '15 Mar 2017',
-  editUrl: 'pages/docs/features/path-aliases.md'
+title: 'Simplifying Microservices with Path Alias',
+description: 'Aliasing microservices to exist in different locations with your domain on Now',
+date: '15 Mar 2017',
+editUrl: 'pages/docs/features/path-aliases.md'
 }
 
 With the microservices architecture, we break down the whole app into multiple independent programs: microservices. This architecture gives us a lot of benefits including:
@@ -91,9 +91,9 @@ The destination of each rule should be one of the following:
 
 Incoming HTTP requests will be matched with the pathname format defined in the rule. The `pathname` field could have one of the following formats:
 
-* **/api/register** - A strict path match
-* **/user/*/profile** - A wildcard rule matches pathnames like `/user/rauchg/profile`
-* **/api/**** - A wildcard rule matches pathnames with multiple segments like `/api/user/email` or `/api/login`
+- **/api/register** - A strict path match
+- **/user/\*/profile** - A wildcard rule matches pathnames like `/user/rauchg/profile`
+- **/api/\*\*** - A wildcard rule matches pathnames with multiple segments like `/api/user/email` or `/api/login`
 
 If there is no `pathname` field, all the requests will be a candidate for the rule (it is similar to having `/**` as the value for `pathname`).
 

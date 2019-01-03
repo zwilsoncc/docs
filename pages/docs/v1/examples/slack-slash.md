@@ -5,12 +5,13 @@ import Now from '~/components/text/now'
 import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 import { InternalLink } from '~/components/text/link'
+import Note from '~/components/text/note'
 
 export const meta = {
-  title: 'Building a Slash Command for Slack',
-  description: 'Creating and hosting a slash-command for Slack with Now',
-  date: '28 Feb 2017',
-  editUrl: 'pages/docs/examples/slack-slash.md'
+title: 'Building a Slash Command for Slack',
+description: 'Creating and hosting a slash-command for Slack with Now',
+date: '28 Feb 2017',
+editUrl: 'pages/docs/examples/slack-slash.md'
 }
 
 For many people in the web community, [Slack](https://slack.com/) has become an essential part of their everyday workflow. It has turned into a wonderful tool for sharing text, working collaboratively, and building community.
@@ -101,7 +102,7 @@ Now that we've covered the project's files, you can **deploy it** by running thi
 
 Once <Now color="#000" /> has finished uploading the files, you'll see a URL that points to your freshly-created slash command service. We're now ready to tell the Slack platform about the service so that it can send requests there.
 
-Note: In the case of a real service (not used for testing purposes), you would now have to <InternalLink href="/docs/features/aliases">assign an alias</InternalLink> to it.
+<Note>In the case of a real service (not used for testing purposes), you would now have to <InternalLink href="/docs/features/aliases">assign an alias</InternalLink> to it.</Note>
 
 ## Step 3: Registering the Command
 
@@ -110,9 +111,9 @@ Telling Slack about the command is pretty easy.
 First, search [the Slack App Directory](https://slack.com/apps) for the "Slash Commands" application. Once you've found it, click on "Add Configuration" in the sidebar:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/slack-slash/add-configuration.png`)}
-  width="500"
-  height="321"
+src={asset(`${IMAGE_ASSETS_URL}/docs/slack-slash/add-configuration.png`)}
+width="500"
+height="321"
 />
 
 You'll be redirected to another page where you can enter the name of the snew lash command. In our case, it will be `/weather`. Enter it and click on the green button at the bottom.
@@ -126,9 +127,9 @@ Now you should see a section named **Integration Settings**. There, we need to d
 Optionally, you can also make the command show up in the **Autocomplete help text** section:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/slack-slash/auto-complete.png`)}
-  width="600"
-  height="214"
+src={asset(`${IMAGE_ASSETS_URL}/docs/slack-slash/auto-complete.png`)}
+width="600"
+height="214"
 />
 
 And hit **"Save Integration"** once you're done!

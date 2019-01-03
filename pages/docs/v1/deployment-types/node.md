@@ -5,10 +5,10 @@ import { InternalLink } from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Deploying Node.js Apps',
-  description: 'What counts as a Node.js App for Now deployments and more information about them',
-  date: '09 March 2017',
-  editUrl: 'pages/docs/deployment-types/node.md'
+title: 'Deploying Node.js Apps',
+description: 'What counts as a Node.js App for Now deployments and more information about them',
+date: '09 March 2017',
+editUrl: 'pages/docs/deployment-types/node.md'
 }
 
 If your project contains a `package.json` (and no `Dockerfile`) file, it will always be treated as a [Node.js](https://nodejs.org/en/) deployment.

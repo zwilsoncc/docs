@@ -10,17 +10,23 @@ Rate limits vary and are specified by the following header in all responses:
 <HeadersTable>
   <Row>
     <BoldCell>X-Rate-Limit-Limit</BoldCell>
-    <Cell>The maximum number of requests that the consumer is permitted to
-    make per minute.</Cell>
+    <Cell>
+      The maximum number of requests that the consumer is permitted to make per
+      minute.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>X-Rate-Limit-Remaining</BoldCell>
-    <Cell>The number of requests remaining in the current rate limit window.</Cell>
+    <Cell>
+      The number of requests remaining in the current rate limit window.
+    </Cell>
   </Row>
   <Row>
     <BoldCell>X-Rate-Limit-Reset</BoldCell>
-    <Cell>The time at which the current rate limit window resets in UTC
-    epoch seconds.</Cell>
+    <Cell>
+      The time at which the current rate limit window resets in UTC epoch
+      seconds.
+    </Cell>
   </Row>
 </HeadersTable>
 
@@ -34,4 +40,3 @@ When the rate limit is **exceeded** an error is returned with the status **429 T
   }
 }`}</Code>
 </Example>
-

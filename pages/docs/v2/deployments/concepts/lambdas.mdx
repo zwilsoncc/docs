@@ -8,7 +8,8 @@ import Example from '~/components/example'
 
 export const meta = {
   title: 'Lambdas',
-  description: 'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.'
+  description:
+    'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.'
 }
 
 When you make a deployment, by running `now` with our [CLI](cli), making an [API](api) call or with our [GitHub integration](link), we synchronize the source code and optionally [build them](/docs/v2/deployments/builds) to your specification.
@@ -18,6 +19,7 @@ The outputs of this build process can be static files or **serverless lambdas**.
 Lambdas allow your code to be executed on-demand and scale automatically. They minimize cost in terms of infrastructure spend and engineering time, due to largely removing operational overhead and reducing the surface of error.
 
 Now automatically provisions lambdas with the underlying [cloud infrastructure provider](/docs/v2/platform/regions-and-providers) for:
+
 - Dynamic code execution (such as deployments that expose APIs)
 - [Builds](/docs/v2/deployments/builds) (e.g., to run static site generators or compile code in the cloud)
 
@@ -88,7 +90,7 @@ Cloud infrastructure providers typically give us access to several layers of abs
 - Process → Container
 - **Thread → Function**
 
-The Now Platform focuses on the last one: **the serverless function**. If we think about it in terms of primitives, it closely mirrors a [**thread of computation**](https://en.wikipedia.org/wiki/Thread_(computing)).
+The Now Platform focuses on the last one: **the serverless function**. If we think about it in terms of primitives, it closely mirrors a [**thread of computation**](<https://en.wikipedia.org/wiki/Thread_(computing)>).
 
 We have typically been able to provision entire computers or orchestrate processes, but a faster, more granular and more parallelizable primitive like the thread has only recently become available.
 
@@ -119,7 +121,8 @@ This has numerous benefits:
 - Improves security by increasing isolation
 
 ### Lifecycle and Scalability
-In order to scale, it is widely accepted and understood that more copies of your software need to spawn and the incoming load of traffic [balanced](https://en.wikipedia.org/wiki/Load_balancing_(computing)) between them. This is known as [horizontal scalability](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling).
+
+In order to scale, it is widely accepted and understood that more copies of your software need to spawn and the incoming load of traffic [balanced](<https://en.wikipedia.org/wiki/Load_balancing_(computing)>) between them. This is known as [horizontal scalability](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling).
 
 With traditional process-based architectures, scaling like this is possible but has significant drawbacks and challenges:
 
@@ -145,14 +148,15 @@ height={792/2}
 
 If a request happens quickly thereafter, the lambda is **re-used** for a subsequent invocation. After a while, only enough lambdas will stay around to meet the needs of incoming traffic.
 
-If no more traffic comes, lambdas (unlike nearly all alternative systems) will ***scale to zero***. This means that you only *pay* precisely for the level of scale that your traffic demands.
+If no more traffic comes, lambdas (unlike nearly all alternative systems) will **_scale to zero_**. This means that you only _pay_ precisely for the level of scale that your traffic demands.
 
 ### Cold and Hot Boots
-When a lambda boots up from scratch, that is known as a *cold boot*. When it is re-used, we can say the lambda was warm.
 
-Re-using a lambda means the underlying **container** that hosts it does not get discarded. State gets preserved (such as temporary files, memory caches, sub-processes). This empowers the developer not just to minimize the time spent in the *booting* process, but to also take advantage of caching data (in memory or [`/tmp` filesystem](#filesystem)) and [memoizing](https://en.wikipedia.org/wiki/Memoization) expensive computations.
+When a lambda boots up from scratch, that is known as a _cold boot_. When it is re-used, we can say the lambda was warm.
 
-It is important to note that lambdas, even while the underlying container is hot, cannot leave tasks running. If a sub-process is running by the time the response is returned, the entire container is *frozen*. When a new invocation happens, if the container is re-used, it is unfrozen, which allows sub-processes to continue running.
+Re-using a lambda means the underlying **container** that hosts it does not get discarded. State gets preserved (such as temporary files, memory caches, sub-processes). This empowers the developer not just to minimize the time spent in the _booting_ process, but to also take advantage of caching data (in memory or [`/tmp` filesystem](#filesystem)) and [memoizing](https://en.wikipedia.org/wiki/Memoization) expensive computations.
+
+It is important to note that lambdas, even while the underlying container is hot, cannot leave tasks running. If a sub-process is running by the time the response is returned, the entire container is _frozen_. When a new invocation happens, if the container is re-used, it is unfrozen, which allows sub-processes to continue running.
 
 To minimize the latency difference between a cold and boot instantiation, Now aids by:
 
@@ -162,41 +166,58 @@ To minimize the latency difference between a cold and boot instantiation, Now ai
 ## Capabilities and Limits
 
 ### CPU / Memory
+
 Now configures lambdas to have **3008mb** of available memory for builds, and the output lambdas to have **1024mb** of available memory. The amount of CPU allocated is proportional to the max memory limit.
 
 To understand how the CPU allocation will work for your application, we recommend testing and benchmarking.
 
 ### Maximum Request Body Size
+
 Each request body has a maximum payload limit of **5mb**.
 
 ### Maximum Bundle Size
+
 **The default maximum generated lambda size is `5mb`**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details).
 
-This threshold is in place to uphold and maintain the serverless nature of Now. Since the serverless paradigm intends for your code to not be running unless it is needed, your code needs to be [cold-booted](#cold-and-hot-boots). The larger the code bundle that is being cold-booted, the larger the time it takes for the cold boot to finish. 
+This threshold is in place to uphold and maintain the serverless nature of Now. Since the serverless paradigm intends for your code to not be running unless it is needed, your code needs to be [cold-booted](#cold-and-hot-boots). The larger the code bundle that is being cold-booted, the larger the time it takes for the cold boot to finish.
 
 Although this limit is in place, each [Builder](/docs/v2/deployments/builders/overview) may have a customized limit for the maximum lambda bundle size due to the nature of the underlying technology, which can also be configured by the user, whether the Builder has a custom limit or not.
 
 This configuration option, `maxLambdaSize`, accepts any byte value up to `50mb`.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "builds": [
     { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "15mb" } }
   ]
 }`}</Code>
-<Caption>Using the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node">@now/node Builder</GenericLink> and configuring the <InlineCode>maxLambdaSize</InlineCode> within a <GenericLink href="/docs/v2/deployments/configuration#builds">now.json configuration file</GenericLink>.</Caption>
+  <Caption>
+    Using the{' '}
+    <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node">
+      @now/node Builder
+    </GenericLink>{' '}
+    and configuring the <InlineCode>maxLambdaSize</InlineCode> within a{' '}
+    <GenericLink href="/docs/v2/deployments/configuration#builds">
+      now.json configuration file
+    </GenericLink>
+    .
+  </Caption>
 </Example>
 
 ### Maximum Execution Duration
+
 A lambda can execute for at most **15 minutes**. This is not configurable as of now. If the limit is reached for a particular invocation, it will result in an error [504](/docs/v2/routing/status-codes).
 
 ### In-memory Caches
+
 It is possible to take advantage of global state from invocation to invocation if the underlying [container is re-used](/docs/v2/platform/regions-and-providers).
 
 ### Filesystem
+
 The filesystem is writable inside `/tmp` and persisted if the underlying [container is re-used](/docs/v2/platform/regions-and-providers). The `/tmp` directory is writeable for up to `512mb` or storage.
 
 ### Logging
+
 All output streams are captured and persisted. Each function can store up to 1,000 lines. Each deployment will aggregate up to 1,000 lines. Each line is defined as a string chunk of up to **1kb**.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

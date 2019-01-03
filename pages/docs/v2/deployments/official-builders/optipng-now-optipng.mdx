@@ -9,7 +9,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'OptiPNG Builder (@now/optipng)',
-  description: 'The official OptiPNG Builder for ZEIT Now. Compress images that are deployed to Now with no additional configuration.'
+  description:
+    'The official OptiPNG Builder for ZEIT Now. Compress images that are deployed to Now with no additional configuration.'
 }
 
 <Tag>Status: Stable</Tag>
@@ -56,4 +57,4 @@ The resulting deployment URL: https://optipng-deployment-p6gj9kt47.now.sh/
 
 The entrypoint is always a `.png` file you want to optimize.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

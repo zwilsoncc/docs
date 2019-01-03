@@ -8,7 +8,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'Static Builds Builder (@now/static-build)',
-  description: 'The official Static Builds Builder for ZEIT Now. Run any package.json build script for your source files and deploy the result.'
+  description:
+    'The official Static Builds Builder for ZEIT Now. Run any package.json build script for your source files and deploy the result.'
 }
 
 <Tag>Status: Stable</Tag>
@@ -19,7 +20,10 @@ This module takes a Node.js `package.json` file, installs all its dependencies, 
 
 This Builder is very useful when you have source files that when built will be served **statically**, but instead of pre-building yourself on a developer machine or CI, you want Now to do it in the cloud every time you deploy.
 
-<Note>At the moment, `@now/static-build` only supports build processes that can be expressed using Node.js and npm dependencies.</Note>
+<Note>
+  At the moment, <InlineCode>@now/static-build</InlineCode> only supports build
+  processes that can be expressed using Node.js and npm dependencies.
+</Note>
 
 ## How to use it
 
@@ -37,9 +41,7 @@ hugo new site blog`}</TerminalInput>
 
 Go inside each directory and create a `package.json` file. We can use `yarn` to bootstrap it and also include `hugo` so that Now can build it:
 
-<TerminalInput>
-yarn add hugo-cli
-</TerminalInput>
+<TerminalInput>yarn add hugo-cli</TerminalInput>
 
 Hugo requires that you download and configure a theme. For this example we ran inside `docs` and `blog`:
 
@@ -69,6 +71,7 @@ Finally, for Now to know what to execute, add to `package.json`:
 ```
 
 Notice that `@now/static-build`:
+
 - Uses `package.json` as a way of getting dependencies and specifying your build.
 - Will **only execute** your `now-build` script.
 - Expects the output to go to `dist`, or the directory defined as the value of the [config option `distDir`](#configuring-the-dist-directory).
@@ -86,13 +89,15 @@ Finally, we tell Now that we want to execute two builds for this deployment:
 ```
 
 ### Configuring the `dist` directory
+
 If you want to configure a directory other than `dist` for your build output, you can pass an optional `distDir` option in the builder's config:
- ```
+
+```
 {
-  "version": 2,
-  "builds": [
-    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
-  ]
+ "version": 2,
+ "builds": [
+   { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
+ ]
 }
 ```
 
@@ -117,4 +122,4 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment](/doc
 
 The Node.js version used is the latest in the **8 branch**.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

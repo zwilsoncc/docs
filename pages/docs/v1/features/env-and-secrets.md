@@ -4,12 +4,13 @@ import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
 import { TerminalInput } from '~/components/text/terminal'
+import Note from '~/components/text/note'
 
 export const meta = {
-  title: 'Environment Variables and Secrets',
-  description: 'Creating and using environment variables and creating and using secret environment variables in your Now deployments',
-  date: '21 Feb 2017',
-  editUrl: 'pages/docs/features/env-and-secrets.md'
+title: 'Environment Variables and Secrets',
+description: 'Creating and using environment variables and creating and using secret environment variables in your Now deployments',
+date: '21 Feb 2017',
+editUrl: 'pages/docs/features/env-and-secrets.md'
 }
 
 > This document is based around environment variables and secrets for use in run-time for your app. For build-time env and secrets, read "[Build-Time Env and Secrets](/docs/features/build-env-and-secrets)"
@@ -71,7 +72,7 @@ Let's create a secret with an API key:
 
 Once it's created, you can rename it with `now secret rename` or delete it completely with `now secret rm`. For more examples and the full list of options and commands, run `now help secret`.
 
-> *Note*: The name of a secret cannot be longer than 100 characters.
+<Note>The name of a secret cannot be longer than 100 characters.</Note>
 
 Afterward, you can assign the secret to an environment variable. Here's an example of doing this using a command:
 
@@ -121,7 +122,7 @@ Finally, our <InternalLink href="/docs/api">API</InternalLink> users will find t
 
 By default, all deployments expose these environment variables:
 
-* **NOW**: Is set to `1`, for detecting <Now color="#000"/>.
-* **NOW_URL**: Contains the unique URL of your deployment. Even if your deployment was aliased, this variable will always contain the URL with the `.now.sh` suffix.
+- **NOW**: Is set to `1`, for detecting <Now color="#000"/>.
+- **NOW_URL**: Contains the unique URL of your deployment. Even if your deployment was aliased, this variable will always contain the URL with the `.now.sh` suffix.
 
 export default ({children}) => <Doc meta={meta}>{ children }</Doc>

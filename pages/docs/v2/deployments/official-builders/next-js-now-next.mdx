@@ -9,14 +9,15 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'Next.js Builder (@now/next)',
-  description: 'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.'
+  description:
+    'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.'
 }
 
 <Tag>Status: Beta</Tag>
 
 This builder takes a Next.js application, defined as `pages`, `next.config.js` and optionally a `package.json` file (with `next`, `react`, `react-dom`, etc), and converts them into a series of individual [Lambdas](/docs/v2/deployments/concepts/lambdas).
 
-It features built-in caching of `node_modules` and all the compiler artifacts for very fast  deployments.
+It features built-in caching of `node_modules` and all the compiler artifacts for very fast deployments.
 
 ## When to use it
 
@@ -56,31 +57,38 @@ Upon deployment, we'll get a URL like this: https://next-js-deployment-kbbzal0ha
 ## Technical Details
 
 ### Entrypoint
+
 The entrypoint of this builder is a `next.config.js` file or a `package.json` file.
 
 ### Dependencies installation
+
 The installation algorithm of dependencies works as follows:
 
 - If a `package-lock.json` is present, `npm install` is used
 - Otherwise, `yarn` is used.
 
 ### Private npm modules
+
 To install private npm modules, define `NPM_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build.env) in `now.json`.
 
 ### Node.js version
+
 The Node.js version used is the latest in the **8 branch**.
 
 ### Maximum Lambda Bundle Size
+
 To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Next.js output lambda is, by default, **`5mb`**.
 This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
 
 <Example>
-<span>Example <InlineCode>maxLambdaSize</InlineCode> configuration:</span>
-<Code>{`{
+  <span>
+    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
+  </span>
+  <Code>{`{
   "builds": [
     { "src": "next.config.js", "use": "@now/next", "config": { "maxLambdaSize": "10mb" } }
   ]
 }`}</Code>
 </Example>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

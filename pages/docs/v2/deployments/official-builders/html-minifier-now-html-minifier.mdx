@@ -9,7 +9,8 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   title: 'HTML Minifier Builder (@now/html-minifier)',
-  description: 'The official HTML Minifier Builder for ZEIT Now. Minify HTML sources when deploying to ZEIT Now.'
+  description:
+    'The official HTML Minifier Builder for ZEIT Now. Minify HTML sources when deploying to ZEIT Now.'
 }
 
 <Tag>Status: Stable</Tag>
@@ -46,13 +47,16 @@ Then we'll define our build step to optimize our images:
 ```
 
 When we deploy with `now` and `curl` the resulting deployment URL, we will notice the HTML has been compressed:
+
 ```
 ▲  curl https://optipng-deployment-f0hz0ny2d.now.sh/
 <!doctype html><h1>Hello there This is intentionally long</h1>
 ```
 
 ## Technical Details
+
 ### Entrypoint
+
 The entrypoint is always a `.html` file you want to optimize.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

@@ -1,14 +1,16 @@
 import Doc from '~/components/layout/docs'
 import Note from '~/components/text/note'
+import { InlineCode } from '~/components/text/code'
 
 export const meta = {
   title: 'Routing Overview',
-  description: 'The routing layer of Now sits in between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.'
+  description:
+    'The routing layer of Now sits in between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.'
 }
 
 The Routing layer of Now sits in between the internet and your deployments.
 
-It is responsible for many things. But the most important one is routing requests for the URL of your deployment to the correct **Lambda** or **Static File** output of your **Builds**. 
+It is responsible for many things. But the most important one is routing requests for the URL of your deployment to the correct **Lambda** or **Static File** output of your **Builds**.
 
 ## Regions
 
@@ -24,7 +26,11 @@ In general, we recommend distributing your **Deployments** (which contain Static
 
 In order to distribute your Deployment to all **Regions** when creating it, make sure to define the `--regions` flag in [Now CLI](/docs/v2/getting-started/installation#now-cli) and set it to `all`.
 
-<Note>When taking advantage of this behaviour of the platform, it is very important to understand that Now is not resolving the keyword `all` to all the available regions.</Note>
+<Note>
+  When taking advantage of this behaviour of the platform, it is very important
+  to understand that Now is not resolving the keyword{' '}
+  <InlineCode>all</InlineCode> to all the available regions.
+</Note>
 
 Instead, the keyword is stored as-is and instructs the platform to automatically create your **Deployments** in any other additional **Region**, should one of the existing ones experience downtime (you are not billed more for this automatic change, as the previous Region would be unreachable in that event – thus no invocations could happen).
 
@@ -41,4 +47,4 @@ All of these actions are performed on-demand and with maximum performance (ensur
 
 At the moment, we only support [HTTPS](https://en.wikipedia.org/wiki/HTTPS) and [WSS](https://en.wikipedia.org/wiki/WebSocket) (this list will be updated in the event that support for an additional protocol is added to the Routing layer).
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

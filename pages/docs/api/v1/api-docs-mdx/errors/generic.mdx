@@ -6,6 +6,7 @@ import { Code } from '~/components/text/code'
 These error codes are consistent for all endpoints.
 
 ### Forbidden
+
 You're not authorized to use the endpoint. This usually happends due to missing an user token.
 
 > Is similar to the HTTP 403 Forbidden error.
@@ -20,6 +21,7 @@ You're not authorized to use the endpoint. This usually happends due to missing 
 </Example>
 
 ### Rate Limited
+
 You exceeded the maximum alloted requests.
 
 The limit of request is per endpoint basis so you could continue using another endpoints even if some of them give you this error.
@@ -34,6 +36,7 @@ The limit of request is per endpoint basis so you could continue using another e
 </Example>
 
 ### Bad Request
+
 There was an error with the request, the `error.message` would contain information about the issue.
 
 <Example>
@@ -46,6 +49,7 @@ There was an error with the request, the `error.message` would contain informati
 </Example>
 
 ### Internal Server Error
+
 This errors is similar to the HTTP 500 Internal Server Error error code.
 
 <Example>
@@ -58,6 +62,7 @@ This errors is similar to the HTTP 500 Internal Server Error error code.
 </Example>
 
 ### Resource Not Found
+
 The endpoint you're requesting doens't handle the method you defined. The error message will contain the methods the endpoint responds to.
 
 <Example>
@@ -70,6 +75,7 @@ The endpoint you're requesting doens't handle the method you defined. The error 
 </Example>
 
 ### Method Unknown
+
 The endpoint you're requesting doens't handle the method you defined. The error message will contain the methods the endpoint responds to.
 
 <Example>
@@ -80,4 +86,3 @@ The endpoint you're requesting doens't handle the method you defined. The error 
     }
   }`}</Code>
 </Example>
-

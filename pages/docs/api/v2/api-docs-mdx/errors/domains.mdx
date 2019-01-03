@@ -6,12 +6,13 @@ import { Code } from '~/components/text/code'
 These error code could happen when using any [domains related endpoints](#endpoints/domains).
 
 ### Domain Forbidden
+
 You don't have access to the domain, this usually mean this domains is owned by another account or team.
 
 The domain is specified in the message and the `DOMAIN` key.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "forbidden",
     "message": "You don't have access to \\"DOMAIN\\"",
@@ -21,10 +22,11 @@ The domain is specified in the message and the `DOMAIN` key.
 </Example>
 
 ### Domain Not Found
+
 The domain name could not be found in our system. Try to [add it first](#endpoints/domains/add-a-new-domain).
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "not_found",
     "message": "Domain name not found"
@@ -33,10 +35,11 @@ The domain name could not be found in our system. Try to [add it first](#endpoin
 </Example>
 
 ### Missing Domain Name
+
 The domain name wasn't specified in the URL. This means you tried to use an endpoint which require you to define the domain name in the URL but didn't defined it.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "missing_name",
     "message": "The URL was expected to include the domain name. Example: /domains/google.com"
@@ -45,12 +48,13 @@ The domain name wasn't specified in the URL. This means you tried to use an endp
 </Example>
 
 ### Conflicting Certificates
+
 You must [remove the certificates](#endpoints/certificates/delete-a-certificate) described in the error before removing the domains.
 
 The certificates are specified in the `CERT_CNS` key.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "conflict_certs",
     "message": "The following certificates must be removed before removing the domain: CERT_CNS",
@@ -60,12 +64,13 @@ The certificates are specified in the `CERT_CNS` key.
 </Example>
 
 ### Conflicting Aliases
+
 You must [remove the aliases](#endpoints/aliases/remove-an-alias) described in the error before removing the domains.
 
 The aliases are specified in the `ALIASES` key.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "conflict_aliases",
     "message": "The following aliases must be removed before removing the domain: ALIASES",
@@ -75,10 +80,11 @@ The aliases are specified in the `ALIASES` key.
 </Example>
 
 ### Not Modified
+
 When trying to modify a domain nothing was required to change.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "not_modified",
     "message": "Nothing to do"
@@ -87,10 +93,11 @@ When trying to modify a domain nothing was required to change.
 </Example>
 
 ### Missing Name for Domain
+
 When trying to add a domain the name wasn't present in the request body.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "missing_name",
     "message": "The \`name\` field in the body was expected but is not present in the body payload. Example value: \`zeit.co\`"
@@ -99,12 +106,13 @@ When trying to add a domain the name wasn't present in the request body.
 </Example>
 
 ### Invalid Name for Domain
+
 The domain name defined in the request body is invalid.
 
 The name is specified in the error as the `NAME` key.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "invalid_name",
     "message": "The \`name\` field contains an invalid domain name ("NAME")",
@@ -114,10 +122,11 @@ The name is specified in the error as the `NAME` key.
 </Example>
 
 ### Custom Domain Needs a Plan Upgrade
+
 In order to add a custom domain to your account or team you need to upgrade to a paid plan.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "custom_domain_needs_upgrade",
     "message": "Domain name creation requires a premium account."
@@ -126,12 +135,13 @@ In order to add a custom domain to your account or team you need to upgrade to a
 </Example>
 
 ### Domain Already Exists
+
 The domain name you're trying to add already exists.
 
 The domain name and its current ID are received in the `NAME` and `DOMAIN_ID` keys.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "not_modified",
     "message": "The domain "NAME" already exists",
@@ -142,10 +152,11 @@ The domain name and its current ID are received in the `NAME` and `DOMAIN_ID` ke
 </Example>
 
 ### Can't Create the Domain
+
 The domain name can't be created. Most probably it couldn't be verified.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "forbidden",
     "message": "You don't have permission to create a domain"
@@ -154,10 +165,11 @@ The domain name can't be created. Most probably it couldn't be verified.
 </Example>
 
 ### Failed to Add Domain after Purchase
+
 We were able to purchase a domain for you but we had an error when trying to add it to your account. Please contact us on [zeit.chat](/chat) or via [support@zeit.com](mailto:support@zeit.co).
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "failed_to_add_domain",
     "message": "The domain was bought but couldn't be added. Please contact us on https://zeit.chat"
@@ -166,10 +178,11 @@ We were able to purchase a domain for you but we had an error when trying to add
 </Example>
 
 ### Unable to Determine the Domain Price
+
 We're unable to determine the domain price of a domain.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "service_unavailabe",
     "message": "Failed to determine the domain price"
@@ -178,10 +191,11 @@ We're unable to determine the domain price of a domain.
 </Example>
 
 ### Domain price mismatch
+
 The `expectedPrice` supplied in the request body does not match the actual domain price, which is specified in the `actualPrice` key.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "price_mismatch",
     "message": "The expected price does not match the actual price",
@@ -191,10 +205,11 @@ The `expectedPrice` supplied in the request body does not match the actual domai
 </Example>
 
 ### Domain Is Not Available
+
 The domain name is not available to be purchased.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "not_available",
     "message": "Domain is not available"
@@ -203,10 +218,11 @@ The domain name is not available to be purchased.
 </Example>
 
 ### Invalid Domain Name
+
 The domain name or TLD is invalid or not supported.
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "invalid_domain",
     "message": "Invalid domain or TLD"
@@ -215,14 +231,14 @@ The domain name or TLD is invalid or not supported.
 </Example>
 
 ### Missing DNS Record Name
+
 The DNS record key `name` is required and was not provided. It could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types).
 
 <Example>
-<Code>{`{
+  <Code>{`{
   "error": {
     "code": "missing_type",
     "message": "Missing \`type\` parameter"
   }
 }`}</Code>
 </Example>
-

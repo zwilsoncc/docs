@@ -10,7 +10,8 @@ import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Upgrade to 2.0',
-  description: 'Upgrade to the latest iteration of the Now Platform and unlock the true meaning of serverless deployments.'
+  description:
+    'Upgrade to the latest iteration of the Now Platform and unlock the true meaning of serverless deployments.'
 }
 
 The Now Platform 2.0 simplifies and streamlines the deployment of static and serverless workloads.
@@ -29,11 +30,16 @@ Migrating your projects to 2.0 will result in:
 - Faster build times due to [build parallelization](/docs/v2/deployments/builds#parallelization) and [build deduplication analysis](/docs/v2/deployments/builds#deduplication-analysis).
 - Faster cold boot times due to [increased granularity](/docs/v2/deployments/concepts/lambdas#per-entrypoint-granularity).
 
-<Note>v1 is fully maintained and supported. We will only announce a deprecation date once we have ensured all our customers workloads are migrated and the tooling is in place for a smooth transition.</Note>
+<Note>
+  v1 is fully maintained and supported. We will only announce a deprecation date
+  once we have ensured all our customers workloads are migrated and the tooling
+  is in place for a smooth transition.
+</Note>
 
 ## Changes Overview
 
 ### Platform Versioning
+
 We have introduced a strict notion of [platform version](/docs/v2/platform/overview#versioning). All existing users are locked to `1` to ensure there is no negative disruption to existing workflows.
 
 Go to your [user and team settings](/account) to upgrade your account or team to **Latest**. After you do so, all new deployments will always use the most recent version (`2`). This is also the default for all new teams and accounts.
@@ -49,14 +55,17 @@ If you want to retain certain projects on v1, or pin your platform version, we r
 For a smooth deployment experience in the future, we recommend all upgraded projects to explicitly set the `version` field (e.g.: to `2`). Our clients and GitHub bots will remind you as well. If Now upgrades to a version `3` in the future, all your existing projects will work correctly even if your team or account setting is **Latest.**
 
 ### Free Tier
+
 The free tier was previously named `OSS`. It's now known as `Free` and it doesn't imply a public visibility of source code nor logs. That feature needs to be manually triggered via the `--public` flag.
 
 ### Free seats
+
 - The owner of a team no longer pays for a seat
 - Teams with up to 5 members don't pay for a seat
 - Team seat price has been adjusted
 
 ### Reduced prices
+
 The following prices were drastically reduced:
 
 - Cost of compute.
@@ -64,12 +73,14 @@ The following prices were drastically reduced:
 - Cost of logging (no more storage costs, charged [per-line](/docs/v2/deployments/concepts/lambdas#capabilities-and-limits) and [stricly](/docs/v2/deployments/concepts/lambdas#capabilities-and-limits) ephemeral).
 
 ### Fully on-demand
+
 Plans are no longer available for selection. Users on the legacy plans will continue to be on those plans until they are phased out.
 
 The only two subscription types available now are `Free` and `Unlimited`. If you upgrade to the unlimited plan and are still running v1 deployments, they will be billed according to the [prior on-demand plan](/pricing/v1).
 
 ### No Types
-There is no notion of *types* of deployments anymore. Previously, deployments could be of types:
+
+There is no notion of _types_ of deployments anymore. Previously, deployments could be of types:
 
 - `STATIC`
 - `NPM`
@@ -88,7 +99,7 @@ This in turn enables:
 
 ## No Daemons
 
-Running a process persistently as a *daemon* requires a lot of operational overhead, such as setting up readiness checks, health checks and close monitoring.
+Running a process persistently as a _daemon_ requires a lot of operational overhead, such as setting up readiness checks, health checks and close monitoring.
 
 While v2 will not support this as a primitive, we still plan to address the following use-cases directly that our customers typically use processes for:
 
@@ -125,7 +136,7 @@ Mutation is therefore going away, in favor of just changing `now.json` (locally 
 
 ### No Singleton Builds
 
-Previously, one could define a global build step or set of steps that run serially upon deployment. This could be done for example with a `build` step in `package.json`
+Previously, one could define a global build step or set of steps that run serially upon deployment. This could be done for example with a `build` step in `package.json`.
 
 While effective, this meant constraining a project to serial execution. Serverless, however, allows for massive parallelization.
 
@@ -152,9 +163,7 @@ Previously, if **a single file** was deployed (with any name, like `file.jpg`), 
 
 While this is desirable for the purpose of quickly sharing a static file, e.g.:
 
-<TerminalInput>
-now file.jpg
-</TerminalInput>
+<TerminalInput>now file.jpg</TerminalInput>
 
 We've decided to make this logic happen on the client side, instead of the server side. Now CLI will define an item in `routes` that also maps `/` as a special case.
 
@@ -165,7 +174,6 @@ width={1456/2}
 height={962/2}
 />
 <Caption>The new Lambda icon shows in the source view of deployments to show which files are Lambdas.</Caption>
-
 
 ### Universal Now, in the Cloud
 
@@ -193,10 +201,11 @@ The `.nowignore` spec is the exact same as `.gitignore`. We recommend using it a
 !index.htm
 !api/**
 ```
-<Caption>
-This example first ignores every file and then whitelists which ones to include.
-</Caption>
 
+<Caption>
+  This example first ignores every file and then whitelists which ones to
+  include.
+</Caption>
 
 The `files` property in `now.json` is similarly deprecated, as to retain a singular source of truth for what files to include or exclude.
 
@@ -226,11 +235,16 @@ The `files` property in `now.json` is similarly deprecated, as to retain a singu
 
 ## Migration Examples
 
-<Card title="Take a look at examples from Now version 2.0" href="/examples">Use Builders to get started moving your applications to Serverless.</Card>
+<Card title="Take a look at examples from Now version 2.0" href="/examples">
+  Use Builders to get started moving your applications to Serverless.
+</Card>
 
 ## Upgrade Tips
 
-<Note label="Tip">if you are unsure about how to migrate you can ask on our <GenericLink href="/chat">community support forums</GenericLink></Note>
+<Note label="Tip">
+  if you are unsure about how to migrate you can ask on our{' '}
+  <GenericLink href="/chat">community support forums</GenericLink>
+</Note>
 
 ## Don't rush to upgrade
 
@@ -259,7 +273,7 @@ app.get('/third-route', myThirdFunction)
 With Now, you can split this into three discrete underlying Lambdas instead, which allows for:
 
 - Reduced surface of error
-- Faster cold boot times thanks to smaller bundle sizes (*"code splitting" for the backend*)
+- Faster cold boot times thanks to smaller bundle sizes (_"code splitting" for the backend_)
 - Per-route scalability
 - Faster build and, therefore, total deployment times
 
@@ -269,4 +283,4 @@ With Now, you can split this into three discrete underlying Lambdas instead, whi
   Learn how to deploy your own applications by looking at more examples.
 </Card>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

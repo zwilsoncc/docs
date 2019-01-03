@@ -9,12 +9,14 @@ import { GenericLink } from '~/components/text/link'
 
 export const meta = {
   title: 'Now for GitHub',
-  description: 'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.'
+  description:
+    'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.'
 }
 
 Now for GitHub is an app for GitHub users or organizations that automatically deploys and aliases changes to repositories with Now.
 
 The Now for GitHub integration features:
+
 - Deploys every push in branches and pull requests to preview changes live
 - Aliases the most recent changes from the master branch
 - Instant rollbacks when reverting changes that have been aliased
@@ -27,6 +29,7 @@ height={185}
 <Caption>Now for GitHub providing a deployment for a GitHub pull request.</Caption>
 
 ## Connecting the App to Your GitHub Account or Organization
+
 Now for GitHub is directly connected with your ZEIT account and can be linked from within your [account](/account) or team settings. Within the settings page under the "General" tab, the first section will offer for you to install Now for GitHub if it is not already installed.
 
 <Image
@@ -60,11 +63,19 @@ For organizations that you have limited permissions for, GitHub will ask you to 
 
 With an account or organization selected, GitHub will now ask for which repositories Now for GitHub should work with. In this step you are able to allow all repositories to be deployed or an optional set of repositories.
 
-<Note>Now will not attempt to deploy a repository without being <GenericLink href="#usage">configured to with a <InlineCode>now.json</InlineCode> file</GenericLink>. It is safe to enable "All repositories" to use Now for GitHub without unintended side-effects.</Note>
+<Note>
+  Now will not attempt to deploy a repository without being{' '}
+  <GenericLink href="#usage">
+    configured to with a <InlineCode>now.json</InlineCode> file
+  </GenericLink>
+  . It is safe to enable "All repositories" to use Now for GitHub without unintended
+  side-effects.
+</Note>
 
 With the GitHub profile and repositories chosen for Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository for Now to deploy.
 
 ## Usage
+
 Now for GitHub requires a `now.json` file to exist in the root of the repository to begin deploying that repository.
 
 A `now.json` file is a way to configure the deployments Now will make using your code. To get started deploying from your repository, the `now.json` configuration does not need any specific setup, you will only need a valid JSON file. For example, you can use an empty object (`{}`) for the file to be valid and recognized by Now to start deploying.
@@ -72,13 +83,15 @@ A `now.json` file is a way to configure the deployments Now will make using your
 With the repository correctly configured, Now for GitHub will start deploying the app.
 
 ## Standard Behaviour
+
 ### A Deployment for Each Push
+
 Now for GitHub will **deploy every push by default**. This includes pushes to any branch that includes a `now.json` and any pull requests made from those branches. This allows those working within the repository to preview changes made before the changes are pushed to production.
 
 With each new push, if Now is already building a previous commit, Now will cancel that current build to start the most recent commit so that you always have the latest changes deployed as quickly as possible.
 
-
 ### Aliasing the Default Branch
+
 If [an alias is set within the `now.json` file](/docs/features/aliases), pushes and merges to the [default branch](https://help.github.com/articles/setting-the-default-branch/) (commonly "master") will be aliased automatically and made live to those aliases with the latest deployment made with a push.
 
 For example, the following `now.json` configuration will make Now for GitHub alias the most recent push to `my-zeit-website.com` by default.
@@ -90,8 +103,11 @@ For example, the following `now.json` configuration will make Now for GitHub ali
 ```
 
 ## Configuration
+
 ### Disabling Now for GitHub with `now.json`
+
 To disable Now for a GitHub repository, use the following configuration option in the `now.json` file:
+
 ```
 {
   "github": {
@@ -99,12 +115,18 @@ To disable Now for a GitHub repository, use the following configuration option i
   }
 }
 ```
-<Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable Now for GitHub.</Caption>
+
+<Caption>
+  This example is of an entire <InlineCode>now.json</InlineCode> file with the
+  noted configuration option to disable Now for GitHub.
+</Caption>
 
 Disabling Now for GitHub with this configuration option will prevent Now from [deploying any push](#a-deployment-for-each-push) or [aliasing the changes](#aliasing-the-default-branch) when merged to the default branch.
 
 ### Disabling Auto-Aliasing
+
 To stop Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
+
 ```
 {
   "alias": ["my-zeit-website.com"],
@@ -113,12 +135,24 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
   }
 }
 ```
-<Caption>This example is of an entire <InlineCode>now.json</InlineCode> file with the noted configuration option to disable auto-aliasing with Now for GitHub. The file also includes an example setup alias.</Caption>
+
+<Caption>
+  This example is of an entire <InlineCode>now.json</InlineCode> file with the
+  noted configuration option to disable auto-aliasing with Now for GitHub. The
+  file also includes an example setup alias.
+</Caption>
 
 ### Disable Commenting with Silent Mode
+
 To stop Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/v2/deployments/configuration) for the repository you want to stop this behaviour in.
 
-<Note>Although Now will stop commenting, it will not stop deploying the latest updates. For this configuration option, see <GenericLink href="#disabling-now-for-github-with-now.json">disabling Now for GitHub</GenericLink></Note>
+<Note>
+  Although Now will stop commenting, it will not stop deploying the latest
+  updates. For this configuration option, see{' '}
+  <GenericLink href="#disabling-now-for-github-with-now.json">
+    disabling Now for GitHub
+  </GenericLink>
+</Note>
 
 ```
 {
@@ -129,6 +163,7 @@ To stop Now from commenting on pull requests and commits, use the following conf
 ```
 
 ### Disable Auto Job Cancellation
+
 To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v2/deployments/configuration) for the repository that this behaviour should exist in.
 
 ```
@@ -144,19 +179,24 @@ To stop Now from canceling in-progress builds to prioritise building newer commi
 You may want to use different workflows and use different APIs based on Git information.<br/>
 In order to support that, Now will deploy your app with following built-in environment variables.
 
-| Variable Key | Description |
-| -- | -- |
-| `NOW_GITHUB_DEPLOYMENT` | An indicator for whether the app was deployed by Now for GitHub. |
-| `NOW_GITHUB_ORG` | The GitHub organisation who the app belongs to. |
-| `NOW_GITHUB_REPO` | The origin repository of the app. |
-| `NOW_GITHUB_COMMIT_ORG` | The organisation of which the commit belongs. For example, when submitting a pull request from a forked repository. |
-| `NOW_GITHUB_COMMIT_REPO` | The repository of which the commit belongs. For example, when submitting a pull request from a forked repository. |
-| `NOW_GITHUB_COMMIT_REF` | The branch that the app was deployed using. |
-| `NOW_GITHUB_COMMIT_SHA` | The [sha](https://help.github.com/articles/github-glossary/#commit) of the commit the app was deployed using. |
-| `NOW_GITHUB_COMMIT_AUTHOR_LOGIN` | The username belonging to the author of the commit that app was deployed using. |
-| `NOW_GITHUB_COMMIT_AUTHOR_NAME` | The name belonging to the author of the commit that the app was deployed using. |
+| Variable Key                     | Description                                                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `NOW_GITHUB_DEPLOYMENT`          | An indicator for whether the app was deployed by Now for GitHub.                                                    |
+| `NOW_GITHUB_ORG`                 | The GitHub organisation who the app belongs to.                                                                     |
+| `NOW_GITHUB_REPO`                | The origin repository of the app.                                                                                   |
+| `NOW_GITHUB_COMMIT_ORG`          | The organisation of which the commit belongs. For example, when submitting a pull request from a forked repository. |
+| `NOW_GITHUB_COMMIT_REPO`         | The repository of which the commit belongs. For example, when submitting a pull request from a forked repository.   |
+| `NOW_GITHUB_COMMIT_REF`          | The branch that the app was deployed using.                                                                         |
+| `NOW_GITHUB_COMMIT_SHA`          | The [sha](https://help.github.com/articles/github-glossary/#commit) of the commit the app was deployed using.       |
+| `NOW_GITHUB_COMMIT_AUTHOR_LOGIN` | The username belonging to the author of the commit that app was deployed using.                                     |
+| `NOW_GITHUB_COMMIT_AUTHOR_NAME`  | The name belonging to the author of the commit that the app was deployed using.                                     |
 
-<Note>You can access these as <GenericLink href="/docs/v2/deployments/configuration#build-env">build environment variables</GenericLink> also.</Note>
+<Note>
+  You can access these as{' '}
+  <GenericLink href="/docs/v2/deployments/configuration#build-env">
+    build environment variables
+  </GenericLink>{' '}
+  also.
+</Note>
 
-
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

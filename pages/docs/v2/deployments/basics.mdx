@@ -32,9 +32,7 @@ To make your first deployment, we are going to use the [Now CLI](/docs/v2/gettin
 
 We start by creating a directory in which to place our deployment sources. Open up [a terminal](https://hyper.is) and write the following:
 
-<TerminalInput>
-mkdir -p my-app && cd my-app
-</TerminalInput>
+<TerminalInput>mkdir -p my-app && cd my-app</TerminalInput>
 
 We are now inside the `my-app` directory. Use your favorite text editor to create an `index.html` file with the following contents:
 
@@ -45,9 +43,7 @@ We are now inside the `my-app` directory. Use your favorite text editor to creat
 
 All we have to do now is run `now` from within the `my-app` directory:
 
-<TerminalInput>
-now
-</TerminalInput>
+<TerminalInput>now</TerminalInput>
 
 The output looks like the following and includes a deployment URL:
 
@@ -58,7 +54,7 @@ The output looks like the following and includes a deployment URL:
 />
 <Caption>The output of deploying a simple application with <GenericLink href="/docs/v2/getting-started/installation#now-cli">Now CLI</GenericLink></Caption>
 
-Check the deployment for a live example: https://my-app-prtypks27.now.sh/.
+Check the deployment for a live example: https://my-app-prtypks27.now.sh/
 
 This URL is unique to the source code inside that directory. If you run `now` again, the same deployment is returned. This is why we call our deployments [immutable](/docs/v2/deployments/concepts/immutability).
 
@@ -139,8 +135,11 @@ When we run `now` again, we will see all our outputs.
 
 The end result is on display at https://my-app-4t1xyg9f7.now.sh, including the `date.js` Lambda: https://my-app-4t1xyg9f7.now.sh/date.js
 
-<Card title="Read More: Extending Now Deployments with Builds" href="/docs/v2/deployments/builds">
+<Card
+  title="Read More: Extending Now Deployments with Builds"
+  href="/docs/v2/deployments/builds"
+>
   Builds on Now create a production-ready output from your source files.
 </Card>
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

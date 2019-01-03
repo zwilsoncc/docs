@@ -7,12 +7,11 @@ import { GenericLink } from '~/components/text/link'
 import Caption from '~/components/text/caption'
 import Now from '~/components/text/now'
 
-
 export const meta = {
-  title: 'Introduction to Now',
-  description: 'A quick-start guide to deploying your dynamic and static apps with Now and what you can do with your deployments.',
-  date: '30 July 2017',
-  editUrl: 'pages/docs/getting-started/introduction-to-now.md'
+title: 'Introduction to Now',
+description: 'A quick-start guide to deploying your dynamic and static apps with Now and what you can do with your deployments.',
+date: '30 July 2017',
+editUrl: 'pages/docs/getting-started/introduction-to-now.md'
 }
 
 With Now's help, you can deploy and publish any kind of web application (or service) in
@@ -27,20 +26,20 @@ The best way to get started with Now is by downloading [Now Desktop](https://zei
 that runs in the menu bar and comes with the following features:
 
 - Installs [Now CLI](https://zeit.co/download#command-line) and keeps it
-up to date automatically (the command line interface for interacting with Now).
+  up to date automatically (the command line interface for interacting with Now).
 - Provides a real-time feed of the activity
-on your account and teams that you've joined.
+  on your account and teams that you've joined.
 - Lets you deploy any kind of application or file by
-simply dragging and dropping it onto its menubar icon or selecting
-it using a file picker.
+  simply dragging and dropping it onto its menubar icon or selecting
+  it using a file picker.
 
 <Image
 src={asset(`${IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`)}
 width={600}
 height={500}
 />
-<Caption>Now Desktop running on macOS. Now Desktop is also <GenericLink href="/download">available on Windows</GenericLink>.</Caption>
 
+<Caption>Now Desktop running on macOS. Now Desktop is also <GenericLink href="/download">available on Windows</GenericLink>.</Caption>
 
 Alternatively, you can install Now CLI to use Now in your terminal, using npm:
 <TerminalInput>npm i -g now</TerminalInput>
@@ -68,6 +67,7 @@ First, create a directory called `my-web-app` and add the following content to a
   </body>
 </html>
 ```
+
 > Alternatively, use [Docker to deploy](https://github.com/zeit/now-examples#serverless-docker-v2) your dynamic applications, or use a `Dockerfile` to instruct Now to [build and deploy your static applications](/docs/static-deployments/builds/building-with-now).
 
 After you have added the content, change to the `my-web-app` directory in your terminal and run this command:
@@ -77,10 +77,10 @@ After you have added the content, change to the `my-web-app` directory in your t
 &#8203;<Now color="#000"/> will deploy the app and give you a URL as shown below:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/five-minute-guide-to-now/deploy.png`)}
-  width={650}
-  height={255}
-  caption="Getting a unique URL after the deployment."
+src={asset(`${IMAGE_ASSETS_URL}/docs/five-minute-guide-to-now/deploy.png`)}
+width={650}
+height={255}
+caption="Getting a unique URL after the deployment."
 />
 
 This is a URL for the current deployment of the app. You can access this version of the app anytime with this URL.
@@ -111,10 +111,10 @@ Once you've done that, you'll be able to access your app using <https://my-web-a
 It is automatically configured with a [Let's Encrypt](https://letsencrypt.org/) SSL certificate and served with HTTPS.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/five-minute-guide-to-now/domain-setup.png`)}
-  width={650}
-  height={412}
-  caption="After mapping a domain name to a deployment."
+src={asset(`${IMAGE_ASSETS_URL}/docs/five-minute-guide-to-now/domain-setup.png`)}
+width={650}
+height={412}
+caption="After mapping a domain name to a deployment."
 />
 
 ## Updating Your Alias with New Deployments

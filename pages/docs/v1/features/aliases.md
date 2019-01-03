@@ -7,16 +7,16 @@ import { P } from '~/components/text/paragraph'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import {
-  TerminalInput,
-  TerminalOutput,
-  TerminalLink
+TerminalInput,
+TerminalOutput,
+TerminalLink
 } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'Aliases and Domains',
-  description: 'All you need to know about assigning domains to your Now deployments',
-  date: '21 Feb 2017',
-  editUrl: 'pages/docs/features/aliases.md'
+title: 'Aliases and Domains',
+description: 'All you need to know about assigning domains to your Now deployments',
+date: '21 Feb 2017',
+editUrl: 'pages/docs/features/aliases.md'
 }
 
 This guide covers how to assign two types of domains to your <Now color="#000"/> deployments.
@@ -34,10 +34,10 @@ Whenever you deploy to <Now color="#000"/>, the URL you get in return looks some
 
 We can split the above URL into few parts:
 
-* **https://** -Every single deployment is automatically served under HTTP/2 with SSL. Certificates are automatically provisioned.
-* **get-started-basic**	- The application's name. You can customize it upon deployment (for example with the name field in package.json for Node.js deployments or LABEL in Dockerfile for Docker ones.
-* **etjnigdrkz** -	A cryptographically-strong random string that makes your URL virtually impossible to guess, while retaining a reasonable length for sharing it with your co-workers or clients.
-* **.now.sh** -	All your deployments end in .now.sh by default. Aliases allow you to point them to custom domains.
+- **https://** -Every single deployment is automatically served under HTTP/2 with SSL. Certificates are automatically provisioned.
+- **get-started-basic** - The application's name. You can customize it upon deployment (for example with the name field in package.json for Node.js deployments or LABEL in Dockerfile for Docker ones.
+- **etjnigdrkz** - A cryptographically-strong random string that makes your URL virtually impossible to guess, while retaining a reasonable length for sharing it with your co-workers or clients.
+- **.now.sh** - All your deployments end in .now.sh by default. Aliases allow you to point them to custom domains.
 
 These URLs are ideal for development and staging, but not ideal for end users.
 
@@ -84,14 +84,14 @@ All you have to do is run:
 After this successful message, your deployment is instantly available via its original URL and the new alias you gave it:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/aliases/alias-dest.png`)}
-  width="682"
-  height="468"
-  caption={
-    <span>
-      The URL <InlineCode>get-started-basic.now.sh</InlineCode> now works!
-    </span>
-  }
+src={asset(`${IMAGE_ASSETS_URL}/docs/aliases/alias-dest.png`)}
+width="682"
+height="468"
+caption={
+<span>
+The URL <InlineCode>get-started-basic.now.sh</InlineCode> now works!
+</span>
+}
 />
 
 Notice that we omitted `.now.sh` at the end of the target subdomain. When one is not given, we default to `now.sh`.
@@ -106,9 +106,9 @@ It's usually known as the **deployment ID**, which is also accessible when you l
 
 For convenience, we parse the URLs you supply as parameters to `now alias` to extract the hostname, which means the following are all valid **source URLs**:
 
-* Just the hostname: `get-started-basic-etjnigdrkz.now.sh`
-* Including http(s): `http://get-started-basic-etjnigdrkz.now.sh`
-* Including /: `https://get-started-basic-etjnigdrkz.now.sh/`
+- Just the hostname: `get-started-basic-etjnigdrkz.now.sh`
+- Including http(s): `http://get-started-basic-etjnigdrkz.now.sh`
+- Including /: `https://get-started-basic-etjnigdrkz.now.sh/`
 
 ## Custom Domains
 
@@ -150,8 +150,8 @@ After executing the `alias` above, just run `now domains ls` to see all the doma
 
 As you can see, there are two types of domains:
 
-* **external**: the domain is associated with a third-party nameserver provider like DNSimple.
-* **zeit.world**: the domain is hosted with <GenericLink href="/world">zeit.world</GenericLink> and `now alias` automatically sets up records.
+- **external**: the domain is associated with a third-party nameserver provider like DNSimple.
+- **zeit.world**: the domain is hosted with <GenericLink href="/world">zeit.world</GenericLink> and `now alias` automatically sets up records.
 
 Once a domain appears under `now domains ls`, **only you can point aliases to it** until you remove it from your account.
 

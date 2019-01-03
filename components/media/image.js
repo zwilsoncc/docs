@@ -25,7 +25,7 @@ const Image = ({
     throw new Error('Please define the height of the image!')
   }
 
-  const aspectRatio = String(height / width * 100) + '%'
+  const aspectRatio = String((height / width) * 100) + '%'
 
   return (
     <figure style={{ margin: `${margin}px 0` }}>

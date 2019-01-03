@@ -7,7 +7,8 @@ import { InlineCode } from '~/components/text/code'
 
 export const meta = {
   title: 'CDN and Global Distribtion for Deployments',
-  description: 'Documentation for the concept of how ZEIT Now deployments can utilise the ZEIT CDN to host and serve content at the edge.'
+  description:
+    'Documentation for the concept of how ZEIT Now deployments can utilise the ZEIT CDN to host and serve content at the edge.'
 }
 
 We offer two kinds of Content Management Networks (depending on your [pricing plan](/pricing)) for allowing your content to be served as fast as possible.
@@ -55,4 +56,4 @@ By default, the cache for a response of your deployment is purged once the expir
 
 Furthermore, we also purge all caches related to a deployment when `now alias` is used to assign the alias of the deployment to a different deployment, as this implies that new content needs to be served, thus requiring purging the caches.
 
-export default ({children}) => <Doc meta={meta}>{ children }</Doc>
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

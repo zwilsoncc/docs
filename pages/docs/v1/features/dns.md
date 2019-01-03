@@ -5,12 +5,11 @@ import { InternalLink } from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
-  title: 'DNS Management',
-  description: 'Managing your DNS records for domains used with Now',
-  date: '15 Mar 2017',
-  editUrl: 'pages/docs/features/dns.md'
+title: 'DNS Management',
+description: 'Managing your DNS records for domains used with Now',
+date: '15 Mar 2017',
+editUrl: 'pages/docs/features/dns.md'
 }
-
 
 Thanks to the `now dns` CLI command, managing existing DNS records with <Now color="#000" /> is simple.
 
@@ -26,14 +25,14 @@ Lists all the DNS records available for this domain. The list doesn't include re
 
 Adds a DNS record to a domain of your choice. The following record types are currently supported:
 
-* A
-* AAAA
-* ALIAS
-* CAA
-* CNAME
-* MX
-* SRV
-* TXT
+- A
+- AAAA
+- ALIAS
+- CAA
+- CNAME
+- MX
+- SRV
+- TXT
 
 This is the syntax for the `now dns` command.
 
@@ -41,12 +40,12 @@ This is the syntax for the `now dns` command.
   now dns add &lt;domain&gt; &lt;name&gt; &lt;record type&gt; &lt;value&gt; [mx_priority]
 </TerminalInput>
 
-* `<domain>` is the domain name
-* `<name>` is the subdomain that will be prefixed to `<domain>` (value `@` refers to a domain without any prefix)
-* `<record type>` contains one of the supported record types shown above
-* `<value>` indicates the value for the record (like an IP address or a hostname)
-* `[mx_priority]` sets the priority of a certain MX record and can therefore only be used in conjunction with this record type
-<br/>
+- `<domain>` is the domain name
+- `<name>` is the subdomain that will be prefixed to `<domain>` (value `@` refers to a domain without any prefix)
+- `<record type>` contains one of the supported record types shown above
+- `<value>` indicates the value for the record (like an IP address or a hostname)
+- `[mx_priority]` sets the priority of a certain MX record and can therefore only be used in conjunction with this record type
+  <br/>
 
 **Examples**
 
@@ -70,6 +69,7 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 
 > In this case, you'll be in charge of certificate management for your domain.<br/>
 > Most probably, you'll need to use `CAA` records to:
+>
 > 1. use a custom certificate for your <Now color="#000" /> deployment with <InternalLink href="/docs/features/certs#now-certs-replace">`now certs replace`</InternalLink>
 > 2. run an app outside of <Now color="#000" /> with TLS for a subdomain
 

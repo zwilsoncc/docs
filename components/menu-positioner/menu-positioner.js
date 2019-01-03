@@ -68,13 +68,21 @@ export default class MenuPositioner extends Component {
 
       this.calculatedAlign =
         this.props.orientation === ORIENTATIONS.VERTICAL
-          ? left <= ww / 2 - width / 2 ? POSITIONS.LEFT : POSITIONS.RIGHT
-          : top > wh / 2 - height / 2 ? POSITIONS.BOTTOM : POSITIONS.TOP
+          ? left <= ww / 2 - width / 2
+            ? POSITIONS.LEFT
+            : POSITIONS.RIGHT
+          : top > wh / 2 - height / 2
+          ? POSITIONS.BOTTOM
+          : POSITIONS.TOP
 
       this.calculatedPosition =
         this.props.orientation === ORIENTATIONS.VERTICAL
-          ? top > wh / 2 - height / 2 ? POSITIONS.TOP : POSITIONS.BOTTOM
-          : left <= ww / 2 - width / 2 ? POSITIONS.RIGHT : POSITIONS.LEFT
+          ? top > wh / 2 - height / 2
+            ? POSITIONS.TOP
+            : POSITIONS.BOTTOM
+          : left <= ww / 2 - width / 2
+          ? POSITIONS.RIGHT
+          : POSITIONS.LEFT
     }
   }
 

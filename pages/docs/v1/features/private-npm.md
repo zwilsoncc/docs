@@ -8,10 +8,10 @@ import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
 
 export const meta = {
-  title: 'Using Private npm Dependencies',
-  description: 'Granting permissions for your deployments to use private npm scopes ',
-  date: '12 Mar 2017',
-  editUrl: 'pages/docs/features/private-npm.md'
+title: 'Using Private npm Dependencies',
+description: 'Granting permissions for your deployments to use private npm scopes ',
+date: '12 Mar 2017',
+editUrl: 'pages/docs/features/private-npm.md'
 }
 
 If your application is using projects with dependencies hosted in private npm scopes, you can deploy such with - true to our style - just one command (and a flag):
@@ -21,9 +21,9 @@ If your application is using projects with dependencies hosted in private npm sc
 This command will forward your npm credentials during the build process to fetch the required modules. Here's a little video of this feature in action, using a scoped private module in `package.json`:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/private-npm/example.gif`)}
-  width="658"
-  height="483"
+src={asset(`${IMAGE_ASSETS_URL}/docs/private-npm/example.gif`)}
+width="658"
+height="483"
 />
 
 ## Config Property
