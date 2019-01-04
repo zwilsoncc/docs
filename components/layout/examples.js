@@ -38,6 +38,7 @@ import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withError from '~/components/layout/error'
 import EXAMPLES from '~/lib/data/now-examples-docs'
 import { UserContext } from '~/lib/user-context'
+import UseTeamInfo from '~/lib/use-team-info'
 
 const CodeMarkdown = ({ language, value }) => (
   <Code syntax={language}>{value}</Code>
@@ -161,10 +162,16 @@ class ExamplesPage extends React.Component {
 
         <UserContext.Consumer>
           {({ user, userLoaded }) => (
-            <Header
-              onToggleNavigation={this.handleToggleNavigation}
+            <UseTeamInfo
               user={user}
-              userLoaded={userLoaded}
+              render={({ teams }) => (
+                <Header
+                  onToggleNavigation={this.handleToggleNavigation}
+                  user={user}
+                  teams={teams}
+                  userLoaded={userLoaded}
+                />
+              )}
             />
           )}
         </UserContext.Consumer>

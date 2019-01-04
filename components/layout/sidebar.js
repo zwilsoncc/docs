@@ -13,7 +13,6 @@ class Sidebar extends Component {
             background: #fff;
             border-right: 1px solid #eaeaea;
             bottom: 0;
-            overflow-y: scroll;
             padding-bottom: 40px;
             padding-right: 24px;
             padding-top: 40px;
@@ -21,6 +20,8 @@ class Sidebar extends Component {
             top: ${HEADER_HEIGHT}px;
             width: 280px;
             z-index: 1;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
           }
 
           @media screen and (max-width: 950px) {

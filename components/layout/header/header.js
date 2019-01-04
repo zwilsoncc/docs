@@ -35,6 +35,32 @@ class Header extends Component {
     }))
   }
 
+  handleClickEditProfile = e => {
+    if (!e.metaKey) {
+      e.preventDefault()
+
+      const { user } = this.props
+      if (!user) return
+
+      const urlSegment = user.username || 'profile'
+
+      if (window.location.pathname.includes(urlSegment)) {
+        Router.push(
+          { pathname: '/user-profile', query: { editing: '1' } },
+          `/${urlSegment}/edit`,
+          { shallow: true }
+        )
+      } else {
+        Router.push(
+          { pathname: '/user-profile', query: { editing: '1' } },
+          `/${urlSegment}/edit`
+        )
+      }
+
+      return
+    }
+  }
+
   renderMenuTrigger = ({ handleProviderRef, menu }) => {
     const { user } = this.props
     return (
@@ -55,6 +81,83 @@ class Header extends Component {
     )
   }
 
+  renderTeam = ({
+    displayName = null,
+    avatar,
+    teamId,
+    teamSlug,
+    username
+  }) => {
+    const currentTeam = this.props.team
+
+    const slug = teamSlug || username
+    const active = !currentTeam && !teamSlug ? true : currentTeam === teamSlug
+    const linkProps = teamSlug ? {
+      as: `/teams/${teamSlug}/settings/identity`,
+      href: {
+        pathname: `/teams/settings/identity`,
+        query: { teamSlug }
+      }
+    } : { as: '/account', href: '/account/identity' }
+
+    return (
+      <MenuItem key={slug} active={active}>
+        <Link {...linkProps}>
+          <a className={active ? 'active team' : 'team'}>
+            <span className="user">
+              <span className="avatar">
+                <Avatar
+                  teamId={teamId}
+                  user={{username: displayName || slug, avatar}}
+                  size={24}
+                />
+              </span>
+              <span className="username">{displayName || slug}</span>
+            </span>
+          </a>
+        </Link>
+        <style jsx>{`
+          a {
+            transition: 0.2s ease;
+          }
+
+          a:hover {
+            background: #fafafa;
+          }
+
+          .team {
+            padding: 8px 20px !important;
+            margin: -8px -20px !important;
+          }
+
+          .user {
+            display: inline-flex;
+            height: 20px;
+            line-height: 30px;
+            vertical-align: middle;
+            align-items: center;
+          }
+
+          .username {
+            display: inline-block;
+            max-width: 118px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .avatar {
+            float: left;
+            height: 24px;
+            margin-right: 10px;
+            line-height: 24px;
+            width: 24px;
+          }
+        `}</style>
+      </MenuItem>
+    )
+  }
+
   render() {
     const {
       currentTeamSlug,
@@ -62,6 +165,7 @@ class Header extends Component {
       onToggleNavigation,
       router,
       user,
+      teams = [],
       userLoaded
     } = this.props
     const { menuActive } = this.state
@@ -120,10 +224,50 @@ class Header extends Component {
                     style={{ minWidth: 200 }}
                   >
                     <MenuItem>
+                      {user.username ? (
+                        <Link href={`/${user.username}`}>
+                          <a className="avatar-link">
+                            <Avatar user={user} size={50} />
+                          </a>
+                        </Link>
+                      ) : (
+                        <Avatar user={user} size={50} />
+                      )}
+                      <div className="avatar-user-info">
+                        {user.username && (
+                          <Link href={`/${user.username}`}>
+                            <a className="username">
+                              <span>{user.username}</span>
+                            </a>
+                          </Link>
+                        )}
+                        <a
+                          className="edit-profile"
+                          href={`/${user.username || 'profile'}/edit`}
+                          onClick={this.onEditProfileClick}
+                        >
+                          Edit Profile
+                        </a>
+                      </div>
+                    </MenuItem>
+                    <MenuDivider />
+                    <MenuItem>
                       <Link prefetch href="/dashboard">
                         <a>Dashboard</a>
                       </Link>
                     </MenuItem>
+                    <MenuDivider />
+                    <MenuItem>
+                      {teams.length === 0 ? (
+                        <Link href="/account">
+                          <a>Settings</a>
+                        </Link>
+                      ) : (
+                        <span className="settings">SETTINGS</span>
+                      )}
+                    </MenuItem>
+                    {teams.map(team => this.renderTeam(team))}
+                    <MenuDivider />
                     <MenuItem>
                       <Link
                         href="/teams/settings/url?isCreating=1"
@@ -132,12 +276,6 @@ class Header extends Component {
                         <a>
                           Create a Team <Plus />
                         </a>
-                      </Link>
-                    </MenuItem>
-                    <MenuDivider />
-                    <MenuItem>
-                      <Link href="/account/identity" as="/account">
-                        <a>Account Settings</a>
                       </Link>
                     </MenuItem>
                     <MenuDivider />
@@ -194,6 +332,56 @@ class Header extends Component {
 
           .arrow-toggle.active {
             transform: rotate(180deg);
+          }
+
+          .avatar-link {
+            flex: 0;
+            margin: -8px -15px;
+            padding: 8px 15px;
+          }
+          a.avatar-link:hover,
+          a.avatar-user-info:hover {
+            background: none !important;
+          }
+          .avatar-user-info {
+            margin-left: 15px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 50px;
+          }
+          .avatar-user-info .username {
+            color: #000;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 3px;
+            text-decoration: none;
+          }
+          .avatar-user-info .edit-profile {
+            color: #0076ff;
+            font-weight: 500;
+            font-size: 12px;
+            text-decoration: none;
+            border: 0;
+            background: none;
+            padding: 0;
+            margin: 0;
+            outline: 0;
+            cursor: pointer;
+          }
+          .avatar-link:hover,
+          .username:hover,
+          .edit-profile:hover {
+            background-color: white;
+            opacity: 0.7;
+          }
+          .avatar-link,
+          .username,
+          .edit-profile {
+            transition: opacity 0.2s ease;
+          }
+          span.settings {
+            font-size: 12px;
           }
 
           @media screen and (max-width: 950px) {

@@ -26,6 +26,7 @@ import { P } from '~/components/text/paragraph'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
 import { UserContext } from '~/lib/user-context'
+import UseTeamInfo from '~/lib/use-team-info'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
 
@@ -152,10 +153,16 @@ class APIPage extends Component {
 
           <UserContext.Consumer>
             {({ user, userLoaded }) => (
-              <Header
-                onToggleNavigation={this.handleToggleNavigation}
+              <UseTeamInfo
                 user={user}
-                userLoaded={userLoaded}
+                render={({ teams }) => (
+                  <Header
+                    onToggleNavigation={this.handleToggleNavigation}
+                    user={user}
+                    teams={teams}
+                    userLoaded={userLoaded}
+                  />
+                )}
               />
             )}
           </UserContext.Consumer>

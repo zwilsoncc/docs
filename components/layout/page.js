@@ -43,6 +43,7 @@ export default class Page extends Component {
               min-height: 100%;
               position: relative;
               text-rendering: optimizeLegibility;
+              -webkit-font-smoothing: antialiased;
             }
 
             html, body {

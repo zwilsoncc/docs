@@ -26,6 +26,7 @@ import lastEdited from '~/lib/data/last-edited.json'
 import Select from '~/components/select'
 import Note from '~/components/text/note'
 import { UserContext } from '~/lib/user-context'
+import UseTeamInfo from '~/lib/use-team-info'
 
 const DocH2 = ({ children }) => (
   <div>
@@ -140,10 +141,16 @@ class withDoc extends React.Component {
 
           <UserContext.Consumer>
             {({ user, userLoaded }) => (
-              <Header
-                onToggleNavigation={this.handleToggleNavigation}
+              <UseTeamInfo
                 user={user}
-                userLoaded={userLoaded}
+                render={({ teams }) => (
+                  <Header
+                    onToggleNavigation={this.handleToggleNavigation}
+                    user={user}
+                    teams={teams}
+                    userLoaded={userLoaded}
+                  />
+                )}
               />
             )}
           </UserContext.Consumer>

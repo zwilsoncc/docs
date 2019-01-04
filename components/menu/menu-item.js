@@ -30,13 +30,16 @@ class MenuItem extends Component {
             line-height: 17px;
             padding: 8px 20px;
             position: relative;
-            transition: all 0.2s ease;
             white-space: nowrap;
             width: 100%;
           }
 
-          li:not(.disabled):hover {
+          li > :global(a) {
+            transition: all 0.2s ease;
+          }
+          li:not(.disabled) > :global(a:hover) {
             color: #000;
+            background: #fafafa;
             cursor: pointer;
           }
 

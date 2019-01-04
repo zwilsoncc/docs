@@ -86,7 +86,6 @@ class Menu extends Component {
               ul {
                 background: #ffffff;
                 border-radius: 5px;
-                border: 1px solid #eee;
                 box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.02);
                 list-style: none;
                 margin: 0;
@@ -96,7 +95,8 @@ class Menu extends Component {
                 visibility: hidden;
                 transform: translateY(0);
                 transition: opacity 0.2s ease, transform 0.2s ease,
-                  box-shadow 0.4s ease;
+                  box-shadow 0.5s ease;
+                cursor: default;
               }
               ul.fit {
                 width: ${triggerWidth}px;
@@ -110,7 +110,7 @@ class Menu extends Component {
               ul.active {
                 opacity: 1;
                 visibility: visible;
-                box-shadow: 0 18px 30px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.12);
               }
               ul.active.bottom {
                 transform: translateY(3px);
@@ -168,8 +168,6 @@ const Triangle = ({ direction }, { darkBg = false }) => (
   >
     <path
       fill={darkBg ? '#000' : '#fff'}
-      strokeWidth="1px"
-      stroke={darkBg ? '#333' : '#eee'}
       fillRule="evenodd"
       d={direction === 'down' ? 'M20 0l-8 8-12-12' : 'M20 12l-8-8-12 12'}
     />
