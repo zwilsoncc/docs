@@ -36,7 +36,7 @@ We start by creating a directory in which to place our deployment sources. Open 
 
 We are now inside the `my-app` directory. Use your favorite text editor to create an `index.html` file with the following contents:
 
-```
+```html
 <h1>Hello World</h1>
 <marquee>This is my first Now Deployment</marquee>
 ```
@@ -71,7 +71,7 @@ Let's add a function that will be executed whenever the user goes to `/date.js` 
 
 Create a file `date.js` with the following contents:
 
-```
+```js
 module.exports = (req, res) => {
   res.end(`The date is ${Date.now()}`)
 }
@@ -79,12 +79,10 @@ module.exports = (req, res) => {
 
 And register a [Build](/docs/v2/deployments/builds) for it by adding the following to `now.json`:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "date.js", "use": "@now/node" }
-  ]
+  "builds": [{ "src": "date.js", "use": "@now/node" }]
 }
 ```
 
@@ -114,7 +112,7 @@ Notice that a `date.js` lambda was built (identified with the icon λ), but `ind
 
 We can then use the `@now/static` build module to include our `index.html` file explicitly:
 
-```
+```json
 {
   "version": 2,
   "builds": [

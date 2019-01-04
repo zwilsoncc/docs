@@ -14,6 +14,7 @@
     "prettier": "prettier --write \"**/*.{js,json,md,mdx}\""
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "0.3.0",
     "@mdx-js/loader": "0.15.5",
     "@mdx-js/mdx": "0.15.5",
     "@mdx-js/tag": "0.15.0",
@@ -41,6 +42,8 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-markdown": "4.0.3",
+    "refractor": "2.6.2",
+    "rehype": "7.0.0",
     "scroll-into-view-if-needed": "1.1.0",
     "unist-util-filter": "1.0.0",
     "unist-util-find-all-after": "1.0.2",

@@ -25,30 +25,23 @@ When you want your HTML source files to be minified so they are as small as poss
 
 We'll define a `index.html` file:
 
-```
-<!doctype html>
-<h1>
-  Hello
-  there
-  This is intentionally
-        long
-  </h1>
+```html
+<!DOCTYPE html>
+<h1>Hello there This is intentionally long</h1>
 ```
 
 Then we'll define our build step to optimize our images:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "*.html", "use": "@now/html-minifier" }
-  ]
+  "builds": [{ "src": "*.html", "use": "@now/html-minifier" }]
 }
 ```
 
 When we deploy with `now` and `curl` the resulting deployment URL, we will notice the HTML has been compressed:
 
-```
+```bash
 ▲  curl https://optipng-deployment-f0hz0ny2d.now.sh/
 <!doctype html><h1>Hello there This is intentionally long</h1>
 ```

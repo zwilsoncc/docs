@@ -36,25 +36,22 @@ Inside `my-node-project > api > hello` we will create an `index.js` file.
 
 The `index.js` file exports a Node.js function that takes in the standard Node.js request and response objects:
 
-```
-const { parse } = require("url");
+```js
+const { parse } = require('url')
 
 module.exports = (req, res) => {
-  const { query } = parse(req.url, true);
-  const { name = "World" } = query;
-  res.end(`Hello ${name}!`);
-};
-
+  const { query } = parse(req.url, true)
+  const { name = 'World' } = query
+  res.end(`Hello ${name}!`)
+}
 ```
 
 The only step left is to define a build that will take this directory's entrypoint (`index.js`), build it and turn it into a lambda:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "api/hello/index.js", "use": "@now/node" }
-  ]
+  "builds": [{ "src": "api/hello/index.js", "use": "@now/node" }]
 }
 ```
 
@@ -98,7 +95,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   <span>
     Example <InlineCode>maxLambdaSize</InlineCode> configuration:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "10mb" } }
   ]

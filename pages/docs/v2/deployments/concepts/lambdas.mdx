@@ -36,7 +36,7 @@ We will want `test.html` to be served statically from our [CDN](/docs/v2/domains
 
 The PHP files can contain any valid PHP code. `api/index.js` needs just to export a **function**:
 
-```
+```js
 module.exports = (req, res) => {
   res.end('Welcome to my API')
 }
@@ -44,9 +44,9 @@ module.exports = (req, res) => {
 
 We can then specify the following builds in `now.json`:
 
-```
+```json
 {
-"version": 2,
+  "version": 2,
   "builds": [
     { "src": "test.html", "use": "@now/static" },
     { "src": "*.php", "use": "@now/php" },
@@ -186,7 +186,7 @@ Although this limit is in place, each [Builder](/docs/v2/deployments/builders/ov
 This configuration option, `maxLambdaSize`, accepts any byte value up to `50mb`.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "15mb" } }
   ]

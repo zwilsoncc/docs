@@ -25,7 +25,7 @@ When you want to store in your repository png files that might or might not be o
 
 We'll define a `index.html` file:
 
-```
+```html
 <h1>Hello there</h1>
 <img src="/photos/1.png" width="500" />
 ```
@@ -37,7 +37,7 @@ curl https://file-aazttvugaa.now.sh/ -o photos/1.png`}</TerminalInput>
 
 Then we'll define our build step to optimize our images:
 
-```
+```json
 {
   "version": 2,
   "builds": [

@@ -163,8 +163,7 @@ In the case you want to inline each file inside the create deployment request ea
     <BooleanCell status={false} />
     <Cell>
       The file encoding, it must be <InlineCode>base64</InlineCode> or{' '}
-      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>
-      .
+      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>.
     </Cell>
   </Row>
 </InputTable>
@@ -241,7 +240,7 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "totalSize": 0,
     "missing": [],
     "deploymentId": "o0kamOwnoWccUDCJCiC5ryLP",
@@ -364,7 +363,8 @@ Each deployment is an object with the following keys:
     <TypeCell>String</TypeCell>
     <Cell>
       A string with the unique URL of the deployment. If it hasn't finished
-      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
+      .
     </Cell>
   </Row>
   <Row>
@@ -386,10 +386,9 @@ Each deployment is an object with the following keys:
     <Cell>
       A string with the current deployment state, it could be one of the
       following <InlineCode>DEPLOYING</InlineCode>,{' '}
-      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
-      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
-        BUILD_ERROR
-      </InlineCode> or <InlineCode>FROZEN</InlineCode>.
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>
+      , <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>,{' '}
+      <InlineCode>BUILD_ERROR</InlineCode> or <InlineCode>FROZEN</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -450,7 +449,7 @@ Example request:
 
 Example successful (**200**) response:
 
-<Code>{`{
+<Code lang="json">{`{
   "deployments": [
     {
       "uid": "7Npest0z1zW5QVFfNDBId4BW",
@@ -528,8 +527,7 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
     <TypeCell>String</TypeCell>
     <Cell>
       A string with the unique URL of the deployment. If it hasn't finished
-      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
-      .
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -538,10 +536,9 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
     <Cell>
       A string with the current deployment state, it could be one of the
       following: <InlineCode>DEPLOYING</InlineCode>,{' '}
-      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
-      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
-        BUILD_ERROR
-      </InlineCode> or <InlineCode>FROZEN</InlineCode>.
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>
+      , <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>,{' '}
+      <InlineCode>BUILD_ERROR</InlineCode> or <InlineCode>FROZEN</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -607,7 +604,7 @@ Example request:
 
 Example successful (**200**) response:
 
-<Code>{`{
+<Code lang="json">{`{
   "uid": "ChbZiZe84CKtod6rmCIRRvYR",
   "host": "my-instant-deployment-rrucptrbft.now.sh",
   "state": "READY",
@@ -695,7 +692,7 @@ The body will contain entries for each child and directory, coupled with an ID o
 
 Example successful (**200**) response:
 
-  <Code>{`[
+  <Code lang="json">{`[
     {
       "name": "server",
       "type": "directory",
@@ -737,7 +734,7 @@ The body will contain the raw content of the file
 
 Example successful (**200**) response:
 
-  <Code>{`require("http").Server((req, res) => {
+  <Code lang="js">{`require("http").Server((req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.end(require("sign-bunny")("Hi there!"));
   }).listen();`}</Code>
@@ -772,7 +769,8 @@ Get the list of instances unique URL of a deployment.
     <TypeCell>String</TypeCell>
     <Cell>
       The instance unique url. Is the deployment unique URL with the instance{' '}
-      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>.
+      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>
+      .
     </Cell>
   </Row>
 </OutputTable>
@@ -791,7 +789,7 @@ Get the list of instances unique URL of a deployment.
 
 Example response:
 
-  <Code syntax="json">{`{
+  <Code lang="json">{`{
     "instances": [
       {
         "uid": "ce78d91573fedfff4e6577a8",
@@ -861,7 +859,7 @@ Configure the minimum and maximum amount of instances desired for the given depl
 
 Example response:
 
-  <Code syntax="json">{`{
+  <Code lang="json">{`{
     "min": 1,
     "max": 10
   }`}</Code>

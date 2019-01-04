@@ -13,11 +13,9 @@ Builds are a step of deployments that transform sources into production ready ou
 
 Builds are defined in the `now.json` configuration file using [the `builds` property](/docs/v2/deployments/configuration#builds):
 
-```
+```json
 {
-  "builds": [
-    { "src": "*.js", "use": "@now/node" }
-  ]
+  "builds": [{ "src": "*.js", "use": "@now/node" }]
 }
 ```
 

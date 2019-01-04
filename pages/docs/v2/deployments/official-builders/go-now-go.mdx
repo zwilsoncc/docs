@@ -22,7 +22,7 @@ Whenever you want to expose an API or a function written in Go.
 
 Define a `index.go` file inside a folder as follows:
 
-```
+```go
 package main
 
 import (
@@ -37,12 +37,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 And define a `now.json` like:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "*.go", "use": "@now/go" }
-  ]
+  "builds": [{ "src": "*.go", "use": "@now/go" }]
 }
 ```
 
@@ -70,7 +68,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   <span>
     Example <InlineCode>maxLambdaSize</InlineCode> configuration:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
   ]

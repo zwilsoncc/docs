@@ -1,8 +1,24 @@
 import PropTypes from 'prop-types'
+import refractor from 'refractor'
+import rehype from 'rehype'
 
-export const Code = ({ children, syntax }, { darkBg } = {}) => (
-  <pre className={(darkBg ? 'dark' : '') + (syntax ? ` ${syntax}` : '')}>
-    <code>{children}</code>
+export const Code = ({ children, lang }, { darkBg } = {}) => (
+  <pre className={(darkBg ? 'dark' : '') + (lang ? ` ${lang}` : '')}>
+    {lang ? (
+      <code
+        className={`language-${lang}`}
+        dangerouslySetInnerHTML={{
+          __html: rehype()
+            .stringify({
+              type: 'root',
+              children: refractor.highlight(children, lang)
+            })
+            .toString()
+        }}
+      />
+    ) : (
+      <code>{children}</code>
+    )}
     <style jsx>
       {`
         pre {
@@ -15,7 +31,7 @@ export const Code = ({ children, syntax }, { darkBg } = {}) => (
           background: white;
         }
         code {
-          color: #bd10e0;
+          color: #000;
           font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
             serif;
@@ -29,7 +45,7 @@ export const Code = ({ children, syntax }, { darkBg } = {}) => (
         .dark code {
           color: #fff;
         }
-        .dark.shell code {
+        .dark.bash code {
           color: #50e3c2;
         }
       `}

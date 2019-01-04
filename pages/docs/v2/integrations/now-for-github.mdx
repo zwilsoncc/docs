@@ -108,7 +108,7 @@ For example, the following `now.json` configuration will make Now for GitHub ali
 
 To disable Now for a GitHub repository, use the following configuration option in the `now.json` file:
 
-```
+```json
 {
   "github": {
     "enabled": false
@@ -127,7 +127,7 @@ Disabling Now for GitHub with this configuration option will prevent Now from [d
 
 To stop Now from [automatically aliasing the default branch](#aliasing-the-default-branch) to any alias setup within the `now.json` file, use the following configuration option.
 
-```
+```json
 {
   "alias": ["my-zeit-website.com"],
   "github": {
@@ -154,7 +154,7 @@ To stop Now from commenting on pull requests and commits, use the following conf
   </GenericLink>
 </Note>
 
-```
+```json
 {
   "github": {
     "silent": true
@@ -166,7 +166,7 @@ To stop Now from commenting on pull requests and commits, use the following conf
 
 To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v2/deployments/configuration) for the repository that this behaviour should exist in.
 
-```
+```json
 {
   "github": {
     "autoJobCancelation": false

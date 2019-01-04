@@ -26,7 +26,7 @@ Whenever you want to expose an API or a function written in Python.
 
 Define a `index.py` file inside a folder as follows:
 
-```
+```python
 from http.server import BaseHTTPRequestHandler
 from cowpy import cow
 
@@ -49,12 +49,10 @@ cowpy==1.0.3
 
 And define a `now.json` like:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "*.py", "use": "@now/python" }
-  ]
+  "builds": [{ "src": "*.py", "use": "@now/python" }]
 }
 ```
 
@@ -79,7 +77,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   <span>
     Example <InlineCode>maxLambdaSize</InlineCode> configuration:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*.py", "use": "@now/python", "config": { "maxLambdaSize": "10mb" } }
   ]

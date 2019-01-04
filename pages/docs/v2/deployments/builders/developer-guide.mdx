@@ -26,7 +26,7 @@ The arguments these functions receive are:
 
 The signatures of the functions are as follows:
 
-```
+```js
 analyze({
   files: Files,
   entrypoint: String,
@@ -35,7 +35,7 @@ analyze({
 }) : String fingerprint
 ```
 
-```
+```js
 build({
   files: Files,
   entrypoint: String,
@@ -44,7 +44,7 @@ build({
 }) : Files output
 ```
 
-```
+```js
 prepareCache({
   files: Files,
   entrypoint: String,
@@ -76,9 +76,9 @@ For our `html-minify` example, we know that HTML files don't have dependencies. 
 
 Our `index.js` file looks as follows:
 
-```
-exports.analyze = function ({ files, entrypoint }) {
-  return files[entrypoint].digest;
+```js
+exports.analyze = function({ files, entrypoint }) {
+  return files[entrypoint].digest
 }
 ```
 
@@ -92,21 +92,21 @@ To that end, we expose our API as part of a `@now/build-utils` package. This pac
 
 Builders can include dependencies of their liking. In this case, we'll use the [html-minifier](/docs/v2/deployments/official-builders/html-minifier-now-html-minifier) npm package:
 
-```
-const htmlMinifier = require('html-minifier');
+```js
+const htmlMinifier = require('html-minifier')
 
-exports.analyze = ({ files, entrypoint }) => files[entrypoint].digest;
+exports.analyze = ({ files, entrypoint }) => files[entrypoint].digest
 
 exports.build = async ({ files, entrypoint, config }) => {
-  const stream = files[entrypoint].toStream();
-  const options = Object.assign({}, config || {});
-  const { data } = await FileBlob.fromStream({ stream });
-  const content = data.toString();
+  const stream = files[entrypoint].toStream()
+  const options = Object.assign({}, config || {})
+  const { data } = await FileBlob.fromStream({ stream })
+  const content = data.toString()
 
-  const minified = htmlMinifier(content, options);
-  const result = new FileBlob({ data: minified });
+  const minified = htmlMinifier(content, options)
+  const result = new FileBlob({ data: minified })
 
-  return { [entrypoint]: result };
+  return { [entrypoint]: result }
 }
 ```
 
@@ -150,7 +150,7 @@ This is an abstract type that is implemented as a plain [JavaScript Object](http
 
 An example of a valid `Files` object is:
 
-```
+```json
 {
   "index.html": FileRef,
   "api/index.js": Lambda
@@ -249,16 +249,16 @@ Exported from: `@now/build-utils/lambda`
 
 Constructor for the [`Lambda`](#lambda) type.
 
-```
-const { createLambda } = require('@now/build-utils/lambda');
-const FileBlob = require('@now/build-utils/file-blob');
+```js
+const { createLambda } = require('@now/build-utils/lambda')
+const FileBlob = require('@now/build-utils/file-blob')
 await createLambda({
   runtime: 'nodejs8.10',
   handler: 'index.main',
   files: {
-    'index.js': new FileBlob({ data: "exports.main = () => {}" })
+    'index.js': new FileBlob({ data: 'exports.main = () => {}' })
   }
-});
+})
 ```
 
 ### fs/download() : Files
@@ -269,8 +269,8 @@ This utility allows you to download the contents of a `Files` datastructure, the
 
 Since `Files` is an abstract way of representing files, you can think of `download` as a way of making that virtual filesystem _real_.
 
-```
-await download(files, workPath);
+```js
+await download(files, workPath)
 ```
 
 ### fs/glob() : Files
@@ -281,13 +281,13 @@ This utility allows you to _scan_ the filesystem and return a `Files` representa
 
 The following trivial example downloads everything to the filesystem, only to return it back (therefore just re-creating the passed-in `files`):
 
-```
+```js
 const glob = require('@now/build-utils/fs/glob')
 const download = require('@now/build-utils/fs/download')
 
 exports.build = ({ files, workPath }) => {
   await download(files, workPath)
-  return glob('**', workPath);
+  return glob('**', workPath)
 }
 ```
 
@@ -303,7 +303,7 @@ Exported as: `@now/build-utils/fs/rename`
 
 Renames the keys of the [`Files`](#files-map-file-lambda) object, which represent the paths. For example, to rename `test.go` to `test` you can write:
 
-```
+```js
 const rename = require('@now/build-utils/fs/rename');
 rename({
   'test.go': fileFsRef

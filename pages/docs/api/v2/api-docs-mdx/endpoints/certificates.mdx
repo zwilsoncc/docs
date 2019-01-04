@@ -47,7 +47,7 @@ This is the format of each item in the `certs` list.
 
 Example successful (**200**) response:
 
-<Code>{`{
+<Code lang="json">{`{
   "certs": [
     {
       "cns": ["testing.zeit.co", "*.zeit.co"],
@@ -92,7 +92,7 @@ certificate id specified in the URL.
 
 Example successful (200) response:
 
-<Code>{`{
+<Code lang="json">{`{
   "cns": ["wow.zeit.co"],
   "uid": "oAjf6y9pxZgCJyQfrclN",
   "created": "2016-08-23T18:13:09.773Z",
@@ -145,7 +145,7 @@ The body should contain \`domains\` array and it may contain \`renew\` field to 
 
 Example successful (**200**) response:
 
-<Code>{`{
+<Code lang="json">{`{
   "uid": "zWsFytQUFlkUWaR7nWdwS7xR"
   "created_at": 2016-06-01T21:03:10.420Z"
 }`}</Code>
@@ -196,7 +196,7 @@ The body should contain `cert`, private `key`, and `ca` chain fields in PEM form
 
 Example successful (**200**) response:
 
-<Code>{`{
+<Code lang="json">{`{
   "created_at": 2016-06-01T21:03:10.420Z"
 }`}</Code>
 </Example>

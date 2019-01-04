@@ -19,7 +19,7 @@ Rate limits vary and are specified by the following header in all responses:
     When the rate limit is <P.B>exceeded</P.B>, an error is returned with the
     status "<P.B>429 Too Many Requests</P.B>":
   </P>
-  <Code key="code">{`{
+  <Code lang="json">{`{
   "error": {
     "code": "too_many_requests",
     "message": "Rate limit exceeded",

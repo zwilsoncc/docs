@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
-import { FONT_FAMILY_SANS } from '~/lib/css-config'
+import { FONT_FAMILY_SANS, SYNTAX_HIGHLIGHTING } from '~/lib/css-config'
 
 export default class Page extends Component {
   static contextTypes = {
@@ -72,6 +72,8 @@ export default class Page extends Component {
               }
             `
             }
+
+            ${SYNTAX_HIGHLIGHTING}
           `
             }}
           />

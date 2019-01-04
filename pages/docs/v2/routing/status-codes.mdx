@@ -26,10 +26,10 @@ Depending on your status code, the title ("404"), description ("The page could n
 
 However, if your client is sending the `Accept` header with a value that contains `application/json`, it will receive the same error, but formatted as [JSON](https://en.wikipedia.org/wiki/JSON):
 
-```
+```json
 {
-    "status": "NO_FILES_FOUND",
-    "description": "The page could not be found"
+  "status": "NO_FILES_FOUND",
+  "description": "The page could not be found"
 }
 ```
 

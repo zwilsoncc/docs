@@ -40,7 +40,7 @@ Create a new team under your account. You need to send a `POST` request with the
 
 Example response:
 
-<Code syntax="json">{`{
+<Code lang="json">{`{
   "id": "team_LLHUOMOoDlqOp8wPE4kFo9pE"
 }`}</Code>
 </Example>
@@ -72,7 +72,7 @@ Get a list of all the team you belong to.
 
 Example response:
 
-<Code syntax="json">{`{
+<Code lang="json">{`{
   "teams": [
     {
       "id": "team_ofwUZockJlL53hINUGCc1ONW",
@@ -121,7 +121,7 @@ Get the information of a specific team, it could be used either passing the `:id
 
 Example response:
 
-<Code syntax="json">{`{
+<Code lang="json">{`{
   "id": "team_ofwUZockJlL53hINUGCc1ONW",
   "slug": "my-team",
   "name": "My Team",
@@ -168,7 +168,7 @@ Update the information of the team defined with the id. You need to send a `PATC
 
 Example response:
 
-<Code syntax="json">{`{
+<Code lang="json">{`{
   "id": "team_ofwUZockJlL53hINUGCc1ONW",
   "slug": "my-team",
   "name": "My Cool Team",
@@ -207,7 +207,7 @@ Get the list of team members of the team defined in the URL. The response is a l
 
 Example response:
 
-<Code syntax="json">{`[
+<Code lang="json">{`[
   {
     "uid": "2qDDuGFTWXBLDNnqZfWPDp1A",
     "role": "OWNER",
@@ -267,7 +267,7 @@ Invite a user to join the team specified in the URL. To use it send a `POST` req
 
 Example response:
 
-<Code syntax="json">{`{
+<Code lang="json">{`{
   "uid": "kr1PsOIzqEL5Xg6M4VZcZosf",
   "username": "an-user"
 }`}</Code>

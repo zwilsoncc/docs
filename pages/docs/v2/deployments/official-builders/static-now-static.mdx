@@ -36,12 +36,10 @@ Suppose you have a directory with three files:
 
 If your `now.json` looks like this:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "function.js", "use": "@now/node" }
-  ]
+  "builds": [{ "src": "function.js", "use": "@now/node" }]
 }
 ```
 
@@ -51,7 +49,7 @@ To see for yourself, check the resulting deployment [`https://builds-deployment-
 
 To also serve `index.html`, you'll want to add a `@now/static` build:
 
-```
+```json
 {
   "version": 2,
   "builds": [

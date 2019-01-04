@@ -27,28 +27,22 @@ It features built-in caching of `node_modules` and all the compiler artifacts fo
 
 Create a `pages` directory with some example pages, for example `pages/index.js`:
 
-```
-export default () => (
-  <div>
-    Hello world!
-  </div>
-)
+```jsx
+export default () => <div>Hello world!</div>
 ```
 
 For this example, we won't define a `package.json` with our dependencies. We'll let the builder automatically install them. We'll create a simple `next.config.js` file to use as our entrypoint for the build
 
-```
+```js
 module.exports = () => ({})
 ```
 
 Then we'll define our build step in `now.json`:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "next.config.js", "use": "@now/next" }
-  ]
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
 }
 ```
 
@@ -84,7 +78,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   <span>
     Example <InlineCode>maxLambdaSize</InlineCode> configuration:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "next.config.js", "use": "@now/next", "config": { "maxLambdaSize": "10mb" } }
   ]

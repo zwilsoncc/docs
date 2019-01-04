@@ -103,7 +103,7 @@ manage DNS records for the domain.
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "domains": [
       {
         "uid": "HVXAOskvQK8ILaF8d8gmwdRx",
@@ -213,7 +213,7 @@ been created, the user may retry the same POST and the endpoint shall return
 
 Successful (**200**) response:
 
-<Code>{`{
+<Code lang="json">{`{
     uid: "V0fra8eEgQwEpFhYG2vTzC3K",
     verified: true,
     created: "2016-09-23T11:53:38.600Z"
@@ -238,7 +238,7 @@ Example request adding a unverified external domain:
 
 Successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     uid: "V0fra8eEgQwEpFhYG2vTzC3K",
     verified: false,
     verifyToken: "3f786850e387550fdab836ed7e6dc881de23001b",
@@ -278,7 +278,7 @@ Deleting a domain will automatically remove any associated aliases.
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     uid: "V0fra8eEgQwEpFhYG2vTzC3K"
   }`}</Code>
 </Example>
@@ -313,7 +313,7 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "status": false
   }`}</Code>
 </Example>
@@ -353,7 +353,7 @@ Check the price to purchase a domain and how long a single purchase period is. T
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "price": 17,
     "period": 1
   }`}</Code>
@@ -403,7 +403,7 @@ In case of a successful purchase the returns with code 200 and an empty body.
 
 Example failed **403** response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "not_available",
       "message": "Domain is not available"

@@ -117,7 +117,7 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
 />
 
 <span>Example successful (<P.B>200</P.B>) response:</span>
-<Code>{`{
+<Code lang="json">{`{
   "id": "dpl_6EZWg2tkQevMN76UQzFgKsD2gaNR",
   "url": "my-instant-deployment-2i7mwl1a1w.now.sh",
   "name": "my-instant-deployment",
@@ -167,7 +167,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 />
 
 <PDIV>Successful Response:</PDIV>
-<Code>{`{
+<Code lang="json">{`{
   "id": "dpl_D6FpCMUYdba5bZFJvA46FLBMxM2W",
   "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
   "name": "my-instant-deployment",
@@ -212,7 +212,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 />
 
 <P.B>Deploying again with the same request using the <InlineCode>?forceNew=1</InlineCode> URL parameter would yield a new, different, response</P.B>, with a different ID and URL:
-<Code>{`{
+<Code lang="json">{`{
   "id": "dpl_5bQis7iG8EQxJMAEY92KxsE4WmQZ",
   "url": "my-instant-deployment-613cx07atx.now.sh",
   "name": "my-instant-deployment",
@@ -275,7 +275,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 />
 
 <span>Example successful (<P.B>200</P.B>) response:</span>
-<Code>{`{
+<Code lang="json">{`{
   "id": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
   "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
   "name": "my-instant-deployment",
@@ -413,7 +413,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 />
 
 <PDIV>Example Response:</PDIV>
-<Code>{`{
+<Code lang="json">{`{
   "id": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
   "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
   "name": "my-instant-deployment",
@@ -463,7 +463,7 @@ You can obtain the ID, for example, by [listing all deployments](#endpoints/depl
 />
 
 <PDIV>Example response:</PDIV>
-<Code>{`{
+<Code lang="json">{`{
   "uid": "dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd",
   "state": "DELETED"
 }`}</Code>
@@ -501,7 +501,7 @@ The body will contain entries for each child and directory, coupled with an ID o
 
 Example successful (**200**) response:
 
-<Code>{`[
+<Code lang="json">{`[
   {
     "name": "index.html",
     "type": "file",
@@ -546,7 +546,7 @@ The body will contain the raw content of the file.
 
 Example successful (**200**) response:
 
-<Code>{`<!doctype html>
+<Code lang="html">{`<!doctype html>
 <html>
  <head>
  <title>My Instant Deployment</title>
@@ -592,7 +592,7 @@ Each Build is an object with the following keys:
   <span>
     Example Successful (<P.B>200</P.B>) response:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     {
       "id": "hdl_kxfdc1962",

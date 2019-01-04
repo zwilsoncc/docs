@@ -55,34 +55,32 @@ Inside `express`, we will set up and install a basic express server:
 
 And `express/index.js` as follows:
 
-```
+```js
 const app = require('express')()
 app.get('*', (req, res) => {
-  res.send('Hello from Express.js!');
+  res.send('Hello from Express.js!')
 })
-app.listen();
+app.listen()
 ```
 
 Notice that `listen` does not receive a port, which means it can listen on an ephemeral port. `@now/node-server` works _with any port you listen on_.
 
 We will do the same with `node-http/index.js`:
 
-```
-require("http")
+```js
+require('http')
   .createServer((req, res) => {
-    res.end("Hello from a vanilla server!");
+    res.end('Hello from a vanilla server!')
   })
-  .listen();
+  .listen()
 ```
 
 Finally we will configure a `now.json` that builds our directories concurrently to turn them into [Lambdas](/docs/v2/deployments/concepts/lambdas) that can be invoked on demand:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "*/index.js", "use": "@now/node-server" }
-  ]
+  "builds": [{ "src": "*/index.js", "use": "@now/node-server" }]
 }
 ```
 
@@ -123,7 +121,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   <span>
     Example <InlineCode>maxLambdaSize</InlineCode> configuration:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*/index.js", "use": "@now/node-server", "config": { "maxLambdaSize": "20mb" } }
   ]

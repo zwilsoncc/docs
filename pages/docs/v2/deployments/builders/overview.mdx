@@ -22,7 +22,7 @@ Whether [HTML files need to be minified](/docs/v2/deployments/official-builders/
 
 Builders can be used in with Now by creating a `now.json` file in a project and then [using a `builds` property](/docs/v2/deployments/builds) within that configuration:
 
-```
+```json
 {
   "builds": [
     { "src": "*.html", "use": "@now/static" },
@@ -68,7 +68,7 @@ Each lambda output, by default, has a bundle size limit of **5mb** to [help keep
 The lambda threshold can also be defined by the builder that outputs the lambda (for example, [@now/go, by default, is **15mb**](/docs/v2/deployments/official-builders/go-now-go#maximum-lambda-bundle-size)), but the user configuration takes precedence.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
   ]

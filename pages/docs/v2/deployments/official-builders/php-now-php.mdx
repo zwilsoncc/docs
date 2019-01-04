@@ -20,8 +20,9 @@ The `@now/php` builder allows you to use any `.php` file.
 
 <Note>
   This builder will only include one PHP source file per{' '}
-  <GenericLink href="/docs/v2/deployments/concepts/lambdas">Lambda</GenericLink>.
-  In the future, it will automatically include its dependencies via static analysis.
+  <GenericLink href="/docs/v2/deployments/concepts/lambdas">Lambda</GenericLink>
+  . In the future, it will automatically include its dependencies via static
+  analysis.
 </Note>
 
 ## When to use it
@@ -32,18 +33,16 @@ Whenever you want to use PHP.
 
 Define a `.php` file:
 
-```
+```php
 <?php phpinfo(); ?>
 ```
 
 And a `now.json` like:
 
-```
+```json
 {
   "version": 2,
-  "builds": [
-    { "src": "*.php", "use": "@now/php" }
-  ]
+  "builds": [{ "src": "*.php", "use": "@now/php" }]
 }
 ```
 
@@ -76,7 +75,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   <span>
     Example <InlineCode>maxLambdaSize</InlineCode> configuration:
   </span>
-  <Code>{`{
+  <Code lang="json">{`{
   "builds": [
     { "src": "*.php", "use": "@now/php", "config": { "maxLambdaSize": "15mb" } }
   ]

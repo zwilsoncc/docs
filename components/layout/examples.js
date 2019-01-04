@@ -41,7 +41,7 @@ import { UserContext } from '~/lib/user-context'
 import UseTeamInfo from '~/lib/use-team-info'
 
 const CodeMarkdown = ({ language, value }) => (
-  <Code syntax={language}>{value}</Code>
+  <Code lang={language}>{value}</Code>
 )
 
 const Headings = ({ level, children }) => {

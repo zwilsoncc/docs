@@ -58,7 +58,8 @@ The body will contain an entry for each alias.
     <TypeCell>List</TypeCell>
     <Cell>
       The configured rules for{' '}
-      <InternalLink href="/docs/features/path-aliases">path alias</InternalLink>.
+      <InternalLink href="/docs/features/path-aliases">path alias</InternalLink>
+      .
     </Cell>
   </Row>
 </OutputTable>
@@ -94,7 +95,7 @@ This is the format of the `deployment` described above.
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "aliases": [
       {
         "uid": "2WjyKQmM8ZnGcJsPWMrHRHrE",
@@ -156,7 +157,7 @@ You can obtain this id from the list of aliases.
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "status": "SUCCESS"
   }`}</Code>
 </Example>
@@ -218,7 +219,7 @@ This is the format of each item in the `aliases` list.
 
 Example successful (**200**) response:
 
-  <Code>{`{
+  <Code lang="json">{`{
     "aliases": [
       {
         "uid": "2WjyKQmM8ZnGcJsPWMrHRHrE",
@@ -294,7 +295,7 @@ If the desired alias was used before it will be removed from the old deployment 
 
 Example successful (**200**) response for new alias:
 
-<Code>{`{
+<Code lang="json">{`{
     "uid": "2WjyKQmM8ZnGcJsPWMrHRHrE",
     "created": "2016-06-02T21:01:40.950Z"
   }`}</Code>
@@ -302,7 +303,7 @@ Example successful (**200**) response for new alias:
 Example successful (**200**) response for alias with existing deployment
 (<InlineCode>oldId</InlineCode> is the id of the previous deployment):
 
-  <Code>{`{
+  <Code lang="json">{`{
     "oldId": "c9MrOWGzdJSfPxqyTDYhdEGN",
     "uid": "2WjyKQmM8ZnGcJsPWMrHRHrE",
     "created": "2016-06-02T21:01:40.950Z"

@@ -12,7 +12,7 @@ You're not authorized to use the endpoint. This usually happends due to missing 
 > Is similar to the HTTP 403 Forbidden error.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "forbidden",
       "message": "Not authorized"
@@ -27,7 +27,7 @@ You exceeded the maximum alloted requests.
 The limit of request is per endpoint basis so you could continue using another endpoints even if some of them give you this error.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "rate_limited",
       "message": "Rate limit exceeded",
@@ -40,7 +40,7 @@ The limit of request is per endpoint basis so you could continue using another e
 There was an error with the request, the `error.message` would contain information about the issue.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "bad_request",
       "message": "An english description of the error that just occurred",
@@ -53,7 +53,7 @@ There was an error with the request, the `error.message` would contain informati
 This errors is similar to the HTTP 500 Internal Server Error error code.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "internal_server_error",
       "message": "An unexpected internal error occurred"
@@ -66,7 +66,7 @@ This errors is similar to the HTTP 500 Internal Server Error error code.
 The endpoint you're requesting doens't handle the method you defined. The error message will contain the methods the endpoint responds to.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "method_unknown",
       "message": "This endpoint only responds to METHOD"
@@ -79,7 +79,7 @@ The endpoint you're requesting doens't handle the method you defined. The error 
 The endpoint you're requesting doens't handle the method you defined. The error message will contain the methods the endpoint responds to.
 
 <Example>
-  <Code>{`{
+  <Code lang="json">{`{
     "error": {
       "code": "method_unknown",
       "message": "This endpoint only responds to METHOD"

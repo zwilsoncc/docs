@@ -46,7 +46,7 @@ Go to your [user and team settings](/account) to upgrade your account or team to
 
 If you want to retain certain projects on v1, or pin your platform version, we recommend updating your `now.json` accordingly before you make the switch:
 
-```
+```json
 {
   "version": 1
 }
@@ -144,7 +144,7 @@ With Now 2.0, your build steps are specified as a list of `builds` inside `now.j
 
 For example, say you want to build 2 sub-projects statically and 2 APIs wrapped as Lambdas:
 
-```
+```json
 {
   "builds": [
     { "src": "gatsby-site/package.json", "use": "@now/static-build" },
@@ -264,7 +264,7 @@ In other words, if you are writing `new Server()` (in whatever language you pref
 
 For example, many people have throughout the years provided examples on how to deploy [express](https://expressjs.com), a Node.js framework, to AWS Lambda:
 
-```
+```js
 app.get('/', myFunction)
 app.get('/2nd-route', myOtherFunction)
 app.get('/third-route', myThirdFunction)
