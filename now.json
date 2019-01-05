@@ -1,62 +1,81 @@
 {
-  "version": 1,
+  "version": 2,
   "alias": ["docs.zeit.sh", "docs.internal.zeit.sh"],
-  "type": "static",
-  "static": {
-    "redirects": [
-      {
-        "source": "/docs/router-status/:code",
-        "destination": "/docs/v2/routing/status-codes#:code"
-      },
-      {
-        "source": "/docs/router-status",
-        "destination": "/docs/v2/routing/status-codes"
-      },
-      {
-        "source": "/docs/max-lambda-size",
-        "destination": "/docs/v2/deployments/concepts/lambdas#maximum-bundle-size"
-      },
-      {
-        "source": "/docs/github",
-        "destination": "/docs/v2/integrations/now-for-github"
-      },
-      {
-        "source": "/docs/aliasing",
-        "destination": "/docs/v2/domains-and-aliases/aliasing-a-deployment"
-      },
-      {
-        "source": "/docs/dns",
-        "destination": "/docs/v2/domains-and-aliases/dns"
-      },
-      {
-        "source": "/docs/features/:rest",
-        "destination": "/docs/v1/features/:rest"
-      },
-      {
-        "source": "/docs/static-deployments/:rest",
-        "destination": "/docs/v1/static-deployments/:rest"
-      },
-      {
-        "source": "/docs/deployment-types/:rest",
-        "destination": "/docs/v1/deployment-types/:rest"
-      },
-      {
-        "source": "/docs/guides/:rest",
-        "destination": "/docs/v1/guides/:rest"
-      },
-      {
-        "source": "/docs/getting-started/:rest",
-        "destination": "/docs/v1/getting-started/:rest"
-      },
-      {
-        "source": "/docs/examples/:rest",
-        "destination": "/docs/v1/examples/:rest"
-      },
-      { "source": "/docs/other/:rest", "destination": "/docs/v1/other/:rest" },
-      {
-        "source": "/docs/clients/:rest",
-        "destination": "/docs/v1/clients/:rest"
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    {
+      "src": "/docs/router-status/(?<code>[^/]*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/routing/status-codes#$code" }
+    },
+    {
+      "src": "/docs/router-status",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/routing/status-codes" }
+    },
+    {
+      "src": "/docs/max-lambda-size",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/deployments/concepts/lambdas#maximum-bundle-size"
       }
-    ]
-  }
+    },
+    {
+      "src": "/docs/github",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/integrations/now-for-github" }
+    },
+    {
+      "src": "/docs/aliasing",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/domains-and-aliases/aliasing-a-deployment"
+      }
+    },
+    {
+      "src": "/docs/dns",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/domains-and-aliases/dns" }
+    },
+    {
+      "src": "/docs/features/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/features/$1" }
+    },
+    {
+      "src": "/docs/static-deployments/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/static-deployments/$1" }
+    },
+    {
+      "src": "/docs/deployment-types/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/deployment-types/$1" }
+    },
+    {
+      "src": "/docs/guides/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/guides/$1" }
+    },
+    {
+      "src": "/docs/getting-started/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/getting-started/$1" }
+    },
+    {
+      "src": "/docs/examples/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/examples/$1" }
+    },
+    {
+      "src": "/docs/other/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/other/$1" }
+    },
+    {
+      "src": "/docs/clients/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v1/clients/$1" }
+    }
+  ]
 }
