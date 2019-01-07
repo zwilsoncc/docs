@@ -1,0 +1,119 @@
+import Doc from '~/components/layout/docs'
+import { TerminalInput } from '~/components/text/terminal'
+import { Image, Video } from '~/components/media'
+import Caption from '~/components/text/caption'
+import Card from '~/components/card'
+import { GenericLink } from '~/components/text/link'
+
+export const meta = {
+  title: 'Zero-Downtime Domain Migration',
+  description:
+    'Migrating your domain from an external service to ZEIT with no downtime, in only a few steps.'
+}
+
+When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
+
+## Step 1: Adding and Verifying Your Domain
+
+To get the process started, you will need to add your domain to your account or team by using the following command:
+
+<TerminalInput>{`now domains add <domain>`}</TerminalInput>
+
+This command will add the domain to your account and output some information that you will need to verify the domain is yours.
+
+You will receive two options:
+
+- Verify with Nameservers
+- Verify with TXT record
+
+<Image
+  src={`https://assets.zeit.co/image/upload/v1546863670/front/docs/domains/cli-add-domain.png`}
+  width={1670/2}
+  height={1046/2}
+/>
+<Caption>Adding a domain with <GenericLink href="/docs/v2/getting-started/installation">Now CLI</GenericLink>.</Caption>
+
+To avoid pointing the nameservers to Now prematurely, use the TXT method for verification.
+
+With your domain provider, create the TXT record using the `name` (also known as `host` or `alias`) `_now` and the value provided when adding the domain.
+
+Note: If you have lost the value before verifying the domain, you can use `now domains inspect <domain>` to retrieve the verification methods and value again.
+
+Now will check in a loop for whether the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force Now to check for the verification by using the following command:
+
+<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+
+<Image
+  src={`https://assets.zeit.co/image/upload/v1546863671/front/docs/domains/cli-verify-domain.png`}
+  width={1670/2}
+  height={1046/2}
+/>
+<Caption>Verifying a domain with Now CLI.</Caption>
+
+## Step 2: Preparing the Domain with DNS, Certs, Deploying, and aliasing
+
+Now that your domain is verified you have more control over it with Now. You can now generate an SSL Certificate, add any DNS Records, and deploy and alias your application, all ready for when you switch fully over.
+
+### Generating an SSL Certificate
+
+You can generate a certificate for your domain from either the Web UI or Now CLI.
+
+#### From Now CLI
+
+With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL certificate for your domain and all subdomains, called common names (CNs), with the following command:
+
+<TerminalInput>{`now certs issue \*.<domain> <domain>`}</TerminalInput>
+
+You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that Now has sufficient permissions, consisting of two TXT records.
+
+Once these TXT records are added to your domain via your domain provider, run the `now certs issue` command again as above to attempt the certificate issuance again.
+
+#### From the Web UI
+
+From your [certs dashboard](/dashboard/certs), from either your account or team, you can issue a new certificate by clicking the "Issue" button from the top-right corner.
+
+A modal will open and you can add two values, both `*.<your domain>` and `<your domain>`. Hitting enter after each value is in the input. When done, click "Issue".
+
+If you haven't previously solved the certs DNS challenge, a new modal will show asking you to add two TXT DNS records via your domain provider.
+
+Once the DNS challenge is solved, you can proceed to issue your cert from the same modal, which will then verify the challenges and proceed with the cert issuance if they are met.
+
+### Adding DNS Records
+
+The next step is to add any DNS records your domain might have had before. For example, MX records.
+
+In this example, I'll take Gmail's current MX records and add them with Now CLI:
+
+<TerminalInput>{`now dns add <domain> @ MX ASPMX.L.GOOGLE.COM 1
+now dns add <domain> @ MX ALT1.ASPMX.L.GOOGLE.COM 5
+now dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5
+now dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10
+now dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10`}</TerminalInput>
+
+The above demonstrates using the `now dns add` command to add multiple MX records, of which are currently Googles', to your domain.
+
+### Deploying and Aliasing
+
+If you are not yet acquainted with deploying with Now, we suggest you follow the Deployment Basics guide first. It continues great information for how you can get up and running with Now.
+
+In short, to deploy your app with Now, you can use the following command, [after some configuration](/docs/v2/deployments/configuration) if necessary:
+
+<TerminalInput>{`now`}</TerminalInput>
+
+After Now finishes deploying your app, you can then alias it by using `now alias`:
+
+<TerminalInput>{`now alias <deployment URL> <domain>`}</TerminalInput>
+
+Now your domain will be pointing to the deployment you passed it, and ready to move your nameservers across to show that deployment.
+
+## Step 3: Moving the Nameservers
+
+Once your domain is set up properly and contains all you need for a successful migration, you will be free to change the nameservers of your domain to point to ZEIT DNS via your domain provider.
+
+Using `now domains inspect <domain>`, you can find your intended set of nameservers to use with your domain, in case you have forgotten them when you first added the domain.
+
+Once the nameservers have been added and propagation is complete, your domain will successfully point to your aliased deployment from your domain, which is including a free SSL certificate and any DNS records you setup!
+
+## Read Next
+
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>

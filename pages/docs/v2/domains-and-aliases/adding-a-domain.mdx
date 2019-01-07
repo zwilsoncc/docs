@@ -1,161 +1,248 @@
 import Doc from '~/components/layout/docs'
 import { TerminalInput } from '~/components/text/terminal'
-import { Image } from '~/components/media'
+import { Image, Video } from '~/components/media'
+import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import { GenericLink } from '~/components/text/link'
-import Now from '~/components/text/now'
 
 export const meta = {
   title: 'Adding a Domain',
   description: 'Adding and using a domain to use with deployments on ZEIT Now.'
 }
 
-When you deploy an app with <Now color="000"/>, you will have a unique deployment URL like this: https://my-web-app-avvuiuuwto.now.sh
+With Now, you can alias your deployments to a custom name, whether that is a free `.now.sh` prefixed domain or your personal domain. This document will explain how to add your domain to Now so that you can alias your deployments to it.
 
-If you deploy your app multiple times, you will have multiple URLs. With these different deployment URLs, you can easily point users to a specific version of your app.
+With ZEIT, you can either:
 
-However, you cannot ask your users to visit those addresses. This is because the addresses are not easy to remember and they change every time you deploy a new version.
+- [Buy a domain to use, with automatic setup](#buying-a-domain-with-zeit)
+- [Add and configure an existing domain from another provider](#adding-your-domain-to-now)
 
-Hence, you need a fixed domain name.
+## Buying a Domain with ZEIT
 
-<Image
-  src={`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/custom-domain.png`}
-  width={600}
-  height={325}
-  caption="Our sample static app with a fixed domain name."
-/>
+If you want a brand new domain to use with your Now deployments, you can buy one directly from Now and have it setup automatically on your account without any further need of setup.
 
-In this guide, we are going to map a domain name into one of those deployment URLs of your app by using the `now alias` command.
+When buying a domain, it may take a few minutes to setup and propagate before it is ready to use. In this time, the domain will show as external when you see it in Now CLI or from the Web UI.
 
-The four different ways to use the `now alias` command are:
+### From the Web
 
-1. <GenericLink href="#1.-using-a-now.sh-domain">
-     Using a now.sh domain
-   </GenericLink>
-2. <GenericLink href="#2.-using-a-custom-domain,-managed-by-now">
-     Using a custom domain, managed by now
-   </GenericLink>
-3. <GenericLink href="#3.-using-a-custom-domain,-dns-managed-by-now">
-     Using a custom domain, DNS managed by now
-   </GenericLink>
-4. <GenericLink href="#4.-using-a-custom-domain-with-a-cname">
-     Using a custom domain with a CNAME
-   </GenericLink>
-
-Let us explore each method in detail.
-
----
-
-## 1. Using a now.sh Domain
-
-This method is the easiest way to use a domain name. To obtain a domain name with the `now.sh` postfix instantly, simply run the following command:
-
-<TerminalInput>
-  now alias https://my-web-app-avvuiuuwto.now.sh my-web-app
-</TerminalInput>
-
-Your users may now access the above deployment URL using <https://my-web-app.now.sh>
-
-## 2. Using a custom domain, managed by now
-
-If you want to use a custom domain for your app, the easiest method is to buy a domain name for your app using <Now color="000"/>.
-
-Simply run the following now alias command:
-
-<TerminalInput>
-  now alias https://my-web-app-avvuiuuwto.now.sh my-web-app.com
-</TerminalInput>
-
-Here, we are attempting to assign the `my-web-app.com` domain name to the above deployment URL. If the domain name is available, you may confirm and buy it without leaving the terminal.
-
-After the confirmation, <Now color="000"/> will handle all the technical details for you and allow your users to access your app using <https://my-web-app.com>.
+Using the [ZEIT domains page](/domains) you can search for an available domain and then add it to your account in an instant. The domain will automatically be setup, ready for you to alias your deployments to.
 
 <Image
-  src={`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/buy-domain.png`}
-  width={650}
-  height={412}
-  caption="Confirmation you'll get after assigning a custom domain."
+  src={`https://assets.zeit.co/image/upload/v1546827186/front/docs/domains/search-a-domain.png`}
+  width={1652/2}
+  height={1016/2}
 />
+<Caption>Searching for a domain on the <GenericLink href="/domains">ZEIT Domains page</GenericLink>.</Caption>
 
-> In this process, <Now color="000"/> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
-
-## 3. Using a custom domain, DNS managed by now
-
-If you already have a domain name, this is the best option for you. With this method, <Now color="000"/> will handle all the DNS management for your domain.
-
-### Setup
-
-First of all, you need to point your domain's nameservers to our [global DNS service](https://zeit.co/world). Here is how to do that:
-
-- Visit your domain name provider and find a place where you can add custom nameservers.
-- Select two or more nameservers from [this list](https://zeit.co/world#get-started).
-- Set them as custom nameservers for your domain.
-
-For example, assume that your domain name is `my-custom-domain.com`.
-
-After you have set up the nameservers, simply run the following `now alias` command:
-
-<TerminalInput>
-  now alias https://my-web-app-avvuiuuwto.now.sh my-custom-domain.com
-</TerminalInput>
-
-Then, you can access your app using <https://my-custom-domain.com>.
-
-You can also use a subdomain of `my-custom-domain.com` like this:
-
-<TerminalInput>
-  now alias https://my-web-app-avvuiuuwto.now.sh ui.my-custom-domain.com
-</TerminalInput>
-
-> Even in this process, <Now color="000"/> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
-
-## 4. Using a custom domain with a CNAME
-
-If you are managing a DNS setup for your domain, you can use this option.
-
-For example, assume you have a domain name called `my-app.work` and you already have a DNS setup for that.
-
-To map the `ui.my-app.work` domain for one of the deployment URLs of your app, visit your DNS provider and add a CNAME record for `ui.my-app.work` pointing to `alias.zeit.co`.
-
-After that, run the following command:
-
-<TerminalInput>
-  now alias https://my-web-app-avvuiuuwto.now.sh ui.my-app.work
-</TerminalInput>
-
-You will then have an error like this:
+When you find the domain you want, you can buy it right there and then:
 
 <Image
-  src={`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/alias-error.png`}
-  width={650}
-  height={412}
-  caption="The error message you'll get when trying to alias a domain for the first time."
+  src={`https://assets.zeit.co/image/upload/v1546827186/front/docs/domains/buy-a-domain.png`}
+  width={1652/2}
+  height={1016/2}
 />
+<Caption>Buying a domain from the ZEIT Domains page.</Caption>
 
-&#8203;<Now color="000"/> wants to verify the ownership of your domain. That's why it throws an error.
+After the domain is purchased and ready, you will see it listed in your account or team's domains dashboard. You are now free to use this domain to alias your deployments to without any extra config!
 
-- Next, add the TXT record as mentioned above error message.
-- Run the `now alias` command again:
+<Image
+  src={`https://assets.zeit.co/image/upload/v1546827186/front/docs/domains/buy-a-domain.png`}
+  width={1652/2}
+  height={1016/2}
+/>
+<Caption>The bought domain listed in the domains dashboard.</Caption>
 
-<TerminalInput>
-  now alias https://my-web-app-avvuiuuwto.now.sh ui.my-app.work
-</TerminalInput>
+### From the CLI
 
-Now you may access your app using <https://ui.my-app.work>
+You can buy a domain with Now CLI using the `now domains buy` command:
 
-> In this case, <Now color="000"/> will setup a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain. However, before you do that, you need to verify the domain.
+<TerminalInput>{`now domains buy <domain>`}</TerminalInput>
 
-### Naked domains
+<Video
+src={`https://assets.zeit.co/video/upload/v1546827186/front/docs/domains/domains-buy-cli.mp4`}
+width={1400/2}
+height={846/2}
+/>
+<Caption>Buying a domain with Now CLI.</Caption>
 
-You can also use a naked domain like `my-app.work` with this method. In that case, you need to use an [ALIAS](https://support.dnsimple.com/articles/alias-record/) record instead of a CNAME record.
+Once the domain is bought, it will automatically be verified (this may take a few minutes) and available for you to alias your deployments.
 
-Some DNS providers do not have ALIAS records. In that case, the functionality of ALIAS records is managed using CNAME records.
+You can see your domain in your account by using the `now domains ls` command or checking the setup status by using the `now domains inspect` command.
 
-<Card title="Read Next: Aliasing a Deployment" href="/docs/v2/domains-and-aliases/aliasing-a-deployment">
-  Learn how to alias your deployments.
-</Card>
-<Card title="Read Next: DNS Management" href="/docs/v2/domains-and-aliases/dns">
-  Learn how to manage the DNS records for your domains.
+<Image
+src={`https://assets.zeit.co/image/upload/v1546827186/front/docs/domains/domains-list-cli.png`}
+width={1380/2}
+height={868/2}
+/>
+<Caption>Listing and finding a domain with Now CLI.</Caption>
+
+## Adding Your Domain To Now
+
+### Step 1: Adding and Verifying
+
+If you already own a domain outside of ZEIT, you can add it to your account with the `now domains add` command.
+
+When using this command, Now CLI will give you instructions of how to verify the domain so that you can access your Now deployments and DNS records through your domain.
+
+When verifying a domain, you will have two options to choose from. Either using ZEIT DNS nameservers or using a TXT DNS record.
+
+Note: To migrate with no downtime, follow our [Zero-Downtime Migration to ZEIT DNS Guide](/docs/v2/domains-and-aliases/zero-downtime-domain-migration).
+
+#### Option 1: Using ZEIT DNS Nameservers
+
+When adding a domain with ZEIT, Now CLI will give you an intended set of nameservers that can be set with your domain name provider to point to ZEIT DNS so that you can access your deployments from that domain.
+
+Using the ZEIT DNS nameservers is the preferred way of verifying and pointing your domain towards Now since it allows us to generate DNS records automatically that help with managing your domain.
+
+With this method, you are also enabled to generate wildcard certificates automatically.
+
+The nameservers you are provided with are randomly given to enhance [stability and security](#stability-and-security) when setting up your domain.
+
+Once you have added the provided nameservers, you can [verify your domain](#verifying-the-domain).
+
+#### Option 2: Using a TXT DNS record
+
+Along with the set of intended nameservers, you will also be provided with a `TXT` record including a `name` (also known as `host` or `alias`) and a `value`.
+
+Adding this record with your domain provider to your domain will allow Now to verify that the domain belongs to you and enable to control your domain.
+
+This method is recommended when you want a [zero-downtime migration](/docs/v2/domains-and-aliases/zero-downtime-domain-migration) before [pointing your domain to Now](#step-2:-pointing-to-now).
+
+#### Verifying the Domain
+
+Now will automatically check the added domain for the suggested verification methods, and when detected, the domain will be marked as verified.
+
+You can force Now to check for verification by using the `now domains verify` command:
+
+<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+
+### Step 2: Pointing to Now
+
+If you verified your domain with nameservers, this set is un-necessary since your domain will be already pointing to Now.
+
+#### With Nameservers
+
+To point to Now with nameservers, if not already done so, for example when you verified with a TXT record for a [zero-downtime migration](/docs/v2/domains-and-aliases/zero-downtime-domain-migration), you can find the intended set of nameservers for your domain by running the inspect command:
+
+<TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
+
+This command will print your current and intended nameservers.
+
+Once you change the nameservers with your domain provider and the domain propagates; your domain will point to Now and you can access your deployments from that domain.
+
+The benefits of using nameservers include:
+
+- Wildcard certificate generation
+- Automatic DNS management
+- Easy DNS management
+
+Using this method means that you will be using ZEIT DNS and your domain will be marked as a ZEIT DNS or [zeit.world](/dns) domain.
+
+#### With CNAME
+
+If you need to use a CNAME to point to Now, you can do so after [TXT verification](#option-2:-using-a-txt-dns-record) by creating one with your domain provider with the value of `alias.zeit.co`.
+
+Using this method means that you will not be using ZEIT DNS and your domain will be marked as external.
+
+For a greater advantage with Now and your domain, we strongly recommend using the [nameservers method](#option-1:-using-zeit-dns-nameservers).
+
+### Step 3: Using Your Domain
+
+Now that your domain is verified and pointing to Now, you are free to:
+
+- [Alias deployments](/docs/v2/domains-and-aliases/aliasing-a-deployment) to the domain
+- [Create DNS records](/docs/v2/domains-and-aliases/dns) for the domain
+- [Generate certificates](/docs/v2/domains-and-aliases/zero-downtime-domain-migration) for the domain
+
+Both of these methods are handled automatically if [using nameservers](#option-1:-using-zeit-dns-nameservers).
+
+## Managing Your Domain with Now CLI
+
+The following list of commands can be used with Now CLI
+
+### Listing Your Account or Team's Domains
+
+Using the following command, you can list all added domains under the current context, whether it is your account or a team.
+
+<TerminalInput>{`now domains ls`}</TerminalInput>
+
+### Inspecting A Domain
+
+To get information about your domain from Now, you can use the `now domains inspect` command.
+
+With this command, you can see:
+
+- If your domain is external or using ZEIT DNS.
+- When your domain was verified by either TXT record or nameservers.
+- The expiry date and when it was bought (if bought with ZEIT).
+- If the CDN is enabled.
+- If it has a Custom Deployment Suffix assigned.
+- How many aliases are assigned with the domain.
+- How many certificates the domain has.
+
+<TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
+
+### Adding a Domain
+
+With the following command, you can assign a domain you already own to your ZEIT account or team:
+
+<TerminalInput>{`now domains add <domain>`}</TerminalInput>
+
+### Removing a Domain
+
+With the following command you can remove a domain that is assigned to your ZEIT account or team:
+
+<TerminalInput>{`now domains rm <domain>`}</TerminalInput>
+
+### Buying a Domain
+
+With the following command you can buy a domain with Now:
+
+<TerminalInput>{`now domains buy <domain>`}</TerminalInput>
+
+### Verifying a Domain
+
+With the following command you can force Now to check that your domain is verified by either TXT or Nameservers:
+
+<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+
+## Transferring a Domain to Another Account
+
+If you want to transfer a domain from one account to another, to a team, or from a team, you are able to do so by first removing the domain from the current account or team and then adding it to the intended account or team.
+
+## Stability and Security
+
+When adding a domain to an account or team, before verifying, Now will provide the intended nameservers for your domain to use. These nameservers are chosen at random to prevent timing attacks where a third-party monitors changes to a domain's nameservers and then attempts to add the domain to their Now account.
+
+This process, however, will require another verification step to be completed.
+
+## FAQ
+
+### Can I point the nameservers of a ZEIT bought domain to another service?
+
+Currently this is not possible but there is active progress in making this possible.
+
+### What is the different between a ZEIT DNS (or zeit.world) domain and an external domain?
+
+As explained in the "[pointing to Now](#step-2:-pointing-to-now)" section:
+
+- ZEIT DNS domains are those that point to the ZEIT DNS nameservers, which allows Now to have greater control and therefore making it easier to automatically manage the domain.
+- External domains are those that point to ZEIT through a CNAME record and are harder for Now to automatically manage.
+
+### Can I transfer a domain to another account or team without needing to verify again?
+
+A tool for transferring domains between accounts is in the works and will bypass this need.
+
+## Using Domains
+
+With a domain added and enabled under an account or team, the next step is to alias a deployment to that domain.
+
+<Card
+  title="Read Next: Aliasing"
+  href="/docs/v2/domains-and-aliases/aliasing-a-deployment"
+>
+  Get started deploying your own applications with the Now clients and
+  integrations.
 </Card>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

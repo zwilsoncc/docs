@@ -9,28 +9,35 @@ import Request from '~/components/api/request'
 
 ### List all the domains
 
-<Endpoint method="GET" url="/v2/domains" />
+<Endpoint method="GET" url="/v4/domains" />
 
-Retrieves a list of domains registered for the authenticating user. The domain property `isExternal` is a boolean value telling whether an external nameserver is used to manage DNS records for the domain.
+Retrieves a list of domains registered for the authenticating user.
 
 #### Response Parameters
 
 <!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
-| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when it was created the registry. |
+| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
+| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
+| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
+| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
 | **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
-| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain is going to expire and need to be renewed. |
-| **isExternal** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If it is an [externally handled domain](/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname). |
+| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
 | **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
+| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
+| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
 
 <Example>
   <span>Example request:</span>
 
 <Request
-  url="https://api.zeit.co/v2/domains"
+  url="https://api.zeit.co/v4/domains"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -43,21 +50,38 @@ Example successful (**200**) response:
 <Code lang="json">{`{
   "domains": [
     {
-      "uid": "HVXAOskvQK8ILaF8d8gmwdRx",
-      "name": "zeit.rocks",
-      "created": "2017-09-03T19:48:50.120Z",
-      "boughtAt": "2017-09-03T19:48:46.000Z",
-      "expiresAt": "2018-09-03T19:48:46.555Z",
-      "isExternal": false,
-      "verified": true
+      "id": "EmTbe5CEJyTk2yVAHBUWy4A3sRusca3GCwRjTC1bpeVnt1",
+      "name": "my-zeit-domain.website",
+      "serviceType": "external",
+      "nsVerifiedAt": null,
+      "txtVerifiedAt": null,
+      "cdnEnabled": false,
+      "createdAt": 1544658552174,
+      "boughtAt": null,
+      "verificationRecord": "YMc9dEJKbAncYtTqSH8dp1j5NXycfEzyjkzBJ3m3UGwR43",
+      "verified": true,
+      "nameservers": [
+        "ns1.nameserver.net",
+        "ns2.nameserver.net"
+      ],
+      "intendedNameservers": [
+        "a.zeit-world.net",
+        "b.zeit-world.co.uk",
+        "e.zeit-world.org",
+        "f.zeit-world.com"
+      ],
+      "creator": {
+        "id": "ZspSRT4ljIEEmMHgoDwKWDei",
+        "username": "zeit_user",
+        "email": "demo@zeit.co"
+      }
     }
-  ]
 }`}</Code>
 </Example>
 
-### Add a new domain
+### Add a New Domain
 
-<Endpoint method="POST" url="/v2/domains" />
+<Endpoint method="POST" url="/v4/domains" />
 
 Register a new domain name with <Now color="#000" /> for the authenticating
 user. The field `serviceType` selects whether the domains are going to use
@@ -76,24 +100,33 @@ been created, the user may retry the same POST and the endpoint shall return
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
 | -- | -- | -- | -- |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name you want to add. |
-| **serviceType** | <HelpLink href="#api-basics/types">Enum</HelpLink> | No | `external` for [externally handled domains](/docs/features/dns#adding-a-domain-using-external-nameservers); `zeit.world` for managed. |
 
 #### Response Parameters
 
 <!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the domain. |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
+| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
+| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
+| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
+| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
+| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
+| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
 | **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
-| **verifyToken** | <HelpLink href="#api-basics/types">String</HelpLink> | The [token](/docs/features/dns#adding-a-domain-using-external-nameservers) required to verify the ownership of an external domain. |
-| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the new domain was created. |
+| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
+| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
 
 <Example>
-  <span>Example request adding a zeit.world domain:</span>
+  <span>Example request adding a domain:</span>
 
 <Request
   method="POST"
-  url="https://api.zeit.co/v2/domains"
+  url="https://api.zeit.co/v4/domains"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -101,49 +134,241 @@ been created, the user may retry the same POST and the endpoint shall return
     'Content-Type': 'application/json'
   }}
   body={{
-    name: 'zeit.rocks',
-    serviceType: 'zeit.world'
+    name: 'my-zeit-domain.website'
   }}
 />
 
 Successful (**200**) response:
 
 <Code lang="json">{`{
-  uid: "V0fra8eEgQwEpFhYG2vTzC3K",
-  verified: true,
-  created: "2016-09-23T11:53:38.600Z"
+  "domain": {
+    "id": "EmTbe5CEJyTk2yVAHBUWy4A3sRusca3GCwRjTC1bpeVnt1",
+    "name": "my-zeit-domain.website",
+    "serviceType": "external",
+    "nsVerifiedAt": null,
+    "txtVerifiedAt": null,
+    "cdnEnabled": false,
+    "createdAt": 1544658552174,
+    "boughtAt": null,
+    "verificationRecord": "YMc9dEJKbAncYtTqSH8dp1j5NXycfEzyjkzBJ3m3UGwR43",
+    "verified": true,
+    "nameservers": [
+      "ns1.nameserver.net",
+      "ns2.nameserver.net"
+    ],
+    "intendedNameservers": [
+      "a.zeit-world.net",
+      "b.zeit-world.co.uk",
+      "e.zeit-world.org",
+      "f.zeit-world.com"
+    ],
+    "creator": {
+      "id": "ZspSRT4ljIEEmMHgoDwKWDei",
+      "username": "zeit_user",
+      "email": "demo@zeit.co"
+    }
+  }
 }`}</Code>
+</Example>
 
-Example request adding a unverified external domain:
+### Verify a Domain
+
+<Endpoint method="POST" url="/v4/domains/:name/verify" />
+
+Verify a domain after adding either the intended nameservers or DNS TXT verification record to the domain.
+
+#### Response Parameters
+
+<!-- prettier-ignore -->
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
+| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
+| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
+| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
+| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
+| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
+| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
+| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
+| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
+| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
+| **suffix** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is used as a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix). |
+| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of aliases created using the domain. |
+| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of SSL certificates created for the domain. |
+
+<Example>
+<span>Example request verifying a domain after adding the DNS TXT verification record:</span>
 
 <Request
   method="POST"
-  url="https://api.zeit.co/v2/domains"
+  url="https://api.zeit.co/v4/domains/my-zeit-domain.website/verify"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
     }`,
     'Content-Type': 'application/json'
   }}
-  body={{
-    name: 'awesome-now.us',
-    serviceType: 'zeit.world'
-  }}
+  body={{}}
 />
 
 Successful (**200**) response:
 
 <Code lang="json">{`{
-  uid: "V0fra8eEgQwEpFhYG2vTzC3K",
-  verified: false,
-  verifyToken: "3f786850e387550fdab836ed7e6dc881de23001b",
-  created: "2016-09-23T11:53:38.600Z"
+  "domain": {
+    "id": "EmTbe5CEJyTk2yVAHBUWy4A3sRusca3GCwRjTC1bpeVnt1",
+    "name": "my-zeit-domain.website",
+    "serviceType": "external",
+    "nsVerifiedAt": null,
+    "txtVerifiedAt": 1546869733102,
+    "cdnEnabled": false,
+    "createdAt": 1544658552174,
+    "expiresAt": null,
+    "boughtAt": null,
+    "verificationRecord": "YMc9dEJKbAncYtTqSH8dp1j5NXycfEzyjkzBJ3m3UGwR43",
+    "verified": true
+    "nameservers": [
+      "ns1.nameserver.net",
+      "ns2.nameserver.net"
+    ],
+    "intendedNameservers": [
+      "a.zeit-world.co.uk",
+      "c.zeit-world.org",
+      "d.zeit-world.com",
+      "f.zeit-world.net"
+    ],
+    "creator": {
+      "id": "ZspSRT4ljIEEmMHgoDwKWDei",
+      "username": "zeit_user",
+      "email": "demo@zeit.co"
+    }
+  }
 }`}</Code>
+
+Example "Verification Failed" Error:
+
+<Code>{`{
+  "error": {
+    "code": "verification_failed",
+    "message": "The domain my-zeit-domain.website couldn't be verified. Both nameservers and TXT verification methods failed",
+    "name": "my-zeit-domain.website",
+    "nsVerification": {
+      "name": "my-zeit-domain.website",
+      "nameservers": [
+        "ns1.nameserver.net",
+        "ns2.nameserver.net"
+      ],
+      "intendedNameservers": [
+        "a.zeit-world.co.uk",
+        "c.zeit-world.org",
+        "d.zeit-world.com",
+        "f.zeit-world.net"
+      ]
+    },
+    "txtVerification": {
+      "name": "my-zeit-domain.website",
+      "values": [],
+      "verificationRecord": "YMc9dEJKbAncYtTqSH8dp1j5NXycfEzyjkzBJ3m3UGwR43"
+    }
+  }
+}`}</Code>
+</Example>
+
+### Get Information for a Single Domain
+
+<Endpoint url="/v4/domains/:name" />
+
+Get information for a single domain in an account or team.
+
+#### Response Parameters
+
+<!-- prettier-ignore -->
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
+| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
+| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
+| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
+| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
+| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
+| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
+| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
+| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
+| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
+| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
+| **suffix** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is used as a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix). |
+| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of aliases created using the domain. |
+| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of SSL certificates created for the domain. |
+
+<Example>
+<span>Example request:</span>
+
+<Request
+  url="https://api.zeit.co/v4/domains/my-zeit-domain.website"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
+
+Example successful (**200**) response:
+
+<Code lang="json">{`{
+  "domain": {
+    "id": "EmTbe5CEJyTk2yVAHBUWy4A3sRusca3GCwRjTC1bpeVnt1",
+    "name": "my-zeit-domain.website",
+    "serviceType": "external",
+    "nsVerifiedAt": null,
+    "txtVerifiedAt": null,
+    "cdnEnabled": false,
+    "createdAt": 1544658552174,
+    "expiresAt": null,
+    "boughtAt": null,
+    "verificationRecord": "YMc9dEJKbAncYtTqSH8dp1j5NXycfEzyjkzBJ3m3UGwR43",
+    "verified": false,
+    "nameservers": [
+      "ns1.nameserver.net",
+      "ns2.nameserver.net"
+    ],
+    "intendedNameservers": [
+      "a.zeit-world.co.uk",
+      "c.zeit-world.org",
+      "d.zeit-world.com",
+      "f.zeit-world.net"
+    ],
+    "creator": {
+      "id": "ZspSRT4ljIEEmMHgoDwKWDei",
+      "username": "zeit_user",
+      "email": "demo@zeit.co"
+    },
+    "suffix": false,
+    "aliases": [],
+    "certs": []
+  }
+}`}</Code>
+
+Example "Not Found" error:
+
+<Code>{`{
+  "error": {
+    "code": "not_found",
+    "message": "Domain name \`my-zeit-domain.online\` not found",
+    "name": "my-zeit-domain.online"
+  }
+}
+`}</Code>
 </Example>
 
 ### Remove a domain by name
 
-<Endpoint method="DELETE" url="/v2/domains/:name" />
+<Endpoint method="DELETE" url="/v4/domains/:name" />
 
 Delete a previously registered domain name from <Now color="#000" />.
 Deleting a domain will automatically remove any associated aliases.
@@ -160,7 +385,7 @@ Deleting a domain will automatically remove any associated aliases.
 
 <Request
   method="DELETE"
-  url="https://api.zeit.co/v2/domains/zeit.rocks"
+  url="https://api.zeit.co/v4/domains/my-zeit-domain.website"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -171,13 +396,13 @@ Deleting a domain will automatically remove any associated aliases.
 Example successful (**200**) response:
 
 <Code lang="json">{`{
-  uid: "V0fra8eEgQwEpFhYG2vTzC3K"
+  uid: "EmTbe5CEJyTk2yVAHBUWy4A3sRusca3GCwRjTC1bpeVnt1"
 }`}</Code>
 </Example>
 
 ### Check a domain availability
 
-<Endpoint method="GET" url="/v2/domains/status?name" />
+<Endpoint method="GET" url="/v4/domains/status?name" />
 
 Check if a domain name _may_ be available to buy or not. The response is a JSON with the key `available` as a boolean.
 
@@ -186,13 +411,13 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 <!-- prettier-ignore -->
 | Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
 | -- | -- | -- |
-| **status** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is available or not. |
+| **available** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is available or not. |
 
 <Example>
   <span>Example request:</span>
 
 <Request
-  url="https://api.zeit.co/v2/domains/status?name=zeit.rocks"
+  url="https://api.zeit.co/v4/domains/status?name=my-zeit-domain.website"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -203,13 +428,13 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 Example successful (**200**) response:
 
 <Code lang="json">{`{
-  "status": false
+  "available": false
 }`}</Code>
 </Example>
 
 ### Check the price of a domain
 
-<Endpoint method="GET" url="/v2/domains/price?name" />
+<Endpoint method="GET" url="/v4/domains/price?name" />
 
 Check the price to purchase a domain and how long a single purchase period is. The response is a JSON with the key `price` as a number (always an integer) and a key `period` as a number indicating the number of years the domains could be held before paying again.
 
@@ -225,7 +450,7 @@ Check the price to purchase a domain and how long a single purchase period is. T
   <span>Example request:</span>
 
 <Request
-  url="https://api.zeit.co/v2/domains/price?name=zeit.rocks"
+  url="https://api.zeit.co/v4/domains/price?name=zeit.rocks"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -243,7 +468,7 @@ Example successful (**200**) response:
 
 ### Purchase a domain
 
-<Endpoint method="POST" url="/v2/domains/buy" />
+<Endpoint method="POST" url="/v4/domains/buy" />
 
 Purchase the specified domain, it receive the domain name as the key `name` inside the request body.
 
@@ -262,7 +487,7 @@ In case of a successful purchase the returns with code 200 and an empty body.
 
 <Request
   method="POST"
-  url="https://api.zeit.co/v2/domains/buy"
+  url="https://api.zeit.co/v4/domains/buy"
   headers={{
     Authorization: `Bearer ${
       props.testingtoken ? props.testingtoken.token : '$token'

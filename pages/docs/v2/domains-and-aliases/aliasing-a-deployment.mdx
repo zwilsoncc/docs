@@ -27,13 +27,13 @@ This guide covers how to assign two types of domains to your <Now color="#000"/>
 Whenever you deploy to <Now color="#000"/>, the URL you get in return looks something like:
 
 <TerminalOutput>
-  https://<P.B>get-started-basic</P.B>-<P.B>etjnigdrkz</P.B>.now.sh
+  https://<P.B>get-started</P.B>-<P.B>hwbbrak5g</P.B>.now.sh
 </TerminalOutput>
 
-We can split the above URL into few parts:
+We can split the above [URL](/docs/v2/deployments/concepts/urls) into few parts:
 
 - **https://** -Every single deployment is automatically served under HTTP/2 with SSL. Certificates are automatically provisioned.
-- **get-started-basic** - The application's name. You can customize it upon deployment (for example with the name field in package.json for Node.js deployments or LABEL in Dockerfile for Docker ones.
+- **get-started** - The application's name. You can customize it upon deployment (for example with the name field in package.json for Node.js deployments or LABEL in Dockerfile for Docker ones.
 - **etjnigdrkz** - A cryptographically-strong random string that makes your URL virtually impossible to guess, while retaining a reasonable length for sharing it with your co-workers or clients.
 - **.now.sh** - All your deployments end in .now.sh by default. Aliases allow you to point them to custom domains.
 
@@ -52,31 +52,25 @@ Aliases are managed by invoking the command `now alias`, which has the following
   now alias &lt;SOURCE URL | ID&gt; &lt;TARGET SUBDOMAIN | DOMAIN&gt;
 </TerminalInput>
 
-For example, let's say you want `https://get-started-basic-etjnigdrkz.now.sh` to be accessible by the alias `get-started-basic.now.sh`.
+For example, let's say you want `https://get-started-hwbbrak5g.now.sh` to be accessible by the alias `get-started.now.sh`.
 
 All you have to do is run:
 
 <TerminalInput>
-  now alias https://get-started-basic-etjnigdrkz.now.sh{' '}
-  <P.B>get-started-basic</P.B>
+  now alias https://get-started-hwbbrak5g.now.sh <P.B>get-started</P.B>
 </TerminalInput>
 
 <TerminalOutput>
-  <span className="cyan">&gt; Success!</span>
-  {` Alias created `}
-  <span className="gray">(CIyk6IKL8MIHzAqrmcxbM8kf)</span>
-  {`:
-  `}
-  <TerminalLink href="https://get-started-basic.now.sh">
-    https://get-started-basic.now.sh
+  <span style={{ color: 'cyan' }}>&gt; Success!</span>{' '}
+  <TerminalLink href="https://get-started.now.sh">
+    https://get-started.now.sh
   </TerminalLink>
   {` now points to `}
-  <TerminalLink href="https://get-started-basic-etjnigdrkz.now.sh">
-    https://get-started-basic-etjnigdrkz.now.sh
+  <TerminalLink href="https://get-started-hwbbrak5g.now.sh">
+    <P.B>https://get-started-hwbbrak5g.now.sh</P.B>
   </TerminalLink>
   {` `}
-  <span className="gray">(xpvB6GZWMR6Q9Oxe3c64Htgq)</span>
-  {` [copied to clipboard]`}
+  <span style={{ color: 'gray' }}>[1s]</span>
 </TerminalOutput>
 
 After this successful message, your deployment is instantly available via its original URL and the new alias you gave it:
@@ -87,35 +81,27 @@ After this successful message, your deployment is instantly available via its or
   height="468"
   caption={
     <span>
-      The URL <InlineCode>get-started-basic.now.sh</InlineCode> now works!
+      The URL <InlineCode>get-started.now.sh</InlineCode> now works!
     </span>
   }
 />
 
 Notice that we omitted `.now.sh` at the end of the target subdomain. When one is not given, we default to `now.sh`.
 
-As seen in the output, each alias receives a unique identifier. In the example above, it's `xpvB6GZWMR6Q9Oxe3c64Htgq`.
-
-It's usually known as the **deployment ID**, which is also accessible when you list your deployments with `now ls`. It can be used in substitution of the URL when running `now alias`:
-
-<TerminalInput>
-  now alias <P.B>xpvB6GZWMR6Q9Oxe3c64Htgq</P.B> get-started-basic
-</TerminalInput>
-
 For convenience, we parse the URLs you supply as parameters to `now alias` to extract the hostname, which means the following are all valid **source URLs**:
 
-- Just the hostname: `get-started-basic-etjnigdrkz.now.sh`
-- Including http(s): `http://get-started-basic-etjnigdrkz.now.sh`
-- Including /: `https://get-started-basic-etjnigdrkz.now.sh/`
+- Just the hostname: `get-started-hwbbrak5g.now.sh`
+- Including http(s): `https://get-started-hwbbrak5g.now.sh`
+- Including /: `https://get-started-hwbbrak5g.now.sh/`
 
 ## Custom Domains
 
-The same mechanism we explained above can be used to configure a **custom domain**.
+The same mechanism we explained above can be used to configure [a **custom domain**](/docs/v2/domains-and-aliases/adding-a-domain).
 
 The command is almost exactly the same:
 
 <TerminalInput>
-  now alias https://get-started-basic-etjnigdrkz.now.sh your-company.com
+  now alias https://get-started-hwbbrak5g.now.sh your-company.com
 </TerminalInput>
 
 If `your-company.com` is available to buy, <Now color="#000"/> will allow you to buy it directly from the command line, which is the only step you need to do. <Now color="#000"/> will take care of all the domain configuration.
@@ -135,7 +121,8 @@ After executing the `alias` above, just run `now domains ls` to see all the doma
 <TerminalInput>now domains ls</TerminalInput>
 
 <TerminalOutput>
-  > 2 domains found [214ms] <span className="gray">id dns url verified created</span> zXBxQLQYidDddAb2l6db26Cb zeit.world
+  > 2 domains found [214ms]
+  <span className="gray">id dns url verified created</span> zXBxQLQYidDddAb2l6db26Cb zeit.world
 
   <TerminalLink href="https://your-company.com">
     https://your-company.com

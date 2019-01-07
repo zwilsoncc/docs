@@ -1,3 +1,5 @@
+import VideoComponent from './video'
+
 // This component might look a little complex
 // because one could argue that keeping the aspect ratio
 // of an image can be solved with `height: auto`,
@@ -32,7 +34,13 @@ const Image = ({
       <main style={{ width }}>
         <div style={{ paddingBottom: aspectRatio }}>
           {video ? (
-            <video src={src} muted={muted} autoPlay={autoPlay} />
+            <VideoComponent
+              src={src}
+              muted={muted}
+              autoPlay={autoPlay}
+              width={width}
+              height={height}
+            />
           ) : (
             <img src={src} />
           )}
