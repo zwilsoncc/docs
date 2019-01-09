@@ -35,7 +35,7 @@ cd my-node-project/api/hello`}</TerminalInput>
 
 Inside `my-node-project > api > hello` we will create an `index.js` file.
 
-The `index.js` file exports a Node.js function that takes in the standard Node.js request and response objects:
+The `index.js` file exports a Node.js function that takes in [the standard Node.js request and response](#request-and-response-objects) objects:
 
 ```js
 const { parse } = require('url')
@@ -122,6 +122,10 @@ To install private npm modules, define `NPM_TOKEN` as a [build environment varia
 ### Node.js Version
 
 The Node.js version used is the latest in the **8 branch**.
+
+### Request and Response Objects
+
+For each invocation of a Node.js lambda, two objects, request and response, are passed to the function. These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js.
 
 ### Maximum Lambda Bundle Size
 
