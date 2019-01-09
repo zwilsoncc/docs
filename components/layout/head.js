@@ -187,7 +187,7 @@ class Head extends React.PureComponent {
           />
           <link
             rel="manifest"
-            href={`${RAW_ASSETS_URL}/front/favicon/manifest.json`}
+            href={`${RAW_ASSETS_URL}/favicon/manifest.json`}
           />
           <link
             rel="mask-icon"
