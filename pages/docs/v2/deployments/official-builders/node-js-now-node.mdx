@@ -4,6 +4,7 @@ import { Code, InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
+import Card from '~/components/card'
 import Example from '~/components/example'
 import Tag from '~/components/text/tag'
 
@@ -46,6 +47,8 @@ module.exports = (req, res) => {
 }
 ```
 
+<Caption>An example serverless Node.js function.</Caption>
+
 The only step left is to define a build that will take this directory's entrypoint (`index.js`), build it and turn it into a lambda:
 
 ```json
@@ -54,6 +57,11 @@ The only step left is to define a build that will take this directory's entrypoi
   "builds": [{ "src": "api/hello/index.js", "use": "@now/node" }]
 }
 ```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> configuration using the{' '}
+  <InlineCode>@now/node</InlineCode> builder.
+</Caption>
 
 Our resulting deployment is here: https://my-node-project-5gkn6kqfy.now.sh/
 
@@ -64,6 +72,30 @@ You can pass query parameters to make the name change:
   height={882/2}
 />
 <Caption>The lambda using the <InlineCode>name</InlineCode> query parameter to change the text using Node.js.</Caption>
+
+## Deploying with Static Content
+
+You can upload static content along side your Node.js application by using [the `@now/static` builder].
+
+For example, if you have a `static` directory and an `index.js` like the one from the example above, you can serve that directory statically by extending your `now.json` configuration:
+
+```json
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/hello/index.js", "use": "@now/node" },
+    { "src": "./static", "use": "@now/static" }
+  ]
+}
+```
+
+<Caption>
+  Deploying a serverless Node.js function along with static files.
+</Caption>
+
+For more information, read the documentation for `@now/static`:
+
+<Card title="Now Static Builder">Deploy static files along with lambdas.</Card>
 
 ## Technical Details
 
