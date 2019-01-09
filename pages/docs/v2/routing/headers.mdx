@@ -1,32 +1,44 @@
 import Doc from '~/components/layout/docs'
+import { RequestHeader } from '~/components/text/code'
 
 export const meta = {
   title: 'Headers',
   description: 'The list of headers included with deployments with ZEIT Now.'
 }
 
-The following headers are included by the [**Basic CDN**](/docs/v2/routing/caching):
+The following headers are included in Now deployments and indicate certain factors of the environment:
 
-## now: 1
+## `now: 1`
 
-This header is used for identifying a response coming from the Now platform.
+This header is used for identifying a response coming from [the Now platform](/docs/v2/platform/overview/).
 
-## server: now
+## `server: now`
 
-Similar to `now: 1`. This header can be overridden by other proxies (e.g.: Cloudflare).
+Similar to [`now: 1`](#now:-1). This header can be overridden by other proxies (e.g., Cloudflare).
 
-## x-now-cache
+## `x-now-cache`
 
-Possible values: `HIT`, `MISS`, and `BYPASS`.
+This header's value indicates whether the response was served from ZEIT's edge cache.
 
-Determines whether the value was read from our edge cache.
+The following values are possible when the content being served [is static](/docs/v2/routing/caching#caching-static-files) or uses [a `Cache-Control` header](/docs/v2/routing/caching#caching-lambda-responses).
 
-## x-now-id
+<!-- prettier-ignore -->
+| Value | Description |
+| -- | -- |
+| <RequestHeader>HIT</RequestHeader> | The response was served from the edge. |
+| <RequestHeader>MISS</RequestHeader> | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/platform/regions-and-providers/). |
+| <RequestHeader>BYPASS</RequestHeader> | The cache was bypassed and so the response was served from an origin server. |
+| <RequestHeader>EXPIRED</RequestHeader> | The entry in the cache has expired. The response is served an origin server. |
+| <RequestHeader>STALE</RequestHeader> | The response from the cache is outdated. |
+| <RequestHeader>UPDATING</RequestHeader> | The response is stale as the entry is currently being updated due to a previous request. |
+| <RequestHeader>REVALIDATED</RequestHeader> | The response from the cache was stale but it was revalidated by checking `If-Modified-Since` or `If-None-Match` headers. |
 
-Unique identifier for each request.
+## `x-now-id`
 
-## x-now-trace
+The unique identifier for each request.
 
-Contains list of our data centers thru which the request has traversed.
+## `x-now-trace`
+
+Contains list of [our data centers](/docs/v2/platform/regions-and-providers/) through which the request has traversed.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
