@@ -112,6 +112,39 @@ Example successful (**200**) response:
 }`}</Code>
 </Example>
 
+### Purge Alias in Now CDN
+
+<Endpoint method="PURGE" url="/v2/now/aliases/:id" />
+
+Purges [the CDN](/docs/v2/domains-and-aliases/cdn) of content from the given alias via `:id`.
+
+#### Response Parameters
+
+<!-- prettier-ignore -->
+| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
+| -- | -- | -- |
+| **status** | <HelpLink href="#api-basics/types">String</HelpLink> | The status of the purge request. The value should be `REQUESTED`. |
+
+<Example>
+<span>Example of a <InlineCode>PURGE</InlineCode> request:</span>
+
+<Request
+  method="PURGE"
+  url="https://api.zeit.co/v2/now/aliases/:id"
+  headers={{
+    Authorization: `Bearer ${
+      props.testingToken ? props.testingToken.token : '$TOKEN'
+    }`
+  }}
+/>
+
+Example of a successful (**200**) response:
+
+<Code lang="json">{`{
+  "status": "REQUESTED"
+}`}</Code>
+</Example>
+
 ### List aliases by deployment
 
 <Endpoint method="GET" url="/v2/now/deployments/:id/aliases" />
