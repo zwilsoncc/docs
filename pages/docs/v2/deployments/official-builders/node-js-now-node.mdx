@@ -108,6 +108,11 @@ For more information, read the documentation for `@now/static`:
 
 The entrypoint of this Builder is always a JavaScript file that exposes a function. If you want to expose a server, look into `@now/node-server`, although that is not recommended.
 
+<Note>
+  <InlineCode>@now/node</InlineCode> will automatically detect a `package.json`
+  file to install dependencies at the entrypoint level or higher.
+</Note>
+
 ### Dependencies Installation
 
 The installation algorithm of dependencies works as follows:
