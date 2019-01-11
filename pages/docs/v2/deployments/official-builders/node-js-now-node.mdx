@@ -124,6 +124,53 @@ The installation algorithm of dependencies works as follows:
 
 To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
 
+### Build Step
+
+You can run build tasks by creating a `now-build` script within a `package.json` file at the [entrypoint's](#entrypoint) level or higher.
+
+<Example>
+<span>An example <InlineCode>package.json</InlineCode> with a <InlineCode>now-build</InlineCode> script:</span>
+<Code lang="json">{`{
+  "scripts": {
+    "now-build": "node ./build.js"
+  }
+}`}</Code>
+
+<span>An example build script, named <InlineCode>build.js</InlineCode>:</span>
+<Code lang="javascript">{`fs.writeFile(
+  'built-time.js',
+  \`module.exports = "$$new Date()}"\`,
+  (err) => {
+    if (err) throw err
+    console.log('Build time file created successfully!')
+  }
+)`}</Code>
+
+<span>An example entrypoint file for the built lambda, <InlineCode>index.js</InlineCode>:</span>
+<Code lang="js">{`const BuiltTime = require('./built-time')\n
+module.exports = (req, res) => {
+  res.setHeader('content-type', 'text/plain');
+  res.end(\`
+    This Lambda was built at \${new Date(BuiltTime)}.
+    The current time is \${new Date()}
+  \`)
+}`}</Code>
+
+<span>
+  To tie it all together, a <InlineCode>now.json</InlineCode> file:
+</span>
+
+<Code lang="json">{`{
+  "version": 2,
+  "builds": [
+    { "src": "index.js", "use": "@now/node" }
+  ]
+}`}</Code>
+
+The resulting lambda contains both the build and current time: https://build-time-pq6g1255e.now.sh/
+
+</Example>
+
 ### Node.js Version
 
 The Node.js version used is the latest in the **8 branch**.
