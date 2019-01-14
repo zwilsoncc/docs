@@ -1,13 +1,13 @@
-import Link from 'next/link'
+import { GenericLink } from '~/components/text/link'
 import cn from 'classnames'
 
 const NavigationItem = ({ active, children, className, href }) => (
-  <span className={cn({ active }, className)}>
-    <Link prefetch href={href} as={href}>
-      <a>{children}</a>
-    </Link>
+  <span className={cn({ active }, className, 'navigation-item')}>
+    <GenericLink prefetch href={href} as={href}>
+      {children}
+    </GenericLink>
     <style jsx>{`
-      a {
+      .navigation-item :global(a) {
         color: #999;
         display: inline-block;
         font-size: 12px;
@@ -20,9 +20,10 @@ const NavigationItem = ({ active, children, className, href }) => (
         vertical-align: middle;
       }
 
-      .active a,
-      a:hover {
+      .navigation-item.active :global(a),
+      .navigation-item :global(a:hover) {
         color: #000;
+        text-decoration: none;
       }
     `}</style>
   </span>
