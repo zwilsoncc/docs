@@ -9,10 +9,7 @@ module.exports = phase => {
     // Allow mdx and md files to be pages
     pageExtensions: ['jsx', 'js', 'mdx', 'md'],
 
-    assetPrefix:
-      phase === PHASE_EXPORT && process.env.NOW_GITHUB_COMMIT_REF === 'master'
-        ? 'https://docs.zeit.sh'
-        : ''
+    assetPrefix: phase === PHASE_EXPORT ? '/docs' : ''
   }
 
   // This makes sure we only require build-time plugins at build time

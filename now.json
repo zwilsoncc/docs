@@ -77,6 +77,8 @@
       "src": "/docs/clients/(.*)",
       "status": 301,
       "headers": { "Location": "/docs/v1/clients/$1" }
-    }
+    },
+    { "src": "/docs/_next(.*)", "dest": "/_next$1" },
+    { "src": "(.*)", "dest": "$1" }
   ]
 }
