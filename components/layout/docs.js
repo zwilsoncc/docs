@@ -136,7 +136,7 @@ class withDoc extends React.Component {
             image={meta.image}
             lastEdited={date}
           >
-            <meta name="robots" content="noindex" />
+            {version !== 'v2' && <meta name="robots" content="noindex" />}
           </Head>
 
           <UserContext.Consumer>
