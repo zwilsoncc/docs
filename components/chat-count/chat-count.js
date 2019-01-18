@@ -58,26 +58,10 @@ class ChatCount extends Component {
 
 async function getChatCount() {
   try {
-    const { data } = await fetchAPI('/api/v1/chat', null, {
-      method: 'POST',
-      body: JSON.stringify({
-        query: `
-        {
-          community(slug: "zeit") {
-            metaData {
-              onlineMembers
-              members
-            }
-          }
-        }
-      `
-      })
+    const { onlineMembers } = await fetchAPI('/api/v1/chat/members', null, {
+      method: 'GET'
     })
 
-    const {
-      community: { metaData: chatData }
-    } = data
-    const { onlineMembers } = chatData
     return onlineMembers
   } catch (error) {
     return null
