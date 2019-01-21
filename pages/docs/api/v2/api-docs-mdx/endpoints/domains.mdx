@@ -15,23 +15,22 @@ Retrieves a list of domains registered for the authenticating user.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
-| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
-| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
-| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
-| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
-| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
-| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
-| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
-| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
-| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
-| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
-| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                     |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                 |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                          |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <Now color="#000" /> the date when it was purchased.                                                 |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to ZEIT DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                      |
 
 <Example>
   <span>Example request:</span>
@@ -96,30 +95,28 @@ been created, the user may retry the same POST and the endpoint shall return
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name you want to add. |
+| Key      | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                      |
+| -------- | ---------------------------------------------------------- | -------- | -------------------------------- |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The domain name you want to add. |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
-| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
-| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
-| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
-| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
-| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
-| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
-| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
-| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
-| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
-| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
-| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                     |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                 |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                          |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <Now color="#000" /> the date when it was purchased.                                                 |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to ZEIT DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                      |
 
 <Example>
   <span>Example request adding a domain:</span>
@@ -179,26 +176,25 @@ Verify a domain after adding either the intended nameservers or DNS TXT verifica
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
-| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
-| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
-| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
-| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
-| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
-| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
-| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
-| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
-| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
-| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
-| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
-| **suffix** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is used as a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix). |
-| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of aliases created using the domain. |
-| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of SSL certificates created for the domain. |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                     |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                 |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                          |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <Now color="#000" /> the date when it was purchased.                                                 |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to ZEIT DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                      |
+| **suffix**              | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is used as a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix).                      |
+| **aliases**             | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of aliases created using the domain.                                                                                    |
+| **certs**               | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of SSL certificates created for the domain.                                                                             |
 
 <Example>
 <span>Example request verifying a domain after adding the DNS TXT verification record:</span>
@@ -285,26 +281,25 @@ Get information for a single domain in an account or team.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the domain. |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The domain name. |
-| **serviceType** | <HelpLink href="#api-basics/types">String</HelpLink> | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
-| **nsVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's nameservers were verified based on the intended set. |
-| **txtVerifiedAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain's TXT DNS record was verified. |
-| **cdnEnabled** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not. |
-| **createdAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the domain was created in the registry. |
-| **expiresAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date at which the domain is set to expire. `null` if not bought with ZEIT. |
-| **boughtAt** | <HelpLink href="#api-basics/types">Date</HelpLink> | If it was purchased through <Now color="#000" /> the date when it was purchased. |
-| **verifiedRecord** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the verification record in the registry. |
-| **verified** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain has the ownership verified. |
-| **nameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the current nameservers of the domain. |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the intended nameservers for the domain to point to ZEIT DNS. |
-| **creator** | <HelpLink href="#api-basics/types">Map</HelpLink> | An object containing information of the domain creator, including the user's `id`, `username`, and `email`. |
-| **suffix** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is used as a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix). |
-| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of aliases created using the domain. |
-| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of SSL certificates created for the domain. |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                     |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                 |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                          |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <Now color="#000" /> the date when it was purchased.                                                 |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to ZEIT DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                      |
+| **suffix**              | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is used as a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix).                      |
+| **aliases**             | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of aliases created using the domain.                                                                                    |
+| **certs**               | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of SSL certificates created for the domain.                                                                             |
 
 <Example>
 <span>Example request:</span>
@@ -375,10 +370,9 @@ Deleting a domain will automatically remove any associated aliases.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the removed domain. |
+| Key     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                          |
+| ------- | ---------------------------------------------------------- | ------------------------------------ |
+| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the removed domain. |
 
 <Example>
   <span>Example request:</span>
@@ -408,10 +402,9 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **available** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the domain is available or not. |
+| Key           | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                        |
+| ------------- | ---------------------------------------------------------- | ---------------------------------- |
+| **available** | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is available or not. |
 
 <Example>
   <span>Example request:</span>
@@ -440,11 +433,10 @@ Check the price to purchase a domain and how long a single purchase period is. T
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **price** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The domain price. |
-| **period** | <HelpLink href="#api-basics/types">Integer</HelpLink> | The time period by which the domain is purchased. |
+| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                       |
+| ---------- | ---------------------------------------------------------- | ------------------------------------------------- |
+| **price**  | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The domain price.                                 |
+| **period** | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The time period by which the domain is purchased. |
 
 <Example>
   <span>Example request:</span>
@@ -476,11 +468,10 @@ In case of a successful purchase the returns with code 200 and an empty body.
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The domain name to purchase. |
-| **expectedPrice** | <HelpLink href="#api-basics/types">Integer</HelpLink> | No | The price you expect to be charged for the purchase. |
+| Key               | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                          |
+| ----------------- | ---------------------------------------------------------- | -------- | ---------------------------------------------------- |
+| **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The domain name to purchase.                         |
+| **expectedPrice** | <HelpLink href="#api-basics/types">Integer</HelpLink>      | No       | The price you expect to be charged for the purchase. |
 
 <Example>
   <span>Example request:</span>

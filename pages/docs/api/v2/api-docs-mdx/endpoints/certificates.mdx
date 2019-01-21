@@ -15,23 +15,21 @@ information about the certificate issued for the common name specified in the UR
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **certs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of issued certificates. |
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                      |
+| --------- | ---------------------------------------------------------- | -------------------------------- |
+| **certs** | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of issued certificates. |
 
 #### Certificate
 
 This is the format of each item in the `certs` list.
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the certificate. |
-| **cns** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | The common names for which domain the certificate was issued. |
-| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
-| **expiration** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate is going to expire. |
-| **autoRenew** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the certificate is going to be automatically renewed. |
+| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink>       | Description                                                   |
+| -------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- |
+| **uid**        | <HelpLink href="#api-basics/types">ID</HelpLink>                 | The unique identifier of the certificate.                     |
+| **cns**        | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | The common names for which domain the certificate was issued. |
+| **created**    | <HelpLink href="#api-basics/types">Date</HelpLink>               | The date when the certificate was created.                    |
+| **expiration** | <HelpLink href="#api-basics/types">Date</HelpLink>               | The date when the certificate is going to expire.             |
+| **autoRenew**  | <HelpLink href="#api-basics/types">Boolean</HelpLink>            | If the certificate is going to be automatically renewed.      |
 
 <Example>
   <span>Example request:</span>
@@ -69,14 +67,13 @@ certificate id specified in the URL.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the certificate. |
-| **cns** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | The common names for which domain the certificate was issued. |
-| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
-| **expiration** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate is going to expire. |
-| **autoRenew** | <HelpLink href="#api-basics/types">Boolean</HelpLink> | If the certificate is going to be automatically renewed. |
+| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink>       | Description                                                   |
+| -------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- |
+| **uid**        | <HelpLink href="#api-basics/types">ID</HelpLink>                 | The unique identifier of the certificate.                     |
+| **cns**        | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | The common names for which domain the certificate was issued. |
+| **created**    | <HelpLink href="#api-basics/types">Date</HelpLink>               | The date when the certificate was created.                    |
+| **expiration** | <HelpLink href="#api-basics/types">Date</HelpLink>               | The date when the certificate is going to expire.             |
+| **autoRenew**  | <HelpLink href="#api-basics/types">Boolean</HelpLink>            | If the certificate is going to be automatically renewed.      |
 
 <Example>
   <span>Example request:</span>
@@ -112,18 +109,16 @@ The body should contain \`domains\` array and it may contain \`renew\` field to 
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **domains** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | Yes | A list of Common Names for which the certificate is being provisioned. |
+| Key         | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink>       | Required | Description                                                            |
+| ----------- | ---------------------------------------------------------------- | -------- | ---------------------------------------------------------------------- |
+| **domains** | <HelpLink href="#api-basics/types">List&lt;String&gt;</HelpLink> | Yes      | A list of Common Names for which the certificate is being provisioned. |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the issued certificate. |
-| **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
+| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                      |
+| -------------- | ---------------------------------------------------------- | ------------------------------------------------ |
+| **uid**        | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the issued certificate. |
+| **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the certificate was created.       |
 
 <Example>
   <span>Example request:</span>
@@ -161,19 +156,17 @@ The body should contain `cert`, private `key`, and `ca` chain fields in PEM form
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **ca** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted CA chain. |
-| **cert** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted certificate. |
-| **key** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | PEM formatted private key. |
+| Key      | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                |
+| -------- | ---------------------------------------------------------- | -------- | -------------------------- |
+| **ca**   | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | PEM formatted CA chain.    |
+| **cert** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | PEM formatted certificate. |
+| **key**  | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | PEM formatted private key. |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the certificate was created. |
+| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                |
+| -------------- | ---------------------------------------------------------- | ------------------------------------------ |
+| **created_at** | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the certificate was created. |
 
 <Example>
   <span>Example request:</span>

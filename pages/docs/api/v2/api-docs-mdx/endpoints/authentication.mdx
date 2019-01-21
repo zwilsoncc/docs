@@ -14,19 +14,17 @@ Request a new login for an user to get a token.
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **email** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The user email. |
-| **tokenName** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The desired name for the token. It will be displayed on the [user account details](https://zeit.co/account/tokens). |
+| Key           | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                         |
+| ------------- | ---------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| **email**     | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The user email.                                                                                                     |
+| **tokenName** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The desired name for the token. It will be displayed on the [user account details](https://zeit.co/account/tokens). |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **token** | <HelpLink href="#api-basics/types">String</HelpLink> | The token used to verify the user accepted the login request. |
-| **securityCode** | <HelpLink href="#api-basics/types">String</HelpLink> | The code the user is going to receive on the email. **Must** be displayed to the user so they can verify the request is the correct. |
+| Key              | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                          |
+| ---------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **token**        | <HelpLink href="#api-basics/types">String</HelpLink>       | The token used to verify the user accepted the login request.                                                                        |
+| **securityCode** | <HelpLink href="#api-basics/types">String</HelpLink>       | The code the user is going to receive on the email. **Must** be displayed to the user so they can verify the request is the correct. |
 
 <Example>
   <span>Example request:</span>
@@ -59,10 +57,9 @@ Verify the user accepted the login request and get a authentication token. The u
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **token** | <HelpLink href="#api-basics/types">String</HelpLink> | The user authentication token you can use as described in [API Basics - Authentication](#api-basics/authentication). |
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                          |
+| --------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **token** | <HelpLink href="#api-basics/types">String</HelpLink>       | The user authentication token you can use as described in [API Basics - Authentication](#api-basics/authentication). |
 
 <Example>
   <span>Example request:</span>

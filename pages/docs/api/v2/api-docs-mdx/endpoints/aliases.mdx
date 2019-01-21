@@ -15,24 +15,22 @@ The body will contain an entry for each alias.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the alias. |
-| **alias** | <HelpLink href="#api-basics/types">String</HelpLink> | The alias name, it could be a `.now.sh` subdomain or a custom domain. |
-| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the alias was created. |
-| **deployment** | <HelpLink href="#api-basics/types">Map</HelpLink> | A map with the deployment ID and URL. |
-| **deploymentId** | <HelpLink href="#api-basics/types">ID</HelpLink> | The deployment ID. |
+| Key              | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                           |
+| ---------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
+| **uid**          | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the alias.                                   |
+| **alias**        | <HelpLink href="#api-basics/types">String</HelpLink>       | The alias name, it could be a `.now.sh` subdomain or a custom domain. |
+| **created**      | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the alias was created.                                  |
+| **deployment**   | <HelpLink href="#api-basics/types">Map</HelpLink>          | A map with the deployment ID and URL.                                 |
+| **deploymentId** | <HelpLink href="#api-basics/types">ID</HelpLink>           | The deployment ID.                                                    |
 
 #### Deployment
 
 This is the format of the `deployment` described above.
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The deployment unique identifier. |
-| **url** | <HelpLink href="#api-basics/types">String</HelpLink> | The deployment unique URL. |
+| Key     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                       |
+| ------- | ---------------------------------------------------------- | --------------------------------- |
+| **id**  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The deployment unique identifier. |
+| **url** | <HelpLink href="#api-basics/types">String</HelpLink>       | The deployment unique URL.        |
 
 <Example>
   <span>Example request:</span>
@@ -87,10 +85,9 @@ You can obtain this id from the list of aliases.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **status** | <HelpLink href="#api-basics/types">String</HelpLink> | If the alias was successfully removed. |
+| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                            |
+| ---------- | ---------------------------------------------------------- | -------------------------------------- |
+| **status** | <HelpLink href="#api-basics/types">String</HelpLink>       | If the alias was successfully removed. |
 
 <Example>
   <span>Example request:</span>
@@ -120,10 +117,9 @@ Purges [the CDN](/docs/v2/domains-and-aliases/cdn) of content from the given ali
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **status** | <HelpLink href="#api-basics/types">String</HelpLink> | The status of the purge request. The value should be `REQUESTED`. |
+| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                       |
+| ---------- | ---------------------------------------------------------- | ----------------------------------------------------------------- |
+| **status** | <HelpLink href="#api-basics/types">String</HelpLink>       | The status of the purge request. The value should be `REQUESTED`. |
 
 <Example>
 <span>Example of a <InlineCode>PURGE</InlineCode> request:</span>
@@ -155,21 +151,19 @@ The body will contain an entry for each alias.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink> | A list of the aliases assigned to the deployment. |
+| Key         | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                       |
+| ----------- | ---------------------------------------------------------- | ------------------------------------------------- |
+| **aliases** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the aliases assigned to the deployment. |
 
 #### Alias
 
 This is the format of each item in the `aliases` list.
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the alias. |
-| **alias** | <HelpLink href="#api-basics/types">String</HelpLink> | The alias name, it could be a `.now.sh` subdomain or a custom domain. |
-| **created** | <HelpLink href="#api-basics/types">String</HelpLink> | The date when the alias was created. |
+| Key         | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                           |
+| ----------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
+| **uid**     | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the alias.                                   |
+| **alias**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The alias name, it could be a `.now.sh` subdomain or a custom domain. |
+| **created** | <HelpLink href="#api-basics/types">String</HelpLink>       | The date when the alias was created.                                  |
 
 <Example>
   <span>Example request:</span>
@@ -208,19 +202,17 @@ If the desired alias was used before it will be removed from the old deployment 
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **alias** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The alias we want to assign to the deployment defined in the URL. |
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                       |
+| --------- | ---------------------------------------------------------- | -------- | ----------------------------------------------------------------- |
+| **alias** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The alias we want to assign to the deployment defined in the URL. |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **oldID** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the previously aliased deployment, only received when the alias was used before. |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the alias. |
-| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the alias was created. |
+| Key         | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                               |
+| ----------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **oldID**   | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the previously aliased deployment, only received when the alias was used before. |
+| **uid**     | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the alias.                                                                       |
+| **created** | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the alias was created.                                                                      |
 
 <Example>
   <span>Example request:</span>

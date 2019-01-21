@@ -14,15 +14,14 @@ Get a list of DNS records created for a domain name specified in the URL.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique ID of the DNS record. Always prepended with `rec_`. |
-| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The subdomain which we're configuring or `@` for the domain itself. |
-| **value** | <HelpLink href="#api-basics/types">String</HelpLink> | The record value. |
-| **created** | <HelpLink href="#api-basics/types">String</HelpLink> | A timestamp with the date when the record was created. |
-| **updated** | <HelpLink href="#api-basics/types">String</HelpLink> | A timestamp with the date when we created the deployment. |
+| Key         | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                     |
+| ----------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **id**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the DNS record. Always prepended with `rec_`.                                                  |
+| **type**    | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
+| **name**    | <HelpLink href="#api-basics/types">String</HelpLink>       | The subdomain which we're configuring or `@` for the domain itself.                                             |
+| **value**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The record value.                                                                                               |
+| **created** | <HelpLink href="#api-basics/types">String</HelpLink>       | A timestamp with the date when the record was created.                                                          |
+| **updated** | <HelpLink href="#api-basics/types">String</HelpLink>       | A timestamp with the date when we created the deployment.                                                       |
 
 <Example>
   <span>Example request:</span>
@@ -71,20 +70,18 @@ field should be set for MX records and left out otherwise.
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The subdomain which we're configuring or `@` for the domain itself. |
-| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | Yes | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
-| **value** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The record value. |
-| **mxPriority** | <HelpLink href="#api-basics/types">Integer</HelpLink> | No | The priority for MX records, is only required if the record `type` is `MX`. |
+| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                     |
+| -------------- | ---------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The subdomain which we're configuring or `@` for the domain itself.                                             |
+| **type**       | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
+| **value**      | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The record value.                                                                                               |
+| **mxPriority** | <HelpLink href="#api-basics/types">Integer</HelpLink>      | No       | The priority for MX records, is only required if the record `type` is `MX`.                                     |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">String</HelpLink> | The unique ID of the DNS record. Always prepended with `rec_`. |
+| Key     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                    |
+| ------- | ---------------------------------------------------------- | -------------------------------------------------------------- |
+| **uid** | <HelpLink href="#api-basics/types">String</HelpLink>       | The unique ID of the DNS record. Always prepended with `rec_`. |
 
 <Example>
   <span>Example request:</span>

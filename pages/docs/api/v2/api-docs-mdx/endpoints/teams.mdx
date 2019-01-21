@@ -16,10 +16,9 @@ Create a new team under your account. You need to send a `POST` request with the
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **slug** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The desired slug for the team. |
+| Key      | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                    |
+| -------- | ---------------------------------------------------------- | -------- | ------------------------------ |
+| **slug** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The desired slug for the team. |
 
 <Example>
   <span>Example request:</span>
@@ -53,10 +52,9 @@ Get a list of all the team you belong to.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **teams** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of each team member as described on [Get single team information](#endpoints/teams/get-single-team-information). |
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                               |
+| --------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **teams** | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of each team member as described on [Get single team information](#endpoints/teams/get-single-team-information). |
 
 <Example>
   <span>Example request:</span>
@@ -98,14 +96,13 @@ Get the information of a specific team, it could be used either passing the `:id
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The team unique identifier. Always prepended by `team_`. |
-| **slug** | <HelpLink href="#api-basics/types">String</HelpLink> | The team slug. A slugified version of the `name`. |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | The name of the team. |
-| **creatorId** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the user who created the team. |
-| **avatar** | <HelpLink href="#api-basics/types">String</HelpLink> | |
+| Key           | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                              |
+| ------------- | ---------------------------------------------------------- | -------------------------------------------------------- |
+| **id**        | <HelpLink href="#api-basics/types">ID</HelpLink>           | The team unique identifier. Always prepended by `team_`. |
+| **slug**      | <HelpLink href="#api-basics/types">String</HelpLink>       | The team slug. A slugified version of the `name`.        |
+| **name**      | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the team.                                    |
+| **creatorId** | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the user who created the team.                 |
+| **avatar**    | <HelpLink href="#api-basics/types">String</HelpLink>       |                                                          |
 
 <Example>
   <span>Example request:</span>
@@ -143,11 +140,10 @@ Update the information of the team defined with the id. You need to send a `PATC
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **slug** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The new team slug. |
-| **name** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The new team name. |
+| Key      | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description        |
+| -------- | ---------------------------------------------------------- | -------- | ------------------ |
+| **slug** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The new team slug. |
+| **name** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The new team name. |
 
 <Example>
   <span>Example request:</span>
@@ -185,13 +181,12 @@ Get the list of team members of the team defined in the URL. The response is a l
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The team member unique identifier. |
-| **role** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The role inside the team, it could be `OWNER` or `MEMBER`. |
-| **email** | <HelpLink href="#api-basics/types">String</HelpLink> | The email address of the team member. |
-| **username** | <HelpLink href="#api-basics/types">String</HelpLink> | The username of the team member. |
+| Key          | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                |
+| ------------ | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| **uid**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The team member unique identifier.                         |
+| **role**     | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The role inside the team, it could be `OWNER` or `MEMBER`. |
+| **email**    | <HelpLink href="#api-basics/types">String</HelpLink>       | The email address of the team member.                      |
+| **username** | <HelpLink href="#api-basics/types">String</HelpLink>       | The username of the team member.                           |
 
 <Example>
   <span>Example request:</span>
@@ -235,18 +230,16 @@ Invite a user to join the team specified in the URL. To use it send a `POST` req
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **email** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The email address of the user to invite. |
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                              |
+| --------- | ---------------------------------------------------------- | -------- | ---------------------------------------- |
+| **email** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The email address of the user to invite. |
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- |
-| **uid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The ID of the invited user. |
-| **username** | <HelpLink href="#api-basics/types">String</HelpLink> | The username of the invited user. |
+| Key          | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                       |
+| ------------ | ---------------------------------------------------------- | --------------------------------- |
+| **uid**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the invited user.       |
+| **username** | <HelpLink href="#api-basics/types">String</HelpLink>       | The username of the invited user. |
 
 <Example>
   <span>Example request:</span>
@@ -285,10 +278,9 @@ Change the role of an user inside a team member. To change it send a `PATCH` req
 
 #### Request Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **role** | <HelpLink href="#api-basics/types">Enum</HelpLink> | Yes | The new role of the team member, it could be `OWNER` or `MEMBER`. |
+| Key      | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                       |
+| -------- | ---------------------------------------------------------- | -------- | ----------------------------------------------------------------- |
+| **role** | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The new role of the team member, it could be `OWNER` or `MEMBER`. |
 
 <Example>
   <span>Example request:</span>

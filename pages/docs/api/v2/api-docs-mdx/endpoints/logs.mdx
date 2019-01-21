@@ -14,43 +14,40 @@ Get the logs of a deployment by its ID.
 
 #### Response Parameters
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- | -- |
-| **logs** | <HelpLink href="#api-basics/types">List</HelpLink> | The list of objects representing each log. |
+| Key      | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                |
+| -------- | ---------------------------------------------------------- | ------------------------------------------ |
+| **logs** | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of objects representing each log. |
 
 ##### Log Object
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- | -- |
-| **object** | <HelpLink href="#api-basics/types">Map</HelpLink> | The log content as a map. |
-| **text** | <HelpLink href="#api-basics/types">String</HelpLink> | The log content as a string. |
-| **deploymentId** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the deployment. |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink> | The unique identifier of the log. |
-| **context** | <HelpLink href="#api-basics/types">String</HelpLink> | |
-| **created** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the log was created. |
-| **serial** | <HelpLink href="#api-basics/types">Integer</HelpLink> | |
-| **type** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The type of log. The type could be `request`, `response`, `command` or `stdout`. |
-| **pid** | <HelpLink href="#api-basics/types">ID</HelpLink> | The process unique identified which created the log. |
-| **appName** | <HelpLink href="#api-basics/types">String</HelpLink> | The deployment application name. |
-| **date** | <HelpLink href="#api-basics/types">Date</HelpLink> | The date when the log was created. |
-| **region** | <HelpLink href="#api-basics/types">Enum</HelpLink> | The name of the region where the instance was running. The region could be any supported region, for example; `sfo`. |
+| Key              | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                          |
+| ---------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **object**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | The log content as a map.                                                                                            |
+| **text**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The log content as a string.                                                                                         |
+| **deploymentId** | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the deployment.                                                                             |
+| **id**           | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique identifier of the log.                                                                                    |
+| **context**      | <HelpLink href="#api-basics/types">String</HelpLink>       |                                                                                                                      |
+| **created**      | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the log was created.                                                                                   |
+| **serial**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      |                                                                                                                      |
+| **type**         | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of log. The type could be `request`, `response`, `command` or `stdout`.                                     |
+| **pid**          | <HelpLink href="#api-basics/types">ID</HelpLink>           | The process unique identified which created the log.                                                                 |
+| **appName**      | <HelpLink href="#api-basics/types">String</HelpLink>       | The deployment application name.                                                                                     |
+| **date**         | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the log was created.                                                                                   |
+| **region**       | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The name of the region where the instance was running. The region could be any supported region, for example; `sfo`. |
 
 ##### Log Object Key
 
 These are the usual keys of the key `object` of the logs.
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description |
-| -- | -- | -- | -- |
-| **method** | <HelpLink href="#api-basics/types">String</HelpLink> | A valid HTTP method. |
-| **uri** | <HelpLink href="#api-basics/types">String</HelpLink> | The URL which received the request. |
-| **status** | <HelpLink href="#api-basics/types">String</HelpLink> | A valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). |
-| **protocol** | <HelpLink href="#api-basics/types">String</HelpLink> | The protocol used for the log. |
-| **bodyBytesSent** | <HelpLink href="#api-basics/types">String</HelpLink> | The number of bytes sent in the body of the response. |
-| **remoteAddr** | <HelpLink href="#api-basics/types">String</HelpLink> | The IP address which sent the request. |
-| **userAgent** | <HelpLink href="#api-basics/types">String</HelpLink> | The user agent of the device which sent the request. |
+| Key               | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                          |
+| ----------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **method**        | <HelpLink href="#api-basics/types">String</HelpLink>       | A valid HTTP method.                                                                 |
+| **uri**           | <HelpLink href="#api-basics/types">String</HelpLink>       | The URL which received the request.                                                  |
+| **status**        | <HelpLink href="#api-basics/types">String</HelpLink>       | A valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). |
+| **protocol**      | <HelpLink href="#api-basics/types">String</HelpLink>       | The protocol used for the log.                                                       |
+| **bodyBytesSent** | <HelpLink href="#api-basics/types">String</HelpLink>       | The number of bytes sent in the body of the response.                                |
+| **remoteAddr**    | <HelpLink href="#api-basics/types">String</HelpLink>       | The IP address which sent the request.                                               |
+| **userAgent**     | <HelpLink href="#api-basics/types">String</HelpLink>       | The user agent of the device which sent the request.                                 |
 
 #### Types
 

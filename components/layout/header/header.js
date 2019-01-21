@@ -81,24 +81,20 @@ class Header extends Component {
     )
   }
 
-  renderTeam = ({
-    displayName = null,
-    avatar,
-    teamId,
-    teamSlug,
-    username
-  }) => {
+  renderTeam = ({ displayName = null, avatar, teamId, teamSlug, username }) => {
     const currentTeam = this.props.team
 
     const slug = teamSlug || username
     const active = !currentTeam && !teamSlug ? true : currentTeam === teamSlug
-    const linkProps = teamSlug ? {
-      as: `/teams/${teamSlug}/settings/identity`,
-      href: {
-        pathname: `/teams/settings/identity`,
-        query: { teamSlug }
-      }
-    } : { as: '/account', href: '/account/identity' }
+    const linkProps = teamSlug
+      ? {
+          as: `/teams/${teamSlug}/settings/identity`,
+          href: {
+            pathname: `/teams/settings/identity`,
+            query: { teamSlug }
+          }
+        }
+      : { as: '/account', href: '/account/identity' }
 
     return (
       <MenuItem key={slug} active={active}>
@@ -108,7 +104,7 @@ class Header extends Component {
               <span className="avatar">
                 <Avatar
                   teamId={teamId}
-                  user={{username: displayName || slug, avatar}}
+                  user={{ username: displayName || slug, avatar }}
                   size={24}
                 />
               </span>

@@ -21,12 +21,11 @@ https://zeit.co/oauth/authorize
 
 You will pass the following values as query parameters.
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **client_id** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | ID of your application. |
-| **redirect_uri** | <HelpLink href="#api-basics/types">String</HelpLink> | No | URL to redirect back. |
-| **state** | <HelpLink href="#api-basics/types">String</HelpLink> | No | Random string to be passed back upon completion. It is used to protect against CSRF attacks. |
+| Key              | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                  |
+| ---------------- | ---------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------- |
+| **client_id**    | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | ID of your application.                                                                      |
+| **redirect_uri** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | URL to redirect back.                                                                        |
+| **state**        | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Random string to be passed back upon completion. It is used to protect against CSRF attacks. |
 
 If the user grants your request, we redirects back to your site with a `code` parameter and with a `state` parameter if you provided one in previous step.
 
@@ -52,12 +51,11 @@ If all goes well, exchange the authorization code for an access token using the 
 
 You will pass the following values to request body in the form of `application/x-www-form-urlencoded`.
 
-<!-- prettier-ignore -->
-| Key | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description |
-| -- | -- | -- | -- |
-| **client_id** | <HelpLink href="#api-basics/types">ID</HelpLink> | Yes | ID of your application. |
-| **client_secret** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | Secret of your application. |
-| **code** | <HelpLink href="#api-basics/types">String</HelpLink> | Yes | The code you received. |
+| Key               | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                 |
+| ----------------- | ---------------------------------------------------------- | -------- | --------------------------- |
+| **client_id**     | <HelpLink href="#api-basics/types">ID</HelpLink>           | Yes      | ID of your application.     |
+| **client_secret** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | Secret of your application. |
+| **code**          | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The code you received.      |
 
 You'll receive a JSON response containing an `access_token`.
 
