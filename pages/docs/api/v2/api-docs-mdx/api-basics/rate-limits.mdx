@@ -7,12 +7,11 @@ import { P } from '~/components/text/paragraph'
 We limit the number of calls you can make over a certain period of time.
 Rate limits vary and are specified by the following header in all responses:
 
-<!-- prettier-ignore -->
-| Header | Description |
-| -- | -- |
-| **<RequestHeader>X-RateLimit-Limit</RequestHeader>** | The maximum number of requests that the consumer is permitted to make. |
-| **<RequestHeader>X-RateLimit-Remaining</RequestHeader>** | The number of requests remaining in the current rate limit window. |
-| **<RequestHeader>X-RateLimit-Reset</RequestHeader>** | The time at which the current rate limit window resets in UTC epoch seconds. |
+| Header                                                   | Description                                                                  |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **<RequestHeader>X-RateLimit-Limit</RequestHeader>**     | The maximum number of requests that the consumer is permitted to make.       |
+| **<RequestHeader>X-RateLimit-Remaining</RequestHeader>** | The number of requests remaining in the current rate limit window.           |
+| **<RequestHeader>X-RateLimit-Reset</RequestHeader>**     | The time at which the current rate limit window resets in UTC epoch seconds. |
 
 <Example>
   <P>
