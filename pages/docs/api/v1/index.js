@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { HEADER_HEIGHT } from '~/lib/constants'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
+import Layout from '~/components/layout/layout'
+import Main from '~/components/layout/main'
 import changeHash from '~/lib/utils/change-hash'
 import components from '~/lib/mdx-components'
 import Content from '~/components/layout/content'
@@ -14,9 +16,6 @@ import DocsIndex from '~/components/layout/index'
 import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
 import Head from '~/components/layout/head'
-import Header from '~/components/layout/header'
-import Main from '~/components/layout/main'
-import Page from '~/components/layout/page'
 import scrollToElement from '~/lib/utils/scroll-to-element'
 import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
@@ -25,8 +24,6 @@ import { GenericLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
-import { UserContext } from '~/lib/user-context'
-import UseTeamInfo from '~/lib/use-team-info'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
 
@@ -109,20 +106,6 @@ class APIPage extends Component {
     }
   }
 
-  handleToggleNavigation = () => {
-    this.setState(({ navigationActive }) => {
-      if (navigationActive) {
-        bodyLocker.unlock()
-      } else {
-        bodyLocker.lock()
-      }
-
-      return {
-        navigationActive: !navigationActive
-      }
-    })
-  }
-
   render() {
     const { router } = this.props
     const { navigationActive, version } = this.state
@@ -141,7 +124,7 @@ class APIPage extends Component {
           h3: withPermalink(components.h3)
         }}
       >
-        <Page>
+        <Layout>
           <Head
             description="A comprehensive guide to using the Now API and gaining control over the Now platform"
             title={`Now API Documentation`}
@@ -150,22 +133,6 @@ class APIPage extends Component {
           >
             <meta name="robots" content="noindex" />
           </Head>
-
-          <UserContext.Consumer>
-            {({ user, userLoaded }) => (
-              <UseTeamInfo
-                user={user}
-                render={({ teams }) => (
-                  <Header
-                    onToggleNavigation={this.handleToggleNavigation}
-                    user={user}
-                    teams={teams}
-                    userLoaded={userLoaded}
-                  />
-                )}
-              />
-            )}
-          </UserContext.Consumer>
 
           <DocsBuilder docs={<ApiDocs />}>
             {({ structure }) => (
@@ -369,7 +336,7 @@ class APIPage extends Component {
               }
             }
           `}</style>
-        </Page>
+        </Layout>
       </MDXProvider>
     )
   }

@@ -1,0 +1,87 @@
+import Guide from '~/components/layout/guide'
+import { TerminalInput } from '~/components/text/terminal'
+import Caption from '~/components/text/caption'
+
+export const meta = {
+  title: 'Deploying Apollo Server to Now',
+  description: 'How to deploy your Apollo GraphQL server to Now',
+  published: '2019-01-24T03:00:00.860Z',
+  authors: ['unicodeveloper'],
+  url: '/guides/deploying-apolloserver-to-now'
+}
+
+In this guide, we will be deploying an Apollo GraphQL server with ZEIT Now.
+
+## Getting Started
+
+The first step is to create a directory for the project and `cd` into it via your terminal. It can be done with the following command:
+
+<TerminalInput>mkdir apolloserver && cd apolloserver</TerminalInput>
+
+Next, install the `apollo-server` and `graphql` packages via your terminal.
+
+<TerminalInput>yarn add apollo-server graphql</TerminalInput>
+
+Once the dependencies are installed, go ahead and create an `index.js` file at the root of the project directory with the following code as its contents:
+
+```js
+const { ApolloServer, gql } = require('apollo-server')
+
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`
+
+const resolvers = {
+  Query: {
+    hello: (root, args, context) => {
+      return "Hello world! It's your boy, how far now unicodeveloper"
+    }
+  }
+}
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: true
+})
+
+server.listen({ port: 3000 }).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`)
+})
+```
+
+<Caption>
+  The code above shows a basic Apollo server with an enabled GraphQL playground
+  for testing out queries.
+</Caption>
+
+## Deploy with Now
+
+Create a [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration) in the project directory and add the following content.
+
+```json
+{
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "routes": [{ "src": "/.*", "dest": "index.js" }]
+}
+```
+
+- The `version` property specifies [`Now 2.0`](https://zeit.co/now).
+- The [`routes` property](/docs/v2/deployments/configuration#routes) allows Now to route your deployment either by using a source and destination, or by way of a source, status, and headers.
+- The [`builds` property](https://zeit.co/docs/v2/deployments/builds) allows Now to use a [builder](https://zeit.co/docs/v2/deployments/builders/overview/) with a specific source target.
+
+We used the `@now/node-server` [builder](https://zeit.co/docs/v2/deployments/builders/overview) to enable a Node.js server deployment.
+
+Next, deploy the app with the Now CLI.
+
+<TerminalInput>now</TerminalInput>
+
+Another option available is to deploy from GitHub with [Now for GitHub](https://zeit.co/docs/v2/integrations/now-for-github/). `Now for GitHub` allows you to deploy apps as you push code to repositories that have it [installed and configured](https://zeit.co/docs/v2/integrations/now-for-github/#configuration).
+
+`Now for GitHub` provides the ability to deploy every push in branches and pull requests to preview changes live!
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>

@@ -1,0 +1,64 @@
+import Guide from '~/components/layout/guide'
+import { InlineCode } from '~/components/text/code'
+import Caption from '~/components/text/caption'
+
+export const meta = {
+  title: 'Prevent uploading source paths with .nowignore',
+  description:
+    'Using a .nowignore file to prevent the uploading of source paths',
+  published: '2019-01-24T03:00:00.860Z',
+  authors: ['unicodeveloper'],
+  url: '/guides/prevent-uploading-sourcepaths-with-nowignore'
+}
+
+Now supports configuration required to ignore source files and paths within your project. With a `.nowignore` file in your project directory, a source path can be prevented from being uploaded to Now.
+
+## File Syntax
+
+The syntax of a `.nowignore` file matches that of the popular [`.gitignore` file](https://git-scm.com/docs/gitignore#_pattern_format) used in ignoring files when uploading to GitHub.
+
+An example of a `.nowignore` file that prevents an `/image` directory and `/private.html` file within a project from being uploaded to Now would look like this:
+
+```
+image
+private.html
+```
+
+<Caption>
+  A <InlineCode>.nowignore</InlineCode> configuration file.
+</Caption>
+
+## Uploaded Files
+
+All files within your project are uploaded to Now if there are no builds with specific source targets and no source path is specified to be excluded in a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths).
+
+Worthy of note is that not all uploaded files are served on Now. So, what files are served?
+
+## Served Files
+
+By default, all uploaded files are served statically on Now if no builds are configured within a `now.json` file.
+
+If a build step exists in the [`now.json` configuration](https://zeit.co/docs/v2/deployments/configuration) file, the non-targeted files are prevented from being deployed and served on Now.
+
+An example of a `now.json` file with [**Builds**](https://zeit.co/docs/v2/deployments/builds) and `src` properties is shown below:
+
+```json
+{
+  "version": 2,
+  "name": "static",
+  "builds": [
+    { "src": "index.html", "use": "@now/static" },
+    { "src": "style.css", "use": "@now/static" }
+  ]
+}
+```
+
+<Caption>
+  A <InlineCode>now.json</InlineCode> configuration file that specifies a
+  Builder.
+</Caption>
+
+The use of a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths) allows you to keep private files safe and also makes your deployment faster by uploading only the essential files.
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide
+>

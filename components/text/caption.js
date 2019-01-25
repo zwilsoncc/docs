@@ -1,7 +1,7 @@
 import { FONT_FAMILY_MONO } from '~/lib/css-config'
 
-const Caption = ({ children }) => (
-  <p>
+const Caption = ({ children, ...props }) => (
+  <p {...props}>
     {children}
     <style jsx>
       {`

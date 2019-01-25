@@ -1,3 +1,7 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import IObserver from '~/components/intersection-observer'
+
 import VideoComponent from './video'
 
 // This component might look a little complex
@@ -9,80 +13,121 @@ import VideoComponent from './video'
 // Because if you want to do that, you need to set the aspect
 // ratio of the image's container BEFORE the image loads
 
-const Image = ({
-  src,
-  width,
-  height,
-  margin = 40,
-  caption,
-  video = false,
-  muted = true,
-  autoPlay = false
-}) => {
-  if (!width) {
-    throw new Error('Please define the width of the image!')
+class Image extends Component {
+  constructor(props) {
+    super(props)
   }
 
-  if (!height) {
-    throw new Error('Please define the height of the image!')
+  static defaultProps = {
+    lazy: true
   }
 
-  const aspectRatio = String((height / width) * 100) + '%'
+  static propTypes = {
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired
+  }
 
-  return (
-    <figure style={{ margin: `${margin}px 0` }}>
-      <main style={{ width }}>
-        <div style={{ paddingBottom: aspectRatio }}>
-          {video ? (
-            <VideoComponent
-              src={src}
-              muted={muted}
-              autoPlay={autoPlay}
-              width={width}
-              height={height}
-            />
-          ) : (
-            <img src={src} />
-          )}
-        </div>
+  state = {
+    src: !this.props.lazy ? this.props.videoSrc || this.props.src : undefined
+  }
 
-        {caption && <p>{caption}</p>}
-      </main>
+  handleIntersect = entry => {
+    if (entry.isIntersecting) {
+      this.setState({ src: this.props.src })
+    }
+  }
 
-      <style jsx>
-        {`
-          figure {
-            text-align: center;
-            display: block;
-          }
+  render() {
+    const {
+      caption,
+      height,
+      lazy,
+      margin = 40,
+      video = false,
+      videoSrc,
+      width,
+      captionSpacing = null,
+      oversize = false,
+      borderRadius = false,
+      children
+    } = this.props
 
-          main {
-            margin: 0 auto;
-            max-width: 100%;
-          }
+    const aspectRatio = String((height / width) * 100) + '%'
+    const classes = width > 650 && oversize ? 'oversize' : ''
 
-          div {
-            position: relative;
-          }
+    if (video || videoSrc) {
+      return <VideoComponent src={videoSrc} {...this.props} />
+    }
 
-          img,
-          video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-          }
+    return (
+      <IObserver
+        once
+        onIntersect={this.handleIntersect}
+        rootMargin="20%"
+        disabled={!lazy}
+      >
+        <figure className={classes}>
+          <main style={{ width }}>
+            <div className="container" style={{ paddingBottom: aspectRatio }}>
+              {this.state.src ? <img src={this.state.src || null} /> : children}
+            </div>
 
-          p {
-            font-size: 11px;
-            text-align: center;
-            color: #999;
-          }
-        `}
-      </style>
-    </figure>
-  )
+            {caption && (
+              <p style={captionSpacing ? { marginTop: captionSpacing } : {}}>
+                {caption}
+              </p>
+            )}
+          </main>
+
+          <style jsx>{`
+            figure {
+              display: block;
+              text-align: center;
+              margin: ${margin}px 0;
+            }
+
+            main {
+              margin: 0 auto;
+              max-width: 100%;
+            }
+
+            div {
+              position: relative;
+            }
+
+            img {
+              height: 100%;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 100%;
+              ${borderRadius ? `border-radius: 5px;` : null};
+            }
+
+            .container {
+              display: flex;
+              justify-content: center;
+            }
+
+            p {
+              color: #999;
+              font-size: 12px;
+              margin: 0;
+              text-align: center;
+            }
+
+            @media (min-width: 992px) {
+              figure.oversize {
+                width: ${width}px;
+                margin: ${margin}px 0 ${margin}px
+                  calc(((${width}px - 650px) / 2) * -1);
+              }
+            }
+          `}</style>
+        </figure>
+      </IObserver>
+    )
+  }
 }
 
 export const Video = props => <Image {...props} video />

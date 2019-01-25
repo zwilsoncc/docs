@@ -8,7 +8,8 @@ export const GenericLink = props => {
   if (
     props.href.startsWith('/docs') ||
     props.href.startsWith('/api') ||
-    props.href.startsWith('/examples')
+    props.href.startsWith('/examples') ||
+    props.href.startsWith('/guides')
   ) {
     return <InternalLink {...props} />
   }
@@ -52,8 +53,11 @@ InternalLink.contextTypes = {
   darkBg: PropTypes.bool
 }
 
-export const AnchorLink = ({ href, onClick, children }, { darkBg } = {}) => (
-  <a href={href} onClick={onClick} className={darkBg ? 'dark' : ''}>
+export const AnchorLink = (
+  { href, onClick, children, ...props },
+  { darkBg } = {}
+) => (
+  <a href={href} onClick={onClick} className={darkBg ? 'dark' : ''} {...props}>
     {children}
 
     <style jsx>
