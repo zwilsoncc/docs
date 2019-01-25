@@ -28,7 +28,7 @@ export default () => (
 
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
-            <GenericLink href="https://github.com/zeit/docs/blob/master/contributing.md#examples">
+            <GenericLink href="https://github.com/zeit/docs/blob/master/contributing.md#guides">
               <Button secondary small>
                 Submit a Guide
               </Button>
@@ -61,7 +61,7 @@ export default () => (
             </GenericLink>
           ))}
 
-          <GenericLink href="https://github.com/zeit/docs/blob/master/contributing.md#examples">
+          <GenericLink href="https://github.com/zeit/docs/blob/master/contributing.md#guides">
             <article className="guide contribute">
               <div className="titles">
                 <H4>Write Your Guide →</H4>
