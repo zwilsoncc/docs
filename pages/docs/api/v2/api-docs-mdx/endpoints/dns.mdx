@@ -18,7 +18,7 @@ Get a list of DNS records created for a domain name specified in the URL.
 | ----------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | **id**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the DNS record. Always prepended with `rec_`.                                                  |
 | **type**    | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
-| **name**    | <HelpLink href="#api-basics/types">String</HelpLink>       | The subdomain which we're configuring or `@` for the domain itself.                                             |
+| **name**    | <HelpLink href="#api-basics/types">String</HelpLink>       | A subdomain name or an empty string for the root domain.                                                        |
 | **value**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The record value.                                                                                               |
 | **created** | <HelpLink href="#api-basics/types">String</HelpLink>       | A timestamp with the date when the record was created.                                                          |
 | **updated** | <HelpLink href="#api-basics/types">String</HelpLink>       | A timestamp with the date when we created the deployment.                                                       |
@@ -72,7 +72,7 @@ field should be set for MX records and left out otherwise.
 
 | Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                     |
 | -------------- | ---------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The subdomain which we're configuring or `@` for the domain itself.                                             |
+| **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A subdomain name or an empty string for the root domain.                                                        |
 | **type**       | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
 | **value**      | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The record value.                                                                                               |
 | **mxPriority** | <HelpLink href="#api-basics/types">Integer</HelpLink>      | No       | The priority for MX records, is only required if the record `type` is `MX`.                                     |
