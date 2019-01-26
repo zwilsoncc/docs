@@ -20,6 +20,7 @@ Get a list of DNS records created for a domain name specified in the URL.
 | **type**    | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
 | **name**    | <HelpLink href="#api-basics/types">String</HelpLink>       | A subdomain name or an empty string for the root domain.                                                        |
 | **value**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The record value.                                                                                               |
+| **creator** | <HelpLink href="#api-basics/types">String</HelpLink>       | The ID of the user who created the record or `system` if the record is an automatic record.                     |
 | **created** | <HelpLink href="#api-basics/types">String</HelpLink>       | A timestamp with the date when the record was created.                                                          |
 | **updated** | <HelpLink href="#api-basics/types">String</HelpLink>       | A timestamp with the date when we created the deployment.                                                       |
 
@@ -45,15 +46,17 @@ Example successful (**200**) response:
       "type": "ALIAS",
       "name": "",
       "value": "alias.zeit.co",
+      "creator": "EvQtLv2F0FvfB5Vx4eK0R3Mf",
       "created": "1474631621542",
       "updated": null
     },
     {
       "id": "rec_Pxo2HEfutmlIYECtTE4SpDzY",
-      "slug": "*.zeit.rocks.-address",
+      "slug": "",
       "type": "CNAME",
       "name": "*",
       "value": "alias.zeit.co",
+      "creator": "system",
       "created": "1474631619960",
       "updated": null
     }
@@ -65,17 +68,30 @@ Example successful (**200**) response:
 
 <Endpoint method="POST" url="/v2/domains/:domain/records" />
 
-Create a DNS record for a domain specified in the URL. `mxPriority`
-field should be set for MX records and left out otherwise.
+Create a DNS record for a domain specified in the URL.
 
 #### Request Parameters
 
-| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                     |
-| -------------- | ---------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                     |
+| --------- | ---------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
 | **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A subdomain name or an empty string for the root domain.                                                        |
-| **type**       | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
-| **value**      | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The record value.                                                                                               |
-| **mxPriority** | <HelpLink href="#api-basics/types">Integer</HelpLink>      | No       | The priority for MX records, is only required if the record `type` is `MX`.                                     |
+| **type**  | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
+| **value** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The record value.                                                                                               |
+
+##### Value
+
+The following table defines the format of the `value` property for supported record types.
+
+| Type      | Description                                                                                                     | Format                        | Example                     |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------- |
+| **A**     | An `A` record pointing to an IPv4 address.                                                                      | `address`                     | `192.0.2.42`                |
+| **AAAA**  | An `AAAA` record pointing to an IPv6 address.                                                                   | `address`                     | `2001:DB8::42`              |
+| **ALIAS** | An `ALIAS` virtual record pointing to a hostname resolved to an `A` record on server side.                      | `host`                        | `alias.zeit.co`             |
+| **CAA**   | A `CAA` record to specify which Certificate Authorities (CAs) are allowed to issue certificates for the domain. | `flags tag value`             | `0 issue "letsencrypt.org"` |
+| **CNAME** | A `CNAME` record mapping to another domain name.                                                                | `domain`                      | `alias.zeit.co`             |
+| **MX**    | An `MX` record specifying the mail server responsible for accepting messages on behalf of the domain name.      | `priority host`               | `10 mail.zeit.rocks`        |
+| **SRV**   | A `SRV` record defining servers for specified services.                                                         | `priority weight port target` | `10 10 500 sip.zeit.rocks`  |
+| **TXT**   | A `TXT` record containing arbitrary text.                                                                       | `text`                        | `hello`                     |
 
 #### Response Parameters
 
@@ -98,8 +114,7 @@ field should be set for MX records and left out otherwise.
   body={{
     name: 'subdomain',
     type: 'MX',
-    value: 'mail.zeit.rocks',
-    mxPriority: 10
+    value: '10 mail.zeit.rocks'
   }}
 />
 
