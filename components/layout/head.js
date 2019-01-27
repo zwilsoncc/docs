@@ -61,10 +61,7 @@ class Head extends React.PureComponent {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta
-            name="twitter:card"
-            content={this.props.image ? 'summary_large_image' : 'summary'}
-          />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@zeithq" />
           <meta property="og:site_name" content="ZEIT Documentation" />
           <meta property="og:type" content="website" />
@@ -102,7 +99,10 @@ class Head extends React.PureComponent {
           <meta
             property="og:image"
             content={
-              this.props.image || `${IMAGE_ASSETS_URL}/zeit/twitter-card.png`
+              this.props.image ||
+              `https://og-image.now.sh/${encodeURIComponent(
+                this.props.ogTitle || this.props.title
+              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg`
             }
           />
           {this.props.image ? (
