@@ -74,7 +74,7 @@ Create a DNS record for a domain specified in the URL.
 
 | Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                     |
 | --------- | ---------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A subdomain name or an empty string for the root domain.                                                        |
+| **name**  | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A subdomain name or an empty string for the root domain.                                                        |
 | **type**  | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
 | **value** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The record value.                                                                                               |
 
@@ -89,8 +89,8 @@ The following table defines the format of the `value` property for supported rec
 | **ALIAS** | An `ALIAS` virtual record pointing to a hostname resolved to an `A` record on server side.                      | `host`                        | `alias.zeit.co`             |
 | **CAA**   | A `CAA` record to specify which Certificate Authorities (CAs) are allowed to issue certificates for the domain. | `flags tag value`             | `0 issue "letsencrypt.org"` |
 | **CNAME** | A `CNAME` record mapping to another domain name.                                                                | `domain`                      | `alias.zeit.co`             |
-| **MX**    | An `MX` record specifying the mail server responsible for accepting messages on behalf of the domain name.      | `priority host`               | `10 mail.zeit.rocks`        |
-| **SRV**   | A `SRV` record defining servers for specified services.                                                         | `priority weight port target` | `10 10 500 sip.zeit.rocks`  |
+| **MX**    | An `MX` record specifying the mail server responsible for accepting messages on behalf of the domain name.      | `priority host`               | `10 mail.zeit.rocks.`       |
+| **SRV**   | A `SRV` record defining servers for specified services.                                                         | `priority weight port target` | `10 10 500 sip.zeit.rocks.` |
 | **TXT**   | A `TXT` record containing arbitrary text.                                                                       | `text`                        | `hello`                     |
 
 #### Response Parameters
