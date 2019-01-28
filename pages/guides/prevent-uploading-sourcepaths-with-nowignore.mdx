@@ -3,7 +3,7 @@ import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 
 export const meta = {
-  title: 'Prevent uploading source paths with .nowignore',
+  title: 'Prevent Uploading Source Paths with `.nowignore`',
   description:
     'Using a .nowignore file to prevent the uploading of source paths',
   published: '2019-01-24T03:00:00.860Z',
@@ -60,5 +60,4 @@ An example of a `now.json` file with [**Builds**](https://zeit.co/docs/v2/deploy
 
 The use of a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths) allows you to keep private files safe and also makes your deployment faster by uploading only the essential files.
 
-export default ({ children }) => <Guide meta={meta}>{children}</Guide
->
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>
