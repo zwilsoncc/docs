@@ -47,13 +47,13 @@ class Header extends Component {
       if (window.location.pathname.includes(urlSegment)) {
         Router.push(
           { pathname: '/user-profile', query: { editing: '1' } },
-          `/${urlSegment}/edit`,
+          `/profile/${urlSegment}/edit`,
           { shallow: true }
         )
       } else {
         Router.push(
           { pathname: '/user-profile', query: { editing: '1' } },
-          `/${urlSegment}/edit`
+          `/profile/${urlSegment}/edit`
         )
       }
 
@@ -258,7 +258,11 @@ class Header extends Component {
                         )}
                         <a
                           className="edit-profile"
-                          href={`/${user.username || 'profile'}/edit`}
+                          href={
+                            this.props.user.username
+                              ? `/profile/${this.props.user.username}/edit`
+                              : '/profile'
+                          }
                           onClick={this.onEditProfileClick}
                         >
                           Edit Profile
