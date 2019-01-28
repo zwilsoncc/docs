@@ -13,8 +13,7 @@ import H3 from '~/components/text/h3'
 import H4 from '~/components/text/h4'
 import H5 from '~/components/text/h5'
 import { P } from '~/components/text/paragraph'
-import { GenericLink } from '~/components/text/link'
-import { Avatar, AvatarGroup } from '~/components/avatar'
+import { Avatar } from '~/components/avatar'
 import HR from '~/components/text/hr'
 import { GuidesFeedback } from '~/components/feedback-input'
 
@@ -87,22 +86,9 @@ class Guide extends React.PureComponent {
 
           <article>
             <header className="guide-heading">
-              <Wrapper width="650">
+              <Wrapper width="900">
                 <H1>{meta.title}</H1>
                 <P>{meta.description}</P>
-                <div className="guide-meta">
-                  <GenericLink href="#authors" aria-label="Article Authors">
-                    <AvatarGroup
-                      size={24}
-                      members={meta.authors.map(author => {
-                        return { username: author }
-                      })}
-                    />
-                  </GenericLink>
-                  <span className="published">
-                    {formatDate(meta.published, 'MMMM Do YYYY')}
-                  </span>
-                </div>
               </Wrapper>
             </header>
 
@@ -129,6 +115,9 @@ class Guide extends React.PureComponent {
                       </div>
                     ))}
                   </div>
+                  <span className="published">
+                    on {formatDate(meta.published, 'MMMM Do YYYY')}
+                  </span>
                 </div>
               </section>
             </Wrapper>
@@ -144,13 +133,15 @@ class Guide extends React.PureComponent {
             .guide-heading {
               border-bottom: 1px solid #eaeaea;
               padding-top: 144px;
-              padding-bottom: 16px;
+              padding-bottom: 44px;
+              text-align: center;
             }
 
             .guide-meta {
               margin-top: 40px;
               display: flex;
               align-items: center;
+              justify-content: center;
             }
 
             .guide-meta :global(.avatar-group) {
@@ -176,6 +167,8 @@ class Guide extends React.PureComponent {
             .published {
               color: #666;
               font-size: 14px;
+              margin-top: 24px;
+              display: block;
             }
 
             .guide-heading :global(h1) {
