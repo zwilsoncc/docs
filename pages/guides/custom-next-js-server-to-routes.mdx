@@ -18,11 +18,13 @@ export const meta = {
 Next.js offers developers [a built-in routing system](https://nextjs.org/docs/#routing) that allows you to link to other pages whilst also giving those pages a custom URL. When a user refreshes the custom URL, however, the browser will not be able to load the link because the page was previously routed client-side. To resolve this, we need to also handle routing server-side.
 
 <Note>
-  If you have yet to build an application with Next.js, look no further than{' '}
-  <GenericLink href="https://nextjs.org/learn">
-    the Next.js interactive tutorial website
-  </GenericLink>{' '}
-  or <GenericLink href="https://nextjs.org/docs">the documentation</GenericLink>.
+  {' '}
+  If you have yet to build an application with Next.js, look no further than<GenericLink href="https://nextjs.org/learn">
+    {' '}
+    the Next.js interactive tutorial website{' '}
+  </GenericLink> or <GenericLink href="https://nextjs.org/docs">
+    the documentation
+  </GenericLink>. <GenericLink href="/docs/v2/deployments/official-builders/next-js-now-next">Deploy your Next.js app with the @now/next Builder.</GenericLink>
 </Note>
 
 ## Preface: Next.js Routing
@@ -47,7 +49,7 @@ server.get('/products/:name', (req, res) => {
 
 ### The New Routes Method
 
-With [Now 2.0](https://zeit.co/docs/v2/platform/upgrade-to-2-0/) and the serverless approach, each Next.js page is a separate entry point, making the sole custom server entry point a thing of the past for the good of performance and stability. Fortunately, Now 2.0 offers a solution, by way of the `routes` configuration.
+With [Now 2.0](https://zeit.co/docs/v2/platform/upgrade-to-2-0/) and the serverless approach, each [Next.js page](https://zeit.co/docs/v2/deployments/official-builders/next-js-now-next/) is a separate entry point, making the sole custom server entry point a thing of the past for the good of performance and stability. Fortunately, Now 2.0 offers a solution, by way of the `routes` configuration.
 
 The following [`now.json` configuration](/docs/v2/deployments/configuration) enables the deployment to use the [Now platform version 2.0](https://zeit.co/docs/v2/platform/overview/#versioning) and defines [the routes](/docs/v2/deployments/configuration#routes) that the deployment should acknowledge when receiving a request to an entry point.
 
@@ -153,6 +155,15 @@ export default () => (
 Now, clicking the espresso product link will result in the URL path being `/product/espresso` while rendering the `product` page with the name query parameter set to `espresso`.
 
 ### Step 3: Defining `routes` configuration
+
+<Note>
+  The prerequisite for this configuration is to host your Next.js application on
+  Now.{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/next-js-now-next/">
+    Read the @now/next Builder documentation
+  </GenericLink>{' '}
+  to get started.
+</Note>
 
 When refreshing the URL with the path of `/product/espresso`, or accessing it directly, you will find that the server will return a 404 response. This is because there is no entry point that exists for that path. Next.js handles the routing to that page internally and client-side. The next step is to provide Now with the context of this path to route to the `/product` page entry point.
 
