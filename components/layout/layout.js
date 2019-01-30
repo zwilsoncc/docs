@@ -38,6 +38,7 @@ export default class Layout extends React.Component {
                   user={user}
                   teams={teams}
                   userLoaded={userLoaded}
+                  navigationActive={this.state.navigationActive}
                 />
               )}
             />

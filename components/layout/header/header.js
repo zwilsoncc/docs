@@ -182,7 +182,9 @@ class Header extends Component {
           <Logo height="25px" width="28px" />
         </a>
 
-        <Navigation className="main-navigation">
+        <Navigation
+          className={cn('main-navigation', { active: navigationActive })}
+        >
           <NavigationItem
             href="/docs"
             active={
@@ -312,7 +314,8 @@ class Header extends Component {
           className={cn('arrow-toggle', { active: navigationActive })}
           onClick={onToggleNavigation}
         >
-          <Arrow height="14px" width="27px" />
+          <div className="line top" />
+          <div className="line bottom" />
         </div>
         <style jsx>{`
           :global(.header .main-navigation) {
@@ -346,11 +349,32 @@ class Header extends Component {
             display: none;
             margin-left: auto;
             padding: 10px;
-            transition: transform 0.2s ease;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
           }
 
-          .arrow-toggle.active {
-            transform: rotate(180deg);
+          .line {
+            height: 1px;
+            width: 22px;
+            background-color: #000;
+            transition: transform 0.15s ease;
+          }
+
+          .line:last-child {
+            transform: translateY(4px) rotate(0deg);
+          }
+
+          .line:first-child {
+            transform: translateY(-4px) rotate(0deg);
+          }
+
+          .active .line:first-child {
+            transform: translateY(1px) rotate(45deg);
+          }
+
+          .active .line:last-child {
+            transform: translateY(0px) rotate(-45deg);
           }
 
           .avatar-link {
@@ -411,6 +435,25 @@ class Header extends Component {
 
             .arrow-toggle {
               display: flex;
+            }
+
+            :global(.header .main-navigation.active) {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              position: fixed;
+              left: 0;
+              right: 0;
+              top: 89px;
+              padding: 0;
+              background: white;
+              box-shadow: #fff 0 -15px, rgba(0, 0, 0, 0.1) 0 0 15px;
+              border-bottom: 1px solid #eaeaea;
+            }
+            :global(.header .main-navigation.active > span) {
+              width: 100%;
+              padding: 0 15px;
+              border-top: 1px solid #eaeaea;
             }
           }
         `}</style>

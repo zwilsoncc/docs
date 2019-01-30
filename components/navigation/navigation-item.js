@@ -25,6 +25,12 @@ const NavigationItem = ({ active, children, className, href }) => (
         color: #000;
         text-decoration: none;
       }
+
+      @media screen and (max-width: 950px) {
+        .navigation-item :global(a) {
+          font-size: 14px;
+        }
+      }
     `}</style>
   </span>
 )
