@@ -37,7 +37,7 @@ This is an amazing feature of Next.js, however, it cannot control how the server
 
 ### The Old Custom Server Method
 
-The solution to this problem was previously using a customer server. For example, you could create an Express application and catch the request to `/product/<product_name>` and route it to the `/product?name=<product_name>` file behind the scenes so that you can keep the custom URL:
+The solution to this problem was previously using a custom server. For example, you could create an Express application and catch the request to `/product/<product_name>` and route it to the `/product?name=<product_name>` file behind the scenes so that you can keep the custom URL:
 
 ```js
 server.get('/products/:name', (req, res) => {
@@ -45,7 +45,7 @@ server.get('/products/:name', (req, res) => {
 })
 ```
 
-<Caption>An example customer server route capture and render method.</Caption>
+<Caption>An example custom server route capture and render method.</Caption>
 
 ### The New Routes Method
 
