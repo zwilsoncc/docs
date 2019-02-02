@@ -1,9 +1,9 @@
 import { GenericLink } from '~/components/text/link'
 import cn from 'classnames'
 
-const NavigationItem = ({ active, children, className, href }) => (
+const NavigationItem = ({ active, children, className, href, onClick }) => (
   <span className={cn({ active }, className, 'navigation-item')}>
-    <GenericLink prefetch href={href} as={href}>
+    <GenericLink prefetch href={href} as={href} onClick={onClick}>
       {children}
     </GenericLink>
     <style jsx>{`

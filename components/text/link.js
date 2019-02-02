@@ -21,8 +21,11 @@ export const GenericLink = props => {
   return <ExternalLink {...props} />
 }
 
-export const InternalLink = ({ href, as, children }, { darkBg } = {}) => (
-  <span>
+export const InternalLink = (
+  { href, as, children, onClick },
+  { darkBg } = {}
+) => (
+  <span onClick={onClick}>
     <LinkWithHoverPrefetch href={href} as={as}>
       {children}
     </LinkWithHoverPrefetch>
@@ -84,12 +87,13 @@ AnchorLink.contextTypes = {
   darkBg: PropTypes.bool
 }
 
-export const ExternalLink = ({ href, children }, { darkBg } = {}) => (
+export const ExternalLink = ({ href, children, onClick }, { darkBg } = {}) => (
   <a
     className={darkBg ? 'dark' : ''}
     href={href}
     target="_blank"
     rel="noopener noreferrer"
+    onClick={onClick}
   >
     {children}
 

@@ -191,24 +191,28 @@ class Header extends Component {
               router.pathname.startsWith('/docs') &&
               !router.pathname.startsWith('/docs/api')
             }
+            onClick={onToggleNavigation}
           >
             Docs
           </NavigationItem>
           <NavigationItem
             href="/guides"
             active={router.pathname.startsWith('/guides')}
+            onClick={onToggleNavigation}
           >
             Guides
           </NavigationItem>
           <NavigationItem
             href="/docs/api"
             active={router.pathname.startsWith('/docs/api')}
+            onClick={onToggleNavigation}
           >
             API Reference
           </NavigationItem>
           <NavigationItem
             href="/examples"
             active={router.pathname.startsWith('/examples')}
+            onClick={onToggleNavigation}
           >
             Examples
           </NavigationItem>
