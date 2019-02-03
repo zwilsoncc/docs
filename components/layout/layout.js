@@ -23,6 +23,15 @@ export default class Layout extends React.Component {
     })
   }
 
+  handleIndexClick = () => {
+    if (this.state.navigationActive) {
+      bodyLocker.unlock()
+      this.setState({
+        navigationActive: false
+      })
+    }
+  }
+
   render() {
     const { children } = this.props
 
@@ -39,6 +48,7 @@ export default class Layout extends React.Component {
                   teams={teams}
                   userLoaded={userLoaded}
                   navigationActive={this.state.navigationActive}
+                  handleIndexClick={this.handleIndexClick}
                 />
               )}
             />

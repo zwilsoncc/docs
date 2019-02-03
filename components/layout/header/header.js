@@ -11,7 +11,6 @@ import ChatCount from '~/components/chat-count'
 import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
 import Plus from '~/components/icons/plus'
-import Arrow from '~/components/icons/arrow'
 
 class Header extends Component {
   state = {
@@ -168,6 +167,7 @@ class Header extends Component {
       currentTeamSlug,
       navigationActive,
       onToggleNavigation,
+      handleIndexClick,
       router,
       user,
       teams = [],
@@ -191,28 +191,28 @@ class Header extends Component {
               router.pathname.startsWith('/docs') &&
               !router.pathname.startsWith('/docs/api')
             }
-            onClick={onToggleNavigation}
+            onClick={handleIndexClick}
           >
             Docs
           </NavigationItem>
           <NavigationItem
             href="/guides"
             active={router.pathname.startsWith('/guides')}
-            onClick={onToggleNavigation}
+            onClick={handleIndexClick}
           >
             Guides
           </NavigationItem>
           <NavigationItem
             href="/docs/api"
             active={router.pathname.startsWith('/docs/api')}
-            onClick={onToggleNavigation}
+            onClick={handleIndexClick}
           >
             API Reference
           </NavigationItem>
           <NavigationItem
             href="/examples"
             active={router.pathname.startsWith('/examples')}
-            onClick={onToggleNavigation}
+            onClick={handleIndexClick}
           >
             Examples
           </NavigationItem>
