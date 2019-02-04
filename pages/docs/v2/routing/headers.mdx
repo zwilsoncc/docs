@@ -22,15 +22,15 @@ This header's value indicates whether the response was served from ZEIT's edge c
 
 The following values are possible when the content being served [is static](/docs/v2/routing/caching#caching-static-files) or uses [a `Cache-Control` header](/docs/v2/routing/caching#caching-lambda-responses).
 
-| Value                                      | Description                                                                                                                  |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| <RequestHeader>HIT</RequestHeader>         | The response was served from the edge.                                                                                       |
-| <RequestHeader>MISS</RequestHeader>        | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/platform/regions-and-providers/). |
-| <RequestHeader>BYPASS</RequestHeader>      | The cache was bypassed and so the response was served from an origin server.                                                 |
-| <RequestHeader>EXPIRED</RequestHeader>     | The entry in the cache has expired. The response is served an origin server.                                                 |
-| <RequestHeader>STALE</RequestHeader>       | The response from the cache is outdated.                                                                                     |
-| <RequestHeader>UPDATING</RequestHeader>    | The response is stale as the entry is currently being updated due to a previous request.                                     |
-| <RequestHeader>REVALIDATED</RequestHeader> | The response from the cache was stale but it was revalidated by checking `If-Modified-Since` or `If-None-Match` headers.     |
+| Value                                      | Description                                                                                                                                      |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <RequestHeader>HIT</RequestHeader>         | The response was served from the edge.                                                                                                           |
+| <RequestHeader>MISS</RequestHeader>        | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/platform/regions-and-providers/).                     |
+| <RequestHeader>BYPASS</RequestHeader>      | The cache was bypassed and so the response was served from an origin server.                                                                     |
+| <RequestHeader>EXPIRED</RequestHeader>     | The entry in the cache has expired. The response is served an origin server.                                                                     |
+| <RequestHeader>STALE</RequestHeader>       | The response from the cache is outdated but another visitor has already requested the response and the edge node is processing the revalidation. |
+| <RequestHeader>UPDATING</RequestHeader>    | The response is stale as the entry is currently being updated due to a previous request.                                                         |
+| <RequestHeader>REVALIDATED</RequestHeader> | The response from the cache was stale but it was revalidated by checking `If-Modified-Since` or `If-None-Match` headers.                         |
 
 ## `x-now-id`
 
