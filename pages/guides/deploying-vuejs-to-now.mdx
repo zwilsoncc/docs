@@ -55,18 +55,16 @@ If you have not yet installed Now, you can do so by installing the [Now Desktop 
 
 For the deployment to build and act as you would expect, you need to create a [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration) file to instruct Now on how to build the project with a `build` step.
 
-```js
+```json
 {
   "version": 2,
   "name": "my-vue-project",
-  "builds": [
-    { "src": "package.json", "use": "@now/static-build" }
-  ],
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
   "routes": [
-    {"src": "^/js/(.*)", "dest": "/js/$1"},
-    {"src": "^/css/(.*)", "dest": "/css/$1"},
-    {"src": "^/img/(.*)", "dest": "/img/$1"},
-    {"src": ".*", "dest": "/index.html"}
+    { "src": "^/js/(.*)", "dest": "/js/$1" },
+    { "src": "^/css/(.*)", "dest": "/css/$1" },
+    { "src": "^/img/(.*)", "dest": "/img/$1" },
+    { "src": ".*", "dest": "/index.html" }
   ]
 }
 ```
@@ -85,7 +83,7 @@ This `now.json` file achieves a few things:
 
 For the build property that you configured, add a `now-build` script in the generated `package.json` file to specify what command Now will run to build the app in the cloud.
 
-```js
+```json
 {
     "scripts": {
       ...
@@ -118,6 +116,29 @@ You are now ready to deploy the app with Now:
 Once the app is deployed, you will receive a deployment URL similar to the following: https://my-vue-project-ro3oxryae.now.sh/
 
 You can see that our routes were successful by going to the generated `/about` route directly: https://my-vue-project-ro3oxryae.now.sh/about
+
+## Bonus: Cache Your Vue.js Assets
+
+Caching your sites is essential for serving fast and highly performant sites to your users. Thankfully, you can configure Now's routes within your `now.json` configuration file to set up caching headers.
+
+In the `now.json` configuration file, modify the existing `routes` property with [cache-control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control):
+
+```json
+{
+  ...
+  "routes": [
+    {"src": "^/js/(.*)", "headers": {"cache-control": "max-age=31536000,immutable"}, "dest": "/js/$1"},
+    {"src": "^/css/(.*)", "headers": {"cache-control": "max-age=31536000,immutable"}, "dest": "/css/$1"},
+    {"src": "^/img/(.*)", "headers": {"cache-control": "max-age=31536000,immutable"}, "dest": "/img/$1"},
+    {"src": ".*", "headers": {"cache-control": "max-age=0,must-revalidate"}, "dest": "/index.html"}
+  ]
+}
+```
+
+<Caption>
+  Routes configuration for setting caching headers in a{' '}
+  <InlineCode>now.json</InlineCode> configuration file.
+</Caption>
 
 ## Resources
 
