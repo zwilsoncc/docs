@@ -176,7 +176,7 @@ class FeedbackInput extends Component {
             transition: all 150ms ease-out;
             /* fixes a bug in ff where the animation of the chat
             * counter appears on top of our input during its transition */
-            background: transparent;
+            background: #fff;
             z-index: 100;
             outline: 0;
             color: #000;
