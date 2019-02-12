@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import Now from '~/components/text/now'
@@ -100,7 +99,7 @@ module.exports = CORS(server({ schema, rootValue }))
 Now you should be able to run `npm start` inside the directory containing the API and you should be handed a URL which will show the following when opened in a browser window:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/graphql/api.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/graphql/api.png`}
   width="550"
   height="307"
 />
@@ -218,7 +217,7 @@ You should now be able to access the app on the address you saw in the terminal 
 In the browser, the client should look like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/graphql/client.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/graphql/client.png`}
   width="550"
   height="307"
 />

@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import { TerminalInput } from '~/components/text/terminal'
@@ -22,7 +21,7 @@ However, you cannot ask your users to visit those addresses. This is because the
 Hence, you need a fixed domain name.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/custom-domain.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/custom-domain.png`}
   width={600}
   height={325}
   caption="Our sample static app with a fixed domain name."
@@ -74,7 +73,7 @@ Here, we are attempting to assign the `my-web-app.com` domain name to the above 
 After the confirmation, <Now color="000"/> will handle all the technical details for you and allow your users to access your app using <https://my-web-app.com>.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/buy-domain.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/buy-domain.png`}
   width={650}
   height={412}
   caption="Confirmation you'll get after assigning a custom domain."
@@ -129,7 +128,7 @@ After that, run the following command:
 You will then have an error like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/alias-error.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/assign-a-domain-name/alias-error.png`}
   width={650}
   height={412}
   caption="The error message you'll get when trying to alias a domain for the first time."

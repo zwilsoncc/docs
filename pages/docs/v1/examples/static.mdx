@@ -1,5 +1,4 @@
 import Doc from '~/components/layout/docs'
-import asset from 'next/asset'
 
 import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
@@ -52,7 +51,7 @@ The code basically loads ZEIT's logo from our content delivery network and shows
 This is how it will look in the browser when opening the file:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/static/browser.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/static/browser.png`}
   width="550"
   height="319"
 />

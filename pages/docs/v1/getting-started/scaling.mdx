@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import { TerminalInput } from '~/components/text/terminal'
@@ -49,7 +48,7 @@ Here's how you can do that:
 In this case, <Now color="#000"/> will set the `min` and `max` instance settings to 3.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/fixed-scaling.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/scaling/fixed-scaling.png`}
   width={650}
   height={467}
   caption="The deployment is scaled to 3 instances and you can see the URLs for each of those instances."
@@ -68,7 +67,7 @@ Then it'll scale the deployment behind the alias. (in this case, the alias is `h
 If you run `now alias` again, it'll scale the new deployment accordingly and scale down the old deployment to the <InternalLink href="/docs/getting-started/scaling#default-scaling">default scaling setup</InternalLink>.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/now-alias.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/scaling/now-alias.png`}
   width={650}
   height={467}
   caption="Aliasing “hello-node-zhlrfgchkd.now.sh” to “hnode” changes it's scaling settings and “hnode”'s previous deployment."
@@ -89,7 +88,7 @@ Now the deployment behind `hnode.now.sh` runs with a minimum of 2 instances and 
 &#8203;<Now color="#000"/> will automatically start and kill instances based on the traffic `hnode.now.sh` receives.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/auto-scaling.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/scaling/auto-scaling.png`}
   width={650}
   height={335}
   caption="Auto scaling in action."

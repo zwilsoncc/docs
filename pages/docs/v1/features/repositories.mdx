@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import Now from '~/components/text/now'
@@ -47,7 +46,7 @@ That's it!
 Once <Now color="#000" /> fetches the repository, you'll see just what you're used to: A link to the deployment, the repository will be deployed and the logs will be printed out. Once the repo has finished uploading, you'll see the invitation page:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/git-repositories/slackin.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/git-repositories/slackin.png`}
   width="550"
   height="420"
 />

@@ -1,6 +1,4 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
-
 import Now from '~/components/text/now'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
@@ -40,7 +38,7 @@ that you understand the meaning of the
 following terms (sorted by least granular to most granular):
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/scaling/region-graph.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/scaling/region-graph.png`}
   width={600}
   height={267}
 />

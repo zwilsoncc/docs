@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import { TerminalInput } from '~/components/text/terminal'
@@ -31,7 +30,7 @@ For more information on `now logs`, run the help command with:
 <TerminalInput>now logs --help</TerminalInput>
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/logs/help.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/logs/help.png`}
   width={650}
   height={470}
   caption="The help command output of the 'now logs' command"
@@ -42,7 +41,7 @@ Here's an advanced `now logs` command to let you inspect the last 10 HTTP GET re
 <TerminalInput>now logs -a -q "GET" -n 10 my-web-app.com</TerminalInput>
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/logs/last-10-get-requests.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/logs/last-10-get-requests.png`}
   width={650}
   height={470}
   caption="Last 10 HTTP GET requests."
@@ -56,7 +55,7 @@ Click any of your deployment URLs inside the dashboard and start searching logs.
 > You may need to click the "Logs" link on the header (top right) to see logs.
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/logs/now-dashboard-logs.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/logs/now-dashboard-logs.png`}
   width={650}
   height={445}
   caption="Searching logs inside the web dashboard."

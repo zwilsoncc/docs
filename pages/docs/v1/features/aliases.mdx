@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import Now from '~/components/text/now'
@@ -85,7 +84,7 @@ All you have to do is run:
 After this successful message, your deployment is instantly available via its original URL and the new alias you gave it:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/aliases/alias-dest.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/aliases/alias-dest.png`}
   width="682"
   height="468"
   caption={

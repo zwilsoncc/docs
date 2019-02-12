@@ -1,5 +1,4 @@
 import Doc from '~/components/layout/docs'
-import asset from 'next/asset'
 
 import Now from '~/components/text/now'
 import { Image } from '~/components/media'
@@ -76,7 +75,7 @@ This translates into the following:
 Now, when running `npm run start` inside your terminal, you should see the following:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/server.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/realtime-chat/server.png`}
   width={550}
   height={345}
 />
@@ -84,7 +83,7 @@ Now, when running `npm run start` inside your terminal, you should see the follo
 And when pointing your browser to the address shown (`http://localhost:4000`):
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/hello-world.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/realtime-chat/hello-world.png`}
   width={550}
   height={307}
 />
@@ -125,7 +124,7 @@ And populate `index.html` with the following:
 If you restart the process (by hitting `control + C` and running `npm run start` again) and refresh the page it should look like this:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/form.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/realtime-chat/form.png`}
   width={550}
   height={307}
 />
@@ -180,7 +179,7 @@ Notice that I’m not specifying any URL when I call `io()` since it defaults to
 Try opening several tabs, and you’ll see several messages:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/connected.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/realtime-chat/connected.png`}
   width={550}
   height={345}
 />
@@ -200,7 +199,7 @@ io.on('connection', socket => {
 Then if you refresh a tab several times you can see it in action:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/disconnected.png`)}
+  src={`${IMAGE_ASSETS_URL}/docs/realtime-chat/disconnected.png`}
   width={550}
   height={345}
 />
@@ -295,7 +294,7 @@ And on the client side when we capture a `chat message` event we’ll include it
 And that completes our chat application, in about **20 lines of code**! You can now send messages between two clients:
 
 <Image
-  src={asset(`${IMAGE_ASSETS_URL}/docs/realtime-chat/result.gif`)}
+  src={`${IMAGE_ASSETS_URL}/docs/realtime-chat/result.gif`}
   width={600}
   height={572}
 />

@@ -1,4 +1,3 @@
-import asset from 'next/asset'
 import Doc from '~/components/layout/docs'
 
 import Now from '~/components/text/now'
@@ -31,9 +30,7 @@ Then, <Now color="#000"/> will ask you to create a TXT record in the domain's DN
 Here's how the Cloudflare's DNS settings page looks after we've added the TXT record.
 
 <Image
-  src={asset(
-    `${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-now-txt.png`
-  )}
+  src={`${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-now-txt.png`}
   width={600}
   height={336}
 />
@@ -53,9 +50,7 @@ Make sure to **uncheck** the cloud symbol for the Record. So, Cloudflare only ac
 (It should look like the below)
 
 <Image
-  src={asset(
-    `${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-dns-records.png`
-  )}
+  src={`${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-dns-records.png`}
   width={600}
   height={259}
 />
@@ -83,9 +78,7 @@ To get started, we need to apply all of the above steps. Then, go through the fo
 For that, simply check the Cloud icon next to the Domain name (in the DNS settings page). Then it'll look like this:
 
 <Image
-  src={asset(
-    `${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-dns-proxy-mode.png`
-  )}
+  src={`${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-dns-proxy-mode.png`}
   width={600}
   height={259}
 />
@@ -97,9 +90,7 @@ With this setup, Cloudflare communicates with <Now color="#000"/> using SSL. Thi
 For that, go to the Crypto settings page and select the Full (Strict) mode.
 
 <Image
-  src={asset(
-    `${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-full-strict-ssl.png`
-  )}
+  src={`${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-full-strict-ssl.png`}
   width={600}
   height={321}
 />
@@ -117,9 +108,7 @@ The URL should be: `*my-app.work/.well-known/acme-challenge/*` and the setting s
 This is what it looks like when creating the rule:
 
 <Image
-  src={asset(
-    `${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-page-rule-ssl-off.png`
-  )}
+  src={`${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-page-rule-ssl-off.png`}
   width={600}
   height={344}
 />
@@ -127,9 +116,7 @@ This is what it looks like when creating the rule:
 Finally, make sure to keep the above rule on the top of the list. Otherwise, it'll get overridden by some other rule like “Always Use HTTPS”.
 
 <Image
-  src={asset(
-    `${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-page-rules-ssl-off-on-top.png`
-  )}
+  src={`${IMAGE_ASSETS_URL}/docs/how-to-use-cloudflare/cloudflare-page-rules-ssl-off-on-top.png`}
   width={600}
   height={107}
 />
