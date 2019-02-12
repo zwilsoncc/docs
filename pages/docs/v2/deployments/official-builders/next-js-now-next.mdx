@@ -1,8 +1,7 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
 import { Code, InlineCode } from '~/components/text/code'
-import { Image } from '~/components/media'
-import Caption from '~/components/text/caption'
+import { TerminalInput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
 import Note from '~/components/text/note'
 import Example from '~/components/example'
 import Tag from '~/components/text/tag'
@@ -13,31 +12,49 @@ export const meta = {
     'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.'
 }
 
-<Tag>Status: Beta</Tag>
+<Tag>Status: Stable</Tag>
 
-This builder takes a Next.js application, defined as `pages`, `next.config.js` and optionally a `package.json` file (with `next`, `react`, `react-dom`, etc), and converts them into a series of individual [Lambdas](/docs/v2/deployments/concepts/lambdas).
+The Now Next.js Builder takes a [Next.js application](https://nextjs.org), defined by a `next.config.js` entrypoint and `pages` directory, and converts those pages into a series of individual [lambdas](/docs/v2/deployments/concepts/lambdas).
 
-It features built-in caching of `node_modules` and all the compiler artifacts for very fast deployments.
+It features built-in caching of `node_modules` and all compiler artifacts for very fast deployments.
 
 ## When to use it
 
-`@now/next` is the ideal way to ship a fast, production-ready Next.js application that scales automatically.
+`@now/next` is the ideal way to ship a fast, production-ready [Next.js application](https://nextjs.org) that scales automatically.
+
+For more information on why you should use Next.js for your project, see [the Next.js website](https://nextjs.org).
 
 ## How to use it
 
-Create a `pages` directory with some example pages, for example `pages/index.js`:
+The first step is to set up a Next.js project. If you have not yet done so; [the best place to get started is the Next.js documentation](https://nextjs.org/docs/#setup).
+
+To get started, make sure you have installed the Next.js dependencies with the following command:
+
+<TerminalInput>yarn add next react react-dom</TerminalInput>
+
+Then, in your project directory, create a `pages` directory with some example pages, for example; the home index page, `pages/index.js`:
 
 ```jsx
 export default () => <div>Hello world!</div>
 ```
 
-For this example, we won't define a `package.json` with our dependencies. We'll let the builder automatically install them. We'll create a simple `next.config.js` file to use as our entrypoint for the build
+Create a simple `next.config.js` file to use as our entrypoint for the build, and to configure that the build should be a collection of serverless [lambdas](/docs/v2/deployments/concepts/lambdas/):
 
 ```js
-module.exports = () => ({})
+module.exports = {
+  target: 'serverless'
+}
 ```
 
-Then we'll define our build step in `now.json`:
+<Note>
+  The serverless method is only supported in{' '}
+  <GenericLink href="https://nextjs.org/blog/next-8/#serverless-nextjs">
+    Next.js version 8
+  </GenericLink>{' '}
+  and above.
+</Note>
+
+Then define a build step in a `now.json` configuration file:
 
 ```json
 {
@@ -46,13 +63,23 @@ Then we'll define our build step in `now.json`:
 }
 ```
 
-Upon deployment, we'll get a URL like this: https://next-js-deployment-kbbzal0ha.now.sh/
+Upon deployment, you will get a URL like this: https://nextjs-8fnzfb1ci.now.sh
 
 ## Technical Details
 
 ### Entrypoint
 
-The entrypoint of this builder is a `next.config.js` file or a `package.json` file.
+The entrypoint of this builder is a `next.config.js` file with the `target` configuration option set to `serverless`.
+
+```
+module.exports = {
+  target: "serverless"
+}
+```
+
+This configuration, shown above, tells Next.js to build each page in the `pages` directory as a [lambda](/docs/v2/deployments/concepts/lambdas/) function.
+
+For more information on this, see [the Next.js documentation](https://github.com/zeit/next.js#serverless-deployment).
 
 ### Dependencies installation
 
