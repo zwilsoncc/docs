@@ -1,0 +1,195 @@
+import Guide from '~/components/layout/guide'
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
+import Card from '~/components/card'
+
+export const meta = {
+  title: 'Create a Next.js Application and Deploy with Now',
+  description: 'Creating a Next.js project and deploying it with ZEIT Now',
+  published: '2019-02-11T12:00:00.860Z',
+  authors: ['timothy'],
+  url: '/guides/deploying-nextjs-with-now'
+}
+
+Next.js is a framework, created by [ZEIT](https://zeit.co), for creating production-ready, fast, and extended React applications with a lot of handy features built-in.
+
+In this guide, we will show you how to set up a Server-Side Rendered Next.js application and how to deploy it with [ZEIT Now](/docs/v2).
+
+## Step 1: Set Up Your Next.js Project
+
+The first step to [setting up a Next.js project](https://nextjs.org/learn) is to create a project directory and then install the required dependencies from your terminal:
+
+<TerminalInput>yarn add next react react-dom</TerminalInput>
+<Caption>Installing Next.js, React, and React DOM with Yarn. Alternatively, use <GenericLink href="https://nextjs.org/docs/#setup">npm</GenericLink>.</Caption>
+
+The next step in this set up is to add a `scripts` property to the `package.json` file that was generated in the installation above. The property will [include a script to run a local server](https://nextjs.org/docs/#setup) for development of your project:
+
+```json
+{
+  ...
+  "scripts"{
+    "dev": "next"
+  }
+}
+```
+
+<Caption>
+  A <InlineCode>scripts</InlineCode> property within a{' '}
+  <InlineCode>package.json</InlineCode>, containing a script to start a Next.js
+  development server.{' '}
+</Caption>
+
+Now that the initial set up of your Next.js project is done, you are ready to create your first page.
+
+Create a `pages` directory and then within that directory, create an `index.js` for the homepage with the following contents:
+
+```js
+function Home() {
+  return <div>Welcome to Next.js!</div>
+}
+
+export default Home
+```
+
+<Caption>A simple Next.js index page located in the pages directory.</Caption>
+
+You can then run your new Next.js project with the following command
+
+<TerminalInput>yarn dev</TerminalInput>
+<Caption>Running a local development server with the script set up earlier.</Caption>
+
+You can now start developing your Next.js application while testing it locally.
+
+## Step 2: Deploy Your Next.js Project with Now
+
+With your Next.js project set up, you are ready to deploy your app with [Now](/now).
+
+If you have not yet installed Now, you can do so by installing the [Now Desktop app](/docs/v2/getting-started/installation/#now-desktop) which installs Now CLI automatically, or by [installing Now CLI](/docs/v2/getting-started/installation/#now-cli) directly.
+
+The first step of deploying Next.js with Now is to create a `next.config.js` file to tell Next that the files it will build are serverless. Each page will be built as an individual serverless [lambda](/docs/v2/deployments/concepts/lambdas).
+
+```js
+module.exports = {
+  target: 'serverless'
+}
+```
+
+<Caption>
+  Setting the Next.js build target to "serverless" to enable serverless builds.
+</Caption>
+
+Serverless Next.js is more performant and provides more stability on serverless platforms, such as Now.
+
+Next, you will need to tell Now what the entrypoint is for the application and what Builder it should use to build and deploy the application so it will act as you would expect.
+
+You will need to create a [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration) to instruct Now on how to handle your application in the build phase and when being served to visitors.
+
+```json
+{
+  "version": 2,
+  "name": "my-nextjs-app"
+  "builds": [
+    { "src": "next.config.js", "use": "@now/next" }
+  ]
+}
+
+```
+
+<Caption>
+  A <InlineCode>now.json</InlineCode> configuration file that specifies the
+  Next.js Builder.
+</Caption>
+
+The above `now.json` file achieves a few things:
+
+- Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version.
+- Defines a project `name` that your deployments will be sorted under and known by under Now.
+- Defines a `builds` property as an array with one build step using `@now/static-build` to instruct Now to statically build the project and deploy the `build` directory. Using the `package.json` file as an entrypoint, [more on that below](#build-instruction).
+
+To ensure a fresh build of your Next.js project gets built by Now, especially if you only deploy the source code, you can add a `now-build` script to your `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "now-build": "next build"
+  }
+}
+```
+
+<Note>
+  Don't forget to exclude the <InlineCode>node_modules</InlineCode> folder from
+  being uploaded to Now to enable faster deployment. To do so, add a{' '}
+  <GenericLink href="/guides/prevent-uploading-sourcepaths-with-nowignore/">
+    .nowignore
+  </GenericLink>{' '}
+  file to the root of the project directory and add{' '}
+  <InlineCode>node_modules</InlineCode> to it.
+</Note>
+
+### Immutable Caching
+
+You can cache your built client-side assets from Next.js with the following addition to your `now.json` configuration file through a `routes` property:
+
+```json
+{
+  ...
+  "routes": [
+    { "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+", "headers": { "cache-control": "immutable" } }
+  ]
+}
+```
+
+This configuration will [cache assets](https://zeit.co/docs/v2/routing/caching/), generated and given a hash by Next.js in the build phase, immutably. Each subsequent request from a user in the same area as a request that has already happened will be served faster thanks to caching.
+
+These assets are not at risk of affecting new builds since they are hashed by Next.js and any new builds will have a new hash identifier, also being cached on request.
+
+### Deploying with Now
+
+You are now ready to deploy the app with Now:
+
+<TerminalInput>now</TerminalInput>
+<Caption>Deploying your Next.js app with Now CLI from a terminal.</Caption>
+
+Once the app is deployed, you will receive a deployment URL similar to the following (styled for effect, with an additional page): https://nextjs-8fnzfb1ci.now.sh
+
+## Resources
+
+For more information on working with Next.js, please refer to [the Next.js documentation](https://nextjs.org/docs).
+
+To configure Now further, please see these additional topics and guides:
+
+<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
+  Deploy any of your applications with ZEIT Now.
+</Card>
+
+<Card
+  title="@now/next Builder"
+  href="/docs/v2/deployments/official-builders/next-js-now-next"
+>
+  The Now Builder for Next.js.
+</Card>
+
+<Card
+  title="Deploying with Custom Next.js Routes"
+  href="/guides/custom-next-js-server-to-routes"
+>
+  Custom Routes with Next.js and Now
+</Card>
+
+<Card
+  title="Aliasing"
+  href="/docs/v2/domains-and-aliases/aliasing-a-deployment/"
+>
+  Learn more about aliasing to your deployments.
+</Card>
+
+<Card title="More Guides" href="/guides">
+  See more guides that help you move forward with your projects and deployments.
+</Card>
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>
