@@ -18,12 +18,11 @@ async function main() {
         .filter(line => line !== '')
 
       const meta = info[0].match(/\[(.+?)\]\((.*)\)/)
-      const example = info[1].match(/\[(.+?)\]\((.*)\)/)
 
       const name = meta[1]
       const slug = meta[2].substr(meta[2].lastIndexOf('/') + 1)
       const fork = meta[2]
-      const demo = example[1]
+      const demo = info[1]
       const description = info[2]
 
       let content
