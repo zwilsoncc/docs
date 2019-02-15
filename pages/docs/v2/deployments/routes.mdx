@@ -1,0 +1,215 @@
+import Doc from '~/components/layout/docs'
+import { InlineCode } from '~/components/text/code'
+import Caption from '~/components/text/caption'
+import Card from '~/components/card'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
+
+export const meta = {
+  title: 'Routes',
+  description:
+    'Create rewrites, redirects, cache-control headers, and more with Now routes, easily.'
+}
+
+Now uses routes to define the behavior of how a request is handled on the routing side. For example, you might use a route to rewrite a URL to another, redirect a user, or apply a header with the response to a request.
+
+A route can be defined within a project's [`now.json` configuration file](/docs/v2/deployments/configuration/#routes) as an object within an array assigned to the `routes` property, like the following which creates a simple rewrite from one path to another:
+
+```json
+{
+  "version": 2,
+  "routes": [
+    { "src": "/about", "/about.html" }
+  ]
+}
+```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file with a{' '}
+  <InlineCode>routes</InlineCode> property that rewrites one path to another
+  upon request.
+</Caption>
+
+## Routes Properties
+
+Now Routes has multiple properties for each route object that help define the behavior of a response to each request to a particular path.
+
+### `src`
+
+**Type**: String supporting [PCRE Regex](https://www.pcre.org/original/doc/html/pcrepattern.html)
+
+For each route, `src` is required to set the path which the behavior will affect.
+
+The following example shows a `now.json` configuration that takes a `src` path and rewrites it to a [destination `dest` path](#dest).
+
+```json
+{
+  "version": 2,
+  "routes": [{ "src": "/about", "dest": "/about.html" }]
+}
+```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file with a{' '}
+  <InlineCode>routes</InlineCode> property that rewrites one path to another
+  upon request.
+</Caption>
+
+<Note>
+  Both <InlineCode>^</InlineCode>, asserting the start of the path string, and{' '}
+  <InlineCode>$</InlineCode>, asserting the end of the path string, are implied
+  and are not necessary to write.
+</Note>
+
+### `dest`
+
+**Type**: String
+
+`dest` is used to rewrite the [`src`](#src) path to another path.
+
+[The example for the `src` property](#src) shows how both methods work together to create a rewrite.
+
+### `headers`
+
+**Type**: Object
+
+The `headers` property is an object supporting [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) as the keys, with the intended value as the key's value.
+
+An example of using the `headers` property to add [shared caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Expiration) headers to all files in an `images` directory:
+
+```json
+{
+  "version": 2,
+  "routes": [
+    { "src": "/images/.+", "headers": { "cache-control": "s-maxage=604800" } }
+  ]
+}
+```
+
+<Caption>
+  Setting <InlineCode>cache-control</InlineCode> headers for all paths under an{' '}
+  <InlineCode>images</InlineCode> directory with routes.
+</Caption>
+
+### `status`
+
+**Type**: Integer
+
+The `status` property defines the status code that Now should respond with when a path is requested.
+
+For example, returning you can use this property in combinations with [the `headers` property](#headers) to create a redirect with the initial status code of 301 (Moved Permanently).
+
+```json
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/about.html",
+      "status": 301,
+      "headers": { "Location": "/about-us.html" }
+    }
+  ]
+}
+```
+
+<Caption>Redirected one path to another and providing a status code.</Caption>
+
+Read more about redirecting your `www.` subdomain to your root domain:
+
+<Card title="`www.` Redirect Guide" href="/guides/redirect-from-www">
+  Create a redirect from the www. subdomain to your root domain.
+</Card>
+
+### `methods`
+
+**Type**: Array
+
+The `methods` property can be used to define what a particular path accepts for as a request method.
+
+The value of this property can be any [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), with the default being that the path can accept any method.
+
+As an example, you can use this property when you have an API endpoint and only want to allow `GET` or `POST` request methods:
+
+```json
+{
+  "version": 2,
+  "routes": [{ "src": "/api/user.js", "methods": ["POST", "GET"] }],
+  "builds": [{ "src": "*.js", "use": "@now/node" }]
+}
+```
+
+<Caption>
+  An example of accepting <InlineCode>POST</InlineCode> and{' '}
+  <InlineCode>GET</InlineCode> HTTP request methods on an API endpoint.
+</Caption>
+
+<Note>
+  The above example uses the{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/">
+    @now/node
+  </GenericLink>{' '}
+  Builder as an example of a <InlineCode>now.json</InlineCode> configuration
+  that tells Now to build JavaScript files with Node.js and outputs them as{' '}
+  <GenericLink href="/docs/v2/deployments/concepts/lambdas/">
+    lambdas
+  </GenericLink>
+  .
+</Note>
+
+## Route Parameters
+
+Using [PCRE Named Subpatterns](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC16), or capture groups, you can capture a part of a path and use it in either the [`dest`](#dest) or [`headers`](#headers) properties.
+
+Using route parameters enables you to change the format of your URLs easily without needing complicated routing code.
+
+For example, if you are using URL parameters but want to use a custom URL path you can use the following:
+
+```json
+{
+  "version": 2,
+  "routes": [{ "src": "/product/(?<id>[^/]+)$", "dest": "/product?id=$id" }]
+}
+```
+
+This will take a URL, like `/product/532004` and rewrites it to `/product?id=532004` with the user seeing your custom URL in their browser.
+
+As another example, if you want to redirect from all paths under a certain directory but want to keep the path in the new location, you can use the following:
+
+```json
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/posts/(.*)",
+      "status": 301,
+      "headers": { "Location": "/blog/$1" }
+    }
+  ]
+}
+```
+
+If you are using a Next.js app and want to learn more about using custom routes with Now, read our guide:
+
+<Card
+  title="Deploying with Custom Next.js Routes"
+  href="/guides/custom-next-js-server-to-routes"
+>
+  Custom Routes with Next.js and Now
+</Card>
+
+## Read More
+
+See more documentation or guides to help you get where you want:
+
+<Card
+  title="Extending Now Deployments with Builds"
+  href="/docs/v2/deployments/builds"
+>
+  Builds on Now create a production-ready output from your source files.
+</Card>
+
+<Card title="Learn More About Deployments" href="/docs/v2/deployments/basics">
+  The basics of deployments on Now, to help you deploy anything.
+</Card>
+
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
