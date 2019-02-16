@@ -3,7 +3,7 @@ import CodeMirror from '@skidding/react-codemirror'
 import FileIcon from '~/components/icons/file-icon'
 
 // FIXME: https://github.com/JedWatson/react-codemirror/issues/106
-//   react-codemirror2 also had a curosr position problem when tested
+//   react-codemirror2 also had a cursor position problem when tested
 
 const CodeMirrorInstance =
   typeof window !== 'undefined' ? require('codemirror') : null

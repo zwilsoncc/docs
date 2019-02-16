@@ -12,7 +12,7 @@ export default class GuidesFeedback extends Component {
     errorMessage: null,
     feedbackOpen: false,
     rating: null,
-    feeedbackSent: false
+    feedbackSent: false
   }
 
   setError = error => {

@@ -98,13 +98,13 @@ class ExamplesPage extends React.Component {
     )
 
     this.state = {
-      initalSidebar: sidebarData,
+      initialSidebar: sidebarData,
       sidebar: sidebarData
     }
   }
 
   filterSidebar = input => {
-    let filteredList = this.state.initalSidebar[0].sections
+    let filteredList = this.state.initialSidebar[0].sections
 
     filteredList = filteredList.filter(item => {
       return item.title.toLowerCase().search(input.toLowerCase()) !== -1

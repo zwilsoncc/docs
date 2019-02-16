@@ -28,7 +28,7 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | **builds**    | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | A list of Build objects used to build sources in a deployment. For example, <InlineCode noWrap>{`[{ "src": "*.php", "use": "@now/php" }]`}</InlineCode>.               |
 | **routes**    | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`. |
 | **regions**   | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | An array of the regions the deployment should be deployed to. For example, `["sfo", "bru"]`.                                                                           |
-| **public**    | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | No       | Whether a deployment's source and logs are available publically.                                                                                                       |
+| **public**    | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | No       | Whether a deployment's source and logs are available publicly.                                                                                                         |
 
 ##### Files
 

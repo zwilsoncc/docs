@@ -117,7 +117,7 @@ export default () => (
       }
 
       .guide-list {
-        disply: flex;
+        display: flex;
         flex-direction: column;
         width: 100%;
         padding-top: 8px;

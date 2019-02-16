@@ -79,7 +79,7 @@ This `now.json` file achieves a few things:
 - Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version.
 - Defines a project `name` that your deployments will be sorted under and known by under Now.
 - Defines a `builds` property as an array with one build step using `@now/static-build` to instruct Now to statically build the project and deploy the `dist` directory. Using the `package.json` file as an entrypoint, more on that below.
-- Defines a `routes` property as an array that contains `route` objects to route all files under the `js`, `css`, and `img` diretories to the right place whilst providing a fallback to `index.html` for all other routes so that Vue.js can handle routing internally.
+- Defines a `routes` property as an array that contains `route` objects to route all files under the `js`, `css`, and `img` directories to the right place whilst providing a fallback to `index.html` for all other routes so that Vue.js can handle routing internally.
 
 For the build property that you configured, add a `now-build` script in the generated `package.json` file to specify what command Now will run to build the app in the cloud.
 

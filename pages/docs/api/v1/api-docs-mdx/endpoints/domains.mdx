@@ -23,7 +23,7 @@ import Request from '~/components/api/request'
 Retrieves a list of domains registered for the authenticating user.
 Each domain entry contains an `aliases` array listing every
 alias associated with the domain. The field `isExternal` is
-a boolean value telling wheter an external nameserver is used to
+a boolean value telling whether an external nameserver is used to
 manage DNS records for the domain.
 
 #### Output
@@ -137,7 +137,7 @@ If an external nameserver is used the user must verify the domain name
 by creating a TXT record for `_now` subdomain containing a
 verification token provided as a POST result. After the record has
 been created, the user may retry the same POST and the endpoint shall return
-`verified: true`, if the domain was verified succesfully.
+`verified: true`, if the domain was verified successfully.
 
 #### Input
 
