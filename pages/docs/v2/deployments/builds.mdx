@@ -63,7 +63,7 @@ The [Builder](#builders) responsible for handling the source is defined in the `
 
 ## Builders
 
-The driving force behind the builds step of Now are the [Builders](/docs/v2/deployments/builders/overview). Each Builder takes the source it is given and produces an output, depending on the purpose of the builder.
+The driving force behind the Builds step of Now are the [Builders](/docs/v2/deployments/builders/overview). Each Builder takes the source it is given and produces an output, depending on the purpose of the builder.
 
 ### Official Builders
 
@@ -75,7 +75,7 @@ If you would like to learn how to create a custom Builder, follow the [Builder D
 
 ## Parallelization
 
-Every file matched by the `src` property (mentioned above) will trigger a new [**Build**](#sources-and-outputs). All of those **builds** are going to run **in parallel** after the deployment is created.
+Every file matched by the `src` property (mentioned above) will trigger a new [**Build**](#sources-and-outputs). All of those **Builds** are going to run **in parallel** after the deployment is created.
 
 This means that each [**Builder**](/docs/v2/deployments/builders/overview) defined in the `builds` property will run asynchronously of each other and produce their intended output without being blocked on a thread.
 
@@ -83,9 +83,20 @@ Ultimately, the build step will produce the output much faster than running the 
 
 ## Limits
 
-### Maximum Builds
+### Build Sources Limit
 
-Each deployment can support up to 256 Builds, where the Build is generated depending on the `src` property and the source files by extension.
+With the exception of the use of [the `@now/static` Builder](/docs/v2/deployments/official-builders/static-now-static) – which simply allows you to move static files to the final deployment – when other Builders are in use in a configuration, Builds usage has limits based on the number of targeted [source files](#sources-and-outputs) overall for the account or team.
+
+These limitations are based on which type of plan your account or team has:
+
+- On the [Free](/pricing) plan, there is a limit of 32 build sources per hour and 100 build sources per day.
+- On the [Unlimited](/pricing) plan, there is a limit of 128 build sources per hour and 3000 build sources per day.
+
+To visualize this, take the following examples:
+
+With a project that has 128 JavaScript files that are targeted by [the `@now/node` Builder](/docs/v2/deployments/official-builders/node-js-now-node) in a build step within a `now.json` configuration file (with no other build steps), the deployment will be accepted but another will not be possible for an hour.
+
+If that same project adds a build step to target a single Go file with [the @now/go Builder](/docs/v2/deployments/official-builders/go-now-go), making the total [sources](#sources-and-outputs) equal 129 files, the deployment will fail as it would reach the limit of build sources.
 
 ### Builds Timeout
 
