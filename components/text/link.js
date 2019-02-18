@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { withRouter } from 'next/router'
 import NativeLink from 'next/link'
+import cn from 'classnames'
 import PropTypes from 'prop-types'
 import CircledQuestion from '~/components/icons/circled-question'
 
@@ -22,10 +23,10 @@ export const GenericLink = props => {
 }
 
 export const InternalLink = (
-  { href, as, children, onClick },
+  { href, as, children, onClick, underlineOnHover = true },
   { darkBg } = {}
 ) => (
-  <span onClick={onClick}>
+  <span onClick={onClick} className={cn({ 'no-underline': !underlineOnHover })}>
     <LinkWithHoverPrefetch href={href} as={as}>
       {children}
     </LinkWithHoverPrefetch>
@@ -38,7 +39,11 @@ export const InternalLink = (
       }
 
       span :global(a:hover) {
-        text-decoration: underline;
+        text-decoration: none;
+      }
+
+      span.no-underline :global(a:hover) {
+        text-decoration: none;
       }
 
       ${darkBg
@@ -87,9 +92,12 @@ AnchorLink.contextTypes = {
   darkBg: PropTypes.bool
 }
 
-export const ExternalLink = ({ href, children, onClick }, { darkBg } = {}) => (
+export const ExternalLink = (
+  { href, children, onClick, underlineOnHover = true },
+  { darkBg } = {}
+) => (
   <a
-    className={darkBg ? 'dark' : ''}
+    className={cn({ dark: darkBg, 'no-underline': !underlineOnHover })}
     href={href}
     target="_blank"
     rel="noopener noreferrer"
@@ -107,6 +115,10 @@ export const ExternalLink = ({ href, children, onClick }, { darkBg } = {}) => (
 
         a:hover {
           text-decoration: underline;
+        }
+
+        a.no-underline:hover {
+          text-decoration: none;
         }
 
         a.dark {

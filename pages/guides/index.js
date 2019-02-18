@@ -28,7 +28,10 @@ export default () => (
 
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
-            <GenericLink href="https://github.com/zeit/docs/blob/master/contributing.md#guides">
+            <GenericLink
+              href="https://github.com/zeit/docs/blob/master/contributing.md#guides"
+              underlineOnHover={false}
+            >
               <Button secondary small>
                 Submit a Guide
               </Button>
