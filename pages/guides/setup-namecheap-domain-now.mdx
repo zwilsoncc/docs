@@ -34,7 +34,7 @@ There are two options available for domain verification:
 The [**Verify with TXT record**](#txt-record-verification) ensures a smooth [zero-downtime](https://zeit.co/docs/v2/domains-and-aliases/zero-downtime-domain-migration/) migration.
 
 <Image
-  src="/static/guides/setup-namecheap-domain-now/add-domain-with-nowcli.png"
+  src="/docs/static/guides/setup-namecheap-domain-now/add-domain-with-nowcli.png"
   width={1852/2.5}
   height={1182/2.5}
   oversize
@@ -50,7 +50,7 @@ Use the following command to list the set of nameservers needed for verification
 <TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
 
 <Image
-  src="/static/guides/setup-namecheap-domain-now/inspect-domain.png"
+  src="/docs/static/guides/setup-namecheap-domain-now/inspect-domain.png"
   width={1852/2.5}
   height={1648/2.5}
   oversize
@@ -60,7 +60,7 @@ Use the following command to list the set of nameservers needed for verification
 Now, head over to [namecheap.com](https://www.namecheap.com), log in and click on **Domain List**.
 
 <Image
-  src="/static/guides/setup-namecheap-domain-now/domain-list.png"
+  src="/docs/static/guides/setup-namecheap-domain-now/domain-list.png"
   width={2396/2.5}
   height={1629/2.5}
   oversize
@@ -72,7 +72,7 @@ Next, click on the **Manage** button on the domain you want to migrate to Now as
 In the page you are directed to, scroll down to the **NAMESERVERS** section, click on the dropdown form and select **CustomDNS** as shown in the illustration below:
 
 <Image
-  src="/static/guides/setup-namecheap-domain-now/custom-nameservers.png"
+  src="/docs/static/guides/setup-namecheap-domain-now/custom-nameservers.png"
   width={2396/2.5}
   height={1629/2.5}
   oversize
@@ -94,7 +94,7 @@ In your Namecheap **Domain List** dashboard, on the domain you want to migrate, 
 Select `TXT Record` as the record type, add `_now` as the host, and the value you were given for the record when adding your domain. You can fetch the value again using the `now domains inspect <domain>` via the [Now CLI](/docs/v2/getting-started/installation#now-cli).
 
 <Image
-  src="/static/guides/setup-namecheap-domain-now/txtrecord.png"
+  src="/docs/static/guides/setup-namecheap-domain-now/txtrecord.png"
   width={2396/2.5}
   height={1629/2.5}
   oversize
