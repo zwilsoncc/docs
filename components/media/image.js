@@ -101,7 +101,7 @@ class Image extends Component {
               position: absolute;
               top: 0;
               width: 100%;
-              ${borderRadius ? `border-radius: 5px;` : null};
+              ${borderRadius ? `border-radius: 5px;` : ''};
             }
 
             .container {

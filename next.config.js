@@ -5,11 +5,18 @@ const {
 } = require('next/constants')
 
 module.exports = phase => {
+  const isExport = phase === PHASE_EXPORT
+  const isProdBuild = phase === PHASE_PRODUCTION_BUILD
+
   const config = {
     // Allow mdx and md files to be pages
     pageExtensions: ['jsx', 'js', 'mdx', 'md'],
 
-    assetPrefix: phase === PHASE_EXPORT ? '/docs' : ''
+    assetPrefix: isExport ? '/docs' : '',
+
+    env: {
+      ASSETS: isProdBuild ? '/docs/static' : '/static'
+    }
   }
 
   // This makes sure we only require build-time plugins at build time
