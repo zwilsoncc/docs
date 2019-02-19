@@ -86,6 +86,7 @@
       "headers": { "cache-control": "immutable,max-age=31536000" },
       "dest": "/_next$1"
     },
+    { "src": "/docs/sitemap.xml", "dest": "/sitemap.xml" },
     { "src": "/docs/_next(.*)", "dest": "/_next$1" },
     { "src": "/docs/static(.*)", "dest": "/static$1" },
     { "src": "(.*)", "dest": "$1" }

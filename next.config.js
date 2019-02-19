@@ -1,3 +1,68 @@
+const fs = require('fs')
+const lastEdited = require('./lib/data/last-edited.json')
+
+// Set the header
+const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`
+
+// Wrap all pages in <urlset> tags
+const xmlUrlWrapper = nodes => `${xmlHeader}
+${nodes}
+</urlset>`
+
+// Determine and return the nodes for every page
+const xmlUrlNode = (domain, pageUrl) => {
+  if (
+    pageUrl === '/' ||
+    pageUrl === '/index' ||
+    pageUrl.startsWith('/docs/v1') ||
+    pageUrl.startsWith('/docs/api/v1') ||
+    pageUrl.includes('api-docs-mdx')
+  )
+    return
+
+  const url = `${pageUrl}${pageUrl === '/' ? '' : '/'}`
+  const loc = `${domain}${url}`
+  const lastmod = lastEdited[`pages${pageUrl}.mdx`]
+
+  return `  <url>
+    <loc>${loc}</loc>${
+    lastmod !== undefined
+      ? `
+    <lastmod>${lastmod}</lastmod>`
+      : ``
+  }
+    <changefreq>hourly</changefreq>
+  </url>`
+}
+
+const exportSitemap = async defaultPathMap => {
+  const domain = 'https://zeit.co'
+  const targetFolder = 'dist/'
+
+  const fileName = 'sitemap.xml'
+  const writeLocation = `${
+    targetFolder.endsWith('/') ? targetFolder : `${targetFolder}/`
+  }${fileName}`
+
+  const entries = defaultPathMap
+  const pages = Object.entries(entries).map(item => item[0])
+
+  const sitemap = `${xmlUrlWrapper(
+    pages.map(page => xmlUrlNode(domain, page)).filter(Boolean).join(`
+`)
+  )}`
+
+  fs.writeFile(`${writeLocation}`, sitemap, err => {
+    if (err) throw err
+    console.log(
+      `sitemap.xml with ${
+        pages.length
+      } entries was written to ${targetFolder}${fileName}`
+    )
+  })
+}
+
 const {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD,
@@ -16,6 +81,12 @@ module.exports = phase => {
 
     env: {
       ASSETS: isProdBuild ? '/docs/static' : '/static'
+    },
+
+    exportPathMap: async defaultPathMap => {
+      await exportSitemap(defaultPathMap)
+
+      return defaultPathMap
     }
   }
 
