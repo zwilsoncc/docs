@@ -14,7 +14,9 @@ const getGitDate = async file =>
 const lastEditedPath = 'lib/data/last-edited.json'
 
 async function getFileStats() {
-  const files = await globPromise(resolve('./pages/docs/**/*.{js,md,mdx}'))
+  const files = await globPromise(
+    resolve('./pages/{docs,guides}/**/*.{js,md,mdx}')
+  )
 
   const stats = await Promise.all(
     files
