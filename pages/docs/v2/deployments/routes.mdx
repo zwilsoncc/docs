@@ -197,6 +197,36 @@ If you are using a Next.js app and want to learn more about using custom routes 
   Custom Routes with Next.js and Now
 </Card>
 
+## Cascading Order
+
+Routes are applied in the order they are given in the `routes` array. Take the following configuration, for example:
+
+```json
+{
+  ...
+  "routes": [
+    { "src": "/(.*)", "dest": "/" },
+    { "src": "/first-page", "dest": "/first-page.html" }
+  ]
+}
+```
+
+In this configuration, since the first route matches all possible paths, the second route will never be applied. The order of these routes would have to switch for the latter route to apply to the `/first-page` path.
+
+The correct configuration for all routes to take affect would be:
+
+```json
+{
+  ...
+  "routes": [
+    { "src": "/first-page", "dest": "/first-page.html" },
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
+```
+
+This type of configuration can be seen in [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) where custom paths need to route to the `index.html` file.
+
 ## Read More
 
 See more documentation or guides to help you get where you want:
