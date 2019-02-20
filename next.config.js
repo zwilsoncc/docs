@@ -36,9 +36,9 @@ const xmlUrlNode = (domain, pageUrl) => {
   </url>`
 }
 
-const exportSitemap = async defaultPathMap => {
+const exportSitemap = async (defaultPathMap, outDir) => {
   const domain = 'https://zeit.co'
-  const targetFolder = 'dist/'
+  const targetFolder = outDir
 
   const fileName = 'sitemap.xml'
   const writeLocation = `${
@@ -56,9 +56,7 @@ const exportSitemap = async defaultPathMap => {
   fs.writeFile(`${writeLocation}`, sitemap, err => {
     if (err) throw err
     console.log(
-      `sitemap.xml with ${
-        pages.length
-      } entries was written to ${targetFolder}${fileName}`
+      `sitemap.xml with ${pages.length} entries was written to ${writeLocation}`
     )
   })
 }
@@ -72,6 +70,7 @@ const {
 module.exports = phase => {
   const isExport = phase === PHASE_EXPORT
   const isProdBuild = phase === PHASE_PRODUCTION_BUILD
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER
 
   const config = {
     // Allow mdx and md files to be pages
@@ -83,8 +82,9 @@ module.exports = phase => {
       ASSETS: isProdBuild ? '/docs/static' : '/static'
     },
 
-    exportPathMap: async defaultPathMap => {
-      await exportSitemap(defaultPathMap)
+    exportPathMap: async (defaultPathMap, { outDir }) => {
+      if (isDev) return defaultPathMap
+      await exportSitemap(defaultPathMap, outDir)
 
       return defaultPathMap
     }
