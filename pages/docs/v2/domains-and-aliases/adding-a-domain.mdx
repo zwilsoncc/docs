@@ -74,9 +74,9 @@ The benefits of using nameservers include:
 
 Using this method means that you will be using ZEIT DNS and your domain will be marked as a ZEIT DNS or [zeit.world](/dns) domain.
 
-#### With CNAME
+#### Preserving Existing Nameservers With CNAME
 
-If you need to use a CNAME to point to Now, you can do so after [TXT verification](#option-2:-using-a-txt-dns-record) by creating one with your domain provider with the value of `alias.zeit.co`.
+If you need to preserve the current nameservers or a domain, or need to use an alternative method of pointing to Now, you can do so after [TXT verification](#option-2:-using-a-txt-dns-record) by creating a CNAME record with your domain provider with the value of `alias.zeit.co`.
 
 Using this method means that you will not be using ZEIT DNS and your domain will be marked as external.
 
