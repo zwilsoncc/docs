@@ -69,6 +69,18 @@ The following example shows a `now.json` configuration that takes a `src` path a
 
 [The example for the `src` property](#src) shows how both methods work together to create a rewrite.
 
+<Note>
+  You can point the <InlineCode>dest</InlineCode> path to any URL, including
+  non-Now hosted URLs as shown in the code below.
+</Note>
+
+```json
+{
+  "version": 2,
+  "routes": [{ "src": "/about", "dest": "https://about.me" }]
+}
+```
+
 ### `headers`
 
 **Type**: Object
@@ -97,7 +109,7 @@ An example of using the `headers` property to add [shared caching](https://devel
 
 The `status` property defines the status code that Now should respond with when a path is requested.
 
-For example, returning you can use this property in combinations with [the `headers` property](#headers) to create a redirect with the initial status code of 301 (Moved Permanently).
+For example, you can use this property in combinations with [the `headers` property](#headers) to create a redirect with the initial status code of 301 (Moved Permanently).
 
 ```json
 {
@@ -113,6 +125,11 @@ For example, returning you can use this property in combinations with [the `head
 ```
 
 <Caption>Redirected one path to another and providing a status code.</Caption>
+
+<Note>
+  In a redirect case as shown above, the <InlineCode>Location</InlineCode>{' '}
+  property can also point to non-Now hosted URLs.
+</Note>
 
 Read more about redirecting your `www.` subdomain to your root domain:
 
