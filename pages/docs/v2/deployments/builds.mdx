@@ -90,13 +90,13 @@ With the exception of the use of [the `@now/static` Builder](/docs/v2/deployment
 These limitations are based on which type of plan your account or team has:
 
 - On the [Free](/pricing) plan, there is a limit of 32 build sources per hour and 100 build sources per day.
-- On the [Unlimited](/pricing) plan, there is a limit of 128 build sources per hour and 3000 build sources per day.
+- On the [Unlimited](/pricing) plan, there is a limit of 512 build sources per hour and 3000 build sources per day.
 
 To visualize this, take the following examples:
 
-With a project that has 128 JavaScript files that are targeted by [the `@now/node` Builder](/docs/v2/deployments/official-builders/node-js-now-node) in a build step within a `now.json` configuration file (with no other build steps), the deployment will be accepted but another will not be possible for an hour.
+With a project that has 512 JavaScript files that are targeted by [the `@now/node` Builder](/docs/v2/deployments/official-builders/node-js-now-node) in a build step within a `now.json` configuration file (with no other build steps), the deployment will be accepted but another will not be possible for an hour.
 
-If that same project adds a build step to target a single Go file with [the @now/go Builder](/docs/v2/deployments/official-builders/go-now-go), making the total [sources](#sources-and-outputs) equal 129 files, the deployment will fail as it would reach the limit of build sources.
+If that same project adds a build step to target a single Go file with [the @now/go Builder](/docs/v2/deployments/official-builders/go-now-go), making the total [sources](#sources-and-outputs) equal 513 files, the deployment will fail as it would reach the limit of build sources.
 
 ### Builds Timeout
 
