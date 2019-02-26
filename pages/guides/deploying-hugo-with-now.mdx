@@ -96,7 +96,7 @@ The `now.json` file allows you to achieve a few things with your deployment:
 - Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version.
 - Defines a project `name` that your deployments will be sorted under and known by under Now.
 - The [`builds` property](/docs/v2/deployments/builds) allows Now to use a [Builder](/docs/v2/deployments/builders/overview/) with a specific source target. We used the [`@now/static-build`](/docs/v2/deployments/official-builders/static-build-now-static-build/) to build and deploy a static project. This module takes the `build.sh` file as the entry point in this case, executes the commands inside the shell file, and exposes the resulting `public` directory as the [build output](/docs/v2/deployments/builds/#sources-and-outputs) for serving.
-- The [`distDir` option](/docs/v2/deployments/official-builders/static-build-now-static-build/#configuring-the-dist-directory) in the build step instructs Now to identify `public` as the static folder and build output directory.
+- The [`distDir` option](/docs/v2/deployments/official-builders/static-build-now-static-build/#configuring-the-build-output-directory) in the build step instructs Now to identify `public` as the static folder and build output directory.
 
 Now, create the `build.sh` file in the `my-hugo-project` root directory and add the following code to it:
 
@@ -119,8 +119,8 @@ And with this configuration set up, you can now deploy your Hugo project.
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
-  , the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
+  the content of your posts won't show up in production.
 </Note>
 
 If you have don't have [Now CLI](/docs/v2/getting-started/installation#now-cli) on your system, you can install it via the [Now Desktop](https://zeit.co/download), which is the easiest way to get started with Now. You can also install the Now CLI with `npm` as follows: `npm install -g now`.

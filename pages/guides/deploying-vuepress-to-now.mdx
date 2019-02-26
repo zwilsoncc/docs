@@ -108,7 +108,7 @@ Add the following code to the `now.json` file:
 - The `version` property specifies the [Now 2.0](/now) platform version.
 - The [`builds` property](/docs/v2/deployments/builds) allows Now to use a [Builder](/docs/v2/deployments/builders/overview/) with a specific source target. We used the [`@now/static-build`](/docs/v2/deployments/official-builders/static-build-now-static-build/) to build and deploy a static project. This module takes a Node.js `package.json` file, installs its listed dependencies, executes a configured `now-build` script, and exposes the resulting `dist` directory as the [build output](/docs/v2/deployments/builds/#sources-and-outputs) for serving.
 
-The [`distDir` option](/docs/v2/deployments/official-builders/static-build-now-static-build/#configuring-the-dist-directory) in the build step instructs Now to identify `.vuepress/dist` as the static folder and build output directory.
+The [`distDir` option](/docs/v2/deployments/official-builders/static-build-now-static-build/#configuring-the-build-output-directory) in the build step instructs Now to identify `.vuepress/dist` as the static folder and build output directory.
 
 Next, we need to add a script in the `package.json` file that specifies the command Now will run to "build" the application in the cloud.
 

@@ -16,3 +16,4 @@ package-lock.json
 # other
 .DS_Store
 .idea
+.vscode
