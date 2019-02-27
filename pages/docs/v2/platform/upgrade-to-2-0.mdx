@@ -115,11 +115,11 @@ To help our customers in the transition, we won't announce a deprecation date fo
 
 With Now v2 we're removing the notion of a **deployment instance**. There's no need to keep track of them and they just add overhead to the UI and database.
 
-While it's still very useful to think about what happens when an [instance of a container](/docs/v2/deployments/concepts/versus-processes-and-containers) is running or not as it pertains to hot vs cold invocation of [Lambdas](/docs/v2/deployments/concepts/lambdas), attempts to count or enumerate instances in a UI are impractical and not very beneficial to the developer experience.
+While it's still very useful to think about what happens when an [instance of a container](/docs/v2/deployments/concepts/lambdas/#versus-processes-and-containers) is running or not as it pertains to hot vs cold invocation of [Lambdas](/docs/v2/deployments/concepts/lambdas), attempts to count or enumerate instances in a UI are impractical and not very beneficial to the developer experience.
 
 ### No Config Mutability
 
-Static assets and caches are served from our [Global CDN](/docs/v2/deployments/concepts/global-distribution) automatically. When it comes to code invocation with [Lambdas](/docs/v2/deployments/concepts/lambdas), it makes sense to think about whether the code is executed in a single region or multiple.
+Static assets and caches are served from our [Global CDN](/docs/v2/deployments/concepts/cdn-and-global-distribution) automatically. When it comes to code invocation with [Lambdas](/docs/v2/deployments/concepts/lambdas), it makes sense to think about whether the code is executed in a single region or multiple.
 
 We support the [`regions`](/docs/v2/deployments/configuration#regions) parameter in `now.json` to this end. When you make a deployment and Lambdas are produced in the [build steps](/docs/v2/deployments/builds), we deploy them to the specified regions.
 
