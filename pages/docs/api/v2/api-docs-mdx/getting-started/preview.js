@@ -12,6 +12,10 @@ export default function Preview(props) {
           margin-top: 0;
         }
 
+        .preview {
+          box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.12);
+        }
+
         @media screen and (max-width: 700px) {
           .preview {
             margin: 0;

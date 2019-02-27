@@ -668,6 +668,7 @@ export default class Editor extends React.PureComponent {
         <style jsx>{`
           .demo {
             line-height: normal;
+            margin-bottom: 40px;
           }
           .header {
             width: 100%;
