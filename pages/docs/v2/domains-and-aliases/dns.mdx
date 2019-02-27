@@ -82,6 +82,10 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 
 Removes a record by ID, which is shown in the `now dns ls` listing. Note that it may take a couple of hours before the change is fully propagated across our infrastructure.
 
+### now dns import &lt;your-domain&gt; &lt;zonefile&gt;
+
+Imports the zone file downloaded from your registrar for this domain to ZEIT DNS.
+
 ## The API Endpoint
 
 As of [now-client](https://github.com/zeit/now-client) version **0.7.0**, it comes with API wrappers for managing the DNS records within your own application.

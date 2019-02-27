@@ -7,8 +7,8 @@ import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Adding a Domain to Now',
-  description: 'Adding and using a domain to use with deployments on ZEIT Now.'
+  title: 'Introduction to Domains',
+  description: 'All you need to know about domains on ZEIT Now.'
 }
 
 Domains on ZEIT Now can be used as [aliases](/docs/v2/domains-and-aliases/aliasing-a-deployment/) for your deployments, giving them a public facing name that users can consistently visit to see the latest content, as opposed to [deployment URLs](/docs/v2/deployments/concepts/urls/).
@@ -28,6 +28,13 @@ If you do not have a domain with your ZEIT account yet, you can do one of the fo
 
 <Card title="Buy a Domain" href="/docs/v2/domains-and-aliases/buying-a-domain">
   Buying an automatically configured domain to use with ZEIT Now.
+</Card>
+
+<Card
+  title="Transfer In a Domain"
+  href="/docs/v2/domains-and-aliases/transferring-a-domain-in"
+>
+  Transferring your domain from an external registrar to ZEIT Now.
 </Card>
 
 If you have a domain, you can use the following documentation to manage your domain.
@@ -91,6 +98,20 @@ With the following command you can buy a domain with Now:
   Read more in the{' '}
   <GenericLink href="/docs/v2/domains-and-aliases/buying-a-domain">
     Buying a Domain documentation
+  </GenericLink>
+  .
+</Note>
+
+### Transferring a Domain In
+
+With the following command you can transfer a domain in with Now:
+
+<TerminalInput>{`now domains transfer-in <your-domain>`}</TerminalInput>
+
+<Note>
+  Read more in the{' '}
+  <GenericLink href="/docs/v2/domains-and-aliases/transferring-a-domain-in">
+    Transferring a Domain In documentation
   </GenericLink>
   .
 </Note>
