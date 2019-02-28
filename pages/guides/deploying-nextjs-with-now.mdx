@@ -107,7 +107,7 @@ The above `now.json` file achieves a few things:
 
 - Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version.
 - Defines a project `name` that your deployments will be sorted under and known by under Now.
-- Defines a `builds` property as an array with one build step using `@now/static-build` to instruct Now to statically build the project and deploy the `build` directory. Using the `package.json` file as an entrypoint, [more on that below](#build-instruction).
+- Defines a `builds` property as an array with one build step using `@now/next` to instruct Now to statically build the project and deploy the `build` directory. Using the `package.json` file as an entrypoint, [more on that below](#build-instruction).
 
 To ensure a fresh build of your Next.js project gets built by Now, especially if you only deploy the source code, you can add a `now-build` script to your `package.json` file:
 
