@@ -119,13 +119,16 @@ To ensure a fresh build of your Next.js project gets built by Now, especially if
 ```
 
 <Note>
-  Don't forget to exclude the <InlineCode>node_modules</InlineCode> folder from
-  being uploaded to Now to enable faster deployment. To do so, add a{' '}
+  Don't forget to exclude the <InlineCode>.next</InlineCode> and{' '}
+  <InlineCode>node_modules</InlineCode> directories from being uploaded to Now
+  to prevent unintended side effects and to enable faster deployment. To do so,
+  add a{' '}
   <GenericLink href="/guides/prevent-uploading-sourcepaths-with-nowignore/">
     .nowignore
   </GenericLink>{' '}
-  file to the root of the project directory and add{' '}
-  <InlineCode>node_modules</InlineCode> to it.
+  file to the root of the project directory and add both{' '}
+  <InlineCode>node_modules</InlineCode> and <InlineCode>.next</InlineCode> to it
+  on separate lines.
 </Note>
 
 ### Immutable Caching

@@ -64,7 +64,9 @@ Then define a build step in a `now.json` configuration file:
 }
 ```
 
-Upon deployment, you will get a URL like this: https://nextjs-8fnzfb1ci.now.sh
+To prevent unintended issues and to speed up the uploading step of the deployment process, make sure to add both the `.next` and `node_modules` directories to [a `.nowignore` file](/docs/v2/deployments/ignoring-source-paths/).
+
+[Upon deployment](/docs/v2/deployments/basics), you will get a URL like the following: https://nextjs-8fnzfb1ci.now.sh
 
 For a more in-depth guide on setting up and deploying Next.js with caching headers, see our guide:
 
