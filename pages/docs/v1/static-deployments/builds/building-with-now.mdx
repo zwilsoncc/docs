@@ -10,7 +10,7 @@ export const meta = {
     'Using a Dockerfile to build and deploy a static app all from within Now',
   date: '12 July 2018',
   editUrl: 'pages/docs/static-deployments/builds/building-with-now.mdx',
-  image: IMAGE_ASSETS_URL + '/docs/static-builds/tw-card.png'
+  image: process.env.IMAGE_ASSETS_URL + '/docs/static-builds/tw-card.png'
 }
 
 With <Now color="#000"/>, you can build static apps when deploying using a `Dockerfile`. You can build a static app however you wish and then output the content in a directory called `/public` for Now to upload after the build.
@@ -81,8 +81,7 @@ RUN yarn build && yarn export -o /public
 <Caption>
   A simple Dockerfile to build a Next.js app with Node.js and the package.json
   scripts we made in{' '}
-  <GenericLink href="#step-1:-preparing-the-app-for-export">Step 1</GenericLink>
-  .
+  <GenericLink href="#step-1:-preparing-the-app-for-export">Step 1</GenericLink>.
 </Caption>
 
 If you don't want to copy all of your files to the working directory, [create a whitelist with a `.dockerignore` file](#whitelisting-files-for-deployment-with.dockerignore).
@@ -101,8 +100,7 @@ For Now to recognize our deployment as a static app, we'll need to mark it as a 
 
 <Caption>
   Setting `type` as `static` in a `now.json` file. Read more about{' '}
-  <GenericLink href="/docs/features/configuration">configuring Now</GenericLink>
-  .
+  <GenericLink href="/docs/features/configuration">configuring Now</GenericLink>.
 </Caption>
 
 > Please note that you can extend your `now.json` file as needed, but `"type": "static"` is required for static builds.

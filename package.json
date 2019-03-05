@@ -64,6 +64,14 @@
     "lint-staged": "8.1.0",
     "prettier": "1.16.1"
   },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      "babel-plugin-root-import"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -99,12 +107,6 @@
       "eslint:recommended",
       "plugin:react/recommended"
     ],
-    "globals": {
-      "VERSION": true,
-      "IMAGE_ASSETS_URL": true,
-      "VIDEO_ASSETS_URL": true,
-      "RAW_ASSETS_URL": true
-    },
     "env": {
       "es6": true,
       "browser": true,
