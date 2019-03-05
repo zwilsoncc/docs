@@ -22,7 +22,7 @@ Now the documentation app will be running at http://localhost:3000/.
 
 ### Editing Docs Content
 
-You can find the source of the documentation inside the `pages/docs` directory and the guides source in the `pages/guides` directory.. Documentation is written in markdown with the help of some React components via [MDX](https://mdxjs.com/).
+You can find the source of the documentation inside the `pages/docs` directory and the guides source in the `pages/guides` directory. Documentation is written in markdown with the help of some React components via [MDX](https://mdxjs.com/).
 
 Those components give us additional features which are not available in markdown.
 
