@@ -9,11 +9,11 @@ const example = {
   name: 'simple-now-deployment',
   files: {
     'index.html':
-      '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/api">ZEIT\'s Now API</a>!</p>\n    </body>\n</html>',
+      '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/api">ZEIT\'s Now API</a>!</p>\n  </body>\n</html>',
     'date.js':
       'module.exports = (req, res) => {\n  res.end(`The time is ${new Date()}`)\n}',
     'now.json':
-      '{\n   "version": 2, \n   "builds": [\n      { "src": "*.js", "use": "@now/node" }\n   ] \n}'
+      '{\n   "version": 2, \n   "builds": [\n      { "src": "*.js", "use": "@now/node" },\n      { "src": "*.html", "use": "@now/static" }\n   ] \n}'
   }
 }
 
