@@ -34,7 +34,7 @@ that runs in the menu bar and comes with the following features:
   it using a file picker.
 
 <Image
-  src={`${IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`}
+  src={`${process.env.IMAGE_ASSETS_URL}/docs/installation/now-desktop.png`}
   width={600}
   height={500}
 />
@@ -81,7 +81,9 @@ After you have added the content, change to the `my-web-app` directory in your t
 &#8203;<Now color="#000"/> will deploy the app and give you a URL as shown below:
 
 <Image
-  src={`${IMAGE_ASSETS_URL}/docs/five-minute-guide-to-now/deploy.png`}
+  src={`${
+    process.env.IMAGE_ASSETS_URL
+  }/docs/five-minute-guide-to-now/deploy.png`}
   width={650}
   height={255}
   caption="Getting a unique URL after the deployment."
@@ -119,7 +121,9 @@ Once you've done that, you'll be able to access your app using <https://my-web-a
 It is automatically configured with a [Let's Encrypt](https://letsencrypt.org/) SSL certificate and served with HTTPS.
 
 <Image
-  src={`${IMAGE_ASSETS_URL}/docs/five-minute-guide-to-now/domain-setup.png`}
+  src={`${
+    process.env.IMAGE_ASSETS_URL
+  }/docs/five-minute-guide-to-now/domain-setup.png`}
   width={650}
   height={412}
   caption="After mapping a domain name to a deployment."
