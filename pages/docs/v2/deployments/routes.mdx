@@ -18,9 +18,7 @@ A route can be defined within a project's [`now.json` configuration file](/docs/
 ```json
 {
   "version": 2,
-  "routes": [
-    { "src": "/about", "dest": "/about.html" }
-  ]
+  "routes": [{ "src": "/about", "dest": "/about.html" }]
 }
 ```
 
@@ -69,17 +67,23 @@ The following example shows a `now.json` configuration that takes a `src` path a
 
 [The example for the `src` property](#src) shows how both methods work together to create a rewrite.
 
-<Note>
-  You can point the <InlineCode>dest</InlineCode> path to any URL, including
-  non-Now hosted URLs as shown in the code below.
-</Note>
-
 ```json
 {
   "version": 2,
   "routes": [{ "src": "/about", "dest": "https://about.me" }]
 }
 ```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file with a{' '}
+  <InlineCode>routes</InlineCode> property that rewrites one path to another
+  upon request.
+</Caption>
+
+<Note>
+  You can point the <InlineCode>dest</InlineCode> path to any URL, including
+  non-Now hosted URLs as shown in the code below.
+</Note>
 
 ### `headers`
 
@@ -124,7 +128,14 @@ For example, you can use this property in combinations with [the `headers` prope
 }
 ```
 
-<Caption>Redirected one path to another and providing a status code.</Caption>
+<Caption>
+  Redirecting one path to another using the <InlineCode>status</InlineCode>{' '}
+  property to provide a{' '}
+  <GenericLink href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
+    HTTP status code
+  </GenericLink>
+  .
+</Caption>
 
 <Note>
   In a redirect case as shown above, the <InlineCode>Location</InlineCode>{' '}
@@ -133,7 +144,7 @@ For example, you can use this property in combinations with [the `headers` prope
 
 Read more about redirecting your `www.` subdomain to your root domain:
 
-<Card title="`www.` Redirect Guide" href="/guides/redirect-from-www">
+<Card title="www. Redirect Guide" href="/guides/redirect-from-www">
   Create a redirect from the www. subdomain to your root domain.
 </Card>
 
@@ -141,7 +152,7 @@ Read more about redirecting your `www.` subdomain to your root domain:
 
 **Type**: Array
 
-The `methods` property can be used to define what a particular path accepts for as a request method.
+The `methods` property can be used to define what [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) a particular path accepts.
 
 The value of this property can be any [HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), with the default being that the path can accept any method.
 
@@ -156,8 +167,8 @@ As an example, you can use this property when you have an API endpoint and only 
 ```
 
 <Caption>
-  An example of accepting <InlineCode>POST</InlineCode> and{' '}
-  <InlineCode>GET</InlineCode> HTTP request methods on an API endpoint.
+  Accepting only <InlineCode>POST</InlineCode> and <InlineCode>GET</InlineCode>{' '}
+  HTTP request methods on an API endpoint.
 </Caption>
 
 <Note>
@@ -175,7 +186,7 @@ As an example, you can use this property when you have an API endpoint and only 
 
 ## Route Parameters
 
-Using [PCRE Named Subpatterns](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC16), or capture groups, you can capture a part of a path and use it in either the [`dest`](#dest) or [`headers`](#headers) properties.
+Using [PCRE Named Subpatterns](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC16), or capture groups, you can capture part of a path and use it in either the [`dest`](#dest) or [`headers`](#headers) properties.
 
 Using route parameters enables you to change the format of your URLs easily without needing complicated routing code.
 
@@ -187,6 +198,11 @@ For example, if you are using URL parameters but want to use a custom URL path y
   "routes": [{ "src": "/product/(?<id>[^/]+)$", "dest": "/product?id=$id" }]
 }
 ```
+
+<Caption>
+  Using a URL parameter in <InlineCode>src</InlineCode> and rewriting it as a
+  custom URL path in <InlineCode>dest</InlineCode>.
+</Caption>
 
 This will take a URL, like `/product/532004` and rewrites it to `/product?id=532004` with the user seeing your custom URL in their browser.
 
@@ -204,6 +220,11 @@ As another example, if you want to redirect from all paths under a certain direc
   ]
 }
 ```
+
+<Caption>
+  Redirecting from all paths in the <InlineCode>posts</InlineCode> directory but
+  keeping the path in the new location.
+</Caption>
 
 If you are using a Next.js app and want to learn more about using custom routes with Now, read our guide:
 
@@ -228,6 +249,12 @@ Routes are applied in the order they are given in the `routes` array. Take the f
 }
 ```
 
+<Caption>
+  An incorrect example <InlineCode>now.json</InlineCode> file that will match
+  all
+  <InlineCode>routes</InlineCode> and rewrite them to <InlineCode>/</InlineCode>
+</Caption>
+
 In this configuration, since the first route matches all possible paths, the second route will never be applied. The order of these routes would have to switch for the latter route to apply to the `/first-page` path.
 
 The correct configuration for all routes to take affect would be:
@@ -241,6 +268,12 @@ The correct configuration for all routes to take affect would be:
   ]
 }
 ```
+
+<Caption>
+  A correct example <InlineCode>now.json</InlineCode> file that will match all
+  <InlineCode>routes</InlineCode>, only rewriting to <InlineCode>/</InlineCode> if
+  there are no matches.
+</Caption>
 
 This type of configuration can be seen in [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) where custom paths need to route to the `index.html` file.
 
