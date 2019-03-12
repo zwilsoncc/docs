@@ -49,7 +49,9 @@ Then we'll define our build step to optimize our images:
 
 Notice that in addition to `@now/optipng` we are defining [`@now/static`](/docs/v2/deployments/official-builders/static-now-static). This is necessary because once a build is defined, Now only includes their outputs to prevent potential source code leakage. In turn, all additional source files you want to copy over need to be specified with [`@now/static`](/docs/v2/deployments/official-builders/static-now-static).
 
-The resulting deployment URL: https://optipng-deployment-p6gj9kt47.now.sh/
+The resulting deployment URL: https://optipng-deployment-p6gj9kt47.now.sh/.
+
+Also, the source code of the deployment can be checked by appending `/_src` e.g. https://optipng-deployment-p6gj9kt47.now.sh/_src.
 
 ## Technical Details
 
