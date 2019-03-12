@@ -195,7 +195,7 @@ For more information on builds and builders, see the documentation:
 
 **Route object definition:**
 
-- `src`: A PCRE-compatible regular expression that matches each incoming pathname (excluding querystring).
+- `src`: A [PCRE-compatible regular expression](https://www.pcre.org/original/doc/html/pcrepattern.html) that matches each incoming pathname (excluding querystring).
 - `methods`: A set of HTTP method types. If no method is provided, requests with any HTTP method will be a candidate for the route.
 - `dest`: A destination pathname or full URL, including querystring, with the ability to embed capture groups as $1, $2…
 - `headers`: A set of headers to apply for responses.
