@@ -23,6 +23,7 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | **name**      | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A string with the project name used in the deployment URL. The name string has a max length of `52` characters.                                                        |
 | **files**     | <HelpLink href="#api-basics/types">List</HelpLink>         | Yes      | A list of objects with the files to be deployed.                                                                                                                       |
 | **version**   | <HelpLink href="#api-basics/types">Integer</HelpLink>      | Yes      | The version of Now Platform to use. Must have the value of `2`.                                                                                                        |
+| **meta**      | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's metadata. Multiple key-value pairs can be attached to a deployment. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.      |
 | **env**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values. _Secrets can be referenced by prefixing the value with `@`_.                              |
 | **build.env** | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values to be passed to Builds. _Secrets can be referenced by prefixing the value with `@`_.       |
 | **builds**    | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | A list of Build objects used to build sources in a deployment. For example, <InlineCode noWrap>{`[{ "src": "*.php", "use": "@now/php" }]`}</InlineCode>.               |
@@ -139,6 +140,75 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
 }`}</Code>
 </Example>
 
+#### Create a New Deployment With Metadata
+
+In the case you want to attach metadata to a new deployment, you need to pass the `meta` object alongside other required data.
+
+<Example>
+  <span>Example request:</span>
+  <Request
+    url="https://api.zeit.co/v6/now/deployments"
+    method="POST"
+    headers={{
+      Authorization: `Bearer ${
+        props.testingToken ? props.testingToken.token : '$TOKEN'
+      }`,
+      'Content-Type': 'application/json'
+    }}
+    body={{
+      name: 'my-instant-deployment',
+      version: 2,
+      files: [
+        {
+          file: 'index.html',
+          sha: '6938e4ed47a23f17ceb6dbd880ab18d2787e7946',
+          size: 160
+        }
+      ],
+      meta: {
+        kito: 'lavendar',
+        foo: 'bar'
+      }
+    }}
+  />
+</Example>
+
+<Note>
+  You can attach up to 100 of those key-value pairs to a single deployment.
+</Note>
+
+<Example>
+  <span>
+    Example successful (<P.B>200</P.B>) response:
+  </span>
+  <Code lang="json">{`{
+  "id": "dpl_6EZWg2tkQevMN76UQzFgKsD2gaNR",
+  "url": "my-instant-deployment-2i7mwl1a1w.now.sh",
+  "name": "my-instant-deployment",
+  "meta": {
+    "kito": "lavender",
+    "foo": "bar"
+  },
+  "plan": "unlimited",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "READY",
+  "createdAt": 1540257237129,
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "builds": [
+    { "src": "**", "use": "@now/static" }
+  ],
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  }
+}`}</Code>
+</Example>
+
 #### Force a New Deployment
 
 To create a new deployment, with a new ID and URL, etc. if nothing has changed with the files intended to be deployed that were already previously deployed, use the `forceNew=1` URL parameter.
@@ -149,7 +219,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 <PDIV>Request:</PDIV>
 <Request
   method="POST"
-  url="https://api.zeit.co/v6/now/deployments"
+  url="https://api.zeit.co/v6/now/deployments?forceNew=1"
   headers={{
     Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
@@ -241,6 +311,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 | **id**         | <HelpLink href="#api-basics/types">String</HelpLink>       | A String holding the unique ID of the deployment.                                                                                                                                                         |
 | **url**        | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                                                |
 | **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
+| **meta**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
 | **version**    | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated to.                                                                                                                                                 |
 | **regions**    | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
 | **routes**     | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
@@ -384,6 +455,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 | **id**         | <HelpLink href="#api-basics/types">ID</HelpLink>           | A String holding the unique ID of the deployment.                                                                                                                                                         |
 | **url**        | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                                                |
 | **name**       | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
+| **meta**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
 | **version**    | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated with.                                                                                                                                               |
 | **regions**    | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
 | **routes**     | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
