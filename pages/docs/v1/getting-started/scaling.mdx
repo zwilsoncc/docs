@@ -31,7 +31,7 @@ By default, all of the deployments are configured like this:
 
 This means, when your deployment receives some traffic <Now color="#000"/> will start an instance. If your deployment doesn't receive any traffic for a while, <Now color="#000"/> will kill that instance.
 
-There's a fixed number of concurrent instances you can have based on the [plan](https://zeit.co/account/plan) you've chosen. But with this configuration, you can have as many deployments as you want.
+There's a fixed number of concurrent instances you can have based on the [plan](/pricing/v1) you've chosen. But with this configuration, you can have as many deployments as you want.
 
 _Having older deployments which are **not active** will cost you nothing._
 
@@ -77,7 +77,7 @@ If you run `now alias` again, it'll scale the new deployment accordingly and sca
 
 Sometimes, your app may receive sudden traffic spikes and it's pretty hard to predict the pattern. Then you need to scale your app based on the traffic. To do that, you can turn on “auto scaling” by using different `min` and `max` instance values.
 
-> You need to have [the "Pro" plan or a higher plan](https://zeit.co/pricing) to do "auto scaling"
+> You need to have [the "Pro" plan or a higher plan](/pricing/v1) to do "auto scaling"
 
 Here's how to auto scale an app with the URL `hnode.now.sh`
 
