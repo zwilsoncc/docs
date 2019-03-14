@@ -10,7 +10,7 @@ import Request from '~/components/api/request'
 
 ### Create a New Deployment
 
-<Endpoint method="POST" url="/v6/now/deployments" />
+<Endpoint method="POST" url="/v8/now/deployments" />
 
 Create a new deployment with all the required and intended data.
 
@@ -54,7 +54,7 @@ In the case you want to inline each file inside the create deployment request ea
 <Example>
 <span>Example request with inlined files:</span>
 <Request
-  url="https://api.zeit.co/v6/now/deployments"
+  url="https://api.zeit.co/v8/now/deployments"
   method="POST"
   headers={{
   Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
@@ -96,7 +96,7 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
 <Example>
 <span>Example request:</span>
 <Request
-  url="https://api.zeit.co/v6/now/deployments"
+  url="https://api.zeit.co/v8/now/deployments"
   method="POST"
   headers={{
     Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
@@ -148,7 +148,7 @@ In the case you want to attach metadata to a new deployment, you need to pass th
 <Example>
   <span>Example request:</span>
   <Request
-    url="https://api.zeit.co/v6/now/deployments"
+    url="https://api.zeit.co/v8/now/deployments"
     method="POST"
     headers={{
       Authorization: `Bearer ${
@@ -220,7 +220,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 <PDIV>Request:</PDIV>
 <Request
   method="POST"
-  url="https://api.zeit.co/v6/now/deployments?forceNew=1"
+  url="https://api.zeit.co/v8/now/deployments?forceNew=1"
   headers={{
     Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
@@ -265,7 +265,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 <P>Request:</P>
 <Request
   method="POST"
-  url="https://api.zeit.co/v6/now/deployments?forceNew=1"
+  url="https://api.zeit.co/v8/now/deployments?forceNew=1"
   headers={{
     Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
@@ -328,7 +328,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 <span>Example request:</span>
 <Request
   method="POST"
-  url="https://api.zeit.co/v6/now/deployments"
+  url="https://api.zeit.co/v8/now/deployments"
   headers={{
     Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
@@ -443,7 +443,7 @@ Each deployment is an object with the following keys:
 
 ### Get a Single Deployment
 
-<Endpoint method="GET" url="/v6/now/deployments/:id" />
+<Endpoint method="GET" url="/v8/now/deployments/:id" />
 
 This endpoint allows you to retrieve information for a deployment by supplying its **:id** in the URL.
 
@@ -467,12 +467,16 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 | **readyState** | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The state of the deployment depending on the process of deploying, or if it is ready or in an error state. Possible values are `INITIALIZING`, `ANALYZING`, `BUILDING`, `DEPLOYING`, `READY`, or `ERROR`. |
 | **createdAt**  | <HelpLink href="#api-basics/types">Date</HelpLink>         | A number containing the date when the deployment was created in milliseconds.                                                                                                                             |
 | **createdIn**  | <HelpLink href="#api-basics/types">String</HelpLink>       | The region where the deployment was first created, e.g. `sfo1`.                                                                                                                                           |
+| **env**        | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during runtime.                                                                                                                                  |
+| **build.env**  | <HelpLink href="#api-basics/types">List</HelpLink>         | The keys of the environment variables that were assigned during the build phase.                                                                                                                          |
+| **target**     | <HelpLink href="#api-basics/types">String</HelpLink>       | If defined, either `staging` if a staging alias in the format `<project>.<team>.now.sh` was assigned upon creation, or `production` if the aliases from `alias` were assigned.                            |
+| **aliasFinal** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of all the aliases (default aliases, staging aliases and production aliases) that were assigned upon deployment creation.                                                                          |
 
 <Example>
 <PDIV>Example Request:</PDIV>
 <Request
   method="GET"
-  url="https://api.zeit.co/v6/now/deployments/dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ"
+  url="https://api.zeit.co/v8/now/deployments/dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ"
   headers={{
     Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
   }}
@@ -504,13 +508,17 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
   "env": [],
   "build": {
     "env": []
-  }
+  },
+  "aliasFinal": [
+    "project.my-team.now.sh"
+  ],
+  "target": "staging"
 }`}</Code>
 </Example>
 
 ### Delete a Deployment
 
-<Endpoint method="DELETE" url="/v6/now/deployments/:id" />
+<Endpoint method="DELETE" url="/v8/now/deployments/:id" />
 
 This API allows you to delete a deployment by supplying its **:id** in the URL.
 You can obtain the ID, for example, by [listing all deployments](#endpoints/deployments/get-/now/deployments).
@@ -601,7 +609,7 @@ The body will contain the raw content of the file.
   <PDIV>Example request:</PDIV>
 
 <Request
-  url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
+  url="https://api.zeit.co/v8/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -646,7 +654,7 @@ Each Build is an object with the following keys:
 <Example>
   <span>Example Request:</span>
   <Request
-    url="https://api.zeit.co/v6/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/builds"
+    url="https://api.zeit.co/v8/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/builds"
     headers={{
       Authorization: `Bearer ${
         props.testingToken ? props.testingToken.token : '$TOKEN'
