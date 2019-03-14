@@ -77,6 +77,23 @@ The alias or aliases are applied when merging a PR to the master branch with [No
 }`}</Code>
 </Example>
 
+### scope
+
+**Type**: `String`.
+
+**Valid values**: For teams, either an ID or slug. For users, either a email address, username, or ID.
+
+This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by Now CLI or Now Desktop.
+
+Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [secrets](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) using `now secrets ls`).
+
+<Example>
+  <P.B>Usage Example:</P.B>
+  <Code lang="json">{`{
+  "scope": "my-team"
+}`}</Code>
+</Example>
+
 ### env
 
 **Type:** `Object` of `String` keys and values.
