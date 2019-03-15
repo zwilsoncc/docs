@@ -93,14 +93,16 @@ class AutoComplete extends Component {
           }
 
           .search__search-icon {
-            position: absolute;
-            left: 20px;
-            z-index: 3;
-            top: 9px;
+            position: relative;
+            display: flex;
           }
 
           .search__search-icon svg {
             fill: #999999;
+            position: absolute;
+            left: 20px;
+            z-index: 3;
+            top: 11px;
           }
 
           .suggestion__title {
