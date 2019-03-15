@@ -4,17 +4,41 @@ import Link from 'next/link'
 import Router, { withRouter } from 'next/router'
 import logout from '~/lib/logout'
 import getDashboardHref from '~/lib/utils/get-dashboard-href'
+import algoliasearch from 'algoliasearch/lite'
+import { InstantSearch, Configure } from 'react-instantsearch-dom'
 import { Menu, MenuItem, MenuDivider } from '~/components/menu'
 import { Navigation, NavigationItem } from '~/components/navigation'
+import AutoComplete from '~/components/search'
 import Avatar from '~/components/avatar'
 import ChatCount from '~/components/chat-count'
 import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
 import Plus from '~/components/icons/plus'
 
+const searchClient =
+  process.env.ALGOLIA_API_KEY &&
+  algoliasearch('NNTAHQI9C5', process.env.ALGOLIA_API_KEY)
+
 class Header extends Component {
   state = {
-    menuActive: false
+    menuActive: false,
+    query: ''
+  }
+
+  onSuggestionSelected = (_, { suggestion, method }) => {
+    this.setState({
+      query: suggestion.title
+    })
+
+    if (method === 'enter') {
+      Router.push(suggestion.url)
+    }
+  }
+
+  onSuggestionCleared = () => {
+    this.setState({
+      query: ''
+    })
   }
 
   handleAvatarClick = () => {
@@ -216,6 +240,15 @@ class Header extends Component {
           >
             Examples
           </NavigationItem>
+          {process.env.ALGOLIA_API_KEY && (
+            <InstantSearch indexName="prod_docs" searchClient={searchClient}>
+              <Configure hitsPerPage={3} />
+              <AutoComplete
+                onSuggestionSelected={this.onSuggestionSelected}
+                onSuggestionCleared={this.onSuggestionCleared}
+              />
+            </InstantSearch>
+          )}
         </Navigation>
 
         <Navigation className="user-navigation">

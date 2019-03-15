@@ -1,5 +1,6 @@
 const fs = require('fs')
 const lastEdited = require('./lib/data/last-edited.json')
+const logger = console.log
 
 // Set the header
 const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
@@ -55,7 +56,7 @@ const exportSitemap = async (defaultPathMap, outDir) => {
 
   fs.writeFile(`${writeLocation}`, sitemap, err => {
     if (err) throw err
-    console.log(
+    logger(
       `sitemap.xml with ${pages.length} entries was written to ${writeLocation}`
     )
   })
@@ -81,6 +82,7 @@ module.exports = phase => {
     env: {
       VERSION: require('./package.json').version,
       API_URL: process.env.API_URL,
+      ALGOLIA_API_KEY: process.env.ALGOLIA_API_KEY,
       IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
       VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',
       RAW_ASSETS_URL: 'https://assets.zeit.co/raw/upload/front',

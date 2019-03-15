@@ -1,3 +1,4 @@
+import React from 'react'
 import Page from '~/components/layout/page'
 import Header from '~/components/layout/header'
 import { UserContext } from '~/lib/user-context'

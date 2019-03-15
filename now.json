@@ -95,5 +95,10 @@
       "headers": { "Location": "/examples/express" }
     },
     { "src": "(.*)", "dest": "$1" }
-  ]
+  ],
+  "build": {
+    "env": {
+      "ALGOLIA_API_KEY": "@algolia-api-key"
+    }
+  }
 }
