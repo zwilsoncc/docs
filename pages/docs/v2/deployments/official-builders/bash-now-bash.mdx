@@ -104,6 +104,58 @@ handler() {
 
 **Demo:** https://bash-build-j3adniz41.now.sh/
 
+### Response Headers
+
+The default `Content-Type` is `text/plain; charset=utf8` but you can change it by setting a response header.
+
+```bash
+handler() {
+  http_response_header "Content-Type" "text/html; charset=utf8"
+  echo "<h1>Current time</h1><p>$(date)</p>"
+}
+```
+
+**Demo:** https://bash-html-8vveguuqn.now.sh
+
+### JSON Response
+
+It is common for serverless functions to communicate via JSON so you can use the `http_response_json` function to set the content type to `application/json; charset=utf8`.
+
+```bash
+handler() {
+  http_response_json
+  echo "{ \"title\": \"Current time\", \"body\": \"$(date)\" }"
+}
+```
+
+**Demo:** https://bash-json-ffsi051oy.now.sh
+
+### Status Code
+
+The default status code is `200` but you can change it with the `http_response_code` method.
+
+```bash
+handler() {
+  http_response_code "500"
+  echo "Internal Server Error"
+}
+```
+
+**Demo:** https://bash-status-wwxmmk9wh.now.sh
+
+### Redirect 
+
+You can use the `http_response_redirect` function to set the location and status code. The default status code is `302` temporary redirect but you could use a permanent redirect by setting the second argument to `301`.
+
+```bash
+handler() {
+  http_response_redirect "https://twitter.com/zeithq" "301"
+  echo "Redirecting..."
+}
+```
+
+**Demo**: https://bash-redirect-bmxccvg7c.now.sh
+
 ### Importing Dependencies
 
 Bash, by itself, is not very useful for writing Lambda handler logic because it
