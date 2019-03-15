@@ -15,9 +15,10 @@ In some cases, the routing layer is in a different region from where [Now Lambda
 
 | Region ID | Reference Location        | Provider Region (Routing) | Provider Region (Now Lambdas) |
 | --------- | ------------------------- | ------------------------- | ----------------------------- |
-| sfo1      | San Francisco, CA, USA    | AWS us-west-1             | AWS us-west-1                 |
 | bru1      | Brussels, Belgium, Europe | GCP europe-west1          | AWS eu-central-1              |
 | gru1      | Sao Paulo, Brazil         | AWS sa-east-1             | AWS sa-east-1                 |
+| hnd1      | Tokyo, Japan              | AWS ap-northeast-1        | AWS ap-northeast-1            |
 | iad1      | Washington DC, USA        | AWS us-east-1             | AWS us-east-1                 |
+| sfo1      | San Francisco, CA, USA    | AWS us-west-1             | AWS us-west-1                 |
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
