@@ -82,7 +82,7 @@ module.exports = phase => {
     env: {
       VERSION: require('./package.json').version,
       API_URL: process.env.API_URL,
-      ALGOLIA_API_KEY: process.env.ALGOLIA_API_KEY,
+      ALGOLIA_SEARCH_API_KEY: process.env.ALGOLIA_SEARCH_API_KEY,
       IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
       VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',
       RAW_ASSETS_URL: 'https://assets.zeit.co/raw/upload/front',

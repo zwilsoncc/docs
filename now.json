@@ -98,7 +98,7 @@
   ],
   "build": {
     "env": {
-      "ALGOLIA_API_KEY": "@algolia-api-key"
+      "ALGOLIA_SEARCH_API_KEY": "@algolia-search-api-key"
     }
   }
 }

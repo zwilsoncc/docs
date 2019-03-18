@@ -204,6 +204,14 @@ class AutoComplete extends Component {
             font-size: 12px;
             color: #777;
           }
+
+          @media screen and (max-width: 950px) {
+            .react-autosuggest__suggestions-container--open {
+              right: 0;
+              left: -30px;
+              width: 300px;
+            }
+          }
         `}</style>
       </span>
     )
