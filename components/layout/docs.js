@@ -21,7 +21,6 @@ import H4 from '~/components/text/h4'
 import { P } from '~/components/text/paragraph'
 import dataV1 from '~/lib/data/v1/docs'
 import dataV2 from '~/lib/data/v2/docs'
-import lastEdited from '~/lib/data/last-edited.json'
 import Select from '~/components/select'
 import Note from '~/components/text/note'
 
@@ -97,10 +96,6 @@ class withDoc extends React.Component {
     const { navigationActive, version } = this.state
     const versionData = version === 'v2' ? dataV2 : dataV1
 
-    const date = lastEdited[meta.editUrl]
-      ? new Date(lastEdited[meta.editUrl])
-      : new Date()
-
     return (
       <MDXProvider
         components={{
@@ -117,7 +112,7 @@ class withDoc extends React.Component {
             title={`${meta.title}`}
             description={meta.description}
             image={meta.image}
-            lastEdited={date}
+            lastEdited={meta.lastEdited}
           >
             {version !== 'v2' && <meta name="robots" content="noindex" />}
           </Head>

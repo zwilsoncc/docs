@@ -1,5 +1,5 @@
 const fs = require('fs')
-const lastEdited = require('./lib/data/last-edited.json')
+const extractMdxMeta = require('extract-mdx-metadata')
 const logger = console.log
 
 // Set the header
@@ -12,7 +12,7 @@ ${nodes}
 </urlset>`
 
 // Determine and return the nodes for every page
-const xmlUrlNode = (domain, pageUrl) => {
+const xmlUrlNode = async (domain, pageUrl) => {
   if (
     pageUrl === '/' ||
     pageUrl === '/index' ||
@@ -24,7 +24,18 @@ const xmlUrlNode = (domain, pageUrl) => {
 
   const url = `${pageUrl}${pageUrl === '/' ? '' : '/'}`
   const loc = `${domain}${url}`
-  const lastmod = lastEdited[`pages${pageUrl}.mdx`]
+  const pagePath = `pages${pageUrl}.mdx`
+
+  let lastmod = undefined
+
+  if (fs.existsSync(pagePath)) {
+    const content = fs.readFileSync(pagePath)
+    const { lastEdited } = await extractMdxMeta(content)
+
+    if (lastEdited) {
+      lastmod = lastEdited
+    }
+  }
 
   return `  <url>
     <loc>${loc}</loc>${
@@ -49,10 +60,17 @@ const exportSitemap = async (defaultPathMap, outDir) => {
   const entries = defaultPathMap
   const pages = Object.entries(entries).map(item => item[0])
 
-  const sitemap = `${xmlUrlWrapper(
-    pages.map(page => xmlUrlNode(domain, page)).filter(Boolean).join(`
-`)
-  )}`
+  const nodes = []
+
+  for (let i = 0; i < pages.length; i++) {
+    const node = await xmlUrlNode(domain, pages[i])
+
+    if (node) {
+      nodes.push(node)
+    }
+  }
+
+  const sitemap = `${xmlUrlWrapper(nodes.join('\n'))}`
 
   fs.writeFile(`${writeLocation}`, sitemap, err => {
     if (err) throw err

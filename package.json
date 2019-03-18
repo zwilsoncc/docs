@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "./scripts/now-examples-fetch.sh && next",
     "build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build",
-    "now-build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build && next export -o dist",
+    "now-build": "npm run build && npm run export",
     "start": "cross-env NODE_ENV=production next start",
-    "export": "next export",
+    "export": "next export -o dist",
     "lint": "eslint .",
     "test": "npm run lint",
-    "last:edited": "node scripts/last-edited",
+    "update-mdx-meta": "node scripts/update-mdx-meta",
     "prettier": "prettier --write \"**/*.{js,json,md,mdx}\"",
     "docs-index": "node ./scripts/index-docs.js"
   },
@@ -33,7 +33,9 @@
     "cross-env": "5.2.0",
     "date-fns": "1.29.0",
     "dateformat": "3.0.3",
+    "extract-mdx-metadata": "1.0.0",
     "fs-extra": "7.0.1",
+    "git-jiggy": "1.0.0",
     "globby": "9.1.0",
     "intersection-observer": "0.5.0",
     "isomorphic-unfetch": "2.0.0",
@@ -52,7 +54,12 @@
     "react-markdown": "4.0.6",
     "refractor": "2.6.2",
     "rehype": "7.0.0",
+    "remark": "10.0.1",
+    "remark-mdx": "0.20.3",
+    "remark-mdx-metadata": "1.0.1",
+    "remark-stringify": "6.0.4",
     "scroll-into-view-if-needed": "1.1.0",
+    "to-vfile": "5.0.2",
     "unist-util-filter": "1.0.0",
     "unist-util-find-all-after": "1.0.2",
     "unist-util-find-all-before": "2.0.2",
@@ -82,7 +89,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "npm run last:edited"
+      "post-commit": "npm run update-mdx-meta -- post-commit"
     }
   },
   "lint-staged": {

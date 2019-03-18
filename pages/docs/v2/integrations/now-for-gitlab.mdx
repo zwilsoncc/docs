@@ -11,12 +11,15 @@ import Card from '~/components/card'
 export const meta = {
   title: 'Now for GitLab',
   description:
-    'Deploy each change in your GitLab projects with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.'
+    'Deploy each change in your GitLab projects with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
+  editUrl: 'pages/docs/v2/integrations/now-for-gitlab.mdx',
+  lastEdited: '2019-03-18T15:19:53.000Z'
 }
 
 The Now for GitLab integration automatically deploys and aliases your GitLab projects with [Now](/now).
 
 Now for GitLab provides:
+
 - Automatic deployments for every push to branches and merge requests to preview changes live.
 - Aliases for the most recent changes from the [default branch](https://docs.gitlab.com/ee/user/project/repository/branches/#default-branch).
 - Instant rollbacks when reverting changes that have been already been aliased.
@@ -108,18 +111,18 @@ For example, the following [`now.json` configuration](/docs/v2/deployments/con
 
 You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, Now will deploy your app with the following built-in environment variables when deploying with Now for GitLab:
 
-| Variable Key | Description |
-| ------------ | ----------- |
-| `GITLAB_DEPLOYMENT` | An indicator for whether the app was deployed by Now for GitLab. |
-| `GITLAB_PROJECT_NAMESPACE` | The GitLab user, group, or sub-group that the project belongs to. |
-| `GITLAB_PROJECT_NAME` | The name of the deployed project. |
-| `GITLAB_PROJECT_ID` | The ID of the deployed project. |
-| `GITLAB_PROJECT_PATH` | The GitLab project path. |
-| `GITLAB_COMMIT_REF` | The branch that the app was deployed using. |
-| `GITLAB_COMMIT_SHA` | The sha of the commit the app was deployed using. |
-| `GITLAB_COMMIT_MESSAGE` | The message accompanying the commit that the app was deployed using. |
+| Variable Key                 | Description                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| `GITLAB_DEPLOYMENT`          | An indicator for whether the app was deployed by Now for GitLab.                        |
+| `GITLAB_PROJECT_NAMESPACE`   | The GitLab user, group, or sub-group that the project belongs to.                       |
+| `GITLAB_PROJECT_NAME`        | The name of the deployed project.                                                       |
+| `GITLAB_PROJECT_ID`          | The ID of the deployed project.                                                         |
+| `GITLAB_PROJECT_PATH`        | The GitLab project path.                                                                |
+| `GITLAB_COMMIT_REF`          | The branch that the app was deployed using.                                             |
+| `GITLAB_COMMIT_SHA`          | The sha of the commit the app was deployed using.                                       |
+| `GITLAB_COMMIT_MESSAGE`      | The message accompanying the commit that the app was deployed using.                    |
 | `GITLAB_COMMIT_AUTHOR_LOGIN` | The username belonging to the author of the commit that the project was deployed using. |
-| `GITLAB_COMMIT_AUTHOR_NAME` | The name belonging to the author of the commit that the project was deployed using. |
+| `GITLAB_COMMIT_AUTHOR_NAME`  | The name belonging to the author of the commit that the project was deployed using.     |
 
 <Note>
   You can access these as 
@@ -133,17 +136,11 @@ You may want to use different workflows and APIs based on the environment of the
 
 Learn more about deploying your apps with Now using the following resources:
 
-<Card
-  title="Deployment Basics"
-  href="/docs/v2/deployments/builds"
->
+<Card title="Deployment Basics" href="/docs/v2/deployments/builds">
   Learn how to deploy any application with Now.
 </Card>
 
-<Card
-  title="Deployments with Builds"
-  href="/docs/v2/deployments/builds"
->
+<Card title="Deployments with Builds" href="/docs/v2/deployments/builds">
   Builds on Now create a production-ready output from your source files.
 </Card>
 

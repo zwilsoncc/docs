@@ -12,7 +12,9 @@ import Card from '~/components/card'
 export const meta = {
   title: 'Rust Builder (@now/rust)',
   description:
-    'The official Rust Builder for ZEIT Now. Deploy serverless invokable functions with Rust source code.'
+    'The official Rust Builder for ZEIT Now. Deploy serverless invokable functions with Rust source code.',
+  editUrl: 'pages/docs/v2/deployments/official-builders/now-rust.mdx',
+  lastEdited: '2019-03-12T15:18:33.000Z'
 }
 
 <Tag>Status: Beta</Tag>
@@ -85,9 +87,9 @@ And define a `now.json` like:
   and a build step using the <InlineCode>@now/rust</InlineCode> Builder.
 </Caption>
 
-The example above can be seen live at https://rust-kit-rm1x19uq8.now.sh/.
+The example above can be seen live at <https://rust-kit-rm1x19uq8.now.sh/>.
 
-Also, the source code of the deployment can be checked by appending `/_src` e.g. https://rust-kit-rm1x19uq8.now.sh/_src.
+Also, the source code of the deployment can be checked by appending `/_src` e.g. <https://rust-kit-rm1x19uq8.now.sh/_src>.
 
 ## Technical Details
 
@@ -111,7 +113,7 @@ When using a `Cargo.toml` file as an entry point for this Builder, Now will use 
 
 This entry point method is an advanced method of using this Builder and requires Rust files to assemble their own runtimes.
 
-Defining a `Cargo.toml` file as an entry point requires a Rust file at `src/main.rs` or files defined [as a [[bin]]` target](https://doc.rust-lang.org/cargo/reference/manifest.html#configuring-a-target).
+Defining a `Cargo.toml` file as an entry point requires a Rust file at `src/main.rs` or files defined [as a \[\[bin\]\]\` target](https://doc.rust-lang.org/cargo/reference/manifest.html#configuring-a-target).
 
 An example `src/main.rs` Rust file within a project including a `Cargo.toml` file acting as the entry point:
 

@@ -7,7 +7,9 @@ import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Managing DNS',
-  description: 'Managing your DNS records for domains used with Now'
+  description: 'Managing your DNS records for domains used with Now',
+  editUrl: 'pages/docs/v2/domains-and-aliases/dns.mdx',
+  lastEdited: '2019-02-27T13:52:28.000Z'
 }
 
 Thanks to the `now dns` CLI command, managing existing DNS records with <Now color="#000" /> is simple.
@@ -78,11 +80,11 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 > 1. use a custom certificate for your <Now color="#000" /> deployment with <GenericLink href="/docs/features/certs#now-certs-replace">`now certs replace`</GenericLink>
 > 2. run an app outside of <Now color="#000" /> with TLS for a subdomain
 
-### now dns rm &lt;ID&gt;
+### now dns rm &lt;ID>
 
 Removes a record by ID, which is shown in the `now dns ls` listing. Note that it may take a couple of hours before the change is fully propagated across our infrastructure.
 
-### now dns import &lt;your-domain&gt; &lt;zonefile&gt;
+### now dns import &lt;your-domain> &lt;zonefile>
 
 Imports the zone file downloaded from your registrar for this domain to ZEIT DNS.
 

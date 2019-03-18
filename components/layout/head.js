@@ -247,14 +247,10 @@ class Head extends React.PureComponent {
                   'ZEIT Documentation') +
                 titleSuffix}",
               "dateModified": "${
-                this.props.lastEdited
-                  ? this.props.lastEdited.toISOString()
-                  : null
+                this.props.lastEdited ? this.props.lastEdited : null
               }",
               "lastReviewed": "${
-                this.props.lastEdited
-                  ? this.props.lastEdited.toISOString()
-                  : null
+                this.props.lastEdited ? this.props.lastEdited : null
               }",
               "author": {
                 "@type": "Person",
