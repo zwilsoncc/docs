@@ -3335,10 +3335,10 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
-git-jiggy@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/git-jiggy/-/git-jiggy-1.0.0.tgz#dde577b1bdf907e6b02e82c785552c84e5b2fb47"
-  integrity sha512-uZoqeG86N7y1D8j7KtgHWc87FDhTQGkOeh7+e0+5qsVcLqH+WPfYkqw/tYan2f/RkeDLf6h4xMwgriu7RXR8lA==
+git-jiggy@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/git-jiggy/-/git-jiggy-1.0.1.tgz#58041c291e2e067641014cb7ed1a04cb42102549"
+  integrity sha512-OLhcMGfTHRNTe70DZB1ABG4vO4TCJysgiLH11AsyWqN+HlY7O9065V6zXBlEDWJgXWC4EVzeH4ZJDV+7Lcp6vQ==
   dependencies:
     "@sindresorhus/is" "0.15.0"
     execa "1.0.0"
