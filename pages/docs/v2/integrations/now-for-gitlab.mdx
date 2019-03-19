@@ -22,7 +22,7 @@ Now for GitLab provides:
 
 - Automatic deployments for every push to branches and merge requests to preview changes live.
 - Aliases for the most recent changes from the [default branch](https://docs.gitlab.com/ee/user/project/repository/branches/#default-branch).
-- Instant rollbacks when reverting changes that have been already been aliased.
+- Instant rollbacks when reverting changes that have already been [aliased](/docs/v2/domains-and-aliases/aliasing-a-deployment).
 
 <Image
 src={`${process.env.ASSETS}/docs/now-for-gitlab/ci.png`}
@@ -35,7 +35,7 @@ height={1702/2}
 
 ### Step 1: Link Now to Your GitLab Account
 
-You can connect the your Now account to GitLab by visiting your [account or team](/docs/v2/platform/users-and-teams) [settings page](/account) and clicking the "Connect with GitLab" button.
+You can connect your Now account to GitLab by visiting your [account or team](/docs/v2/platform/users-and-teams) [settings page](/account) and clicking the "Connect with GitLab" button.
 
 <Image
 src={`${process.env.ASSETS}/docs/now-for-gitlab/connect-with-gitlab.png`}
@@ -72,7 +72,7 @@ You can link projects across all the GitLab namespaces you have access to and un
 
 If you have, or will have, [connected](#step-1:-link-now-to-your-gitlab-account) your personal GitLab account to your Now account, you can login with GitLab from our [login page](/login).
 
-Alternatively; if you have not already got a Now account, you can sign up to ZEIT using your GitLab account from [the sign up page](/signup).
+Alternatively; if you do not already have a Now account, you can sign up to ZEIT using your GitLab account from [the sign up page](/signup).
 
 <Image
   src={`${process.env.ASSETS}/docs/now-for-gitlab/login-with-gitlab.png`}
@@ -85,7 +85,7 @@ Alternatively; if you have not already got a Now account, you can sign up to ZEI
 
 Once you link a GitLab project, we will deploy every git-push related to that project. If there is no [`now.json` file](/docs/v2/deployments/configuration) within the project, we will deploy the project statically.
 
-Using [a `now.json` file](/docs/v2/deployments/configuration), you can configure your projects to deploy as dynamic serverless functions.
+Using [a `now.json` file](/docs/v2/deployments/configuration), you can configure your projects to deploy as [dynamic serverless functions](/docs/v2/deployments/concepts/lambdas).
 
 ## Default Behaviour
 
@@ -97,7 +97,7 @@ With every push, if Now is already building a previous commit, it will cancel th
 
 ### Aliasing the Default Branch
 
-If [an alias is set within the `now.json` file](/docs/v2/domains-and-aliases/aliasing-a-deployment), pushes and merges to the [default branch](https://docs.gitlab.com/ee/user/project/repository/branches/#default-branch) (commonly "master") will be aliased automatically and made live to those defined aliases with the latest deployment made with a push.
+If [an alias is set within the `now.json` file](/docs/v2/domains-and-aliases/aliasing-a-deployment), pushes and merges to the [default branch](https://docs.gitlab.com/ee/user/project/repository/branches/#default-branch) (commonly "master") will be [aliased automatically](/docs/v2/domains-and-aliases/aliasing-a-deployment) and made live to those defined aliases with the latest deployment made with a push.
 
 For example, the following [`now.json` configuration](/docs/v2/deployments/configuration) will make Now for GitLab alias the most recent push to `my-zeit-website.com` by default.
 
@@ -109,7 +109,7 @@ For example, the following [`now.json` configuration](/docs/v2/deployments/con
 
 ## Included Environment Variables
 
-You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, Now will deploy your app with the following built-in environment variables when deploying with Now for GitLab:
+You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, Now will deploy your app with the following built-in [environment variables](/docs/v2/deployments/environment-variables-and-secrets/) when deploying with Now for GitLab:
 
 | Variable Key                 | Description                                                                             |
 | ---------------------------- | --------------------------------------------------------------------------------------- |
