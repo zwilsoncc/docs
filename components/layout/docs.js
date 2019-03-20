@@ -10,6 +10,7 @@ import Main from '~/components/layout/main'
 import Heading from '~/components/text/linked-heading'
 import Sidebar from '~/components/layout/sidebar'
 import Content from '~/components/layout/content'
+import ContentFooter from '~/components/layout/content-footer'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import { GenericLink } from '~/components/text/link'
@@ -178,7 +179,13 @@ class withDoc extends React.Component {
                 )}
                 <H1 itemProp="headline">{meta.title}</H1>
               </div>
+
               <div className="content">{this.props.children}</div>
+
+              <ContentFooter
+                lastEdited={meta.lastEdited}
+                editUrl={meta.editUrl}
+              />
             </Content>
           </Main>
 

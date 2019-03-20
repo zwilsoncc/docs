@@ -5,6 +5,7 @@ import formatDate from 'date-fns/format'
 import Head from '~/components/layout/head'
 import Layout from '~/components/layout/layout'
 import Wrapper from '~/components/layout/wrapper'
+import ContentFooter from '~/components/layout/content-footer'
 import Heading from '~/components/text/linked-heading'
 import components from '~/lib/mdx-components'
 import H1 from '~/components/text/h1'
@@ -119,6 +120,10 @@ class Guide extends React.PureComponent {
                     on {formatDate(meta.published, 'MMMM Do YYYY')}
                   </span>
                 </div>
+                <ContentFooter
+                  lastEdited={meta.lastEdited}
+                  editUrl={meta.editUrl}
+                />
               </section>
             </Wrapper>
           </article>
