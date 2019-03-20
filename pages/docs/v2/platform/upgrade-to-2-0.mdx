@@ -226,6 +226,7 @@ The `files` property in `now.json` is similarly deprecated, as to retain a singu
 - ~~`engines`~~ is no longer applicable (belonged to the `NPM` deployment type).
 - ~~`registryAuthToken`~~ is no longer applicable (belonged to the `NPM` deployment type).
 - ~~`files`~~ is removed in favor of the `.nowignore` file.
+- ~~`dotenv`~~ is removed in favor of [defining them directly inside the deployment configuration](/docs/v2/deployments/environment-variables-and-secrets/#from-now.json). The package [now-env](https://github.com/zeit/now-env) can be used to load environment variables from deployment configurations to be used in development.
 
 Additionally, some environment variables keys are now reserved. You can see a full list of these variables in the [Environment Variables](/docs/v2/deployments/environment-variables-and-secrets/#reserved-variables) document.
 
