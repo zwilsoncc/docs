@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
 import Link from 'next/link'
 import debounce from 'lodash.debounce'
-import { HEADER_HEIGHT } from '~/lib/constants'
+import { API_USER_TOKEN_TESTING, HEADER_HEIGHT } from '~/lib/constants'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
 import Layout from '~/components/layout/layout'
@@ -22,6 +22,8 @@ import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
+import fetchAPI from '~/lib/fetch-api'
+import { getToken } from '~/lib/authenticate'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
 
@@ -34,6 +36,10 @@ class APIPage extends Component {
     activeEntry: null,
     navigationActive: false,
     version: this.props.router.asPath.split(/(v[0-9])/)[1] || 'v2'
+  }
+
+  componentDidMount() {
+    this.performFetch()
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -51,6 +57,22 @@ class APIPage extends Component {
       )
     }
   }
+
+  performFetch = () =>
+    new Promise(async resolve => {
+      fetchAPI(API_USER_TOKEN_TESTING, getToken(), {
+        throwOnHTTPError: true
+      })
+        .then(({ token }) => {
+          this.setState({ testingToken: token.token })
+        })
+        .catch(err => {
+          // eslint-disable-next-line no-console
+          console.error(err)
+        })
+
+      resolve()
+    })
 
   updateActive = ({ category = null, section = null, entry = null }) => {
     if (
@@ -108,7 +130,7 @@ class APIPage extends Component {
 
   render() {
     const { router } = this.props
-    const { navigationActive, version } = this.state
+    const { navigationActive, testingToken, version } = this.state
     const active = {
       category: this.state.activeCategory,
       section: this.state.activeSection,
@@ -203,6 +225,7 @@ class APIPage extends Component {
                         <Context.Provider
                           value={{
                             slugs: categorySlugs,
+                            testingToken,
                             updateActive: this.updateActive
                           }}
                         >
@@ -224,6 +247,7 @@ class APIPage extends Component {
                               <Context.Provider
                                 value={{
                                   slugs: sectionSlugs,
+                                  testingToken,
                                   updateActive: this.updateActive
                                 }}
                               >
@@ -246,6 +270,7 @@ class APIPage extends Component {
                                       <Context.Provider
                                         value={{
                                           slugs: entrySlugs,
+                                          testingToken,
                                           updateActive: this.updateActive
                                         }}
                                       >

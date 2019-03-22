@@ -6,6 +6,7 @@ import Preview from './preview'
 import TabSwitcher from '~/components/layout/tab-switcher'
 import Example from '~/components/example'
 import Button from '~/components/buttons'
+import Context from '~/lib/api/slugs-context'
 
 const example = {
   name: 'simple-api-deployment',
@@ -118,13 +119,18 @@ class Introduction extends React.PureComponent {
         )}
 
         {this.state.activeTab === 'command' && (
-          <Preview
-            content={this.state.content}
-            deploy={this.deploy}
-            errorMessage={this.state.errorMessage}
-            deploying={this.state.deploying}
-            key="2"
-          />
+          <Context.Consumer>
+            {ctx => (
+              <Preview
+                content={this.state.content}
+                deploy={this.deploy}
+                errorMessage={this.state.errorMessage}
+                deploying={this.state.deploying}
+                key="2"
+                testingToken={ctx.testingToken}
+              />
+            )}
+          </Context.Consumer>
         )}
 
         <div className="centered deploy">

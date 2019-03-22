@@ -8,7 +8,7 @@ import Request from '~/components/api/request'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/deployments.mdx',
-  lastEdited: '2019-03-14T13:10:51.000Z'
+  lastEdited: '2019-03-22T01:46:12.000Z'
 }
 
 ## Deployments
@@ -62,9 +62,9 @@ In the case you want to inline each file inside the create deployment request ea
   url="https://api.zeit.co/v8/now/deployments"
   method="POST"
   headers={{
-  Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
   'Content-Type': 'application/json'
   }}
+  auth
   body={{
     "name": "my-instant-deployment",
     "version": 2,
@@ -104,9 +104,9 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
   url="https://api.zeit.co/v8/now/deployments"
   method="POST"
   headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
   }}
+  auth
   body={{
     "name": "my-instant-deployment",
     "version": 2,
@@ -156,11 +156,9 @@ In the case you want to attach metadata to a new deployment, you need to pass th
     url="https://api.zeit.co/v8/now/deployments"
     method="POST"
     headers={{
-      Authorization: `Bearer ${
-        props.testingToken ? props.testingToken.token : '$TOKEN'
-      }`,
       'Content-Type': 'application/json'
     }}
+    auth
     body={{
       name: 'my-instant-deployment',
       version: 2,
@@ -227,9 +225,9 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   method="POST"
   url="https://api.zeit.co/v8/now/deployments?forceNew=1"
   headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
   }}
+  auth
   body={{
     "name": "my-instant-deployment",
     "version": 2,
@@ -272,9 +270,9 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   method="POST"
   url="https://api.zeit.co/v8/now/deployments?forceNew=1"
   headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
   }}
+  auth
   body={{
     "name": "my-instant-deployment",
     "version": 2,
@@ -335,9 +333,9 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   method="POST"
   url="https://api.zeit.co/v8/now/deployments"
   headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
     'Content-Type': 'application/json'
   }}
+  auth
   body={{
     "name": "my-instant-deployment",
     "version": 2,
@@ -408,9 +406,9 @@ The file content must be placed inside the body of the request. In the case of a
     method="POST"
     url="https://api.zeit.co/v2/now/files"
     headers={{
-      Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`,
       'x-now-digest': '6938e4ed47a23f17ceb6dbd880ab18d2787e7946'
     }}
+    auth
     body="<!doctype html>
 <html>\n
   <head>\n
@@ -482,9 +480,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 <Request
   method="GET"
   url="https://api.zeit.co/v8/now/deployments/dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ"
-  headers={{
-    Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
-  }}
+  auth
 />
 
 <PDIV>Example Response:</PDIV>
@@ -534,11 +530,7 @@ You can obtain the ID, for example, by [listing all deployments](#endpoints/depl
 <Request
   method="DELETE"
   url="https://api.zeit.co/v5/now/deployments/dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd"
-  headers={{
-    Authorization: `Bearer ${
-      props.testingToken ? props.testingToken.token : '$TOKEN'
-    }`
-  }}
+  auth
 />
 
 <PDIV>Example response:</PDIV>
@@ -570,11 +562,7 @@ The body will contain entries for each child and directory, coupled with an ID o
 
 <Request
   url="https://api.zeit.co/v5/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files"
-  headers={{
-    Authorization: `Bearer ${
-      props.testingToken ? props.testingToken.token : '$TOKEN'
-    }`
-  }}
+  auth
 />
 
 Example successful (**200**) response:
@@ -615,11 +603,7 @@ The body will contain the raw content of the file.
 
 <Request
   url="https://api.zeit.co/v8/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/files/2d4aad419917f15b1146e9e03ddc9bb31747e4d0"
-  headers={{
-    Authorization: `Bearer ${
-      props.testingToken ? props.testingToken.token : '$TOKEN'
-    }`
-  }}
+  auth
 />
 
 Example successful (**200**) response:
@@ -660,11 +644,7 @@ Each Build is an object with the following keys:
   <span>Example Request:</span>
   <Request
     url="https://api.zeit.co/v8/now/deployments/dpl_BRGyoU2Jzzwx7myBnqv3xjRDD2GnHTwUWyFybnrUvjDD/builds"
-    headers={{
-      Authorization: `Bearer ${
-        props.testingToken ? props.testingToken.token : '$TOKEN'
-      }`
-    }}
+    auth
   />
   <span>
     Example Successful (<P.B>200</P.B>) response:
