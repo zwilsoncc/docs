@@ -16,13 +16,9 @@ import Logo from '~/components/icons/logo'
 import Plus from '~/components/icons/plus'
 
 function getAlgoliaClient() {
-  if (!process.env.ALGOLIA_SEARCH_API_KEY) {
-    return
-  }
-
   const algoliaClient = algoliasearch(
     'NNTAHQI9C5',
-    process.env.ALGOLIA_SEARCH_API_KEY
+    'ac5d89f9877f9fb09dbdc9a010cca761'
   )
 
   return {
@@ -249,9 +245,7 @@ class Header extends Component {
           <Logo height="25px" width="28px" />
         </a>
 
-        {process.env.ALGOLIA_SEARCH_API_KEY && (
-          <span className="mobile_search">{this.renderSearch()}</span>
-        )}
+        <span className="mobile_search">{this.renderSearch()}</span>
 
         <Navigation
           className={cn('main-navigation', { active: navigationActive })}
@@ -287,9 +281,7 @@ class Header extends Component {
           >
             Examples
           </NavigationItem>
-          {process.env.ALGOLIA_SEARCH_API_KEY && (
-            <span className="desktop_search">{this.renderSearch()}</span>
-          )}
+          <span className="desktop_search">{this.renderSearch()}</span>
         </Navigation>
 
         <Navigation className="user-navigation">
