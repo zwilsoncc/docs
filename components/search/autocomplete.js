@@ -57,6 +57,13 @@ class AutoComplete extends Component {
           <span className="suggestion__content">
             <Snippet hit={hit} attribute="content" tagName="mark" />
           </span>
+          <div className="tags">
+            {hit._tags.map(tag => (
+              <span key={tag} className="tag">
+                {tag}
+              </span>
+            ))}
+          </div>
         </a>
       </Link>
     )
@@ -124,6 +131,26 @@ class AutoComplete extends Component {
             color: #666;
             display: block;
             line-height: 1.4;
+          }
+
+          .tags {
+            padding: 12px 0 4px;
+          }
+
+          .tags .tag {
+            border-radius: 4px;
+            border: 1px solid #eaeaea;
+            font-size: 10px;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            margin: 4px 0;
+          }
+
+          .tags .tag.docs {
+            background: #50e3c2;
+          }
+          .tags .tag.guide {
+            background: #5c52d2;
           }
 
           .react-autosuggest__suggestion mark {

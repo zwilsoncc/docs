@@ -214,78 +214,82 @@ class APIPage extends Component {
                   />
                 </Sidebar>
                 <Content>
-                  {structure.map(category => {
-                    const categorySlugs = { category: category.slug }
-                    return (
-                      <div
-                        className="category-wrapper"
-                        key={getFragment(categorySlugs)}
-                      >
-                        <span id={getFragment(categorySlugs)} />
-                        <Context.Provider
-                          value={{
-                            slugs: categorySlugs,
-                            testingToken,
-                            updateActive: this.updateActive
-                          }}
-                        >
-                          {category.content}
-                        </Context.Provider>
-
-                        {category.sections.map(section => {
-                          const sectionSlugs = {
-                            category: category.slug,
-                            section: section.slug
-                          }
-
-                          return (
-                            <div
-                              className="section-wrapper"
-                              key={getFragment(sectionSlugs)}
+                  <div className="content">
+                    <div>
+                      {structure.map(category => {
+                        const categorySlugs = { category: category.slug }
+                        return (
+                          <div
+                            className="category-wrapper"
+                            key={getFragment(categorySlugs)}
+                          >
+                            <span id={getFragment(categorySlugs)} />
+                            <Context.Provider
+                              value={{
+                                slugs: categorySlugs,
+                                testingToken,
+                                updateActive: this.updateActive
+                              }}
                             >
-                              <span id={getFragment(sectionSlugs)} />
-                              <Context.Provider
-                                value={{
-                                  slugs: sectionSlugs,
-                                  testingToken,
-                                  updateActive: this.updateActive
-                                }}
-                              >
-                                {section.content}
-                              </Context.Provider>
-                              <div>
-                                {section.entries.map(entry => {
-                                  const entrySlugs = {
-                                    category: category.slug,
-                                    section: section.slug,
-                                    entry: entry.slug
-                                  }
+                              {category.content}
+                            </Context.Provider>
 
-                                  return (
-                                    <div
-                                      className="entry-wrapper"
-                                      key={getFragment(entrySlugs)}
-                                    >
-                                      <span id={getFragment(entrySlugs)} />
-                                      <Context.Provider
-                                        value={{
-                                          slugs: entrySlugs,
-                                          testingToken,
-                                          updateActive: this.updateActive
-                                        }}
-                                      >
-                                        {entry.content}
-                                      </Context.Provider>
-                                    </div>
-                                  )
-                                })}
-                              </div>
-                            </div>
-                          )
-                        })}
-                      </div>
-                    )
-                  })}
+                            {category.sections.map(section => {
+                              const sectionSlugs = {
+                                category: category.slug,
+                                section: section.slug
+                              }
+
+                              return (
+                                <div
+                                  className="section-wrapper"
+                                  key={getFragment(sectionSlugs)}
+                                >
+                                  <span id={getFragment(sectionSlugs)} />
+                                  <Context.Provider
+                                    value={{
+                                      slugs: sectionSlugs,
+                                      testingToken,
+                                      updateActive: this.updateActive
+                                    }}
+                                  >
+                                    {section.content}
+                                  </Context.Provider>
+                                  <div>
+                                    {section.entries.map(entry => {
+                                      const entrySlugs = {
+                                        category: category.slug,
+                                        section: section.slug,
+                                        entry: entry.slug
+                                      }
+
+                                      return (
+                                        <div
+                                          className="entry-wrapper"
+                                          key={getFragment(entrySlugs)}
+                                        >
+                                          <span id={getFragment(entrySlugs)} />
+                                          <Context.Provider
+                                            value={{
+                                              slugs: entrySlugs,
+                                              testingToken,
+                                              updateActive: this.updateActive
+                                            }}
+                                          >
+                                            {entry.content}
+                                          </Context.Provider>
+                                        </div>
+                                      )
+                                    })}
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
                 </Content>
               </Main>
             )}

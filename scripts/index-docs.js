@@ -4,6 +4,7 @@ var algoliasearch = require('algoliasearch')
 const fs = require('fs')
 const cheerio = require('cheerio')
 const globby = require('globby')
+const md5 = require('md5')
 const execP = promisify(execSync)
 const exec = cmd => execP(cmd)
 
@@ -24,13 +25,22 @@ async function main() {
   let files
 
   try {
-    files = await globby(['dist/guides/**/*.html', 'dist/docs/v2/**/*.html'])
+    files = await globby([
+      'dist/guides/**/*.html',
+      'dist/docs/v2/**/*.html',
+      'dist/docs/api/v2/**/*.html',
+      'dist/examples/**/*.html'
+    ])
   } catch (e) {
     throw `Failed to get pages: ${e}`
   }
 
   // Loop through files
   files.forEach(file => {
+    const isAPISection = !!file.startsWith('dist/docs/api/v2')
+    const isDocs = !!file.startsWith('dist/docs/v2')
+    const isGuides = !!file.startsWith('dist/guides')
+
     // Fetch file contents and load it with cheerio
     const content = fs.readFileSync(file)
     const $ = cheerio.load(content)
@@ -40,12 +50,14 @@ async function main() {
 
     // Current heading and element, initially null
     let currentHeading = null
+    let currentSection = null
+    let currentSubSection = null
     let currentEl = null
     // Current record number for the file loop, starting with ordering
     let currentRecordNumber = 1
 
     // Loop through all top-level elements in the content div
-    $('.content > div > *').each((i, e) => {
+    $('.content > div > *, .content .category-wrapper *').each((i, e) => {
       // Get current element and its tagName
       currentEl = $(e)
       const tag = currentEl.get(0).tagName
@@ -59,6 +71,12 @@ async function main() {
             .children('a')
             .attr('href')
         }
+
+        if (tag === 'h2') {
+          currentSection = currentEl.text()
+        } else if (tag === 'h3') {
+          currentSubSection = currentEl.text()
+        }
       } else if (['p', 'ul'].includes(tag)) {
         // If the element is a paragraph, create the record using available information, including the current heading, and push it to the index array.
 
@@ -69,11 +87,19 @@ async function main() {
 
         // Create record with title, (if it exists) section heading, url (inferred), paragraph content, and order
         const record = {
-          title: pageTitle,
-          ...(currentHeading && { section: currentHeading.text }),
+          title: isAPISection ? currentSection : pageTitle,
+          ...(isAPISection
+            ? currentSubSection && { section: currentSubSection }
+            : currentHeading && { section: currentHeading.text }),
           url,
           content: currentEl.text(),
-          order: currentRecordNumber
+          order: currentRecordNumber,
+          objectID: `v2-${url}-${md5(currentEl.text())}`,
+          _tags: [
+            (isAPISection && 'api') ||
+              (isDocs && 'docs') ||
+              (isGuides && 'guide')
+          ]
         }
 
         // Push record to index array
