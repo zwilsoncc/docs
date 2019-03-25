@@ -68,7 +68,7 @@ class Introduction extends React.PureComponent {
 
       const suffix = url.includes('?redirect=1') ? '' : '?redirect=1'
 
-      window.location = `https://${url + suffix}`
+      window.open(`https://${url + suffix}`, '_blank')
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Failed to deploy', error)
