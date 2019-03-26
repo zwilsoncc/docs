@@ -57,6 +57,11 @@
       "headers": { "Location": "/docs/v1/deployment-types/$1" }
     },
     {
+      "src": "/docs/(v1/)?guides/updating-now-cli/?$",
+      "status": 301,
+      "headers": { "Location": "/guides/updating-now-cli" }
+    },
+    {
       "src": "/docs/guides/(.*)",
       "status": 301,
       "headers": { "Location": "/docs/v1/guides/$1" }
