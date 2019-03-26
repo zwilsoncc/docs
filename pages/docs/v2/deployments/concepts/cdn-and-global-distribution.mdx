@@ -57,6 +57,6 @@ An important reason for this recommendation is that you have full control over p
 
 By default, the cache for a response of your deployment is purged once the expiration timeout defined in `s-maxage` is reached.
 
-Furthermore, we also purge all caches related to a deployment when `now alias` is used to assign the alias of the deployment to a different deployment, as this implies that new content needs to be served, thus requiring purging the caches.
+Additionally, we also purge all caches related to a deployment when [an alias](/docs/v2/domains-and-aliases/aliasing-a-deployment) is created or updated, as this implies that new content needs to be served, thus requiring purging the caches.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

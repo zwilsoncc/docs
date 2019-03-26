@@ -42,6 +42,11 @@
       "headers": { "Location": "/docs/v2/domains-and-aliases/dns" }
     },
     {
+      "src": "/docs/v2/domains-and-aliases/introduction-to-domains",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/domains-and-aliases/introduction" }
+    },
+    {
       "src": "/docs/features/(.*)",
       "status": 301,
       "headers": { "Location": "/docs/v1/features/$1" }

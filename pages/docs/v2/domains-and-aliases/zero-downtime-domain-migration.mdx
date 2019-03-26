@@ -4,6 +4,7 @@ import { Image, Video } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import { GenericLink } from '~/components/text/link'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Zero-Downtime Domain Migration',
@@ -106,6 +107,15 @@ In short, to deploy your app with Now, you can use the following command, [after
 After Now finishes deploying your app, you can then alias it by using `now alias`:
 
 <TerminalInput>{`now alias <deployment URL> <domain>`}</TerminalInput>
+
+<Note>
+  You can automatically alias your domain to staging and production aliases in
+  just a few steps:{' '}
+  <GenericLink href="/docs/v2/domains-and-aliases/aliasing-a-domain">
+    Aliasing a Domain Documentation
+  </GenericLink>
+  .
+</Note>
 
 Now your domain will be pointing to the deployment you passed it, and ready to move your nameservers across to show that deployment.
 
