@@ -70,7 +70,7 @@ With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL c
 
 You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that Now has sufficient permissions, consisting of two TXT records.
 
-Once these TXT records are added to your domain via your domain provider, run the `now certs issue` command again as above to attempt the certificate issuance again.
+Once these TXT records are added to your domain via your domain provider, run the `now certs issue \*.<domain> <domain>` command again as above to attempt the certificate issuance again.
 
 #### From the Web UI
 
@@ -111,8 +111,8 @@ After Now finishes deploying your app, you can then alias it by using `now alias
 <Note>
   You can automatically alias your domain to staging and production aliases in
   just a few steps:{' '}
-  <GenericLink href="/docs/v2/domains-and-aliases/aliasing-a-domain">
-    Aliasing a Domain Documentation
+  <GenericLink href="/docs/v2/domains-and-aliases/aliasing-a-deployment">
+    Aliasing a Deployment
   </GenericLink>
   .
 </Note>
