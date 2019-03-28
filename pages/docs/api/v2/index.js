@@ -38,9 +38,9 @@ class APIPage extends Component {
     version: this.props.router.asPath.split(/(v[0-9])/)[1] || 'v2'
   }
 
-  componentDidMount() {
-    this.performFetch()
-  }
+  // componentDidMount() {
+  //   this.performFetch()
+  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (
@@ -58,21 +58,21 @@ class APIPage extends Component {
     }
   }
 
-  performFetch = () =>
-    new Promise(async resolve => {
-      fetchAPI(API_USER_TOKEN_TESTING, getToken(), {
-        throwOnHTTPError: true
-      })
-        .then(({ token }) => {
-          this.setState({ testingToken: token.token })
-        })
-        .catch(err => {
-          // eslint-disable-next-line no-console
-          console.error(err)
-        })
+  // performFetch = () =>
+  //   new Promise(async resolve => {
+  //     fetchAPI(API_USER_TOKEN_TESTING, getToken(), {
+  //       throwOnHTTPError: true
+  //     })
+  //       .then(({ token }) => {
+  //         this.setState({ testingToken: token.token })
+  //       })
+  //       .catch(err => {
+  //         // eslint-disable-next-line no-console
+  //         console.error(err)
+  //       })
 
-      resolve()
-    })
+  //     resolve()
+  //   })
 
   updateActive = ({ category = null, section = null, entry = null }) => {
     if (
@@ -130,7 +130,7 @@ class APIPage extends Component {
 
   render() {
     const { router } = this.props
-    const { navigationActive, testingToken, version } = this.state
+    const { navigationActive, version } = this.state
     const active = {
       category: this.state.activeCategory,
       section: this.state.activeSection,
@@ -227,7 +227,7 @@ class APIPage extends Component {
                             <Context.Provider
                               value={{
                                 slugs: categorySlugs,
-                                testingToken,
+                                // testingToken,
                                 updateActive: this.updateActive
                               }}
                             >
@@ -249,7 +249,7 @@ class APIPage extends Component {
                                   <Context.Provider
                                     value={{
                                       slugs: sectionSlugs,
-                                      testingToken,
+                                      // testingToken,
                                       updateActive: this.updateActive
                                     }}
                                   >
@@ -272,7 +272,7 @@ class APIPage extends Component {
                                           <Context.Provider
                                             value={{
                                               slugs: entrySlugs,
-                                              testingToken,
+                                              // testingToken,
                                               updateActive: this.updateActive
                                             }}
                                           >

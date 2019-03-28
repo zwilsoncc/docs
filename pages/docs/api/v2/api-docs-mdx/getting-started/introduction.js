@@ -127,7 +127,7 @@ class Introduction extends React.PureComponent {
                 errorMessage={this.state.errorMessage}
                 deploying={this.state.deploying}
                 key="2"
-                testingToken={ctx.testingToken}
+                // testingToken={ctx.testingToken}
               />
             )}
           </Context.Consumer>

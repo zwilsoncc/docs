@@ -45,7 +45,8 @@ function RequestContent({ auth, req, context, type }) {
     ? {
         ...req,
         headers: {
-          Authorization: `Bearer ${context.testingToken || '<TOKEN>'}`,
+          // Authorization: `Bearer ${context.testingToken || '<TOKEN>'}`,
+          Authorization: `Bearer <TOKEN>`,
           ...req.headers
         }
       }
