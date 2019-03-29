@@ -24,13 +24,13 @@ By default, browsers (and any other client that sets the [`Accept`](https://deve
 
 <Caption>An example of how a status code response could look like</Caption>
 
-Depending on your status code, the title ("404"), description ("The page could not be found") and the code ("NO_FILES_FOUND") will vary.
+Depending on your status code, the title ("404"), description ("The page could not be found") and the code ("FILE_NOT_FOUND") will vary.
 
 However, if your client is sending the `Accept` header with a value that contains `application/json`, it will receive the same error, but formatted as [JSON](https://en.wikipedia.org/wiki/JSON):
 
 ```json
 {
-  "status": "NO_FILES_FOUND",
+  "status": "FILE_NOT_FOUND",
   "description": "The page could not be found"
 }
 ```
@@ -57,7 +57,7 @@ Your subscription was blocked.
 
 ### 404
 
-Type: `NO_FILES_FOUND`
+Type: `FILE_NOT_FOUND`
 
 There is no <b>Static File</b> or <b>Lambda</b> in your <b>Build Output</b> that matches this path.
 
