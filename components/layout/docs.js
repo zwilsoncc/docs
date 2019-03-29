@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { useAmp } from 'next/amp'
 import { withRouter } from 'next/router'
 import { MDXProvider } from '@mdx-js/tag'
 
@@ -64,6 +65,52 @@ const DocH4 = ({ children }) => (
   </>
 )
 
+const AmpScripts = () => {
+  const isAmp = useAmp()
+  if (!isAmp) return null
+  return (
+    <>
+      <script
+        async
+        key="amp-bind"
+        custom-element="amp-bind"
+        src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+      />
+      <script
+        async
+        key="amp-form"
+        custom-element="amp-form"
+        src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
+      />
+    </>
+  )
+}
+
+const VersionSelect = ({ onChange, version }) => {
+  const isAmp = useAmp()
+  const href = `/docs/${version === 'v1' ? 'v2' : 'v1'}`
+  const curSelect = (
+    <Select
+      width="100%"
+      onChange={onChange}
+      defaultValue={version}
+      on={
+        isAmp ? `change:AMP.navigateTo(url='${href}', target=_top)` : undefined
+      }
+    >
+      <option value="v1">v1</option>
+      <option value="v2">v2 (Latest)</option>
+    </Select>
+  )
+  if (!isAmp) return curSelect
+  // have to wrap it in a form to use `autoComplete="off"`
+  return (
+    <form action="/" method="GET" autoComplete="off" target="_top">
+      {curSelect}
+    </form>
+  )
+}
+
 class withDoc extends React.Component {
   state = {
     navigationActive: false,
@@ -116,6 +163,7 @@ class withDoc extends React.Component {
             lastEdited={meta.lastEdited}
           >
             {version !== 'v2' && <meta name="robots" content="noindex" />}
+            <AmpScripts />
           </Head>
 
           <Main>
@@ -145,14 +193,12 @@ class withDoc extends React.Component {
                 </ToggleGroup>
               </div>
               <h5 className="platform-select-title">Now Platform Version</h5>
-              <Select
-                width="100%"
-                defaultValue={version}
+
+              <VersionSelect
+                version={version}
                 onChange={this.handleVersionChange}
-              >
-                <option value="v1">v1</option>
-                <option value="v2">v2 (Latest)</option>
-              </Select>
+              />
+
               <div className="navigation">
                 <DocsNavbarDesktop
                   data={versionData}

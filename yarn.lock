@@ -1381,6 +1381,15 @@ amator@^1.0.1:
   dependencies:
     bezier-easing "^2.0.3"
 
+amphtml-validator@1.0.23:
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/amphtml-validator/-/amphtml-validator-1.0.23.tgz#dba0c3854289563c0adaac292cd4d6096ee4d7c8"
+  integrity sha1-26DDhUKJVjwK2qwpLNTWCW7k18g=
+  dependencies:
+    colors "1.1.2"
+    commander "2.9.0"
+    promise "7.1.1"
+
 ansi-colors@^3.0.0:
   version "3.0.5"
   resolved "https://registry.npmjs.org/ansi-colors/-/ansi-colors-3.0.5.tgz#cb9dc64993b64fd6945485f797fc3853137d9a7b"
@@ -2178,12 +2187,24 @@ color-name@1.1.1:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.1.tgz#4b1415304cf50028ea81643643bd82ea05803689"
   integrity sha1-SxQVMEz1ACjqgWQ2Q72C6gWANok=
 
+colors@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
+  integrity sha1-FopHAXVran9RoSzgyXv6KMCE7WM=
+
 comma-separated-tokens@^1.0.0, comma-separated-tokens@^1.0.1:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-1.0.5.tgz#b13793131d9ea2d2431cf5b507ddec258f0ce0db"
   integrity sha512-Cg90/fcK93n0ecgYTAz1jaA3zvnQ0ExlmKY1rdbyHqAx6BHxwoJc+J7HDu0iuQ7ixEs1qaa+WyQ6oeuBpYP1iA==
   dependencies:
     trim "0.0.1"
+
+commander@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
+  integrity sha1-nJkJQXbhIkDLItbFFGCYQA/g99Q=
+  dependencies:
+    graceful-readlink ">= 1.0.0"
 
 commander@^2.14.1:
   version "2.19.0"
@@ -3461,6 +3482,11 @@ graceful-fs@^4.1.6:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
+
+"graceful-readlink@>= 1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
+  integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
 gud@^1.0.0:
   version "1.0.0"
@@ -4911,10 +4937,10 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
   integrity sha512-vdqTKI9GBIYcAEbFAcpKPErKINfPF5zIuz3/niBfq8WUZjpT2tytLlFVrBgWdOtqI4uaA/Rb6No0hux39XXDuw==
 
-next-server@8.0.4-canary.12:
-  version "8.0.4-canary.12"
-  resolved "https://registry.npmjs.org/next-server/-/next-server-8.0.4-canary.12.tgz#37b08bcd16c46cef1e9c43824e1cd345cf49fef2"
-  integrity sha512-JHv+gzqGrcVMAbKUoyM2WczxkTnyzR4FJFDGS4XAy/qFbK1QnGS1V+yMfwsnjREaFCKAIwpH5vG6oTShFgSyFg==
+next-server@8.0.4-canary.19:
+  version "8.0.4-canary.19"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.19.tgz#8f600ff28c867ef90d41d25e1a78263559c3b0a0"
+  integrity sha512-tsYpf5M4wPRSJ9ETWO9UipDF41ITNMe/9OLq3vyp0e12PIWbRfIqrHeJSNMbEJfVy2vti0yHkPnOgpVwAIkQHA==
   dependencies:
     etag "1.8.1"
     find-up "3.0.0"
@@ -4924,10 +4950,10 @@ next-server@8.0.4-canary.12:
     send "0.16.1"
     url "0.11.0"
 
-next@8.0.4-canary.12:
-  version "8.0.4-canary.12"
-  resolved "https://registry.npmjs.org/next/-/next-8.0.4-canary.12.tgz#fee9f13de2589c64bc1cee20dcd8f6045511c60c"
-  integrity sha512-ocsT15J1wm3QcR0pZWrQD20CtqIJOydbiKjkjv571zcYHdoktI0mXyIKPKIa+MLisB7ckQqc2N6dhBV1sjtYGA==
+next@8.0.4-canary.19:
+  version "8.0.4-canary.19"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.19.tgz#e6a06c1f30bb4c3bff26392f37ae8a953f1b7ee9"
+  integrity sha512-wXlQZ+e9eqeiIgNYIRxFWvXVj61UgfYC8vYxHfakzprWAikTmM84gxElOdwUolQx25wsfwagggeHgn7ZXL51OA==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -4940,6 +4966,7 @@ next@8.0.4-canary.12:
     "@babel/runtime" "7.1.2"
     "@babel/runtime-corejs2" "7.1.2"
     "@babel/template" "7.1.2"
+    amphtml-validator "1.0.23"
     arg "3.0.0"
     async-sema "2.2.0"
     autodll-webpack-plugin "0.4.2"
@@ -4958,7 +4985,7 @@ next@8.0.4-canary.12:
     magic-string "0.25.2"
     mkdirp "0.5.1"
     nanoid "1.2.1"
-    next-server "8.0.4-canary.12"
+    next-server "8.0.4-canary.19"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.4"
@@ -5615,6 +5642,13 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+promise@7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/promise/-/promise-7.1.1.tgz#489654c692616b8aa55b0724fa809bb7db49c5bf"
+  integrity sha1-SJZUxpJha4qlWwck+oCbt9tJxb8=
+  dependencies:
+    asap "~2.0.3"
 
 promise@^7.0.1, promise@^7.1.1:
   version "7.3.1"

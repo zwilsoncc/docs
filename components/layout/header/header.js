@@ -1,4 +1,5 @@
 import { Component, Fragment } from 'react'
+import { parse } from 'querystring'
 import cn from 'classnames'
 import Link from 'next/link'
 import Router, { withRouter } from 'next/router'
@@ -49,7 +50,33 @@ const searchClient = getAlgoliaClient()
 class Header extends Component {
   state = {
     menuActive: false,
-    query: ''
+    query: '',
+    searchState: {
+      query: this.getSearchQ()
+    }
+  }
+
+  componentDidMount() {
+    const {
+      searchState: { query }
+    } = this.state
+    if (query) {
+      // focus algolia to show results
+      const sel = selector => document.querySelector(selector)
+      sel(
+        getComputedStyle(sel('.mobile_search')).display === 'none'
+          ? '.desktop_search input'
+          : '.mobile_search input'
+      ).focus()
+    }
+  }
+
+  getSearchQ() {
+    const { router } = this.props
+    let query = router.query.q
+    if (typeof window === 'undefined') return query
+    if (!query) query = parse(location.search.substr(1)).q
+    return query
   }
 
   onSuggestionSelected = (_, { suggestion, method }) => {
@@ -214,14 +241,52 @@ class Header extends Component {
   }
 
   renderSearch() {
+    const {
+      isAmp,
+      router: { pathname }
+    } = this.props
     return (
-      <InstantSearch indexName="prod_docs" searchClient={searchClient}>
-        <Configure hitsPerPage={3} />
-        <AutoComplete
-          onSuggestionSelected={this.onSuggestionSelected}
-          onSuggestionCleared={this.onSuggestionCleared}
-        />
-      </InstantSearch>
+      <>
+        {isAmp && (
+          <form
+            method="GET"
+            action={pathname.replace(/\.amp$/, '')}
+            target="_top"
+            style={{
+              position: 'absolute',
+              zIndex: 5
+            }}
+          >
+            <input
+              required
+              name="q"
+              type="text"
+              className="amp-search"
+              placeholder="Search..."
+            />
+            <div className="search-border" />
+          </form>
+        )}
+        <InstantSearch
+          indexName="prod_docs"
+          searchClient={searchClient}
+          searchState={this.state.searchState}
+          onSearchStateChange={searchState => {
+            this.setState({
+              searchState: {
+                ...this.state.searchState,
+                ...searchState
+              }
+            })
+          }}
+        >
+          <Configure hitsPerPage={3} />
+          <AutoComplete
+            onSuggestionSelected={this.onSuggestionSelected}
+            onSuggestionCleared={this.onSuggestionCleared}
+          />
+        </InstantSearch>
+      </>
     )
   }
 
@@ -234,20 +299,39 @@ class Header extends Component {
       router,
       user,
       teams = [],
-      userLoaded
+      userLoaded,
+      isAmp
     } = this.props
     const { menuActive } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
+    const buildAmpNavClass = classes => {
+      return isAmp
+        ? `'${classes}' + ( header.active ? ' active' : '')`
+        : undefined
+    }
 
     return (
       <LayoutHeader className="header">
+        {isAmp && (
+          <amp-state id="header">
+            <script
+              type="application/json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({ active: navigationActive })
+              }}
+            />
+          </amp-state>
+        )}
+
         <a className="logo" href={dashboard} aria-label="ZEIT Home">
           <Logo height="25px" width="28px" />
         </a>
 
+        {/* might have to move search to page of it's own and use iframe to display it to make AMP happy */}
         <span className="mobile_search">{this.renderSearch()}</span>
 
         <Navigation
+          data-amp-bind-class={buildAmpNavClass('main-navigation')}
           className={cn('main-navigation', { active: navigationActive })}
         >
           <NavigationItem
@@ -380,13 +464,21 @@ class Header extends Component {
           )}
         </Navigation>
 
-        <div
-          className={cn('arrow-toggle', { active: navigationActive })}
+        <button
           onClick={onToggleNavigation}
+          className={cn('arrow-toggle', { active: navigationActive })}
+          data-amp-bind-class={buildAmpNavClass('arrow-toggle')}
+          on={
+            isAmp
+              ? 'tap:AMP.setState({ header: { active: !header.active } })'
+              : undefined
+          }
+          role="toggle"
+          tabIndex="1"
         >
           <div className="line top" />
           <div className="line bottom" />
-        </div>
+        </button>
         <style jsx>{`
           :global(.header .main-navigation) {
             margin-right: auto;
@@ -414,36 +506,38 @@ class Header extends Component {
             animation-duration: 1s;
           }
 
-          .arrow-toggle {
+          :global(.arrow-toggle) {
             cursor: pointer;
             display: none;
             margin-left: auto;
             padding: 10px;
+            border: none;
+            background: transparent;
             flex-direction: column;
             justify-content: center;
             align-items: center;
           }
 
-          .line {
+          :global(.line) {
             height: 1px;
             width: 22px;
             background-color: #000;
             transition: transform 0.15s ease;
           }
 
-          .line:last-child {
+          :global(.line:last-child) {
             transform: translateY(4px) rotate(0deg);
           }
 
-          .line:first-child {
+          :global(.line:first-child) {
             transform: translateY(-4px) rotate(0deg);
           }
 
-          .active .line:first-child {
+          :global(.active .line:first-child) {
             transform: translateY(1px) rotate(45deg);
           }
 
-          .active .line:last-child {
+          :global(.active .line:last-child) {
             transform: translateY(0px) rotate(-45deg);
           }
 
@@ -454,7 +548,7 @@ class Header extends Component {
           }
           a.avatar-link:hover,
           a.avatar-user-info:hover {
-            background: none !important;
+            background: none;
           }
           .avatar-user-info {
             margin-left: 15px;
@@ -504,13 +598,40 @@ class Header extends Component {
             display: block;
           }
 
+          :global(.amp-search) {
+            width: 200px;
+            height: 34px;
+            margin-left: 40px;
+            outline: 0;
+            border: none;
+            font-size: 14px;
+            background: white;
+            padding: 16px 24px 16px 0;
+          }
+
+          :global(.amp-search ~ .search-border) {
+            height: 34px;
+            width: 240px;
+            border-radius: 4px;
+            position: absolute;
+            top: 0px;
+            left: 12px;
+            z-index: 6;
+            pointer-events: none;
+            background: transparent;
+          }
+
+          :global(.amp-search:focus ~ .search-border) {
+            border: 1px solid #eaeaea;
+          }
+
           @media screen and (max-width: 950px) {
             :global(.header .main-navigation),
             :global(nav.user-navigation) {
               display: none;
             }
 
-            .arrow-toggle {
+            :global(.arrow-toggle) {
               display: flex;
             }
 
