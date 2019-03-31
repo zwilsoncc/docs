@@ -395,31 +395,6 @@ export class Editor extends React.PureComponent {
         )}
 
         <style jsx global>{`
-          .button-text-bold {
-            font-weight: 700;
-          }
-          .loading {
-            align-items: center;
-            color: #999999;
-            display: flex;
-            font-size: 14px;
-            height: 413px;
-            justify-content: center;
-          }
-
-          .deploy {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: -45px;
-            margin-right: 0;
-            height: 80px;
-            padding: 1.5em;
-          }
-
-          .file-browser {
-            display: none;
-          }
-
           /* BASICS */
 
           .CodeMirror {
@@ -954,6 +929,33 @@ export class Editor extends React.PureComponent {
           }
         `}</style>
         <style jsx>{`
+          .button-text-bold {
+            font-weight: 700;
+          }
+          .loading {
+            align-items: center;
+            color: #999999;
+            display: flex;
+            font-size: 14px;
+            height: 413px;
+            justify-content: center;
+          }
+
+          .deploy {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -45px;
+            margin-right: 0;
+            height: 80px;
+            padding: 1.5em;
+          }
+
+          .file-browser {
+            display: none;
+          }
+          .deploy :global(.button) {
+            width: 155px;
+          }
           .demo {
             line-height: normal;
           }
