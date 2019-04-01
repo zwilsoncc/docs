@@ -31,6 +31,8 @@ async function main() {
       'dist/docs/api/v2/**/*.html',
       'dist/examples/**/*.html'
     ])
+    // filter out AMP pages
+    files = files.filter(f => f.indexOf('.amp/index.html') < 0)
   } catch (e) {
     throw `Failed to get pages: ${e}`
   }
