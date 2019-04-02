@@ -24,4 +24,10 @@ In some cases, the routing layer is in a different region from where [Now Lambda
 | lhr1      | London, UK                | AWS eu-west-2             | AWS eu-west-2                 |
 | sfo1      | San Francisco, CA, USA    | AWS us-west-1             | AWS us-west-1                 |
 
+During development via `now dev`, the region is assigned `dev1` to mimic the Now Platform infrastructure.
+
+| Region ID | Reference Location        |
+| --------- | ------------------------- |
+| dev1      | localhost                 |
+
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
