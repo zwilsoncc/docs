@@ -18,6 +18,7 @@ In some cases, the routing layer is in a different region from where [Now Lambda
 | Region ID | Reference Location        | Provider Region (Routing) | Provider Region (Now Lambdas) |
 | --------- | ------------------------- | ------------------------- | ----------------------------- |
 | bru1      | Brussels, Belgium, Europe | GCP europe-west1          | AWS eu-central-1              |
+| cdg1      | Paris, France, Europe     | AWS eu-west-3             | AWS eu-west-3                 |
 | gru1      | Sao Paulo, Brazil         | AWS sa-east-1             | AWS sa-east-1                 |
 | hnd1      | Tokyo, Japan              | AWS ap-northeast-1        | AWS ap-northeast-1            |
 | iad1      | Washington DC, USA        | AWS us-east-1             | AWS us-east-1                 |
@@ -26,8 +27,8 @@ In some cases, the routing layer is in a different region from where [Now Lambda
 
 During development via `now dev`, the region is assigned `dev1` to mimic the Now Platform infrastructure.
 
-| Region ID | Reference Location        |
-| --------- | ------------------------- |
-| dev1      | localhost                 |
+| Region ID | Reference Location |
+| --------- | ------------------ |
+| dev1      | localhost          |
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
