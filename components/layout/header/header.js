@@ -79,14 +79,10 @@ class Header extends Component {
     return query
   }
 
-  onSuggestionSelected = (_, { suggestion, method }) => {
+  onSuggestionSelected = (_, { suggestion }) => {
     this.setState({
       query: suggestion.title
     })
-
-    if (method === 'enter') {
-      Router.push(suggestion.url)
-    }
   }
 
   onSuggestionCleared = () => {
@@ -280,7 +276,7 @@ class Header extends Component {
             })
           }}
         >
-          <Configure hitsPerPage={3} />
+          <Configure hitsPerPage={8} />
           <AutoComplete
             onSuggestionSelected={this.onSuggestionSelected}
             onSuggestionCleared={this.onSuggestionCleared}
@@ -539,6 +535,10 @@ class Header extends Component {
 
           :global(.active .line:last-child) {
             transform: translateY(0px) rotate(-45deg);
+          }
+
+          .logo {
+            display: flex;
           }
 
           .avatar-link {
