@@ -661,6 +661,12 @@ class Header extends Component {
               display: none;
             }
           }
+          @media screen and (max-width: 360px) {
+            .mobile_search {
+              max-width: 242px;
+              width: 70%;
+            }
+          }
         `}</style>
       </LayoutHeader>
     )
