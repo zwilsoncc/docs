@@ -7,7 +7,7 @@ export const meta = {
   title: 'Headers',
   description: 'The list of headers included with deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/routing/headers.mdx',
-  lastEdited: '2019-04-02T16:31:59.000Z'
+  lastEdited: '2019-04-07T00:32:00.000Z'
 }
 
 The following headers are included in Now deployments and indicate certain factors of the environment:
@@ -50,5 +50,11 @@ Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) 
   <InlineCode>regions</InlineCode> in your
   <InlineCode>now.json</InlineCode> file.
 </Note>
+
+# Custom Headers
+
+In addition to regular [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and Now headers, it is also possible to supply your own custom headers.
+
+Custom headers are added in the same way regular headers are, by making an addition to the `routes` property in your `now.json` file.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
