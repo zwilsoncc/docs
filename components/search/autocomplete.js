@@ -68,8 +68,14 @@ class AutoComplete extends Component {
   getSuggestionValue = () => this.state.value
 
   renderSuggestion = hit => {
+    console.log(hit.anchor)
     return (
-      <Link href={hit.url} prefetch>
+      <Link
+        href={`${hit.url}?query=${encodeURIComponent(this.state.value)}${
+          hit.anchor ? `${hit.anchor}` : ''
+        }`}
+        prefetch
+      >
         <a>
           <span className="suggestion__title">
             <Highlight attribute="title" tagName="mark" hit={hit} />
