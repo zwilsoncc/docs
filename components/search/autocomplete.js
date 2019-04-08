@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import Link from 'next/link'
 import cn from 'classnames'
 import { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
@@ -52,40 +53,44 @@ class AutoComplete extends Component {
     this.props.refine()
   }
 
-  onSuggestionSelected = (_, { suggestion }) => {
+  onSuggestionSelected = (_, { suggestion, method }) => {
     this.props.onSuggestionSelected(_, { suggestion })
 
-    this.props.router.push({
-      pathname: suggestion.url,
-      query: { query: encodeURIComponent(this.state.value) },
-      hash: suggestion.anchor
-    })
+    if (method === 'enter') {
+      this.props.router.push({
+        pathname: suggestion.url,
+        query: { query: encodeURIComponent(this.state.value) },
+        hash: suggestion.anchor
+      })
+    }
   }
 
   getSuggestionValue = () => this.state.value
 
   renderSuggestion = hit => {
     return (
-      <a>
-        <span className="suggestion__title">
-          <Highlight attribute="title" tagName="mark" hit={hit} />
-          <div className="tags">
-            {hit._tags.map(tag => (
-              <span key={tag} className="tag">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </span>
-        {hit.section && (
-          <span className="suggestion__section">
-            <Highlight attribute="section" tagName="mark" hit={hit} />
+      <Link href={hit.url} prefetch>
+        <a>
+          <span className="suggestion__title">
+            <Highlight attribute="title" tagName="mark" hit={hit} />
+            <div className="tags">
+              {hit._tags.map(tag => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </span>
-        )}
-        <span className="suggestion__content">
-          <Snippet hit={hit} attribute="content" tagName="mark" />
-        </span>
-      </a>
+          {hit.section && (
+            <span className="suggestion__section">
+              <Highlight attribute="section" tagName="mark" hit={hit} />
+            </span>
+          )}
+          <span className="suggestion__content">
+            <Snippet hit={hit} attribute="content" tagName="mark" />
+          </span>
+        </a>
+      </Link>
     )
   }
 
