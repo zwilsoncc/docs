@@ -141,9 +141,10 @@ You can run build tasks by creating a `now-build` script within a `package.json`
 }`}</Code>
 
 <span>An example build script, named <InlineCode>build.js</InlineCode>:</span>
-<Code lang="javascript">{`fs.writeFile(
+<Code lang="javascript">{`const fs = require('fs');
+  fs.writeFile(
   'built-time.js',
-  \`module.exports = "$$new Date()}"\`,
+  \`module.exports = "${new Date()}"\`,
   (err) => {
     if (err) throw err
     console.log('Build time file created successfully!')
