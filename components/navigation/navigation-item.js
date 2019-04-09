@@ -12,7 +12,6 @@ const NavigationItem = ({ active, children, className, href, onClick }) => (
         display: inline-block;
         font-size: 14px;
         font-weight: normal;
-        line-height: 30px;
         padding: 10px;
         text-decoration: none;
         text-transform: capitalize;

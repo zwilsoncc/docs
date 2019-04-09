@@ -216,7 +216,6 @@ class Header extends Component {
           .user {
             display: inline-flex;
             height: 20px;
-            line-height: 30px;
             vertical-align: middle;
             align-items: center;
           }
@@ -652,7 +651,7 @@ class Header extends Component {
               position: fixed;
               left: 0;
               right: 0;
-              top: 89px;
+              top: 85px;
               padding: 0;
               background: white;
               box-shadow: #fff 0 -15px, rgba(0, 0, 0, 0.1) 0 0 15px;
