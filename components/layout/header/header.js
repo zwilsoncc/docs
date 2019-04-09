@@ -71,6 +71,11 @@ class Header extends Component {
     }
   }
 
+  onLogoRightClick = event => {
+    event.preventDefault()
+    Router.push('/design')
+  }
+
   getSearchQ() {
     const { router } = this.props
     let query = router.query.q
@@ -319,7 +324,12 @@ class Header extends Component {
           </amp-state>
         )}
 
-        <a className="logo" href={dashboard} aria-label="ZEIT Home">
+        <a
+          className="logo"
+          href={dashboard}
+          aria-label="ZEIT Home"
+          onContextMenu={this.onLogoRightClick}
+        >
           <Logo height="25px" width="28px" />
         </a>
 
