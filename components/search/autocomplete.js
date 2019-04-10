@@ -178,6 +178,7 @@ class AutoComplete extends Component {
           .tags .tag {
             border-radius: 4px;
             border: 1px solid #eaeaea;
+            background: white;
             font-size: 10px;
             text-transform: uppercase;
             padding: 4px 8px;
@@ -267,7 +268,7 @@ class AutoComplete extends Component {
           }
 
           .react-autosuggest__suggestion--highlighted {
-            background: #fafbfc;
+            background: #f1f1f1;
           }
 
           .react-autosuggest__section-container {
