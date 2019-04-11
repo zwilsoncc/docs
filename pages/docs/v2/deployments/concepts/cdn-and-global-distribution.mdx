@@ -44,10 +44,10 @@ Cache-Control: s-maxage=31536000
 
 This is just an example, however.
 
-Although this would be enough for ensuring your responses are cached in all regions available within the Full CDN, you should generally also include `maxage` (used for client caches), so that all clients (e.g., browsers) also know for how long to cache your responses:
+Although this would be enough for ensuring your responses are cached in all regions available within the Full CDN, you should generally also include `max-age` (used for client caches), so that all clients (e.g., browsers) also know for how long to cache your responses:
 
 ```
-Cache-Control: s-maxage=31536000, maxage=0
+Cache-Control: s-maxage=31536000, max-age=0
 ```
 
 As you can see above, the header is now instructing the client to expire any caches for the resource immediately. In general, we recommend this because it leverages Now's caches across the Full CDN instead of depending on the client's as well.
