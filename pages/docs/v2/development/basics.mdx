@@ -28,15 +28,15 @@ To get started with `now dev`, you will need the [Now CLI](/docs/v2/getting-star
   <GenericLink href="/docs/v2/platform/upgrade-to-2-0/"> upgrading</GenericLink>.
 </Note>
 
-### Key Concepts
+## Key Concepts
 
-##### On-Demand Rebuilding
+### On-Demand Rebuilding
 
 In order to simulate performance that is as close to production as possible, `now dev` will not automatically trigger a rebuild when your source files change.
 
 However, triggering a force-reload in your browser will wipe the cache and issue a rebuild.
 
-##### Development Secrets
+### Development Secrets
 
 When working on a project with `now dev`, it is extremely important that you **do not use any production secrets** (like your database credentials, for example).
 
@@ -50,13 +50,21 @@ Instead, you should use [secrets](/docs/v2/development/environment-variables) th
   <InlineCode>now.json</InlineCode> file.
 </Note>
 
-##### Production-Like Environment, Locally
+### Production-Like Environment, Locally
 
 By mimicking the behavior of the Now platform in almost every way, `now dev` **decreases the chance of unexpected surprises** when deploying to a minimum.
 
 Out of the box, `now dev` simulates the same model for [routing](/docs/v2/deployments/routes/), concurrency, and execution, and even accepts the exact same [`now.json` configuration](/docs/v2/deployments/configuration/).
 
-### Your First Project
+### Custom Development Environment
+
+If your project is built using the `@now/static-build` Builder or you are going to set up a project that is built statically when deployed; you can define custom development behavior for what `now dev` and its associated environment should attach to when you are developing locally.
+
+To do this, you can use a `now-dev` script inside of a `package.json` that is an entrypoint of the `@now/static-build` Builder.
+
+For more information on this, [see the `@now/static-build` Builder documentation](/docs/v2/deployments/official-builders/static-build-now-static-build#local-development).
+
+## Your First Project
 
 This guide shows you how to get started with local development in Now **in under a minute**.
 
