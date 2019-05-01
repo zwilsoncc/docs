@@ -88,6 +88,10 @@ A look at our [examples](https://github.com/zeit/now-examples) is also recommend
 
 Your application's security is of paramount importance to us. An unencrypted `.env` file exposes you to a security risk — therefore we do not allow it. Use the [secrets](/docs/v2/deployments/environment-variables-and-secrets/) feature to protect your information by storing your variables safely in the cloud.
 
+##### How do I detect local development or cloud deployment?
+
+Sometimes you need to execute a different code path when your application is running locally compared to when it is running remotely in the cloud. All deployments expose a `NOW_REGION` environment variable which is assigned to the [region](/docs/v2/platform/regions-and-providers) where the [Lambda](/docs/v2/deployments/concepts/lambdas) is currently executing. This value is `dev1` for local development.
+
 ### Types of Projects
 
 ##### Does `now dev` work for all types of projects?
