@@ -14,7 +14,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/deploying-gatsby-with-now',
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
-  lastEdited: '2019-02-01T21:22:01.000Z'
+  lastEdited: '2019-05-01T00:10:23.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
@@ -33,9 +33,28 @@ Then you can run the following command to create a Gatsby project locally:
 <TerminalInput>gatsby new my-gatsby-project</TerminalInput>
 <Caption>Creating a Gatsby project by creating the <InlineCode>my-gatsby-project</InlineCode> directory and generating content within it with gatsby-cli.</Caption>
 
-You can then see your new project running locally by running:
+At this point you you add a `now-dev` script to your `package.json` file. This will allow you to [replicate the Now environment locally](/docs/v2/development/basics/):
 
-<TerminalInput>gatsby develop</TerminalInput>
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "now-dev": "gatsby develop -p $PORT",
+  }
+}
+```
+
+<Caption>
+  Adding a <InlineCode>now dev</InlineCode> script to the{' '}
+  <InlineCode>package.json</InlineCode> file.
+</Caption>
+
+The [`@now/static-build` Builder](/docs/v2/deployments/official-builders/static-build-now-static-build/#local-development) supports a custom `now-dev` script that allows you to define [custom development behavior](/docs/v2/development/basics/#custom-development-environment) while gaining extra features that mimic the Now platform locally.
+
+To run your project locally, all that's required is a **single command**:
+
+<TerminalInput>now dev</TerminalInput>
 
 ## Step 2: Deploying Your Gatsby Website with Now
 
@@ -63,7 +82,7 @@ This now.json file will allow your deployment to do several things, specifically
 - Set [the project name](/docs/v2/deployments/configuration#name) to "my-gatsby-project".
 - Use [the @now/static-build Builder](/docs/v2/deployments/official-builders/static-build-now-static-build) to take the `package.json` file as an entrypoint and use the `public` directory as your content directory.
 
-The @now/static-build Builder you added requires a script to be included in the `package.json` you provided as the entrypoint. This script can be added to the end of the array of scripts that Gatsby CLI created for us:
+The @now/static-build Builder you added requires a script to be included in the `package.json` you provided as the entrypoint. This script can be added to the end of the array of scripts that Gatsby CLI created for us as you did earlier with `now-dev`:
 
 ```json
 {
