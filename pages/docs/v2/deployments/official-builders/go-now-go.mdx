@@ -10,7 +10,7 @@ export const meta = {
   description:
     'The official Go Builder for ZEIT Now. Serverless invokable functions from Go source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/deployments/official-builders/go-now-go.mdx',
-  lastEdited: '2019-04-30T14:59:13.000Z'
+  lastEdited: '2019-05-03T01:18:00.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -60,8 +60,9 @@ Also, the source code of the deployment can be checked by appending `/_src` e.
 The entrypoint file must be a `.go` source file containing an exported function that implements the `net/http` API.
 
 <Note>
-  <InlineCode>@now/go</InlineCode> will automatically detect a `go.mod` file to
-  install dependencies at the entrypoint level.
+  <InlineCode>@now/go</InlineCode> will automatically detect a{' '}
+  <InlineCode>go.mod</InlineCode> file to install dependencies at the entrypoint
+  level.
 </Note>
 
 ### Version
