@@ -14,7 +14,7 @@ Whether you need to apply manual adjustments to your code in order for the respo
 
 ## Caching Static Files
 
-There are no manual adjustments needed for caching **Static Files**. We set the `Cache-Control` header to `s-maxage=86400`, which ensures that the responses are cached for one day on all the regions within the **Basic CDN**.
+There are no manual adjustments needed for caching **Static Files**. We cache the responses for 31 days on all the regions within the **Basic CDN**. By default we return a `Cache-Control` header containing `public, max-age=0, must-revalidate` that specifies the client should not cache. This can be overridden with the [routes](/docs/v2/deployments/routes/#headers) property in your `now.json` file.
 
 ## Caching Lambda Responses
 
