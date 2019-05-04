@@ -112,32 +112,6 @@ class Header extends Component {
     }))
   }
 
-  handleClickEditProfile = e => {
-    if (!e.metaKey) {
-      e.preventDefault()
-
-      const { user } = this.props
-      if (!user) return
-
-      const urlSegment = user.username || 'profile'
-
-      if (window.location.pathname.includes(urlSegment)) {
-        Router.push(
-          { pathname: '/user-profile', query: { editing: '1' } },
-          `/profile/${urlSegment}/edit`,
-          { shallow: true }
-        )
-      } else {
-        Router.push(
-          { pathname: '/user-profile', query: { editing: '1' } },
-          `/profile/${urlSegment}/edit`
-        )
-      }
-
-      return
-    }
-  }
-
   renderMenuTrigger = ({ handleProviderRef, menu }) => {
     const { user } = this.props
     return (
@@ -377,14 +351,20 @@ class Header extends Component {
             <Fragment>
               {!user ? (
                 <Fragment>
-                  <NavigationItem className="chat" href="https://zeit.co/support">
+                  <NavigationItem
+                    className="chat"
+                    href="https://zeit.co/support"
+                  >
                     Support
                   </NavigationItem>
                   <NavigationItem href="/login">Login</NavigationItem>
                 </Fragment>
               ) : (
                 <Fragment>
-                  <NavigationItem className="chat" href="https://zeit.co/support">
+                  <NavigationItem
+                    className="chat"
+                    href="https://zeit.co/support"
+                  >
                     Support
                   </NavigationItem>
                   <Menu
@@ -416,17 +396,6 @@ class Header extends Component {
                             </a>
                           </Link>
                         )}
-                        <a
-                          className="edit-profile"
-                          href={
-                            this.props.user.username
-                              ? `/profile/${this.props.user.username}/edit`
-                              : '/profile'
-                          }
-                          onClick={this.onEditProfileClick}
-                        >
-                          Edit Profile
-                        </a>
                       </div>
                     </MenuItem>
                     <MenuDivider />
@@ -572,27 +541,13 @@ class Header extends Component {
             margin-bottom: 3px;
             text-decoration: none;
           }
-          .avatar-user-info .edit-profile {
-            color: #0076ff;
-            font-weight: 500;
-            font-size: 12px;
-            text-decoration: none;
-            border: 0;
-            background: none;
-            padding: 0;
-            margin: 0;
-            outline: 0;
-            cursor: pointer;
-          }
           .avatar-link:hover,
-          .username:hover,
-          .edit-profile:hover {
+          .username:hover {
             background-color: white;
             opacity: 0.7;
           }
           .avatar-link,
-          .username,
-          .edit-profile {
+          .username {
             transition: opacity 0.2s ease;
           }
           span.settings {
