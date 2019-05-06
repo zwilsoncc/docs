@@ -16,7 +16,7 @@ export const meta = {
   lastEdited: '2019-05-03T01:09:00.000Z'
 }
 
-<Tag>Status: Alpha</Tag>
+<Tag>Status: Beta</Tag>
 
 This builder takes in a Python program that defines a singular HTTP handler and outputs it as a [Lambda](/docs/v2/deployments/concepts/lambdas).
 
@@ -98,13 +98,16 @@ And define a `now.json` like:
 
 Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a Lambda.
 
-The example above can be seen live as <https://simple-python-flask.now-examples.now.sh>
+The example above can be seen live as <https://simple-python-flask.now-examples.now.sh/Hello>
 
 ## Technical Details
 
 ### Entrypoint
 
-The entrypoint file must be a `.py` source file with a `handler` that inherits from the `BaseHTTPRequestHandler` class.
+The entrypoint file must be a `.py` source file with one of the following variables defined:
+
+- `handler` that inherits from the `BaseHTTPRequestHandler` class
+- `app` that exposes a WSGI Application
 
 ### Version
 
@@ -112,7 +115,7 @@ Python 3.6 is used.
 
 ### Dependencies
 
-This builder supports installing dependencies defined in the `requirements.txt` file.
+This builder supports installing dependencies defined in the `requirements.txt` file or a `Pipfile.lock` file.
 
 ### Maximum Lambda Bundle Size
 
