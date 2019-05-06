@@ -14,6 +14,8 @@ import Avatar from '~/components/avatar'
 import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
 import Plus from '~/components/icons/plus'
+import { HeaderFeedback } from '~/components/feedback-input'
+import { API_DOCS_FEEDBACK } from '~/lib/constants'
 
 function getAlgoliaClient() {
   const algoliaClient = algoliasearch(
@@ -110,6 +112,16 @@ class Header extends Component {
     this.setState(() => ({
       menuActive: false
     }))
+  }
+
+  handleFeedbackSubmit = async (feedback, done) => {
+    const res = await fetch(API_DOCS_FEEDBACK, {
+      method: 'POST',
+      body: JSON.stringify(feedback)
+    })
+    if (res.status !== 200) {
+      done('Sorry, something went wrong, please try again.')
+    } else done()
   }
 
   renderMenuTrigger = ({ handleProviderRef, menu }) => {
@@ -351,6 +363,7 @@ class Header extends Component {
             <Fragment>
               {!user ? (
                 <Fragment>
+                  <HeaderFeedback onFeedback={this.handleFeedbackSubmit} />
                   <NavigationItem
                     className="chat"
                     href="https://zeit.co/support"
@@ -361,6 +374,7 @@ class Header extends Component {
                 </Fragment>
               ) : (
                 <Fragment>
+                  <HeaderFeedback onFeedback={this.handleFeedbackSubmit} />
                   <NavigationItem
                     className="chat"
                     href="https://zeit.co/support"
@@ -586,6 +600,15 @@ class Header extends Component {
 
           :global(.amp-search:focus ~ .search-border) {
             border: 1px solid #eaeaea;
+          }
+
+          :global(.geist-feedback-input:not(.focused)) {
+            margin: 1px 9px 0 0;
+          }
+
+          :global(.geist-feedback-input:not(.focused) > textarea) {
+            height: 24px !important;
+            top: 0 !important;
           }
 
           @media screen and (max-width: 950px) {
