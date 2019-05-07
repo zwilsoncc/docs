@@ -288,6 +288,7 @@ class HeaderFeedback extends Component {
               {`
                 .geist-feedback-input {
                   padding: 0;
+                  margin-right: 9px;
                   position: relative;
                   height: 24px;
                   width: 84px;
@@ -309,7 +310,8 @@ class HeaderFeedback extends Component {
                   width: 84px;
                   resize: none;
                   position: absolute;
-                  top: -3px;
+                  left: 0px;
+                  top: 0px;
                   vertical-align: top;
                   height: 18px;
                   transition: all 150ms ease-out;

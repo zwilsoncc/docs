@@ -602,10 +602,6 @@ class Header extends Component {
             border: 1px solid #eaeaea;
           }
 
-          :global(.geist-feedback-input:not(.focused)) {
-            margin: 1px 9px 0 0;
-          }
-
           :global(.geist-feedback-input:not(.focused) > textarea) {
             height: 24px !important;
             top: 0 !important;
