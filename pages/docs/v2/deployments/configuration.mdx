@@ -234,7 +234,7 @@ For more information on builds and builders, see the documentation:
   <Code lang="json">{`{
   "builds": [
     { "src": "*.html", "use": "@now/static" },
-    { "src": "*.js", "use": "@now/node" },
+    { "src": "*.js", "use": "@now/node" }
   ],
   "routes": [
     { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "/index.html" },
