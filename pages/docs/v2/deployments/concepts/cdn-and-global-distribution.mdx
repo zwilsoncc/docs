@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Documentation for the concept of how ZEIT Now deployments can utilise the ZEIT CDN to host and serve content at the edge.',
   editUrl: 'pages/docs/v2/deployments/concepts/cdn-and-global-distribution.mdx',
-  lastEdited: '2019-04-12T16:49:49.000Z'
+  lastEdited: '2019-05-21T10:17:13.000Z'
 }
 
 We offer two kinds of Content Management Networks (depending on your [pricing plan](/pricing)) for allowing your content to be served as fast as possible.
@@ -43,9 +43,9 @@ On both [pricing plans](/pricing), you can create deployments in any [region](/d
 - [YUL](https://yul.zeit.co) (Montreal, Canada)
 - [ZRH](https://zrh.zeit.co) (Zurich, Switzerland)
 
-If you do not specify a region (which can be done using the `--region` flag in Now CLI), your [Lambdas](/docs/v2/deployments/concepts/lambdas) will only be created in one of these regions: The one that is closest to you.
+If you do not specify a region (which can be done using the `--regions` flag in Now CLI), your [Lambdas](/docs/v2/deployments/concepts/lambdas) will only be created in one of these regions: The one that is closest to you.
 
-However, **Static Files** are served from all of these regions, no matter if `--region` was used.
+However, **Static Files** are served from all of these regions, no matter if `--regions` was used.
 
 ## Full CDN
 
