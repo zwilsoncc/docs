@@ -19,7 +19,7 @@ async function main() {
   let index = []
 
   // Build project
-  // await exec(`next build && next export -o dist`)
+  await exec(`next build && next export -o dist`)
 
   // Scan pages and add titles and content as objects in an `index` array
   let files
@@ -29,6 +29,7 @@ async function main() {
       'dist/guides/**/*.html',
       'dist/docs/v2/**/*.html',
       'dist/docs/api/v2/**/*.html',
+      'dist/docs/integrations/v2/**/*.html',
       'dist/examples/**/*.html'
     ])
     // filter out AMP pages
@@ -40,6 +41,7 @@ async function main() {
   // Loop through files
   files.forEach(file => {
     const isAPISection = !!file.startsWith('dist/docs/api/v2')
+    const isIntegrations = !!file.startsWith('dist/docs/integrations/v2')
     const isDocs = !!file.startsWith('dist/docs/v2')
     const isGuides = !!file.startsWith('dist/guides')
 
@@ -87,8 +89,8 @@ async function main() {
 
         // Create record with title, (if it exists) section heading, url (inferred), paragraph content, and order
         const record = {
-          title: isAPISection ? currentSection : pageTitle,
-          ...(isAPISection
+          title: isAPISection || isIntegrations ? currentSection : pageTitle,
+          ...(isAPISection || isIntegrations
             ? currentSubSection && { section: currentSubSection }
             : currentHeading && { section: currentHeading.text }),
           url,
@@ -99,6 +101,7 @@ async function main() {
           objectID: `v2-${url}-${md5(currentEl.text())}`,
           _tags: [
             (isAPISection && 'api') ||
+              (isIntegrations && 'integrations') ||
               (isDocs && 'docs') ||
               (isGuides && 'guide')
           ]

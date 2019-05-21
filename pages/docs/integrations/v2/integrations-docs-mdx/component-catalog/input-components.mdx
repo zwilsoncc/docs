@@ -1,0 +1,67 @@
+import Note from '~/components/text/note'
+import { InlineCode } from '~/components/text/code'
+
+export const meta = {
+  editUrl:
+    'pages/docs/integrations/v2/integrations-docs-mdx/component-catalog/input-components.mdx',
+  lastEdited: '2019-05-21T01:02:02.000Z'
+}
+
+## Input Components
+
+To receive user inputs, you should use a component appropriate for your use case.
+
+<Note>
+  The name prop provided to the Input component will be used to populate the{' '}
+  <InlineCode>clientState</InlineCode> of the UIHook and must be used if using
+  multiple Inputs.
+</Note>
+
+### Input
+
+The Input component provides the user with an input field:
+
+```jsx
+<Input name="dbName" label="Name for the Database" value="the default value" />
+```
+
+The Input component supports the following attributes:
+
+- `type`
+- `disabled`
+- `errored`
+- `value`
+- `name`
+
+### Textarea
+
+The Textarea component provides the user with a text area:
+
+```jsx
+<Textarea
+  name="description"
+  label="Enter your description"
+>
+	The value
+</Texarea>
+```
+
+The Textarea component supports the following attributes:
+
+- `disabled`
+- `errored`
+- `width` (in pixels)
+- `height` (in pixels)
+- `name`
+- `label`
+
+### Select
+
+The Select component provides the user with a drop down menu that contains the specified options:
+
+```jsx
+<Select name="dbName" value="selectedValue">
+  <Option value="mongodb" caption="MongoDB" />
+  <Option value="redis" caption="Redis" />
+</Select>
+```

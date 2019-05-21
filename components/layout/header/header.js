@@ -328,7 +328,8 @@ class Header extends Component {
             href="/docs"
             active={
               router.pathname.startsWith('/docs') &&
-              !router.pathname.startsWith('/docs/api')
+              !router.pathname.startsWith('/docs/api') &&
+              !router.pathname.startsWith('/docs/addons')
             }
             onClick={handleIndexClick}
           >
@@ -354,6 +355,13 @@ class Header extends Component {
             onClick={handleIndexClick}
           >
             Examples
+          </NavigationItem>
+          <NavigationItem
+            href="/docs/integrations"
+            active={router.pathname.startsWith('/docs/integrations')}
+            onClick={handleIndexClick}
+          >
+            Integrations
           </NavigationItem>
           <span className="desktop_search">{this.renderSearch()}</span>
         </Navigation>
