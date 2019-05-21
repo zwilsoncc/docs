@@ -28,7 +28,7 @@ Each deployment has a minimum and maximum amount of instances it can have. Based
 By default, all of the deployments are configured like this:
 
 - min: 0
-- max: 1
+- max: auto
 
 This means, when your deployment receives some traffic <Now color="#000"/> will start an instance. If your deployment doesn't receive any traffic for a while, <Now color="#000"/> will kill that instance.
 
