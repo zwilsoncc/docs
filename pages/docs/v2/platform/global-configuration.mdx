@@ -10,7 +10,7 @@ export const meta = {
   title: 'Global Configuration',
   description: 'Configure your use of the ZEIT Now clients.',
   editUrl: 'pages/docs/v2/platform/global-configuration.mdx',
-  lastEdited: '2019-01-11T22:35:24.000Z'
+  lastEdited: '2019-05-21T21:08:02.000Z'
 }
 
 <Note>
@@ -138,6 +138,20 @@ This option defines the order that teams are shown in the footer of Now Desktop.
   "desktop": {
     "teamOrder": ['timothy', 'zeit', 'now-examples', 'hyper']
   }
+}`}</Code>
+</Example>
+
+#### `collectMetrics`
+
+**Type**: `Boolean`.
+
+**Valid values**: `true` (default), `false`.
+
+This option defines whether [Now CLI](/download) should collect anonymous metrics about which commands are invoked the most, how long they take to run, and which errors customers are running into.
+
+<Example>
+  <Code lang="json">{`{
+  "collectMetrics": true
 }`}</Code>
 </Example>
 
