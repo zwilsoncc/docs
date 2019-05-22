@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 export const meta = {
   editUrl:
     'pages/docs/integrations/v2/integrations-docs-mdx/component-catalog/input-components.mdx',
-  lastEdited: '2019-05-21T01:02:02.000Z'
+  lastEdited: '2019-05-22T15:13:48.000Z'
 }
 
 ## Input Components
@@ -65,3 +65,19 @@ The Select component provides the user with a drop down menu that contains the s
   <Option value="redis" caption="Redis" />
 </Select>
 ```
+
+### Checkbox
+
+The Checkbox component provides the user with a Checkbox input:
+
+```jsx
+<Checkbox name="allowOptionA" label="Allow Option A" checked="true" />
+```
+
+The Checkbox component supports the following attributes:
+
+- `name` - the name of the `clientState` field
+- `label` - a label to show next to the Checkbox
+- `checked` - the default state of the Checkbox, either `"true"` or `"false"`
+
+If the user checks the Checkbox, or allows it to remain in the checked state from default, `clientState` will have a field with the name defined in the `Checkbox` component with the value as `true`.
