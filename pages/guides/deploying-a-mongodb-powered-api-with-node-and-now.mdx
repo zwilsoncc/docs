@@ -296,7 +296,17 @@ Now, deploy your project to a production environment using the following command
 
 When complete, Now CLI will provide you with the URL your project has been deployed and aliased to. In the case above, the alias was set to `my-mongodb-api.now.sh`.
 
-You can view the alias and deployment, using the API path, here: https://my-mongodb-api.now.sh/api/users.js
+You can view the aliased deployment from this guide, using the API path, here: https://my-mongodb-api.now.sh/api/users.js
+
+<Note hint>
+  Don't forget to exclude the <InlineCode>node_modules</InlineCode> folder from
+  being uploaded to Now to enable faster deployment. To do that, add a{' '}
+  <GenericLink href="/guides/prevent-uploading-sourcepaths-with-nowignore/">
+    .nowignore
+  </GenericLink>{' '}
+  file to the root of the project directory and add{' '}
+  <InlineCode>node_modules</InlineCode> to it.
+</Note>
 
 ## Deploying Automatically with Git
 
