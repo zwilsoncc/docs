@@ -3,6 +3,7 @@ import Caption from '~/components/text/caption'
 import { InlineCode, Code } from '~/components/text/code'
 import Example from '~/components/example'
 import { GenericLink } from '~/components/text/link'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Builders Overview',
@@ -36,6 +37,8 @@ Builders can be used with Now by creating a `now.json` file in a project and the
 The `builds` property is an array of objects where each object is a build step, including a `src` and a `use` property, at least.
 
 The Builder will receive a list of files based on the `src` property's [glob](<https://en.wikipedia.org/wiki/Glob_(programming)>) value.
+
+<Note>It is important to remember that the <InlineCode>src</InlineCode> property is a glob. In the above example, this will only use <InlineCode>@now/static</InlineCode> for the HTML files in the root directory. If you need it to be used throughout subdirectories, you need the appropriate glob syntax: <InlineCode>**/*.html</InlineCode>.</Note>
 
 ## Developing your Own Builder
 
