@@ -3,7 +3,7 @@ import Note from '~/components/text/note'
 export const meta = {
   editUrl:
     'pages/docs/integrations/v2/integrations-docs-mdx/component-catalog/action-components.mdx',
-  lastEdited: '2019-05-20T23:59:19.000Z'
+  lastEdited: '2019-05-25T13:43:25.000Z'
 }
 
 ## Action Components
@@ -59,4 +59,19 @@ The Link component allows you to link to either an external URL or an action. We
 
 ```jsx
 <Link action="doSomething">Do Something</Link>
+```
+
+### Select
+
+The Select component provides the user with a dropdown menu that contains specified options.
+By default, this is an [input component](/docs/integrations#component-catalog/input-components),
+however, adding the `action` attribute, the component can be converted into an [action](#component-catalog/action-components) component.
+
+When using the `action` attribute, when a user selects an option from the element, the UIHook will be called again containing the defined action within the [client state](#creating-user-interfaces/client-state).
+
+```jsx
+<Select name="dbName" value="selectedValue" action="change-db">
+  <Option value="mongodb" caption="MongoDB" />
+  <Option value="redis" caption="Redis" />
+</Select>
 ```
