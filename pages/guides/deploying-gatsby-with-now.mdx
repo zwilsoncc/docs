@@ -116,7 +116,7 @@ In the `now.json` configuration file, add the following `routes` property:
 {
   ...
   "routes": [
-    {"src": "^/public/static/(.*)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
+    {"src": "^/static/(.*)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
     {"src": "^/(.*).(css|js)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
     {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"} }
   ]
