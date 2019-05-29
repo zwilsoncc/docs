@@ -171,34 +171,36 @@ export default class GuidesFeedback extends Component {
             transition: all 0.15s ease;
             max-height: 0;
             position: relative;
-            width: 400px;
+            width: 408px;
+            margin: 0;
+            overflow: hidden;
+            padding: 4px;
           }
 
           .feedback :global(.feedback-input.focused) {
             opacity: 1;
-            max-height: 100%;
+            max-height: 120px;
             margin-top: 16px;
             margin-bottom: 16px;
           }
 
           .feedback :global(.feedback-input textarea) {
-            max-height: 0;
             width: 400px;
             position: relative;
             visibility: ${this.state.success ? 'hidden' : 'visible'};
+            transition: all 0.2s ease;
+            height: 100%;
           }
 
           .feedback :global(.feedback-input.focused textarea) {
-            box-shadow: none;
-            border: 1px solid #eaeaea;
-            min-height: 100px;
-            max-height: ${this.state.success ? '0' : '100%'};
+            box-shadow: 0 0 0 1px #eaeaea;
           }
 
           .feedback :global(.feedback-input.focused .controls) {
             pointer-events: none;
             background: transparent;
             display: ${this.state.success ? 'none' : 'flex'};
+            padding-right: 12px;
           }
 
           .feedback :global(.feedback-input.focused .buttons) {
