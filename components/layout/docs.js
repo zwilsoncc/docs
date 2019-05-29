@@ -20,11 +20,13 @@ import H1 from '~/components/text/h1'
 import H2 from '~/components/text/h2'
 import H3 from '~/components/text/h3'
 import H4 from '~/components/text/h4'
+import HR from '~/components/text/hr'
 import { P } from '~/components/text/paragraph'
 import dataV1 from '~/lib/data/v1/docs'
 import dataV2 from '~/lib/data/v2/docs'
 import Select from '~/components/select'
 import Note from '~/components/text/note'
+import { FooterFeedback } from '~/components/feedback-input'
 
 const DocH2 = ({ children }) => (
   <>
@@ -227,6 +229,9 @@ class withDoc extends React.Component {
               </div>
 
               <div className="content">{this.props.children}</div>
+
+              <HR />
+              <FooterFeedback />
 
               <ContentFooter
                 lastEdited={meta.lastEdited}
