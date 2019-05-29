@@ -40,6 +40,20 @@ The Builder will receive a list of files based on the `src` property's [glob](<h
 
 <Note>It is important to remember that the <InlineCode>src</InlineCode> property is a glob. In the above example, this will only use <InlineCode>@now/static</InlineCode> for the HTML files in the root directory. If you need it to be used throughout subdirectories, you need the appropriate glob syntax: <InlineCode>**/*.html</InlineCode>.</Note>
 
+## Builder Versioning
+
+Official Builders are published to [npmjs.com](https://npmjs.com) and installed [at build time](/docs/v2/deployments/concepts/lifecycle/#builds-lifecycle). The `use` statement in your [`now.json` file](/docs/v2/deployments/configuration) uses a similar syntax to `npm install` or `yarn add`. This means versioning works the same for Builders as it does for any npm package.
+
+The following are valid examples you can use to pin a version of [@now/node](https://www.npmjs.com/package/@now/node?activeTab=versions) in your [`now.json` configuration file](/docs/v2/deployments/configuration/#builds).
+
+- `@now/node`
+- `@now/node@latest`
+- `@now/node@0.7.3
+- `@now/node@canary`
+- `@now/node@0.7.2-canary.2`
+
+All Official Builders have a Stable branch and a Canary branch that are published to npm as `latest` and `canary` ["dist-tags"](https://docs.npmjs.com/adding-dist-tags-to-packages) respectively. Features and fixes will be published to Canary before they reach Stable. If you do not specify a specific version or dist-tag, then the `latest` version is assumed.
+
 ## Developing your Own Builder
 
 Extending the feature-set of a Now deployment is as simple as creating a Builder that, as previously mentioned, takes a list of files and outputs either static files or dynamic [Lambdas](/docs/v2/deployments/concepts/lambdas).
