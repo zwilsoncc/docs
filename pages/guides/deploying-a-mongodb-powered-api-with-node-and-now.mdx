@@ -78,15 +78,6 @@ You can get the connection string by clicking "Connect" on the Cluster Overview 
 />
 <Caption>Getting the connection string from the MongoDB Atlas connection modal.</Caption>
 
-<Note hint>
-  You can skip this next section of adding your connection string as a secret
-  manually by using{' '}
-  <GenericLink href="/integrations/mongodb-atlas">
-    the MongoDB Atlas Integration for Now
-  </GenericLink>
-  , which provides the connection string for a cluster automatically to your projects!
-</Note>
-
 To use your MongoDB connection string without hard-coding it in your project, you can add your connection string to the project as a [Now Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [Now CLI](/download#now-cli) to keep them secure:
 
 <TerminalInput>{`now secrets add my-mongodb-uri mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<database-name>?retryWrites=true`}</TerminalInput>
