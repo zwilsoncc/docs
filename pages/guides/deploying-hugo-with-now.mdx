@@ -133,29 +133,6 @@ Otherwise, if you want your application to deploy automatically, you can [instal
 
 When your app is deployed, you will receive a deployment URL like the following: <https://my-hugo-project-9c5t1giwu.now.sh/>
 
-## Bonus: Cache Your Hugo Assets
-
-Caching makes your site fast and reduces bandwidth consumption for your users and cost for you. You can configure Now's routes within your `now.json` configuration file to set up caching headers.
-
-In the `now.json` configuration file, add the following `routes` property:
-
-```json
-{
-  ...
-  "routes": [
-    {"src": "^/dist/js/(.*)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
-    {"src": "^/dist/css/(.*)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
-    {"src": "^/images/(.*)", "headers": {"cache-control": "max-age=31536000,immutable"} },
-    {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"} }
-  ]
-}
-```
-
-<Caption>
-  Routes configuration for setting caching headers in a{' '}
-  <InlineCode>now.json</InlineCode> configuration file.
-</Caption>
-
 ## Resources
 
 For more information on working with Hugo, please refer to [their documentation](https://gohugo.io/documentation/).
