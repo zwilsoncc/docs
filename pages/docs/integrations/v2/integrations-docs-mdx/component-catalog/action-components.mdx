@@ -3,7 +3,7 @@ import Note from '~/components/text/note'
 export const meta = {
   editUrl:
     'pages/docs/integrations/v2/integrations-docs-mdx/component-catalog/action-components.mdx',
-  lastEdited: '2019-05-29T13:39:54.000Z'
+  lastEdited: '2019-06-04T13:31:44.000Z'
 }
 
 ## Action Components
@@ -33,10 +33,12 @@ The Button component supports the following attributes:
 This component can be used when you want to provide your users with a way of switching between projects easily, or if you require them to select a project to start using your Integration initially.
 
 ```jsx
-<ProjectSwitcher />
+<ProjectSwitcher message="Choose a project from the list" />
 ```
 
-There are no attributes for this component.
+The ProjectSwitcher component supports the following attribute:
+
+- `message` (default is `"Select a project"`)
 
 ### AutoRefresh
 
