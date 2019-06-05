@@ -7,13 +7,15 @@ import Note from '~/components/text/note'
 import Card from '~/components/card'
 import Example from '~/components/example'
 import Tag from '~/components/text/tag'
+import { GenericLink } from '~/components/text/link'
+import { P } from '~/components/text/paragraph'
 
 export const meta = {
   title: 'Node.js Builder (@now/node)',
   description:
     'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/node-js-now-node.mdx',
-  lastEdited: '2019-04-09T16:21:26.000Z'
+  lastEdited: '2019-06-05T20:17:29.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -50,6 +52,18 @@ module.exports = (req, res) => {
 ```
 
 <Caption>An example serverless Node.js function.</Caption>
+
+<Note>
+  The <InlineCode>@now/node</InlineCode> Builder also supports{' '}
+  <P.B>
+    <GenericLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">
+      asynchronous functions
+    </GenericLink>
+  </P.B>
+  , an example of which can be found in the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node#request-and-response-objects">
+    Request and Response Objects
+  </GenericLink> section.
+</Note>
 
 The only step left is to define a build that will take this directory's entrypoint (`index.js`), build it and turn it into a lambda:
 
@@ -117,6 +131,89 @@ The entrypoint of this Builder is always a JavaScript file that exposes a functi
   file to install dependencies at the entrypoint level or higher.
 </Note>
 
+### Request and Response Objects
+
+For each invocation of a Node.js lambda, two objects, request and response, are passed to the function. These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js.
+
+With many Node.js-based frameworks like [Express](http://expressjs.com/) also frequently dealing with these HTTP request and response objects, you may be able to use them in your Node.js lambda.
+
+The following lambda example, using Express, accepts a JSON body in the POST request, and returns a stringified version of it:
+
+```js
+'use strict'
+
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+
+module.exports = app
+
+app.use(bodyParser.json())
+
+app.post('*', (req, res) => {
+  if (req.body == null) {
+    return res.status(400).send({ error: 'no JSON object in the request' })
+  }
+  res.set('Content-Type', 'application/json')
+  res.status(200).send(JSON.stringify(req.body, null, 4))
+})
+
+app.all('*', (req, res) => {
+  res.status(405).send({ error: 'only POST requests are accepted' })
+})
+```
+
+<Caption>Example Node.js lambda using express and body-parser</Caption>
+
+For more information on handling request bodies with Express, see the following examples: [Express](/examples/express/) and [Twitter Dreamify with Express](/examples/express-twitter-dreamify/).
+
+Handling request bodies in Node.js functions is also possible when not using a framework.
+
+Node.js [request bodies](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/#request-body) arrive in the format of a [ReadableStream](https://nodejs.org/api/stream.html#stream_class_stream_readable) and must be listened to in order to extract the data.
+
+The code to do this, as taken from the [official Node.js documentation](https://nodejs.org/ja/docs/guides/anatomy-of-an-http-transaction/#request-body), has been put into an example below:
+
+```js
+module.exports = async (req, res) => {
+  let body = []
+  await req
+    .on('data', chunk => {
+      body.push(chunk)
+    })
+    .on('end', () => {
+      body = Buffer.concat(body).toString()
+      const json = JSON.parse(body)
+      res.end(`Hello ${json.name}, you just parsed the request body!`)
+    })
+}
+```
+
+<Caption>
+  An example asynchronous Node.js function using the{' '}
+  <GenericLink href="https://nodejs.org/api/stream.html#stream_class_stream_readable">
+    ReadableStream
+  </GenericLink>{' '}
+  object to retrieve the request body contents.
+</Caption>
+
+Using this code might seem a little tedious. As a result, we recommend the use of a third-party library such as [micro](https://github.com/zeit/micro) to parse the request body like so:
+
+```js
+const { json } = require('micro')
+
+module.exports = async (req, res) => {
+  const body = await json(req)
+  res.end(`Hello ${body.name}, you just parsed the request body!`)
+}
+```
+
+<Caption>
+  An example asynchronous Node.js function using micro to get the request body
+  contents.
+</Caption>
+
+For more information on handling request bodies in Node.js, you can [read this short guide](/guides/handling-node-request-body-with-micro) to understand how it works in greater detail.
+
 ### Dependencies Installation
 
 The installation algorithm of dependencies works as follows:
@@ -179,34 +276,6 @@ The resulting lambda contains both the build and current time: <https://build-ti
 ### Node.js Version
 
 The Node.js version used is the **v8.10**.
-
-### Request and Response Objects
-
-For each invocation of a Node.js lambda, two objects, request and response, are passed to the function. These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js.
-
-With many Node.js-based frameworks like [Express](http://expressjs.com/) also frequently dealing with these HTTP request and response objects, you may be able to use them in your Node.js lambda. The following lambda example, using Express, accepts a JSON body in the POST request, and returns a stringified version of it.
-
-<Example>
-  <span>Example Node.js lambda using express and body-parser</span>
-  <Code lang="javascript">{`'use strict'\n
-const express = require('express')
-const bodyParser = require('body-parser')\n
-const app = express()
-module.exports = app\n
-app.use(bodyParser.json())\n
-app.post('*', (req, res) => {
-  if (req.body == null) {
-    return res.status(400).send({ error: 'no JSON object in the request' })
-  }\n
-  res.set('Content-Type', 'application/json')
-  res.status(200).send(JSON.stringify(req.body, null, 4))
-})\n
-app.all('*', (req, res) => {
-  res.status(405).send({ error: 'only POST requests are accepted' })
-})`}</Code>
-</Example>
-
-For more information, see the following examples: [Express](/examples/express/) and [Twitter Dreamify with Express](/examples/express-twitter-dreamify/).
 
 ### Maximum Lambda Bundle Size
 
