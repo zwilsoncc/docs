@@ -98,15 +98,17 @@ class ExamplesPage extends React.Component {
     )
 
     this.state = {
-      initialSidebar: sidebarData,
-      sidebar: sidebarData
+      initialSidebar: sidebarData
     }
   }
 
-  filterSidebar = input => {
-    let filteredList = this.state.initialSidebar[0].sections
+  componentDidMount() {
+    let filteredList = this.sortList(this.state.initialSidebar[0].sections)
+    this.setState({ sidebar: wrapSidebar(filteredList) })
+  }
 
-    filteredList = filteredList.filter(item => {
+  filterSidebar = input => {
+    const filteredList = this.state.initialSidebar[0].sections.filter(item => {
       return item.title.toLowerCase().search(input.toLowerCase()) !== -1
     })
 
@@ -120,6 +122,19 @@ class ExamplesPage extends React.Component {
         navigationActive: false
       })
     }
+  }
+
+  sortList = list => {
+    list.sort((a, b) => {
+      if (a.title.toLowerCase() < b.title.toLowerCase()) {
+        return -1
+      }
+      if (a.title.toLowerCase() > b.title.toLowerCase()) {
+        return 1
+      }
+      return 0
+    })
+    return list
   }
 
   render() {
@@ -181,20 +196,22 @@ class ExamplesPage extends React.Component {
                 onChange={this.filterSidebar}
               />
             </div>
-            <DocsIndex
-              activeItem={active}
-              getHref={slugs => {
-                return {
-                  href: `/examples/${slugs.section}`,
-                  as: `/examples/${slugs.section}`
-                }
-              }}
-              onSectionActive={() => {}}
-              onClickLink={this.handleIndexClick}
-              structure={sidebar}
-              setInitiallyActive={() => {}}
-              updateActive={() => {}}
-            />
+            {this.state.sidebar && (
+              <DocsIndex
+                activeItem={active}
+                getHref={slugs => {
+                  return {
+                    href: `/examples/${slugs.section}`,
+                    as: `/examples/${slugs.section}`
+                  }
+                }}
+                onSectionActive={() => {}}
+                onClickLink={this.handleIndexClick}
+                structure={sidebar}
+                setInitiallyActive={() => {}}
+                updateActive={() => {}}
+              />
+            )}
           </Sidebar>
           <Content>
             <div className="category-wrapper">

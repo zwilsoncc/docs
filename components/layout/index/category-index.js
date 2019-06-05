@@ -20,7 +20,6 @@ class CategoryIndex extends Component {
       />
     )
   }
-
   handleClick = () => {
     const { category } = this.props
     this.props.updateActive({
@@ -28,7 +27,6 @@ class CategoryIndex extends Component {
     })
     this.props.onClickLink()
   }
-
   render() {
     const { category, getHref, section, onClickLink } = this.props
     const active = isCategoryActive(this.props)
