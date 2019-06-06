@@ -108,7 +108,7 @@ When your app has been deployed, you will receive a URL similar to the following
 
 Caching is a key part of making your websites fast for users, new and returning. With this in mind, Now's routes configuration allows you to set up caching headers easily.
 
-The Gatsby documentation has [recommended cache control values](https://www.gatsbyjs.org/docs/caching/#caching) which we will use for our [routes configuration](/docs/v2/deployments/configuration/#routes).
+The Gatsby documentation has [recommended cache control values](https://www.gatsbyjs.org/docs/caching/#caching) which we will use for our [routes configuration](/docs/v2/deployments/configuration/#routes). Since Now will cache all static assets for one year without any configuration, we just need to tell the platform to avoid caching of HTML pages.
 
 In the `now.json` configuration file, add the following `routes` property:
 
@@ -116,9 +116,7 @@ In the `now.json` configuration file, add the following `routes` property:
 {
   ...
   "routes": [
-    {"src": "^/static/(.*)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
-    {"src": "^/(.*).(css|js)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
-    {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"} }
+    {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"}, "dest": "$1.html" }
   ]
 }
 ```
