@@ -99,7 +99,6 @@ class FeedbackInput extends Component {
         `}
       >
         <textarea
-          type="text"
           ref={this.handleTextAreaRef}
           onFocus={this.onFocus}
           disabled={

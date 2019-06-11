@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { TerminalInput } from '~/components/text/terminal'
 import { GenericLink } from '~/components/text/link'
@@ -77,4 +78,6 @@ By default, the cache for a response of your deployment is purged once the expir
 
 Additionally, we also purge all caches related to a deployment when [an alias](/docs/v2/domains-and-aliases/aliasing-a-deployment) is created or updated, as this implies that new content needs to be served, thus requiring purging the caches.
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

@@ -46,13 +46,9 @@ export const InternalLink = (
         text-decoration: none;
       }
 
-      ${darkBg
-        ? `
-        span :global(a.dark) {
-          color: #fff;
-        }
-      `
-        : ``};
+      span :global(a.dark) {
+        color: #fff;
+      }
     `}</style>
   </span>
 )

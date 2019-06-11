@@ -55,7 +55,9 @@ export class NavLink extends React.Component {
 
   getCurrentHref(props = this.props) {
     const { url, hash } = props
-    const query = qs.stringify(url.query)
+    const cleanedQuery = { ...url.query }
+    delete cleanedQuery.amp
+    const query = qs.stringify(cleanedQuery)
     return `${url.pathname}${query ? '?' + query : ''}${hash || ''}`
   }
 

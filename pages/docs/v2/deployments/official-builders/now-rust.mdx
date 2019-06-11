@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { TerminalInput } from '~/components/text/terminal'
 import { Code, InlineCode } from '~/components/text/code'
@@ -225,4 +226,6 @@ The goal of the ZEIT Docs is to provide you with all the information you need to
   Discover the deployment basics of Now.
 </Card>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

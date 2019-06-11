@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { InlineCode, Code } from '~/components/text/code'
 import Caption from '~/components/text/caption'
@@ -71,7 +72,7 @@ To install private packages with `go get`, define `GIT_CREDENTIALS` as a [build 
 
 All major Git providers are supported including GitHub, GitLab, Bitbucket, as well as a self-hosted Git server.
 
-With GitHub, you will need to [create a personal token](https://github.com/settings/tokens) with permission to access your private repository. 
+With GitHub, you will need to [create a personal token](https://github.com/settings/tokens) with permission to access your private repository.
 
 ```json
 {
@@ -104,4 +105,6 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
 }`}</Code>
 </Example>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

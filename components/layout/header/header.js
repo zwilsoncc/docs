@@ -2,7 +2,8 @@ import { Component, Fragment } from 'react'
 import { parse } from 'querystring'
 import cn from 'classnames'
 import Link from 'next/link'
-import Router, { withRouter } from 'next/router'
+import { useAmp } from 'next/amp'
+import Router, { withRouter, useRouter } from 'next/router'
 import logout from '~/lib/logout'
 import getDashboardHref from '~/lib/utils/get-dashboard-href'
 import algoliasearch from 'algoliasearch/lite'
@@ -16,6 +17,25 @@ import Logo from '~/components/icons/logo'
 import Plus from '~/components/icons/plus'
 import { HeaderFeedback } from '~/components/feedback-input'
 import { API_DOCS_FEEDBACK } from '~/lib/constants'
+
+function AmpUserFeedback() {
+  const isAmp = useAmp()
+  if (!isAmp) return null
+  const router = useRouter()
+  return (
+    <>
+      <a href={router.pathname} className="feedback-link">
+        <HeaderFeedback textAreaStyle={{ height: 24, top: 0 }} />
+      </a>
+      <NavigationItem customLink>
+        <a href="https://zeit.co/support">Support</a>
+      </NavigationItem>
+      <NavigationItem customLink>
+        <a href="https://zeit.co/login">Login</a>
+      </NavigationItem>
+    </>
+  )
+}
 
 function getAlgoliaClient() {
   const algoliaClient = algoliasearch(
@@ -194,8 +214,8 @@ class Header extends Component {
           }
 
           .team {
-            padding: 8px 20px !important;
-            margin: -8px -20px !important;
+            padding: 8px 20px;
+            margin: -8px -20px;
           }
 
           .user {
@@ -367,6 +387,7 @@ class Header extends Component {
         </Navigation>
 
         <Navigation className="user-navigation">
+          <AmpUserFeedback />
           {userLoaded && (
             <Fragment>
               {!user ? (
@@ -475,6 +496,10 @@ class Header extends Component {
           <div className="line bottom" />
         </button>
         <style jsx>{`
+          :global(.header .feedback-link) {
+            display: inherit;
+          }
+
           :global(.header .main-navigation) {
             margin-right: auto;
           }
@@ -611,8 +636,8 @@ class Header extends Component {
           }
 
           :global(.geist-feedback-input:not(.focused) > textarea) {
-            height: 24px !important;
-            top: 0 !important;
+            height: 24px ${isAmp ? '' : '!important'};
+            top: 0 ${isAmp ? '' : '!important'};
           }
 
           @media screen and (max-width: 950px) {

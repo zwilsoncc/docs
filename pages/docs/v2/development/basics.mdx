@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { GenericLink } from '~/components/text/link'
 import { InlineCode } from '~/components/text/code'
@@ -25,7 +26,8 @@ To get started with `now dev`, you will need the [Now CLI](/docs/v2/getting-star
   <InlineCode>now dev</InlineCode> requires Now 2.0 and the latest version of
   the <GenericLink href="/guides/updating-now-cli/">Now CLI </GenericLink>
   to work. If you are currently using Now 1.0, you should consider
-  <GenericLink href="/docs/v2/platform/upgrade-to-2-0/"> upgrading</GenericLink>.
+  <GenericLink href="/docs/v2/platform/upgrade-to-2-0/"> upgrading</GenericLink>
+  .
 </Note>
 
 ## Key Concepts
@@ -153,4 +155,6 @@ Extend your projects with all that Now offers:
   Learn more about our Priority Support and setup a Custom Domain Suffix.
 </Card>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

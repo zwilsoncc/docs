@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
@@ -34,7 +35,7 @@ This header represents the unique deployment, not the alias. For example, `test-
 
 ## Response Headers
 
-The following headers are included in Now deployment responses and indicate certain factors of the environment. These headers can be viewed from the Browser's Dev Tools or using an HTTP client such as `curl -I <DEPLOYMENT_URL>`. 
+The following headers are included in Now deployment responses and indicate certain factors of the environment. These headers can be viewed from the Browser's Dev Tools or using an HTTP client such as `curl -I <DEPLOYMENT_URL>`.
 
 ### `server: now`
 
@@ -46,12 +47,12 @@ This header's value indicates whether the response was served from ZEIT's edge c
 
 The following values are possible when the content being served [is static](/docs/v2/routing/caching#caching-static-files) or uses [a `Cache-Control` header](/docs/v2/routing/caching#caching-lambda-responses).
 
-| Value                                      | Description                                                                                                                                      |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <RequestHeader>HIT</RequestHeader>         | The response was served from the edge.                                                                                                           |
-| <RequestHeader>MISS</RequestHeader>        | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/platform/regions-and-providers/).                     |
-| <RequestHeader>BYPASS</RequestHeader>      | The cache was bypassed and so the response was served from an origin server.                                                                           |
-| <RequestHeader>STALE</RequestHeader>       | The response from the cache is outdated but another visitor has already requested the response and the edge node is processing the revalidation. |
+| Value                                 | Description                                                                                                                                      |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <RequestHeader>HIT</RequestHeader>    | The response was served from the edge.                                                                                                           |
+| <RequestHeader>MISS</RequestHeader>   | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/platform/regions-and-providers/).                     |
+| <RequestHeader>BYPASS</RequestHeader> | The cache was bypassed and so the response was served from an origin server.                                                                     |
+| <RequestHeader>STALE</RequestHeader>  | The response from the cache is outdated but another visitor has already requested the response and the edge node is processing the revalidation. |
 
 ### `x-now-id`
 
@@ -72,4 +73,6 @@ Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) 
 
 Custom headers can be added dynamically to the [Response](https://nodejs.org/api/http.html#http_response_setheader_name_value) object in your [Lambda](/docs/v2/deployments/concepts/lambdas/) or they can be added statically to the [routes](/docs/v2/deployments/routes/#headers) property in your `now.json` file.
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

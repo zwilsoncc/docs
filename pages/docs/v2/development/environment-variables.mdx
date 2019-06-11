@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
 import { GenericLink } from '~/components/text/link'
@@ -168,4 +169,6 @@ Read more on how development with Now works and get answers to frequently asked 
   Learn more about our Priority Support and setup a Custom Domain Suffix.
 </Card>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

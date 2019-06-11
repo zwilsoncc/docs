@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
 import Card from '~/components/card'
@@ -365,4 +366,6 @@ When set to false, [Now for GitHub](/docs/v2/integrations/now-for-github) will a
   .
 </Note>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

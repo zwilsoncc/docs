@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { GenericLink } from '~/components/text/link'
 import { Image } from '~/components/media'
@@ -47,4 +48,6 @@ During development via `now dev`, the region is assigned `dev1` to mimic the Now
 | --------- | ------------------ |
 | dev1      | localhost          |
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

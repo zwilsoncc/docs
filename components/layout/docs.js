@@ -88,6 +88,8 @@ const AmpScripts = () => {
   )
 }
 
+const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
+
 const VersionSelect = ({ onChange, version }) => {
   const isAmp = useAmp()
   const href = `/docs/${version === 'v1' ? 'v2' : 'v1'}`
@@ -230,8 +232,12 @@ class withDoc extends React.Component {
 
               <div className="content">{this.props.children}</div>
 
-              <HR />
-              <FooterFeedback />
+              <NonAmpOnly>
+                <>
+                  <HR />
+                  <FooterFeedback />
+                </>
+              </NonAmpOnly>
 
               <ContentFooter
                 lastEdited={meta.lastEdited}

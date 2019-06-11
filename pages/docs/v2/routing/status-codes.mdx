@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -109,4 +110,6 @@ Type: `LAMBDA_INVOCATION_TIMEOUT`
 
 The <b>Lambda</b> responsible for the path you tried to access did not reply in time.
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

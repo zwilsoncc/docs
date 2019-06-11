@@ -195,16 +195,17 @@ class HeaderFeedback extends Component {
   }
 
   render() {
-    const { darkBg, className, ...props } = this.props
+    const { darkBg, className, textAreaStyle, ...props } = this.props
     const { focused } = this.state
     delete props.onFeedback
+    delete props.textAreaStyle
 
     return (
       <ClickOutside
         active={focused}
         onClick={this.handleClickOutside}
         render={({ innerRef }) => (
-          <main
+          <div
             ref={innerRef}
             title="Share any feedback about our products and services"
             className={`geist-feedback-input ${focused ? 'focused' : ''}
@@ -217,6 +218,7 @@ class HeaderFeedback extends Component {
             {...props}
           >
             <textarea
+              style={textAreaStyle}
               ref={this.handleTextAreaRef}
               placeholder={focused ? '' : 'Feedback...'}
               onFocus={this.onFocus}
@@ -355,7 +357,7 @@ class HeaderFeedback extends Component {
                   color: #999;
                 }
 
-                main.focused {
+                div.focused {
                   transform: translate3d(-60%, -20%);
                 }
 
@@ -487,7 +489,7 @@ class HeaderFeedback extends Component {
                 }
               `}
             </style>
-          </main>
+          </div>
         )}
       />
     )
@@ -667,7 +669,7 @@ class EmojiSelector extends Component {
             }
 
             .geist-emoji-selector.dark {
-              background: transparent !important;
+              background: transparent;
             }
 
             .geist-emoji-selector.dark > button .inner {

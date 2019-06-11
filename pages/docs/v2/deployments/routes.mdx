@@ -1,3 +1,4 @@
+import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
@@ -67,34 +68,35 @@ The following example shows a `now.json` configuration that takes a `src` path a
 {
   "version": 2,
   "routes": [
-    { "src": "/about", "dest": "https://about.me" }, 
+    { "src": "/about", "dest": "https://about.me" },
     { "src": "/action", "dest": "my-lambda-action/index" }
   ]
 }
 ```
 
 <Caption>
-  An example <InlineCode>now.json</InlineCode> file with {' '}
-  <InlineCode>routes</InlineCode> properties that rewrite paths to another
-  upon request.
+  An example <InlineCode>now.json</InlineCode> file with{' '}
+  <InlineCode>routes</InlineCode> properties that rewrite paths to another upon
+  request.
 </Caption>
 
 <Note>
-  You can point the <InlineCode>dest</InlineCode> path to any URL, Now hosted lambda, or even
-  non-Now hosted URLs as shown in the code above. If you don't perform any rewriting, you can safely remove <InlineCode>dest</InlineCode>.
+  You can point the <InlineCode>dest</InlineCode> path to any URL, Now hosted
+  lambda, or even non-Now hosted URLs as shown in the code above. If you don't
+  perform any rewriting, you can safely remove <InlineCode>dest</InlineCode>.
 </Note>
 
 ```json
 {
   "version": 2,
-  "routes": [
-    { "src": "/about" }
-  ]
+  "routes": [{ "src": "/about" }]
 }
 ```
 
 <Caption>
-  This will route to <InlineCode>/about</InlineCode> without rewriting, but routes like this are usually redundant with <GenericLink href="#wildcard-routes">handle filesystem</GenericLink>.
+  This will route to <InlineCode>/about</InlineCode> without rewriting, but
+  routes like this are usually redundant with{' '}
+  <GenericLink href="#wildcard-routes">handle filesystem</GenericLink>.
 </Caption>
 
 ### `headers`
@@ -150,7 +152,8 @@ For example, you can use this property in combination with [the `headers` proper
 ```
 
 <Caption>
-  In this case, the <InlineCode>Cache-Control</InlineCode>{' '} header will be applied to any route starting with <InlineCode>/blog</InlineCode>.
+  In this case, the <InlineCode>Cache-Control</InlineCode> header will be
+  applied to any route starting with <InlineCode>/blog</InlineCode>.
 </Caption>
 
 ### `status`
@@ -304,7 +307,8 @@ Sometimes, you will have wildcard routes that overlap with other routes. For exa
 ```
 
 <Caption>
-  A <InlineCode>now.json</InlineCode> file where filesystem routes are explicitly defined.
+  A <InlineCode>now.json</InlineCode> file where filesystem routes are
+  explicitly defined.
 </Caption>
 
 You might find that there are many routes without a `dest`. These routes can be handled without being explicitly defined by using handle filesystem. Handle filesystem works the same as if you hardcoded all the routes in its place.
@@ -320,7 +324,8 @@ You might find that there are many routes without a `dest`. These routes can be 
 ```
 
 <Caption>
-  A <InlineCode>now.json</InlineCode> file, using handle filesystem to route to filesystem routes.
+  A <InlineCode>now.json</InlineCode> file, using handle filesystem to route to
+  filesystem routes.
 </Caption>
 
 In this example, handle filesystem expands to route `/about` and `/contact`.
@@ -392,4 +397,6 @@ See more documentation or guides to help you get where you want:
   The basics of deployments on Now, to help you deploy anything.
 </Card>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})
