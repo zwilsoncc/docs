@@ -181,7 +181,20 @@ By default, [`openssl`](https://centos.pkgs.org/7/centos-x86_64/openssl-devel-1.
 
 ### Rust Version
 
-The version of Rust that this Builder supports is `1.31.1`
+This builder uses [rustup](https://rustup.rs) to install `rust` and `cargo`. By default, the latest stable version of rust will be installed. To see what the current stable version of rust is, please see the [official website](https://www.rust-lang.org/).
+
+If you need to use a different version of rust other than the latest stable version, you can specify a version of rust in your build's configuration. Accepted values are the same as [rustup's channel definition](https://github.com/rust-lang/rustup.rs/#toolchain-specification), which is `stable | latest | nightly | <version>`.
+
+<Example>
+  <span>
+    Example <InlineCode>rust</InlineCode> version configuration:
+  </span>
+  <Code lang="json">{`{
+  "builds": [
+    { "src": "Cargo.toml", "use": "@now/rust", "config": { "rust": "1.35" } }
+  ]
+}`}</Code>
+</Example>
 
 ### Maximum Lambda Bundle Size
 
