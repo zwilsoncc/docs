@@ -81,8 +81,21 @@ The following example shows a `now.json` configuration that takes a `src` path a
 
 <Note>
   You can point the <InlineCode>dest</InlineCode> path to any URL, Now hosted lambda, or even
-  non-Now hosted URLs as shown in the code above.
+  non-Now hosted URLs as shown in the code above. If you don't perform any rewriting, you can safely remove <InlineCode>dest</InlineCode>.
 </Note>
+
+```json
+{
+  "version": 2,
+  "routes": [
+    { "src": "/about" }
+  ]
+}
+```
+
+<Caption>
+  This will route to <InlineCode>/about</InlineCode> without rewriting, but routes like this are usually redundant with <GenericLink href="#wildcard-routes">handle filesystem</GenericLink>.
+</Caption>
 
 ### `headers`
 
@@ -111,13 +124,42 @@ An example of using the `headers` property to add [shared caching](https://devel
   are defined in the same way.
 </Note>
 
+### `continue`
+
+**Type**: Boolean
+
+The `continue` property allows routing to continue even though the `src` was matched.
+
+For example, you can use this property in combination with [the `headers` property](#headers) to append headers to a broader group of routes instead of applying it to every route. `continue` **can not** be used with `dest`.
+
+```json
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/blog.*",
+      "headers": { "Cache-Control": "max-age=3600" },
+      "continue": true
+    },
+    {
+      "src": "/blog/([^/]+)",
+      "dest": "/blog?slug=$1"
+    }
+  ]
+}
+```
+
+<Caption>
+  In this case, the <InlineCode>Cache-Control</InlineCode>{' '} header will be applied to any route starting with <InlineCode>/blog</InlineCode>.
+</Caption>
+
 ### `status`
 
 **Type**: Integer
 
 The `status` property defines the status code that Now should respond with when a path is requested.
 
-For example, you can use this property in combinations with [the `headers` property](#headers) to create a redirect with the initial status code of 301 (Moved Permanently).
+For example, you can use this property in combination with [the `headers` property](#headers) to create a redirect with the initial status code of 301 (Moved Permanently). Using `status` will not route to any lambda or static file.
 
 ```json
 {
@@ -245,6 +287,43 @@ If you are using a Next.js app and want to learn more about using custom routes 
 >
   Custom Routes with Next.js and Now
 </Card>
+
+## Wildcard Routes
+
+Sometimes, you will have wildcard routes that overlap with other routes. For example,
+
+```json
+{
+  "version": 2,
+  "routes": [
+    { "src": "/about" },
+    { "src": "/contact" },
+    { "src": "/([^/]+)", "dest": "/blog?slug=$1" }
+  ]
+}
+```
+
+<Caption>
+  A <InlineCode>now.json</InlineCode> file where filesystem routes are explicitly defined.
+</Caption>
+
+You might find that there are many routes without a `dest`. These routes can be handled without being explicitly defined by using handle filesystem. Handle filesystem works the same as if you hardcoded all the routes in its place.
+
+```json
+{
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/([^/]+)", "dest": "/blog?slug=$1" }
+  ]
+}
+```
+
+<Caption>
+  A <InlineCode>now.json</InlineCode> file, using handle filesystem to route to filesystem routes.
+</Caption>
+
+In this example, handle filesystem expands to route `/about` and `/contact`.
 
 ## Testing Routes
 
