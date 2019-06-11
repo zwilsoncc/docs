@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 export const meta = {
   editUrl:
     'pages/docs/integrations/v2/integrations-docs-mdx/component-catalog/input-components.mdx',
-  lastEdited: '2019-06-05T18:44:01.000Z'
+  lastEdited: '2019-06-11T22:29:09.000Z'
 }
 
 ## Input Components
@@ -98,3 +98,31 @@ Below is an example showing the format of the `clientState` object:
   "key2": "value2"
 }
 ```
+
+### ResetButton
+
+The ResetButton component allows the user to reset the values of `<Input />` components.
+Values are reset on the client side, which means that no server side request will be made.
+
+```jsx
+<ResetButton targets="username, password">Reset</ResetButton>
+```
+
+The ResetButton component supports the following attribute:
+
+- `targets` - comma separated values of the `<Input />` names. If the attribute is not defined it will reset the values of all `<Input />` components.
+
+Below is an example showing the component's usage:
+
+```jsx
+<Page>
+  <Input type="text" name="username" />
+  <Input type="text" name="password" />
+  <Input type="text" name="age" />
+
+  <Button action="submit">Submit</Button>
+  <ResetButton targets="username, password">Reset</ResetButton>
+</Page>
+```
+
+In the above example, the `username` and `password` fields will be reset, whilst the `age` field will remain unchanged.
