@@ -13,7 +13,7 @@ export const meta = {
   description:
     'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/next-js-now-next.mdx',
-  lastEdited: '2019-03-12T15:18:33.000Z'
+  lastEdited: '2019-06-12T16:24:59.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -118,6 +118,43 @@ The installation algorithm of dependencies works as follows:
 ### Private npm modules
 
 To install private npm modules, define `NPM_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build.env) in `now.json`.
+
+### Build Step
+
+You can run build tasks by creating a `now-build` script within a `package.json` file. If no `now-build` script is defined, then `next build` is assumed. If `now-build` is defined, it will replace `next build`.
+
+<Example>
+<span>An example <InlineCode>package.json</InlineCode> with a <InlineCode>now-build</InlineCode> script:</span>
+<Code lang="json">{`{
+  "scripts": {
+    "now-build": "node build.js && next build"
+  }
+}`}</Code>
+
+<span>An example build script, named <InlineCode>build.js</InlineCode>:</span>
+<Code lang="javascript">{`const fs = require('fs');
+const path = require('path');
+const filename = path.join('pages', 'time.js');
+const contents = \`module.exports = "\${new Date().toISOString()}"\`;
+fs.writeFile(filename, contents, (err) => {
+  if (err) throw err
+  console.log('time.js file created successfully!')
+});`}</Code>
+
+<span>
+  To tie it all together, add a <InlineCode>now.json</InlineCode> file:
+</span>
+
+<Code lang="json">{`{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@now/next" }
+  ]
+}`}</Code>
+
+The resulting Lambda contains the build time: <https://nextjs-build-pqo9ri0y2.now.sh/>
+
+</Example>
 
 ### Node.js version
 
