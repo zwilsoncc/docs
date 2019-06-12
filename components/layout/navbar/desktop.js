@@ -5,6 +5,7 @@ import qs from 'querystring'
 import { parse } from 'url'
 import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import ArrowDown from '~/components/icons/arrow-down'
+import Link from 'next/link'
 
 function scrollIntoViewIfNeeded(elem, centerIfNeeded, options, config) {
   const finalElement = findClosestScrollableElement(elem)
@@ -61,10 +62,12 @@ function Category({ info, level = 1, ...props }) {
       }`}
       key={info.name || ''}
     >
-      <div className="label" onClick={onClick}>
-        <ArrowDown width={9} fill="#000" />
-        {info.name}
-      </div>
+      <Link prefetch>
+        <a className="label" onClick={onClick}>
+          <ArrowDown width={9} fill="#000" />
+          {info.name}
+        </a>
+      </Link>
       {!info.href || isCategorySelected(info) ? (
         <div className="posts">
           {info.posts.map(postInfo => (
@@ -114,6 +117,10 @@ function Category({ info, level = 1, ...props }) {
           cursor: default;
         }
 
+        .label:hover {
+          color: #000;
+        }
+
         .category {
           margin: 18px 0;
         }
@@ -123,12 +130,16 @@ function Category({ info, level = 1, ...props }) {
         }
 
         .posts {
-          overflow: hidden;
+          border-left: 1px solid #eaeaea;
+          margin-left: 3.5px;
+          margin-top: 0;
           height: 0;
+          overflow: hidden;
           padding-left: 21px;
         }
 
         .open > .posts {
+          margin-top: 18px;
           height: auto;
         }
 
@@ -173,6 +184,10 @@ function Post({ info, level = 1, ...props }) {
       <style jsx>{`
         .link {
           margin: 18px 0;
+        }
+
+        .link:first-child {
+          margin-top: 0;
         }
 
         .link:last-child {
@@ -220,8 +235,6 @@ export class NavLink extends React.Component {
   isSelected(props = this.props) {
     const { href, aliases = [], posts } = props.info
     const currentHref = this.getCurrentHref(props)
-
-    console.log(currentHref, href)
 
     if (href === currentHref) return true
     if (href === props.url.pathname) return true
@@ -294,6 +307,10 @@ export class NavLink extends React.Component {
           .selected :global(a) {
             font-weight: 600;
             color: #0076ff;
+          }
+
+          .nav-link:hover :global(a) {
+            color: #000;
           }
 
           span {
