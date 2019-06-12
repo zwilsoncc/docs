@@ -155,14 +155,6 @@ const Select = (
           stroke: #999;
         }
 
-        @-moz-document url-prefix() {
-          select {
-            margin-right: 0;
-            width: 100%;
-            padding: ${hasArrow ? '0 30px 0 16px' : '0 16px'};
-          }
-        }
-
         @media screen and (max-width: 640px) {
           select {
             font-size: 16px;
