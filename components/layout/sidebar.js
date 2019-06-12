@@ -11,7 +11,6 @@ class Sidebar extends Component {
         <style jsx>{`
           .sidebar {
             background: #fff;
-            border-right: 1px solid #eaeaea;
             bottom: 0;
             padding-bottom: 40px;
             padding-right: 24px;

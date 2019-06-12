@@ -196,20 +196,18 @@ class withDoc extends React.Component {
                   </ToggleItem>
                 </ToggleGroup>
               </div>
-              <h5 className="platform-select-title">Now Platform Version</h5>
 
+              <DocsNavbarDesktop
+                data={versionData}
+                url={router}
+                scrollSelectedIntoView={true}
+              />
+
+              <h5 className="platform-select-title">Now Platform Version</h5>
               <VersionSelect
                 version={version}
                 onChange={this.handleVersionChange}
               />
-
-              <div className="navigation">
-                <DocsNavbarDesktop
-                  data={versionData}
-                  url={router}
-                  scrollSelectedIntoView={true}
-                />
-              </div>
             </Sidebar>
             <Content>
               <div className="heading content-heading">
@@ -263,13 +261,9 @@ class withDoc extends React.Component {
 
             .platform-select-title {
               font-size: 14px;
-              font-weight: bold;
+              font-weight: 400;
               margin-bottom: 16px;
-              margin-top: 0;
-            }
-
-            .navigation {
-              margin-top: 48px;
+              margin-top: 32px;
             }
 
             .toggle-group-wrapper {
