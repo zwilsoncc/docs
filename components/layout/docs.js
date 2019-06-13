@@ -28,6 +28,19 @@ import Select from '~/components/select'
 import Note from '~/components/text/note'
 import { FooterFeedback } from '~/components/feedback-input'
 
+const DocH1 = ({ children }) => (
+  <>
+    <Heading noAnchor lean offsetTop={175}>
+      <H1>{children}</H1>
+    </Heading>
+    <style jsx>{`
+      :global(h1) {
+        margin: 40px 0 0 0;
+      }
+    `}</style>
+  </>
+)
+
 const DocH2 = ({ children }) => (
   <>
     <Heading lean offsetTop={175}>
@@ -225,7 +238,7 @@ class withDoc extends React.Component {
                     .
                   </Note>
                 )}
-                <H1 itemProp="headline">{meta.title}</H1>
+                <DocH1>{meta.title}</DocH1>
               </div>
 
               <div className="content">{this.props.children}</div>
