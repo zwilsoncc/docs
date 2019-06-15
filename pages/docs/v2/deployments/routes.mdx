@@ -16,6 +16,8 @@ export const meta = {
 
 Now uses routes to define the behavior of how a request is handled on the routing side. For example, you might use a route to rewrite a URL to another, redirect a user, or apply a header with the response to a request.
 
+By default, routing is defined by the filesystem of your deployment. For example, if a user makes a request to `/123.png`, and your [`now.json` file](/docs/v2/deployments/configuration/#routes) does not contain any routes with a valid `src` matching that path, it will fallback to the filesystem and serve `/123.png` if it exists.
+
 A route can be defined within a project's [`now.json` configuration file](/docs/v2/deployments/configuration/#routes) as an object within an array assigned to the `routes` property, like the following which creates a simple rewrite from one path to another:
 
 ```json
