@@ -23,16 +23,13 @@ import {
 } from '~/components/text/link'
 
 import ForkIcon from '~/components/icons/fork'
-import SearchIcon from '~/components/icons/search'
 import ExternalLinkIcon from '~/components/icons/external-link'
-import Input from '~/components/input'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
 import Head from '~/components/layout/head'
 import DocsIndex from '~/components/layout/index'
 import Content from '~/components/layout/content'
 import Sidebar from '~/components/layout/sidebar'
-import Select from '~/components/select'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withError from '~/components/layout/error'
 import EXAMPLES from '~/lib/data/now-examples-docs'
@@ -183,22 +180,10 @@ class ExamplesPage extends React.Component {
                 </ToggleItem>
               </ToggleGroup>
             </div>
-            <h5 className="platform-select-title">Now Platform Version</h5>
-            <Select defaultValue="v2" disabled={true} width="100%">
-              <option value="v1">v1</option>
-              <option value="v2">v2 (Latest)</option>
-            </Select>
-            <div className="search-bar">
-              <Input
-                className="search-input"
-                rightIcon={<SearchIcon />}
-                placeholder="Search for examples"
-                onChange={this.filterSidebar}
-              />
-            </div>
             {this.state.sidebar && (
               <DocsIndex
                 activeItem={active}
+                examples
                 getHref={slugs => {
                   return {
                     href: `/examples/${slugs.section}`,
@@ -237,7 +222,6 @@ class ExamplesPage extends React.Component {
             </div>
           </Content>
         </Main>
-
         <style jsx>{`
           ul {
             list-style: none;
@@ -253,23 +237,8 @@ class ExamplesPage extends React.Component {
             border-bottom: 1px solid #eaeaea;
           }
 
-          .platform-select-title {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 16px;
-            margin-top: 0;
-          }
-
           .toggle-group-wrapper {
             display: none;
-          }
-
-          .search-bar {
-            margin-top: 15px;
-          }
-
-          .search-bar :global(.search-input) {
-            width: 100%;
           }
 
           .buttons {
