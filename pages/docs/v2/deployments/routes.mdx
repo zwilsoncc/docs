@@ -113,7 +113,7 @@ An example of using the `headers` property to add [shared caching](https://devel
 {
   "version": 2,
   "routes": [
-    { "src": "/images/.+", "headers": { "cache-control": "s-maxage=604800" } }
+    { "src": "/images/(.*)", "headers": { "cache-control": "s-maxage=604800" }, "dest": "/images/$1" }
   ]
 }
 ```
@@ -212,7 +212,7 @@ As an example, you can use this property when you have an API endpoint and only 
 ```json
 {
   "version": 2,
-  "routes": [{ "src": "/api/user.js", "methods": ["POST", "GET"] }],
+  "routes": [{ "src": "/api/user.js", "methods": ["POST", "GET"], "dest": "/api/user.js" }],
   "builds": [{ "src": "*.js", "use": "@now/node" }]
 }
 ```
