@@ -17,8 +17,8 @@ export const meta = {
   image: `${
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
-  editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-05-22T00:26:04.760Z'
+  editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
+  lastEdited: '2019-06-15T12:17:10.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -186,13 +186,22 @@ module.exports = async (req, res) => {
   const users = await collection.find({}).toArray()
 
   // Respond with a JSON string of all users in the collection
-  res.end(JSON.stringify({ users }))
+  res.status(200).json({ users })
 }
 ```
 
 <Caption>
   A Node.js API Endpoint that retrieves data from a MongoDB database collection.
 </Caption>
+
+<Note hint>
+  In the code snippet above, you probably noticed that we used{' '}
+  <InlineCode>res.status()</InlineCode> and <InlineCode>res.json()</InlineCode>{' '}
+  to send a response. These methods are automatically added for you when you use
+  <InlineCode>@now/node</InlineCode>. Read more about this in the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node#helpers">
+    <InlineCode>@now/node</InlineCode> Builder documentation page
+  </GenericLink>.
+</Note>
 
 ## Step 3: Local Development
 
@@ -229,9 +238,9 @@ Next, run the Now CLI development command from the terminal:
   </GenericLink>, which is the easiest way to get started with Now.
 </Note>
 
-After starting the development process, Now CLI will provide you with a localhost address for where your application is running. This is commonly http://localhost:3000 unless the port is taken.
+After starting the development process, Now CLI will provide you with a localhost address for where your application is running. This is commonly <http://localhost:3000> unless the port is taken.
 
-Using the default port, you can find your new API endpoint at http://localhost:3000/api/users.js.
+Using the default port, you can find your new API endpoint at <http://localhost:3000/api/users.js>.
 
 ## Step 4: Deploying
 
@@ -284,7 +293,7 @@ Now, deploy your project to a production environment using the following command
 
 When complete, Now CLI will provide you with the URL your project has been deployed and aliased to. In the case above, the alias was set to `my-mongodb-api.now.sh`.
 
-You can view the aliased deployment from this guide, using the API path, here: https://my-mongodb-api.now.sh/api/users.js
+You can view the aliased deployment from this guide, using the API path, here: <https://my-mongodb-api.now.sh/api/users.js>
 
 <Note hint>
   Don't forget to exclude the <InlineCode>node_modules</InlineCode> folder from

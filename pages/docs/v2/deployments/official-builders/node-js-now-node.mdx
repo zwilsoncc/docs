@@ -1,4 +1,3 @@
-import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { TerminalInput } from '~/components/text/terminal'
 import { Code, InlineCode } from '~/components/text/code'
@@ -16,7 +15,7 @@ export const meta = {
   description:
     'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/node-js-now-node.mdx',
-  lastEdited: '2019-06-05T20:17:29.000Z'
+  lastEdited: '2019-06-17T08:18:07.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -43,12 +42,9 @@ Inside `my-node-project > api > hello` we will create an `index.js` file.
 The `index.js` file exports a Node.js function that takes in [the standard Node.js request and response](#request-and-response-objects) objects:
 
 ```js
-const { parse } = require('url')
-
 module.exports = (req, res) => {
-  const { query } = parse(req.url, true)
-  const { name = 'World' } = query
-  res.end(`Hello ${name}!`)
+  const { name = 'World' } = req.query
+  res.send(`Hello ${name}!`)
 }
 ```
 
@@ -92,11 +88,175 @@ You can pass query parameters to make the name change:
 />
 <Caption>The lambda using the <InlineCode>name</InlineCode> query parameter to change the text using Node.js.</Caption>
 
+## Request and Response Objects
+
+For each invocation of a Node.js lambda, two objects, request and response, are passed to the function.
+These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js.
+
+### Helpers
+
+In addition to the standard Node.js [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) methods, we provide a set of helper properties and methods to make it even easier for you to build a new lambda function:
+
+| method             | description                                                                                                                                                                                    | object   |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `req.query`        | An object containing the request's [query string](https://en.wikipedia.org/wiki/Query_string), or `{}` if the request does not have a query string.                                            | request  |
+| `req.cookies`      | An object containing the cookies sent by the request, or `{}` if the request contains no cookies.                                                                                              | request  |
+| `req.body`         | An object containing the body sent by the request, or `null` if no body is sent.                                                                                                               | request  |
+| `res.status(code)` | A function to set the status code sent with the response where `code` must be a valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). Returns `res` for chaining. | response |
+| `res.send(body)`   | A function to set the content of the response where `body` can be a `string`, an `object` or a `Buffer`.                                                                                       | response |
+| `res.json(obj)`    | A function to send a JSON response where `obj` is the JSON object to send.                                                                                                                     | response |
+
+The following lambda example showcases the use of `req.query`, `req.cookies` and `req.body` helpers:
+
+```js
+module.exports = (req, res) => {
+  let who = 'anonymous'
+
+  if (req.body && req.body.who) {
+    who = req.body.who
+  } else if (req.query.who) {
+    who = req.query.who
+  } else if (req.cookies.who) {
+    who = req.cookies.who
+  }
+
+  res.status(200).send(`hi ${who}, what's up?`)
+}
+```
+
+<Caption>
+  Example Node.js lambda using the <InlineCode>req.query</InlineCode>,{' '}
+  <InlineCode>req.cookies</InlineCode> and <InlineCode>req.body</InlineCode>{' '}
+  helpers. It returns greetings for the user specified using{' '}
+  <InlineCode>req.send()</InlineCode>.
+</Caption>
+
+<Note>
+  You can opt-out of this behavior by setting <InlineCode>helpers</InlineCode>{' '}
+  to <InlineCode>false</InlineCode> in the configuration of the builder. If you
+  opt-out, request objects will be replaced by the standard HTTP{' '}
+  <GenericLink href="https://nodejs.org/api/http.html#http_event_request">
+    request
+  </GenericLink>{' '}
+  and{' '}
+  <GenericLink href="https://nodejs.org/api/http.html#http_class_http_serverresponse">
+    response
+  </GenericLink>
+  .<Code lang="json">{`{
+  "builds": [
+    { "src": "my-file.js", "use": "@now/node", "config": { "helpers": "false" } }
+  ]
+}`}</Code>
+  <Caption>
+    You can opt-out of helpers by setting <InlineCode>helpers</InlineCode> to{' '}
+    <InlineCode>false</InlineCode> in the configuration.
+  </Caption>
+</Note>
+
+### `req.body`
+
+We populate the `req.body` property on the request object with a parsed version of the content sent with the request when it is possible.
+
+We follow a set of rules on the `Content-type` header sent by the request to do so:
+
+| `Content-Type` header               | Value of `req.body`                                                                     |
+| ----------------------------------- | --------------------------------------------------------------------------------------- |
+| No header                           | `undefined`                                                                             |
+| `application/json`                  | An object representing the parsed JSON sent by the request.                             |
+| `application/x-www-form-urlencoded` | An object representing the parsed data sent by with the request.                        |
+| `text/plain`                        | A string containing the text sent by the request.                                       |
+| `application/octet-stream`          | A [Buffer](https://nodejs.org/api/buffer.html) containing the data sent by the request. |
+
+With the `req.body` helper, you can build applications without extra dependencies or having to [parse the content of the request manually](https://nodejs.org/ja/docs/guides/anatomy-of-an-http-transaction/#request-body). The following example inspects `req.body`, if it is 'ping', it will return 'pong'.
+
+```js
+module.exports = (req, res) => {
+  if (typeof req.body !== 'string') {
+    return res.status(400).text('Invalid request')
+  }
+
+  if (req.body !== 'ping') {
+    return res.status(400).text('The value expected is `ping`')
+  }
+
+  res.status(200).send('pong')
+}
+```
+
+<Caption>
+  An example Node.js lambda using the <InlineCode>req.body</InlineCode> helper
+  that returns <InlineCode>pong</InlineCode> when you send{' '}
+  <InlineCode>ping</InlineCode>.
+</Caption>
+
+### Typescript support
+
+We provide types for the request and response objects.
+
+To install these types, use the following command:
+
+```
+yarn add @now/node --dev
+```
+
+Or, if you're using `npm`:
+
+```
+npm install @now/node --save-dev
+```
+
+Once the types have been installed, import `NowRequest` and `NowResponse` from `@now/node`, to type the request and response objects:
+
+```ts
+import { NowRequest, NowResponse } from '@now/node'
+
+export default function(req: NowRequest, res: NowResponse) {
+  const { name = 'World' } = req.query
+  res.send(`Hello ${name}!`)
+}
+```
+
+<Caption>
+  An example "Hello World" Typescript lambda using the{' '}
+  <InlineCode>req.query</InlineCode> helper.
+</Caption>
+
+## Async support
+
+We support asynchronous functions out-of-the-box.
+
+In this example, we use the package `asciify-image` to create [ascii art](https://fr.wikipedia.org/wiki/Art_ASCII) from a person's avatar on github. First, we need to install the package:
+
+```
+yarn add asciify-image
+```
+
+In our code, we export an asynchronous function and we take advantage of the helpers.
+
+```js
+const asciify = require('asciify-image')
+
+module.exports = async (req, res) => {
+  if (!req.query.username) {
+    return res.status(400).send('username is missing from query parameters')
+  }
+
+  const avatarUrl = `https://github.com/${req.query.username}.png`
+
+  const opts = { fit: 'box', width: 40, height: 40 }
+  const asciified = await asciify(avatarUrl, opts)
+
+  return res.status(200).send(asciified)
+}
+```
+
+<Caption>An example showcasing the use of an asynchronous function.</Caption>
+
 ## Deploying with Static Content
 
-You can upload static content along side your Node.js application by using [the `@now/static` builder](/docs/v2/deployments/official-builders/static-now-static).
+You can upload static content alongside your Node.js application by using [the `@now/static` Builder](/docs/v2/deployments/official-builders/static-now-static).
 
-For example, if you have a `static` directory and an `index.js` like the one from the example above, you can serve that directory statically by extending your `now.json` configuration:
+For example, if you have a `/static` directory and an `index.js` like the one from the example above, you can serve that directory statically by extending your `now.json` configuration:
 
 ```json
 {
@@ -112,7 +272,7 @@ For example, if you have a `static` directory and an `index.js` like the one fro
   Deploying a serverless Node.js function along with static files.
 </Caption>
 
-For more information, read the documentation for `@now/static`:
+For more information on including static files in your project, read the documentation for `@now/static`:
 
 <Card
   title="Now Static Builder"
@@ -125,95 +285,12 @@ For more information, read the documentation for `@now/static`:
 
 ### Entrypoint
 
-The entrypoint of this Builder is always a JavaScript file that exposes a function. If you want to expose a server, look into `@now/node-server`, although that is not recommended.
+The entrypoint of this Builder is always a JavaScript file that exposes a function. If you want to expose a server, you should read the [documentation for the `@now/node-server` Builder](/docs/v2/deployments/official-builders/node-js-server-now-node-server/), although this is not recommended.
 
 <Note>
   <InlineCode>@now/node</InlineCode> will automatically detect a `package.json`
   file to install dependencies at the entrypoint level or higher.
 </Note>
-
-### Request and Response Objects
-
-For each invocation of a Node.js lambda, two objects, request and response, are passed to the function. These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js.
-
-With many Node.js-based frameworks like [Express](http://expressjs.com/) also frequently dealing with these HTTP request and response objects, you may be able to use them in your Node.js lambda.
-
-The following lambda example, using Express, accepts a JSON body in the POST request, and returns a stringified version of it:
-
-```js
-'use strict'
-
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-
-module.exports = app
-
-app.use(bodyParser.json())
-
-app.post('*', (req, res) => {
-  if (req.body == null) {
-    return res.status(400).send({ error: 'no JSON object in the request' })
-  }
-  res.set('Content-Type', 'application/json')
-  res.status(200).send(JSON.stringify(req.body, null, 4))
-})
-
-app.all('*', (req, res) => {
-  res.status(405).send({ error: 'only POST requests are accepted' })
-})
-```
-
-<Caption>Example Node.js lambda using express and body-parser</Caption>
-
-For more information on handling request bodies with Express, see the following examples: [Express](/examples/express/) and [Twitter Dreamify with Express](/examples/express-twitter-dreamify/).
-
-Handling request bodies in Node.js functions is also possible when not using a framework.
-
-Node.js [request bodies](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/#request-body) arrive in the format of a [ReadableStream](https://nodejs.org/api/stream.html#stream_class_stream_readable) and must be listened to in order to extract the data.
-
-The code to do this, as taken from the [official Node.js documentation](https://nodejs.org/ja/docs/guides/anatomy-of-an-http-transaction/#request-body), has been put into an example below:
-
-```js
-module.exports = async (req, res) => {
-  let body = []
-  await req
-    .on('data', chunk => {
-      body.push(chunk)
-    })
-    .on('end', () => {
-      body = Buffer.concat(body).toString()
-      const json = JSON.parse(body)
-      res.end(`Hello ${json.name}, you just parsed the request body!`)
-    })
-}
-```
-
-<Caption>
-  An example asynchronous Node.js function using the{' '}
-  <GenericLink href="https://nodejs.org/api/stream.html#stream_class_stream_readable">
-    ReadableStream
-  </GenericLink>{' '}
-  object to retrieve the request body contents.
-</Caption>
-
-Using this code might seem a little tedious. As a result, we recommend the use of a third-party library such as [micro](https://github.com/zeit/micro) to parse the request body like so:
-
-```js
-const { json } = require('micro')
-
-module.exports = async (req, res) => {
-  const body = await json(req)
-  res.end(`Hello ${body.name}, you just parsed the request body!`)
-}
-```
-
-<Caption>
-  An example asynchronous Node.js function using micro to get the request body
-  contents.
-</Caption>
-
-For more information on handling request bodies in Node.js, you can [read this short guide](/guides/handling-node-request-body-with-micro) to understand how it works in greater detail.
 
 ### Dependencies Installation
 
@@ -253,7 +330,7 @@ You can run build tasks by creating a `now-build` script within a `package.json`
 <Code lang="js">{`const BuiltTime = require('./built-time')\n
 module.exports = (req, res) => {
   res.setHeader('content-type', 'text/plain');
-  res.end(\`
+  res.send(\`
     This Lambda was built at \${new Date(BuiltTime)}.
     The current time is \${new Date()}
   \`)
@@ -294,6 +371,4 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
 }`}</Code>
 </Example>
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
