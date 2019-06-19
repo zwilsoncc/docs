@@ -116,7 +116,7 @@ If a `Cargo.toml` exists in the project relating to the entry point, the depende
 
 #### `Cargo.toml` Entry Point
 
-When using a `Cargo.toml` file as an entry point for this Builder, Now will use `cargo read-manifest` to build each binary within the project.
+When using a `Cargo.toml` file as an entry point for this Builder, Now will use `cargo read-manifest` to build each binary within the project. It means that **[cargo workspaces](https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html) are not supported as an entry point for now.** See [cargo workspace workaround](#cargo-workspaces-workaround)
 
 This entry point method is an advanced method of using this Builder and requires Rust files to assemble their own runtimes.
 
@@ -229,3 +229,13 @@ The goal of the ZEIT Docs is to provide you with all the information you need to
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true
 })
+
+## Cargo Workspaces Workaround
+
+Cargo's workspaces feature is a great tool when working on multiple binaries and libraries in a single project. If a cargo workspace is found in the entrypoint, however, `@now/rust` will **fail to build**.
+
+To get around this limitation, create build entries in your `now.json` file for each `Cargo.toml` that represents a lambda function within your workspace. In your `.nowignore`, you'll want to add any binary or library project folders that aren't needed for your lambdas to speed up the build process like your `Cargo.toml` workspace.
+
+It's also recommended to have a `Cargo.lock` alongside your lambda `Cargo.toml` files to speed up the build process. You can do this by running `cargo check` or a similar command within each project folder that contains a lambda.
+
+If you have a compelling case for workspaces to be supported by `@now/rust` which are too cumbersome with this workaround, please contact us! We're always looking for feedback.
