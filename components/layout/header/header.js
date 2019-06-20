@@ -305,6 +305,7 @@ class Header extends Component {
       user,
       teams = [],
       userLoaded,
+      zenModeActive,
       isAmp
     } = this.props
     const { menuActive } = this.state
@@ -344,51 +345,55 @@ class Header extends Component {
           data-amp-bind-class={buildAmpNavClass('main-navigation')}
           className={cn('main-navigation', { active: navigationActive })}
         >
-          <NavigationItem
-            href="/docs"
-            active={
-              router.pathname.startsWith('/docs') &&
-              !router.pathname.startsWith('/docs/api') &&
-              !router.pathname.startsWith('/docs/addons')
-            }
-            onClick={handleIndexClick}
-          >
-            Docs
-          </NavigationItem>
-          <NavigationItem
-            href="/guides"
-            active={router.pathname.startsWith('/guides')}
-            onClick={handleIndexClick}
-          >
-            Guides
-          </NavigationItem>
-          <NavigationItem
-            href="/docs/api"
-            active={router.pathname.startsWith('/docs/api')}
-            onClick={handleIndexClick}
-          >
-            API Reference
-          </NavigationItem>
-          <NavigationItem
-            href="/examples"
-            active={router.pathname.startsWith('/examples')}
-            onClick={handleIndexClick}
-          >
-            Examples
-          </NavigationItem>
-          <NavigationItem
-            href="/docs/integrations"
-            active={router.pathname.startsWith('/docs/integrations')}
-            onClick={handleIndexClick}
-          >
-            Integrations
-          </NavigationItem>
-          <span className="desktop_search">{this.renderSearch()}</span>
+          {!zenModeActive && (
+            <span>
+              <NavigationItem
+                href="/docs"
+                active={
+                  router.pathname.startsWith('/docs') &&
+                  !router.pathname.startsWith('/docs/api') &&
+                  !router.pathname.startsWith('/docs/addons')
+                }
+                onClick={handleIndexClick}
+              >
+                Docs
+              </NavigationItem>
+              <NavigationItem
+                href="/guides"
+                active={router.pathname.startsWith('/guides')}
+                onClick={handleIndexClick}
+              >
+                Guides
+              </NavigationItem>
+              <NavigationItem
+                href="/docs/api"
+                active={router.pathname.startsWith('/docs/api')}
+                onClick={handleIndexClick}
+              >
+                API Reference
+              </NavigationItem>
+              <NavigationItem
+                href="/examples"
+                active={router.pathname.startsWith('/examples')}
+                onClick={handleIndexClick}
+              >
+                Examples
+              </NavigationItem>
+              <NavigationItem
+                href="/docs/integrations"
+                active={router.pathname.startsWith('/docs/integrations')}
+                onClick={handleIndexClick}
+              >
+                Integrations
+              </NavigationItem>
+              <span className="desktop_search">{this.renderSearch()}</span>
+            </span>
+          )}
         </Navigation>
 
         <Navigation className="user-navigation">
           <AmpUserFeedback />
-          {userLoaded && (
+          {!zenModeActive && userLoaded && (
             <Fragment>
               {!user ? (
                 <Fragment>
@@ -478,7 +483,20 @@ class Header extends Component {
               )}
             </Fragment>
           )}
+          {zenModeActive && (
+            <img
+              src="/static/img/zen-mode.png"
+              className="zen-mode-icon { cn( zenModeActive ? 'content-zen-mode' : '') }"
+              onClick={this.props.exitZenMode}
+            />
+          )}
         </Navigation>
+        <style jsx>{`
+          .zen-mode-icon {
+            width: 30px;
+            cursor: pointer;
+          }
+        `}</style>
 
         <button
           onClick={onToggleNavigation}
@@ -605,7 +623,7 @@ class Header extends Component {
             display: none;
           }
           .desktop_search {
-            display: block;
+            display: inline-block;
           }
 
           :global(.amp-search) {
