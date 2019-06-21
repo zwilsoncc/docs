@@ -483,21 +483,7 @@ class Header extends Component {
               )}
             </Fragment>
           )}
-          {zenModeActive && (
-            <img
-              src="/static/img/zen-mode.png"
-              className="zen-mode-icon { cn( zenModeActive ? 'content-zen-mode' : '') }"
-              onClick={this.props.exitZenMode}
-            />
-          )}
         </Navigation>
-        <style jsx>{`
-          .zen-mode-icon {
-            width: 30px;
-            cursor: pointer;
-          }
-        `}</style>
-
         <button
           onClick={onToggleNavigation}
           className={cn('arrow-toggle', { active: navigationActive })}

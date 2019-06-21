@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "./scripts/now-examples-fetch.sh && next",
     "build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build",
-    "now-build": "npm run build && npm run export",
+    "now-build": "yarn run build && yarn run export",
     "now-dev": "./scripts/now-examples-fetch.sh && next -p $PORT",
     "start": "cross-env NODE_ENV=production next start",
     "export": "next export -o dist",
     "lint": "eslint .",
-    "test": "npm run lint",
+    "test": "yarn run lint",
     "update-mdx-meta": "node scripts/update-mdx-meta",
     "prettier": "prettier --write \"**/*.{js,json,md,mdx}\"",
     "docs-index": "node ./scripts/index-docs.js"
@@ -90,7 +90,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "npm run update-mdx-meta -- post-commit"
+      "post-commit": "yarn run update-mdx-meta -- post-commit"
     }
   },
   "lint-staged": {
