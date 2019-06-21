@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/next-js-now-next.mdx',
-  lastEdited: '2019-06-19T17:40:46.000Z'
+  lastEdited: '2019-06-21T04:23:32.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -120,6 +120,92 @@ The installation algorithm of dependencies works as follows:
 
 To install private npm modules, define `NPM_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build.env) in `now.json`.
 
+### Exposing Configuration
+
+To support configuration, Next.js inlines the provided values into the JavaScript bundle at build. This circumvents the performance concerns with runtime configuration along with the subtle issues associated with sharing configuration with the client.
+
+You can add the `env` key to the `next.config.js` file:
+
+```js
+module.exports = {
+  env: {
+    customKey: process.env.customKey,
+    mySecret: process.env.mySecret
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>next.config.js</InlineCode> file.
+</Caption>
+
+Then, [expose the build env](/docs/v2/deployments/environment-variables-and-secrets) in your `now.json`:
+
+```json
+{
+  ...
+  "build": {
+    "env": {
+      "customKey": "value",
+      "mySecret": "@my-secret-name"
+    }
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file specifying a build
+  environment variable.
+</Caption>
+
+This will allow you to use `process.env.customKey` and `process.env.mySecret` in your code, for example:
+
+```js
+function Index() {
+  return (
+    <div>
+      <h1>The value of customKey is: {process.env.customKey}</h1>
+      <h2>Your secret is: {process.env.mySecret}</h2>
+    </div>
+  )
+}
+
+export default Index
+```
+
+<Caption>
+  An example <InlineCode>index.js</InlineCode> file that references environment
+  variables.
+</Caption>
+
+Which will be replaced with:
+
+```js
+function Index() {
+  return (
+    <div>
+      <h1>The value of customKey is: {'value'}</h1>
+      <h2>Your secret is: {'secret-value'}</h2>
+    </div>
+  )
+}
+
+export default Index
+```
+
+<Caption>
+  An example <InlineCode>index.js</InlineCode> file that shows the value of the
+  referenced environment variables.
+</Caption>
+
+<Note>
+  Visit to the{' '}
+  <GenericLink href="https://zeit.co/docs/v2/development/environment-variables/#using-a-.env.build-file">
+    now dev
+  </GenericLink>{' '}
+  docs for using a <InlineCode>.env.build</InlineCode> file.
+</Note>
+
 ### Build Step
 
 You can run build tasks by creating a `now-build` script within a `package.json` file. If no `now-build` script is defined, then `next build` is assumed. If `now-build` is defined, it will replace `next build`.
@@ -166,78 +252,6 @@ The Node.js version used is the **v8.10**.
 This builder separates your pages into individual serverless endpoints, so you cannot use a custom server.
 
 Using a custom server would require that all pages be routed through that custom server and the application would lose out on many of the benefits of [serverless](/docs/v2/deployments/concepts/lambdas/) Next.js. You can still achieve most of the logic that you have in a custom server by using [getInitialProps()](https://nextjs.org/docs/#fetching-data-and-component-lifecycle) and using [routes](/docs/v2/deployments/configuration/#routes).
-
-### Exposing Configuration
-
-To support configuration, Next.js inlines the provided values into the JavaScript bundle at build. This circumvents the performance concerns with runtime configuration along with the subtle issues associated with sharing configuration with the client.
-
-You can add the `env` key to the `next.config.js` file:
-
-```js
-module.exports = {
-  env: {
-    customKey: process.env.customKey,
-    mySecret: process.env.mySecret
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>next.config.js</InlineCode> file.
-</Caption>
-
-Then, [expose the build env](/docs/v2/deployments/environment-variables-and-secrets) in your `now.json`:
-
-```json
-{
-  ...
-  "build": {
-    "env": {
-      "customKey": "value",
-      "mySecret": "@my-secret-name"
-    }
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file specifying a
-  build environment variable.
-</Caption>
-
-This will allow you to use `process.env.customKey` and `process.env.mySecret` in your code, for example:
-
-```js
-function Index() {
-  return (
-    <div>
-      <h1>The value of customKey is: {process.env.customKey}</h1>
-      <h2>Your secret is: {process.env.mySecret}</h2>
-    </div>
-  )
-}
-
-export default Index
-```
-
-<Caption>An example <InlineCode>index.js</InlineCode> file that references environment variables.</Caption>
-
-Which will be replaced with:
-
-```js
-function Index() {
-  return (
-    <div>
-      <h1>The value of customKey is: {'value'}</h1>
-      <h2>Your secret is: {'secret-value'}</h2>
-    </div>
-  )
-}
-
-export default Index
-```
-
-<Caption>An example <InlineCode>index.js</InlineCode> file that shows the value of the referenced environment variables.</Caption>
 
 ### Maximum Lambda Bundle Size
 
