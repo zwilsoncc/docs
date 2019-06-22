@@ -62,12 +62,10 @@ function Category({ info, level = 1, ...props }) {
       }`}
       key={info.name || ''}
     >
-      <Link prefetch>
-        <a className="label" onClick={onClick}>
-          <ArrowDown width={9} fill="#000" />
-          {info.name}
-        </a>
-      </Link>
+      <a className="label" onClick={onClick}>
+        <ArrowDown width={9} fill="#000" />
+        {info.name}
+      </a>
       {!info.href || isCategorySelected(info) ? (
         <div className="posts">
           {info.posts.map(postInfo => (
