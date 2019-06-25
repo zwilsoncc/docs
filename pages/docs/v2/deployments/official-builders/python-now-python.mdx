@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Python Builder for ZEIT Now. Serverless invokable functions from Python source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/deployments/official-builders/python-now-python.mdx',
-  lastEdited: '2019-05-03T01:09:00.000Z'
+  lastEdited: '2019-06-25T21:21:14.000Z'
 }
 
 <Tag>Status: Beta</Tag>
@@ -50,7 +50,7 @@ Inside `requirements.txt` define:
 cowpy==1.0.3
 ```
 
-And define a `now.json` like:
+And define a `now.json` like so:
 
 ```json
 {
@@ -59,7 +59,7 @@ And define a `now.json` like:
 }
 ```
 
-The example above can be seen live as <https://python-deployment-mhssg6mqx.now.sh/>
+The example above can be seen live at <https://python-deployment-mhssg6mqx.now.sh/>
 
 Also, the source code of the deployment can be checked by appending `/_src` e.g. <https://python-deployment-mhssg6mqx.now.sh/_src>.
 
@@ -87,7 +87,7 @@ Inside `requirements.txt` define:
 flask==1.0.2
 ```
 
-And define a `now.json` like:
+And define a `now.json` like so:
 
 ```json
 {
@@ -97,9 +97,49 @@ And define a `now.json` like:
 }
 ```
 
-Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a Lambda.
+Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use the [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a serverless function.
 
-The example above can be seen live as <https://simple-python-flask.now-examples.now.sh/Hello>
+The example above can be seen live at <https://simple-python-flask.now-examples.now.sh/Hello>
+
+## Asynchronous Server Gateway Interface
+
+The Asynchronous Server Gateway Interface (ASGI) is a calling convention for web servers to forward requests to asynchronous web applications written in Python. You can use ASGI with frameworks such as [Sanic](https://sanic.readthedocs.io).
+
+Instead of defining a `handler`, define an `app` variable in your Python file.
+
+For example, define a `index.py` file inside a folder as follows:
+
+```python
+from sanic import Sanic
+from sanic.response import json
+app = Sanic()
+
+
+@app.route('/')
+@app.route('/<path:path>')
+async def index(request, path=""):
+    return json({'hello': path})
+```
+
+Inside `requirements.txt` define:
+
+```
+sanic==19.6.0
+```
+
+And define a `now.json` like so:
+
+```json
+{
+  "version": 2,
+  "builds": [{ "src": "index.py", "use": "@now/python" }],
+  "routes": [{ "src": "(.*)", "dest": "index.py" }]
+}
+```
+
+Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use the [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a serverless function.
+
+The example above can be seen live at <https://simple-python-sanic-rf2yqvtg9.now.sh/world>
 
 ## Technical Details
 
@@ -108,7 +148,7 @@ The example above can be seen live as <https://simple-python-flask.now-examples.
 The entrypoint file must be a `.py` source file with one of the following variables defined:
 
 - `handler` that inherits from the `BaseHTTPRequestHandler` class
-- `app` that exposes a WSGI Application
+- `app` that exposes a WSGI or ASGI Application
 
 ### Version
 
