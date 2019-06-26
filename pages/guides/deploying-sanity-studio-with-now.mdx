@@ -70,7 +70,7 @@ To get your project ready for deployment, add a `now.json` file at the root of 
 ```
 
 <Caption>
-An example <InlineCode>now.json</InlineCode> file for your Sanity project.
+  An example <InlineCode>now.json</InlineCode> file for your Sanity project.
 </Caption>
 
 The [Builder](/docs/v2/deployments/builders/overview/) will look for an [npm script](https://docs.npmjs.com/misc/scripts) called `now-build`, you should add this to the `scripts` part of the Studio’s `package.json` file:
@@ -84,7 +84,10 @@ The [Builder](/docs/v2/deployments/builders/overview/) will look for an [npm scr
 },
 // ...
 ```
-<Caption>An example <InlineCode>package.json</InlineCode> file for your Sanity project.</Caption>
+
+<Caption>
+  An example <InlineCode>package.json</InlineCode> file for your Sanity project.
+</Caption>
 
 Lastly, add `@sanity/cli` as a [development dependency](https://yarnpkg.com/en/docs/dependency-types#toc-dev-dependencies), so that the Now [Builder](/docs/v2/deployments/builders/overview/) installs the dependencies it needs to run the `sanity build` script on deployment:
 
@@ -124,7 +127,10 @@ Many teams are more effective when all their code is in one place. Using the mon
 }
 ```
 
-<Caption>An example <InlineCode>now.json</InlineCode> file for a monorepo Sanity project.</Caption>
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file for a monorepo Sanity
+  project.
+</Caption>
 
 Since we are now accessing the studio at `your-url.now.sh/studio`, we need to tell the studio that it runs in a subfolder. This is done by adding a `basePath` property to `sanity.json`:
 
@@ -136,6 +142,7 @@ Since we are now accessing the studio at `your-url.now.sh/studio`, we need to te
 },
 //...
 ```
+
 <Caption>An example <InlineCode>sanity.json</InlineCode> file in a Sanity project.</Caption>
 <Note>
   If you want to change the <InlineCode>/studio</InlineCode> path to something different, make sure you

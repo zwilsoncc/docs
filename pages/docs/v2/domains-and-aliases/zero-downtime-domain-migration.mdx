@@ -22,8 +22,9 @@ When migrating to another set of nameservers, there can often be downtime incurr
 
 <Note warning>
   We <P.B>strongly advise against using external verification</P.B> as it
-  prevents you from receiving the full benefits of ZEIT's platform and services, such as the
-  automatic renewal of wildcard certificates. Furthermore, many DNS providers{' '}
+  prevents you from receiving the full benefits of ZEIT's platform and services,
+  such as the automatic renewal of wildcard certificates. Furthermore, many DNS
+  providers{' '}
   <P.B>do not have a global connection capable of low-latency geo-routing</P.B>,
   which is likely to <P.B>slow down your applications</P.B>.
 </Note>
@@ -53,7 +54,8 @@ To avoid pointing the nameservers to Now prematurely, use the TXT method for ver
 With your domain provider, create the TXT record using the `name` (also known as `host` or `alias`) `_now` and the value provided when adding the domain.
 
 <Note>
-  If you have forgotten or misplaced the value before verifying the domain, you can use{' '}
+  If you have forgotten or misplaced the value before verifying the domain, you
+  can use{' '}
   <InlineCode>
     now domains inspect <P.B>domain</P.B>
   </InlineCode>{' '}

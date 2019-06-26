@@ -39,7 +39,13 @@ The `builds` property is an array of objects where each object is a build step, 
 
 The Builder will receive a list of files based on the `src` property's [glob](<https://en.wikipedia.org/wiki/Glob_(programming)>) value.
 
-<Note>It is important to remember that the <InlineCode>src</InlineCode> property is a glob. In the above example, this will only use <InlineCode>@now/static</InlineCode> for the HTML files in the root directory. If you need it to be used throughout subdirectories, you need the appropriate glob syntax: <InlineCode>**/*.html</InlineCode>.</Note>
+<Note>
+  It is important to remember that the <InlineCode>src</InlineCode> property is
+  a glob. In the above example, this will only use{' '}
+  <InlineCode>@now/static</InlineCode> for the HTML files in the root directory.
+  If you need it to be used throughout subdirectories, you need the appropriate
+  glob syntax: <InlineCode>**/*.html</InlineCode>.
+</Note>
 
 ## Builder Versioning
 
