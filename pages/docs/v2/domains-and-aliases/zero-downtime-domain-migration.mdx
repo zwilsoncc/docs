@@ -85,7 +85,7 @@ You can generate a certificate for your domain from either the Web UI or Now CLI
 
 With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL certificate for your domain and all subdomains, called common names (CNs), with the following command:
 
-<TerminalInput>{`now certs issue \*.<domain> <domain>`}</TerminalInput>
+<TerminalInput>{`now certs issue \*.<domain> <domain> --challenge-only`}</TerminalInput>
 
 You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that Now has sufficient permissions, consisting of two TXT records.
 
