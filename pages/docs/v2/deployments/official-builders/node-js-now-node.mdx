@@ -15,7 +15,7 @@ export const meta = {
   description:
     'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/node-js-now-node.mdx',
-  lastEdited: '2019-06-25T19:51:03.000Z'
+  lastEdited: '2019-06-28T20:21:46.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -302,6 +302,8 @@ The installation algorithm of dependencies works as follows:
 ### Private npm modules
 
 To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
+
+Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/deployments/configuration#build.env) with the contents of `~/.npmrc`.
 
 ### Build Step
 

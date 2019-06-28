@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/next-js-now-next.mdx',
-  lastEdited: '2019-06-24T14:13:20.000Z'
+  lastEdited: '2019-06-28T20:21:46.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -118,7 +118,9 @@ The installation algorithm of dependencies works as follows:
 
 ### Private npm modules
 
-To install private npm modules, define `NPM_TOKEN` as a [build environment](/docs/v2/deployments/configuration#build.env) in `now.json`.
+To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build.env) in `now.json`.
+
+Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/deployments/configuration#build.env) with the contents of `~/.npmrc`.
 
 ### Exposing Configuration
 
