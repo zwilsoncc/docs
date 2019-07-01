@@ -3,13 +3,13 @@ workflow "Build and Index Files" {
   resolves = ["Index Files"]
 }
 
-action "Master" {
+action "Master and not deleted" {
   uses = "actions/bin/filter@master"
-  args = "branch master"
+  args = "branch master && not deleted"
 }
 
 action "Install" {
-  needs = ["Master"]
+  needs = ["Master and not deleted"]
   uses = "docker://mhart/alpine-node:10"
   runs = "sh -c"
   args = ["yarn install --production"]
