@@ -19,7 +19,7 @@ export const meta = {
 
 <Tag>Status: Stable</Tag>
 
-The Now Next.js Builder takes a [Next.js application](https://nextjs.org), defined by a `next.config.js` entrypoint and `pages` directory, and converts those pages into a series of individual [lambdas](/docs/v2/deployments/concepts/lambdas).
+The Now Next.js Builder takes a [Next.js application](https://nextjs.org), defined by a `package.json` entrypoint and `pages` directory, and converts those pages into a series of individual [lambdas](/docs/v2/deployments/concepts/lambdas).
 
 It features built-in caching of `node_modules` and all compiler artifacts for very fast deployments.
 
@@ -37,38 +37,28 @@ To get started, make sure you have installed the Next.js dependencies with the f
 
 <TerminalInput>yarn add next react react-dom</TerminalInput>
 
-Then, in your project directory, create a `pages` directory with some example pages, for example; the home index page, `pages/index.js`:
-
-```jsx
-export default () => <div>Hello world!</div>
-```
-
-Create a simple `next.config.js` file to use as our entrypoint for the build, and to configure that the build should be a collection of serverless [lambdas](/docs/v2/deployments/concepts/lambdas/):
-
-```js
-module.exports = {
-  target: 'serverless'
-}
-```
-
 <Note>
-  The serverless method is only supported in{' '}
+  The serverless option is only supported in{' '}
   <GenericLink href="https://nextjs.org/blog/next-8/#serverless-nextjs">
     Next.js version 8
   </GenericLink>{' '}
   and above.
 </Note>
 
+Then, in your project directory, create a `pages` directory with some example pages, for example; the home index page, `pages/index.js`:
+
+```jsx
+export default () => <div>Hello world!</div>
+```
+
 Then define a build step in a `now.json` configuration file:
 
 ```json
 {
   "version": 2,
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
 }
 ```
-
-To prevent unintended issues and to speed up the uploading step of the deployment process, make sure to add both the `.next` and `node_modules` directories to [a `.nowignore` file](/docs/v2/deployments/ignoring-source-paths/).
 
 [Upon deployment](/docs/v2/deployments/basics), you will get a URL like the following: <https://nextjs-8fnzfb1ci.now.sh>
 
@@ -97,13 +87,7 @@ If you are looking to set up custom routes for your Next.js app, see the followi
 
 ### Entrypoint
 
-The entrypoint of this builder is a `next.config.js` file with the `target` configuration option set to `serverless`.
-
-```
-module.exports = {
-  target: "serverless"
-}
-```
+The entrypoint of this builder is a `package.json` with Next.js 8 or newer defined in `dependencies`.
 
 This configuration, shown above, tells Next.js to build each page in the `pages` directory as a [lambda](/docs/v2/deployments/concepts/lambdas/) function.
 
@@ -270,7 +254,7 @@ This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-ou
   </span>
   <Code lang="json">{`{
   "builds": [
-    { "src": "next.config.js", "use": "@now/next", "config": { "maxLambdaSize": "10mb" } }
+    { "src": "package.json", "use": "@now/next", "config": { "maxLambdaSize": "10mb" } }
   ]
 }`}</Code>
 </Example>
