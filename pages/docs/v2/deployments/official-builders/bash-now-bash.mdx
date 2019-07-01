@@ -67,6 +67,25 @@ The final step is to define a build that will take this entrypoint (`index.sh`),
 }
 ```
 
+[Import](https://import.pw) can be configured by adding options to the `import` property of the `config`. The `IMPORT_` prefix must not be set in this case:
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/index.sh",
+      "use": "@now/bash",
+      "config": {
+        "import": {
+          "DEBUG": "1"
+        }
+      }
+    }
+  ]
+}
+```
+
 <Caption>
   A <InlineCode>now.json</InlineCode> file using a build which takes a shell
   file and uses the <InlineCode>@now/bash</InlineCode> Builder to output a
