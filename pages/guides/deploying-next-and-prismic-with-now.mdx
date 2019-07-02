@@ -11,7 +11,7 @@ import { P } from '~/components/text/paragraph'
 export const meta = {
   title: 'Create and Deploy a Next.js and Prismic Application with Now',
   description:
-    'Creating a Next.js project with Prismic as a data source and deploying to Now',
+    'Creating a Next.js project with Prismic as a content source and deploying to Now',
   published: '2019-06-26T14:46:50.000Z',
   authors: ['raulg'],
   url: '/guides/deploying-next-and-prismic-with-now',
@@ -19,7 +19,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-06-26T11:48:02.000Z'
+  lastEdited: '2019-07-02T12:44:31.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
@@ -39,7 +39,7 @@ In this guide, you will create a [Next.js](https://nextjs.org/) blog site from s
 
 For this guide, you will start with **installing a boilerplate Next.js project that uses Prismic**. Start with installing the [Prismic CLI package](https://github.com/prismicio/prismic-cli), followed by quick-starting your project from the provided git repo.
 
-This process clones the codebase and guides you through setting up the repository that will be used as your blog's data source.
+This process clones the codebase and guides you through setting up the repository that will be used as your blog's content source.
 
 <TerminalInput>
   yarn global add prismic-cli 
@@ -82,7 +82,7 @@ Just a simple blog home page and a couple of posts will do for now, **but you ca
   to allow more flexibility when creating your posts.
 </Note>
 
-## Step 2: Sourcing Data From Prismic
+## Step 2: Sourcing Your Content From Prismic
 
 With the relevant Prismic dependencies installed, you can start building a page that will serve as a blog index. `/pages/index.js` will have a component that will get the **blog_home** document with `getInitialProps` and render it's Rich Text fields.
 
@@ -151,6 +151,8 @@ BlogHome.getInitialProps = async context => {
 
   return { home, posts }
 }
+
+export default BlogHome
 ```
 
 <Caption>
