@@ -15,7 +15,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2019-02-19T13:50:46.000Z'
+  lastEdited: '2019-07-04T22:25:19.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as an alias for your ZEIT Now deployments.
@@ -129,13 +129,21 @@ Learn more about using the [`now dns`](https://zeit.co/docs/v2/domains-and-alias
 
 ZEIT Now is dedicated to making deployment easy. If you have not yet deployed an application, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started. The aliasing process will also generate a free SSL certificate for your domain.
 
-When you are ready to deploy and alias, using the [`alias`](/docs/v2/deployments/configuration#alias) property containing your domain, within in your [`now.json`](/docs/v2/deployments/configuration). 
+When you are ready to deploy and alias, using the [`alias`](/docs/v2/deployments/configuration#alias) property containing your domain, within your [`now.json`](/docs/v2/deployments/configuration).
 
 ```json
 {
   "alias": "www.yourdomain.com"
 }
 ```
+
+<Caption>
+  Adding an{' '}
+  <GenericLink href="/docs/v2/deployments/configuration/#alias">
+    alias
+  </GenericLink>{' '}
+  to your project's <InlineCode>now.json</InlineCode> file.
+</Caption>
 
 You can deploy and set up an alias to your domain with one command:
 
