@@ -357,7 +357,14 @@ The resulting lambda contains both the build and current time: <https://build-ti
 
 The default Node.js version used is **8.10.x**.
 
-The version can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+The version can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`:
+
+<Code lang="json">{`{
+  "name": "my-app",
+  "engines": {
+    "node": "10.x"
+  }
+}`}</Code>
 
 ### Maximum Lambda Bundle Size
 
