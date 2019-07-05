@@ -58,7 +58,7 @@ function Landing({ router }) {
           <div className="get-started-cta">
             <GenericLink href="/docs/v2/getting-started/introduction-to-now">
               <Button bgColor="#0070F3" width={284}>
-                Getting started with Now
+                Get Started
               </Button>
             </GenericLink>
           </div>
