@@ -70,22 +70,22 @@ function Landing({ router }) {
             <div className="topics-container">
               <List columnsDesktop={3} columnsTablet={2} columnsMobile={1}>
                 <Topic
-                  topic="next.js"
+                  topic="Next.js"
                   href="/guides/deploying-nextjs-with-now/"
                   icons={`${process.env.ASSETS}/topics/icons/next.svg`}
                 />
                 <Topic
-                  topic="gatsby"
+                  topic="Gatsby"
                   href="/guides/deploying-gatsby-with-now/"
                   icons={`${process.env.ASSETS}/topics/icons/gatsby.svg`}
                 />
                 <Topic
-                  topic="vue.js"
+                  topic="Vue.js"
                   href="/guides/deploying-vuejs-to-now/"
                   icons={`${process.env.ASSETS}/topics/icons/vue.svg`}
                 />
                 <Topic
-                  topic="angular"
+                  topic="Angular"
                   href="/guides/deploying-angular-with-now/"
                   icons={`${process.env.ASSETS}/topics/icons/angular.svg`}
                 />
@@ -186,7 +186,7 @@ function Landing({ router }) {
                   }}
                 />
                 <Topic
-                  topic="vuepress"
+                  topic="VuePress"
                   href="/guides/deploying-vuepress-to-now/"
                   icons={`${process.env.ASSETS}/topics/icons/vue.svg`}
                 />
