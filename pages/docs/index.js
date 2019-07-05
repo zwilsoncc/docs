@@ -70,30 +70,30 @@ function Landing({ router }) {
             <div className="topics-container">
               <List columnsDesktop={3} columnsTablet={2} columnsMobile={1}>
                 <Topic
-                  topic="Next.js"
+                  topic="next.js"
                   href="/guides/deploying-nextjs-with-now/"
-                  icons="/static/topics/icons/next.svg"
+                  icons={`${process.env.ASSETS}/topics/icons/next.svg`}
                 />
                 <Topic
-                  topic="Gatsby"
+                  topic="gatsby"
                   href="/guides/deploying-gatsby-with-now/"
-                  icons="/static/topics/icons/gatsby.svg"
+                  icons={`${process.env.ASSETS}/topics/icons/gatsby.svg`}
                 />
                 <Topic
-                  topic="Vue.js"
+                  topic="vue.js"
                   href="/guides/deploying-vuejs-to-now/"
-                  icons="/static/topics/icons/vue.svg"
+                  icons={`${process.env.ASSETS}/topics/icons/vue.svg`}
                 />
                 <Topic
-                  topic="Angular"
+                  topic="angular"
                   href="/guides/deploying-angular-with-now/"
-                  icons="/static/topics/icons/angular.svg"
+                  icons={`${process.env.ASSETS}/topics/icons/angular.svg`}
                 />
                 <Topic
                   topic="Create React App"
                   href="/guides/deploying-react-with-now-cra/"
                   icons={{
-                    src: '/static/topics/icons/react.svg',
+                    src: `${process.env.ASSETS}/topics/icons/react.svg`,
                     color: '#20232a'
                   }}
                 />
@@ -101,11 +101,11 @@ function Landing({ router }) {
                   topic="Next.js + Node.js + MySQL"
                   href="/guides/deploying-next-and-mysql-with-now/"
                   icons={[
-                    '/static/topics/icons/next.svg',
-                    '/static/topics/icons/node.svg',
+                    `${process.env.ASSETS}/topics/icons/next.svg`,
+                    `${process.env.ASSETS}/topics/icons/node.svg`,
                     {
-                      src: '/static/topics/icons/mysql.svg',
-                      color: '#00546B'
+                      src: `${process.env.ASSETS}/topics/icons/mysql.svg`,
+                      color: '#00546b'
                     }
                   ]}
                 />
@@ -113,25 +113,25 @@ function Landing({ router }) {
                   topic="Next.js + Prismic"
                   href="/guides/deploying-next-and-prismic-with-now"
                   icons={[
-                    '/static/topics/icons/next.svg',
+                    `${process.env.ASSETS}/topics/icons/next.svg`,
                     {
-                      src: '/static/topics/icons/prismic.svg',
-                      color: '#1B2C7C'
+                      src: `${process.env.ASSETS}/topics/icons/prismic.svg`,
+                      color: '#1b2c7c'
                     }
                   ]}
                 />
                 <Topic
-                  topic="Charge"
+                  topic="charge"
                   href="/guides/deploying-charge-with-now/"
-                  icons="/static/topics/icons/charge.svg"
+                  icons={`${process.env.ASSETS}/topics/icons/charge.svg`}
                 />
                 <Topic
                   topic="Next.js + Storyblok"
                   href="/guides/deploying-next-and-storyblok-with-now/"
                   icons={[
-                    '/static/topics/icons/next.svg',
+                    `${process.env.ASSETS}/topics/icons/next.svg`,
                     {
-                      src: '/static/topics/icons/storyblok.svg',
+                      src: `${process.env.ASSETS}/topics/icons/storyblok.svg`,
                       color: '#09B3AF'
                     }
                   ]}
@@ -140,9 +140,9 @@ function Landing({ router }) {
                   topic="Next.js + ButterCMS"
                   href="/guides/deploying-next-and-buttercms-with-now"
                   icons={[
-                    '/static/topics/icons/next.svg',
+                    `${process.env.ASSETS}/topics/icons/next.svg`,
                     {
-                      src: '/static/topics/icons/butter.svg',
+                      src: `${process.env.ASSETS}/topics/icons/butter.svg`,
                       color: '#2A1C4D'
                     }
                   ]}
@@ -151,9 +151,9 @@ function Landing({ router }) {
                   topic="Next.js + Contentful"
                   href="/guides/deploying-next-and-contentful-with-now/"
                   icons={[
-                    '/static/topics/icons/next.svg',
+                    `${process.env.ASSETS}/topics/icons/next.svg`,
                     {
-                      src: '/static/topics/icons/contentful.svg',
+                      src: `${process.env.ASSETS}/topics/icons/contentful.svg`,
                       color: '#192531'
                     }
                   ]}
@@ -162,7 +162,7 @@ function Landing({ router }) {
                   topic="Sanity.io"
                   href="/guides/deploying-sanity-studio-with-now/"
                   icons={{
-                    src: '/static/topics/icons/sanity.svg',
+                    src: `${process.env.ASSETS}/topics/icons/sanity.svg`,
                     color: '#f43'
                   }}
                 />
@@ -170,9 +170,9 @@ function Landing({ router }) {
                   topic="Node.js + MongoDB"
                   href="/guides/deploying-a-mongodb-powered-api-with-node-and-now/"
                   icons={[
-                    '/static/topics/icons/node.svg',
+                    `${process.env.ASSETS}/topics/icons/node.svg`,
                     {
-                      src: '/static/topics/icons/mongo.svg',
+                      src: `${process.env.ASSETS}/topics/icons/mongo.svg`,
                       color: '#414043'
                     }
                   ]}
@@ -181,14 +181,14 @@ function Landing({ router }) {
                   topic="Hugo"
                   href="/guides/deploying-hugo-with-now/"
                   icons={{
-                    src: '/static/topics/icons/hugo.svg',
+                    src: `${process.env.ASSETS}/topics/icons/hugo.svg`,
                     color: '#0a1921'
                   }}
                 />
                 <Topic
-                  topic="VuePress"
+                  topic="vuepress"
                   href="/guides/deploying-vuepress-to-now/"
-                  icons="/static/topics/icons/vue.svg"
+                  icons={`${process.env.ASSETS}/topics/icons/vue.svg`}
                 />
               </List>
             </div>
