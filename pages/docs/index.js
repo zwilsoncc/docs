@@ -58,7 +58,7 @@ function Landing({ router }) {
           <div className="get-started-cta">
             <GenericLink href="/docs/v2/getting-started/introduction-to-now">
               <Button bgColor="#0070F3" width={284}>
-                Get Started
+                Introduction to ZEIT Now
               </Button>
             </GenericLink>
           </div>
@@ -121,7 +121,7 @@ function Landing({ router }) {
                   ]}
                 />
                 <Topic
-                  topic="charge"
+                  topic="Charge"
                   href="/guides/deploying-charge-with-now/"
                   icons={`${process.env.ASSETS}/topics/icons/charge.svg`}
                 />
@@ -203,7 +203,7 @@ function Landing({ router }) {
                   <H5>{d.name}</H5>
                   {d.posts.map(p => (
                     <GenericLink href={p.href || p.overview} key={p.name}>
-                      <a>{p.name}</a>
+                      {p.name}
                     </GenericLink>
                   ))}
                 </div>

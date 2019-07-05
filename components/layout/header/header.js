@@ -539,12 +539,13 @@ class Header extends Component {
             onClick={onToggleNavigation}
             className={cn('arrow-toggle', { active: navigationActive })}
             data-amp-bind-class={buildAmpNavClass('arrow-toggle')}
+            name="menu-toggle"
             on={
               isAmp
                 ? 'tap:AMP.setState({ header: { active: !header.active } })'
                 : undefined
             }
-            role="toggle"
+            role="switch"
             tabIndex="1"
           >
             <div className="line top" />
@@ -775,10 +776,13 @@ class Header extends Component {
             }
 
             :global(.header .main-navigation .navigation-items) {
-              width: 100%;
-              flex-wrap: wrap;
-              padding: 0 16px;
+              flex-wrap: nowrap;
+              padding: 8px 16px;
               border-top: 1px solid #eaeaea;
+              overflow-x: auto;
+              display: flex;
+              width: 100%;
+              white-space: nowrap;
             }
 
             :global(.header .main-navigation .navigation-item a) {

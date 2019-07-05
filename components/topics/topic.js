@@ -9,19 +9,19 @@ export default function Topic({ topic, icons, href }) {
           {Array.isArray(icons) ? (
             icons.map(icon =>
               typeof icon === 'object' ? (
-                <span style={{ backgroundColor: icon.color }}>
-                  <img src={icon.src} />
+                <span key={icon.src} style={{ backgroundColor: icon.color }}>
+                  <img alt={`Icon for ${topic}`} src={icon.src} />
                 </span>
               ) : (
-                <img src={icon} />
+                <img alt={`Icon for ${topic}`} key={icon} src={icon} />
               )
             )
           ) : typeof icons === 'object' ? (
             <span style={{ backgroundColor: icons.color }}>
-              <img src={icons.src} />
+              <img alt={`Icon for ${topic}`} src={icons.src} />
             </span>
           ) : (
-            <img src={icons} />
+            <img alt={`Icon for ${topic}`} src={icons} />
           )}
         </span>
         <H5>{topic}</H5>
