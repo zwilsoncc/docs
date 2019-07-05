@@ -35,7 +35,7 @@ const DocH1 = ({ children }) => (
     </Heading>
     <style jsx>{`
       :global(h1) {
-        margin: 40px 0 0 0;
+        margin: 0;
       }
     `}</style>
   </>
@@ -170,7 +170,7 @@ class withDoc extends React.Component {
           h4: DocH4
         }}
       >
-        <Layout>
+        <Layout dynamicSearch={false}>
           <Head
             titlePrefix=""
             titleSuffix=" - ZEIT Documentation"
@@ -290,10 +290,6 @@ class withDoc extends React.Component {
                 justify-content: center;
                 margin-bottom: 40px;
               }
-            }
-
-            .heading {
-              margin-top: 40px;
             }
           `}</style>
         </Layout>

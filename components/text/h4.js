@@ -5,9 +5,11 @@ const H4 = ({ children, isCommand }) => (
     {children}
     <style jsx>{`
       h4 {
+        font-size: 1.25rem;
+        line-height: 1.399em;
+        letter-spacing: -0.020625rem;
         font-weight: 600;
-        font-size: 24px;
-        margin-bottom: 16px;
+        color: var(--geist-foreground);
       }
 
       .command {
@@ -16,6 +18,11 @@ const H4 = ({ children, isCommand }) => (
           DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
           serif;
         font-size: 0.9em;
+      }
+
+      h4 :global(code) {
+        margin-left: 6px;
+        margin-right: 6px;
       }
     `}</style>
   </h4>

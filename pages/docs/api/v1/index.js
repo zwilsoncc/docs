@@ -293,8 +293,12 @@ class APIPage extends Component {
               padding-top: 16px;
             }
 
-            .category-wrapper {
+            .category-wrapper:not(:first-child) {
               padding: 40px 0;
+            }
+
+            .category-wrapper:first-child :global(h1) {
+              margin-top: 0;
             }
 
             .category-wrapper:not(:last-child) {

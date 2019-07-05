@@ -306,7 +306,8 @@ class HeaderFeedback extends Component {
                   border-width: 0;
                   background: #f9f9f9;
                   border-radius: 4px;
-                  padding: 4px 8px;
+                  padding: 0 8px;
+                  line-height: 26px;
                   font-size: 12px;
                   font-family: ${FONT_FAMILY_SANS};
                   width: 84px;

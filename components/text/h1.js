@@ -1,12 +1,18 @@
-const H1 = ({ children }) => (
-  <h1>
+const H1 = ({ children, className }) => (
+  <h1 className={className}>
     {children}
     <style jsx>{`
       h1 {
-        font-size: 36px;
+        font-size: 3rem;
+        line-height: 1.1666em;
+        letter-spacing: -0.066875rem;
         font-weight: 600;
-        margin-top: 0;
-        line-height: 1.333;
+        color: var(--geist-foreground);
+      }
+
+      h1 :global(code) {
+        margin-left: 6px;
+        margin-right: 6px;
       }
     `}</style>
   </h1>

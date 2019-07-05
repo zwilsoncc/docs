@@ -302,8 +302,12 @@ class IntegrationsPage extends Component {
               padding: 0;
             }
 
-            .category-wrapper {
+            .category-wrapper:not(:first-child) {
               padding: 40px 0;
+            }
+
+            .category-wrapper:first-child :global(h1) {
+              margin-top: 0;
             }
 
             .category-wrapper:not(:last-child) {

@@ -136,7 +136,7 @@ class Guide extends React.PureComponent {
 
             .guide-heading {
               border-bottom: 1px solid #eaeaea;
-              padding-top: 144px;
+              padding-top: 24px;
               padding-bottom: 44px;
               text-align: center;
             }

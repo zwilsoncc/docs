@@ -152,7 +152,7 @@ function Category({ info, level = 1, ...props }) {
 
           .level-2 .label {
             margin: 0;
-            border-bottom: 1px solid #eee;
+            /* border-bottom: 1px solid #eee; */
           }
 
           .level-2 .label:not(.link) {
@@ -195,7 +195,7 @@ function Post({ info, level = 1, ...props }) {
         @media screen and (max-width: 950px) {
           .link {
             margin: 0;
-            border-bottom: 1px solid #eee;
+            /* border-bottom: 1px solid #eee; */
           }
         }
       `}</style>
@@ -338,10 +338,14 @@ export class NavLink extends React.Component {
   }
 }
 
-export default function DocsNavbarDesktop({ categoryInfo, ...props }) {
+export default function DocsNavbarDesktop({
+  categoryInfo,
+  data = [],
+  ...props
+}) {
   return (
     <>
-      {props.data.map(categoryInfo => (
+      {data.map(categoryInfo => (
         <Category info={categoryInfo} {...props} key={categoryInfo.name} />
       ))}
     </>

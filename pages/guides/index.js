@@ -84,14 +84,16 @@ const Guides = () => (
     </div>
 
     <style jsx>{`
+      :global(span a) {
+        width: 100%;
+      }
       .guides {
-        padding-top: 84px;
         min-height: 100vh;
       }
 
       .guide-heading {
         border-bottom: 1px solid #eaeaea;
-        padding-top: 54px;
+        padding-top: 48px;
         padding-bottom: 16px;
       }
 

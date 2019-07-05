@@ -23,7 +23,16 @@ export const GenericLink = props => {
 }
 
 export const InternalLink = (
-  { href, as, children, onClick, underlineOnHover = true },
+  {
+    href,
+    as,
+    children,
+    onClick,
+    underlineOnHover = true,
+    display,
+    color,
+    hover
+  },
   { darkBg } = {}
 ) => (
   <span onClick={onClick} className={cn({ 'no-underline': !underlineOnHover })}>
@@ -33,7 +42,6 @@ export const InternalLink = (
     <style jsx>{`
       span :global(a) {
         text-decoration: none;
-        color: #0076ff;
         font-size: inherit;
         cursor: pointer;
       }
@@ -48,6 +56,20 @@ export const InternalLink = (
 
       span :global(a.dark) {
         color: #fff;
+      }
+    `}</style>
+    <style jsx>{`
+      span {
+        display: ${display ? display : ''};
+        margin: ${display === 'block' ? '1em 0;' : ''};
+      }
+
+      span :global(a) {
+        color: ${color ? color : '#0076ff'};
+      }
+
+      span :global(a:hover) {
+        color: ${hover ? hover : color || '#0076ff'};
       }
     `}</style>
   </span>

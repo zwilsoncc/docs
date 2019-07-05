@@ -15,9 +15,7 @@ class AutoComplete extends Component {
   static propTypes = {
     hits: PropTypes.arrayOf(PropTypes.object).isRequired,
     currentRefinement: PropTypes.string.isRequired,
-    refine: PropTypes.func.isRequired,
-    onSuggestionSelected: PropTypes.func.isRequired,
-    onSuggestionCleared: PropTypes.func.isRequired
+    refine: PropTypes.func.isRequired
   }
 
   state = {
@@ -34,7 +32,7 @@ class AutoComplete extends Component {
   }
 
   onChange = (_, { newValue }) => {
-    if (!newValue) {
+    if (!newValue && this.props.onSuggestionCleared) {
       this.props.onSuggestionCleared()
     }
 
@@ -54,7 +52,8 @@ class AutoComplete extends Component {
   }
 
   onSuggestionSelected = (_, { suggestion, method }) => {
-    this.props.onSuggestionSelected(_, { suggestion })
+    if (this.props.onSuggestionSelected)
+      this.props.onSuggestionSelected(_, { suggestion })
 
     if (method === 'enter') {
       this.props.router.push({
@@ -68,7 +67,6 @@ class AutoComplete extends Component {
   getSuggestionValue = () => this.state.value
 
   renderSuggestion = hit => {
-    console.log(hit.anchor)
     return (
       <Link
         href={`${hit.url}?query=${encodeURIComponent(this.state.value)}${
@@ -105,7 +103,6 @@ class AutoComplete extends Component {
     const { value, inputFocused } = this.state
 
     const inputProps = {
-      placeholder: 'Search...',
       onChange: this.onChange,
       onFocus: this.onToggleFocus,
       onBlur: this.onToggleFocus,
@@ -113,10 +110,18 @@ class AutoComplete extends Component {
     }
 
     return (
-      <span className={cn('search__container', { focused: inputFocused })}>
-        <span className="search__search-icon">
-          <SearchIcon />
-        </span>
+      <span
+        className={cn('search__container', {
+          focused: inputFocused,
+          'has-value': !!value.length
+        })}
+      >
+        {!this.state.value && (
+          <span className="search__search-placeholder">
+            <SearchIcon />
+            <span>Search...</span>
+          </span>
+        )}
 
         <AutoSuggest
           suggestions={hits}
@@ -132,26 +137,35 @@ class AutoComplete extends Component {
         <style jsx global>{`
           .search__container {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
 
-          .search__search-icon {
+          .search__search-placeholder {
             position: relative;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 3;
+            transition: opacity 0.15s ease;
+            font-size: 14px;
+            color: var(--accents-5);
+            pointer-events: none;
           }
 
-          .search__search-icon svg {
-            fill: #999999;
-            position: absolute;
-            left: 20px;
-            z-index: 3;
-            top: 11px;
-            transition: fill 0.15s ease;
+          .search__search-placeholder svg {
+            fill: currentColor;
+            margin-right: 8px;
+            margin-bottom: -2px;
           }
 
           .suggestion__title {
             font-size: 16px;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            line-height: 1.5em;
             display: flex;
             align-items: center;
           }
@@ -171,7 +185,7 @@ class AutoComplete extends Component {
           }
 
           .tags {
-            margin-left: 12px;
+            margin-left: 8px;
             height: 22px;
           }
 
@@ -200,49 +214,65 @@ class AutoComplete extends Component {
 
           .react-autosuggest__container {
             position: relative;
-            margin-left: 12px;
           }
 
           .react-autosuggest__input {
-            width: 240px;
-            height: 30px;
-            padding: 16px 24px 16px 28px;
+            text-align: center;
+            width: 528px;
+            height: 48px;
+            padding: 16px;
             font-size: 14px;
-            border: 1px solid transparent;
-            border-radius: 4px;
+            border: 1px solid var(--accents-2);
+            border-radius: 8px;
             transition: border 0.15s ease;
             -webkit-appearance: none;
           }
 
           .react-autosuggest__input:hover {
-            border: 1px solid #eaeaea;
+            border: 1px solid var(--accents-3);
+          }
+
+          .search__container.focused .react-autosuggest__input,
+          .react-autosuggest__input:focus,
+          .react-autosuggest__input:valid {
+            border: 1px solid #ddd;
+            outline: 0;
+            text-align: left;
           }
 
           .search__container.focused .react-autosuggest__input,
           .react-autosuggest__input:focus {
-            border: 1px solid #ddd;
-            outline: 0;
+            border-color: transparent;
+            box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.12);
+            border-bottom: 1px solid var(--accents-2);
           }
 
-          .search__container.focused .search__search-icon :global(svg) {
-            fill: #333;
+          .search__container.has-value.focused .react-autosuggest__input,
+          .search__container.has-value .react-autosuggest__input:focus {
+            border-radius: 8px 8px 0 0;
+          }
+
+          .search__container.focused .search__search-placeholder {
+            opacity: 0;
           }
 
           .react-autosuggest__suggestions-container {
             display: none;
-            max-height: calc(90vh - 148px);
+            max-height: calc(90vh - 334px);
+            min-height: 168px;
             overflow-y: auto;
+            padding: 12px 0;
           }
 
           .react-autosuggest__suggestions-container--open {
             display: block;
             position: absolute;
             z-index: 2;
-            width: 500px;
-            top: 40px;
+            width: 100%;
+            top: 48px;
             background: #ffffff;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
-            border-radius: 5px;
+            border-radius: 0 0 8px 8px;
           }
 
           .react-autosuggest__suggestions-list {
@@ -258,17 +288,24 @@ class AutoComplete extends Component {
             padding: 12px 16px;
           }
 
-          .react-autosuggest__suggestion:not(:last-child) {
-            border-bottom: 1px solid #eaeaea;
+          .react-autosuggest__suggestion {
+            padding: 0 12px;
           }
 
           .react-autosuggest__suggestion a {
             text-decoration: none;
             color: black;
+            border-radius: 4px;
+            display: block;
+            padding: 12px;
           }
 
-          .react-autosuggest__suggestion--highlighted {
-            background: #f1f1f1;
+          .react-autosuggest__suggestion--highlighted a {
+            background: var(--accents-1);
+          }
+
+          .react-autosuggest__suggestion--highlighted a span {
+            color: var(--geist-foreground);
           }
 
           .react-autosuggest__section-container {
@@ -288,13 +325,33 @@ class AutoComplete extends Component {
           @media screen and (max-width: 950px) {
             .react-autosuggest__input {
               font-size: 16px;
-              width: 100%;
+              width: 300px;
             }
 
             .react-autosuggest__suggestions-container--open {
-              right: 0;
-              left: -30px;
+              left: 50%;
+              transform: translate(-50%);
               width: 300px;
+            }
+            .search__search-placeholder svg {
+              left: 100px;
+            }
+          }
+
+          @media screen and (max-width: 350px) {
+            .react-autosuggest__input {
+              font-size: 16px;
+              width: 200px;
+            }
+
+            .react-autosuggest__suggestions-container--open {
+              left: 50%;
+              transform: translate(-50%);
+              width: 200px;
+            }
+
+            .search__search-placeholder svg {
+              left: 50px;
             }
           }
         `}</style>

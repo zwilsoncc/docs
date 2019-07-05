@@ -7,17 +7,22 @@ import { ZenContext } from '~/lib/zen-context'
 import UseTeamInfo from '~/lib/use-team-info'
 import * as bodyLocker from '~/lib/utils/body-locker'
 
-const WrapForAmp = ({ comp, ...props }) => {
+const LayoutHeader = React.memo(props => {
   const isAmp = useAmp()
-  return React.createElement(comp, { ...props, isAmp })
-}
+  return <Header {...props} isAmp={isAmp} />
+})
+
+// Closured variable for `onScroll` function
+let ignore = false
 
 export default class Layout extends React.Component {
   static contextType = ZenContext
 
   state = {
     navigationActive: false,
-    zenModeActive: false
+    zenModeActive: false,
+    scrollPosition: 0,
+    scrollDirection: null
   }
 
   altKeyDown = false
@@ -64,9 +69,38 @@ export default class Layout extends React.Component {
     this.altKeyDown = false
   }
 
+  onScroll() {
+    // Debounce scroll events by ignoring them until we're given the thread
+    // to repaint
+    if (ignore) {
+      return
+    }
+    ignore = true
+
+    requestAnimationFrame(async () => {
+      ignore = false
+
+      await this.setState({
+        scrollDirection:
+          this.state.scrollPosition < window.pageYOffset ? 'down' : 'up'
+      })
+
+      // Handle the scroll via setState, etc.
+      this.setState({
+        scrollPosition: window.pageYOffset,
+        navigationActive: false
+      })
+    })
+  }
+
   componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown.bind(this), false)
     document.addEventListener('keyUp', this.onKeyUp.bind(this), false)
+    window.addEventListener('scroll', this.onScroll.bind(this))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll.bind(this))
   }
 
   handleToggleNavigation = () => {
@@ -93,7 +127,8 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, dynamicSearch } = this.props
+    const { scrollPosition, scrollDirection } = this.state
 
     return (
       <Page>
@@ -102,8 +137,16 @@ export default class Layout extends React.Component {
             <UseTeamInfo
               user={user}
               render={({ teams }) => (
-                <WrapForAmp
-                  comp={Header}
+                <LayoutHeader
+                  hideHeader={
+                    scrollDirection === 'down' &&
+                    !(scrollPosition < 334) &&
+                    scrollPosition !== 0
+                      ? true
+                      : false
+                  }
+                  hideHeaderSearch={dynamicSearch && scrollPosition < 334}
+                  dynamicSearch={dynamicSearch}
                   onToggleNavigation={this.handleToggleNavigation}
                   user={user}
                   teams={teams}

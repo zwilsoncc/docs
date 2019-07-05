@@ -1,24 +1,41 @@
 import Wrapper from '../wrapper'
 import { HEADER_HEIGHT } from '~/lib/constants'
 
-const Header = ({ className, children }) => (
+const Header = ({
+  className,
+  hideHeader,
+  dynamicSearch,
+  hideHeaderSearch = true,
+  children
+}) => (
   <header className={className}>
     <Wrapper className="content">{children}</Wrapper>
     <style jsx>{`
       header {
-        background: #fff;
-        border-bottom: 1px solid #eaeaea;
+        position: absolute;
         height: ${HEADER_HEIGHT}px;
-        position: fixed;
-        top: 0;
         width: 100%;
         z-index: 1000;
+        top: 0;
       }
 
       header > :global(.content) {
         align-items: center;
         display: flex;
         height: 100%;
+      }
+    `}</style>
+    <style jsx>{`
+      header {
+        position: ${hideHeaderSearch && dynamicSearch ? 'absolute' : 'fixed'};
+        top: ${hideHeader && dynamicSearch ? '-80px' : '0'};
+        background: ${hideHeaderSearch && dynamicSearch
+          ? 'transparent'
+          : '#fff'};
+        border-bottom: ${hideHeaderSearch && dynamicSearch
+          ? ''
+          : '1px solid #eaeaea'};
+        ${!hideHeader ? 'transition: all 150ms ease-in-out' : ''};
       }
     `}</style>
   </header>
