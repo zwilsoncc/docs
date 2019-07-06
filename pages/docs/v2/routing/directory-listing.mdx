@@ -31,10 +31,16 @@ However, no **Index File** is present. If one would be present, the path of the 
 
 ## Index Files
 
-Files that match all of the following criteria are considered **Index Files** and rendered in place of the path of the directory that they are located in:
+ **Index Files** are rendered in place of the path of the directory they are located in.
+ 
+For example, visiting the path `/about` will serve the index file located in the `about` directory if it exists. This is typically `/about/index.html`.
+
+Files that match all of the following criteria will be identified as an index:
 
 - The file name is either `index` or `index.<extension>` (where `<extension>` is any file extension of your choice).
 - The file name **does not** end with a `.` or contain multiple `.` in a row.
+
+If multiple files match this pattern, `index.html` will take precedence followed by shortest to longest file names. That means `index.js` will take precedence over `index.bundle.js`.
 
 ## Types of List Items
 
