@@ -29,11 +29,11 @@ const Guides = () => (
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
             <GenericLink
-              href="https://github.com/zeit/docs/blob/master/CONTRIBUTING.md#guides"
+              href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Guides&template=guide-report-or-request.md"
               underlineOnHover={false}
             >
               <Button secondary small>
-                Submit a Guide
+                Request a Guide
               </Button>
             </GenericLink>
           </div>
