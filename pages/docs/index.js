@@ -26,11 +26,21 @@ import data from '~/lib/data/v2/docs'
 import Wrapper from '~/components/layout/wrapper'
 import Topic from '~/components/topics'
 import { List } from '~/components/list'
+import * as metrics from '~/lib/metrics'
 
 const searchClient = getAlgoliaClient()
 
 function Landing({ router }) {
   const [searchState, setSearchState] = useState({})
+
+  const handleClickedCTA = e => {
+    metrics.event({
+      action: 'cta_click',
+      category: 'engagement',
+      label: e.target.innerHTML.replace(/<[^>]*>?/gm, '')
+    })
+  }
+
   return (
     <Layout dynamicSearch={true}>
       <Head
@@ -57,7 +67,7 @@ function Landing({ router }) {
           </div>
           <div className="get-started-cta">
             <GenericLink href="/docs/v2/getting-started/introduction-to-now">
-              <Button bgColor="#0070F3" width={284}>
+              <Button bgColor="#0070F3" width={284} onClick={handleClickedCTA}>
                 Introduction to ZEIT Now
               </Button>
             </GenericLink>
@@ -253,7 +263,11 @@ function Landing({ router }) {
                   </li>
                 </ul>
                 <GenericLink href="/support#Plans">
-                  <Button bgColor="#007aff" width="fit-content">
+                  <Button
+                    bgColor="#007aff"
+                    width="fit-content"
+                    onClick={handleClickedCTA}
+                  >
                     View Plans
                   </Button>
                 </GenericLink>

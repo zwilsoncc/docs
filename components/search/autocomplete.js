@@ -10,6 +10,7 @@ import {
   Snippet
 } from 'react-instantsearch-dom'
 import SearchIcon from '~/components/icons/search'
+import * as metrics from '~/lib/metrics'
 
 class AutoComplete extends Component {
   static propTypes = {
@@ -40,6 +41,7 @@ class AutoComplete extends Component {
   }
 
   onToggleFocus = () => {
+    metrics.event({ action: 'search_focused', category: 'engagement' })
     this.setState({ inputFocused: !this.state.inputFocused })
   }
 

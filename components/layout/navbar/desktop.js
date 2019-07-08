@@ -5,7 +5,7 @@ import qs from 'querystring'
 import { parse } from 'url'
 import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import ArrowDown from '~/components/icons/arrow-down'
-import Link from 'next/link'
+import * as metrics from '~/lib/metrics'
 
 function scrollIntoViewIfNeeded(elem, centerIfNeeded, options, config) {
   const finalElement = findClosestScrollableElement(elem)
@@ -52,6 +52,11 @@ function Category({ info, level = 1, ...props }) {
   }, [categorySelected])
 
   const onClick = () => {
+    metrics.event({
+      action: 'sidebar_category_toggled',
+      category: 'engagement',
+      label: info.name
+    })
     setToggle(!toggle)
   }
 

@@ -2,6 +2,7 @@ import cns from 'classnames'
 import Link from 'next/link'
 import { Component, Fragment } from 'react'
 import SectionIndex from './section-index'
+import * as metrics from '~/lib/metrics'
 
 class CategoryIndex extends Component {
   renderSection = section => {
@@ -20,13 +21,21 @@ class CategoryIndex extends Component {
       />
     )
   }
+
   handleClick = () => {
     const { category } = this.props
+    metrics.event({
+      action: 'sidebar_category_clicked',
+      category: 'engagement',
+      label: category.title
+    })
+
     this.props.updateActive({
       category: category.slug
     })
     this.props.onClickLink()
   }
+
   render() {
     const { category, getHref, section, onClickLink } = this.props
     const active = isCategoryActive(this.props)

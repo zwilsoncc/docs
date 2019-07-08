@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import cns from 'classnames'
 import { Component } from 'react'
+import * as metrics from '~/lib/metrics'
 
 class EntryIndex extends Component {
   componentDidMount() {
@@ -31,6 +32,13 @@ class EntryIndex extends Component {
 
   handleClick = () => {
     const { category, section, entry } = this.props
+
+    metrics.event({
+      action: 'sidebar_entry_clicked',
+      category: 'engagement',
+      label: entry.title
+    })
+
     this.props.updateActive({
       category: category.slug,
       section: section.slug,
