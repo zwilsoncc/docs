@@ -41,7 +41,7 @@ function Landing({ router }) {
       />
       <main>
         <section className="hero-section">
-          <H1>Start Building with Now</H1>
+          <H1>Start Building with ZEIT Now</H1>
           <div className="desktop-search">
             <InstantSearch
               indexName="prod_docs"
