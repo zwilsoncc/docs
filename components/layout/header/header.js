@@ -448,7 +448,10 @@ class Header extends Component {
               <Fragment>
                 {!user ? (
                   <Fragment>
-                    <HeaderFeedback onFeedback={this.handleFeedbackSubmit} />
+                    <HeaderFeedback
+                      onFeedback={this.handleFeedbackSubmit}
+                      hideHeader={hideHeader}
+                    />
                     <NavigationItem
                       className="chat"
                       href="https://zeit.co/support"
