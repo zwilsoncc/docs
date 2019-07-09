@@ -14,10 +14,18 @@ export const meta = {
     'The official OptiPNG Builder for ZEIT Now. Compress images that are deployed to Now with no additional configuration.',
   editUrl:
     'pages/docs/v2/deployments/official-builders/optipng-now-optipng.mdx',
-  lastEdited: '2019-03-12T15:18:33.000Z'
+  lastEdited: '2019-07-09T21:48:46.000Z'
 }
 
-<Tag>Status: Stable</Tag>
+<Tag>Status: Deprecated</Tag>
+
+<Note warning>
+  This Builder is deprecated. Please use the{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/static-build-now-static-build">
+    <InlineCode>@now/static-build</InlineCode> Builder
+  </GenericLink>{' '}
+  instead which supports the same features, improved performance, and more.
+</Note>
 
 This builder optimizes `.png` files using [OptiPNG](http://optipng.sourceforge.net/).
 

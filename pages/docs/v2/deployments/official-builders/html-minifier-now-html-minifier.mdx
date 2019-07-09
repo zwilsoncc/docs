@@ -14,10 +14,18 @@ export const meta = {
     'The official HTML Minifier Builder for ZEIT Now. Minify HTML sources when deploying to ZEIT Now.',
   editUrl:
     'pages/docs/v2/deployments/official-builders/html-minifier-now-html-minifier.mdx',
-  lastEdited: '2019-03-12T15:18:33.000Z'
+  lastEdited: '2019-07-09T21:48:46.000Z'
 }
 
-<Tag>Status: Stable</Tag>
+<Tag>Status: Deprecated</Tag>
+
+<Note warning>
+  This Builder is deprecated. Please use the{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/static-build-now-static-build">
+    <InlineCode>@now/static-build</InlineCode> Builder
+  </GenericLink>{' '}
+  instead which supports the same features, improved performance, and more.
+</Note>
 
 This builder optimizes `.html` files using [html-minifier](https://github.com/kangax/html-minifier).
 
