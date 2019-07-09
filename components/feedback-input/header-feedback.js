@@ -411,6 +411,7 @@ class HeaderFeedback extends Component {
                   overflow: hidden;
                   position: relative;
                   transition: all 150ms ease-out;
+                  z-index: 1000;
                 }
 
                 .geist-feedback-input.focused .textarea-wrapper textarea {
