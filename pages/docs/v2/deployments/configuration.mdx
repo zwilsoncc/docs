@@ -222,6 +222,7 @@ For more information on builds and builders, see the documentation:
 - `dest`: A destination pathname or full URL, including querystring, with the ability to embed capture groups as $1, $2…
 - `headers`: A set of headers to apply for responses.
 - `status`: A status code to respond with. Can be used in tandem with `Location:` header to implement redirects.
+- `continue`: A boolean to change matching behavior. If `true`, routing will continue even when the `src` is matched.
 
 <Example>
   <P.B>Usage Example:</P.B>
