@@ -5,12 +5,13 @@ import { Image, Video } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import { GenericLink } from '~/components/text/link'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Adding a Domain to Now',
   description: 'Adding and using a domain to use with deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/domains-and-aliases/adding-a-domain.mdx',
-  lastEdited: '2019-03-28T21:04:40.000Z'
+  lastEdited: '2019-07-10T19:20:24.000Z'
 }
 
 With Now, you can alias your deployments to a custom name, whether that is a free `.now.sh` prefixed domain or your personal domain. This document will explain how to add your domain to Now so that you can alias your deployments to it.
@@ -23,9 +24,11 @@ Using the ZEIT DNS nameservers is the preferred way of verifying and pointing yo
 
 There are several benefits:
 
-- You can easily create new aliases with the Now CLI.
-- It allows us to generate DNS records automatically that help with managing your domain.
-- You can generate wildcard certificates automatically.
+- You can easily create new aliases with the Now CLI
+- It allows us to generate DNS records automatically that help with managing your domain
+- You can generate wildcard certificates automatically
+- Your domain will be served by our lightning fast [Smart CDN](/smart-cdn)
+- You get an SSL certificate as standard which we renew for you
 
 Using this method means that you will be using ZEIT DNS and your domain will be marked as a ZEIT DNS or [zeit.world](/dns) domain.
 
@@ -35,13 +38,19 @@ To add a domain with ZEIT, use the `now domains add` command:
 
 Now CLI will give you an intended set of nameservers that can be set with your domain name provider to point to ZEIT DNS so that you can access your deployments from that domain. The nameservers you are provided with are randomly given to enhance [stability and security](#stability-and-security) when setting up your domain.
 
-Note: To migrate with no downtime, follow our [Zero-Downtime Migration to ZEIT DNS Guide](/docs/v2/domains-and-aliases/zero-downtime-domain-migration).
+<Note>
+  To migrate with no downtime, follow our{' '}
+  <GenericLink href="/docs/v2/domains-and-aliases/zero-downtime-domain-migration">
+    Zero-Downtime Migration to ZEIT DNS Guide
+  </GenericLink>
+  .
+</Note>
 
 Now will automatically check that the nameservers have been updated, and when detected, the domain will be marked as verified. You can force Now to check for verification by using the `now domains verify` command:
 
 <TerminalInput>{`now domains verify <domain>`}</TerminalInput>
 
-That's it! You're ready to [alias your deployments](/docs/v2/domains-and-aliases/aliasing-a-deployment) and [create DNS records](/docs/v2/domains-and-aliases/dns). Your wildcard certficate is created automatically.
+That's it! You're ready to [alias your deployments](/docs/v2/domains-and-aliases/aliasing-a-deployment) and [create DNS records](/docs/v2/domains-and-aliases/dns). Your wildcard certificate is created automatically.
 
 ### Option 2: Using External Nameservers
 
