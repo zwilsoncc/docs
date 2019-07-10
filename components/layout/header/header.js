@@ -53,17 +53,11 @@ class Header extends Component {
     const {
       searchState: { query }
     } = this.state
-    if (query) {
+    if (query && document.referrer.includes('amp')) {
       // focus algolia to show results
       const sel = selector => document.querySelector(selector)
-      sel(
-        getComputedStyle(sel('.mobile_search')).display === 'none'
-          ? '.desktop_search input'
-          : '.mobile_search input'
-      ).focus()
+      sel('.search-wrapper input').focus()
     }
-
-    this.setState({ prevScrollPos: window.pageYOffset })
   }
 
   onLogoRightClick = event => {
@@ -73,9 +67,9 @@ class Header extends Component {
 
   getSearchQ() {
     const { router } = this.props
-    let query = router.query.q
+    let query = router.query.query
     if (typeof window === 'undefined') return query
-    if (!query) query = parse(location.search.substr(1)).q
+    if (!query) query = parse(location.search.substr(1)).query
     return query
   }
 
@@ -226,50 +220,47 @@ class Header extends Component {
     } = this.props
     return (
       <>
-        {isAmp && (
+        {!isAmp ? (
+          <div className="search-bar">
+            <InstantSearch
+              indexName="prod_docs"
+              searchClient={searchClient}
+              searchState={this.state.searchState}
+              onSearchStateChange={searchState => {
+                this.setState({
+                  searchState: {
+                    ...this.state.searchState,
+                    ...searchState
+                  }
+                })
+              }}
+            >
+              <Configure hitsPerPage={8} />
+              <AutoComplete
+                onSuggestionSelected={this.onSuggestionSelected}
+                onSuggestionCleared={this.onSuggestionCleared}
+              />
+            </InstantSearch>
+          </div>
+        ) : (
           <form
             method="GET"
             action={pathname.replace(/\.amp$/, '')}
             target="_top"
-            style={{
-              position: 'absolute',
-              zIndex: 5
-            }}
+            className="search-bar"
           >
             <input
               required
-              name="q"
+              name="query"
               type="text"
               className="amp-search"
               placeholder="Search..."
             />
-            <div className="search-border" />
           </form>
         )}
-        <div className="search-bar">
-          <InstantSearch
-            indexName="prod_docs"
-            searchClient={searchClient}
-            searchState={this.state.searchState}
-            onSearchStateChange={searchState => {
-              this.setState({
-                searchState: {
-                  ...this.state.searchState,
-                  ...searchState
-                }
-              })
-            }}
-          >
-            <Configure hitsPerPage={8} />
-            <AutoComplete
-              onSuggestionSelected={this.onSuggestionSelected}
-              onSuggestionCleared={this.onSuggestionCleared}
-            />
-          </InstantSearch>
-        </div>
-
         <style jsx>{`
-          .search-bar :global(.react-autosuggest__input) {
+          .search-bar :global(.react-autosuggest__input),
+          .search-bar input {
             height: 32px;
             max-width: 60vw;
             width: 278px;
@@ -280,10 +271,23 @@ class Header extends Component {
 
           .search-bar
             :global(.search__container.focused .react-autosuggest__input),
-          .search-bar :global(.react-autosuggest__input:focus) {
+          .search-bar :global(.react-autosuggest__input:focus),
+          .search-bar input:focus {
             border-color: var(--accents-3);
             box-shadow: none;
             background: var(--geist-background);
+          }
+
+          .amp-search {
+            border: 1px solid var(--accents-2);
+            outline: 0;
+            text-align: left;
+            font-size: 14px;
+            max-width: 60vw;
+            width: 278px;
+            background: var(--accents-1);
+            padding: 0 12px;
+            border-radius: 4px;
           }
 
           .search-bar
@@ -434,7 +438,7 @@ class Header extends Component {
 
         <div className="search">
           <span
-            className={`desktop_search ${hideHeaderSearch ? 'hidden' : ''}`}
+            className={`search-wrapper ${hideHeaderSearch ? 'hidden' : ''}`}
           >
             {' '}
             {this.renderSearch()}
@@ -444,7 +448,7 @@ class Header extends Component {
         <div className="right-nav">
           <Navigation className="user-navigation">
             <AmpUserFeedback />
-            {!zenModeActive && userLoaded && (
+            {!zenModeActive && userLoaded && !isAmp && (
               <Fragment>
                 {!user ? (
                   <Fragment>
@@ -694,7 +698,7 @@ class Header extends Component {
             display: none;
           }
 
-          .desktop_search {
+          .search-wrapper {
             opacity: 1;
             visibility: visible;
             transition: visibility 0s linear 0s, opacity 300ms;
@@ -703,37 +707,10 @@ class Header extends Component {
             justify-content: center;
           }
 
-          .desktop_search.hidden {
+          .search-wrapper.hidden {
             visibility: hidden;
             opacity: 0;
             transition: visibility 0s linear 300ms, opacity 300ms;
-          }
-
-          :global(.amp-search) {
-            width: 200px;
-            height: 34px;
-            margin-left: 40px;
-            outline: 0;
-            border: none;
-            font-size: 14px;
-            background: white;
-            padding: 16px 24px 16px 0;
-          }
-
-          :global(.amp-search ~ .search-border) {
-            height: 34px;
-            width: 240px;
-            border-radius: 4px;
-            position: absolute;
-            top: 0px;
-            left: 12px;
-            z-index: 6;
-            pointer-events: none;
-            background: transparent;
-          }
-
-          :global(.amp-search:focus ~ .search-border) {
-            border: 1px solid #eaeaea;
           }
 
           :global(.geist-feedback-input:not(.focused) > textarea) {

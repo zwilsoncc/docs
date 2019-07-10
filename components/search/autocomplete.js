@@ -11,6 +11,7 @@ import {
 } from 'react-instantsearch-dom'
 import SearchIcon from '~/components/icons/search'
 import * as metrics from '~/lib/metrics'
+import debounce from 'lodash.debounce'
 
 class AutoComplete extends Component {
   static propTypes = {
@@ -21,13 +22,38 @@ class AutoComplete extends Component {
 
   state = {
     value: '',
-    inputFocused: false
+    inputFocused: false,
+    hasResults: null
   }
 
   componentDidMount() {
     if (this.props.router.query.query) {
       this.setState({
         value: decodeURIComponent(this.props.router.query.query) || ''
+      })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.value !== this.state.value && this.state.value.length >= 1) {
+      debounce(() => {
+        if (this.props.hits.length === 0) {
+          this.setState({
+            hasResults: false
+          })
+        } else if (this.props.hits.length >= 1) {
+          this.setState({
+            hasResults: true
+          })
+        }
+      }, 200)()
+    } else if (
+      this.state.value.length === 0 &&
+      this.state.inputFocused === false &&
+      this.state.hasResults === true
+    ) {
+      this.setState({
+        hasResults: null
       })
     }
   }
@@ -102,7 +128,7 @@ class AutoComplete extends Component {
 
   render() {
     const { hits } = this.props
-    const { value, inputFocused } = this.state
+    const { value, inputFocused, hasResults } = this.state
 
     const inputProps = {
       onChange: this.onChange,
@@ -136,12 +162,38 @@ class AutoComplete extends Component {
           inputProps={inputProps}
         />
 
+        {hasResults === false && inputFocused ? (
+          <div className="no-results">
+            No results for <span>"{this.state.value}"</span>.<br /> Try again
+            with a different keyword.
+          </div>
+        ) : null}
+
         <style jsx global>{`
           .search__container {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+          }
+
+          .no-results {
+            padding: 32px;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            top: 48px;
+            background: var(--geist-background);
+            color: var(--accents-6);
+            box-shadow: var(--shadow-medium);
+            border-radius: 0 0 8px 8px;
+            font-size: 14px;
+            line-height: 1.444em;
+            text-align: center;
+          }
+
+          .no-results span {
+            word-break: break-all;
           }
 
           .search__search-placeholder {
@@ -169,7 +221,6 @@ class AutoComplete extends Component {
             margin-bottom: 8px;
             line-height: 1.5em;
             display: flex;
-            align-items: center;
           }
 
           .suggestion__section {
@@ -181,7 +232,7 @@ class AutoComplete extends Component {
 
           .suggestion__content {
             font-size: 14px;
-            color: #333;
+            color: var(--accents-7);
             display: block;
             line-height: 1.6;
           }
@@ -189,27 +240,24 @@ class AutoComplete extends Component {
           .tags {
             margin-left: 8px;
             height: 22px;
+            display: flex;
+            align-items: center;
           }
 
           .tags .tag {
             border-radius: 4px;
-            border: 1px solid #eaeaea;
-            background: white;
+            border: 1px solid var(--accents-2);
+            background: var(--geist-background);
             font-size: 10px;
             text-transform: uppercase;
             padding: 4px 8px;
-            margin: 4px 0;
-          }
-
-          .tags .tag.docs {
-            background: #50e3c2;
-          }
-          .tags .tag.guide {
-            background: #5c52d2;
+            height: 100%;
+            line-height: 130%;
+            margin: 0;
           }
 
           .react-autosuggest__suggestion mark {
-            color: #000;
+            color: var(--geist-foreground);
             font-weight: 500;
             background: yellow;
           }
@@ -237,7 +285,7 @@ class AutoComplete extends Component {
           .search__container.focused .react-autosuggest__input,
           .react-autosuggest__input:focus,
           .react-autosuggest__input:valid {
-            border: 1px solid #ddd;
+            border: 1px solid var(--accents-2);
             outline: 0;
             text-align: left;
           }
@@ -245,7 +293,7 @@ class AutoComplete extends Component {
           .search__container.focused .react-autosuggest__input,
           .react-autosuggest__input:focus {
             border-color: transparent;
-            box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-medium);
             border-bottom: 1px solid var(--accents-2);
           }
 
@@ -272,8 +320,8 @@ class AutoComplete extends Component {
             z-index: 2;
             width: 100%;
             top: 48px;
-            background: #ffffff;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12);
+            background: var(--geist-background);
+            box-shadow: var(--shadow-medium);
             border-radius: 0 0 8px 8px;
           }
 
@@ -311,7 +359,7 @@ class AutoComplete extends Component {
           }
 
           .react-autosuggest__section-container {
-            border-top: 1px dashed #ccc;
+            border-top: 1px dashed var(--accents-3);
           }
 
           .react-autosuggest__section-container--first {
@@ -321,7 +369,7 @@ class AutoComplete extends Component {
           .react-autosuggest__section-title {
             padding: 10px 0 0 10px;
             font-size: 12px;
-            color: #777;
+            color: var(--accents-5);
           }
 
           @media screen and (max-width: 950px) {
