@@ -44,8 +44,8 @@ const Header = ({
         header {
           position: fixed;
           top: ${hideHeader && dynamicSearch ? '-80px' : '0'};
-          background: ${isTop ? 'transparent' : '#fff'};
-          border-bottom: ${isTop
+          background: ${isTop && dynamicSearch ? 'transparent' : '#fff'};
+          border-bottom: ${isTop && dynamicSearch
             ? '1px solid transparent'
             : '1px solid #eaeaea'};
         }

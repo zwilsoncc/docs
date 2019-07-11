@@ -121,8 +121,8 @@ class AutoComplete extends Component {
       ({ searchState, searchResults, searching }) =>
         searchState &&
         searchState.query &&
-        searchResults.nbHits === 0 &&
-        !searching ? (
+        !searching &&
+        (searchResults && searchResults.nbHits === 0) ? (
           <div className="no-results">
             No results for <span>"{this.state.value}"</span>.<br /> Try again
             with a different keyword.
