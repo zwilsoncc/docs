@@ -5,17 +5,17 @@ export const meta = {
   title: 'Compression',
   description:
     'How ZEIT Now serves content with compression and which methods are used.',
-  editUrl: 'pages/docs/v2/routing/compression.mdx',
-  lastEdited: '2019-01-03T18:58:18.000Z'
+  editUrl: 'pages/docs/v2/network/compression.mdx',
+  lastEdited: '2019-07-11T02:04:10.000Z'
 }
 
-Because the routing layer already implements two compression methods ([Gzip](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) and [Brotli](https://en.wikipedia.org/wiki/Brotli)), we highly recommend leveraging them instead of making the code you are deploying to Now handle the compression.
+Because the Network layer already implements two compression methods ([Gzip](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) and [Brotli](https://en.wikipedia.org/wiki/Brotli)), we highly recommend leveraging them instead of making the code you are deploying to Now handle the compression.
 
 This way, you are getting the maximum out of performance and do not have to worry about maintaining the code responsible for compressing your responses.
 
 Any program that is requesting resources of any of your deployments needs to define the [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding) header in order for the compression mechanisms to kick in. Many clients (like browsers) already do this out of the box, but in the case that you are requesting resources using a different client, make sure to define the header.
 
-As an example, this is how you ask the routing layer to compress using [Brotli](https://en.wikipedia.org/wiki/Brotli):
+As an example, this is how you ask the Network layer to compress using [Brotli](https://en.wikipedia.org/wiki/Brotli):
 
 ```
 Accept-Encoding: br

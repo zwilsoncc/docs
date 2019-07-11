@@ -7,8 +7,8 @@ import { P } from '~/components/text/paragraph'
 export const meta = {
   title: 'Encryption',
   description: 'Every ZEIT Now deployment is served of a HTTPS Connection.',
-  editUrl: 'pages/docs/v2/routing/encryption.mdx',
-  lastEdited: '2019-04-03T16:39:01.000Z'
+  editUrl: 'pages/docs/v2/network/encryption.mdx',
+  lastEdited: '2019-07-11T02:04:10.000Z'
 }
 
 Out of the box, every **Deployment** you create using Now is served over a HTTPS connection. The SSL certificates for these unique URLs are automatically generated and free of charge.
@@ -61,14 +61,14 @@ Theoretically, you could set the `max-age` parameter to a different value (it in
   allows submitting the domain to Google Chrome's hardcoded HSTS list. Making it
   onto that list means your site will become even faster, as it is always
   accessed over HTTPS right away (instead of the browser following the
-  redirection issued by our <P.B>Routing</P.B> layer).
+  redirection issued by our <P.B>Network</P.B> layer).
 </Note>
 
 ## How Certificates Are Handled
 
 The unique URLs generated when creating a deployment are handled using a wildcard certificate issued for the `.now.sh` domain.
 
-When custom certificates are generated using `now certs issue`, however, their keys are placed in our database and [encrypted at rest](https://en.wikipedia.org/wiki/Data_at_rest#Encryption) within the Routing layer.
+When custom certificates are generated using `now certs issue`, however, their keys are placed in our database and [encrypted at rest](https://en.wikipedia.org/wiki/Data_at_rest#Encryption) within the Network layer.
 
 Then, once a hostname is requested, the certificate and key are read from the database and used for establishing the secure connection. In addition, both are cached in memory for optimal SSL termination performance.
 

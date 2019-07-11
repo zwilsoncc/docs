@@ -10,12 +10,12 @@
     {
       "src": "/docs/router-status/(?<code>[^/]*)",
       "status": 301,
-      "headers": { "Location": "/docs/v2/routing/status-codes#$code" }
+      "headers": { "Location": "/docs/v2/network/status-codes#$code" }
     },
     {
       "src": "/docs/router-status",
       "status": 301,
-      "headers": { "Location": "/docs/v2/routing/status-codes" }
+      "headers": { "Location": "/docs/v2/network/status-codes" }
     },
     {
       "src": "/docs/max-lambda-size",
@@ -40,6 +40,11 @@
       "src": "/docs/dns",
       "status": 301,
       "headers": { "Location": "/docs/v2/domains-and-aliases/dns" }
+    },
+    {
+      "src": "/docs/v2/routing/(.*)/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/network/$1" }
     },
     {
       "src": "/docs/v2/domains-and-aliases/introduction-to-domains",

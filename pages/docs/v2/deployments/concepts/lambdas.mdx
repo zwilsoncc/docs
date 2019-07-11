@@ -12,7 +12,7 @@ export const meta = {
   description:
     'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.',
   editUrl: 'pages/docs/v2/deployments/concepts/lambdas.mdx',
-  lastEdited: '2019-02-16T22:48:11.000Z'
+  lastEdited: '2019-07-11T02:04:10.000Z'
 }
 
 When you make a deployment, by running `now` with our [CLI](/docs/v2/getting-started/installation#now-cli), making an [API](/api) call or with our [GitHub integration](/docs/v2/integrations/now-for-github), we synchronize the source code and optionally [build them](/docs/v2/deployments/builds) to your specification.
@@ -68,7 +68,7 @@ height={908/2}
 
 The build processes, as we can see, happen in parallel and all yield independent outputs. Our deployment then serves those.
 
-Since we have no [index files](/docs/v2/routing/directory-listing#index-files), when we go to our deployment URL we will get a [directory listing](/docs/v2/routing/directory-listing):
+Since we have no [index files](/docs/v2/network/directory-listing#index-files), when we go to our deployment URL we will get a [directory listing](/docs/v2/network/directory-listing):
 
 <Image src={`https://assets.zeit.co/image/upload/v1540996798/front/docs/concepts/api-deployment-listing-shadow.png`}
 width={1424/2}
@@ -209,7 +209,7 @@ This configuration option, `maxLambdaSize`, accepts any byte value up to `50mb`.
 
 ### Maximum Execution Duration
 
-A lambda can execute for at most **5 minutes**. This is not configurable as of now. If the limit is reached for a particular invocation, it will result in an error [504](/docs/v2/routing/status-codes).
+A lambda can execute for at most **5 minutes**. This is not configurable as of now. If the limit is reached for a particular invocation, it will result in an error [504](/docs/v2/network/status-codes).
 
 ### In-memory Caches
 
