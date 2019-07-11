@@ -7,11 +7,11 @@ import AutoSuggest from 'react-autosuggest'
 import {
   Highlight,
   connectAutoComplete,
-  Snippet
+  Snippet,
+  connectStateResults
 } from 'react-instantsearch-dom'
 import SearchIcon from '~/components/icons/search'
 import * as metrics from '~/lib/metrics'
-import debounce from 'lodash.debounce'
 
 class AutoComplete extends Component {
   static propTypes = {
@@ -22,38 +22,13 @@ class AutoComplete extends Component {
 
   state = {
     value: '',
-    inputFocused: false,
-    hasResults: null
+    inputFocused: false
   }
 
   componentDidMount() {
     if (this.props.router.query.query) {
       this.setState({
         value: decodeURIComponent(this.props.router.query.query) || ''
-      })
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.value !== this.state.value && this.state.value.length >= 1) {
-      debounce(() => {
-        if (this.props.hits.length === 0) {
-          this.setState({
-            hasResults: false
-          })
-        } else if (this.props.hits.length >= 1) {
-          this.setState({
-            hasResults: true
-          })
-        }
-      }, 200)()
-    } else if (
-      this.state.value.length === 0 &&
-      this.state.inputFocused === false &&
-      this.state.hasResults === true
-    ) {
-      this.setState({
-        hasResults: null
       })
     }
   }
@@ -67,8 +42,13 @@ class AutoComplete extends Component {
   }
 
   onToggleFocus = () => {
-    metrics.event({ action: 'search_focused', category: 'engagement' })
-    this.setState({ inputFocused: !this.state.inputFocused })
+    const newFocusedBool = !this.state.inputFocused
+
+    if (newFocusedBool === true) {
+      metrics.event({ action: 'search_focused', category: 'engagement' })
+    }
+
+    this.setState({ inputFocused: newFocusedBool })
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
@@ -128,7 +108,7 @@ class AutoComplete extends Component {
 
   render() {
     const { hits } = this.props
-    const { value, inputFocused, hasResults } = this.state
+    const { value, inputFocused } = this.state
 
     const inputProps = {
       onChange: this.onChange,
@@ -137,37 +117,47 @@ class AutoComplete extends Component {
       value
     }
 
-    return (
-      <span
-        className={cn('search__container', {
-          focused: inputFocused,
-          'has-value': !!value.length
-        })}
-      >
-        {!this.state.value && (
-          <span className="search__search-placeholder">
-            <SearchIcon />
-            <span>Search...</span>
-          </span>
-        )}
-
-        <AutoSuggest
-          suggestions={hits}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          onSuggestionSelected={this.onSuggestionSelected}
-          getSuggestionValue={this.getSuggestionValue}
-          highlightFirstSuggestion={true}
-          renderSuggestion={this.renderSuggestion}
-          inputProps={inputProps}
-        />
-
-        {hasResults === false && inputFocused ? (
+    const NoResults = connectStateResults(
+      ({ searchState, searchResults, searching }) =>
+        searchState &&
+        searchState.query &&
+        searchResults.nbHits === 0 &&
+        !searching ? (
           <div className="no-results">
             No results for <span>"{this.state.value}"</span>.<br /> Try again
             with a different keyword.
           </div>
-        ) : null}
+        ) : null
+    )
+
+    return (
+      <>
+        <span
+          className={cn('search__container', {
+            focused: inputFocused,
+            'has-value': !!value.length
+          })}
+        >
+          {!this.state.value && (
+            <span className="search__search-placeholder">
+              <SearchIcon />
+              <span>Search...</span>
+            </span>
+          )}
+
+          <AutoSuggest
+            suggestions={hits}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            onSuggestionSelected={this.onSuggestionSelected}
+            getSuggestionValue={this.getSuggestionValue}
+            highlightFirstSuggestion={true}
+            renderSuggestion={this.renderSuggestion}
+            inputProps={inputProps}
+          />
+
+          <NoResults />
+        </span>
 
         <style jsx global>{`
           .search__container {
@@ -175,6 +165,7 @@ class AutoComplete extends Component {
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.24s ease;
           }
 
           .no-results {
@@ -405,7 +396,7 @@ class AutoComplete extends Component {
             }
           }
         `}</style>
-      </span>
+      </>
     )
   }
 }

@@ -60,6 +60,16 @@ class Header extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.hideHeader &&
+      this.props.hideHeader !== prevProps.hideHeader
+    ) {
+      const sel = selector => document.querySelector(selector)
+      sel('.search-wrapper input').blur()
+    }
+  }
+
   onLogoRightClick = event => {
     event.preventDefault()
     Router.push('/design')
@@ -295,14 +305,17 @@ class Header extends Component {
               .react-autosuggest__input),
           .search-bar
             :global(.search__container.has-value
-              .react-autosuggest__input:focus) {
+              .react-autosuggest__input:focus),
+          .search-bar
+            :global(.search__container.has-value.focused .no-results) {
             border-radius: 4px;
           }
 
-          .search-bar :global(.react-autosuggest__suggestions-container--open) {
+          .search-bar :global(.react-autosuggest__suggestions-container--open),
+          .search-bar :global(.no-results) {
             top: 40px;
             width: 400px;
-            max-width: 100vw;
+            max-width: calc(100vw - 32px);
             left: 50%;
             transform: translateX(-50%);
           }
@@ -325,7 +338,9 @@ class Header extends Component {
       isAmp,
       hideHeader,
       hideHeaderSearch,
-      dynamicSearch
+      dynamicSearch,
+      isTop,
+      inHero
     } = this.props
     const { menuActive } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
@@ -340,6 +355,8 @@ class Header extends Component {
         hideHeader={hideHeader}
         hideHeaderSearch={hideHeaderSearch}
         dynamicSearch={dynamicSearch}
+        isTop={isTop}
+        inHero={inHero}
         className="header"
       >
         <div className="left-nav">

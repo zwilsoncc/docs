@@ -6,7 +6,9 @@ const Header = ({
   hideHeader,
   dynamicSearch,
   hideHeaderSearch = true,
-  children
+  children,
+  isTop,
+  inHero
 }) => (
   <header className={className}>
     <Wrapper className="content">{children}</Wrapper>
@@ -35,7 +37,18 @@ const Header = ({
         border-bottom: ${hideHeaderSearch && dynamicSearch
           ? ''
           : '1px solid #eaeaea'};
-        ${!hideHeader ? 'transition: all 150ms ease-in-out' : ''};
+        transition: all 0.2s ease;
+      }
+
+      @media (max-width: 640px) {
+        header {
+          position: fixed;
+          top: ${hideHeader && dynamicSearch ? '-80px' : '0'};
+          background: ${isTop ? 'transparent' : '#fff'};
+          border-bottom: ${isTop
+            ? '1px solid transparent'
+            : '1px solid #eaeaea'};
+        }
       }
     `}</style>
   </header>

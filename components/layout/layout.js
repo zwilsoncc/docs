@@ -139,12 +139,12 @@ export default class Layout extends React.Component {
               render={({ teams }) => (
                 <LayoutHeader
                   hideHeader={
-                    scrollDirection === 'down' &&
-                    !(scrollPosition < 334) &&
-                    scrollPosition !== 0
+                    scrollDirection === 'down' && scrollPosition !== 0
                       ? true
                       : false
                   }
+                  inHero={scrollPosition < 334}
+                  isTop={scrollPosition === 0}
                   hideHeaderSearch={dynamicSearch && scrollPosition < 334}
                   dynamicSearch={dynamicSearch}
                   onToggleNavigation={this.handleToggleNavigation}
