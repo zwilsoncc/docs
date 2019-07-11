@@ -19,7 +19,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-07-02T12:44:31.000Z'
+  lastEdited: '2019-07-11T21:30:12.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
@@ -55,7 +55,6 @@ Navigate to the folder you have created and inspect the files and folders that a
 
 - `/custom_types`, which details the data modeling for your Prismic repository, in this case the **blog_home** and **post** documents
 - `package.json`, which includes the Next.js and React dependencies, as well as scripts to [develop](/docs/v2/development/basics/) and [deploy](/docs/v2/deployments/basics/) for Now
-- `next.config.js` and `now.json` that set this up as a serverless Now project. You can find more details about this configuration in its [dedicated guide](https://zeit.co/guides/deploying-nextjs-with-now/)
 
 You can run your application with the `yarn dev` command, and check at `localhost:3000` that the app is running correctly.
 
@@ -202,12 +201,12 @@ export default Post
   depending on the <P.B>UID</P.B> provided by the context.
 </Caption>
 
-Your blog posts are rendered, but there's no way to test them out since there's no easy way to navigate to each one currently. For that, you'll have to setup the [custom routing](/docs/v2/deployments/routes/) in `now.json` with serverless in mind.
+Your blog posts are rendered, but there's no way to test them out since there's no easy way to navigate to each one currently. For that, you'll have to setup [custom routing](/docs/v2/deployments/routes/) by creating a `now.json` file.
 
 ```json
 {
   "version": 2,
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
   "routes": [{ "src": "/blog/(?<uid>[^/]+)$", "dest": "/post?uid=$uid" }]
 }
 ```
@@ -223,7 +222,7 @@ The above [`now.json` file](/docs/v2/deployments/configuration/) achieves three 
 - [`builds`](/docs/v2/deployments/configuration/#builds) instructs Now to use the [`@now/next`](/docs/v2/deployments/official-builders/next-js-now-next/) [Builder](/docs/v2/deployments/builders/overview/) to build your app
 - [`routes`](/docs/v2/deployments/configuration/#routes) routes slug based requests to the correct location with the `id` parameter
 
-With this, you can access each post directly with their **UID slug**. For example, a blog post with the `best-foot-forward` will be accessible in your local environment after you relaunch it with `yarn dev` at the address `http://localhost:3000/blog/best-foot-forward`.
+With this, you can access each post directly with their **UID slug**. For example, a blog post with the UID slug `best-foot-forward` will be accessible in your local environment after you relaunch it with `yarn dev` at the address `http://localhost:3000/blog/best-foot-forward`.
 
 ## Step 4: Build Client Side Navigation Links
 
@@ -308,8 +307,6 @@ Edit the `now.json` configuration file to include a project name. This is option
   Adding a <InlineCode>name</InlineCode> property to your{' '}
   <InlineCode>now.json</InlineCode> file.
 </Caption>
-
-Since the `next.config.js` file is already set-up as targeting for serverless, your project is **ready to be deployed with Now**.
 
 You can run `yarn deploy` to launch the [Now CLI](/download) which will quickly setup and deploy your project online. Once it's done, you can check the generated url.
 
