@@ -15,10 +15,10 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-now',
   editUrl: 'pages/guides/setup-godaddy-domain-now.mdx',
-  lastEdited: '2019-02-07T04:14:32.000Z'
+  lastEdited: '2019-07-11T20:13:17.000Z'
 }
 
-With Now, you can [assign a domain name](/docs/v2/domains-and-aliases/aliasing-a-deployment/) to any of your [deployments](/docs/v2/deployments/basics/) by aliasing. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to Now](/docs/v2/domains-and-aliases/zero-downtime-domain-migration/) in order to alias your deployments.
+With Now, you can [assign a domain name](/docs/v2/domains-and-aliases/aliasing-a-deployment/) to any of your [deployments](/docs/v2/deployments/basics/) by aliasing. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to Now](/guides/zero-downtime-domain-migration/) in order to alias your deployments.
 
 This guide will cover **how to point your GoDaddy registered domain towards Now** in order to alias your deployments to that domain.
 
@@ -74,7 +74,7 @@ After GoDaddy has propagated the changed DNS for your domain, your domain is rea
 
 ### Verifying with a TXT Record
 
-This method is used when you want to verify your domain but you do not yet want to point to Now, for example if you need to configure Now beforehand in order for [zero-downtime](https://zeit.co/docs/v2/domains-and-aliases/zero-downtime-domain-migration/).
+This method is used when you want to verify your domain but you do not yet want to point to Now, for example if you need to configure Now beforehand in order for [zero-downtime](/guides/zero-downtime-domain-migration/).
 
 You can add the TXT record by going to your GoDaddy domains dashboard, as in the [nameservers method](#verifying-with-nameservers), and clicking on `DNS` on the domain you want to migrate, then clicking add in the "Records" section.
 

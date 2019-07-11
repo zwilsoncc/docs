@@ -11,7 +11,7 @@ export const meta = {
   title: 'Adding a Domain to Now',
   description: 'Adding and using a domain to use with deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/domains-and-aliases/adding-a-domain.mdx',
-  lastEdited: '2019-07-10T19:20:24.000Z'
+  lastEdited: '2019-07-11T20:13:17.000Z'
 }
 
 With Now, you can alias your deployments to a custom name, whether that is a free `.now.sh` prefixed domain or your personal domain. This document will explain how to add your domain to Now so that you can alias your deployments to it.
@@ -40,7 +40,7 @@ Now CLI will give you an intended set of nameservers that can be set with your d
 
 <Note>
   To migrate with no downtime, follow our{' '}
-  <GenericLink href="/docs/v2/domains-and-aliases/zero-downtime-domain-migration">
+  <GenericLink href="/guides/zero-downtime-domain-migration/">
     Zero-Downtime Migration to ZEIT DNS Guide
   </GenericLink>
   .
@@ -70,13 +70,13 @@ You can force Now to check for verification by using the `now domains verify` co
 
 <TerminalInput>{`now domains verify <domain>`}</TerminalInput>
 
-This method is recommended when you want a [zero-downtime migration](/docs/v2/domains-and-aliases/zero-downtime-domain-migration) before [pointing your domain to Now](#step-2:-pointing-to-now).
+This method is recommended when you want a [zero-downtime migration](/guides/zero-downtime-domain-migration/) before [pointing your domain to Now](#step-2:-pointing-to-now).
 
 For each domain you want to alias, add a `CNAME` record with a value `alias.zeit.co` to your external DNS. Then you can [alias your deployments](/docs/v2/domains-and-aliases/aliasing-a-deployment) as usual!
 
 #### Moving to ZEIT Nameservers
 
-If you decide later that you want to migrate to ZEIT nameservers (including as part of a [zero-downtime migration](/docs/v2/domains-and-aliases/zero-downtime-domain-migration), you can find the intended set of nameservers for your domain by running the inspect command:
+If you decide later that you want to migrate to ZEIT nameservers (including as part of a [zero-downtime migration](/guides/zero-downtime-domain-migration/), you can find the intended set of nameservers for your domain by running the inspect command:
 
 <TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
 
