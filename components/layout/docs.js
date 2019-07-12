@@ -232,7 +232,7 @@ class withDoc extends React.Component {
                       the version 2 documentation
                     </GenericLink>
                     . If you have yet to upgrade, see the{' '}
-                    <GenericLink href="/docs/v2/platform/upgrade-to-2-0">
+                    <GenericLink href="/guides/upgrade-to-2-0">
                       upgrade guide
                     </GenericLink>
                     .
