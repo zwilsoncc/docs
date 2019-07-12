@@ -15,7 +15,7 @@ export const meta = {
   description:
     'The official Rust Builder for ZEIT Now. Deploy serverless invokable functions with Rust source code.',
   editUrl: 'pages/docs/v2/deployments/official-builders/now-rust.mdx',
-  lastEdited: '2019-06-19T23:07:48.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Beta</Tag>
@@ -193,22 +193,6 @@ If you need to use a different version of rust other than the latest stable vers
   <Code lang="json">{`{
   "builds": [
     { "src": "Cargo.toml", "use": "@now/rust", "config": { "rust": "1.35" } }
-  ]
-}`}</Code>
-</Example>
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Rust lambda is, by default, **`25mb`**.
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.rs", "use": "@now/rust", "config": { "maxLambdaSize": "40mb" } }
   ]
 }`}</Code>
 </Example>

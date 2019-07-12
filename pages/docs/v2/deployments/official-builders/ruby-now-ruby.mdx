@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Ruby Builder for ZEIT Now. Serverless invokable functions from Ruby source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/deployments/official-builders/ruby-now-ruby.mdx',
-  lastEdited: '2019-05-03T01:09:00.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -128,24 +128,6 @@ Ruby 2.5.3 is used.
 ### Dependencies
 
 This builder supports installing dependencies defined in the `Gemfile`. Alternatively, dependencies can be vendored with the `bundler install --deployment` command (useful for gems that require native extentions). In this case, dependencies are not built on deployment.
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Ruby lambda is, by default, **`5mb`**.
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-Rails, for example, requires `15mb` for an empty build.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.rb", "use": "@now/ruby", "config": { "maxLambdaSize": "15mb" } }
-  ]
-}`}</Code>
-</Example>
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true

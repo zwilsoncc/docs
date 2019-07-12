@@ -11,7 +11,7 @@ export const meta = {
   description:
     'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.',
   editUrl: 'pages/docs/v2/deployments/builders/overview.mdx',
-  lastEdited: '2019-03-12T19:54:30.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 Builders are [modules](https://zeit.co/docs/v2/deployments/builders/developer-guide/) that transform your [source code into the outputs](/docs/v2/deployments/builds#sources-and-outputs), being either static files and/or [lambdas](https://zeit.co/docs/v2/deployments/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/domains-and-aliases/cdn/).
@@ -85,32 +85,6 @@ The cache will be invalidated if any of those items changes. The user can bypass
 - Builders can run for a maximum of 5 minutes before the execution times out.
 - The maximum cache archive size of a Builder is 100mb.
 - The cache TTL is 7 days.
-- Default lambda bundled output size is **5mb**, however, [configurable](#configuring-lambda-bundle-size).
-
-#### Configuring Lambda Bundle Size
-
-Each lambda output, by default, has a bundle size limit of **5mb** to [help keep cold boot times low](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size), but can be configured up to **50mb** with the [`maxLambdaSize` config option](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size).
-
-The lambda threshold can also be defined by the builder that outputs the lambda (for example, [@now/go, by default, is **15mb**](/docs/v2/deployments/official-builders/go-now-go#maximum-lambda-bundle-size)), but the user configuration takes precedence.
-
-<Example>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
-  ]
-}`}</Code>
-  <Caption>
-    Using the{' '}
-    <GenericLink href="/docs/v2/deployments/official-builders/go-now-go">
-      @now/go Builder
-    </GenericLink>{' '}
-    and configuring the <InlineCode>maxLambdaSize</InlineCode> within a{' '}
-    <GenericLink href="/docs/v2/deployments/configuration#builds">
-      now.json configuration file
-    </GenericLink>
-    .
-  </Caption>
-</Example>
 
 #### Including Additional Files
 

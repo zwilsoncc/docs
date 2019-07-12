@@ -15,7 +15,7 @@ export const meta = {
     'The official Node.js Server Builder for ZEIT Now. Deploy a Node.js server on ZEIT Now.',
   editUrl:
     'pages/docs/v2/deployments/official-builders/node-js-server-now-node-server.mdx',
-  lastEdited: '2019-07-08T16:20:46.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Deprecated</Tag>
@@ -118,22 +118,6 @@ Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/deploy
 The default Node.js version used is **8.10.x**.
 
 The version can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Node.js Server lambda is, by default, **`15mb`**.
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*/index.js", "use": "@now/node-server", "config": { "maxLambdaSize": "20mb" } }
-  ]
-}`}</Code>
-</Example>
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true

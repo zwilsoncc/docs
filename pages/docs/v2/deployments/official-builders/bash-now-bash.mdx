@@ -12,7 +12,7 @@ export const meta = {
   description:
     'The official Bash Builder for ZEIT Now. Write Bash functions that serve HTTP requests.',
   editUrl: 'pages/docs/v2/deployments/official-builders/bash-now-bash.mdx',
-  lastEdited: '2019-03-15T18:14:39.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -216,22 +216,6 @@ handler() {
 ```
 
 **Demo:** <https://bash-version-rkb5w4ua6.now.sh/>
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times minimal, the default [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Bash lambda function is **`10mb`**.
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.sh", "use": "@now/bash", "config": { "maxLambdaSize": "20mb" } }
-  ]
-}`}</Code>
-</Example>
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true

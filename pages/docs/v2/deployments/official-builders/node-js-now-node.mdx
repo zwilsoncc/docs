@@ -15,7 +15,7 @@ export const meta = {
   description:
     'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/node-js-now-node.mdx',
-  lastEdited: '2019-06-28T20:21:46.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -365,21 +365,5 @@ The version can be changed to **10.x** by defining [engines](https://docs.npmjs.
     "node": "10.x"
   }
 }`}</Code>
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Node.js output lambda is, by default, **`5mb`**.
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "10mb" } }
-  ]
-}`}</Code>
-</Example>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/next-js-now-next.mdx',
-  lastEdited: '2019-06-28T20:21:46.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -242,22 +242,6 @@ The version can be changed to **10.x** by defining [engines](https://docs.npmjs.
 This builder separates your pages into individual serverless endpoints, so you cannot use a custom server.
 
 Using a custom server would require that all pages be routed through that custom server and the application would lose out on many of the benefits of [serverless](/docs/v2/deployments/concepts/lambdas/) Next.js. You can still achieve most of the logic that you have in a custom server by using [getInitialProps()](https://nextjs.org/docs/#fetching-data-and-component-lifecycle) and using [routes](/docs/v2/deployments/configuration/#routes).
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Next.js output lambda is, by default, **`5mb`**.
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "package.json", "use": "@now/next", "config": { "maxLambdaSize": "10mb" } }
-  ]
-}`}</Code>
-</Example>
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true

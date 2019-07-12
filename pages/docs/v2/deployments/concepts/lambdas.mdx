@@ -12,7 +12,7 @@ export const meta = {
   description:
     'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.',
   editUrl: 'pages/docs/v2/deployments/concepts/lambdas.mdx',
-  lastEdited: '2019-07-11T02:04:10.000Z'
+  lastEdited: '2019-07-11T18:29:44.000Z'
 }
 
 When you make a deployment, by running `now` with our [CLI](/docs/v2/getting-started/installation#now-cli), making an [API](/api) call or with our [GitHub integration](/docs/v2/integrations/now-for-github), we synchronize the source code and optionally [build them](/docs/v2/deployments/builds) to your specification.
@@ -180,32 +180,7 @@ Each request body has a maximum payload limit of **5mb**.
 
 ### Maximum Bundle Size
 
-**The default maximum generated lambda size is `5mb`**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details).
-
-This threshold is in place to uphold and maintain the serverless nature of Now. Since the serverless paradigm intends for your code to not be running unless it is needed, your code needs to be [cold-booted](#cold-and-hot-boots). The larger the code bundle that is being cold-booted, the larger the time it takes for the cold boot to finish.
-
-Although this limit is in place, each [Builder](/docs/v2/deployments/builders/overview) may have a customized limit for the maximum lambda bundle size due to the nature of the underlying technology, which can also be configured by the user, whether the Builder has a custom limit or not.
-
-This configuration option, `maxLambdaSize`, accepts any byte value up to `50mb`.
-
-<Example>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.js", "use": "@now/node", "config": { "maxLambdaSize": "15mb" } }
-  ]
-}`}</Code>
-  <Caption>
-    Using the{' '}
-    <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node">
-      @now/node Builder
-    </GenericLink>{' '}
-    and configuring the <InlineCode>maxLambdaSize</InlineCode> within a{' '}
-    <GenericLink href="/docs/v2/deployments/configuration#builds">
-      now.json configuration file
-    </GenericLink>
-    .
-  </Caption>
-</Example>
+**The maximum lambda size is `50mb`**. If a deployment [build](/docs/v2/deployments/builds) tries to create a larger lambda as an [output](/docs/v2/deployments/builds#sources-and-outputs), the build will fail and therefore so will your deployment (see the [deployment lifecycle](/docs/v2/deployments/concepts/lifecycle) documentation for details).
 
 ### Maximum Execution Duration
 

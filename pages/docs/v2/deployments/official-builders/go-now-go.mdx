@@ -11,7 +11,7 @@ export const meta = {
   description:
     'The official Go Builder for ZEIT Now. Serverless invokable functions from Go source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/deployments/official-builders/go-now-go.mdx',
-  lastEdited: '2019-05-21T10:34:57.000Z'
+  lastEdited: '2019-07-10T14:01:43.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -87,23 +87,6 @@ With GitHub, you will need to [create a personal token](https://github.com/setti
 ### Version
 
 Go 1.x is used.
-
-### Maximum Lambda Bundle Size
-
-To help keep cold boot times low, the [maximum output bundle size](/docs/v2/deployments/concepts/lambdas#maximum-bundle-size) for a Go lambda is, by default, **`10mb`**.
-
-This [limit is extendable](/docs/v2/deployments/builders/overview#configuring-output-lambda-size) up to **`50mb`**.
-
-<Example>
-  <span>
-    Example <InlineCode>maxLambdaSize</InlineCode> configuration:
-  </span>
-  <Code lang="json">{`{
-  "builds": [
-    { "src": "*.go", "use": "@now/go", "config": { "maxLambdaSize": "20mb" } }
-  ]
-}`}</Code>
-</Example>
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true
