@@ -372,8 +372,9 @@ function Landing({ router }) {
           height: 0;
         }
 
-        .get-started-cta:hover {
+        .get-started-cta :global(button:hover) {
           background: var(--geist-background);
+          color: var(--geist-link-color);
         }
 
         .topics-section {
