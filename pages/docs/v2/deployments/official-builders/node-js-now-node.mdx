@@ -15,7 +15,7 @@ export const meta = {
   description:
     'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.',
   editUrl: 'pages/docs/v2/deployments/official-builders/node-js-now-node.mdx',
-  lastEdited: '2019-07-10T14:01:43.000Z'
+  lastEdited: '2019-07-15T16:46:10.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -87,6 +87,90 @@ You can pass query parameters to make the name change:
   height={882/2}
 />
 <Caption>The lambda using the <InlineCode>name</InlineCode> query parameter to change the text using Node.js.</Caption>
+
+## How to Use TypeScript
+
+For this example, we will create a `hello` endpoint that we want to access as `my-deployment.url/api/hello`.
+
+Let's create a new project directory:
+
+<TerminalInput>{`mkdir my-ts-project && cd my-ts-project`}</TerminalInput>
+
+Install the development dependencies:
+
+<TerminalInput>{`yarn add --dev typescript @types/node @now/node`}</TerminalInput>
+
+OR
+
+<TerminalInput>{`npm install --save-dev typescript @types/node @now/node`}</TerminalInput>
+
+Inside `my-ts-project > api > hello` create an `index.ts` file.
+
+The `index.ts` file exports a default Node.js function that takes in [the standard Node.js request and response](#request-and-response-objects) objects:
+
+```js
+import { NowRequest, NowResponse } from '@now/node'
+
+export default function(req: NowRequest, res: NowResponse) {
+  const { name = 'World' } = req.query
+  res.send(`Hello ${name}!`)
+}
+```
+
+<Caption>An example serverless Node.js function written in TypeScript.</Caption>
+
+Let's configure the compiler by creating a `tsconfig.json` file in the root:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "sourceMap": true,
+    "strict": true
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>tsconfig.json</InlineCode> configuration using the{' '}
+  recommended defaults for Node.js.
+</Caption>
+
+Define a build that will take this file (`index.ts`), build it, and turn it into a lambda:
+
+```json
+{
+  "version": 2,
+  "builds": [{ "src": "api/hello/index.ts", "use": "@now/node" }]
+}
+```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> configuration using the{' '}
+  <InlineCode>@now/node</InlineCode> builder.
+</Caption>
+
+Our resulting deployment is here: <https://my-ts-project-gdgfrt3u2.now.sh/>
+
+The example deployment above is open-source and you can view the code for it here: <https://my-ts-project-gdgfrt3u2.now.sh/_src>
+
+You can pass query parameters to make the name change:
+
+<Image src={`https://assets.zeit.co/image/upload/v1545360454/front/docs/official-builders/serverless-node.png`}
+  width={1376/2}
+  height={882/2}
+/>
+<Caption>The lambda using the <InlineCode>name</InlineCode> query parameter to change the text using Node.js.</Caption>
+
+### TypeScript Compiler Options
+
+Most [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) are supported by defining a `tsconfig.json` in the same directory as `package.json`.
+
+The following options are not supported:
+
+- [Path Mappings](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping)
+- [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html)
 
 ## Request and Response Objects
 
@@ -189,7 +273,7 @@ module.exports = (req, res) => {
   <InlineCode>ping</InlineCode>.
 </Caption>
 
-### Typescript support
+### Helpers Type Definitions
 
 We provide types for the request and response objects.
 
