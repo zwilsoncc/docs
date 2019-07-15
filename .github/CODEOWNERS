@@ -1,4 +1,13 @@
 # Learn how to add code owners here:
 # https://help.github.com/en/articles/about-code-owners
 
-*                         @timothyis @msweeneydev @skllcrn
+*                                         @timothyis @msweeneydev @skllcrn
+pages/docs/integrations/                       @arunoda
+pages/docs/v2/development/                @leo @AndyBitz @TooTallNate
+pages/docs/v2/network/                    @juancampa @hharnisc @dav-is
+pages/docs/v2/domains-and-aliases/        @anatrajkovska @javivelasco @mglagola
+pages/docs/v2/getting-started/            @joecohens @paulogdm @msweeneydev @timothyis @skllcrn @coetry
+pages/docs/v2/integrations/               @arunoda
+pages/docs/v2/platform/                   @leo @styfle
+pages/docs/v2/deployments/                @leo @AndyBitz @TooTallNate @styfle @sophearak
+pages/docs/api/                           @anatrajkovska @arunoda @javivelasco @mglagola
