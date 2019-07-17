@@ -129,18 +129,6 @@ export default function HomePage() {
   An <InlineCode>index.js</InlineCode> file for your Next.js project.
 </Caption>
 
-Lastly, create a `next.config.js` file at the root of your project, this file tells Next.js to target a serverless build environment:
-
-```js
-module.exports = {
-  target: 'serverless'
-}
-```
-
-<Caption>
-  A <InlineCode>next.config.js</InlineCode> file for your Next.js project.
-</Caption>
-
 ### Adding `now.json` and `.nowignore`
 
 To provide [configuration for your project](/docs/v2/deployments/configuration/), you should use a `now.json` file.
@@ -186,7 +174,7 @@ For this project, you will require the use of a single Builder, [`@now/next`](/d
 {
   ...
   "builds": [
-    { "src": "next.config.js", "use": "@now/next" }
+    { "src": "package.json", "use": "@now/next" }
   ]
 }
 ```
