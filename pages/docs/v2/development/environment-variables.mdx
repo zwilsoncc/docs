@@ -13,7 +13,7 @@ export const meta = {
   title: 'Environment Variables',
   description: 'Creating and using environment variables in Now Development',
   editUrl: 'pages/docs/v2/development/environment-variables.mdx',
-  lastEdited: '2019-04-28T23:45:20.000Z'
+  lastEdited: '2019-07-17T18:00:00.000Z'
 }
 
 If there are aspects of your project that need to differ depending on whether it is a local or cloud deployment, environment variables are the perfect solution.
@@ -136,6 +136,16 @@ Additionally, there is also the capability to inherit from your shell environmen
 
 <Caption>
   Inheriting an environment variable from the shell environment.
+</Caption>
+
+If you want to provide **buildtime** environment variables, such as when using the `@now/static-build` Builder, you can use the `--build-env` or `-b` argument like this:
+
+<TerminalInput>
+  now <P.B>-b</P.B> API_KEY=@my-key <P.B>-b</P.B> APP_NAME="ZEIT, Inc"
+</TerminalInput>
+
+<Caption>
+  Using multiple buildtime environment variables.
 </Caption>
 
 Users of the [API](/docs/api) can access the environment variables feature through the [`secrets` endpoint](/docs/api/v2#endpoints/secrets).
