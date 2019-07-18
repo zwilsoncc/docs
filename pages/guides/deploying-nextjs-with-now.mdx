@@ -16,7 +16,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20Serverless%20Next.js**%20with%20Now.png?theme=light&md=1&fontSize=83px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&heights=250&heights=350',
   editUrl: 'pages/guides/deploying-nextjs-with-now.mdx',
-  lastEdited: '2019-06-05T21:33:17.000Z'
+  lastEdited: '2019-07-17T11:11:00.000Z'
 }
 
 This guide will help you get started using [Next.js](https://nextjs.org/) with [Now](/now) by covering a variety of topics from [Installing Now](#installing-now) to deploying your Next.js application **with a single command**.
@@ -65,6 +65,21 @@ Next, add the project dependencies:
 
 <TerminalInput>yarn add next react react-dom</TerminalInput>
 <Caption>Adding <InlineCode>next</InlineCode>, <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> as dependencies to your project.</Caption>
+
+Add the following build script to your `package.json` file:
+
+```json
+{
+...
+  "scripts": {
+    "build": "next build"
+  }
+}
+```
+
+<Caption>
+  An example<InlineCode>package.json</InlineCode> file for your Next.js project.
+</Caption>
 
 With your project setup, create a `/pages` folder:
 
@@ -129,60 +144,6 @@ export default function HomePage() {
   An <InlineCode>index.js</InlineCode> file for your Next.js project.
 </Caption>
 
-### Adding `now.json` and `.nowignore`
-
-To provide [configuration for your project](/docs/v2/deployments/configuration/), you should use a `now.json` file.
-
-Create a `now.json` file at the root of your project with the following code:
-
-```json
-{
-  "version": 2,
-  "alias": "my-aliased-nextjs-project",
-  "name": "my-nextjs-project"
-}
-```
-
-<Caption>
-  A <InlineCode>now.json</InlineCode> file to configure your project.
-</Caption>
-
-The `now.json` file achieves a few things:
-
-- `version` - specifies which [Now platform version](/docs/v2/deployments/configuration/#version) to use for the [deployment](/docs/v2/deployments/basics/)
-- `alias` - used to [alias deployments](/docs/v2/domains-and-aliases/aliasing-a-deployment/) when using a [Git integration](/guides/deploying-nextjs-with-now#github-and-gitlab-integrations)
-- `name` - provides a [prefix](/docs/v2/deployments/configuration#name) for your [deployments](/docs/v2/deployments/basics/)
-
-The `.nowignore` file works similarly to a `.gitignore` file and is used to tell the [Now CLI](/download), [Now for GitHub](/docs/v2/integrations/now-for-github/), and [Now for GitLab](/docs/v2/integrations/now-for-github/) integrations to [not upload certain files or directories](/docs/v2/deployments/ignoring-source-paths/).
-
-Create a `.nowignore` file in the root of your project directory with the following code:
-
-<Code>yarn.lock</Code>
-<Caption>A <InlineCode>.nowignore</InlineCode> file for your Next.js project.</Caption>
-
-Now that you've provided some configuration for your Next.js project, let's see in the next step **how to build your files for the output**.
-
-### Adding a Builder
-
-Builders provide the step that turns your source code into [production-ready outputs](/docs/v2/deployments/builds/#sources-and-outputs).
-
-These outputs can be either static files and/or [Lambdas](/docs/v2/deployments/concepts/lambdas/). **Both output types** get served by our [CDN at the Edge](/docs/v2/domains-and-aliases/cdn/), making your deployments **blazing fast to access around the globe**.
-
-For this project, you will require the use of a single Builder, [`@now/next`](/docs/v2/deployments/official-builders/next-js-now-next/). To get started with the Next.js Builder, add the following code to your `now.json` file:
-
-```json
-{
-  ...
-  "builds": [
-    { "src": "package.json", "use": "@now/next" }
-  ]
-}
-```
-
-<Caption>
-  Adding a Builder to your projects' <InlineCode>now.json</InlineCode> file.
-</Caption>
-
 ## Step 2: Local Development
 
 For a **seamless local development experience**, you should use `now dev`, a reproduction of the [Now deployment environment](/docs/v2/deployments/basics/) but on your local machine.
@@ -190,9 +151,9 @@ For a **seamless local development experience**, you should use `now dev`, a rep
 As hinted at above, you can start [developing locally](/docs/v2/development/basics/) with **just a single command**:
 
 <TerminalInput>now dev</TerminalInput>
-<Caption>Starting a local development server with the  <InlineCode>now dev</InlineCode> command.</Caption>
+<Caption>Starting a local development server with the <InlineCode>now dev</InlineCode> command.</Caption>
 
-After shortly installing and setting up the required [Builders](/docs/v2/deployments/builders/overview/), `now dev` will start from localhost on port 3000, if available, else the next available port.
+After installing the project dependencies, `now dev` will start from localhost on port 3000, if available, else the next available port.
 
 `now dev` watches your files for any changes, automatically updating when any are made, leaving you free to focus on developing your application.
 
@@ -218,12 +179,15 @@ You can see more examples of [Next.js](https://nextjs.org/) on [Now](/now) at th
 
 Below is a list of all Next.js examples available:
 
-- [Next.js](https://github.com/zeit/now-examples/tree/master/nextjs)
-- [Next.js Static](https://github.com/zeit/now-examples/tree/master/nextjs-static)
-- [Next.js News](https://github.com/zeit/now-examples/tree/master/nextjs-news)
-- [Next.js + MySQL](https://github.com/zeit/now-examples/tree/master/nextjs-mysql)
+- [Next.js + Go](https://github.com/zeit/now-examples/tree/master/nextjs-go)
+- [Next.js + Node.js](https://github.com/zeit/now-examples/tree/master/nextjs-node)
+- [Next.js + Node.js (TypeScript)](https://github.com/zeit/now-examples/tree/master/nextjs-node-typescript)
+- [Next.js + PHP](https://github.com/zeit/now-examples/tree/master/nextjs-php)
+- [Next.js + Python](https://github.com/zeit/now-examples/tree/master/nextjs-python)
+- [Next.js + Ruby](https://github.com/zeit/now-examples/tree/master/nextjs-ruby)
+- [Next.js + Rust](https://github.com/zeit/now-examples/tree/master/nextjs-rust)
 
-These examples show how Next.js can be used with Now in a variety of different situations.
+These examples show how Next.js can be used with Now, backed by a variety of API's using different languages.
 
 You can **get your project started in seconds** by building on top of these examples with the help of `now init`:
 

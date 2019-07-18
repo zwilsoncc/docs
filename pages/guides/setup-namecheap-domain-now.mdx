@@ -148,12 +148,13 @@ When you are ready to deploy and alias, using the [`alias`](/docs/v2/deployments
 You can deploy and set up an alias to your domain with one command:
 
 <TerminalInput>now --target production</TerminalInput>
+<Caption>Deploying a project to a production alias.</Caption>
 
-We highly recommend using [the Now for GitHub app](/docs/v2/integrations/now-for-github/) coupled with the same [`alias` configuration option](/docs/v2/deployments/configuration/#alias) which will allow your application to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.
+We highly recommend using either the [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) apps coupled with the same [`alias` configuration option](/docs/v2/deployments/configuration/#alias) which will allow your application to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.
 
 ## Step 3: Pointing to Now
 
-If you already verified your domain with Nameservers, then this step is done.
+If you already verified your domain with nameservers, then this step is done.
 
 The final step of migrating your domain to Now is to point your domain to ZEIT DNS with the intended nameservers set. Using `now domains inspect <domain>`, you can always find the intended nameservers to use with your domain.
 

@@ -19,7 +19,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-buttercms-with-now/deploying-next-buttercms-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-buttercms-with-now.mdx',
-  lastEdited: '2019-06-24T14:36:27.000Z'
+  lastEdited: '2019-07-09T15:32:53.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [ButterCMS](https://buttercms.com/) content management system, before deploying **with just a single command** to [ZEIT Now](/docs/v2).
@@ -219,19 +219,17 @@ export default Post
   ButterCMS project.
 </Caption>
 
-Now that your page and component files have been created, the next step will show you how to use the [`now.json` file](/docs/v2/deployments/configuration/) to allow for both [local development](/docs/v2/development/basics/) and [cloud deployment](/docs/v2/deployments/basics/).
+Now that your page and component files have been created, the next step will show you how to add an [environment variable](/docs/v2/deployments/environment-variables-and-secrets/) to the project.
 
-## Step 3: Adding a `now.json` File
+## Step 3: Adding an Environment Variable
 
-With your project ready, the `now.json` file provides an opportunity to instruct [Now](/docs/v2) on how to [build](/docs/v2/deployments/builds/) and [deploy](/docs/v2/deployments/basics/) your project. Add a `now.json` file at the root of your project directory with the following code:
+Add a `now.json` file at the root of your project directory with the following code:
 
 ```json
 {
-  "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
   "build": {
     "env": {
-      "API_TOKEN": "@api_token"
+      "BUTTER_API_TOKEN": "@butter_api_token"
     }
   }
 }
@@ -242,19 +240,12 @@ With your project ready, the `now.json` file provides an opportunity to instruct
   project.
 </Caption>
 
-The above [`now.json` file](/docs/v2/deployments/configuration/) achieves three things:
-
-- [`version`](/docs/v2/deployments/configuration/#version) ensures you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version
-- [`builds`](/docs/v2/deployments/configuration/#builds) instructs Now to use the [`@now/next`](/docs/v2/deployments/official-builders/next-js-now-next/) [Builder](/docs/v2/deployments/builders/overview/) to build your project
-- [`build`](/docs/v2/deployments/configuration/#build.env) passes [environment variables](/docs/v2/deployments/environment-variables-and-secrets/) to the [Build](/docs/v2/deployments/builds/) process for use inside your app
-
 With your `now.json` file created, you should add a `next.config.js` file at the root of your project directory with the code below:
 
 ```js
 module.exports = {
-  target: 'serverless',
   env: {
-    API_TOKEN: process.env.API_TOKEN
+    API_TOKEN: process.env.BUTTER_API_TOKEN
   }
 }
 ```
@@ -264,17 +255,30 @@ module.exports = {
   ButterCMS project.
 </Caption>
 
-The `next.config.js` file achieves two things:
+The `next.config.js` file provides access to [environment variables](/docs/v2/deployments/environment-variables-and-secrets/) inside your Next.js app.
 
-- Instructs Next.js to build for a serverless environment
-- Provides access to [environment variables](/docs/v2/deployments/environment-variables-and-secrets/) inside your Next.js app
+Now, add the following build script to your `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "next build"
+  }
+}
+```
+
+<Caption>
+  Adding a build script to your <InlineCode>package.json</InlineCode> file for
+  your Next.js + ButterCMS project.
+</Caption>
 
 Next, you will make your API key available to your application during [local development](/docs/v2/development/basics/) by creating a `.env.build` file.
 
 Create a `.env.build` file at the root of your project directory with the following code, adding your API key obtained in [step 1](#step-1:-create-your-buttercms-content) where instructed:
 
 ```bash
-API_TOKEN=your-api-token
+BUTTER_API_TOKEN=your-api-token
 ```
 
 <Caption>
@@ -284,9 +288,9 @@ API_TOKEN=your-api-token
 
 Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [Now Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the command below:
 
-<TerminalInput>now secrets add API_TOKEN your-space-id</TerminalInput>
+<TerminalInput>now secrets add BUTTER_API_TOKEN your-space-id</TerminalInput>
 <Caption>
-  Adding the <InlineCode>API_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
+  Adding the <InlineCode>BUTTER_API_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
 </Caption>
 
 With those steps out the way you are now able to run your application. You can [develop your application locally](/docs/v2/development/basics/) using the following command:

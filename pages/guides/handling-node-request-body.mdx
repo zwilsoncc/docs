@@ -10,41 +10,35 @@ import Request from '~/components/api/request'
 import { GenericLink } from '~/components/text/link'
 
 export const meta = {
-  title: 'Handling Node.js Request Bodies With Micro',
+  title: 'Handling Node.js Request Bodies',
   description:
-    'Learn how to parse Node.js request bodies with Micro for use inside serverless functions.',
+    'Learn how to parse Node.js request bodies for use inside serverless functions.',
   published: '2019-05-10T09:03:14.819Z',
   authors: ['msweeneydev'],
-  url: '/guides/handling-node-request-body-with-micro',
-  editUrl: 'pages/guides/handling-node-request-body-with-micro.mdx',
-  lastEdited: '2019-05-10T15:39:54.000Z'
+  url: '/guides/handling-node-request-body',
+  editUrl: 'pages/guides/handling-node-request-body.mdx',
+  lastEdited: '2019-07-10T12:37:26.000Z'
 }
 
 In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [serverless function](/docs/v2/deployments/concepts/lambdas/) deployed to [Now](/now), without requiring a framework such as Express.
 
-This guide assumes the request is sent with a [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of [`application/json`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON). However, many more content types can be parsed using the [`micro` module](https://github.com/zeit/micro).
+This guide assumes the request is sent with a [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of [`application/json`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON). However, many more content types can be parsed if required.
 
 ## Step 1: Creating the Function
 
-To get started, create a project directory and `cd` into it.
+To get started, create a project directory with an `/api` directory inside and `cd` into it:
 
-Next, initialize the project with the following command:
+<TerminalInput>mkdir req-body && mkdir req-body/api</TerminalInput>
+<Caption>Creating an <InlineCode>/api</InlineCode> directory inside of a <InlineCode>/req-body</InlineCode> project.</Caption>
 
-<TerminalInput>yarn init</TerminalInput>
-<Caption>Initializing a project with <GenericLink href="https://yarnpkg.com">Yarn</GenericLink>.</Caption>
+<TerminalInput>cd req-body</TerminalInput>
+<Caption>Moving into the <InlineCode>/req-body</InlineCode> project directory.</Caption>
 
-After answering the questions given, you should add the only dependency required for this example, `micro`:
-
-<TerminalInput>yarn add micro</TerminalInput>
-<Caption>Adding the <InlineCode>micro</InlineCode> dependency to the project.</Caption>
-
-To illustrate the parsing of a request body, create an `index.js` file at the root of your project directory with the following code:
+To illustrate the parsing of a request body, create an `index.js` file inside your `/api` directory with the following code:
 
 ```js
-const { json } = require('micro')
-
 module.exports = async (req, res) => {
-  const body = await json(req)
+  const { body } = req
   res.end(`Hello ${body.name}, you just parsed the request body!`)
 }
 ```
@@ -54,36 +48,40 @@ module.exports = async (req, res) => {
   <GenericLink href="https://nodejs.org/dist/latest-v12.x/docs/api/">
     Node.js
   </GenericLink>{' '}
-  and <GenericLink href="https://github.com/zeit/micro">Micro</GenericLink>.
+  with a{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
+    Helper property
+  </GenericLink>
+  .
 </Caption>
 
 This function takes a POST request, parses the body, and uses data from the body in the response.
 
-The key part here is line 4. For those used to working with Express, it should be similar to accessing `req.body`.
+The key part here is line 2. [Now](/now) adds a number of Express like [helper properties](/docs/v2/deployments/official-builders/node-js-now-node/#helpers) to make wording with Node.js even easier.
 
-`json`, imported from `micro` on line 1, is a function that returns the request body in the JSON format, fully parsed and ready to access inside your function.
+<Note hint>
+  You can read more about{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
+    helper properties
+  </GenericLink>{' '}
+  either in the{' '}
+  <GenericLink href="/blog/now-node-helpers">blog post</GenericLink> or in the{' '}
+  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
+    documentation
+  </GenericLink>
+  .
+</Note>
 
-This is illustrated in the response, as the JSON object is accessed to use the `name` property that was sent in the initial request.
+With the `req.body` helper, the incoming `request` is parsed automatically, removing the need for third-party libraries or further code to handle the [ReadableStream](https://nodejs.org/api/stream.html#stream_class_stream_readable) format the `request` normally arrives in.
 
 ## Step 2: Deploying the Function
 
-Deploying your function to [Now](/now) is easy. First, create a [`now.json` file](/docs/v2/deployments/configuration/) in the root of your project directory with the following code:
-
-```json
-{
-  "version": 2,
-  "builds": [{ "src": "index.js", "use": "@now/node" }]
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file in your project.
-</Caption>
-
-After creating your `now.json` file, you should deploy your project with **just a single command**:
+Deploying your function to [Now](/now) is easy and can be done with **just a single command**:
 
 <TerminalInput>now</TerminalInput>
-<Caption>Deploying your project with just a single command.</Caption>
+<Caption>
+  Deploying the application with the <InlineCode>now</InlineCode> command.
+</Caption>
 
 You have now created and deployed your project, all that's left to do is test that it works.
 
@@ -93,7 +91,7 @@ To verify that the JSON is being parsed correctly, make a POST request to your n
 
 <Request
   method="POST"
-  url="https://your-deployments-url.now.sh/"
+  url="https://your-deployments-url.now.sh/api"
   headers={{
     'Content-Type': 'application/json'
   }}
@@ -117,7 +115,7 @@ You will receive a response similar to the following:
     An example response from making a POST request.
 </Caption>
 
-Congratulations, now you know how to parse request bodies in Node.js!
+Congratulations, now you know how to parse request bodies with [Now](/now) in Node.js!
 
 ## Bonus: Understanding Why this Works
 
@@ -125,7 +123,7 @@ When [Node.js](https://nodejs.org/docs/latest-v8.x/api/) receives a request, the
 
 To get the data from the stream, you need to listen to its `data` and `end` events. To do this requires a few lines of code which you would much rather not have to repeat.
 
-By using [`micro`](https://github.com/zeit/micro), parsing [request bodies](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/#request-body) is concise and straightforward as it handles everything for you, all you need to do is specify the format you want to receive the data in.
+By using [helper properties](/docs/v2/deployments/official-builders/node-js-now-node/#helpers), the `request` is already parsed for you, allowing you to access the data immediately.
 
 ## More Resources
 

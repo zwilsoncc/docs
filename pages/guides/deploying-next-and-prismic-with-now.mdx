@@ -201,29 +201,6 @@ export default Post
   depending on the <P.B>UID</P.B> provided by the context.
 </Caption>
 
-Your blog posts are rendered, but there's no way to test them out since there's no easy way to navigate to each one currently. For that, you'll have to setup [custom routing](/docs/v2/deployments/routes/) by creating a `now.json` file.
-
-```json
-{
-  "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
-  "routes": [{ "src": "/blog/(?<uid>[^/]+)$", "dest": "/post?uid=$uid" }]
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file with build and routing
-  configuration.
-</Caption>
-
-The above [`now.json` file](/docs/v2/deployments/configuration/) achieves three things:
-
-- [`version`](/docs/v2/deployments/configuration/#version) ensures you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version
-- [`builds`](/docs/v2/deployments/configuration/#builds) instructs Now to use the [`@now/next`](/docs/v2/deployments/official-builders/next-js-now-next/) [Builder](/docs/v2/deployments/builders/overview/) to build your app
-- [`routes`](/docs/v2/deployments/configuration/#routes) routes slug based requests to the correct location with the `id` parameter
-
-With this, you can access each post directly with their **UID slug**. For example, a blog post with the UID slug `best-foot-forward` will be accessible in your local environment after you relaunch it with `yarn dev` at the address `http://localhost:3000/blog/best-foot-forward`.
-
 ## Step 4: Build Client Side Navigation Links
 
 Now that the pages for your blog post documents are accessible, you can modify the index page so that the list of titles actually links to each of the posts. To do this, it's best to use the [`<Link>`](https://nextjs.org/docs#with-link) component, included with [Next.js](https://nextjs.org/), to provide client-side navigation without a page refresh.
@@ -253,8 +230,6 @@ hrefResolver: function (doc) {
 </Caption>
 
 These helper functions generate both the aesthetic path with `linkResolver`; and the functional path that will correctly pass the UID with `hrefResolver`.
-
-These will need to be modified along with your project **as your routing expands**, so that they always reflect the routing you have set up in your `now.json` file.
 
 You can adjust the unordered list in `/pages/index.js` so that it wraps a `<Link>` around the title, as well as adding the `Date` value for each of the blog posts.
 
@@ -293,20 +268,6 @@ You can now refresh your site at [`localhost:3000`](http://localhost:3000/) and 
 ## Step 5: Deploying With Now
 
 So far, you have been using `yarn dev` to develop locally, but what good is a blog if you don't show it off to the world. It's time to deploy it to the Now platform and enjoy your serverless web application.
-
-Edit the `now.json` configuration file to include a project name. This is optional, but it helps to have human-readable addresses when sharing your project with the public.
-
-```json
-{
-  ...
-  "name": "mini-blog",
-}
-```
-
-<Caption>
-  Adding a <InlineCode>name</InlineCode> property to your{' '}
-  <InlineCode>now.json</InlineCode> file.
-</Caption>
 
 You can run `yarn deploy` to launch the [Now CLI](/download) which will quickly setup and deploy your project online. Once it's done, you can check the generated url.
 

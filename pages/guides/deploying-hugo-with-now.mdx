@@ -14,7 +14,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/deploying-hugo-with-now',
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
-  lastEdited: '2019-02-26T13:27:30.000Z'
+  lastEdited: '2019-07-09T14:18:26.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -72,68 +72,42 @@ You can now see your project running locally with the following command:
 
 ## Step 2: Deploying Your Hugo Website with Now
 
-Your Hugo website is ready for deployment. Create a [`now.json` configuration file](https://zeit.co/docs/v2/deployments/configuration) in the project directory and add the following content.
+Your Hugo website is ready for deployment. Create a `package.json` in the project directory with the following content:
 
 ```json
 {
-  "version": 2,
-  "name": "my-hugo-project",
-  "builds": [
-    {
-      "src": "build.sh",
-      "use": "@now/static-build",
-      "config": { "distDir": "public" }
-    }
-  ]
+  "scripts": {
+    "install": "curl -L -O https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.tar.gz && tar -xzf hugo_0.55.6_Linux-64bit.tar.gz",
+    "build": "./hugo && mv public dist"
+  }
 }
 ```
 
 <Caption>
-  A <InlineCode>now.json</InlineCode> configuration file that builds a Hugo
-  project.
+  A <InlineCode>package.json</InlineCode> configuration file with install and
+  build scripts.
 </Caption>
 
-The `now.json` file allows you to achieve a few things with your deployment:
-
-- Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version.
-- Defines a project `name` that your deployments will be sorted under and known by under Now.
-- The [`builds` property](/docs/v2/deployments/builds) allows Now to use a [Builder](/docs/v2/deployments/builders/overview/) with a specific source target. We used the [`@now/static-build`](/docs/v2/deployments/official-builders/static-build-now-static-build/) to build and deploy a static project. This module takes the `build.sh` file as the entry point in this case, executes the commands inside the shell file, and exposes the resulting `public` directory as the [build output](/docs/v2/deployments/builds/#sources-and-outputs) for serving.
-- The [`distDir` option](/docs/v2/deployments/official-builders/static-build-now-static-build/#configuring-the-build-output-directory) in the build step instructs Now to identify `public` as the static folder and build output directory.
-
-Now, create the `build.sh` file in the `my-hugo-project` root directory and add the following code to it:
-
-```bash
-#!/usr/bin/env bash
-
-curl -L -O https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.tar.gz
-tar -xzf hugo_0.55.6_Linux-64bit.tar.gz
-
-./hugo
-```
-
-<Caption>
-  A <InlineCode>build.sh</InlineCode> shell file containing commands to install
-  and run Hugo on Now
-</Caption>
-
-And with this configuration set up, you can now deploy your Hugo project.
+With the build scripts added, you can now deploy your Hugo project.
 
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
-  , the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
+  the content of your posts won't show up in production.
 </Note>
 
-If you have don't have [Now CLI](/docs/v2/getting-started/installation#now-cli) on your system, you can install it via the [Now Desktop](https://zeit.co/download), which is the easiest way to get started with Now. You can also install the Now CLI with `npm` as follows: `npm install -g now`.
+If you have not yet installed Now, you can do so by installing the [Now Desktop app](/docs/v2/getting-started/installation/#now-desktop) which installs Now CLI automatically, or by [installing Now CLI](/docs/v2/getting-started/installation/#now-cli) directly.
 
-Then, you can deploy from your terminal with just one command:
+With Now installed, you can deploy from your terminal with **just a single command**:
 
 <TerminalInput>now</TerminalInput>
 
-Otherwise, if you want your application to deploy automatically, you can [install the Now for GitHub app](/docs/v2/integrations/now-for-github/) and have updates for your GitHub repository deploy and alias on every push.
+<Caption>
+  Deploying the application with the <InlineCode>now</InlineCode> command.
+</Caption>
 
-When your app is deployed, you will receive a deployment URL like the following: <https://my-hugo-project-9c5t1giwu.now.sh/>
+If you want to deploy your Hugo project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
 
 ## Resources
 

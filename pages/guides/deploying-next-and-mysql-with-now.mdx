@@ -19,7 +19,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-06-15T12:25:23.000Z'
+  lastEdited: '2019-07-09T20:45:05.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -93,6 +93,21 @@ Managing MySQL connections is an essential part of using it **successfully in a 
   </GenericLink>
   .
 </Note>
+
+Next, add a build script to your `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "next build"
+  }
+}
+```
+
+<Caption>
+  Adding a build script to your <InlineCode>package.json</InlineCode> file.
+</Caption>
 
 Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [Now CLI](/download#now-cli) to keep them secure:
 
@@ -324,14 +339,6 @@ export default HomePage
   An example <InlineCode>pages/index.js</InlineCode> file for your project.
 </Caption>
 
-<Note>
-  This is an extract, the full code for this file can be found in the{' '}
-  <GenericLink href="https://github.com/zeit/now-examples/blob/master/nextjs-mysql/pages/index.js">
-    example repository
-  </GenericLink>
-  .
-</Note>
-
 Your `pages/index.js` file performs the following functions:
 
 - Checks whether the request is being made from the server or client side
@@ -380,14 +387,6 @@ export default ProfilePage
   An example <InlineCode>pages/profile.js</InlineCode> file for your project.
 </Caption>
 
-<Note>
-  This is an extract, the full code for this file can be found in the{' '}
-  <GenericLink href="https://github.com/zeit/now-examples/blob/master/nextjs-mysql/pages/profile.js">
-    example repository
-  </GenericLink>
-  .
-</Note>
-
 Your `pages/index.js` file performs the following functions:
 
 - Checks whether the request is being made from the server or client side
@@ -399,37 +398,12 @@ You now have a **complete application** with both an API and interface, the next
 
 ## Step 6: Deploy Your Project with Now
 
-Getting your project ready to [deploy](/docs/v2/deployments/basics/) with [Now](/docs/v2/getting-started/introduction-to-now) could hardly be simpler, first you should create [`next.config.js` file](https://nextjs.org/docs#custom-configuration) in your root directory with the following code:
+Getting your project ready to [deploy](/docs/v2/deployments/basics/) with [Now](/docs/v2/getting-started/introduction-to-now) could hardly be simpler, all that's required is the inclusion of [environment variables](/docs/v2/deployments/environment-variables-and-secrets).
 
-```js
-module.exports = {
-  target: 'serverless'
-}
-```
-
-<Caption>
-  An example <InlineCode>next.config.js</InlineCode> file for your project.
-</Caption>
-
-The purpose of this [file](https://nextjs.org/docs#custom-configuration) is to tell Next to build for a serverless environment, only 3 lines of code are needed!
-
-The last file you should create is a [`now.json` file](/docs/v2/deployments/configuration). This will bring your project together with just a few lines of code before [deployment](/docs/v2/deployments/basics/). Create one with the following code:
+Create a [`now.json` file](/docs/v2/deployments/configuration) with the following configuration to make the environment variables available to your serverless functions:
 
 ```json
 {
-  "version": 2,
-  "name": "next-mysql",
-  "alias": "next-mysql.now.sh",
-  "builds": [
-    { "src": "api/**/*.js", "use": "@now/node" },
-    { "src": "next.config.js", "use": "@now/next" }
-  ],
-  "routes": [
-    {
-      "src": "/api/profiles/(?<id>[^/]*)",
-      "dest": "api/profiles/profile.js?id=$id"
-    }
-  ],
   "env": {
     "MYSQL_HOST": "@mysql_host",
     "MYSQL_USER": "@mysql_user",
@@ -443,26 +417,16 @@ The last file you should create is a [`now.json` file](/docs/v2/deployments/conf
   An example <InlineCode>now.json</InlineCode> file for your project.
 </Caption>
 
-The [`now.json` file](/docs/v2/deployments/configuration) allows you to achieve many things with your [deployment](/docs/v2/deployments/basics/). Below is a description of what each property does:
-
-- [`version`](/docs/v2/deployments/configuration/#version) ensures you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version
-- [`name`](/docs/v2/deployments/configuration/#name) defines a project [name](/docs/v2/deployments/configuration/#name) your deployment will be known by under Now
-- [`alias`](/docs/v2/deployments/configuration/#alias) allows you to set an alias that can be [used in production](/docs/v2/domains-and-aliases/aliasing-a-deployment/)
-- [`builds`](/docs/v2/deployments/configuration/#builds) instructs Now to use the [`@now/node`](/docs/v2/deployments/official-builders/node-js-now-node/) and [`@now/next`](/docs/v2/deployments/official-builders/next-js-now-next/) [builders](/docs/v2/deployments/builders/overview/) for your applications API and interface respectively
-- [`routes`](/docs/v2/deployments/configuration/#routes) routes individual profile requests to the correct function, with the id parameter
-- [`env`](/docs/v2/deployments/configuration/#env) injects defined secrets into the app, exposing them as [environment variables](/docs/v2/deployments/environment-variables-and-secrets#from-now.json)
-
-<br />
-
 Finally, deploy the application with [Now](/docs/v2/getting-started/introduction-to-now).
 
 If you have not yet installed Now, you can do so by installing the [Now Desktop app](/docs/v2/getting-started/installation/#now-desktop) which installs Now CLI automatically, or by [installing Now CLI](/docs/v2/getting-started/installation/#now-cli) directly.
 
-[Now](/docs/v2/getting-started/introduction-to-now) allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with just one command:
+[Now](/docs/v2/getting-started/introduction-to-now) allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **just a single command**:
 
 <TerminalInput>now</TerminalInput>
+
 <Caption>
-  Deploying an application with Now using only one command.
+  Deploying the application with the <InlineCode>now</InlineCode> command.
 </Caption>
 
 You will see a short build step in your terminal followed by the news that your project has been [deployed](https://zeit.co/docs/v2/deployments/basics/), it should look similar to this: <https://next-mysql.now.sh/>

@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-06-15T12:17:10.000Z'
+  lastEdited: '2019-07-11T18:23:40.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -90,13 +90,12 @@ To use your MongoDB connection string without hard-coding it in your project, yo
   string.
 </Note>
 
-Finally, set up [the `now.json` configuration file](/docs/v2/deployments/configuration) that will tell Now how to build and serve your project, both locally and in production:
+Finally, set up [the `now.json` configuration file](/docs/v2/deployments/configuration) that instructs Now to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
 
 ```json
 {
   "name": "my-mongodb-api",
   "version": 2,
-  "builds": [{ "src": "**/*.js", "use": "@now/node" }],
   "env": {
     "MONGODB_URI": "@my-mongodb-uri"
   }
@@ -113,10 +112,9 @@ Finally, set up [the `now.json` configuration file](/docs/v2/deployments/configu
 
 The above file tells Now the following:
 
-- The name of the project is "my-mongodb-api".
-- The platform version the project uses is [Now 2.0](/docs/v2/platform/overview/#versioning).
-- All JavaScript files should be built by [the @now/node Builder](/docs/v2/deployments/official-builders/node-js-now-node/).
-- An [Environment Variable](/docs/v2/deployments/environment-variables-and-secrets/), `env`, should be accessible in the app with the value of the secret you added in the first step.
+- The name of the project is "my-mongodb-api"
+- The platform version the project uses is [Now 2.0](/docs/v2/platform/overview/#versioning)
+- An [Environment Variable](/docs/v2/deployments/environment-variables-and-secrets/), `env`, should be accessible in the app with the value of the secret you added in the first step
 
 <Note>
   To use this environment variable in local development, you will need to use a{' '}
@@ -294,16 +292,6 @@ Now, deploy your project to a production environment using the following command
 When complete, Now CLI will provide you with the URL your project has been deployed and aliased to. In the case above, the alias was set to `my-mongodb-api.now.sh`.
 
 You can view the aliased deployment from this guide, using the API path, here: <https://my-mongodb-api.now.sh/api/users.js>
-
-<Note hint>
-  Don't forget to exclude the <InlineCode>node_modules</InlineCode> folder from
-  being uploaded to Now to enable faster deployment. To do that, add a{' '}
-  <GenericLink href="/guides/prevent-uploading-sourcepaths-with-nowignore/">
-    .nowignore
-  </GenericLink>{' '}
-  file to the root of the project directory and add{' '}
-  <InlineCode>node_modules</InlineCode> to it.
-</Note>
 
 ## Deploying Automatically with Git
 

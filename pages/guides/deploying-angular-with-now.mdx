@@ -16,7 +16,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-angular-with-now.mdx',
-  lastEdited: '2019-03-05T00:54:17.000Z'
+  lastEdited: '2019-07-09T13:08:30.000Z'
 }
 
 Angular is a popular JavaScript framework for building applications across all platforms; web, mobile web, native mobile, and native desktop.
@@ -64,87 +64,19 @@ Your browser will automatically be launched with the served Angular app at <http
 
 With your Angular application set up, it is ready to deploy live with [Now](/docs/v2).
 
-First, you need to provide Now with instructions on how to build your Angular project using [a `now.json` configuration file](/docs/v2/deployments/configuration):
-
-```json
-{
-  "version": 2,
-  "name": "my-new-app",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/static-build"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(assets/.+|.+\\\\.css|.+\\\\.js)",
-      "headers": { "cache-control": "max-age=31536000,immutable" },
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*).html",
-      "headers": { "cache-control": "public,max-age=0,must-revalidate" },
-      "dest": "/$1.html"
-    },
-    {
-      "src": "/(.*)",
-      "headers": { "cache-control": "public,max-age=0,must-revalidate" },
-      "dest": "/index.html"
-    }
-  ]
-}
-```
-
-<Caption>
-  A <InlineCode>now.json</InlineCode> configuration file that builds an Angular
-  project and caches the assets.
-</Caption>
-
-The `now.json` file allows you to achieve a few things with your deployment:
-
-- Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version.
-- Defines a project `name` that your deployments will be sorted under and known by under Now.
-- Defines a `builds` property as an array with one build step using `@now/static-build` to instruct Now to statically build the project and deploy the `dist` directory. Using the `package.json` file as an entrypoint, more on that below.
-- Defines a `routes` property as an array that contains route objects to route all files to the right place whilst providing a fallback to `index.html` for all other routes so that Angular can handle routing and pages internally.
-
-The `routes` property in the `now.json` configuration file contain [cache-control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) for [caching](https://zeit.co/docs/v2/routing/caching/) our application assets. With this set up, your site is delivered faster to users with reduced bandwidth costs.
-
-For the build property that you configured, add a `now-build` script in the generated `package.json` file to specify what command Now will run to build the app in the cloud.
-
-```json
-{
-    "scripts": {
-      ...
-      "now-build": "ng build --prod --output-path dist"
-    },
-}
-```
-
-<Caption>
-  A <InlineCode>package.json</InlineCode> file with scripts for building Angular
-  projects.
-</Caption>
-
 If you have not yet installed Now, you can do so by installing the [Now Desktop app](/docs/v2/getting-started/installation/#now-desktop) which installs Now CLI automatically, or by [installing Now CLI](/docs/v2/getting-started/installation/#now-cli) directly.
 
-<Note>
-  Don't forget to exclude the <InlineCode>node_modules</InlineCode> folder from
-  being uploaded to Now to enable faster deployment. To do that, add a{' '}
-  <GenericLink href="/guides/prevent-uploading-sourcepaths-with-nowignore/">
-    .nowignore
-  </GenericLink>{' '}
-  file to the root of the project directory and add{' '}
-  <InlineCode>node_modules</InlineCode> to it.
-</Note>
-
-Then, you can deploy from your terminal with just one command:
+With Now installed, you can deploy your Angular project with **just a single command**.
 
 <TerminalInput>now</TerminalInput>
 
-If you want your application to deploy automatically, you can [install the Now for GitHub app](/docs/v2/integrations/now-for-github/) and have updates for your GitHub repository deploy and alias on every push.
+<Caption>
+  Deploying the application with the <InlineCode>now</InlineCode> command.
+</Caption>
 
-When your app is deployed, you will receive a deployment URL like the one that was shown at the beginning of this guide: <https://tour-of-heroes-he3j9k80n.now.sh/>
+If you want your app to deploy automatically, you can install either the [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) apps, this will provide you with unique deployments for your Git repository on every push.
+
+When your app is deployed, you will receive a deployment URL similar to the one shown at the beginning of this guide: <https://tour-of-heroes-he3j9k80n.now.sh/>
 
 <Note>
   We used the{' '}
