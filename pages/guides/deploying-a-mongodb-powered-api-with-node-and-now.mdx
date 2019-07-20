@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-07-11T18:23:40.000Z'
+  lastEdited: '2019-07-20T00:10:25.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -244,7 +244,7 @@ Using the default port, you can find your new API endpoint at <http://localhost:
 
 The next and final step is to deploy your application with a single command.
 
-With Now, you can deploy your application to [different environments](/docs/v2/domains-and-aliases/aliasing-a-deployment/), depending on what stage your application is at; either staging or production.
+With Now, you can deploy your application to [different environments](/docs/v2/custom-domains#deploying-with-your-domain), depending on what stage your application is at; either staging or production.
 
 To deploy to a unique alias, use the following [Now CLI](/download) command from your terminal:
 
@@ -253,12 +253,12 @@ To deploy to a unique alias, use the following [Now CLI](/download) command from
 
 <Note hint>
   See more ways to deploy and alias from the{' '}
-  <GenericLink href="/docs/v2/domains-and-aliases/aliasing-a-deployment/">
+  <GenericLink href="/docs/v2/custom-domains#deploying-with-your-domain">
     Aliasing Documentation.
   </GenericLink>
 </Note>
 
-For [production deployments](/docs/v2/domains-and-aliases/aliasing-a-deployment/#production), you can deploy to an alias of your choice. To do so, add an `alias` to your `now.json` file:
+For [production deployments](/docs/v2/custom-domains#deploying-with-your-domain), you can deploy to an alias of your choice. To do so, add an `alias` to your `now.json` file:
 
 ```json
 {
@@ -323,7 +323,7 @@ To configure [Now](/docs/v2/getting-started/introduction-to-now) further, please
 
 <Card
   title="Aliasing"
-  href="/docs/v2/domains-and-aliases/aliasing-a-deployment/"
+  href="/docs/v2/custom-domains#deploying-with-your-domain"
 >
   Learn more about aliasing to your deployments.
 </Card>

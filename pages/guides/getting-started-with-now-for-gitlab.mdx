@@ -15,7 +15,7 @@ export const meta = {
   authors: ['arunoda', 'timothy'],
   url: '/guides/getting-started-with-now-for-gitlab',
   editUrl: 'pages/guides/getting-started-with-now-for-gitlab.mdx',
-  lastEdited: '2019-07-15T19:42:38.000Z'
+  lastEdited: '2019-07-20T00:10:25.000Z'
 }
 
 The [Now for GitLab integration](/docs/v2/integrations/now-for-gitlab) provides you with automatic deployments for each push to a project, automatic aliases for pushes to the default branch, and instant rollbacks for reverts.
@@ -122,7 +122,7 @@ After you commit and create the merge request, you will get a [new view](https:/
 
 The pipeline information shows the status as Now builds your app. In this case, it has successfully built. It will show a different icon when Now is building the app.
 
-Below the pipeline message, a comment will present a [staging alias](https://zeit.co/docs/v2/domains-and-aliases/aliasing-a-deployment/#git-staging-aliases) that updates each time the merge request is pushed to, so you can share this link with others without having to worry about sharing the latest update.
+Below the pipeline message, a comment will present a [staging alias](/docs/v2/custom-domains#deploying-with-your-domain) that updates each time the merge request is pushed to, so you can share this link with others without having to worry about sharing the latest update.
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-now-for-gitlab/merge-request-alias.png`}
@@ -141,7 +141,7 @@ Pushing or merging to the [default branch](https://docs.gitlab.com/ee/user/proje
 <Note hint>
   You can read more about adding aliases, both staging and production, to
   deployments in the{' '}
-  <GenericLink href="/docs/v2/domains-and-aliases/aliasing-a-deployment">
+  <GenericLink href="/docs/v2/custom-domains#deploying-with-your-domain">
     aliasing a deployment documentation
   </GenericLink>
   .
@@ -159,12 +159,8 @@ When you push this change to the default branch, this and all subsequent commits
 
 It is also possible to use your own domains or an alias using a Custom Deployment Suffix. For that, see the following documentation:
 
-<Card
-  title="Introduction to Domains and Aliases"
-  href="/docs/v2/domains-and-aliases/introduction"
->
-  Learn more about aliasing your automatic deployments and how to use your own
-  domains.
+<Card title="Adding a Domain" href="/docs/v2/custom-domains">
+  Learn how to add a domain for your deployments.
 </Card>
 
 <Card
@@ -192,7 +188,7 @@ To configure Now further, please see these additional topics and guides:
 
 <Card
   title="Aliasing"
-  href="/docs/v2/domains-and-aliases/aliasing-a-deployment/"
+  href="/docs/v2/custom-domains#deploying-with-your-domain"
 >
   Learn more about aliasing to your deployments.
 </Card>

@@ -20,35 +20,32 @@
       "src": "/docs/max-lambda-size",
       "status": 301,
       "headers": {
-        "Location": "/docs/v2/deployments/concepts/lambdas#maximum-bundle-size"
+        "Location": "/docs/v2/advanced/concepts/lambdas#maximum-bundle-size"
       }
     },
     {
       "src": "/docs/github",
       "status": 301,
-      "headers": { "Location": "/docs/v2/integrations/now-for-github" }
+      "headers": {
+        "Location": "/docs/v2/advanced/now-for-github"
+      }
     },
     {
       "src": "/docs/aliasing",
       "status": 301,
       "headers": {
-        "Location": "/docs/v2/domains-and-aliases/aliasing-a-deployment"
+        "Location": "/docs/v2/aliasing-a-deployment"
       }
     },
     {
       "src": "/docs/dns",
       "status": 301,
-      "headers": { "Location": "/docs/v2/domains-and-aliases/dns" }
+      "headers": { "Location": "/docs/v2/advanced/domains/dns" }
     },
     {
       "src": "/docs/v2/routing/(.*)/?",
       "status": 301,
       "headers": { "Location": "/docs/v2/network/$1" }
-    },
-    {
-      "src": "/docs/v2/domains-and-aliases/introduction-to-domains",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/domains-and-aliases/introduction" }
     },
     {
       "src": "/docs/features/(.*)",
@@ -71,9 +68,9 @@
       "headers": { "Location": "/guides/updating-now-cli" }
     },
     {
-      "src": "/docs/guides/(.*)",
+      "src": "/docs/guides/.*",
       "status": 301,
-      "headers": { "Location": "/docs/v1/guides/$1" }
+      "headers": { "Location": "/guides" }
     },
     {
       "src": "/docs/getting-started/(.*)",
@@ -81,9 +78,77 @@
       "headers": { "Location": "/docs/v1/getting-started/$1" }
     },
     {
-      "src": "/docs/examples/(.*)",
+      "src": "/docs/v2/getting-started/(.*)/?",
       "status": 301,
-      "headers": { "Location": "/docs/v1/examples/$1" }
+      "headers": { "Location": "/docs/v2/introduction" }
+    },
+    {
+      "src": "/docs/v2/deployments/(?:builders|official-builders)/(.*)/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/builders/$1" }
+    },
+    {
+      "src": "/docs/v2/deployments/concepts/(.*)/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/concepts/$1" }
+    },
+    {
+      "src": "/docs/v2/deployments/(routes|configuration)(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/$1$2" }
+    },
+    {
+      "src": "/docs/v2/deployments/ignoring-source-paths(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/guides/prevent-uploading-sourcepaths-with-nowignore$1"
+      }
+    },
+    {
+      "src": "/docs/v2/development/environment-variables(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/serverless-functions/env-and-secrets"
+      }
+    },
+    {
+      "src": "/docs/v2/development/(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/serverless-functions/introduction"
+      }
+    },
+    {
+      "src": "/docs/v2/deployments/.*",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/introduction" }
+    },
+    {
+      "src": "/docs/v2/domains-and-aliases/aliasing-a-deployment",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/custom-domains#deploying-with-your-domain"
+      }
+    },
+    {
+      "src": "/docs/v2/domains-and-aliases/cdn",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/serverless-functions/edge-caching" }
+    },
+    {
+      "src": "/docs/v2/domains-and-aliases/dns/",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/domains/dns" }
+    },
+    {
+      "src": "/docs/v2/domains-and-aliases/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/custom-domains" }
+    },
+    {
+      "src": "/examples",
+      "status": 301,
+      "headers": { "Location": "https://github.com/zeit/now-examples" }
     },
     {
       "src": "/docs/other/(.*)",
@@ -107,6 +172,55 @@
       "src": "/examples/nodejs-express",
       "status": 301,
       "headers": { "Location": "/examples/express" }
+    },
+    {
+      "src": "/docs/v2/deployments/configuration(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/configuration/$1" }
+    },
+    {
+      "src": "/docs/v2/deployments/routes(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/routes/$1" }
+    },
+    {
+      "src": "/docs/v2/deployments/builds/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/builds/$1" }
+    },
+    {
+      "src": "/docs/v2/deployments/builders/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/custom-builds" }
+    },
+    {
+      "src": "/docs/v2/deployments/official-builders/(.*)/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/builders/$1" }
+    },
+    {
+      "src": "/docs/v2/platform/global-configuration/(.*)/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/global-configuration/$1" }
+    },
+    {
+      "src": "/docs/v2/platform/(.*)/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/platform/$1" }
+    },
+    {
+      "src": "/docs/v2/development/basic/(.*)/?",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/deployment/serverless-functions#local-development"
+      }
+    },
+    {
+      "src": "/docs/v2/integrations/(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/advanced/$1"
+      }
     },
     { "src": "(.*)", "dest": "$1" }
   ]

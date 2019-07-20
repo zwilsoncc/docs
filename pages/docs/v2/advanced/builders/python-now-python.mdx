@@ -1,0 +1,143 @@
+import { withAmp } from 'next/amp'
+import Doc from '~/components/layout/docs'
+import { TerminalInput } from '~/components/text/terminal'
+import { Code, InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import { Image } from '~/components/media'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import Example from '~/components/example'
+import Tag from '~/components/text/tag'
+
+export const meta = {
+  title: 'Python Builder (@now/python)',
+  description:
+    'The official Python Builder for ZEIT Now. Serverless invokable functions from Python source code for ZEIT Now deployments.',
+  editUrl: 'pages/docs/v2/advanced/builders/python-now-python.mdx',
+  lastEdited: '2019-07-18T13:45:29.000Z'
+}
+
+<Tag>Status: Beta</Tag>
+
+This builder takes in a Python program that defines a singular HTTP handler and outputs it as a [Lambda](/docs/v2/deployments/concepts/lambdas).
+
+## When to Use It
+
+Whenever you want to expose an API or a function written in Python.
+
+## How to Use It
+
+Define a `index.py` file inside a `/api` directory as follows:
+
+```python
+from http.server import BaseHTTPRequestHandler
+from cowpy import cow
+
+class handler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type','text/plain')
+        self.end_headers()
+        message = cow.Cowacter().milk('Hello from Python on Now Lambda!1111111')
+        self.wfile.write(message.encode())
+        return
+```
+
+<Note>
+  If you want to use a directory name other than <InlineCode>/api</InlineCode>,
+  read the{' '}
+  <GenericLink href="/docs/v2/advanced/builds">
+    Builds documentation
+  </GenericLink>
+  .
+</Note>
+
+Inside `requirements.txt` define:
+
+```
+cowpy==1.0.3
+```
+
+The example above can be seen live at <https://python-deployment-mhssg6mqx.now.sh/>
+
+Also, the source code of the deployment can be checked by appending `/_src` e.g. <https://python-deployment-mhssg6mqx.now.sh/_src>.
+
+## Web Server Gateway Interface
+
+The Web Server Gateway Interface (WSGI) is a calling convention for web servers to forward requests to web applications written in Python. You can use WSGI with frameworks such as [Flask](/examples/python-flask) or Django.
+
+Instead of defining a `handler`, define an `app` variable in your Python file.
+
+For example, define a `index.py` file inside a folder as follows:
+
+```python
+from flask import Flask, Response
+app = Flask(__name__)
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return Response("<h1>Flask on Now</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+```
+
+Inside `requirements.txt` define:
+
+```
+flask==1.0.2
+```
+
+Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use the [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a serverless function.
+
+The example above can be seen live at <https://simple-python-flask.now-examples.now.sh/Hello>
+
+## Asynchronous Server Gateway Interface
+
+The Asynchronous Server Gateway Interface (ASGI) is a calling convention for web servers to forward requests to asynchronous web applications written in Python. You can use ASGI with frameworks such as [Sanic](https://sanic.readthedocs.io).
+
+Instead of defining a `handler`, define an `app` variable in your Python file.
+
+For example, define a `index.py` file inside a folder as follows:
+
+```python
+from sanic import Sanic
+from sanic.response import json
+app = Sanic()
+
+
+@app.route('/')
+@app.route('/<path:path>')
+async def index(request, path=""):
+    return json({'hello': path})
+```
+
+Inside `requirements.txt` define:
+
+```
+sanic==19.6.0
+```
+
+Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use the [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a serverless function.
+
+The example above can be seen live at <https://simple-python-sanic-rf2yqvtg9.now.sh/world>
+
+## Technical Details
+
+### Entrypoint
+
+The entrypoint file must be a `.py` source file with one of the following variables defined:
+
+- `handler` that inherits from the `BaseHTTPRequestHandler` class
+- `app` that exposes a WSGI or ASGI Application
+
+### Version
+
+Python 3.6 is used.
+
+### Dependencies
+
+This builder supports installing dependencies defined in the `requirements.txt` file or a `Pipfile.lock` file.
+
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

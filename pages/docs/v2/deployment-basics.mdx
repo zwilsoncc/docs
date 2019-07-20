@@ -1,0 +1,145 @@
+import { withAmp } from 'next/amp'
+import Doc from '~/components/layout/docs'
+import { TerminalInput, TerminalOutput } from '~/components/text/terminal'
+import { GenericLink } from '~/components/text/link'
+import { InlineCode } from '~/components/text/code'
+import { Image } from '~/components/media'
+import Caption from '~/components/text/caption'
+import Card from '~/components/card'
+import Note from '~/components/text/note'
+
+export const meta = {
+  title: 'Deployment Basics',
+  description: 'Learn how to deploy any application with ZEIT Now.',
+  editUrl: 'pages/docs/v2/deployment-basics.mdx',
+  lastEdited: '2019-07-20T00:10:25.000Z'
+}
+
+A ZEIT Now deployment represents a copy of your application hosted in ZEIT's cloud platform, accessible to you and your users via HTTP/2.
+
+To create a new deployment using [Now CLI](/download), run the following command from your terminal:
+
+<TerminalInput>now</TerminalInput>
+<Caption>One-command deployment with <GenericLink href="/download">Now CLI</GenericLink>.</Caption>
+
+## Creating a Project to Deploy
+
+ZEIT Now will deploy any statically generated framework without any extra configuration.
+
+To set up a new project using your pick of a variety of frontend frameworks, Now CLI comes with a helpful command to get started in seconds. Run the `now init` command in your terminal to get started:
+
+<TerminalInput>now init</TerminalInput>
+<Caption>Running the Now CLI <InlineCode>init</InlineCode> command.</Caption>
+
+You will then get an output, similar to the following, where you can choose the frontend you'd like to work with:
+
+<TerminalOutput><b>{`> Select example:`}</b> <span style={{color: 'gray'}}>(Use arrow keys)</span><br/>
+&nbsp;&nbsp;angular<br/>
+&nbsp;&nbsp;aurelia<br/>
+&nbsp;&nbsp;brunch<br/>
+&nbsp;&nbsp;charge<br/>
+&nbsp;&nbsp;create-react-app+functions<br/>
+&nbsp;&nbsp;create-react-app<br/>
+&nbsp;&nbsp;docusaurus<br/>
+&nbsp;&nbsp;docz<br/>
+&nbsp;&nbsp;elm<br/>
+&nbsp;&nbsp;gatsby+functions<br/>
+<i style={{color: 'cyan', fontStyle: 'normal'}}>❯ gatsby</i><br/>
+&nbsp;&nbsp;gridsome<br/>
+&nbsp;&nbsp;hexo<br/>
+&nbsp;&nbsp;hugo<br/>
+&nbsp;&nbsp;jekyll<br/>
+<span style={{color: 'gray'}}>(Move up and down to reveal more choices)</span>
+</TerminalOutput>
+<Caption>Selecting a project using the <InlineCode>now init</InlineCode> command in a terminal.</Caption>
+
+Choosing Gatsby from the list – for example – will initilize a Gatsby project in your current directory.
+
+<Note>
+  You can also use a create script from npm, such as{' '}
+  <InlineCode>npx gatsby new</InlineCode> or{' '}
+  <InlineCode>npm create next-app</InlineCode> to get started with no additional
+  configuration.
+</Note>
+
+The final step is to deploy with Now CLI using the following command from your terminal:
+
+<TerminalInput>now</TerminalInput>
+<Caption>Deploying with Now CLI.</Caption>
+
+If you need to structure your application beyond the default configuration of Now, read about advanced [Configuration](/docs/v2/advanced/configuration) and [Builds](/docs/v2/advanced/builds).
+
+## Build on Deploy
+
+If you want to have your statically generated application built fresh on each deploy, Now recognizes the `build` script in a `package.json` file and executes it as a build step before serving your application.
+
+For example, a Next.js app would use the following scripts property inside the applications `package.json`:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "next build"
+  }
+}
+```
+
+<Caption>
+  A <InlineCode>build</InlineCode> script for Next.js inside an example{' '}
+  <InlineCode>package.json</InlineCode>.
+</Caption>
+
+## Automatic Deployments with Git
+
+If you want to avoid manually deploying your project with each change, ZEIT offers two integrations for Git, [Now for GitHub](/docs/v2/integrations/now-for-github) and [Now for GitLab](/docs/v2/integrations/now-for-github).
+
+These integrations provide the ability to automatically deploy with each push to a GitHub repository or GitLab project, and to alias automatically when pushing to the default branch.
+
+To get started with either integration, go to your [account settings page](/account) (or team settings) and link either of the services with ZEIT.
+
+Once linked, you will be guided through setup by choosing repositories or projects to enable deployments with, and then Now will begin deploying each push on those selected repositories or projects autonomously.
+
+<Image
+src={`${process.env.IMAGE_ASSETS_URL}/blog/now-for-github/ci.png`}
+width={581}
+height={185}
+/>
+<Caption>Now for GitHub providing a deployment for a GitHub pull request.</Caption>
+
+## How Deployments Work
+
+Every change to your code can be deployed as a copy of the current version of your application, [globally distributed](/smart-cdn) to minimize latency when accessing that deployment.
+
+Deployments are [immutable](/docs/v2/advanced/concepts/immutability) and cannot be edited. To update your application, you will need to make changes locally and redeploy. This brings many benefits, including the ability to revert to an earlier version instantly in case of errors or bugs in your application, or to visit an older deployment whenever, for reference.
+
+The process of deploying involves two phases we handle on your behalf:
+
+- Source code synchronization: we take your application sources and upload them.
+- Build steps execution: dependent on the filetypes available and your project setup, we detect your project and build it into outputs, ready to serve.
+
+If you want to learn more about the concepts behind ZEIT Now deployments, read our [Deployment Concepts reference](/docs/v2/advanced/concepts/overview).
+
+## Related
+
+For more information on what to do next, we recommend the following articles:
+
+<Card
+  title="Aliasing Your Projects"
+  href="/docs/v2/custom-domains#deploying-with-your-domain"
+>
+  Once deployed, your projects can be aliased to a custom domain or specified
+  name or your choice to give it a primary place to see the latest version of
+  your application.
+</Card>
+
+<Card
+  title="Create Serverless Functions"
+  href="/docs/v2/deployment/serverless-functions"
+>
+  If you want to extend your applications with dynamic data, read more about
+  creating Serverless Functions in your projects.
+</Card>
+
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

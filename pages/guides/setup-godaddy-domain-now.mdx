@@ -15,10 +15,10 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-now',
   editUrl: 'pages/guides/setup-godaddy-domain-now.mdx',
-  lastEdited: '2019-07-11T20:13:17.000Z'
+  lastEdited: '2019-07-20T00:10:25.000Z'
 }
 
-With Now, you can [assign a domain name](/docs/v2/domains-and-aliases/aliasing-a-deployment/) to any of your [deployments](/docs/v2/deployments/basics/) by aliasing. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to Now](/guides/zero-downtime-domain-migration/) in order to alias your deployments.
+With Now, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) by aliasing. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to Now](/guides/zero-downtime-domain-migration/) in order to alias your deployments.
 
 This guide will cover **how to point your GoDaddy registered domain towards Now** in order to alias your deployments to that domain.
 
@@ -48,7 +48,7 @@ This is the fastest method of getting started with your domain on Now. When usin
 
 When using this method, however, if the domain was previously pointing to another host and if you have not yet configured Now for your domain, e.g. generating SSL certificates and aliasing; when it does point to Now, it will invoke downtime until the configuration is done. To avoid this, use [the `TXT` verification method](#verifying-with-a-txt-record).
 
-If you want to verify with nameservers, you must use the intended set of nameservers given to you when you [added the domain with Now CLI](/docs/v2/domains-and-aliases/adding-a-domain/#adding-a-domain). If you need to be reminded of these nameservers, you can use the [following command](/docs/v2/domains-and-aliases/adding-a-domain/#inspecting-a-domain):
+If you want to verify with nameservers, you must use the intended set of nameservers given to you when you [added the domain with Now CLI](/docs/v2/custom-domains). If you need to be reminded of these nameservers, you can use the [following command](/docs/v2/custom-domains):
 
 <TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
 
@@ -78,7 +78,7 @@ This method is used when you want to verify your domain but you do not yet want 
 
 You can add the TXT record by going to your GoDaddy domains dashboard, as in the [nameservers method](#verifying-with-nameservers), and clicking on `DNS` on the domain you want to migrate, then clicking add in the "Records" section.
 
-Select `TXT` as the record type to add, `_now` as the host, and the value you were given for the record when adding your domain or when using the [`now domains inspect <domain>` Now CLI command](/docs/v2/domains-and-aliases/adding-a-domain/#inspecting-a-domain).
+Select `TXT` as the record type to add, `_now` as the host, and the value you were given for the record when adding your domain or when using the [`now domains inspect <domain>` Now CLI command](/docs/v2/custom-domains).
 
 <Image
   src="https://assets.zeit.co/image/upload/v1548370520/front/guides/godaddy-migration/godaddy-dns-add.png"
@@ -116,7 +116,7 @@ now dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5
 now dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10
 now dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10`}</TerminalInput>
 
-[Read more about `now dns` to learn about the format of the command](/docs/v2/domains-and-aliases/dns/).
+[Read more about `now dns` to learn about the format of the command](/docs/v2/advanced/domains/dns/).
 
 ### Aliasing a Deployment
 
@@ -175,7 +175,7 @@ For more information on how you can extend your usage of Now, read the following
 
 <Card
   title="Aliasing"
-  href="/docs/v2/domains-and-aliases/aliasing-a-deployment/"
+  href="/docs/v2/custom-domains#deploying-with-your-domain"
 >
   Learn more about aliasing to your deployments.
 </Card>

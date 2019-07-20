@@ -3,10 +3,10 @@
   "version": "5.15.15",
   "private": true,
   "scripts": {
-    "dev": "./scripts/now-examples-fetch.sh && next",
-    "build": "./scripts/now-examples-fetch.sh && cross-env NODE_ENV=production next build",
+    "dev": "next",
+    "build": "cross-env NODE_ENV=production next build",
     "now-build": "yarn run build && yarn run export",
-    "now-dev": "./scripts/now-examples-fetch.sh && next -p $PORT",
+    "now-dev": "next -p $PORT",
     "start": "cross-env NODE_ENV=production next start",
     "export": "next export -o dist",
     "lint": "eslint .",
