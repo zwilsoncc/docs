@@ -8,7 +8,7 @@ export const meta = {
   title: 'Headers',
   description: 'The list of headers included with deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/network/headers.mdx',
-  lastEdited: '2019-07-11T02:04:10.000Z'
+  lastEdited: '2019-07-18T15:03:49.000Z'
 }
 
 [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) can be found in both the HTTP Request and HTTP Response.
@@ -61,17 +61,6 @@ The unique identifier for each request.
 ### `x-now-trace`
 
 Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) through which the request has traversed, usually the data center closest to you.
-
-<Note>
-  The trace is where a request was processed, it is not necessarily where a
-  lambda was executed, this could be different if you defined{' '}
-  <InlineCode>regions</InlineCode> in your
-  <InlineCode>now.json</InlineCode> file.
-</Note>
-
-## Custom Headers
-
-Custom headers can be added dynamically to the [Response](https://nodejs.org/api/http.html#http_response_setheader_name_value) object in your [Lambda](/docs/v2/deployments/concepts/lambdas/) or they can be added statically to the [routes](/docs/v2/deployments/routes/#headers) property in your `now.json` file.
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true

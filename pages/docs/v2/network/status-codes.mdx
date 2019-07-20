@@ -8,22 +8,14 @@ export const meta = {
   description:
     'Status codes are given in different circumstances to give you as much insight as possible into your deployments.',
   editUrl: 'pages/docs/v2/network/status-codes.mdx',
-  lastEdited: '2019-07-11T02:04:10.000Z'
+  lastEdited: '2019-07-18T18:41:58.000Z'
 }
 
 In order to give you the best possible insight into what exactly is wrong with your deployment, we implemented several status codes into the [Network Layer](/docs/v2/network/overview) of Now.
 
 ## Response Types
 
-By default, browsers (and any other client that sets the [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) header to a value containing `text/html`) will receive the status codes as the following HTML template:
-
-<Image
-  src={`https://assets.zeit.co/image/upload/v1541618244/front/docs/routing/status-codes/preview.png`}
-  width={1364 / 2}
-  height={818 / 2}
-/>
-
-<Caption>An example of how a status code response could look like</Caption>
+By default, browsers (and any other client that sets the [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept) header to a value containing `text/html`) will receive status codes as a HTML template.
 
 Depending on your status code, the title ("404"), description ("The page could not be found") and the code ("FILE_NOT_FOUND") will vary.
 

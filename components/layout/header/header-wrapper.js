@@ -35,7 +35,7 @@ const Header = ({
           ? 'transparent'
           : '#fff'};
         border-bottom: ${hideHeaderSearch && dynamicSearch
-          ? ''
+          ? '1px solid transparent'
           : '1px solid #eaeaea'};
         transition: all 0.2s ease;
       }

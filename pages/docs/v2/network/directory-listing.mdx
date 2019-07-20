@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Directory listings are shown for deployments that have no index files.',
   editUrl: 'pages/docs/v2/network/directory-listing.mdx',
-  lastEdited: '2019-07-11T02:04:10.000Z'
+  lastEdited: '2019-07-18T15:03:49.000Z'
 }
 
 The content of any path that does not contain an **Index File** (within a deployment) is rendered using our **Directory Listing**.
@@ -58,24 +58,6 @@ In the case that you would like to hide the **Directory Listing** for a certain 
 As mentioned above, the **Directory Listing** will only occur if there is no **Index File** inside the path the client is trying to access.
 
 That means placing a **Index File** that looks like a "Not Found" error page inside the path will make the visitor think the path does not exist.
-
-## Rewrite to a 404 page
-
-The recommended way to hide **Directory Listings**, however, is to create a new rewrite using the `routes` property in `now.json` like this:
-
-```json
-"routes": [
-  {
-    "src": "/example",
-    "dest": "/404.html",
-    "status": 404
-  }
-]
-```
-
-In the example above, the `/example` route (which is a directory without an **Index File**, thus would render a **Directory Listing**) is rewritten to render the `/404.html` file instead.
-
-Furthermore, we are setting a status code of `404` to accompany the response.
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true

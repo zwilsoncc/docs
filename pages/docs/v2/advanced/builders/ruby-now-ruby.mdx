@@ -1,0 +1,113 @@
+import { withAmp } from 'next/amp'
+import Doc from '~/components/layout/docs'
+import { TerminalInput } from '~/components/text/terminal'
+import { Code, InlineCode } from '~/components/text/code'
+import { GenericLink } from '~/components/text/link'
+import { Image } from '~/components/media'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import Example from '~/components/example'
+import Tag from '~/components/text/tag'
+
+export const meta = {
+  title: 'Ruby Builder (@now/ruby)',
+  description:
+    'The official Ruby Builder for ZEIT Now. Serverless invokable functions from Ruby source code for ZEIT Now deployments.',
+  editUrl: 'pages/docs/v2/advanced/builders/ruby-now-ruby.mdx',
+  lastEdited: '2019-07-18T13:45:29.000Z'
+}
+
+<Tag>Status: Alpha</Tag>
+
+This builder takes in a Ruby program that defines a singular HTTP handler and outputs it as a serverless function.
+
+## When to Use It
+
+Whenever you want to expose an API or a function written in Ruby.
+
+## How to Use It
+
+Define a `index.rb` file inside a `/api` directory as follows:
+
+```ruby
+require 'cowsay'
+
+Handler = Proc.new do |req, res|
+    res.status = 200
+    res['Content-Type'] = 'text/plain'
+    res.body = Cowsay.say('hello world', 'cow')
+end
+```
+
+<Note>
+  If you want to use a directory name other than <InlineCode>/api</InlineCode>,
+  read the{' '}
+  <GenericLink href="/docs/v2/advanced/builds">
+    Builds documentation
+  </GenericLink>
+  .
+</Note>
+
+Inside `Gemfile` define:
+
+```ruby
+source "https://rubygems.org"
+
+gem "cowsay", "~> 0.3.0"
+```
+
+## Rack Interface
+
+Many Ruby frameworks interface with [Rack](https://rack.github.io/) for forwarding HTTP requests to web applications written in Ruby. You can use Rack with frameworks such as Sinatra or Rails.
+
+Instead of defining a handler, write the application as usual, like this Sinatra application:
+
+```ruby
+require 'sinatra'
+
+get '/*' do
+    'Hello world'
+end
+```
+
+Inside `Gemfile` define:
+
+```ruby
+source "https://rubygems.org"
+
+gem "sinatra", "~> 2.0"
+gem "rack", "~> 2.0"
+```
+
+Add a Rack config file at `index.ru` to start the application:
+
+```ruby
+require './app'
+
+run Sinatra::Application
+```
+
+Most frameworks use their own implementation of routing. However, you can use a catch-all route to circumvent the framework and instead use the [Now Routing Layer](/docs/v2/deployments/routes) to match a route to a serverless function.
+
+## Technical Details
+
+### Entrypoint
+
+The entrypoint file must be a `.rb` source file with one of the following variables defined:
+
+- `Handler` proc that matches the `do |req, res|` signature
+- `Handler` class that inherits from the `WEBrick::HTTPServlet::AbstractServlet` class
+
+Alternatively, a `.ru` Rack config file will serve the Ruby application it contains.
+
+### Version
+
+Ruby 2.5.3 is used.
+
+### Dependencies
+
+This builder supports installing dependencies defined in the `Gemfile`. Alternatively, dependencies can be vendored with the `bundler install --deployment` command (useful for gems that require native extentions). In this case, dependencies are not built on deployment.
+
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})
