@@ -18,10 +18,8 @@ const NavigationItem = ({
       </GenericLink>
     )}
     <style jsx>{`
-      .navigation-item,
-      .navigation-item > :global(span) {
+      .navigation-item {
         display: flex;
-        align-items: center;
       }
 
       .navigation-item :global(a) {

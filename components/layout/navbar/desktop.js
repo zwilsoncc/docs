@@ -4,7 +4,7 @@ import { LinkWithHoverPrefetch } from '~/components/text/link'
 import qs from 'querystring'
 import { parse } from 'url'
 import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
-import ArrowRight from '~/components/icons/arrow-right'
+import ArrowDown from '~/components/icons/arrow-down'
 import * as metrics from '~/lib/metrics'
 
 function scrollIntoViewIfNeeded(elem, centerIfNeeded, options, config) {
@@ -62,15 +62,13 @@ function Category({ info, level = 1, ...props }) {
 
   return (
     <div
-      className={cn('category', levelClass, {
-        open: toggle,
-        selected: categorySelected,
-        separated: info.sidebarSeparator
-      })}
+      className={`category ${levelClass} ${toggle ? 'open' : ''} ${
+        categorySelected ? 'selected' : ''
+      }`}
       key={info.name || ''}
     >
       <a className="label" onClick={onClick}>
-        <ArrowRight fill="#999" />
+        <ArrowDown width={9} fill="#000" />
         {info.name}
       </a>
       {!info.href || isCategorySelected(info) ? (
@@ -93,11 +91,12 @@ function Category({ info, level = 1, ...props }) {
           cursor: pointer;
           display: flex;
           align-items: center;
-          color: var(--accents-6);
+          color: #666;
         }
 
         .label :global(svg) {
-          margin-right: 18px;
+          margin-right: 12px;
+          transform: rotate(-90deg);
           transition: all 0.15s ease;
         }
 
@@ -111,9 +110,7 @@ function Category({ info, level = 1, ...props }) {
         }
 
         .open > .label :global(svg) {
-          margin-left: 1px;
-          margin-right: 17px;
-          transform: rotate(90deg);
+          transform: rotate(0deg);
         }
 
         .level-2 .label {
@@ -135,17 +132,13 @@ function Category({ info, level = 1, ...props }) {
           margin-bottom: 0;
         }
 
-        .separated {
-          margin-bottom: 32px;
-        }
-
         .posts {
           border-left: 1px solid #eaeaea;
+          margin-left: 3.5px;
           margin-top: 0;
           height: 0;
           overflow: hidden;
-          padding-left: 19px;
-          margin-left: 4px;
+          padding-left: 21px;
         }
 
         .open > .posts {
@@ -177,17 +170,12 @@ function Category({ info, level = 1, ...props }) {
 }
 
 function Post({ info, level = 1, ...props }) {
-  const levelClass = `level-${level}`
-
   if (info.posts) {
     return <Category info={info} level={level} {...props} />
   }
 
   return (
-    <div
-      key={info.href}
-      className={cn('link', levelClass, { separated: info.sidebarSeparator })}
-    >
+    <div className="link" key={info.href}>
       <NavLink
         info={info}
         url={props.url}
@@ -201,31 +189,12 @@ function Post({ info, level = 1, ...props }) {
           margin: 18px 0;
         }
 
-        .link.level-1 {
-          display: flex;
-          align-items: center;
-        }
-
-        .link.level-1::before {
-          content: '';
-          display: block;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: var(--accents-5);
-          margin-right: 20px;
-        }
-
         .link:first-child {
           margin-top: 0;
         }
 
         .link:last-child {
           margin-bottom: 0;
-        }
-
-        .separated {
-          margin-bottom: 32px;
         }
 
         @media screen and (max-width: 950px) {
@@ -331,20 +300,16 @@ export class NavLink extends React.Component {
             box-sizing: border-box;
           }
 
-          .nav-link {
-            display: flex;
-          }
-
           .nav-link :global(a) {
             text-decoration: none;
             font-size: 14px;
-            color: var(--accents-6);
+            color: #666;
             box-sizing: border-box;
           }
 
           .selected :global(a) {
             font-weight: 600;
-            color: #000;
+            color: #0076ff;
           }
 
           .nav-link:hover :global(a) {
@@ -385,18 +350,9 @@ export default function DocsNavbarDesktop({
 }) {
   return (
     <>
-      {data.map(categoryInfo =>
-        categoryInfo.posts ? (
-          <Category info={categoryInfo} {...props} key={categoryInfo.name} />
-        ) : (
-          <Post
-            info={categoryInfo}
-            level={1}
-            key={categoryInfo.name}
-            {...props}
-          />
-        )
-      )}
+      {data.map(categoryInfo => (
+        <Category info={categoryInfo} {...props} key={categoryInfo.name} />
+      ))}
     </>
   )
 }
