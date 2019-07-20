@@ -10,9 +10,35 @@ export const meta = {
 
 ## Missing Public Directory
 
-This error occurs when your built project does not get output to the `/public` directory, preventing Now from uploading your built project.
+If your project contains a `package.json` file with a `build` [script](https://docs.npmjs.com/misc/scripts), it is expected to output its static files into a directory named `public`, at the root of the project, when the `build` [script](https://docs.npmjs.com/misc/scripts) is executed.
 
-To resolve this issue, provide your framework with instructions on outputting builds to a `/public` directory.
+You are seeing this error because your setup did not satisfy the above constraint.
+
+To resolve this error, configure your project to place its static output files into a `public` directory, at the root of your project, when the `build` [script](https://docs.npmjs.com/misc/scripts) from your `package.json` file is invoked.
+
+For example, this is how your `package.json` file might look:
+
+```json
+{
+  "scripts": {
+    "build": "my-framework build"
+  }
+}
+```
+
+If you are seeing this error with a similar `build` script already, you may need to adjust the command to direct its static output files into the `public` directory instead.
+
+Depending on your framework, the option for this might be called `--output`, `--out`, `--output-dir` or similar:
+
+```json
+{
+  "scripts": {
+    "build": "my-framework build --output public"
+  }
+}
+```
+
+Once you have done this, the error will disappear since the output will be the expected directory, `public`.
 
 ## Missing Build Script
 
