@@ -42,9 +42,19 @@ Once you have done this, the error will disappear since the output will be the e
 
 ## Missing Build Script
 
-This error occurs when you have a `package.json` file with no `build` script defined, preventing Now from building your project.
+If your project contains a `package.json` file, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
 
-To resolve this issue, add a `build` script to your `package.json` file
+When properly configured, your `package.json` file would look similar to this:
+
+```json
+{
+  "scripts": {
+    "build": "my-framework build --output public"
+  }
+}
+```
+
+Once you have defined the `build` [script](https://docs.npmjs.com/misc/scripts), this warning will disappear. Furthermore, it will not be displayed if you are using `package.json` purely to provide dependencies for your serverless functions located inside the `api` directory.
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true
