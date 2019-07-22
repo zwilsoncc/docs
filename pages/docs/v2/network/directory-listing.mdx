@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Directory listings are shown for deployments that have no index files.',
   editUrl: 'pages/docs/v2/network/directory-listing.mdx',
-  lastEdited: '2019-07-18T15:03:49.000Z'
+  lastEdited: '2019-07-22T17:59:57.000Z'
 }
 
 The content of any path that does not contain an **Index File** (within a deployment) is rendered using our **Directory Listing**.
@@ -20,7 +20,7 @@ Here is an example of how this could look like:
   width={1232/2}
   height={764/2}
 />
-<Caption>A preview of how the Directory Listing would look in action</Caption>
+<Caption>A preview of how the Directory Listing would look in action.</Caption>
 
 As you can see, the directory listing contains three items:
 
@@ -51,13 +51,13 @@ There are two types of list items (which matches the **Output** of a **Build**):
 
 ## Disabling the Directory Listing
 
-In the case that you would like to hide the **Directory Listing** for a certain path, you have the following two choices:
+If you would like to hide the **Directory Listing** for a certain path, you can do so using the following method.
 
 ## Include an Index File
 
-As mentioned above, the **Directory Listing** will only occur if there is no **Index File** inside the path the client is trying to access.
+As mentioned above, the **Directory Listing** will only occur if there is no **Index File** at the path the client is trying to access.
 
-That means placing a **Index File** that looks like a "Not Found" error page inside the path will make the visitor think the path does not exist.
+By placing an **Index File**, set to look like a "Not Found" error page, inside the **Directory Listing** path, it will be indicated to visitors of your site that the location does not exist, rather than showing the **Directory Listing**.
 
 export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
   hybrid: true
