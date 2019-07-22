@@ -16,7 +16,7 @@ export const meta = {
   description:
     'The official Node.js Builder for ZEIT Now. Deploy serverless Node.js applications with ease.',
   editUrl: 'pages/docs/v2/advanced/builders/node-js-now-node.mdx',
-  lastEdited: '2019-07-19T23:57:36.000Z'
+  lastEdited: '2019-07-22T19:46:13.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -252,7 +252,13 @@ module.exports = async (req, res) => {
 
 ### Entrypoint
 
-The entrypoint of this Builder is always a JavaScript file that exposes a function. If you want to expose a server, you should read the [documentation for the `@now/node-server` Builder](/docs/v2/deployments/official-builders/node-js-server-now-node-server/), although this is not recommended.
+The entrypoint of this Builder must be a `.js` or `.ts` source file with one of the following:
+
+- default export function handler, such as `module.exports = (req, res) => { res.end('hello') }`
+- default export server, such as `module.exports = http.createServer((req, res) => { res.end('hello') })`
+- server listens on a port, such as `http.createServer((req, res) => { res.end('hello') }).listen(3000)`
+
+The first option, default export function handler, is the recommended usage.
 
 <Note>
   <InlineCode>@now/node</InlineCode> will automatically detect a `package.json`
