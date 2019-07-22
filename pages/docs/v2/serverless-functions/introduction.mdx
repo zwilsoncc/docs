@@ -12,7 +12,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy serverless functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-07-20T22:04:20.000Z'
+  lastEdited: '2019-07-22T21:10:56.000Z'
 }
 
 ZEIT Now deployments support various backend languages that you can deploy as Serverless functions.
@@ -63,7 +63,7 @@ Deploying serverless functions with ZEIT Now gives you the ability to use path s
 
 Creating a file using any of the [supported languages](/docs/v2/serverless-functions/supported-languages) in the `api` directory and wrapping the filename in square brackets, such as `[name].js` will provide you with a file that takes a path segment and gives it to the function when requested with a value.
 
-For example, creating a `name` directory (within `/api`) with a `[name].js` file will allow you to recieve the path segment entered when accessing `/api/name/your-name`.
+For example, creating a `name` directory (within `/api`) with a `[name].js` file will allow you to receive the path segment entered when accessing `/api/name/your-name`.
 
 The following Node.js example code could then use the path segment in its functionality when requested:
 
@@ -78,8 +78,8 @@ module.exports = (req, res) => {
 ```
 
 <Caption>
-  An example of a Node.js serverless function that takes a name path segement
-  and returns a string using it.
+  An example of a Node.js serverless function that takes a name path segment and
+  returns a string using it.
 </Caption>
 
 The resulting deployment can be found here: <https://path-segment-with-node.now-examples.now.sh/api/name/world>
@@ -128,7 +128,7 @@ If you have a statically generated frontend that supports its own development en
 
 ## Advanced Usage
 
-For an advanced configuration and structure, you can use a `now.json` file to set up [Builds](/docs/v2/advanced/builds) to configure your own structure and behaviour.
+For an advanced configuration and structure, you can use a `now.json` file to set up [Builds](/docs/v2/advanced/builders/overview) to configure your own structure and behavior.
 
 We do, however, recommend sticking to the `api` directory to keep things simple for your project.
 

@@ -14,7 +14,7 @@ export const meta = {
   description:
     'Learn how to serverless function responses are cached with ZEIT Now and how you can define the cache behaviour.',
   editUrl: 'pages/docs/v2/serverless-functions/edge-caching.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-07-22T21:03:35.000Z'
 }
 
 The ZEIT Smart CDN is active for all deployments and domains on your account and caches your content at [the edge](/docs/v2/advanced/platform/regions-and-providers/) to serve data to your users as fast as possible.
@@ -61,7 +61,7 @@ module.exports = (request, response) => {
   response for a day.
 </Caption>
 
-### Recomended `Cache-Control`
+### Recommended `Cache-Control`
 
 We recommend that you set your cache to have `maxage=0, s-maxage=86400`, with changing `86400` to the amount of seconds you want your response to be cached for.
 
