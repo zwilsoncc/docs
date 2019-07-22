@@ -170,7 +170,7 @@ class withDoc extends React.Component {
           h4: DocH4
         }}
       >
-        <Layout dynamicSearch={false}>
+        <Layout dynamicSearch={false} data={versionData}>
           <Head
             titlePrefix=""
             titleSuffix=" - ZEIT Documentation"

@@ -154,21 +154,8 @@ function Category({ info, level = 1, ...props }) {
         }
 
         @media screen and (max-width: 950px) {
-          .label {
-            margin: 0;
-          }
-
-          .label:not(.link) {
-            padding-left: 0;
-          }
-
-          .level-2 .label {
-            margin: 0;
-            /* border-bottom: 1px solid #eee; */
-          }
-
-          .level-2 .label:not(.link) {
-            padding: 20px 0;
+          .category {
+            margin: 24px 0;
           }
         }
       `}</style>
@@ -230,8 +217,7 @@ function Post({ info, level = 1, ...props }) {
 
         @media screen and (max-width: 950px) {
           .link {
-            margin: 0;
-            /* border-bottom: 1px solid #eee; */
+            margin: 24px 0;
           }
         }
       `}</style>
@@ -368,8 +354,8 @@ export class NavLink extends React.Component {
             }
 
             .nav-link :global(a) {
-              display: block;
-              padding: 20px 0;
+              display: flex;
+              align-items: center;
             }
           }
         `}</style>

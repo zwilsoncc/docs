@@ -5,7 +5,6 @@ import Header from '~/components/layout/header'
 import { UserContext } from '~/lib/user-context'
 import { ZenContext } from '~/lib/zen-context'
 import UseTeamInfo from '~/lib/use-team-info'
-import * as bodyLocker from '~/lib/utils/body-locker'
 
 const LayoutHeader = React.memo(props => {
   const isAmp = useAmp()
@@ -87,8 +86,7 @@ export default class Layout extends React.Component {
 
       // Handle the scroll via setState, etc.
       this.setState({
-        scrollPosition: window.pageYOffset,
-        navigationActive: false
+        scrollPosition: window.pageYOffset
       })
     })
   }
@@ -105,12 +103,6 @@ export default class Layout extends React.Component {
 
   handleToggleNavigation = () => {
     this.setState(({ navigationActive }) => {
-      if (navigationActive) {
-        bodyLocker.unlock()
-      } else {
-        bodyLocker.lock()
-      }
-
       return {
         navigationActive: !navigationActive
       }
@@ -119,7 +111,6 @@ export default class Layout extends React.Component {
 
   handleIndexClick = () => {
     if (this.state.navigationActive) {
-      bodyLocker.unlock()
       this.setState({
         navigationActive: false
       })
@@ -127,7 +118,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children, dynamicSearch } = this.props
+    const { children, dynamicSearch, data } = this.props
     const { scrollPosition, scrollDirection } = this.state
 
     return (
@@ -155,6 +146,7 @@ export default class Layout extends React.Component {
                   handleIndexClick={this.handleIndexClick}
                   zenModeActive={this.state.zenModeActive}
                   exitZenMode={this.exitZenMode}
+                  data={data}
                 />
               )}
             />

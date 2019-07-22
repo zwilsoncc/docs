@@ -18,6 +18,7 @@ import Plus from '~/components/icons/plus'
 import { HeaderFeedback } from '~/components/feedback-input'
 import { API_DOCS_FEEDBACK } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
+import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 
 function AmpUserFeedback() {
   const isAmp = useAmp()
@@ -29,10 +30,10 @@ function AmpUserFeedback() {
         <HeaderFeedback textAreaStyle={{ height: 24, top: 0 }} />
       </a>
       <NavigationItem customLink>
-        <a href="https://zeit.co/support">Support</a>
+        <a href="/support">Support</a>
       </NavigationItem>
       <NavigationItem customLink>
-        <a href="https://zeit.co/login">Login</a>
+        <a href="/login">Login</a>
       </NavigationItem>
     </>
   )
@@ -150,7 +151,7 @@ class Header extends Component {
     username,
     uid
   }) => {
-    const currentTeam = this.props.teae
+    const currentTeam = this.props.team
 
     const slug = teamSlug || username
     const active = !currentTeam && !teamSlug ? true : currentTeam === teamSlug
@@ -340,7 +341,8 @@ class Header extends Component {
       hideHeaderSearch,
       dynamicSearch,
       isTop,
-      inHero
+      inHero,
+      data
     } = this.props
     const { menuActive } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
@@ -351,220 +353,321 @@ class Header extends Component {
     }
 
     return (
-      <LayoutHeader
-        hideHeader={hideHeader}
-        hideHeaderSearch={hideHeaderSearch}
-        dynamicSearch={dynamicSearch}
-        isTop={isTop}
-        inHero={inHero}
-        className="header"
-      >
-        <div className="left-nav">
-          {isAmp && (
-            <amp-state id="header">
-              <script
-                type="application/json"
-                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({ active: navigationActive })
-                }}
-              />
-            </amp-state>
-          )}
+      <div className="header-wrapper">
+        <LayoutHeader
+          hideHeader={hideHeader}
+          hideHeaderSearch={hideHeaderSearch}
+          dynamicSearch={dynamicSearch}
+          isTop={isTop}
+          inHero={inHero}
+          className="header"
+        >
+          <div className="left-nav">
+            {isAmp && (
+              <amp-state id="header">
+                <script
+                  type="application/json"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({ active: navigationActive })
+                  }}
+                />
+              </amp-state>
+            )}
 
-          <a
-            className="logo"
-            href={dashboard}
-            aria-label="ZEIT Home"
-            onContextMenu={this.onLogoRightClick}
-          >
-            <Logo height="25px" width="28px" />
-          </a>
+            <a
+              className="logo"
+              href={dashboard}
+              aria-label="ZEIT Home"
+              onContextMenu={this.onLogoRightClick}
+            >
+              <Logo height="25px" width="28px" />
+            </a>
 
-          <Navigation
-            data-amp-bind-class={buildAmpNavClass('main-navigation')}
-            className={cn('main-navigation', { active: navigationActive })}
-          >
-            {!zenModeActive && (
-              <div className="navigation-items">
+            <Navigation
+              data-amp-bind-class={buildAmpNavClass('main-navigation')}
+              className={cn('main-navigation', { active: false })}
+            >
+              {!zenModeActive && (
+                <div className="navigation-items">
+                  <NavigationItem
+                    href="/docs"
+                    active={
+                      router.pathname.startsWith('/docs') &&
+                      !router.pathname.startsWith('/docs/api') &&
+                      !router.pathname.startsWith('/docs/integrations')
+                    }
+                    onClick={handleIndexClick}
+                  >
+                    Docs
+                  </NavigationItem>
+                  <NavigationItem
+                    href="/guides"
+                    active={router.pathname.startsWith('/guides')}
+                    onClick={handleIndexClick}
+                  >
+                    Guides
+                  </NavigationItem>
+
+                  <div
+                    active={router.pathname.startsWith('/docs/api')}
+                    className="developer-dropdown desktop-only"
+                  >
+                    <MenuPopOver
+                      title="API"
+                      primaryList={[
+                        { title: 'Platform API', url: '/docs/api' },
+                        {
+                          title: 'Integrations API',
+                          url: '/docs/integrations'
+                        }
+                      ]}
+                    />
+                  </div>
+                </div>
+              )}
+            </Navigation>
+          </div>
+
+          <div className="search">
+            <span
+              className={`search-wrapper ${hideHeaderSearch ? 'hidden' : ''}`}
+            >
+              {' '}
+              {this.renderSearch()}
+            </span>
+          </div>
+
+          <div className="right-nav">
+            <Navigation className="user-navigation">
+              <AmpUserFeedback />
+              {!zenModeActive && userLoaded && !isAmp && (
+                <Fragment>
+                  {!user ? (
+                    <Fragment>
+                      <HeaderFeedback
+                        onFeedback={this.handleFeedbackSubmit}
+                        hideHeader={hideHeader}
+                      />
+                      <NavigationItem className="chat" href="/support">
+                        Support
+                      </NavigationItem>
+                      <NavigationItem href="/login">Login</NavigationItem>
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <HeaderFeedback onFeedback={this.handleFeedbackSubmit} />
+                      <NavigationItem className="chat" href="/support">
+                        Support
+                      </NavigationItem>
+                      <Menu
+                        tip
+                        active={menuActive}
+                        onClickOutside={this.handleClickOutsideMenu}
+                        render={this.renderMenuTrigger}
+                        style={{ minWidth: 200 }}
+                      >
+                        <MenuItem>
+                          {user.username ? (
+                            <Link href={`/${user.username}`}>
+                              <a className="avatar-link">
+                                <Avatar
+                                  uid={user.uid}
+                                  size={50}
+                                  hash={user.avatar}
+                                />
+                              </a>
+                            </Link>
+                          ) : (
+                            <Avatar user={user} size={50} />
+                          )}
+                          <div className="avatar-user-info">
+                            {user.username && (
+                              <Link href={`/${user.username}`}>
+                                <a className="username">
+                                  <span>{user.username}</span>
+                                </a>
+                              </Link>
+                            )}
+                          </div>
+                        </MenuItem>
+                        <MenuDivider />
+                        <MenuItem>
+                          <Link prefetch href="/dashboard">
+                            <a>Dashboard</a>
+                          </Link>
+                        </MenuItem>
+                        <MenuDivider />
+                        <MenuItem>
+                          {teams.length === 0 ? (
+                            <Link href="/account">
+                              <a>Settings</a>
+                            </Link>
+                          ) : (
+                            <span className="settings">SETTINGS</span>
+                          )}
+                        </MenuItem>
+                        {teams.map(team => this.renderTeam(team))}
+                        <MenuDivider />
+                        <MenuItem>
+                          <Link
+                            href="/teams/settings/url?isCreating=1"
+                            as="/teams/create"
+                          >
+                            <a>
+                              Create a Team <Plus />
+                            </a>
+                          </Link>
+                        </MenuItem>
+                        <MenuDivider />
+                        <MenuItem>
+                          <a onClick={this.handleLogout}>Logout</a>
+                        </MenuItem>
+                      </Menu>
+                    </Fragment>
+                  )}
+                </Fragment>
+              )}
+            </Navigation>
+            <button
+              onClick={onToggleNavigation}
+              className={cn('arrow-toggle', { active: navigationActive })}
+              data-amp-bind-class={buildAmpNavClass('arrow-toggle')}
+              name="menu-toggle"
+              on={
+                isAmp
+                  ? 'tap:AMP.setState({ header: { active: !header.active } })'
+                  : undefined
+              }
+              role="switch"
+              tabIndex="1"
+            >
+              <div className="line top" />
+              <div className="line bottom" />
+            </button>
+          </div>
+        </LayoutHeader>
+
+        {navigationActive && (
+          <nav className="mobile-only mobile-navigation">
+            <div className="section">
+              <div className="group has-nav">
                 <NavigationItem
                   href="/docs"
                   active={
                     router.pathname.startsWith('/docs') &&
                     !router.pathname.startsWith('/docs/api') &&
-                    !router.pathname.startsWith('/docs/addons')
+                    !router.pathname.startsWith('/docs/integrations')
                   }
                   onClick={handleIndexClick}
                 >
                   Docs
                 </NavigationItem>
+                {router.pathname.startsWith('/docs') &&
+                  !router.pathname.startsWith('/docs/api') &&
+                  !router.pathname.startsWith('/docs/integrations') && (
+                    <div className="navigation">
+                      <DocsNavbarDesktop data={data} url={router} />
+                    </div>
+                  )}
+              </div>
+              <NavigationItem
+                href="/guides"
+                active={router.pathname.startsWith('/guides')}
+                onClick={handleIndexClick}
+              >
+                Guides
+              </NavigationItem>
+            </div>
+
+            <div className="section">
+              <span className="section__heading">API</span>
+              <div className="group">
                 <NavigationItem
-                  href="/guides"
-                  active={router.pathname.startsWith('/guides')}
+                  href="/docs/api"
+                  active={router.pathname.startsWith('/docs/api')}
                   onClick={handleIndexClick}
                 >
-                  Guides
+                  Platform API
                 </NavigationItem>
-                <span className="mobile-only">
-                  <NavigationItem
-                    href="/docs/api"
-                    active={router.pathname.startsWith('/api')}
-                    onClick={handleIndexClick}
-                  >
-                    Platform API
-                  </NavigationItem>
-                </span>
-                <span className="mobile-only">
-                  <NavigationItem
-                    href="/docs/integrations"
-                    active={router.pathname.startsWith('/api')}
-                    onClick={handleIndexClick}
-                  >
-                    Integrations API
-                  </NavigationItem>
-                </span>
-
-                <div
-                  active={router.pathname.startsWith('/docs/api')}
-                  className="developer-dropdown desktop-only"
-                >
-                  <MenuPopOver
-                    title="API"
-                    primaryList={[
-                      { title: 'Platform API', url: '/docs/api' },
-                      { title: 'Integrations API', url: '/docs/integrations' }
-                    ]}
-                  />
-                </div>
               </div>
-            )}
-          </Navigation>
-        </div>
+              <div className="group">
+                <NavigationItem
+                  href="/docs/integrations"
+                  active={router.pathname.startsWith('/docs/integrations')}
+                  onClick={handleIndexClick}
+                >
+                  Integrations API
+                </NavigationItem>
+              </div>
+            </div>
 
-        <div className="search">
-          <span
-            className={`search-wrapper ${hideHeaderSearch ? 'hidden' : ''}`}
-          >
-            {' '}
-            {this.renderSearch()}
-          </span>
-        </div>
-
-        <div className="right-nav">
-          <Navigation className="user-navigation">
-            <AmpUserFeedback />
-            {!zenModeActive && userLoaded && !isAmp && (
-              <Fragment>
-                {!user ? (
-                  <Fragment>
-                    <HeaderFeedback
-                      onFeedback={this.handleFeedbackSubmit}
-                      hideHeader={hideHeader}
-                    />
-                    <NavigationItem
-                      className="chat"
-                      href="https://zeit.co/support"
-                    >
-                      Support
-                    </NavigationItem>
-                    <NavigationItem href="/login">Login</NavigationItem>
-                  </Fragment>
-                ) : (
-                  <Fragment>
-                    <HeaderFeedback onFeedback={this.handleFeedbackSubmit} />
-                    <NavigationItem
-                      className="chat"
-                      href="https://zeit.co/support"
-                    >
-                      Support
-                    </NavigationItem>
-                    <Menu
-                      tip
-                      active={menuActive}
-                      onClickOutside={this.handleClickOutsideMenu}
-                      render={this.renderMenuTrigger}
-                      style={{ minWidth: 200 }}
-                    >
-                      <MenuItem>
-                        {user.username ? (
-                          <Link href={`/${user.username}`}>
-                            <a className="avatar-link">
-                              <Avatar
-                                uid={user.uid}
-                                size={50}
-                                hash={user.avatar}
-                              />
-                            </a>
-                          </Link>
-                        ) : (
-                          <Avatar user={user} size={50} />
-                        )}
-                        <div className="avatar-user-info">
-                          {user.username && (
-                            <Link href={`/${user.username}`}>
-                              <a className="username">
-                                <span>{user.username}</span>
-                              </a>
-                            </Link>
-                          )}
-                        </div>
-                      </MenuItem>
-                      <MenuDivider />
-                      <MenuItem>
-                        <Link prefetch href="/dashboard">
-                          <a>Dashboard</a>
-                        </Link>
-                      </MenuItem>
-                      <MenuDivider />
-                      <MenuItem>
-                        {teams.length === 0 ? (
-                          <Link href="/account">
-                            <a>Settings</a>
-                          </Link>
-                        ) : (
-                          <span className="settings">SETTINGS</span>
-                        )}
-                      </MenuItem>
-                      {teams.map(team => this.renderTeam(team))}
-                      <MenuDivider />
-                      <MenuItem>
-                        <Link
-                          href="/teams/settings/url?isCreating=1"
-                          as="/teams/create"
-                        >
-                          <a>
-                            Create a Team <Plus />
-                          </a>
-                        </Link>
-                      </MenuItem>
-                      <MenuDivider />
-                      <MenuItem>
-                        <a onClick={this.handleLogout}>Logout</a>
-                      </MenuItem>
-                    </Menu>
-                  </Fragment>
-                )}
-              </Fragment>
-            )}
-          </Navigation>
-          <button
-            onClick={onToggleNavigation}
-            className={cn('arrow-toggle', { active: navigationActive })}
-            data-amp-bind-class={buildAmpNavClass('arrow-toggle')}
-            name="menu-toggle"
-            on={
-              isAmp
-                ? 'tap:AMP.setState({ header: { active: !header.active } })'
-                : undefined
-            }
-            role="switch"
-            tabIndex="1"
-          >
-            <div className="line top" />
-            <div className="line bottom" />
-          </button>
-        </div>
-
+            <div className="section">
+              <span className="section__heading">More</span>
+              <NavigationItem href="/blog">Blog</NavigationItem>
+              <NavigationItem href="/support">Support</NavigationItem>
+              <NavigationItem href="/feedback">Feedback</NavigationItem>
+            </div>
+          </nav>
+        )}
         <style jsx>{`
+          .mobile-navigation {
+            display: flex;
+            height: 0;
+            transition: all 0.1s ease;
+          }
+
+          .mobile-navigation .section {
+            margin-bottom: 48px;
+          }
+
+          .mobile-navigation .section__heading {
+            margin: 0 24px;
+            border-bottom: 1px solid #EAEAEA;
+            font-size: 12px;
+            color: #666;
+            padding-bottom: 24px;
+            display: block;
+            text-transform: uppercase;
+          }
+
+          .mobile-navigation :global(.navigation-item) {
+            margin: 0 24px;
+            display: flex;
+            height: 48px;
+            align-items: center;
+            font-size: 1rem;
+            color: #444;
+          }
+
+          .mobile-navigation .section :global(.navigation-item) {
+            border-bottom: 1px solid #EAEAEA;
+          }
+
+          .mobile-navigation .section .group.has-nav :global(.navigation-item.active) {
+            border-color: transparent;
+          }
+
+          .mobile-navigation :global(.navigation-item a) {
+            font-size: 1rem;
+            padding: 0;
+            color: currentColor;
+          }
+
+          .mobile-navigation .group.active, .mobile-navigation :global(.navigation-item.active a) {
+            color: #000
+          }
+
+          .mobile-navigation .navigation {
+            background: #F9F9F9;
+            padding: 16px 24px;
+            border-top: 1px solid #EAEAEA;
+            border-bottom 1px solid #EAEAEA;
+          }
+
+          .mobile-navigation .navigation :global(a) {
+            font-size: 1rem;
+          }
+
           :global(.header .feedback-link) {
             display: inherit;
           }
@@ -597,7 +700,7 @@ class Header extends Component {
             padding: 0;
           }
 
-          :global(.header .main-navigation .mobile-only) {
+          :global(.header-wrapper .mobile-only) {
             display: none;
           }
 
@@ -633,6 +736,10 @@ class Header extends Component {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+          }
+
+          :global(.arrow-toggle:focus) {
+            outline: 0;
           }
 
           :global(.line) {
@@ -723,6 +830,10 @@ class Header extends Component {
           }
 
           @media screen and (max-width: 950px) {
+            .mobile-navigation {
+              height: auto;
+            }
+
             :global(.header .main-navigation),
             :global(nav.user-navigation) {
               display: none;
@@ -736,7 +847,6 @@ class Header extends Component {
               display: flex;
               flex-direction: column;
               align-items: flex-start;
-              position: fixed;
               left: 0;
               right: 0;
               top: 85px;
@@ -755,7 +865,7 @@ class Header extends Component {
               display: none;
             }
 
-            :global(.header .main-navigation .mobile-only) {
+            :global(.header-wrapper .mobile-only) {
               display: block;
             }
 
@@ -790,19 +900,19 @@ class Header extends Component {
               transition: visibility 0s linear 300ms, opacity 300ms;
             }
           }
+
           @media screen and (max-width: 360px) {
             .mobile_search {
               max-width: 242px;
               width: 70%;
             }
           }
-        `}</style>
-        <style jsx>{`
+
           :global(.header-hidden) {
             top: -80px;
           }
         `}</style>
-      </LayoutHeader>
+      </div>
     )
   }
 }

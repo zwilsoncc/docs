@@ -34,20 +34,19 @@ const Header = ({
         background: ${hideHeaderSearch && dynamicSearch
           ? 'transparent'
           : '#fff'};
-        border-bottom: ${hideHeaderSearch && dynamicSearch
-          ? '1px solid transparent'
-          : '1px solid #eaeaea'};
         transition: all 0.2s ease;
+      }
+
+      @media (max-width: 950px) {
+        header {
+          position: absolute;
+        }
       }
 
       @media (max-width: 640px) {
         header {
-          position: fixed;
           top: ${hideHeader && dynamicSearch ? '-80px' : '0'};
           background: ${isTop && dynamicSearch ? 'transparent' : '#fff'};
-          border-bottom: ${isTop && dynamicSearch
-            ? '1px solid transparent'
-            : '1px solid #eaeaea'};
         }
       }
     `}</style>

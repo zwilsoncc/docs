@@ -117,7 +117,7 @@ export const ExternalLink = (
   <a
     className={cn({ dark: darkBg, 'no-underline': !underlineOnHover })}
     href={href}
-    target="_blank"
+    target={href.startsWith('/') ? '_self' : '_blank'}
     rel="noopener noreferrer"
     onClick={onClick}
   >
