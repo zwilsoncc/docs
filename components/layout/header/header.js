@@ -422,15 +422,6 @@ class Header extends Component {
                     Integrations API
                   </NavigationItem>
                 </span>
-                <span className="mobile-only">
-                  <NavigationItem
-                    href="/docs/v2/deployments/builders/developer-guide"
-                    active={router.pathname.startsWith('/api')}
-                    onClick={handleIndexClick}
-                  >
-                    Builders API
-                  </NavigationItem>
-                </span>
 
                 <div
                   active={router.pathname.startsWith('/docs/api')}
@@ -440,11 +431,7 @@ class Header extends Component {
                     title="API"
                     primaryList={[
                       { title: 'Platform API', url: '/docs/api' },
-                      { title: 'Integrations API', url: '/docs/integrations' },
-                      {
-                        title: 'Builders API',
-                        url: '/docs/v2/deployments/builders/developer-guide'
-                      }
+                      { title: 'Integrations API', url: '/docs/integrations' }
                     ]}
                   />
                 </div>
