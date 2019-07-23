@@ -2,13 +2,7 @@
   "version": 2,
   "public": true,
   "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/static-build",
-      "config": {
-        "forceBuildIn": "bru1"
-      }
-    },
+    { "src": "package.json", "use": "@now/static-build" },
     { "src": "static/*", "use": "@now/static" }
   ],
   "routes": [

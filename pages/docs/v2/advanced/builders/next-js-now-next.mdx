@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Next.js Builder for ZEIT Now. Deploy Next.js applications with ease.',
   editUrl: 'pages/docs/v2/advanced/builders/next-js-now-next.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-16T12:01:51.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -243,8 +243,6 @@ This builder separates your pages into individual serverless endpoints, so you c
 
 Using a custom server would require that all pages be routed through that custom server and the application would lose out on many of the benefits of [serverless](/docs/v2/deployments/concepts/lambdas/) Next.js. You can still achieve most of the logic that you have in a custom server by using [getInitialProps()](https://nextjs.org/docs/#fetching-data-and-component-lifecycle) and using [routes](/docs/v2/deployments/configuration/#routes).
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

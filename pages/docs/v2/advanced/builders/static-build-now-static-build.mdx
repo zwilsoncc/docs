@@ -13,7 +13,7 @@ export const meta = {
   description:
     'The official Static Builds Builder for ZEIT Now. Run any package.json build script for your source files and deploy the result.',
   editUrl: 'pages/docs/v2/advanced/builders/static-build-now-static-build.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-19T22:38:17.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -296,8 +296,6 @@ The default Node.js version used is **8.10.x**.
 
 The version can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

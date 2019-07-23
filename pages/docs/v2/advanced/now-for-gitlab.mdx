@@ -14,7 +14,7 @@ export const meta = {
   description:
     'Deploy each change in your GitLab projects with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   editUrl: 'pages/docs/v2/advanced/now-for-gitlab.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-20T22:04:20.000Z'
 }
 
 The Now for GitLab integration automatically deploys and aliases your GitLab projects with [Now](/now).
@@ -127,8 +127,6 @@ You may want to use different workflows and APIs based on the environment of the
    also.
 </Note>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

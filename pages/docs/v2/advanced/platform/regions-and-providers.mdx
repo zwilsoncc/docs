@@ -10,7 +10,7 @@ export const meta = {
   description:
     'An listing and explanation of the regions and providers Now implements.',
   editUrl: 'pages/docs/v2/advanced/platform/regions-and-providers.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-17T11:01:24.000Z'
 }
 
 The Now Platform acts as a Universal API and Overlay Network on top of existing cloud infrastructure providers.
@@ -49,8 +49,6 @@ During development via `now dev`, the region is assigned `dev1` to mimic the Now
 | --------- | ------------------ |
 | dev1      | localhost          |
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

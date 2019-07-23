@@ -12,7 +12,7 @@ export const meta = {
   description:
     'The concept of unique deployment URLs on ZEIT Now and how they are composed.',
   editUrl: 'pages/docs/v2/advanced/concepts/urls.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-20T00:10:25.000Z'
 }
 
 A deployment is always associated with a unique URL and [a staging alias](/docs/v2/custom-domains#deploying-with-your-domain). The unique URL has the following fundamental components:
@@ -48,8 +48,6 @@ The default suffix for all deployments is, by default, `.now.sh`. It is register
 
 For enhanced isolation and security, we recommend configuring a [Custom Deployment Suffix](/docs/v2/platform/add-ons#custom-deployment-suffix).
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

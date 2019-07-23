@@ -12,7 +12,7 @@ export const meta = {
   title: 'Supported Lanaguages for Serverless Functions',
   description: 'Learn how to deploy serverless functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-22T21:03:35.000Z'
 }
 
 Within the `api` directory of your projects, ZEIT Now will automatically recognise the languages listed on this page, through their file extensions, and serve them as serverless function.
@@ -363,8 +363,6 @@ For more information on what to do next, we recommend the following articles:
   with a single-command and a first-class frontend with no extra configuration.
 </Card>
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})

@@ -4,6 +4,17 @@ import authenticate from '~/lib/authenticate'
 import { UserContext } from '~/lib/user-context'
 
 export default class MyApp extends App {
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {}
+    // const req = ctx.req
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
+    return { pageProps }
+  }
+
   state = {
     user: {},
     userLoaded: false

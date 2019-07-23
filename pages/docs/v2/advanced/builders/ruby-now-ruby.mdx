@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Ruby Builder for ZEIT Now. Serverless invokable functions from Ruby source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/advanced/builders/ruby-now-ruby.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-22T21:10:56.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -108,8 +108,6 @@ Ruby 2.5.3 is used.
 
 This builder supports installing dependencies defined in the `Gemfile`. Alternatively, dependencies can be vendored with the `bundler install --deployment` command (useful for gems that require native extentions). In this case, dependencies are not built on deployment.
 
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
+export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
+  hybrid: true
+})
