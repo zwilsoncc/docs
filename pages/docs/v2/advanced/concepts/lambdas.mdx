@@ -13,7 +13,7 @@ export const meta = {
   description:
     'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.',
   editUrl: 'pages/docs/v2/advanced/concepts/lambdas.mdx',
-  lastEdited: '2019-07-19T17:15:44.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 When you make a deployment, by running `now` with our [CLI](/docs/v2/getting-started/installation#now-cli), making an [API](/api) call or with our [GitHub integration](/docs/v2/integrations/now-for-github), we synchronize the source code and optionally build them to your specification.
@@ -178,6 +178,8 @@ The filesystem is writable inside `/tmp` and persisted if the underlying [contai
 
 All output streams are captured and persisted. Each function can store up to 1,000 lines. Each deployment will aggregate up to 1,000 lines. Each line is defined as a string chunk of up to **1kb**.
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

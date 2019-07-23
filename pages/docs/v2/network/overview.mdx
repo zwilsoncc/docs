@@ -8,7 +8,7 @@ export const meta = {
   description:
     'The ZEIT Network layer sits in-between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.',
   editUrl: 'pages/docs/v2/network/overview.mdx',
-  lastEdited: '2019-07-18T15:03:49.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 The ZEIT Network layer sits in-between the internet and your Now deployments.
@@ -50,6 +50,8 @@ All of these actions are performed on-demand and with maximum performance (ensur
 
 At the moment, we only support [HTTPS](https://en.wikipedia.org/wiki/HTTPS) and [WSS](https://en.wikipedia.org/wiki/WebSocket) (this list will be updated in the event that support for an additional protocol is added to the Network layer).
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

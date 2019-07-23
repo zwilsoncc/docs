@@ -14,7 +14,7 @@ export const meta = {
   description:
     'The official Bash Builder for ZEIT Now. Write Bash functions that serve HTTP requests.',
   editUrl: 'pages/docs/v2/advanced/builders/bash-now-bash.mdx',
-  lastEdited: '2019-07-22T21:10:56.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -228,6 +228,8 @@ handler() {
 
 **Demo:** <https://bash-version-rkb5w4ua6.now.sh/>
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

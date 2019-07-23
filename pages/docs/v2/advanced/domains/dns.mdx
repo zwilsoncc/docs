@@ -10,7 +10,7 @@ export const meta = {
   title: 'Managing DNS',
   description: 'Managing your DNS records for domains used with Now',
   editUrl: 'pages/docs/v2/advanced/domains/dns.mdx',
-  lastEdited: '2019-07-19T17:15:44.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 Thanks to the `now dns` CLI command, managing existing DNS records with <Now color="#000" /> is simple.
@@ -89,6 +89,8 @@ Removes a record by ID, which is shown in the `now dns ls` listing. Note that it
 
 Imports the zone file downloaded from your registrar for this domain to ZEIT DNS.
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

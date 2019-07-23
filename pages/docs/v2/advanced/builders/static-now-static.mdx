@@ -12,7 +12,7 @@ export const meta = {
   description:
     'The official Static Builder for ZEIT Now. Deploy any file statically quickly and with ease.',
   editUrl: 'pages/docs/v2/advanced/builders/static-now-static.mdx',
-  lastEdited: '2019-07-16T12:01:51.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 <Tag>Status: Stable</Tag>
@@ -82,6 +82,8 @@ Without the `routes` entry above, the static CSS files would be located at `/pub
 
 You can specify any file or set of files as the `src` of a build that uses `@now/static`.
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

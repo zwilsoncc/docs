@@ -10,7 +10,7 @@ export const meta = {
   title: 'Add-Ons',
   description: 'Using Now with additional features for more usecases.',
   editUrl: 'pages/docs/v2/advanced/platform/add-ons.mdx',
-  lastEdited: '2019-07-17T11:01:24.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 In the case that the default features of Now are not enough to meet your needs, you can enable so-called "Add-Ons" on the dashboard.
@@ -77,6 +77,8 @@ However, if you want additional privacy, you can also replace the `.now.sh` suff
 
 When [enabling the Add-On](/pricing/add-ons/custom-deployment-suffix), you are also granted a free `.sh` domain right out of the box.
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

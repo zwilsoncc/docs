@@ -97,6 +97,8 @@ module.exports = phase => {
 
     assetPrefix: isExport ? '/docs' : '',
 
+    exportTrailingSlash: true,
+
     env: {
       VERSION: require('./package.json').version,
       API_URL: process.env.API_URL,
