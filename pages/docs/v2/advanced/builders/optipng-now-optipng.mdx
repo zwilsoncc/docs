@@ -13,7 +13,7 @@ export const meta = {
   description:
     'The official OptiPNG Builder for ZEIT Now. Compress images that are deployed to Now with no additional configuration.',
   editUrl: 'pages/docs/v2/advanced/builders/optipng-now-optipng.mdx',
-  lastEdited: '2019-07-16T12:01:51.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 <Tag>Status: Deprecated</Tag>
@@ -70,6 +70,8 @@ Also, the source code of the deployment can be checked by appending `/_src` e.
 
 The entrypoint is always a `.png` file you want to optimize.
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

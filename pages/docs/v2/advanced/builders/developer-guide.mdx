@@ -6,7 +6,7 @@ export const meta = {
   description:
     'How to create a Builder to take ZEIT Now deployment sources and output either static files or lambdas with almost limitless possibilities.',
   editUrl: 'pages/docs/v2/advanced/builders/developer-guide.mdx',
-  lastEdited: '2019-07-16T12:01:51.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 A builder is an npm module that exposes a `build` function and optionally an `analyze` function and `prepareCache` function.
@@ -455,6 +455,8 @@ const originalFiles = { 'one.go': fileFsRef1, 'two.go': fileFsRef2 }
 const renamedFiles = rename(originalFiles, path => path.replace(/\.go$/, '')
 ```
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

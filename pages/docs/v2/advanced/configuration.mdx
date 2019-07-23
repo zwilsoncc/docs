@@ -14,7 +14,7 @@ export const meta = {
   description:
     'Configuring Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 When using [Now CLI](/docs/v2/getting-started/installation#now-cli), [Now Desktop](/docs/v2/getting-started/installation#now-desktop) or [Now for GitHub](/docs/v2/getting-started/installation#now-for-github), the configuration for your deployment is read from the `now.json` file.
@@ -367,6 +367,8 @@ When set to false, [Now for GitHub](/docs/v2/integrations/now-for-github) will a
   .
 </Note>
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

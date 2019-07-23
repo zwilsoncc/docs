@@ -11,7 +11,7 @@ export const meta = {
   description:
     'Using ZEIT Now with a scope of a user or a team and how to manage them.',
   editUrl: 'pages/docs/v2/advanced/platform/users-and-teams.mdx',
-  lastEdited: '2019-07-17T11:01:24.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 There are identity forms available on Now, called "scopes": Users and teams.
@@ -134,6 +134,8 @@ However, you still need to attach a token of your user account as described [her
   .
 </Note>
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}

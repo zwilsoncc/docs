@@ -8,7 +8,7 @@ export const meta = {
   description:
     'Status codes are given in different circumstances to give you as much insight as possible into your deployments.',
   editUrl: 'pages/docs/v2/network/status-codes.mdx',
-  lastEdited: '2019-07-18T18:41:58.000Z'
+  lastEdited: '2019-07-22T15:33:14.000Z'
 }
 
 In order to give you the best possible insight into what exactly is wrong with your deployment, we implemented several status codes into the [Network Layer](/docs/v2/network/overview) of Now.
@@ -108,6 +108,8 @@ Type: `LAMBDA_INVOCATION_TIMEOUT`
 
 The <b>Lambda</b> responsible for the path you tried to access did not reply in time.
 
-export default withAmp(({ children }) => <Doc meta={meta}>{children}</Doc>, {
-  hybrid: true
-})
+export default ({ children }) => <Doc meta={meta}>{children}</Doc>
+
+export const config = {
+  amp: 'hybrid'
+}
