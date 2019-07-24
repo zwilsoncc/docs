@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
+    "now-dev": "next -p $PORT",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import Link from 'next/link'
 
-import * as PopOver from './popover'
-import PopOverLink from './popover-link'
+import * as PopOver from '~/components/popover'
+import PopOverLink from '~/components/popover/popover-link'
 import Badge from './badge'
 
 import { GenericLink } from '~/components/text/link'

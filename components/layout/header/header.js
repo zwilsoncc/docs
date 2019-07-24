@@ -1,20 +1,18 @@
 import { Component, Fragment } from 'react'
 import { parse } from 'querystring'
 import cn from 'classnames'
-import Link from 'next/link'
 import { useAmp } from 'next/amp'
 import Router, { withRouter, useRouter } from 'next/router'
 import getAlgoliaClient from '~/lib/get-algolia'
 import logout from '~/lib/logout'
 import getDashboardHref from '~/lib/utils/get-dashboard-href'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
-import { Menu, MenuItem, MenuDivider } from '~/components/menu'
+import AvatarPopOverLink from './avatar-popover-link'
 import { Navigation, NavigationItem } from '~/components/navigation'
 import AutoComplete from '~/components/search'
 import Avatar from '~/components/avatar'
 import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
-import Plus from '~/components/icons/plus'
 import { HeaderFeedback } from '~/components/feedback-input'
 import { API_DOCS_FEEDBACK } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
@@ -29,6 +27,9 @@ function AmpUserFeedback() {
       <a href={router.pathname} className="feedback-link">
         <HeaderFeedback textAreaStyle={{ height: 24, top: 0 }} />
       </a>
+      <NavigationItem customLink>
+        <a href="/blog">Blog</a>
+      </NavigationItem>
       <NavigationItem customLink>
         <a href="/support">Support</a>
       </NavigationItem>
@@ -140,87 +141,6 @@ class Header extends Component {
           }
         `}</style>
       </span>
-    )
-  }
-
-  renderTeam = ({
-    displayName = null,
-    avatar,
-    teamId,
-    teamSlug,
-    username,
-    uid
-  }) => {
-    const currentTeam = this.props.team
-
-    const slug = teamSlug || username
-    const active = !currentTeam && !teamSlug ? true : currentTeam === teamSlug
-    const linkProps = teamSlug
-      ? {
-          as: `/teams/${teamSlug}/settings/identity`,
-          href: {
-            pathname: `/teams/settings/identity`,
-            query: { teamSlug }
-          }
-        }
-      : { as: '/account', href: '/account/identity' }
-
-    return (
-      <MenuItem key={slug} active={active}>
-        <Link {...linkProps}>
-          <a className={active ? 'active team' : 'team'}>
-            <span className="user">
-              <span className="avatar">
-                <Avatar
-                  teamId={teamId}
-                  username={username}
-                  uid={uid}
-                  size={24}
-                  hash={avatar}
-                />
-              </span>
-              <span className="username">{displayName || slug}</span>
-            </span>
-          </a>
-        </Link>
-        <style jsx>{`
-          a {
-            transition: 0.2s ease;
-          }
-
-          a:hover {
-            background: #fafafa;
-          }
-
-          .team {
-            padding: 8px 20px;
-            margin: -8px -20px;
-          }
-
-          .user {
-            display: inline-flex;
-            height: 20px;
-            vertical-align: middle;
-            align-items: center;
-          }
-
-          .username {
-            display: inline-block;
-            max-width: 118px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-
-          .avatar {
-            float: left;
-            height: 24px;
-            margin-right: 10px;
-            line-height: 24px;
-            width: 24px;
-          }
-        `}</style>
-      </MenuItem>
     )
   }
 
@@ -448,6 +368,7 @@ class Header extends Component {
                         onFeedback={this.handleFeedbackSubmit}
                         hideHeader={hideHeader}
                       />
+                      <NavigationItem href="/blog">Blog</NavigationItem>
                       <NavigationItem className="chat" href="/support">
                         Support
                       </NavigationItem>
@@ -456,73 +377,20 @@ class Header extends Component {
                   ) : (
                     <Fragment>
                       <HeaderFeedback onFeedback={this.handleFeedbackSubmit} />
+                      <NavigationItem href="/blog">Blog</NavigationItem>
                       <NavigationItem className="chat" href="/support">
                         Support
                       </NavigationItem>
-                      <Menu
-                        tip
-                        active={menuActive}
-                        onClickOutside={this.handleClickOutsideMenu}
-                        render={this.renderMenuTrigger}
-                        style={{ minWidth: 200 }}
-                      >
-                        <MenuItem>
-                          {user.username ? (
-                            <Link href={`/${user.username}`}>
-                              <a className="avatar-link">
-                                <Avatar
-                                  uid={user.uid}
-                                  size={50}
-                                  hash={user.avatar}
-                                />
-                              </a>
-                            </Link>
-                          ) : (
-                            <Avatar user={user} size={50} />
-                          )}
-                          <div className="avatar-user-info">
-                            {user.username && (
-                              <Link href={`/${user.username}`}>
-                                <a className="username">
-                                  <span>{user.username}</span>
-                                </a>
-                              </Link>
-                            )}
-                          </div>
-                        </MenuItem>
-                        <MenuDivider />
-                        <MenuItem>
-                          <Link prefetch href="/dashboard">
-                            <a>Dashboard</a>
-                          </Link>
-                        </MenuItem>
-                        <MenuDivider />
-                        <MenuItem>
-                          {teams.length === 0 ? (
-                            <Link href="/account">
-                              <a>Settings</a>
-                            </Link>
-                          ) : (
-                            <span className="settings">SETTINGS</span>
-                          )}
-                        </MenuItem>
-                        {teams.map(team => this.renderTeam(team))}
-                        <MenuDivider />
-                        <MenuItem>
-                          <Link
-                            href="/teams/settings/url?isCreating=1"
-                            as="/teams/create"
-                          >
-                            <a>
-                              Create a Team <Plus />
-                            </a>
-                          </Link>
-                        </MenuItem>
-                        <MenuDivider />
-                        <MenuItem>
-                          <a onClick={this.handleLogout}>Logout</a>
-                        </MenuItem>
-                      </Menu>
+                      <span className="avatar-wrapper">
+                        <AvatarPopOverLink
+                          top={43}
+                          avatarSize={32}
+                          user={user}
+                          team={currentTeamSlug || null}
+                          pathname={router.pathname}
+                          onLogout={this.handleLogout}
+                        />
+                      </span>
                     </Fragment>
                   )}
                 </Fragment>
@@ -724,6 +592,10 @@ class Header extends Component {
           :global(.header .user-navigation) {
             animation-name: load;
             animation-duration: 1s;
+          }
+
+          .avatar-wrapper {
+            margin-left: 8px;
           }
 
           :global(.arrow-toggle) {
