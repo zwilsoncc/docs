@@ -232,12 +232,11 @@
         "Location": "/docs/v2/advanced/$1"
       }
     },
-    { "src": "(.*)", "dest": "$1" },
-    { "handle": "filesystem" },
     {
       "src": "/docs/v2/domains-and-aliases/(.*)",
       "status": 301,
       "headers": { "Location": "/docs/v2/custom-domains" }
-    }
+    },
+    { "src": "(.*)", "dest": "$1" }
   ]
 }

@@ -13,7 +13,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-24T21:52:26.000Z'
 }
 
 With Now, you can alias your deployments to a custom name, whether that is a free `.now.sh` prefixed domain or your personal domain. This document will explain how to add your domain to Now so that you can alias your deployments to it.
@@ -131,6 +131,12 @@ When you're ready to deploy your project to production, you can use the `--targe
 When a custom domain is assigned as a production domain to a project that is connected to a GitHub repository or GitLab project with a [Now for Git integration](/docs/v2/git-integration) enabled, each push (including merges) to the default branch (commonly `master`) will trigger a deployment that targets the defined domain.
 
 Additionally, reverts will automatically and immediately assign to the domain so that if you have a bug, you do not have to wait for it to be deployed.
+
+## Removing a Domain
+
+With the following command you can remove a domain that is assigned to your ZEIT account or team:
+
+<TerminalInput>{`now domains rm <domain>`}</TerminalInput>
 
 ## Related
 
