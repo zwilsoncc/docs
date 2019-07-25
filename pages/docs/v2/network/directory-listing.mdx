@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Directory listings are shown for deployments that have no index files.',
   editUrl: 'pages/docs/v2/network/directory-listing.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-25T18:05:19.000Z'
 }
 
 The content of any path that does not contain an **Index File** (within a deployment) is rendered using our **Directory Listing**.
@@ -51,11 +51,7 @@ There are two types of list items (which matches the **Output** of a **Build**):
 
 ## Disabling the Directory Listing
 
-If you would like to hide the **Directory Listing** for a certain path, you can do so using the following method.
-
-## Include an Index File
-
-As mentioned above, the **Directory Listing** will only occur if there is no **Index File** at the path the client is trying to access.
+The **Directory Listing** will only occur if there is no **Index File** at the path the client is trying to access.
 
 By placing an **Index File**, set to look like a "Not Found" error page, inside the **Directory Listing** path, it will be indicated to visitors of your site that the location does not exist, rather than showing the **Directory Listing**.
 
