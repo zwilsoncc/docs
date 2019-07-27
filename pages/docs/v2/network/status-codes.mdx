@@ -2,13 +2,15 @@ import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
+import { GenericLink } from '~/components/text/link'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Status Codes',
   description:
     'Status codes are given in different circumstances to give you as much insight as possible into your deployments.',
   editUrl: 'pages/docs/v2/network/status-codes.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-25T18:48:14.000Z'
 }
 
 In order to give you the best possible insight into what exactly is wrong with your deployment, we implemented several status codes into the [Network Layer](/docs/v2/network/overview) of Now.
@@ -53,6 +55,14 @@ Your subscription was blocked.
 Type: `FILE_NOT_FOUND`
 
 There is no <b>Static File</b> or <b>Lambda</b> in your <b>Build Output</b> that matches this path.
+
+<Note>
+  Looking to set up custom 404 pages for specific paths? Read more about{' '}
+  <GenericLink href="/docs/v2/network/directory-listing#rewrite-to-a-404-page">
+    rewriting to 404 page
+  </GenericLink>
+  .
+</Note>
 
 ### 404
 

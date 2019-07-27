@@ -1,6 +1,7 @@
 import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { GenericLink } from '~/components/text/link'
+import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 
@@ -9,7 +10,7 @@ export const meta = {
   description:
     'Directory listings are shown for deployments that have no index files.',
   editUrl: 'pages/docs/v2/network/directory-listing.mdx',
-  lastEdited: '2019-07-25T18:05:19.000Z'
+  lastEdited: '2019-07-25T18:48:14.000Z'
 }
 
 The content of any path that does not contain an **Index File** (within a deployment) is rendered using our **Directory Listing**.
@@ -54,6 +55,30 @@ There are two types of list items (which matches the **Output** of a **Build**):
 The **Directory Listing** will only occur if there is no **Index File** at the path the client is trying to access.
 
 By placing an **Index File**, set to look like a "Not Found" error page, inside the **Directory Listing** path, it will be indicated to visitors of your site that the location does not exist, rather than showing the **Directory Listing**.
+
+## Rewrite To a 404 Page
+
+To hide **Directory Listings** using a 404 using advanced configuration, you can use the [`routes`](/docs/v2/advanced/configuration#routes) property in a `now.json` file at the root of your project:
+
+```json
+{
+  "routes": [
+    {
+      "src": "/example",
+      "dest": "/404.html",
+      "status": 404
+    }
+  ]
+}
+```
+
+<Caption>
+  A <InlineCode>now.json</InlineCode> file setting a path to lead to a 404 page.
+</Caption>
+
+In the example above, the `/example` route (which is a directory without an **Index File**, thus would render a **Directory Listing**) is rewritten to render the `/404.html` file instead.
+
+Furthermore, ZEIT Now sets a status code of `404` to accompany the response.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
