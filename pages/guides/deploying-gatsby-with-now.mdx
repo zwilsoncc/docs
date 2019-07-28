@@ -14,7 +14,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/deploying-gatsby-with-now',
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-07-28T02:42:46.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
@@ -31,32 +31,11 @@ If you have not already [set up a Gatsby project](https://www.gatsbyjs.org/docs/
 Then you can run the following command to create a Gatsby project locally:
 
 <TerminalInput>gatsby new my-gatsby-project</TerminalInput>
-<Caption>Creating a Gatsby project by creating the <InlineCode>my-gatsby-project</InlineCode> directory and generating content within it with gatsby-cli.</Caption>
+<Caption>Creating a Gatsby project with the Gatsby CLI.</Caption>
 
-At this point you you add a `now-dev` script to your `package.json` file. This will allow you to [replicate the Now environment locally](/docs/v2/development/basics/):
+Next, move into the directory from your terminal with `cd my-gatsby-project`. You can see your new project in a local development environment by using the `yarn develop` command, set in the `package.json` by Gatsby CLI.
 
-```json
-{
-  ...
-  "scripts": {
-    ...
-    "now-dev": "gatsby develop -p $PORT",
-  }
-}
-```
-
-<Caption>
-  Adding a <InlineCode>now dev</InlineCode> script to the{' '}
-  <InlineCode>package.json</InlineCode> file.
-</Caption>
-
-The [`@now/static-build` Builder](/docs/v2/deployments/official-builders/static-build-now-static-build/#local-development) supports a custom `now-dev` script that allows you to define [custom development behavior](/docs/v2/development/basics/#custom-development-environment) while gaining extra features that mimic the Now platform locally.
-
-To run your project locally, all that's required is a **single command**:
-
-<TerminalInput>now dev</TerminalInput>
-
-## Step 2: Deploying Your Gatsby Website with Now
+## Step 2: Deploying Your Gatsby Website
 
 With a Gatsby application set up, it is ready to deploy live with [Now](/docs/v2).
 
@@ -66,9 +45,7 @@ Now allows you to [deploy your project](/docs/v2/deployments/basics) from the te
 
 <TerminalInput>now</TerminalInput>
 
-<Caption>
-  Deploying the application with the <InlineCode>now</InlineCode> command.
-</Caption>
+<Caption>Deploying you Gatsby website with Now CLI.</Caption>
 
 If you want to deploy your Gatsby project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
 

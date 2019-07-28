@@ -14,7 +14,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/deploying-hugo-with-now',
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-07-28T02:42:46.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -59,7 +59,7 @@ You can add some content to the Hugo project by running the following command:
 <TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
 <Caption>Creating a new post in the Hugo project via the CLI.</Caption>
 
-Once you are done running the command, edit the `my-first-post.md` file and add the following content below the generated metadata:
+Once you are done running the command, edit the `my-first-post.md` file (within the `contents/posts` directories) and add the following content below the generated metadata:
 
 ```markdown
 ## Deploying Hugo with ZEIT Now
@@ -70,6 +70,13 @@ You can now see your project running locally with the following command:
 <TerminalInput>hugo server -D</TerminalInput>
 <Caption>Running the server locally with drafts enabled</Caption>
 
+<Note>
+  Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
+  <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
+  , the content of your posts won't show up in production.
+</Note>
+
 ## Step 2: Deploying Your Hugo Website with Now
 
 Your Hugo website is ready for deployment. Create a `package.json` in the project directory with the following content:
@@ -78,7 +85,7 @@ Your Hugo website is ready for deployment. Create a `package.json` in the projec
 {
   "scripts": {
     "install": "curl -L -O https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.tar.gz && tar -xzf hugo_0.55.6_Linux-64bit.tar.gz",
-    "build": "./hugo && mv public dist"
+    "build": "./hugo"
   }
 }
 ```
@@ -89,13 +96,6 @@ Your Hugo website is ready for deployment. Create a `package.json` in the projec
 </Caption>
 
 With the build scripts added, you can now deploy your Hugo project.
-
-<Note>
-  Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
-  <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
-  the content of your posts won't show up in production.
-</Note>
 
 If you have not yet installed Now, you can do so by installing the [Now Desktop app](/docs/v2/getting-started/installation/#now-desktop) which installs Now CLI automatically, or by [installing Now CLI](/docs/v2/getting-started/installation/#now-cli) directly.
 

@@ -16,7 +16,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Charge%20site**%20with%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fd33wubrfki0l68.cloudfront.net%2F25151dcf9878a3c40b686628cc84c9292d95ca0e%2F9e22f%2Fimages%2Flogomark.svg',
   editUrl: 'pages/guides/deploying-charge-with-now.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-07-28T02:42:46.000Z'
 }
 
 [Charge](https://charge.js.org/) is an opinionated, zero-config static site generator written in JavaScript. Charge is fast, simple and behaves the way you expect it to.
@@ -60,8 +60,8 @@ Now, make an addition to `package.json`, as recommended by the [Charge documenta
 ```json
 {
   "scripts": {
-    "now-dev": "charge serve src",
-    "build": "charge build src dist"
+    "dev": "charge serve src",
+    "build": "charge build src public"
   }
 }
 ```
@@ -71,9 +71,7 @@ Now, make an addition to `package.json`, as recommended by the [Charge documenta
   <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-These scripts enable you to run a [local development server](/docs/v2/development/basics/) with `now dev` and, as you will see later on, [build](/docs/v2/deployments/builds/) your Charge site before [deploying](/docs/v2/deployments/basics/) with `now`.
-
-The [`@now/static-build` Builder](/docs/v2/deployments/official-builders/static-build-now-static-build/#local-development) supports a custom `now-dev` script that allows you to define [custom development behavior](/docs/v2/development/basics/#custom-development-environment) while gaining extra features that mimic the Now platform locally.
+These scripts enable you to run a local development environment and build your Charge site when [deploying](/docs/v2/deployments/basics/) with `now`.
 
 ## Step 2: Add Content To Your Charge Project
 
@@ -127,20 +125,20 @@ export default ({ children }) => {
   An example <InlineCode>layout.html.jsx</InlineCode> file in a Charge project.
 </Caption>
 
-If, at any point, you want to see how your changes look, you can [serve them locally](/docs/v2/development/basics/) with the script you added in the first step:
+If, at any point, you want to see how your changes look, you can serve them locally with the script you added in the first step:
 
-<TerminalInput>now dev</TerminalInput>
+<TerminalInput>yarn dev</TerminalInput>
 <Caption>
-  Starting up a local development server using a script.
+  Starting up a local development server using a <InlineCode>package.json</InlineCode> script.
 </Caption>
 
-Charge will open a new tab for you, if not you can navigate to `localhost:2468` to see the changes you make, live-reloading is enabled through [Browsersync](https://browsersync.io/).
+Charge will open a new tab for you, if not you can navigate to `localhost:2468` to see the changes you make.
 
 Now that you have a layout component, use it to wrap a `.mdx` file. Create a file named `about.html.mdx` inside of your `/pages` directory.
 
 Add some content to your about page and export it inside of the layout component you created above. Your `about.html.mdx` should look similar to this:
 
-```markdown
+```jsx
 import Layout from '../layout.html.jsx'
 
 Everything between the import and export in the source is **just markdown** using [MDX](https://mdxjs.com/)!
