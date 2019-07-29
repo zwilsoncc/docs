@@ -21,7 +21,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-07-29T16:02:24.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -133,10 +133,8 @@ For more information on what to do next, we recommend the following articles:
   easier.
 </Card>
 
-<Card title="Custom Domains" href="/docs/v2/custom-domains">
-  Once deployed, your projects can be aliased to a custom domain or specified
-  name of your choice to give it a primary place for people to see the latest
-  version of your application.
+<Card title="Deploy hooks" href="/docs/v2/advanced/deploy-hooks">
+  Use Deploy Hooks to trigger deployments to build content from outside ZEIT.
 </Card>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
