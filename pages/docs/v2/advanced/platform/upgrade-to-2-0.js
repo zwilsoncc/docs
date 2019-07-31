@@ -1,3 +1,3 @@
 import redirect from '~/lib/redirect'
 
-export default redirect('/guides/upgrade-to-2-0')
+export default redirect('/docs/v2/advanced/platform/changes-in-now-2-0')

@@ -9,7 +9,7 @@
         "forceBuildIn": "bru1"
       }
     },
-    { "src": "static/*", "use": "@now/static" }
+    { "src": "static/**/*", "use": "@now/static" }
   ],
   "routes": [
     {
