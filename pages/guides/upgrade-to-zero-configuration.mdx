@@ -17,7 +17,7 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/upgrade-to-zero-configuration',
   editUrl: 'pages/guides/upgrade-to-zero-configuration.mdx',
-  lastEdited: '2019-07-31T17:36:06.000Z'
+  lastEdited: '2019-07-31T18:55:15.000Z'
 }
 
 With zero configuration, it's never been easier to deploy an application with Now. This guide highlights a set of common scenarios, showing you how to take advantage of these new features.
@@ -47,7 +47,9 @@ Using [the Next.js example project from the ZEIT Now Examples repository](https:
 
 With zero configuration, the `now.json` file is no longer required. You only have to remove the `now.json` file from your project.
 
-For Next.js projects that have an API, you can use an `/api` folder inside of your `/pages` directory, this will allow Now to handle the building of these files for you.
+For Next.js projects that have a **JavaScript API**, you can use a `/pages/api/` folder, this will allow Next.js to [handle the building of these files for you](https://nextjs.org/docs#api-routes).
+
+If your Next.js project is using a different language for the API, put it in the top-level `/api` directory instead. By doing that, you will take advantage of Now's native support for serverless functions written in multiple languages, while `/pages/api` only supports JavaScript (powered by Next.js).
 
 View this zero configuration deployment on Now: <https://next-zero-config.now-examples.now.sh/>
 
