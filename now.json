@@ -89,9 +89,21 @@
       "headers": { "Location": "/docs/v2/introduction" }
     },
     {
+      "src": "/docs/v2/(?:deployments|advanced)/builders/developer-guide(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/advanced/builders-developer-reference$1"
+      }
+    },
+    {
       "src": "/docs/v2/deployments/(?:builders|official-builders)/(.*)/?",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/builders/$1" }
+      "headers": { "Location": "/docs/v2/advanced/builders" }
+    },
+    {
+      "src": "/docs/v2/advanced/builders/.*",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/builders" }
     },
     {
       "src": "/docs/v2/deployments/(routes|configuration|concepts)(.*)",
@@ -125,17 +137,7 @@
     {
       "src": "/docs/v2/deployments/builds/?",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/builders/overview" }
-    },
-    {
-      "src": "/docs/v2/deployments/builders/(.*)",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/custom-builds" }
-    },
-    {
-      "src": "/docs/v2/deployments/official-builders/(.*)/?",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/builders/$1" }
+      "headers": { "Location": "/docs/v2/advanced/builders" }
     },
     {
       "src": "/docs/v2/development/environment-variables(.*)",
