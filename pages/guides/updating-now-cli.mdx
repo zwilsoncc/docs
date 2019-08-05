@@ -15,35 +15,30 @@ export const meta = {
   authors: ['msweeneydev', 'timothy'],
   url: '/guides/updating-now-cli',
   editUrl: 'pages/guides/updating-now-cli.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-04T13:45:41.000Z'
 }
 
 When there is a new release of the [Now CLI](https://zeit.co/download#now-cli) available, you will see a message appear in your terminal output when running Now, letting you know that there is a newer version.
 
-This guide will take you through the process of updating Now CLI and how to stay up-to-date.
+This guide will take you through your options for updating Now CLI using your preferred package manager.
 
-## Updating Now CLI
+## Option 1: Updating via npm
 
-As of version 15.4.0 of Now CLI, you can **update Now CLI with a single command**:
+If you have installed our command-line interface via [npm](http://npmjs.org/), the easiest way to update it is by running the installation command yet again:
 
-<TerminalInput>now update</TerminalInput>
-<Caption>Updating Now CLI with the <InlineCode>now update</InlineCode> command.</Caption>
+<TerminalInput>now i -g now</TerminalInput>
+<Caption>Updating Now CLI using the <InlineCode>npm</InlineCode> command.</Caption>
 
-To update to the latest version of Now CLI yourself, you can use a package manager, such as [Yarn](#updating-with-yarn) or [npm](#updating-with-npm).
+In the case that permission errors are preventing you from installing, please read npm's [official guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) about this problem.
 
-<Note>
-  If you do not have Now CLI installed yet, see our{' '}
-  <GenericLink href="/download">download page</GenericLink>.
-</Note>
+## Option 2: Updating via Yarn
 
-If you have not yet updated to a version that supports the above command, you can also use any of the following methods:
+If you have installed our command-line interface via [Yarn](https://yarnpkg.com), the easiest way to update it is by running the installation command yet again:
 
-- Using [Yarn](https://yarnpkg.com/), for the latest Now CLI update, run the following command from your terminal:
+<TerminalInput>yarn global add now</TerminalInput>
+<Caption>Updating Now CLI using the <InlineCode>yarn</InlineCode> command.</Caption>
 
-  <TerminalInput>yarn global add now</TerminalInput>
-
-- Using [npm](https://npmjs.com), for the latest Now CLI update, run the following command from your terminal:
-  <TerminalInput>npm install -g now</TerminalInput>
+In the case that permission errors are preventing you from installing, please read npm's [official guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) about this problem (Yarn depends on the same configuration).
 
 ## Read Next
 
