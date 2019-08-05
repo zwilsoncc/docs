@@ -10,52 +10,26 @@ import Card from '~/components/card'
 
 export const meta = {
   title: 'How to Update Now CLI',
-  description:
-    'A guide to updating Now CLI using Now Desktop or a package manager.',
+  description: 'A guide to updating Now CLI using a package manager.',
   published: '2019-03-20T03:00:00.860Z',
   authors: ['msweeneydev', 'timothy'],
   url: '/guides/updating-now-cli',
   editUrl: 'pages/guides/updating-now-cli.mdx',
-  lastEdited: '2019-07-20T00:10:25.000Z'
+  lastEdited: '2019-08-02T17:34:08.000Z'
 }
 
 When there is a new release of the [Now CLI](https://zeit.co/download#now-cli) available, you will see a message appear in your terminal output when running Now, letting you know that there is a newer version.
 
-This guide will take you through your options for updating Now CLI and how to stay up-to-date.
+This guide will take you through the process of updating Now CLI and how to stay up-to-date.
 
-## Option 1: Now Desktop
-
-Now Desktop updates Now CLI automatically when there is an update to install, so you never have to think about it again.
-
-Now Desktop also lets you:
-
-- Create deployments with drag-and-drop
-- View your team’s event feed
-
-To have automatic updates to Now CLI using Now Desktop, ensure that automatic updates are enabled from Now Desktop's settings menu:
-
-<Image
-  src={`${
-    process.env.IMAGE_ASSETS_URL
-  }/blog/improved-cli-updates/update-option.png`}
-  width={385}
-  height={228}
-/>
-
-As long as the update option is enabled, you will automatically receive the latest update for the [Now CLI](https://zeit.co/download#now-cli), as they are released.
-
-If you don't have Now Desktop installed yet and would prefer to have automatic updates for Now CLI, you can [install it here](https://zeit.co/download#now-desktop).
-
-## Option 2: Updating Now CLI Manually
+## Updating Now CLI
 
 As of version 15.4.0 of Now CLI, you can **update Now CLI with a single command**:
 
 <TerminalInput>now update</TerminalInput>
-<Caption>Updating Now CLI with the <InlineCode>update</InlineCode> command.</Caption>
+<Caption>Updating Now CLI with the <InlineCode>now update</InlineCode> command.</Caption>
 
 To update to the latest version of Now CLI yourself, you can use a package manager, such as [Yarn](#updating-with-yarn) or [npm](#updating-with-npm).
-
-We do, however, recommend that you install [Now Desktop](#option-1:-now-desktop) for automatic updates to Now CLI.
 
 <Note>
   If you do not have Now CLI installed yet, see our{' '}

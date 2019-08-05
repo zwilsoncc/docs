@@ -14,10 +14,10 @@ export const meta = {
   description:
     'Configuring Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-08-02T17:34:08.000Z'
 }
 
-When using [Now CLI](/docs/v2/getting-started/installation#now-cli), [Now Desktop](/docs/v2/getting-started/installation#now-desktop) or [Now for GitHub](/docs/v2/getting-started/installation#now-for-github), the configuration for your deployment is read from the `now.json` file.
+When using [Now CLI](/docs/v2/getting-started/installation#now-cli) or [Now for GitHub](/docs/v2/getting-started/installation#now-for-github), the configuration for your deployment is read from the `now.json` file.
 
 The parameters stored in that file are passed to the [Deployment Creation API endpoint](/docs/api/v2#endpoints/deployments/create-a-new-deployment), which performs validation and stores the metadata in our backend.
 
@@ -83,7 +83,12 @@ You can deploy to the defined aliases using Now CLI by setting the [production d
 </Example>
 
 <Note>
-  Aliases from a `now.json` file will be **ignored** when there are domains that have been <GenericLink href="/docs/v2/custom-domains/#deploying-with-your-domain">configured for the project through the dashboard</GenericLink>.
+  Aliases from a `now.json` file will be **ignored** when there are domains that
+  have been{' '}
+  <GenericLink href="/docs/v2/custom-domains/#deploying-with-your-domain">
+    configured for the project through the dashboard
+  </GenericLink>
+  .
 </Note>
 
 ### scope
@@ -92,7 +97,7 @@ You can deploy to the defined aliases using Now CLI by setting the [production d
 
 **Valid values**: For teams, either an ID or slug. For users, either a email address, username, or ID.
 
-This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by Now CLI or Now Desktop.
+This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by Now CLI.
 
 Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [secrets](https://zeit.co/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) using `now secrets ls`).
 
