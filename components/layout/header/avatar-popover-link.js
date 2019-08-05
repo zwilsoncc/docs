@@ -15,17 +15,7 @@ export default class AvatarPopOverLink extends React.Component {
 
   constructor(props) {
     super(props)
-    this.onPopOverOpen = this.onPopOverOpen.bind(this)
     this.state = {}
-  }
-
-  onPopOverOpen() {
-    Router.prefetch('/account/identity')
-    Router.prefetch('/dashboard')
-
-    // in case user logs out, we prefetch
-    // the page they get redirected to
-    Router.prefetch('/login')
   }
 
   render() {
@@ -50,7 +40,6 @@ export default class AvatarPopOverLink extends React.Component {
           offsetLeft={-168}
           top={sticky ? '20px' : top}
           inline={false}
-          onOpen={this.onPopOverOpen}
           ref={ref => (this.popover = ref)}
           to={
             <div className="avatar-menu">
@@ -59,9 +48,7 @@ export default class AvatarPopOverLink extends React.Component {
                   key="0"
                   active={this.props.pathname === '/dashboard'}
                 >
-                  <Link href="/dashboard">
-                    <a>Dashboard</a>
-                  </Link>
+                  <a href="/dashboard">Dashboard</a>
                 </PopOver.Item>
                 <PopOver.Item
                   className
@@ -69,14 +56,10 @@ export default class AvatarPopOverLink extends React.Component {
                   active={this.props.pathname === '/teams/settings'}
                   icon={<PlusIcon />}
                 >
-                  <Link href="/teams/settings?isCreating=1" as="/teams/create">
-                    <a>New Team</a>
-                  </Link>
+                  <a href="/teams/create">New Team</a>
                 </PopOver.Item>
                 <PopOver.Item key="2">
-                  <Link href="/account">
-                    <a>Settings</a>
-                  </Link>
+                  <a href="/account">Settings</a>
                 </PopOver.Item>
                 <PopOver.Item key="4">
                   <a
