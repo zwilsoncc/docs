@@ -7,119 +7,6 @@ import Avatar from '~/components/avatar'
 import * as PopOver from '~/components/popover'
 import PopOverLink from '~/components/popover/popover-link'
 import PlusIcon from '~/components/icons/plus'
-import FaceIcon from '~/components/icons/emoji'
-
-function ProfileItem({ user, onEditClick }) {
-  let profileItem = null
-  let icon = null
-
-  if (user.username) {
-    // username (with or without a custom avatar)
-    profileItem = (
-      <div className="profile">
-        <span className="avatar">
-          <Avatar
-            uid={user.uid}
-            size={48}
-            hash={user.avatar}
-            title={user.username}
-          />
-        </span>
-        <div>
-          <span className="username">{user.username}</span>
-        </div>
-        <style jsx>{`
-          .profile {
-            display: flex;
-          }
-          .avatar {
-            display: inline-block;
-            margin-right: 15px;
-          }
-          .profile div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-          .username {
-            font-size: 16px;
-            color: var(--accents-7);
-            text-decoration: none;
-            font-weight: 500;
-            line-height: 24px;
-            overflow: hidden;
-            max-width: 75px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-          .edit-profile {
-            font-size: 14px;
-            font-weight: 400;
-            text-decoration: none;
-            color: var(--geist-success);
-            line-height: 20px;
-          }
-          .username,
-          .edit-profile,
-          .avatar {
-            transition: opacity 0.2s ease;
-          }
-        `}</style>
-      </div>
-    )
-  } else if (user.avatar) {
-    // avatar (without a username)
-    const urlEdit = `/profile`
-
-    profileItem = (
-      <div className="profile">
-        <Link href={urlEdit}>
-          <a onClick={onEditClick} className="edit-profile">
-            <span className="avatar">
-              <Avatar uid={user.uid} size={32} hash={user.avatar} />
-            </span>
-            <span>Edit Profile</span>
-          </a>
-        </Link>
-        <style jsx>{`
-          .edit-profile {
-            display: flex;
-            align-items: center;
-          }
-          .avatar {
-            display: inline-block;
-            margin-right: 12px;
-          }
-          .edit-profile {
-            transition: opacity 0.2s ease;
-            font-size: 14px;
-            color: var(--accents-2);
-            text-decoration: none;
-            font-weight: 400;
-            line-height: 20px;
-          }
-          .edit-profile:hover {
-            opacity: 0.8;
-          }
-        `}</style>
-      </div>
-    )
-  } else {
-    const urlEdit = `/profile`
-
-    profileItem = (
-      <Link href={urlEdit}>
-        <a onClick={onEditClick} className="edit-profile">
-          Edit Profile
-        </a>
-      </Link>
-    )
-
-    icon = <FaceIcon />
-  }
-
-  return <PopOver.Item icon={icon}>{profileItem}</PopOver.Item>
-}
 
 export default class AvatarPopOverLink extends React.Component {
   static contextTypes = {
@@ -168,7 +55,6 @@ export default class AvatarPopOverLink extends React.Component {
           to={
             <div className="avatar-menu">
               <PopOver.Menu tipOffset={173}>
-                <ProfileItem user={this.props.user} />
                 <PopOver.Item
                   key="0"
                   active={this.props.pathname === '/dashboard'}
@@ -235,12 +121,13 @@ export default class AvatarPopOverLink extends React.Component {
             width: 200px;
           }
 
-          .avatar-menu :global(.item.dark .username) {
-            color: #eaeaea;
+          .avatar-menu :global(.item:first-child) {
+            padding-top: 8px;
+            padding-bottom: 16px;
           }
 
-          .avatar-menu :global(.item:first-child) {
-            padding-bottom: 16px;
+          .avatar-menu :global(.item:first-child > a) {
+            padding-top: 8px;
           }
 
           .avatar-menu :global(.item:not(:first-child)) {
