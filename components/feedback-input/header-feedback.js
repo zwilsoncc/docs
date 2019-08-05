@@ -229,7 +229,13 @@ class HeaderFeedback extends Component {
   }
 
   render() {
-    const { darkBg, className, textAreaStyle, ...props } = this.props
+    const {
+      darkBg,
+      className,
+      textAreaStyle,
+      hideHeader,
+      ...props
+    } = this.props
     const { focused } = this.state
     delete props.onFeedback
     delete props.textAreaStyle

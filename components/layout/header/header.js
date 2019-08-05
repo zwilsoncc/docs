@@ -329,8 +329,11 @@ class Header extends Component {
                   </NavigationItem>
 
                   <div
-                    active={router.pathname.startsWith('/docs/api')}
-                    className="developer-dropdown desktop-only"
+                    className={cn('developer-dropdown desktop-only', {
+                      active:
+                        router.pathname.startsWith('/docs/api') ||
+                        router.pathname.startsWith('/docs/integrations')
+                    })}
                   >
                     <MenuPopOver
                       title="API"
@@ -562,6 +565,11 @@ class Header extends Component {
 
           :global(.header .main-navigation .developer-dropdown) {
             display: flex;
+          }
+
+          :global(.header .main-navigation .developer-dropdown.active > span) {
+            color: var(--geist-foreground);
+            font-weight: 500;
           }
 
           :global(.header .main-navigation .developer-dropdown a) {
