@@ -14,7 +14,7 @@ export const meta = {
   description:
     'Configuring Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-02T22:05:57.000Z'
 }
 
 When using [Now CLI](/docs/v2/getting-started/installation#now-cli) or [Now for GitHub](/docs/v2/getting-started/installation#now-for-github), the configuration for your deployment is read from the `now.json` file.
@@ -185,7 +185,7 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/deployments/conce
   <PDIV>
     The following will include all HTML files as-is (to be served statically),
     and <GenericLink href="/docs/v2/deployments/builds">Build</GenericLink> all
-    PHP files and JS files into{' '}
+    Python files and JS files into{' '}
     <GenericLink href="/docs/v2/deployments/concepts/lambdas">
       Lambdas
     </GenericLink>
@@ -194,7 +194,7 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/deployments/conce
   <Code lang="json">{`{
   "builds": [
     { "src": "*.html", "use": "@now/static" },
-    { "src": "*.php", "use": "@now/php" },
+    { "src": "*.py", "use": "@now/python" },
     { "src": "*.js", "use": "@now/node" }
   ]
 }`}</Code>

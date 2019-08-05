@@ -12,7 +12,7 @@ export const meta = {
   title: 'Supported Lanaguages for Serverless Functions',
   description: 'Learn how to deploy serverless functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-08-02T22:05:57.000Z'
 }
 
 Within the `api` directory of your projects, ZEIT Now will automatically recognise the languages listed on this page, through their file extensions, and serve them as serverless function.
@@ -21,7 +21,6 @@ Within the `api` directory of your projects, ZEIT Now will automatically recogni
 
 - [Node.js](#node.js)
 - [Go](#go)
-- [PHP](#php)
 - [Python](#python)
 
 ## Node.js
@@ -323,27 +322,6 @@ When deployed, the example function above will be served as a serverless functio
 ZEIT Now supports installing dependencies for Python defined in the `requirements.txt` file or a `Pipfile.lock` file at the root of the project.
 
 ---
-
-## PHP
-
-**File Extension**: `.php`<br />
-**Default Runtime Version**: PHP 7.1.x
-
-PHP files within the `api` directory will be served as a serverless function.
-
-For example, the following would go in `api/date.php`:
-
-```php
-<?php echo date(DATE_RFC2822); ?>
-```
-
-<Caption>An example PHP file that prints the current date.</Caption>
-
-When deployed, the example PHP file above will be served as a serverless function, returning the current date and time. See it live with the following link: <https://php-api.now-examples.now.sh/api/date>
-
-### PHP Global Variables
-
-All standard PHP variables like `$_GET`, `$_POST` are supported, with the exception of `$_SESSION` and `$_FILES`.
 
 ## Related
 

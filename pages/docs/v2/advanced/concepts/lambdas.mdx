@@ -13,7 +13,7 @@ export const meta = {
   description:
     'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.',
   editUrl: 'pages/docs/v2/advanced/concepts/lambdas.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-08-02T22:05:57.000Z'
 }
 
 When you make a deployment, by running `now` with our [CLI](/docs/v2/getting-started/installation#now-cli), making an [API](/api) call or with our [GitHub integration](/docs/v2/integrations/now-for-github), we synchronize the source code and optionally build them to your specification.
@@ -95,7 +95,7 @@ Furthermore, if a systemic error occurs when handling an incoming request or eve
 
 Now makes it trivial to build one serverless function per potential entrypoint of your application. If you are familiar with frontend development, you can think of this as **code-splitting for the backend**.
 
-In the example above, the three dynamic entrypoints we specified (two PHP scripts and the Node.js function) result in three discrete packaged functions that get uploaded and deployed with the [cloud infrastructure provider](/docs/v2/platform/regions-and-providers).
+In the example above, the three dynamic entrypoints we specified (two Python scripts and the Node.js function) result in three discrete packaged functions that get uploaded and deployed with the [cloud infrastructure provider](/docs/v2/platform/regions-and-providers).
 
 This has numerous benefits:
 
