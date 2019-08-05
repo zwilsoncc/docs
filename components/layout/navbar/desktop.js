@@ -97,7 +97,7 @@ function Category({ info, level = 1, ...props }) {
         }
 
         .label :global(svg) {
-          margin-right: 18px;
+          margin-right: 14px;
           transition: all 0.15s ease;
         }
 
@@ -112,7 +112,7 @@ function Category({ info, level = 1, ...props }) {
 
         .open > .label :global(svg) {
           margin-left: 1px;
-          margin-right: 17px;
+          margin-right: 13px;
           transform: rotate(90deg);
         }
 
@@ -186,21 +186,20 @@ function Post({ info, level = 1, ...props }) {
       <style jsx>{`
         .link {
           margin: 18px 0;
-        }
-
-        .link.level-1 {
           display: flex;
           align-items: center;
         }
 
-        .link.level-1::before {
+        .link::before {
           content: '';
+          flex-basis: 4px;
+          flex-shrink: 0;
           display: block;
           width: 4px;
           height: 4px;
           border-radius: 50%;
           background: var(--accents-5);
-          margin-right: 20px;
+          margin-right: 16px;
         }
 
         .link:first-child {
