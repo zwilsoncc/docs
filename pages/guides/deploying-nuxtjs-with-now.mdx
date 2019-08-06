@@ -1,0 +1,132 @@
+import Guide from '~/components/layout/guide'
+import { TerminalInput } from '~/components/text/terminal'
+import { InlineCode } from '~/components/text/code'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import { GenericLink } from '~/components/text/link'
+import Card from '~/components/card'
+
+export const meta = {
+  title: 'Deploying a Statically Generated Nuxt.js app with Now',
+  description: 'How to deploy your Static Nuxt.js app with Now',
+  published: '2019-03-19',
+  authors: ['developerayo'],
+  url: '/guides/deploying-nuxtjs-with-now',
+  image:
+    'https://og-image.now.sh/**Deploy%20a%20Static%20Nuxt.js%20App**%20With%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1090208956440633345%2FOkg4uYbh_400x400.jpg&widths=250&widths=auto&heights=undefined&heights=350',
+  editUrl: 'pages/guides/deploying-nuxtjs-with-now',
+  lastEdited: '2019-03-19T01:01:52.000Z'
+}
+
+[Nuxt.js](https://nuxtjs.org/) is an open-source Vue.js-based framework that provides multiple different rendering modes, one of which allows you to statically generate your application. 
+
+In this guide, you will learn how to create and deploy a Nuxt.js application with [ZEIT Now](/docs/v2).
+
+## Step 1: Set Up Your Nuxt.js Project
+
+The first step in setting up your new Nuxt.js project is to generate it with [`create-nuxt-app`](https://nuxtjs.org/guide/installation/#using-code-create-nuxt-app-code-):
+
+<TerminalInput>
+yarn create nuxt-app my-nuxt-app
+</TerminalInput>
+
+<Caption>Initializing a Nuxt.js project with <InlineCode>create-nuxt-app</InlineCode> and <GenericLink href="https://yarnpkg.com">Yarn</GenericLink>.</Caption>
+
+With your Nuxt.js project initialized, move into the directory:
+
+<TerminalInput>
+cd my-nuxt-project
+</TerminalInput>
+
+<Caption>Using the <InlineCode>cd</InlineCode> command to move into the project directory.</Caption>
+
+With the following command, you can start a local development server to see your Nuxt.js app up and running:
+
+<TerminalInput>
+yarn dev
+</TerminalInput>
+
+
+<Caption>Starting a local development server with the <InlineCode>yarn dev</InlineCode> command.</Caption>
+
+## Step 2: Deploy Your Nuxt.js Project With Now
+
+With your Nuxt.js application set up, it is ready to be [deployed](/docs/v2/deployments/basics/) with [Now](/docs/v2).
+
+If you have not yet installed Now, you can do so by installing the [Now Desktop app](/docs/v2/getting-started/installation/#now-desktop) which installs Now CLI automatically, or by [installing Now CLI](/docs/v2/getting-started/installation/#now-cli) directly.
+
+Next, create a [`now.json` file](/docs/v2/deployments/configuration) to instruct Now on how to build the project with a `build` step:
+
+
+```json
+{
+  "version": 2,
+  "name": "my-nuxt-project",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ]
+}
+```
+
+<Caption>
+  A sample <InlineCode>now.json</InlineCode> configuration file that defines the builds and routes.
+</Caption>
+
+This `now.json` file achieves a few things:
+
+- Defines a `version` property to ensure you are using the latest [Now 2.0 platform](/docs/v2/platform/overview) version
+- Defines a project `name` that your deployments will be sorted under and known by under Now
+- Defines a `builds` property as an array with one build step using `@now/static-build` to instruct Now to statically build the project and deploy the `dist` directory
+
+Next, add a now-build script to your `package.json` file:
+
+```json
+
+"scripts": {
+   "now-build": "nuxt build --spa"
+}
+
+```
+
+
+<Caption>Adding a <InlineCode>now-build</InlineCode> script to your <InlineCode>package.json</InlineCode> file.</Caption>
+
+Your app is fully ready to be deployed to now:
+
+<TerminalInput>
+now
+</TerminalInput>
+
+
+<Caption>Deploying your project with just a single command.</Caption>
+
+Once the app is deployed, you will receive a deployment URL similar to the following:
+https://nuxt-app-f2ee248v9.now.sh/
+
+
+## Resources
+
+For more information on working with Nuxt.js, please refer to [their documentation](https://nuxtjs.org/guide).
+
+To configure Now further, please see these additional topics and guides:
+
+<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
+  Deploy any of your applications with ZEIT Now.
+</Card>
+
+<Card
+  title="Aliasing"
+  href="/docs/v2/domains-and-aliases/aliasing-a-deployment/"
+>
+  Learn more about aliasing to your deployments.
+</Card>
+
+<Card title="www. Redirect" href="/guides/redirect-from-www">
+  Create a redirect from the www. subdomain to your naked domain.
+</Card>
+
+<Card title="More Guides" href="/guides">
+  See more guides that help you move forward with your projects and deployments.
+</Card>
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>
