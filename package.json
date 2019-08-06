@@ -7,7 +7,7 @@
     "now-dev": "next -p $PORT",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --ext mdx",
     "test": "yarn run lint",
     "export": "next export -o dist",
     "now-build": "yarn run build && yarn run export",
@@ -70,10 +70,12 @@
     "unist-util-visit": "1.4.0"
   },
   "devDependencies": {
+    "@rxts/eslint-plugin-mdx": "0.9.5",
     "babel-eslint": "8.2.3",
-    "eslint": "4.2.0",
+    "eslint": "6.1.0",
+    "eslint-plugin-import": "2.18.2",
     "eslint-plugin-import-b5a962": "2.3.0",
-    "eslint-plugin-react": "7.1.0",
+    "eslint-plugin-react": "7.14.3",
     "execa": "1.0.0",
     "husky": "1.2.1",
     "lint-staged": "8.1.0",
@@ -90,7 +92,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "yarn run update-mdx-meta -- post-commit"
+      "post-commit": "yarn run update-mdx-meta post-commit"
     }
   },
   "lint-staged": {
@@ -115,12 +117,22 @@
       "allowImportExportEverywhere": true
     },
     "plugins": [
-      "react",
       "import-b5a962"
     ],
     "extends": [
       "eslint:recommended",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "plugin:import/warnings"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.mdx"
+        ],
+        "extends": [
+          "plugin:@rxts/mdx/overrides"
+        ]
+      }
     ],
     "env": {
       "es6": true,
@@ -143,8 +155,11 @@
           "allowObject": true
         }
       ],
-      "no-extra-semi": 0,
+      "no-console": 1,
+      "no-unused-vars": 2,
+      "no-extra-semi": 2,
       "no-useless-escape": 0,
+      "react/display-name": 0,
       "react/prop-types": 0,
       "react/react-in-jsx-scope": 0,
       "react/no-unescaped-entities": 0,

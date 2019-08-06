@@ -253,7 +253,6 @@ class Header extends Component {
       handleIndexClick,
       router,
       user,
-      teams = [],
       userLoaded,
       zenModeActive,
       isAmp,
@@ -265,7 +264,6 @@ class Header extends Component {
       inHero,
       data
     } = this.props
-    const { menuActive } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
     const buildAmpNavClass = classes => {
       return isAmp

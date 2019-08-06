@@ -4,7 +4,7 @@ export default function CaseStudyList({ caseStudies, offset }) {
     <div className="wrapper">
       <ul>
         {caseStudies.map(caseStudy => (
-          <li>
+          <li key={caseStudy.href}>
             <CaseStudyCard
               icon={caseStudy.icon}
               description={caseStudy.description}

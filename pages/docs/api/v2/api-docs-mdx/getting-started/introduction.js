@@ -120,7 +120,7 @@ class Introduction extends React.PureComponent {
 
         {this.state.activeTab === 'command' && (
           <Context.Consumer>
-            {ctx => (
+            {() => (
               <Preview
                 content={this.state.content}
                 deploy={this.deploy}

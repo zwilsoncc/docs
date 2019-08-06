@@ -1,20 +1,15 @@
-import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
-import Now from '~/components/text/now'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
-import { TerminalInput } from '~/components/text/terminal'
-import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Now for GitLab',
   description:
     'Deploy each change in your GitLab projects with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   editUrl: 'pages/docs/v2/advanced/now-for-gitlab.mdx',
-  lastEdited: '2019-07-22T15:33:14.000Z'
+  lastEdited: '2019-08-06T15:31:27.000Z'
 }
 
 The Now for GitLab integration automatically deploys and aliases your GitLab projects with [Now](/now).
@@ -81,7 +76,7 @@ Alternatively; if you do not already have a Now account, you can sign up to ZEIT
 
 ### A Deployment for Each Push
 
-Now for GitLab will **deploy each push by default**. This includes pushes and pull requests made to branches. This allows those working within the project to preview the changes made before they are pushed to production.
+Now for GitLab will **deploy each push by default**. This includes pushes and pull requests made to branches. This allows those working within the project to preview the changes made before they are pushed to production.
 
 With each new push, if Now is already building a previous commit, it will cancel that current build to start the most recent commit, ensuring you always have the latest changes deployed as quickly as possible.
 
@@ -123,8 +118,7 @@ You may want to use different workflows and APIs based on the environment of the
   You can access these as 
   <GenericLink href="https://zeit.co/docs/v2/build-step#using-environment-variables-and-secrets">
     build environment variables
-  </GenericLink>
-   also.
+  </GenericLink> also.
 </Note>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

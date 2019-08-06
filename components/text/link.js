@@ -22,19 +22,16 @@ export const GenericLink = props => {
   return <ExternalLink {...props} />
 }
 
-export const InternalLink = (
-  {
-    href,
-    as,
-    children,
-    onClick,
-    underlineOnHover = true,
-    display,
-    color,
-    hover
-  },
-  { darkBg } = {}
-) => (
+export const InternalLink = ({
+  href,
+  as,
+  children,
+  onClick,
+  underlineOnHover = true,
+  display,
+  color,
+  hover
+}) => (
   <span onClick={onClick} className={cn({ 'no-underline': !underlineOnHover })}>
     <LinkWithHoverPrefetch href={href} as={as}>
       {children}

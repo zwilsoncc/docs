@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { AnchorLink } from '~/components/text/link'
 import { P } from '~/components/text/paragraph'
 
-function CaseStudyCard({ icon, description, href }) {
+function CaseStudyCard({ icon, description }) {
   const Icon = icon
   return (
     <div className="case-study-card-container">

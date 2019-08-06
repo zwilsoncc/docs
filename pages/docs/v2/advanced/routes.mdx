@@ -1,4 +1,3 @@
-import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
@@ -11,7 +10,7 @@ export const meta = {
   description:
     'Create proxies, redirects, cache-control headers, and more with Now routes, easily.',
   editUrl: 'pages/docs/v2/advanced/routes.mdx',
-  lastEdited: '2019-07-25T18:56:22.000Z'
+  lastEdited: '2019-08-06T15:31:27.000Z'
 }
 
 Now uses routes to define the behavior of how a request is handled on the routing side. For example, you might use a route to proxy a URL to another, redirect a client, or apply a header with the response to a request.
@@ -271,7 +270,6 @@ This will take a URL, like `/product/532004` and proxies it to `/product?id=5320
   Both <InlineCode>^</InlineCode>, asserting the start of the path string, and{' '}
   <InlineCode>$</InlineCode>, asserting the end of the path string, are implied
   and are not necessary to write.
-
 </Note>
 
 As another example, if you want to redirect from all paths under a certain directory but want to keep the path in the new location, you can use the following:

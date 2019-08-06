@@ -1,6 +1,4 @@
-import { withAmp } from 'next/amp'
 import Doc from '~/components/layout/docs'
-import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import { InlineCode, Code } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'
@@ -8,14 +6,13 @@ import Example from '~/components/example'
 import { GenericLink } from '~/components/text/link'
 import Note from '~/components/text/note'
 import Tag from '~/components/text/tag'
-import { P } from '~/components/text/paragraph'
 
 export const meta = {
   title: 'Builders Reference',
   description:
     'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.',
   editUrl: 'pages/docs/v2/advanced/builders.mdx',
-  lastEdited: '2019-08-02T16:15:51.000Z'
+  lastEdited: '2019-08-06T15:31:27.000Z'
 }
 
 Builders are [modules](https://zeit.co/docs/v2/deployments/builders/developer-guide/) that transform your [source code into compiled outputs](/docs/v2/deployments/builds#sources-and-outputs), being either static files and/or [Serverless Functions](https://zeit.co/docs/v2/deployments/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/advanced/domains/cdn/).

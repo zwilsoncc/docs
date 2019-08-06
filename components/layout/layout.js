@@ -11,9 +11,6 @@ const LayoutHeader = React.memo(props => {
   return <Header {...props} isAmp={isAmp} />
 })
 
-// Closured variable for `onScroll` function
-let ignore = false
-
 export default class Layout extends React.Component {
   static contextType = ZenContext
 
@@ -27,9 +24,9 @@ export default class Layout extends React.Component {
   altKeyDown = false
 
   exitZenMode = () => {
-    this.setState(state => ({
+    this.setState({
       zenModeActive: false
-    }))
+    })
   }
 
   onKeyDown(event) {

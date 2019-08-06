@@ -1,5 +1,4 @@
 import cns from 'classnames'
-import Link from 'next/link'
 import { Component, Fragment } from 'react'
 import SectionIndex from './section-index'
 import * as metrics from '~/lib/metrics'
@@ -37,7 +36,7 @@ class CategoryIndex extends Component {
   }
 
   render() {
-    const { category, getHref, section, onClickLink } = this.props
+    const { category, getHref } = this.props
     const active = isCategoryActive(this.props)
     const { href, as } = getHref({
       category: category.slug

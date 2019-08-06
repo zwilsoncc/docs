@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
 import Link from 'next/link'
 import debounce from 'lodash.debounce'
-import { API_USER_TOKEN_TESTING, HEADER_HEIGHT } from '~/lib/constants'
+import { HEADER_HEIGHT } from '~/lib/constants'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
 import Layout from '~/components/layout/layout'
@@ -22,8 +22,6 @@ import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
-import fetchAPI from '~/lib/fetch-api'
-import { getToken } from '~/lib/authenticate'
 
 import ApiDocs from './api-docs-mdx/index.mdx'
 

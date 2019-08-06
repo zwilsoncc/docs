@@ -10,7 +10,6 @@ function AmpWrap({ ampOnly, nonAmp }) {
 
 export default class Document extends Document_ {
   render() {
-    const { amphtml } = this.props
     return (
       <Html lang="en">
         <Head>

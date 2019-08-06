@@ -1,6 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
-import Router from 'next/router'
 import PropTypes from 'prop-types'
 
 import Avatar from '~/components/avatar'

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { useAmp } from 'next/amp'
+import { useState } from 'react'
 import Head from '~/components/layout/head'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
 import getAlgoliaClient from '~/lib/get-algolia'

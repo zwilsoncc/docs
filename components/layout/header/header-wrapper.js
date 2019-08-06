@@ -8,8 +8,7 @@ const Header = ({
   hideHeaderSearch = true,
   children,
   isTop,
-  detached,
-  inHero
+  detached
 }) => (
   <header className={className}>
     <Wrapper className="content">{children}</Wrapper>

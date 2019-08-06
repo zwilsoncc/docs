@@ -73,7 +73,7 @@ function Category({ info, level = 1, ...props }) {
         <ArrowRight fill="#999" />
         {info.name}
       </a>
-      {!info.href || isCategorySelected(info) ? (
+      {!info.href ? (
         <div className="posts">
           {info.posts.map(postInfo => (
             <Post
@@ -293,7 +293,7 @@ export class NavLink extends React.Component {
   }
 
   render() {
-    const { info, level } = this.props
+    const { info } = this.props
     const { selected } = this.state
 
     return (
@@ -363,11 +363,7 @@ export class NavLink extends React.Component {
   }
 }
 
-export default function DocsNavbarDesktop({
-  categoryInfo,
-  data = [],
-  ...props
-}) {
+export default function DocsNavbarDesktop({ data = [], ...props }) {
   return (
     <>
       {data.map(categoryInfo =>

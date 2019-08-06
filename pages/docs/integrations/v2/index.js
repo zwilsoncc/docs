@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
-import Link from 'next/link'
 import debounce from 'lodash.debounce'
 import { HEADER_HEIGHT } from '~/lib/constants'
 
@@ -20,7 +19,6 @@ import Head from '~/components/layout/head'
 import scrollToElement from '~/lib/utils/scroll-to-element'
 import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
-import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
 
 import IntegrationsDocs from './integrations-docs-mdx/index.mdx'
@@ -127,7 +125,6 @@ class IntegrationsPage extends Component {
   }
 
   render() {
-    const { router } = this.props
     const { navigationActive, version } = this.state
     const active = {
       category: this.state.activeCategory,
