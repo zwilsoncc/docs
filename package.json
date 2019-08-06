@@ -7,7 +7,7 @@
     "now-dev": "next -p $PORT",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext mdx",
+    "lint": "eslint . --ext js,mdx",
     "test": "yarn run lint",
     "export": "next export -o dist",
     "now-build": "yarn run build && yarn run export",
