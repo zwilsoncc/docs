@@ -8,6 +8,7 @@ const Header = ({
   hideHeaderSearch = true,
   children,
   isTop,
+  detached,
   inHero
 }) => (
   <header className={className}>
@@ -34,6 +35,7 @@ const Header = ({
         background: ${hideHeaderSearch && dynamicSearch
           ? 'transparent'
           : '#fff'};
+        box-shadow: ${detached ? 'var(--shadow-small)' : 'none'};
         transition: all 0.2s ease;
       }
 
