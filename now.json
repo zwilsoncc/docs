@@ -239,6 +239,11 @@
       "status": 301,
       "headers": { "Location": "/docs/v2/custom-domains" }
     },
+    {
+      "src": "/docs/version-detection",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/advanced/platform/frequently-asked-questions#platform-version-detection" }
+    },
     { "src": "(.*)", "dest": "$1" }
   ]
 }
