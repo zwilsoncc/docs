@@ -237,3 +237,7 @@ const Guides = () => (
 )
 
 export default Guides
+
+export const config = {
+  amp: 'hybrid'
+}

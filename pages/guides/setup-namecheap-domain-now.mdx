@@ -14,7 +14,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-07T16:21:53.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as an alias for your ZEIT Now deployments.
@@ -179,3 +179,7 @@ For more information on how you can extend your usage of Now, read the following
 </Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
+
+export const config = {
+  amp: 'hybrid'
+}

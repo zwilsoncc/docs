@@ -1,6 +1,7 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import formatDate from 'date-fns/format'
+import { useAmp } from 'next/amp'
 
 import Head from '~/components/layout/head'
 import Layout from '~/components/layout/layout'
@@ -57,6 +58,8 @@ const DocH4 = ({ children }) => (
   </>
 )
 
+const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
+
 class Guide extends React.PureComponent {
   render() {
     const {
@@ -96,8 +99,12 @@ class Guide extends React.PureComponent {
             <Wrapper width="650">
               <section className="guide content">
                 {this.props.children}
-                <HR />
-                <FooterFeedback />
+                <NonAmpOnly>
+                  <>
+                    <HR />
+                    <FooterFeedback />
+                  </>
+                </NonAmpOnly>
                 <HR />
                 <div className="guide-author" id="authors">
                   <H5>Written By</H5>

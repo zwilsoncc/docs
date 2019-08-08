@@ -15,12 +15,26 @@ export default class Document extends Document_ {
         <Head>
           <AmpWrap
             ampOnly={
-              <script
-                async
-                key="amp-analytics"
-                custom-element="amp-analytics"
-                src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
-              />
+              <>
+                <script
+                  async
+                  key="amp-analytics"
+                  custom-element="amp-analytics"
+                  src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
+                />
+                <script
+                  async
+                  key="amp-bind"
+                  custom-element="amp-bind"
+                  src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+                />
+                <script
+                  async
+                  key="amp-form"
+                  custom-element="amp-form"
+                  src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
+                />
+              </>
             }
           />
         </Head>

@@ -74,3 +74,7 @@ To push your deployment into production, deploy and alias it with the [productio
 Now, when visiting either the production alias (www.your-domain.com), a [staging alias](/docs/v2/custom-domains#deploying-with-your-domain), or a [deployment URL](/docs/v2/deployments/concepts/urls/), the visitor will get redirected to the location set as defined by the [`routes` property](/docs/v2/deployments/routes/) in the `now.json` file.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
+
+export const config = {
+  amp: 'hybrid'
+}

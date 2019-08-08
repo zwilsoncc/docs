@@ -80,27 +80,6 @@ const DocH4 = ({ children }) => (
   </>
 )
 
-const AmpScripts = () => {
-  const isAmp = useAmp()
-  if (!isAmp) return null
-  return (
-    <>
-      <script
-        async
-        key="amp-bind"
-        custom-element="amp-bind"
-        src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
-      />
-      <script
-        async
-        key="amp-form"
-        custom-element="amp-form"
-        src="https://cdn.ampproject.org/v0/amp-form-0.1.js"
-      />
-    </>
-  )
-}
-
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 
 const VersionSelect = ({ onChange, version }) => {
@@ -180,7 +159,6 @@ class withDoc extends React.Component {
             lastEdited={meta.lastEdited}
           >
             {version !== 'v2' && <meta name="robots" content="noindex" />}
-            <AmpScripts />
           </Head>
 
           <Main>
