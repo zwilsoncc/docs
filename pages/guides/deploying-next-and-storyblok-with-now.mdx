@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -99,12 +99,12 @@ At this point, return back to your **Content Dashboard** and click **Settings** 
 
 Firstly, create a project directory and `cd` into it like so:
 
-<TerminalInput>mkdir my-nextjs-storyblok-project && cd my-nextjs-storyblok-project</TerminalInput>
+<Snippet dark text="mkdir my-nextjs-storyblok-project && cd my-nextjs-storyblok-project" />
 <Caption>Creating and entering into the project directory.</Caption>
 
 Next, initialize your project, creating a `package.json` file in the process:
 
-<TerminalInput>yarn init -y</TerminalInput>
+<Snippet dark text="yarn init -y" />
 <Caption>Initializing your project with a <InlineCode>package.json</InlineCode> file.</Caption>
 
 <Note>
@@ -118,7 +118,7 @@ Next, initialize your project, creating a `package.json` file in the process:
 
 Next, add the project dependencies:
 
-<TerminalInput>yarn add next react react-dom</TerminalInput>
+<Snippet dark text="yarn add next react react-dom" />
 <Caption>Adding <InlineCode>next</InlineCode>, <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> as dependencies to your project.</Caption>
 
 With the project initialized, create a `/pages` directory with a `index.js` file inside that uses the following code:
@@ -305,14 +305,14 @@ STORYBLOK_API_TOKEN=your-api-token
 
 Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [Now Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the command below:
 
-<TerminalInput>now secrets add STORYBLOK_API_TOKEN your-space-id</TerminalInput>
+<Snippet dark text="now secrets add STORYBLOK_API_TOKEN your-space-id" />
 <Caption>
   Adding the <InlineCode>STORYBLOK_API_TOKEN</InlineCode> secret to your project using <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now Secrets</GenericLink>.
 </Caption>
 
 With those steps out the way you are now able to run your application. You can develop your application locally using the following command:
 
-<TerminalInput>next dev</TerminalInput>
+<Snippet dark text="next dev" />
 <Caption>
   Using the <InlineCode>next dev</InlineCode> command to run the app locally.
 </Caption>
@@ -321,7 +321,7 @@ With those steps out the way you are now able to run your application. You can d
 
 With your application ready, it is time to deploy it using **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 <Caption>
   Using the <InlineCode>now</InlineCode> command to deploy your project to Now.
 </Caption>

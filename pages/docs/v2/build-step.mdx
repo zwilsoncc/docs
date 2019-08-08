@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
 import { GenericLink } from '~/components/text/link'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Card from '~/components/card'
@@ -78,17 +78,17 @@ Adding **Now Secrets** can be done with [Now CLI](/now), providing three options
 
 To **define a Now Secret**, use the following command:
 
-<TerminalInput><P.B>now secrets add </P.B>secret-name secret-value</TerminalInput>
+<Snippet dark text="now secrets add <secret-name> <secret-value>"/>
 <Caption>Defining a <P.B>Now Secret</P.B> using <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
 
 To **remove a Now Secret**, use the following command:
 
-<TerminalInput><P.B>now secrets rm </P.B>secret-name</TerminalInput>
+<Snippet dark text="now secrets rm <secret-name>"/>
 <Caption>Removing a <P.B>Now Secret</P.B> using <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
 
 To **rename a Now Secret**, use the following command:
 
-<TerminalInput><P.B>now secrets rename </P.B>secret-name new-name</TerminalInput>
+<Snippet dark text="now secrets rename <secret-name> <new-name>"/>
 <Caption>Renaming a <P.B>Now Secret</P.B> using <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
 
 ### Providing Environment Variables

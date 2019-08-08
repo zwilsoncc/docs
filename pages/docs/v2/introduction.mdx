@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 
@@ -21,26 +21,38 @@ To deploy with Now, you will need to install [Now CLI](/download), a frequently 
 
 You can get Now CLI from either npm or Yarn. Using npm, run the following command from your terminal:
 
-<TerminalInput>npm i -g now</TerminalInput>
+<Snippet
+  dark
+  text="npm i -g now"
+/>
 <Caption>Installing Now CLI with npm in the terminal.</Caption>
 
 To verify that you have installed Now CLI, try running `now help` from your terminal.
 
 With Now CLI installed, you can now login using the following command:
 
-<TerminalInput>now login</TerminalInput>
+<Snippet
+  dark
+  text="now login"
+/>
 <Caption>Login with Now CLI from the terminal.</Caption>
 
 ## Creating a Project and Deploying
 
 You can create a new Next.js application with the following command using either npm or Yarn:
 
-<TerminalInput>npx create-next-app my-next-project</TerminalInput>
+<Snippet
+  dark
+  text="npx create-next-app my-next-project"
+/>
 <Caption>Creating a new Next.js project with npm.</Caption>
 
 When your Next.js app is created, all you have to do is move into the directory (with `cd my-next-project` in your terminal) and then deploy your app with a single command in your terminal:
 
-<TerminalInput>now</TerminalInput>
+<Snippet
+  dark
+  text="now"
+/>
 <Caption>Deploying your new Next.js project with Now CLI.</Caption>
 
 Once deployed, you will get a unique URL to reference the current version of your project, and a staging alias that is assigned on each deployment to share the latest changes under the same address.

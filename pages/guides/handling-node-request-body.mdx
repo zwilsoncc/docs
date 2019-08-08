@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { Code, InlineCode } from '~/components/text/code'
 import Card from '~/components/card'
@@ -26,10 +26,10 @@ This guide assumes the request is sent with a [`Content-Type`](https://developer
 
 To get started, create a project directory with an `/api` directory inside and `cd` into it:
 
-<TerminalInput>mkdir req-body && mkdir req-body/api</TerminalInput>
+<Snippet dark text="mkdir req-body && mkdir req-body/api" />
 <Caption>Creating an <InlineCode>/api</InlineCode> directory inside of a <InlineCode>/req-body</InlineCode> project.</Caption>
 
-<TerminalInput>cd req-body</TerminalInput>
+<Snippet dark text="cd req-body" />
 <Caption>Moving into the <InlineCode>/req-body</InlineCode> project directory.</Caption>
 
 To illustrate the parsing of a request body, create an `index.js` file inside your `/api` directory with the following code:
@@ -76,7 +76,7 @@ With the `req.body` helper, the incoming `request` is parsed automatically, remo
 
 Deploying your function to [Now](/now) is easy and can be done with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.
 </Caption>

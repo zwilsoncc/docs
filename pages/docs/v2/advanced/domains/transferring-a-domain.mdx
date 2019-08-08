@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 
@@ -42,7 +42,7 @@ When transferring a domain, you will have two options to choose from. Either usi
 
 With Now CLI, you can run the following command from your terminal.
 
-<TerminalInput>{`now domains transfer-in <your-domain>`}</TerminalInput>
+<Snippet dark text="now domains transfer-in <your-domain>" />
 
 You will be requested to provide an authorization code from your registrar after running this command. Once you get the authorization code from your registrar, paste it into the prompt and the transfer will begin.
 
@@ -70,7 +70,7 @@ After activating a domain `transfer-in`, you will be informed that the DNS setti
 
 You can import the zone file to ZEIT DNS by running the following command:
 
-<TerminalInput>{`now dns import <your-domain> <zonefile>`}</TerminalInput>
+<Snippet dark text="now dns import <your-domain> <zonefile>" />
 
 <Note>
   {' '}
@@ -86,7 +86,7 @@ You can deploy your app with [Now](/docs/v2/getting-started/installation/) once 
 
 By setting a production alias from your projects' **Domains** dashboard, you will be able to use the following command with Now CLI:
 
-<TerminalInput>now --target production</TerminalInput>
+<Snippet dark text="now --target production" />
 <Caption>Deploying and aliasing a deployment with Now CLI.</Caption>
 
 This command will deploy your project and alias it to the production domain that you have setup.

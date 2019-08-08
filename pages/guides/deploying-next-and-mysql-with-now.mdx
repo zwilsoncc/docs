@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -19,7 +19,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -58,21 +58,21 @@ For brevity, we do not cover inserting records into a MySQL database. More infor
 
 Now that the database is populated, you can create a project directory and `cd` into it:
 
-<TerminalInput>mkdir next-mysql && cd next-mysql</TerminalInput>
+<Snippet dark text="mkdir next-mysql && cd next-mysql" />
 <Caption>
   Creating and entering into the <InlineCode>/next-mysql</InlineCode>{' '}directory.
 </Caption>
 
 Next, [initialize](https://yarnpkg.com/lang/en/docs/cli/init/) the project:
 
-<TerminalInput>yarn init</TerminalInput>
+<Snippet dark text="yarn init" />
 <Caption>
   Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
 </Caption>
 
 Yarn will present some initial questions to set up your project, complete this and when done, add [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) and [`sql-template-strings`](https://github.com/felixfbecker/node-sql-template-strings) as [dependencies](https://yarnpkg.com/en/docs/cli/add#toc-yarn-add):
 
-<TerminalInput>yarn add serverless-mysql sql-template-strings</TerminalInput>
+<Snippet dark text="yarn add serverless-mysql sql-template-strings" />
 <Caption>
   Adding <InlineCode>serverless-mysql</InlineCode> and <InlineCode>sql-template-strings</InlineCode> as <GenericLink href="https://yarnpkg.com/lang/en/docs/installing-dependencies/">dependencies</GenericLink> to the project.
 </Caption>
@@ -111,11 +111,7 @@ Next, add a build script to your `package.json` file:
 
 Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [Now CLI](/download#now-cli) to keep them secure:
 
-<TerminalInput>
-  now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER
-  $database-username && now secrets add MYSQL_DATABASE $database-name && now
-  secrets add MYSQL_PASSWORD $database-password
-</TerminalInput>
+<Snippet dark text="now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
   Adding <GenericLink href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secrets</GenericLink> to the project.
 </Caption>
@@ -126,7 +122,7 @@ To ensure all your MySQL connections are managed by [`serverless-mysql`](https:/
 
 Create a `/lib` directory with a `db.js` file inside:
 
-<TerminalInput>mkdir lib</TerminalInput>
+<Snippet dark text="mkdir lib" />
 <Caption>
   Creating a <InlineCode>/lib</InlineCode>{' '}directory.
 </Caption>
@@ -176,9 +172,7 @@ Now you have a reusable database connection, perfectly suited for a [serverless]
 
 The next step is to create your API. Start off by creating an `/api` directory with a `/profiles` directory inside:
 
-<TerminalInput>
-  mkdir api && mkdir api/profiles
-</TerminalInput>
+<Snippet dark text="mkdir api && mkdir api/profiles" />
 <Caption>
   Creating an <InlineCode>/api</InlineCode> directory with a <InlineCode>/profiles</InlineCode> directory inside it.
 </Caption>
@@ -267,18 +261,14 @@ You now have an API that will give you either all profiles or just a single one,
 
 To add [Next.js]() to your project, you should install the following [dependencies](https://yarnpkg.com/lang/en/docs/installing-dependencies/):
 
-<TerminalInput>
-  yarn add isomorphic-unfetch next react react-dom
-</TerminalInput>
+<Snippet dark text="yarn add isomorphic-unfetch next react react-dom" />
 <Caption>
   Adding multiple dependencies to the project.
 </Caption>
 
 Next, create a `/pages` directory like so:
 
-<TerminalInput>
-  mkdir pages
-</TerminalInput>
+<Snippet dark text="mkdir pages" />
 <Caption>
   Creating a <InlineCode>/pages</InlineCode> directory.
 </Caption>
@@ -423,7 +413,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 [Now](/docs/v2/getting-started/introduction-to-now) allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.

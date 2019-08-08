@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -16,7 +16,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Charge%20site**%20with%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fd33wubrfki0l68.cloudfront.net%2F25151dcf9878a3c40b686628cc84c9292d95ca0e%2F9e22f%2Fimages%2Flogomark.svg',
   editUrl: 'pages/guides/deploying-charge-with-now.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 [Charge](https://charge.js.org/) is an opinionated, zero-config static site generator written in JavaScript. Charge is fast, simple and behaves the way you expect it to.
@@ -36,21 +36,21 @@ In this guide, we will walk you through creating and [deploying](/docs/v2/deploy
 
 [Charge](https://charge.js.org/) focuses on simplicity and provides no boilerplate as a result. To get started with Charge create your project directory, let's call it `charge-app`, and `cd` into it:
 
-<TerminalInput>mkdir charge-app && cd charge-app</TerminalInput>
+<Snippet dark text="mkdir charge-app && cd charge-app" />
 <Caption>
   Creating and entering into the <InlineCode>/charge-app</InlineCode>{' '}directory.
 </Caption>
 
 Next, [initialize](https://yarnpkg.com/lang/en/docs/cli/init/) the project:
 
-<TerminalInput>yarn init</TerminalInput>
+<Snippet dark text="yarn init" />
 <Caption>
   Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
 </Caption>
 
 Yarn will present some initial questions to set up your project, complete this and when done, add Charge as a [development dependency](https://yarnpkg.com/en/docs/cli/add#toc-yarn-add-dev-d):
 
-<TerminalInput>yarn add -D @static/charge</TerminalInput>
+<Snippet dark text="yarn add -D @static/charge" />
 <Caption>
   Adding Charge as a development dependency to our project.
 </Caption>
@@ -79,7 +79,7 @@ The following example content setup demonstrates a few of Charge's key features,
 
 Firstly, create two directories, `/src` and `/src/pages` within your project directory:
 
-<TerminalInput>mkdir src && mkdir src/pages</TerminalInput>
+<Snippet dark text="mkdir src && mkdir src/pages" />
 <Caption>
   Creating a <InlineCode>/src</InlineCode>{' '}directory with a <InlineCode>/pages</InlineCode>{' '} directory inside of it.
 </Caption>
@@ -127,7 +127,7 @@ export default ({ children }) => {
 
 If, at any point, you want to see how your changes look, you can serve them locally with the script you added in the first step:
 
-<TerminalInput>yarn dev</TerminalInput>
+<Snippet dark text="yarn dev" />
 <Caption>
   Starting up a local development server using a <InlineCode>package.json</InlineCode> script.
 </Caption>
@@ -180,7 +180,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 Now allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.

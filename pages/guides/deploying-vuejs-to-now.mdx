@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
@@ -27,12 +27,12 @@ First, set up a Vue.js project using the [official Vue CLI](https://cli.vuejs.or
 
 If you don't have the Vue CLI installed globally, use the following command to install it globally:
 
-<TerminalInput>yarn global add @vue/cli</TerminalInput>
+<Snippet dark text="yarn global add @vue/cli" />
 <Caption>Installing Vue CLI global to the system user with <GenericLink href="https://yarnpkg.com">Yarn</GenericLink>.</Caption>
 
 After a successful installation, create a new project and `cd` into the project folder. Use the following command in your terminal to do so:
 
-<TerminalInput>vue create vue-project && cd vue-project</TerminalInput>
+<Snippet dark text="vue create vue-project && cd vue-project" />
 <Caption>Creating a bootstrapped Vue.js project and moving into the directory within a terminal.</Caption>
 
 An option to choose a preset will be presented to you after running the command above.
@@ -41,7 +41,7 @@ After choosing an option, Vue CLI installs all the required dependencies and pro
 
 Next, to extend the project with client-side routing; install the [official Vue.js router](https://router.vuejs.org/) by running the following command in your terminal:
 
-<TerminalInput>vue add router</TerminalInput>
+<Snippet dark text="vue add router" />
 <Caption>Installing the Vue.js router with Vue CLI.</Caption>
 
 Vue CLI adds the router to the project and automatically updates the project files with basic routing functionality.
@@ -54,7 +54,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 You can deploy your Vue.js application with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.

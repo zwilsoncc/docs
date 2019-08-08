@@ -1,9 +1,9 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
 import { InlineCode } from '~/components/text/code'
-import Note from '~/components/text/note'
-import Caption from '~/components/text/caption'
+import Snippet from '~/components/snippet'
 import { GenericLink } from '~/components/text/link'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Projects',
@@ -30,7 +30,7 @@ Then, you can create a project by just giving it a name.
 
 You can create project by just typing the following command:
 
-<TerminalInput>{`now projects add <your-project-name>`}</TerminalInput>
+<Snippet dark text="now projects add <your-project-name>" />
 <Caption>Creating a project with <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
 
 <Note>
@@ -52,7 +52,7 @@ When [deploying an app](/docs/v2/deployments/basics), you can select an existing
 
 Use the `--name` option to mention the project name as follows:
 
-<TerminalInput>{`now --name <your-project-name>`}</TerminalInput>
+<Snippet dark text="now --name <your-project-name>" />
 <Caption>Deploying the current directory with Now CLI and <InlineCode>--name</InlineCode> option.</Caption>
 
 ### 2. Automatic Project Selection
@@ -67,7 +67,7 @@ If you didn't specify a project name explicitly via one of the above methods, we
 
 You can remove a project and all of the deployments contained within it with the following Now CLI command:
 
-<TerminalInput>{`now projects rm <your-project-name>`}</TerminalInput>
+<Snippet dark text="now projects rm <your-project-name>" />
 
 <Note alert label="Note">
   This will also delete the deployments from the project. If you have any

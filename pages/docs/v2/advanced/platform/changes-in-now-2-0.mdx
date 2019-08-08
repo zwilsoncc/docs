@@ -1,8 +1,8 @@
 import Doc from '~/components/layout/docs'
 import { GenericLink } from '~/components/text/link'
 import { Image } from '~/components/media'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
-import { TerminalInput } from '~/components/text/terminal'
 import { InlineCode } from '~/components/text/code'
 import { P } from '~/components/text/paragraph'
 import Card from '~/components/card'
@@ -13,7 +13,7 @@ export const meta = {
   description:
     "See what's changed in the latest iteration of the ZEIT Now Platform.",
   editUrl: 'pages/docs/v2/advanced/platform/changes-in-now-2-0.mdx',
-  lastEdited: '2019-07-30T12:26:37.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 The ZEIT Now Platform 2.0 simplifies and streamlines the deployment of static and serverless workloads. In this guide we will walk you through the key differences between Now 1.0 and 2.0, and the improvements this brings.
@@ -181,7 +181,7 @@ Previously, if **a single file** was deployed (with any name, like `file.jpg`), 
 
 While this is desirable for the purpose of quickly sharing a static file, e.g.:
 
-<TerminalInput>now file.jpg</TerminalInput>
+<Snippet dark text="now file.jpg" />
 
 <Caption>
   Deploying a single file with the <InlineCode>now</InlineCode> command.

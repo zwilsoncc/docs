@@ -1,7 +1,7 @@
 import Guide from '~/components/layout/guide'
 import { InlineCode } from '~/components/text/code'
 import { GenericLink } from '~/components/text/link'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 
@@ -13,7 +13,7 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/migrate-to-zeit-now',
   editUrl: 'pages/guides/migrate-to-zeit-now.mdx',
-  lastEdited: '2019-07-31T13:05:57.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 This guide highlights a set of common scenarios and how they are deployed with ZEIT Now.
@@ -39,7 +39,7 @@ When deploying frontend frameworks, ZEIT Now locates a `build` script in a `pack
 
 When your project uses this method to build a frontend framework, you can deploy using [Now CLI](/download) from your terminal:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 Next, [setup a Now for Git integration](/docs/v2/git-integration) to deploy your projects automatically on each push, and add a [custom domain](/docs/v2/custom-domains) to deploy your projects to.
 

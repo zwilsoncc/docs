@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { InlineCode, Code } from '~/components/text/code'
-import { TerminalInput } from '~/components/text/terminal'
 import Example from '~/components/example'
 import { GenericLink } from '~/components/text/link'
 import Note from '~/components/text/note'
@@ -163,7 +163,8 @@ export default function(req: NowRequest, res: NowResponse) {
 
 The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#node.js-request-and-response-objects), including the [helper methods](#node.js-helpers) with ZEIT Now. These types can be installed from npm with the following command:
 
-<TerminalInput>npm install @now/node --save-dev</TerminalInput>
+<Snippet dark text="npm install @now/node --save-dev" />
+<Caption>Installing <InlineCode>@now/node</InlineCode> for types when using Node.js on ZEIT Now.</Caption>
 
 You can also use a `tsconfig.json` file at the root of your project to configure the TypeScript compiler. Most options are supported aside from ["Path Mappings"](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and ["Project References"](https://www.typescriptlang.org/docs/handbook/project-references.html).
 

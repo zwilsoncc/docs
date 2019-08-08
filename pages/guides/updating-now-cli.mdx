@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
@@ -22,7 +22,7 @@ This guide will take you through your options for updating Now CLI using your pr
 
 If you have installed our command-line interface via [npm](http://npmjs.org/), the easiest way to update it is by running the installation command yet again:
 
-<TerminalInput>npm i -g now</TerminalInput>
+<Snippet dark text="npm i -g now" />
 <Caption>Updating Now CLI using the <InlineCode>npm</InlineCode> command.</Caption>
 
 In the case that permission errors are preventing you from installing, please read npm's [official guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) about this problem.
@@ -31,7 +31,7 @@ In the case that permission errors are preventing you from installing, please re
 
 If you have installed our command-line interface via [Yarn](https://yarnpkg.com), the easiest way to update it is by running the installation command yet again:
 
-<TerminalInput>yarn global add now</TerminalInput>
+<Snippet dark text="yarn global add now" />
 <Caption>Updating Now CLI using the <InlineCode>yarn</InlineCode> command.</Caption>
 
 In the case that permission errors are preventing you from installing, please read npm's [official guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) about this problem (Yarn depends on the same configuration).

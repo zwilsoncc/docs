@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
 import { GenericLink } from '~/components/text/link'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
@@ -21,7 +21,7 @@ To deploy serverless functions without any additional configuration, you can put
 
 Then, using [Now CLI](/download), run the following command to deploy from your terminal:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 <Caption>Deploying a project with Now CLI in one command.</Caption>
 
 ### An Example Node.js Serverless Function
@@ -51,7 +51,7 @@ The above example echoes the `body`, path `query`, and `cookie`s, passed with th
 
 Then, all you need to do, to have a live API, is deploy with [Now CLI](/download) from your terminal:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 <Caption>One-command deployment with <GenericLink href="/download">Now CLI</GenericLink>.</Caption>
 
 The resulting deployment will contain your Node.js serverless function and will provide you with a URL like the following, with your API ready to go: <https://node-echo-api.now-examples.now.sh/api/?name=zeit>
@@ -64,7 +64,7 @@ More examples of applications you can deploy paired with serverless functions ca
 
 You can use any of the ZEIT Now examples by using the following command from [Now CLI](/download) in your terminal, then choosing an application to start with:
 
-<TerminalInput>now init</TerminalInput>
+<Snippet dark text="now init" />
 <Caption>Initializing a project with Now CLI.</Caption>
 
 ## Path Segments
@@ -108,7 +108,7 @@ Now provides an additional command with Now CLI to help you develop serverless f
 
 If you have an `api` directory like the [above examples](#deploying-serverless-functions) on this page, you can run the following command to start a local development environment that supports your serverless API and allows you to develop locally:
 
-<TerminalInput>now dev</TerminalInput>
+<Snippet dark text="now dev" />
 <Caption>starting a local development environment using Now CLI, for serverless functions.</Caption>
 
 <Note>

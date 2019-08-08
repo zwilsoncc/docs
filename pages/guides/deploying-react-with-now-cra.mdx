@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
@@ -24,7 +24,7 @@ Get started by setting up a React application using the [Create React App (CRA)]
 
 Using [Yarn](https://yarnpkg.com), you can setup a React app with CRA with the following command in your terminal:
 
-<TerminalInput>yarn create react-app my-react-app && cd my-react-app</TerminalInput>
+<Snippet dark text="yarn create react-app my-react-app && cd my-react-app" />
 <Caption>Bootstrapping a React application with Create React App through Yarn.</Caption>
 
 If you would prefer to use another method, see the [Quick Start documentation for CRA](https://facebook.github.io/create-react-app/docs/getting-started#quick-start).
@@ -37,7 +37,7 @@ With Now, you can deploy your application to [different environments](/docs/v2/c
 
 To deploy to a unique alias, use the following [Now CLI](/download) command from your terminal:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.

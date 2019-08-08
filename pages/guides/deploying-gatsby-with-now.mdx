@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
 import Card from '~/components/card'
@@ -23,12 +23,12 @@ In this guide, we will show how you can set up your Gatsby project and deploy wi
 
 If you have not already [set up a Gatsby project](https://www.gatsbyjs.org/docs/quick-start) you can do so by first installing Gatsby CLI globally from your terminal:
 
-<TerminalInput>yarn global add gatsby-cli</TerminalInput>
+<Snippet dark text="yarn global add gatsby-cli" />
 <Caption>Installing <GenericLink href="https://www.gatsbyjs.org/docs/gatsby-cli/">gatsby-cli</GenericLink> globally with <GenericLink href="https://yarnpkg.com">Yarn</GenericLink>.</Caption>
 
 Then you can run the following command to create a Gatsby project locally:
 
-<TerminalInput>gatsby new my-gatsby-project</TerminalInput>
+<Snippet dark text="gatsby new my-gatsby-project" />
 <Caption>Creating a Gatsby project with the Gatsby CLI.</Caption>
 
 Next, move into the directory from your terminal with `cd my-gatsby-project`. You can see your new project in a local development environment by using the `yarn develop` command, set in the `package.json` by Gatsby CLI.
@@ -41,7 +41,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 Now allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>Deploying you Gatsby website with Now CLI.</Caption>
 

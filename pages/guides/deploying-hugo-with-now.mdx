@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Card from '~/components/card'
@@ -14,7 +14,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/deploying-hugo-with-now',
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -29,34 +29,34 @@ Therefore, you can either download the appropriate version for your machine from
 
 For macOS users, you can install Hugo via [Brew](https://brew.sh):
 
-<TerminalInput>brew install hugo</TerminalInput>
+<Snippet dark text="brew install hugo" />
 <Caption>Installing <GenericLink href="https://gohugo.io/getting-started/installing/">Hugo CLI</GenericLink> via <GenericLink href="https://brew.sh/">Homebrew</GenericLink>.</Caption>
 
 For Windows users, you can install Hugo via [Chocolatey](https://chocolatey.org/):
 
-<TerminalInput>choco install hugo-confirm</TerminalInput>
+<Snippet dark text="choco install hugo-confirm" />
 <Caption>Installing <GenericLink href="https://gohugo.io/getting-started/installing/">Hugo CLI</GenericLink> via <GenericLink href="https://chocolatey.org/">Chocolatey</GenericLink>.</Caption>
 
 Next, run the following command to create a Hugo project via the CLI:
 
-<TerminalInput>hugo new site my-hugo-project</TerminalInput>
+<Snippet dark text="hugo new site my-hugo-project" />
 <Caption>Creating a new Hugo project via the CLI.</Caption>
 
 You can add a theme to beautify the newly created site. `cd` into the `my-hugo-project` directory and run the following command to add a [theme](https://themes.gohugo.io/):
 
-<TerminalInput>git init && git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</TerminalInput>
+<Snippet dark text="git init && git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke" />
 <Caption>Download a new theme to the Hugo project.</Caption>
 
 The next step is to activate the theme. From your terminal, add the [ananke](https://themes.gohugo.io/gohugo-theme-ananke/) theme to the `config.toml` file.
 
-<TerminalInput>echo 'theme = "ananke"' >> config.toml</TerminalInput>
+<Snippet dark text={`echo 'theme = "ananke"' >> config.toml`} />
 <Caption>Edit your config.toml configuration file, and add the theme</Caption>
 
 ### Create Some Content
 
 You can add some content to the Hugo project by running the following command:
 
-<TerminalInput>hugo new posts/my-first-post.md</TerminalInput>
+<Snippet dark text="hugo new posts/my-first-post.md" />
 <Caption>Creating a new post in the Hugo project via the CLI.</Caption>
 
 Once you are done running the command, edit the `my-first-post.md` file (within the `contents/posts` directories) and add the following content below the generated metadata:
@@ -67,14 +67,14 @@ Once you are done running the command, edit the `my-first-post.md` file (within 
 
 You can now see your project running locally with the following command:
 
-<TerminalInput>hugo server -D</TerminalInput>
+<Snippet dark text="hugo server -D" />
 <Caption>Running the server locally with drafts enabled</Caption>
 
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
-  , the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
+  the content of your posts won't show up in production.
 </Note>
 
 ## Step 2: Deploying Your Hugo Website with Now
@@ -101,7 +101,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 With Now installed, you can deploy from your terminal with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.

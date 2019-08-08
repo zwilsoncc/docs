@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { Code, InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
@@ -41,12 +41,12 @@ For more information, the links above outline the key features and the **benefit
 
 To get started, create a project directory and `cd` into it:
 
-<TerminalInput>mkdir my-nextjs-project && cd my-nextjs-project</TerminalInput>
+<Snippet dark text="mkdir my-nextjs-project && cd my-nextjs-project" />
 <Caption>Creating an entering into the <InlineCode>my-nextjs-project</InlineCode> project directory.</Caption>
 
 With the project directory created, initialize the project like so:
 
-<TerminalInput>yarn init -y</TerminalInput>
+<Snippet dark text="yarn init -y" />
 <Caption>Initializing your project with a <InlineCode>package.json</InlineCode> file.</Caption>
 
 <Note>
@@ -60,7 +60,7 @@ With the project directory created, initialize the project like so:
 
 Next, add the project dependencies:
 
-<TerminalInput>yarn add next react react-dom</TerminalInput>
+<Snippet dark text="yarn add next react react-dom" />
 <Caption>Adding <InlineCode>next</InlineCode>, <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> as dependencies to your project.</Caption>
 
 Add the following build script to your `package.json` file:
@@ -80,7 +80,7 @@ Add the following build script to your `package.json` file:
 
 With your project setup, create a `/pages` folder:
 
-<TerminalInput>mkdir pages</TerminalInput>
+<Snippet dark text="mkdir pages" />
 <Caption>Creating a <InlineCode>/pages</InlineCode> folder in your project.</Caption>
 
 Inside your `/pages` folder, create an `index.js` file with the following content:
@@ -145,7 +145,7 @@ export default function HomePage() {
 
 When you're happy with your project and ready to share it with the world, it is time to deploy with Now with **just a single command**.
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 <Caption>Deploying your project with the <InlineCode>now</InlineCode> command.</Caption>
 
 After your project has been built and deployed, you will **receive a deployment URL** with the following format:

@@ -1,6 +1,6 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
 import { InlineCode } from '~/components/text/code'
+import Snippet from '~/components/snippet'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
@@ -16,7 +16,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-angular-with-now.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 Angular is a popular JavaScript framework for building applications across all platforms; web, mobile web, native mobile, and native desktop.
@@ -38,12 +38,12 @@ The most straightforward way to set up an Angular project is to use the [officia
 
 If you don't have the Angular CLI installed globally, use the following command to install it:
 
-<TerminalInput>yarn global add @angular/cli</TerminalInput>
+<Snippet dark text="yarn global add @angular/cli" />
 <Caption>Installing Angular CLI global to the system user with <GenericLink href="https://yarnpkg.com">Yarn</GenericLink>.</Caption>
 
 Once the installation is complete, run the following command in your terminal to create a new Angular app:
 
-<TerminalInput>ng new my-new-app</TerminalInput>
+<Snippet dark text="ng new my-new-app" />
 <Caption>Creating a new Angular application within a terminal.</Caption>
 
 Once you run the command, the Angular CLI presents the following options:
@@ -55,7 +55,7 @@ For the first option, if you choose `Yes`, the CLI tool adds [routing](https://a
 
 After a successful scaffolding, `cd` into `my-new-app` directory and run the following command to serve your app in the browser:
 
-<TerminalInput>ng serve --open</TerminalInput>
+<Snippet dark text="ng serve --open" />
 <Caption>Running your Angular application locally</Caption>
 
 Your browser will automatically be launched with the served Angular app at <http://localhost:4200/>
@@ -68,7 +68,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 With Now installed, you can deploy your Angular project with **just a single command**.
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.

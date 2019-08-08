@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
+import Snippet from '~/components/snippet'
 import { GenericLink } from '~/components/text/link'
-import { TerminalInput } from '~/components/text/terminal'
 import Note from '~/components/text/note'
 
 export const meta = {
@@ -41,10 +41,10 @@ Adds a DNS record to a domain of your choice. The following record types are cur
 
 This is the syntax for the `now dns` command.
 
-<TerminalInput>
-  now dns add &lt;domain&gt; &lt;name&gt; &lt;record type&gt; &lt;value&gt;
-  [mx_priority]
-</TerminalInput>
+<Snippet
+  dark
+  text="now dns add <domain> <name> <record type> <value> [mx_priority]"
+/>
 
 - `<domain>` is the domain name
 - `<name>` is the subdomain that will be prefixed to `<domain>` (value `@` refers to a domain without any prefix)
@@ -55,21 +55,15 @@ This is the syntax for the `now dns` command.
 
 **Examples**
 
-<TerminalInput>
-  now <b>dns add zeit.rocks ext A 127.0.0.1</b>
-</TerminalInput>
+<Snippet dark text="now dns add zeit.rocks ext A 127.0.0.1" />
 
 Creates an A record that makes the subdomain `ext.zeit.rocks` resolve to the server located at the IP address `127.0.0.1.`
 
-<TerminalInput>
-  now <b>dns add zeit.rocks @ MX mail.awesome-now.us 10</b>
-</TerminalInput>
+<Snippet dark text="now dns add zeit.rocks @ MX mail.awesome-now.us 10" />
 
 Creates an MX record which makes the mail server located at `mail.awesome-now.us` responsible for handling emails sent to an address suffixed with `@zeit.rocks`.
 
-<TerminalInput>
-  now <b>dns add zeit.rocks @ CAA '0 issue "comodo.com"'</b>
-</TerminalInput>
+<Snippet dark text={`now dns add zeit.rocks @ CAA '0 issue "comodo.com"'`} />
 
 Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing certificates using [Comodo](https://ssl.comodo.com/) for `zeit.rocks` and any subdomain under it.
 

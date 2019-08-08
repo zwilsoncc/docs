@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
 import { GenericLink } from '~/components/text/link'
+import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Card from '~/components/card'
@@ -32,7 +32,7 @@ Using this method means that you will be using ZEIT DNS and your domain will be 
 
 To add a domain with ZEIT, use the `now domains add` command:
 
-<TerminalInput>{`now domains add <domain>`}</TerminalInput>
+<Snippet dark text="now domains add <domain>" />
 
 Now CLI will give you an intended set of nameservers that can be set with your domain name provider to point to ZEIT DNS so that you can access your deployments from that domain. The nameservers you are provided with are randomly given to enhance [stability and security](#stability-and-security) when setting up your domain.
 
@@ -46,7 +46,7 @@ Now CLI will give you an intended set of nameservers that can be set with your d
 
 Now will automatically check that the nameservers have been updated, and when detected, the domain will be marked as verified. You can force Now to check for verification by using the `now domains verify` command:
 
-<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+<Snippet dark text="now domains verify <domain>" />
 
 That's it! You're ready to [alias your deployments](/docs/v2/custom-domains#deploying-with-your-domain) and [create DNS records](/docs/v2/advanced/domains/dns). Your wildcard certificate is created automatically.
 
@@ -63,7 +63,7 @@ For a greater advantage with Now and your domain, we strongly recommend using th
 
 To use a domain with external nameservers with Now, first add it to your account using the `now domains add` command:
 
-<TerminalInput>{`now domains add <domain>`}</TerminalInput>
+<Snippet dark text="now domains add <domain>" />
 
 For this purpose, can ignore the set of nameservers, and instead take note of the `TXT` record including a `name` (also known as `host` or `alias`) and a `value`. Adding this record with your existing domain provider will allow Now to verify that the domain belongs to you and enable you to use the domain with Now.
 
@@ -71,7 +71,7 @@ Now will automatically check for the `TXT` record, and when detected, the domain
 
 You can force Now to check for verification by using the `now domains verify` command:
 
-<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+<Snippet dark text="now domains verify <domain>>" />
 
 This method is recommended when you want a [zero-downtime migration](/guides/zero-downtime-domain-migration/) before [pointing your domain to Now](#step-2:-pointing-to-now).
 
@@ -81,7 +81,7 @@ For each domain you want to alias, add a `CNAME` record with a value `alias.zeit
 
 If you decide later that you want to migrate to ZEIT nameservers (including as part of a [zero-downtime migration](/guides/zero-downtime-domain-migration/), you can find the intended set of nameservers for your domain by running the inspect command:
 
-<TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
+<Snippet dark text="now domains inspect <domain>" />
 
 This command will print your current and intended nameservers.
 
@@ -114,12 +114,12 @@ With a custom domain defined as staging, production, or both; you can go on to u
 
 To deploy your project to your staging domain, you can use the `--target staging` argument from Now CLI in your terminal:
 
-<TerminalInput>now --target staging</TerminalInput>
+<Snippet dark text="now --target staging" />
 <Caption>Deploying a project to staging.</Caption>
 
 When you're ready to deploy your project to production, you can use the `--target production` argument from Now CLI in your terminal:
 
-<TerminalInput>now --target production</TerminalInput>
+<Snippet dark text="now --target production" />
 <Caption>Deploying a project to production.</Caption>
 
 ### With Git
@@ -132,7 +132,7 @@ Additionally, reverts will automatically and immediately assign to the domain so
 
 With the following command you can remove a domain that is assigned to your ZEIT account or team:
 
-<TerminalInput>{`now domains rm <domain>`}</TerminalInput>
+<Snippet dark text="now domains rm <domain>" />
 
 ## Related
 

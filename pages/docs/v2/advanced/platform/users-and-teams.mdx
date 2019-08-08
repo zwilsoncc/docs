@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
 import { GenericLink } from '~/components/text/link'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { Image } from '~/components/media'
 import Note from '~/components/text/note'
 import Caption from '~/components/text/caption'
@@ -75,11 +75,11 @@ Click on your avatar on the top left, then select the team of your choice:
 
 Run the following command and pick the user or team of your choice:
 
-<TerminalInput>now switch</TerminalInput>
+<Snippet dark text="now switch" />
 
 You can also run this command with the slug of a team or username you would like to switch to:
 
-<TerminalInput>{`now switch <team-slug|username>`}</TerminalInput>
+<Snippet dark text="now switch <team-slug|username>" />
 
 ## Changing the User or Team Settings
 

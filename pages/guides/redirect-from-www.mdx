@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 
@@ -11,7 +11,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/redirect-from-www',
   editUrl: 'pages/guides/redirect-from-www.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 Redirecting is useful for a variety of situations, including redirecting a visitor that goes to your domain with `www.` prefixing the URL to [your domain](/docs/v2/custom-domains) without that prefix.
@@ -24,7 +24,7 @@ To redirect visitors from the `www.` subdomain to your naked domain, you can cre
 
 First, create a directory for this project to live in. For example, using a Unix terminal, create the directory `redirect` and [`cd`](<https://en.wikipedia.org/wiki/Cd_(command)>) into it:
 
-<TerminalInput>mkdir redirect && cd redirect</TerminalInput>
+<Snippet dark text="mkdir redirect && cd redirect" />
 
 Next, create a `now.json` file in that directory with the following content:
 
@@ -65,11 +65,11 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 Using Now CLI, you can deploy the project from your terminal using the following command:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 To push your deployment into production, deploy and alias it with the [production aliasing target](/docs/v2/custom-domains#deploying-with-your-domain):
 
-<TerminalInput>now --target production</TerminalInput>
+<Snippet dark text="now --target production" />
 
 Now, when visiting either the production alias (www.your-domain.com), a [staging alias](/docs/v2/custom-domains#deploying-with-your-domain), or a [deployment URL](/docs/v2/deployments/concepts/urls/), the visitor will get redirected to the location set as defined by the [`routes` property](/docs/v2/deployments/routes/) in the `now.json` file.
 

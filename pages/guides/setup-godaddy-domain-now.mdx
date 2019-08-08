@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -27,7 +27,7 @@ The first step of pointing an external domain to Now is to add your domain to yo
 
 To add a domain with [Now CLI](/docs/v2/getting-started/installation#now-cli), use the following command in your terminal:
 
-<TerminalInput>{`now domains add <domain>`}</TerminalInput>
+<Snippet dark text="now domains add <domain>" />
 
 Once you have added the domain, Now CLI will present you with some information about verifying it.
 
@@ -49,7 +49,7 @@ When using this method, however, if the domain was previously pointing to anothe
 
 If you want to verify with nameservers, you must use the intended set of nameservers given to you when you [added the domain with Now CLI](/docs/v2/custom-domains). If you need to be reminded of these nameservers, you can use the [following command](/docs/v2/custom-domains):
 
-<TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
+<Snippet dark text="now domains inspect <domain>" />
 
 With the intended set of nameservers, you shall need to apply them to your domain through the GoDaddy through their account dashboard and clicking through to manage your domain.
 
@@ -69,7 +69,7 @@ Apply the nameservers you received from adding your domain or from the inspect c
 
 After GoDaddy has propagated the changed DNS for your domain, your domain is ready to be verified. ZEIT will automatically check the domain periodically for verification, though if you want to verify it yourself, use the following command:
 
-<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+<Snippet dark text="now domains verify <domain>" />
 
 ### Verifying with a TXT Record
 
@@ -89,7 +89,7 @@ Select `TXT` as the record type to add, `_now` as the host, and the value you we
 
 Once you have added the TXT record, your domain can be verified. ZEIT will periodically check your domain to see if it is verified, but if you do not want to wait and want to start using your domain with Now immediately, use the following command to force a verification check:
 
-<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+<Snippet dark text="now domains verify <domain>" />
 
 <Image
   src="https://assets.zeit.co/image/upload/v1548370520/front/guides/godaddy-migration/now-cli-verify-domain.png"
@@ -109,11 +109,10 @@ Whether you are matching a previous configuration for your domain for a zero-dow
 
 For example, adding a set of Gmail MX records with the `now dns add` command:
 
-<TerminalInput>{`now dns add <domain> @ MX ASPMX.L.GOOGLE.COM 1
-now dns add <domain> @ MX ALT1.ASPMX.L.GOOGLE.COM 5
-now dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5
-now dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10
-now dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10`}</TerminalInput>
+<Snippet
+  dark
+  text="now dns add <domain> @ MX ASPMX.L.GOOGLE.COM 1 && now dns add <domain> @ MX ALT1.ASPMX.L.GOOGLE.COM 5 && now dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5 && now dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10 && now dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10"
+/>
 
 [Read more about `now dns` to learn about the format of the command](/docs/v2/advanced/domains/dns/).
 
@@ -139,7 +138,7 @@ When you are ready to deploy and alias, using the [`alias`](/docs/v2/deployments
 
 You can deploy and set up an alias to your domain with one command:
 
-<TerminalInput>now --target production</TerminalInput>
+<Snippet dark text="now --target production" />
 <Caption>Deploying a project to a production alias.</Caption>
 
 We highly recommend using either the [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) apps coupled with the same [`alias` configuration option](/docs/v2/deployments/configuration/#alias) which will allow your application to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.

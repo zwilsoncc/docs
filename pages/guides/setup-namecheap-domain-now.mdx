@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -23,7 +23,7 @@ In this guide, we will cover how to use your Namecheap registered domain as an a
 
 First, you need to add your Namecheap registered domain to your ZEIT account. To get started, use the [Now CLI](/docs/v2/getting-started/installation#now-cli):
 
-<TerminalInput>{`now domains add <domain>`}</TerminalInput>
+<Snippet dark text="now domains add <domain>" />
 
 The command above adds the domain to your ZEIT account. Once it has been added, the [Now CLI](/docs/v2/getting-started/installation#now-cli) outputs some information needed to verify ownership of the domain.
 
@@ -48,7 +48,7 @@ If you want to opt for verifying your domains with Nameservers, you must use the
 
 Use the following command to list the set of nameservers needed for verification:
 
-<TerminalInput>{`now domains inspect <domain>`}</TerminalInput>
+<Snippet dark text="now domains inspect <domain>" />
 
 <Image
   src={`${process.env.ASSETS}/guides/setup-namecheap-domain-now/inspect-domain.png`}
@@ -84,7 +84,7 @@ Add the intended nameservers gotten from running the inspect command to the **Cu
 
 Once Namecheap is done propagating the newly changed DNS for your domain, then your domain is ready to be verified. ZEIT automatically checks the domain for verification. However, if you are keen on manually verifying it, then run the following command:
 
-<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+<Snippet dark text="now domains verify <domain>" />
 
 ### TXT Record Verification
 
@@ -104,7 +104,7 @@ Select `TXT Record` as the record type, add `_now` as the host, and the value yo
 
 Your domain will be verified after adding the TXT record. Once ZEIT verifies your domain, you'll automatically receive an email. You can also manually use the command below to force a domain verification:
 
-<TerminalInput>{`now domains verify <domain>`}</TerminalInput>
+<Snippet dark text="now domains verify <domain>" />
 
 ## Step 2: Configuring your Domain on Now
 
@@ -146,7 +146,7 @@ When you are ready to deploy and alias, using the [`alias`](/docs/v2/deployments
 
 You can deploy and set up an alias to your domain with one command:
 
-<TerminalInput>now --target production</TerminalInput>
+<Snippet dark text="now --target production" />
 <Caption>Deploying a project to a production alias.</Caption>
 
 We highly recommend using either the [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) apps coupled with the same [`alias` configuration option](/docs/v2/deployments/configuration/#alias) which will allow your application to be deployed on push to your GitHub repository and aliased automatically when merged to the default branch.

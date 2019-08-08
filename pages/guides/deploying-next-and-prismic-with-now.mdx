@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -17,7 +17,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-07-11T21:30:12.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
@@ -39,14 +39,10 @@ For this guide, you will start with **installing a boilerplate Next.js project t
 
 This process clones the codebase and guides you through setting up the repository that will be used as your blog's content source.
 
-<TerminalInput>
-  yarn global add prismic-cli
-</TerminalInput>
+<Snippet dark text="yarn global add prismic-cli" />
 <Caption>Installing the <InlineCode>prismic-cli</InlineCode> command line tool.</Caption>
 
-<TerminalInput>
-  prismic theme https://github.com/raulg/prismic-next-blog
-</TerminalInput>
+<Snippet dark text="prismic theme https://github.com/raulg/prismic-next-blog" />
 <Caption>Quickstarting your Prismic boilerplate project.</Caption>
 
 Navigate to the folder you have created and inspect the files and folders that are included in this barebones project. You will find the following:
@@ -60,7 +56,7 @@ You will notice that for now it is only a simple index page, as defined in `/pag
 
 Continue by installing the required packages to integrate your Next.js web application with Prismic.
 
-<TerminalInput>yarn add prismic-javascript prismic-reactjs</TerminalInput>
+<Snippet dark text="yarn add prismic-javascript prismic-reactjs" />
 <Caption>Adding the <InlineCode>prismic-javascript</InlineCode> and <InlineCode>prismic-reactjs</InlineCode> dependencies to fetch and render documents.</Caption>
 
 If you open the `prismic-configuration.js` file, you might notice that the API endpoint has **already been set up according to the repository you created during the installation process**.

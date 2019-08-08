@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
@@ -74,7 +74,7 @@ Example deployment: <https://ts-api.now-examples.now.sh/api/name?name=reader>
 
 You can install the `@now/node` module for type definitions through npm:
 
-<TerminalInput>npm i -D @now/node</TerminalInput>
+<Snippet dark text="npm i -D @now/node" />
 <Caption>Installing the <InlineCode>@now/node</InlineCode> module for Type definitions of <InlineCode>NowRequest</InlineCode> and <InlineCode>NowResponse</InlineCode></Caption>
 
 You can also define a `tsconfig.json` to configure the Now TypeScript compiler:

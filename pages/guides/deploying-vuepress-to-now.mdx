@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { TerminalInput } from '~/components/text/terminal'
+import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
@@ -11,7 +11,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/deploying-vuepress-to-now',
   editUrl: 'pages/guides/deploying-vuepress-to-now.mdx',
-  lastEdited: '2019-08-02T17:34:08.000Z'
+  lastEdited: '2019-08-06T14:58:43.000Z'
 }
 
 VuePress is a vue-powered static generator. It is used for generating static sites with a focus on writing.
@@ -24,11 +24,11 @@ Already have a VuePress project? [Skip to deploying](#step-3:-deploy-vuepress-wi
 
 The first step is to create a project and `cd` into it via your terminal.
 
-<TerminalInput>mkdir vuepress-project && cd vuepress-project</TerminalInput>
+<Snippet dark text="mkdir vuepress-project && cd vuepress-project" />
 
 Next, install VuePress as a [local dev dependency](https://yarnpkg.com/en/docs/usage). Use the following command:
 
-<TerminalInput>yarn add --dev vuepress</TerminalInput>
+<Snippet dark text="yarn add --dev vuepress" />
 
 Once the dependencies are installed, create a `README.md` with the following contents:
 
@@ -92,7 +92,7 @@ If you have not yet installed Now, you can do so by [installing Now CLI](/downlo
 
 You can deploy your VuePress application with **just a single command**:
 
-<TerminalInput>now</TerminalInput>
+<Snippet dark text="now" />
 
 <Caption>
   Deploying the application with the <InlineCode>now</InlineCode> command.
