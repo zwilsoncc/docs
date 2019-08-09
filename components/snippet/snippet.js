@@ -108,4 +108,4 @@ Snippet.propTypes = {
   dark: PropTypes.bool
 }
 
-export default withToasts(Snippet)
+export default Snippet
