@@ -3,7 +3,6 @@ import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
-import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Deploying Apollo Server to Now',
@@ -59,7 +58,7 @@ const server = new ApolloServer({
   playground: true
 })
 
-module.exports = server.createHandler({ path: '/api/' })
+module.exports = server.createHandler({ path: '/api' })
 ```
 
 <Caption>
@@ -79,13 +78,7 @@ Deploying your project could not be easier and can be done with **just a single 
   Deploying the application with the <InlineCode>now</InlineCode> command.
 </Caption>
 
-Your project has now been deployed, you can access the Apollo Server endpoint, using the deployment URL generated, at `/api/`.
-
-<Note warning>
-  Because the <InlineCode>index.js</InlineCode> file is placed at the root of
-  the <InlineCode>/api</InlineCode> directory, the trailing slash is required
-  when using the endpoint.
-</Note>
+Your project has now been deployed, you can access the Apollo Server endpoint, using the deployment URL generated, at `/api`.
 
 If you want to deploy your ApolloServer project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
 
