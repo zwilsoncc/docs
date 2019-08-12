@@ -7,7 +7,7 @@ export const meta = {
   description:
     'The ZEIT Network layer sits in-between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.',
   editUrl: 'pages/docs/v2/network/overview.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T12:18:55.000Z'
 }
 
 The ZEIT Network layer sits in-between the internet and your Now deployments.
@@ -16,7 +16,7 @@ It is responsible for many things. But the most important one is routing request
 
 ## Regions
 
-In order to route requests as fast as possible, the Network layer is running in several locations across the world. In all of these locations (called **Regions**), you can create **Deployments** that create [Builds](/docs/v2/deployments/builds) outputting [**Lambdas**](/docs/v2/deployments/concepts/lambdas) and/or **Static Files** (the full list can be found [here](/docs/v2/platform/regions-and-providers)).
+In order to route requests as fast as possible, the Network layer is running in several locations across the world. In all of these locations (called **Regions**), you can create **Deployments** that create [Builds](/docs/v2/advanced/builders) outputting [**Lambdas**](/docs/v2/advanced/concepts/lambdas) and/or **Static Files** (the full list can be found [here](/docs/v2/advanced/platform/regions-and-providers)).
 
 In turn, the Network layer will automatically forward incoming requests to the closest location in which your **Lambda** is running (**Static Files** are always distributed across the whole network, thus not location-specific).
 
@@ -26,7 +26,7 @@ This also means that the Network layer might forward your request to a completel
 
 In general, we recommend distributing your **Deployments** (which contain Static Files and/or Lambdas, depending on how your Builds are configured) to **all regions**. This will improve performance drastically, as visitors are automatically served by the **Lambda** that is running closest to their location.
 
-In order to distribute your Deployment to all **Regions** when creating it, make sure to define the `--regions` flag in [Now CLI](/docs/v2/getting-started/installation#now-cli) and set it to `all`.
+In order to distribute your Deployment to all **Regions** when creating it, make sure to define the `--regions` flag in [Now CLI](/download) and set it to `all`.
 
 <Note>
   When taking advantage of this behaviour of the platform, it is very important

@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Deploy each change in your GitLab projects with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   editUrl: 'pages/docs/v2/advanced/now-for-gitlab.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T12:18:55.000Z'
 }
 
 The Now for GitLab integration automatically deploys and aliases your GitLab projects with [Now](/now).
@@ -31,7 +31,7 @@ Now for GitLab provides:
 
 ### Step 1: Link Now to Your GitLab Account
 
-You can connect your Now account to GitLab by visiting your [account or team](/docs/v2/platform/users-and-teams) [settings page](/account) and clicking the "Connect with GitLab" button.
+You can connect your Now account to GitLab by visiting your [account or team](/docs/v2/advanced/platform/users-and-teams) [settings page](/account) and clicking the "Connect with GitLab" button.
 
 <Image
 src={`${process.env.ASSETS}/docs/now-for-gitlab/connect-with-gitlab.png`}
@@ -99,7 +99,7 @@ The latest push to any merge request will automatically be aliased to a unique U
 
 ## Included Environment Variables
 
-You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, Now will deploy your app with the following built-in [environment variables](/docs/v2/deployments/environment-variables-and-secrets/) when deploying with Now for GitLab:
+You may want to use different workflows and APIs based on the environment of the deployment based on Git information. To support that, Now will deploy your app with the following built-in [environment variables](/docs/v2/serverless-functions/env-and-secrets) when deploying with Now for GitLab:
 
 | Variable Key                 | Description                                                                             |
 | ---------------------------- | --------------------------------------------------------------------------------------- |

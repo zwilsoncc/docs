@@ -11,10 +11,10 @@ export const meta = {
   description:
     'Configuring Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T12:18:55.000Z'
 }
 
-When using [Now CLI](/docs/v2/getting-started/installation#now-cli) or [Now for GitHub](/docs/v2/getting-started/installation#now-for-github), the configuration for your deployment is read from the `now.json` file.
+When using [Now CLI](/download), [Now for GitHub](/docs/v2/getting-started/installation#now-for-github) or [Now for GitLab](/docs/v2/getting-started/installation#now-for-gitlab), the configuration for your deployment is read from the `now.json` file.
 
 The parameters stored in that file are passed to the [Deployment Creation API endpoint](/docs/api/v2#endpoints/deployments/create-a-new-deployment), which performs validation and stores the metadata in our backend.
 
@@ -38,7 +38,7 @@ Each deployment receives and understands the `now.json` configuration as instruc
 
 The prefix for all new deployment instances. The CLI usually generates this field automatically based on the name of the directory. But if you'd like to define it explicitly, this is the way to go.
 
-The defined name is also used to organize the deployment into [a project](/docs/v2/platform/projects).
+The defined name is also used to organize the deployment into [a project](/docs/v2/advanced/platform/projects).
 
 <Example>
   <P.B>Usage Example:</P.B>
@@ -53,7 +53,7 @@ The defined name is also used to organize the deployment into [a project](/docs/
 
 **Valid values**: `1`, `2`.
 
-Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
+Specifies the [Now Platform version](/docs/v2/advanced/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
 
 <Example>
   <P.B>Usage Example:</P.B>
@@ -68,7 +68,7 @@ Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the 
 
 **Valid values**: [domain names](/docs/v2/custom-domains) (optionally including subdomains) added to the account, or a string for a suffxed URL using `.now.sh` or a [Custom Deployment Suffix](/docs/v2/platform/add-ons/#custom-deployment-suffix).
 
-The alias or aliases are applied automatically using [Now for GitHub](/docs/v2/integrations/now-for-github) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab) when merging or pushing to the default branch.
+The alias or aliases are applied automatically using [Now for GitHub](/docs/v2/advanced/now-for-github) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab) when merging or pushing to the default branch.
 
 You can deploy to the defined aliases using Now CLI by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
 

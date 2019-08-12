@@ -5,7 +5,7 @@ export const meta = {
   title: 'Headers',
   description: 'The list of headers included with deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/network/headers.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T12:18:55.000Z'
 }
 
 [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) can be found in both the HTTP Request and HTTP Response.
@@ -47,7 +47,7 @@ The following values are possible when the content being served [is static](/doc
 | Value                                 | Description                                                                                                                                      |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <RequestHeader>HIT</RequestHeader>    | The response was served from the edge.                                                                                                           |
-| <RequestHeader>MISS</RequestHeader>   | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/platform/regions-and-providers/).                     |
+| <RequestHeader>MISS</RequestHeader>   | The response was not found in the edge and so was fetched from [an origin server](/docs/v2/advanced/platform/regions-and-providers/).            |
 | <RequestHeader>BYPASS</RequestHeader> | The cache was bypassed and so the response was served from an origin server.                                                                     |
 | <RequestHeader>STALE</RequestHeader>  | The response from the cache is outdated but another visitor has already requested the response and the edge node is processing the revalidation. |
 
@@ -57,7 +57,7 @@ The unique identifier for each request.
 
 ### `x-now-trace`
 
-Contains a list of [our data centers](/docs/v2/platform/regions-and-providers/) through which the request has traversed, usually the data center closest to you.
+Contains a list of [our data centers](/docs/v2/advanced/platform/regions-and-providers/) through which the request has traversed, usually the data center closest to you.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 

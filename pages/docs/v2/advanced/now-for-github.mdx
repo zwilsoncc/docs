@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy each change in your GitHub repositories with Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically alias your changes to production.',
   editUrl: 'pages/docs/v2/advanced/now-for-github.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T12:18:55.000Z'
 }
 
 Now for GitHub is an app for GitHub users or organizations that automatically deploys and aliases changes to repositories with Now.
@@ -85,7 +85,7 @@ The latest push to any pull request will automatically be aliased to a unique UR
 
 ### Deployment Authorizations for Forks
 
-If you receive a pull request from a fork of your repository and there is either a change to the [`now.json`](/docs/v2/deployments/configuration) file or there are [secrets](/docs/v2/deployments/environment-variables-and-secrets/#securing-environment-variables-using-secrets) used in your project; Now will require an authorization from you or a member of your team to deploy the pull request.
+If you receive a pull request from a fork of your repository and there is either a change to the [`now.json`](/docs/v2/advanced/configuration) file or there are [secrets](/docs/v2/serverless-functions/env-and-secrets#adding-secrets) used in your project; Now will require an authorization from you or a member of your team to deploy the pull request.
 
 This behavior protects you and your project from a leak of sensitive information.
 
@@ -126,7 +126,7 @@ To stop Now from [automatically aliasing the default branch](#aliasing-the-defau
 
 ### Disable Commenting with Silent Mode
 
-To stop Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/v2/deployments/configuration) for the repository you want to stop this behavior in.
+To stop Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/v2/advanced/configuration) for the repository you want to stop this behavior in.
 
 <Note>
   Although Now will stop commenting, it will not stop deploying the latest
@@ -146,7 +146,7 @@ To stop Now from commenting on pull requests and commits, use the following conf
 
 ### Disable Auto Job Cancellation
 
-To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v2/deployments/configuration) for the repository that this behavior should exist in.
+To stop Now from canceling in-progress builds to prioritise building newer commits, use the following configuration option in [a `now.json` file](/docs/v2/advanced/configuration) for the repository that this behavior should exist in.
 
 ```json
 {
