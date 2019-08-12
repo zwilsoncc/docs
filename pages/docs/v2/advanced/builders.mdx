@@ -12,10 +12,10 @@ export const meta = {
   description:
     'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.',
   editUrl: 'pages/docs/v2/advanced/builders.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T13:29:31.000Z'
 }
 
-Builders are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](https://zeit.co/docs/v2/deployments/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/advanced/domains/cdn/).
+Builders are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](https://zeit.co/docs/v2/advanced/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/advanced/concepts/cdn-and-global-distribution/).
 
 <Note warning>
   In most cases, advanced Builders usage with configuration is not necessary.
@@ -478,7 +478,7 @@ The `use` property of a build step can contain the name of a Builder module publ
 | Python       | `@now/python`       |
 | Ruby         | `@now/ruby`         |
 
-Since Builders are published to [npm](https://npmjs.com), the `use` statement in your [`now.json` file](/docs/v2/deployments/configuration) uses a similar syntax to `npm install`, meaning that versioning can be used by tagging the builders, like for example:
+Since Builders are published to [npm](https://npmjs.com), the `use` statement in your [`now.json` file](/docs/v2/advanced/configuration) uses a similar syntax to `npm install`, meaning that versioning can be used by tagging the builders, like for example:
 
 ```json
 {
@@ -560,9 +560,9 @@ For depencency installation with [shell file entry points](#shell-file-entry-poi
 
 #### Private npm Modules for Static Builds
 
-To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in a `now.json` file.
+To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/advanced/configuration#build-env) in a `now.json` file.
 
-Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/deployments/configuration#build.env) with the contents of `~/.npmrc`.
+Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/advanced/configuration#build.env) with the contents of `~/.npmrc`.
 
 ### Advanced Node.js Usage
 
@@ -613,9 +613,9 @@ Within a `now.json` configuration file at your project's root, use the following
 
 #### Private npm Modules for Node.js
 
-To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build.env) in `now.json`.
+To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/advanced/configuration#build.env) in `now.json`.
 
-Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/deployments/configuration#build.env) with the contents of `~/.npmrc`.
+Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/advanced/configuration#build.env) with the contents of `~/.npmrc`.
 
 #### Custom Build Step for Node.js
 
@@ -704,9 +704,9 @@ For more information on this, see [the Next.js documentation](https://github.com
 
 #### Private npm Modules for Next.js
 
-To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/deployments/configuration#build.env) in `now.json`.
+To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/v2/advanced/configuration#build.env) in `now.json`.
 
-Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/deployments/configuration#build.env) with the contents of `~/.npmrc`.
+Alternatively, define `NPM_RC` as a [build environment variable](/docs/v2/advanced/configuration#build.env) with the contents of `~/.npmrc`.
 
 #### Environment Variables with Next.js
 
@@ -776,7 +776,7 @@ You can configure your own build step using the Go Builder, to compile Go source
 
 #### Private Packages for Go
 
-To install private packages with `go get`, define `GIT_CREDENTIALS` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
+To install private packages with `go get`, define `GIT_CREDENTIALS` as a [build environment variable](/docs/v2/advanced/configuration#build-env) in `now.json`.
 
 All major Git providers are supported including GitHub, GitLab, Bitbucket, as well as a self-hosted Git server.
 
@@ -974,7 +974,7 @@ run Sinatra::Application
 
 ## Developing your Own Builder
 
-Extending the feature-set of a Now deployment is as simple as creating a Builder that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/deployments/concepts/lambdas).
+Extending the feature-set of a Now deployment is as simple as creating a Builder that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/advanced/concepts/lambdas).
 
 [A full API reference is available to help with creating Builders.](https://github.com/zeit/now-builders/blob/canary/DEVELOPING_A_BUILDER.md)
 
@@ -1026,7 +1026,7 @@ In some cases, you may wish to include templates or views that are not able to b
       @now/node Builder
     </GenericLink>{' '}
     and configuring the <InlineCode>includeFiles</InlineCode> within a{' '}
-    <GenericLink href="/docs/v2/deployments/configuration#builds">
+    <GenericLink href="/docs/v2/advanced/configuration#builds">
       now.json configuration file
     </GenericLink>
     .

@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-08-06T14:58:43.000Z'
+  lastEdited: '2019-08-12T13:29:31.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -90,7 +90,7 @@ To use your MongoDB connection string without hard-coding it in your project, yo
   string.
 </Note>
 
-Finally, set up [the `now.json` configuration file](/docs/v2/deployments/configuration) that instructs Now to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
+Finally, set up [the `now.json` configuration file](/docs/v2/advanced/configuration) that instructs Now to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
 
 ```json
 {
@@ -104,7 +104,7 @@ Finally, set up [the `now.json` configuration file](/docs/v2/deployments/configu
 
 <Caption>
   A{' '}
-  <GenericLink href="/docs/v2/deployments/configuration">
+  <GenericLink href="/docs/v2/advanced/configuration">
     <InlineCode>now.json</InlineCode> configuration file
   </GenericLink>{' '}
   for development and deployment.
@@ -270,7 +270,7 @@ Now, deploy your project to a production environment using the following command
 
 <Note>
   For optimal performance,{' '}
-  <GenericLink href="/docs/v2/deployments/configuration/#regions">
+  <GenericLink href="/docs/v2/advanced/configuration/#regions">
     deploy your API to the closest region, or regions
   </GenericLink>
   , of where your MongoDB cluster is located in. You can see the regions Now supports

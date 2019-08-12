@@ -11,7 +11,7 @@ export const meta = {
   description:
     'Configuring Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-08-12T12:18:55.000Z'
+  lastEdited: '2019-08-12T13:29:31.000Z'
 }
 
 When using [Now CLI](/download), [Now for GitHub](/docs/v2/getting-started/installation#now-for-github) or [Now for GitLab](/docs/v2/getting-started/installation#now-for-gitlab), the configuration for your deployment is read from the `now.json` file.
@@ -111,18 +111,16 @@ Furthermore, it also affects any other actions that the user takes within the di
 
 **Valid values:** environment keys and values.
 
-Environment variables passed to the invoked [Lambdas](/docs/v2/deployments/concepts/lambdas).
+Environment variables passed to the invoked [Lambdas](/docs/v2/advanced/concepts/lambdas).
 
 <Example>
   <P.B>Usage Example:</P.B>
   <PDIV>
     This example will pass the <InlineCode>MY_KEY</InlineCode> static env to all{' '}
-    <GenericLink href="/docs/v2/deployments/concepts/lambdas">
-      Lambdas
-    </GenericLink>{' '}
+    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>{' '}
     and <InlineCode>SECRET</InlineCode> resolved from the{' '}
     <InlineCode>my-secret-name</InlineCode>{' '}
-    <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">
+    <GenericLink href="/docs/v2/serverless-functions/env-and-secrets">
       secret
     </GenericLink>{' '}
     dynamically.
@@ -141,14 +139,14 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/deployments/conce
 
 **Valid values:** environment keys and values.
 
-[Environment variables](/docs/v2/deployments/environment-variables-and-secrets/#from-now.json) passed to the [Build](/docs/v2/deployments/builds) processes.
+[Environment variables](/docs/v2/deployments/environment-variables-and-secrets/#from-now.json) passed to the [Build](/docs/v2/advanced/builders) processes.
 
 <Example>
   <P.B>Usage Example:</P.B>
   <PDIV>
     The following example will pass the <InlineCode>MY_KEY</InlineCode> static
     env to all{' '}
-    <GenericLink href="/docs/v2/deployments/builds">Builds</GenericLink> and
+    <GenericLink href="/docs/v2/advanced/builders">Builds</GenericLink> and
     <InlineCode>SECRET</InlineCode> resolved from the <InlineCode>
       my-secret-name
     </InlineCode> <GenericLink href="/docs/v2/deployments/environment-variables-and-secrets">
@@ -174,18 +172,16 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/deployments/conce
 **Build object definition:**
 
 - `src` (`String`): A glob expression or pathname. If more than one file is resolved, one build will be created per matched file. It can include `*` and `**`.
-- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/deployments/builds). It can include a semver compatible version (e.g.: `@org/proj@1`).
+- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/advanced/builders). It can include a semver compatible version (e.g.: `@org/proj@1`).
 - `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Builder.
 
 <Example>
   <P.B>Usage Example:</P.B>
   <PDIV>
     The following will include all HTML files as-is (to be served statically),
-    and <GenericLink href="/docs/v2/deployments/builds">Build</GenericLink> all
+    and <GenericLink href="/docs/v2/advanced/builders">Build</GenericLink> all
     Python files and JS files into{' '}
-    <GenericLink href="/docs/v2/deployments/concepts/lambdas">
-      Lambdas
-    </GenericLink>
+    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>
     .
   </PDIV>
   <Code lang="json">{`{
@@ -207,11 +203,11 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/deployments/conce
 
 For more information on builds and builders, see the documentation:
 
-<Card title="Builds" href="/docs/v2/deployments/builds">
+<Card title="Builds" href="/docs/v2/advanced/builders">
   Transform sources into production ready outputs with builds.
 </Card>
 
-<Card title="Builders" href="/docs/v2/deployments/builders/overview">
+<Card title="Builders" href="/docs/v2/advanced/builders">
   Choose from a range of existing builders or make your own.
 </Card>
 
@@ -234,10 +230,7 @@ For more information on builds and builders, see the documentation:
   <P.B>Usage Example:</P.B>
   <PDIV>
     This example configures custom routes that map to static files and{' '}
-    <GenericLink href="/docs/v2/deployments/concepts/lambdas">
-      Lambdas
-    </GenericLink>
-    .
+    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>.
   </PDIV>
   <Code lang="json">{`{
   "builds": [
@@ -268,9 +261,9 @@ For more information on routes, see the documentation:
 
 **Valid values:** a list of valid [region identifiers](/docs/v2/platform/regions-and-providers).
 
-By setting and modifying this value, you can decide the deployment **regions** of the [Lambdas](/docs/v2/deployments/concepts/lambdas) that get created as a result of the [build steps](/docs/v2/deployments/builds). By default, the closest region to the geographical location of the deployment is used, or if using a Now for Git integration, SFO is used by default.
+By setting and modifying this value, you can decide the deployment **regions** of the [Lambdas](/docs/v2/advanced/concepts/lambdas) that get created as a result of the [build steps](/docs/v2/advanced/builders). By default, the closest region to the geographical location of the deployment is used, or if using a Now for Git integration, SFO is used by default.
 
-This value does not impact static files or edge caches, since deployments always have a [CDN layer](/docs/v2/advanced/domains/cdn) in front.
+This value does not impact static files or edge caches, since deployments always have a [CDN layer](/docs/v2/advanced/concepts/cdn-and-global-distribution/) in front.
 
 The special value `all` can be used to target all available regions.
 
@@ -292,7 +285,7 @@ The special value `all` can be used to target all available regions.
 
 **Type**: `Boolean`.
 
-When set to `true`, both the [source view](/docs/v2/deployments/concepts/special-paths#source-view) and [logs view](/docs/v2/deployments/concepts/special-paths#logs-view) will be publicly accessible (without authentication with ZEIT).
+When set to `true`, both the [source view](/docs/v2/advanced/concepts/special-paths#source-view) and [logs view](/docs/v2/advanced/concepts/special-paths#logs-view) will be publicly accessible (without authentication with ZEIT).
 
 <Example>
   <P.B>Usage Example:</P.B>

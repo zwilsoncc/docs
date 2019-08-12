@@ -13,7 +13,7 @@ export const meta = {
   description:
     "See what's changed in the latest iteration of the ZEIT Now Platform.",
   editUrl: 'pages/docs/v2/advanced/platform/changes-in-now-2-0.mdx',
-  lastEdited: '2019-08-12T12:18:55.000Z'
+  lastEdited: '2019-08-12T13:29:31.000Z'
 }
 
 The ZEIT Now Platform 2.0 simplifies and streamlines the deployment of static and serverless workloads. In this guide we will walk you through the key differences between Now 1.0 and 2.0, and the improvements this brings.
@@ -134,7 +134,7 @@ While it's still very useful to think about what happens when an [instance of a 
 
 ### No Config Mutability
 
-All static assets and caches are served from our [Global CDN](/docs/v2/deployments/concepts/cdn-and-global-distribution) **by default**. When it comes to code invocation with [Lambdas](/docs/v2/advanced/concepts/lambdas), it makes sense to think about whether the code is executed in a single region or multiple.
+All static assets and caches are served from our [Global CDN](/docs/v2/advanced/concepts/cdn-and-global-distribution) **by default**. When it comes to code invocation with [Lambdas](/docs/v2/advanced/concepts/lambdas), it makes sense to think about whether the code is executed in a single region or multiple.
 
 We support the [`regions`](/docs/v2/advanced/configuration#regions) parameter in `now.json` to this end. When you make a deployment and Lambdas are produced in the [build steps](/docs/v2/build-step), we deploy them to the specified regions.
 
