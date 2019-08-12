@@ -1,5 +1,6 @@
 import Doc from '~/components/layout/docs'
 import { GenericLink } from '~/components/text/link'
+import { InlineCode } from '~/components/text/code'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
@@ -9,10 +10,10 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T19:06:55.000Z'
 }
 
-With Now, you can alias your deployments to a custom name, whether that is a free `.now.sh` prefixed domain or your personal domain. This document will explain how to add your domain to Now so that you can alias your deployments to it.
+All deployments are assigned a `.now.sh` prefixed domain. You can use a custom domain with your projects, whether that is a ZEIT domain or an external domain registered with a third-party. This document will explain how to add a domain to ZEIT Now, and how to use it with your deployments.
 
 ## Adding a Domain
 
@@ -22,7 +23,7 @@ Using the ZEIT DNS nameservers is the preferred way of verifying and pointing yo
 
 There are several benefits:
 
-- You can easily create new aliases with the Now CLI
+- You can easily deploy to custom domains with Now CLI
 - It allows us to generate DNS records automatically that help with managing your domain
 - You can generate wildcard certificates automatically
 - Your domain will be served by our lightning fast [Smart CDN](/smart-cdn)
@@ -48,15 +49,16 @@ Now will automatically check that the nameservers have been updated, and when de
 
 <Snippet dark text="now domains verify <domain>" />
 
-That's it! You're ready to [alias your deployments](/docs/v2/custom-domains#deploying-with-your-domain) and [create DNS records](/docs/v2/advanced/domains/dns). Your wildcard certificate is created automatically.
+That's it! You're ready to [point your deployments to your domain(s)](/docs/v2/custom-domains#deploying-with-your-domain) and [create DNS records](/docs/v2/advanced/domains/dns). Your wildcard certificate is created automatically.
 
 ### Option 2: Using External Nameservers
 
-If you prefer to use other nameservers, you can verify your domain using `TXT` verification and add `CNAME` records with the value `alias.zeit.co` for the hostnames you want to alias within Now. This means that you will not be using ZEIT DNS and your domain will be marked as external.
+If you prefer to use other nameservers, you can verify your domain using `TXT` verification and add `CNAME` records with the value `alias.zeit.co` for the hostnames you want to use within Now. This means that you will not be using ZEIT DNS and your domain will be marked as external.
 
 <Note warning>
-  If your DNS does not support CNAME, ALIAS, and DNS flattening, you will not be
-  able to use apex domains with ZEIT.
+  If your DNS does not support <InlineCode>CNAME</InlineCode>,{' '}
+  <InlineCode>ALIAS</InlineCode>, and DNS flattening, you will not be able to
+  use apex domains with ZEIT.
 </Note>
 
 For a greater advantage with Now and your domain, we strongly recommend using the [ZEIT nameservers method](#option-1:-using-zeit-nameservers).
@@ -75,7 +77,7 @@ You can force Now to check for verification by using the `now domains verify` co
 
 This method is recommended when you want a [zero-downtime migration](/guides/zero-downtime-domain-migration/) before [pointing your domain to Now](#step-2:-pointing-to-now).
 
-For each domain you want to alias, add a `CNAME` record with a value `alias.zeit.co` to your external DNS. Then you can [alias your deployments](/docs/v2/custom-domains#deploying-with-your-domain) as usual!
+For each domain you want to use, add a `CNAME` record with a value `alias.zeit.co` to your external DNS. Then you can [use your deployments with your custom domains](/docs/v2/custom-domains#deploying-with-your-domain) as usual!
 
 #### Moving to ZEIT Nameservers
 
@@ -100,22 +102,15 @@ To use the custom domain with your project, you can add it to your project from 
   .
 </Note>
 
-To do this, select your project from the dashboard and click the **Domains** tab. Here you will find two options representing different deployment environments, **Staging** and **Production**. Choose the environment for your desired alias and enter it, for example, `timothy.now.sh` or `my-zeit-domain.com`, into the input box.
+To do this, select your project from the dashboard and click the **Domains** tab. Here you will find an input to add your custom domains for production, such as `timothy.now.sh` or `my-zeit-domain.com`.
 
-If the domain is **registered to your account and available for use** it will be indicated below the input box and you can continue.
+If the domain is **registered to your account and available for use** it will be indicated below the input box and you can continue. Otherwise, if the domain is **not registered to your account**, it will automatically be added and we will attempt to verify it for you.
 
-If the domain is **not registered to your account**, it will automatically be added and we will attempt to verify it for you.
-
-Once the alias has been added, the interface will update to reflect this along with further information such as instructions on how to use it, read on to learn more about how to use it, here.
+Once the domain has been added, the interface will update to reflect this along with further information such as instructions on how to use it, read on to learn more about how to use it, here.
 
 ### Using Now CLI
 
-With a custom domain defined as staging, production, or both; you can go on to use it with your deployments.
-
-To deploy your project to your staging domain, you can use the `--target staging` argument from Now CLI in your terminal:
-
-<Snippet dark text="now --target staging" />
-<Caption>Deploying a project to staging.</Caption>
+With a custom domain defined; you can go on to use it with your deployments.
 
 When you're ready to deploy your project to production, you can use the `--target production` argument from Now CLI in your terminal:
 
