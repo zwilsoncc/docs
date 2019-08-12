@@ -36,11 +36,11 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | **regions**   | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | An array of the regions the deployment should be deployed to. For example, `["sfo", "bru"]`.                                                                                                             |
 | **public**    | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | No       | Whether a deployment's source and logs are available publicly.                                                                                                                                           |
 | **target**    | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Either not defined, `staging` or `production`. If `staging`, a staging alias in the format `<project>.<team>.now.sh` will be assigned. If `production`, any aliases defined in `alias` will be assigned. |
-| **alias**     | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | Aliases that will get assigned when the deployment is `READY` and the `target` is `production`. The client needs to make a `GET` request to this API to ensure the assignment.                           |
+| **alias**     | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | Aliases that will get assigned when the deployment is `READY` and the `target` is `production`. The client needs to make a `GET` request to [its API](#endpoints/deployments/get-a-single-deployment) to ensure the assignment.                           |
 
 ##### Aliases
 
-The aliases inside of `alias` are only assigned when the `target` is set to `production` and when the client makes a `GET` request to this API endpoint to verify that the deployment is `READY`. The aliases will only get assigned on this last `GET` request.
+The aliases inside of `alias` are only assigned when the `target` is set to `production` and when the client makes a `GET` request to [its API endpoint]((#endpoints/deployments/get-a-single-deployment) to verify that the deployment is `READY`. The aliases will only get assigned on this last `GET` request.
 
 <Note>
   If there are missing certificates for any of the required domains, they will
