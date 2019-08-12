@@ -12,7 +12,7 @@ export const meta = {
   description:
     'A look at what Builders are and how they are used with ZEIT Now deployment Builds to achieve production-ready outputs.',
   editUrl: 'pages/docs/v2/advanced/builders.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-12T19:10:19.000Z'
 }
 
 Builders are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](https://zeit.co/docs/v2/advanced/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/advanced/concepts/cdn-and-global-distribution/).
@@ -490,6 +490,23 @@ Since Builders are published to [npm](https://npmjs.com), the `use` statement in
   A <InlineCode>now.json</InlineCode> file that lists a build step with a
   Builder using a pinned version.
 </Caption>
+
+#### Community Builders
+
+The following is a list of community maintained Builders.
+
+| Builder | Builder Module | Docs                                     |
+| ------- | -------------- | ---------------------------------------- |
+| PHP     | `now-php`      | <https://github.com/juicyfx/now-php>     |
+| Rust    | `now-rust`     | <https://github.com/mike-engel/now-rust> |
+
+<Note>
+  If you need to create a custom Builder, see the{' '}
+  <GenericLink href="#developing-your-own-builder">
+    Developing Your Own Builder section
+  </GenericLink>
+  .
+</Note>
 
 ### Advanced Static Builds Configuration
 
@@ -972,7 +989,7 @@ run Sinatra::Application
 
 ---
 
-## Developing your Own Builder
+## Developing Your Own Builder
 
 Extending the feature-set of a Now deployment is as simple as creating a Builder that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/advanced/concepts/lambdas).
 
