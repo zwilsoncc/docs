@@ -11,8 +11,8 @@ const getContent = (zenModeActive, children) => {
           flex-direction: column;
           flex: 1;
           max-width: 100%;
+          padding-left: calc(280px + 40px);
           padding-bottom: 128px;
-          padding-left: 24px;
         }
 
         .content-zen-mode {
