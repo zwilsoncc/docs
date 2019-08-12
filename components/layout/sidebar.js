@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Component } from 'react' 
+import { Component } from 'react'
 import { HEADER_HEIGHT } from '~/lib/constants'
 import ZenContext from '~/lib/zen-context'
 
@@ -16,15 +16,9 @@ class Sidebar extends Component {
             <style jsx>{`
               .sidebar {
                 background: #fff;
-                bottom: 0;
                 padding-bottom: 40px;
                 padding-right: 24px;
-                padding-top: 40px;
-                position: fixed;
-                top: ${HEADER_HEIGHT}px;
                 width: 280px;
-                z-index: 1;
-                overflow-y: scroll;
                 -webkit-overflow-scrolling: touch;
               }
 
