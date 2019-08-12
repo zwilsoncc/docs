@@ -4,7 +4,6 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Setup a Namecheap Domain with ZEIT Now',
@@ -14,7 +13,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as an alias for your ZEIT Now deployments.
@@ -156,25 +155,6 @@ If you already verified your domain with nameservers, then this step is done.
 The final step of migrating your domain to Now is to point your domain to ZEIT DNS with the intended nameservers set. Using `now domains inspect <domain>`, you can always find the intended nameservers to use with your domain.
 
 Once Namecheap's propagation of the updated nameservers is complete, your domain will automatically point to the [ application you deployed](https://zeit.co/guides/setup-godaddy-domain-now/#aliasing-a-deployment) before.
-
-## Read More
-
-For more information on how you can extend your usage of Now, read the following guides and documentation:
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

@@ -16,7 +16,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
@@ -141,25 +141,6 @@ Once your domain is set up correctly and contains all you need for a successful 
 Using `now domains inspect <domain>`, you can find your intended set of nameservers to use with your domain, in case you have forgotten them when you first added the domain.
 
 Once the nameservers have been added and propagation is complete, your domain will successfully point to your aliased deployment from your domain, which includes a free SSL certificate and any DNS records you setup!
-
-## Read More
-
-For more information on how you can extend your usage of Now, read the following guides and documentation:
-
-<Card title="Deployment Basics" href="/docs/v2/deployments/basics">
-  Learn more about deploying your apps with Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Alias your deployments with your newly migrated domain.
-</Card>
-
-<Card title="DNS" href="/docs/v2/advanced/domains/dns">
-  Using Now to handle the DNS of your domain.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

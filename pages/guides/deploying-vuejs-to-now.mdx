@@ -3,7 +3,6 @@ import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Deploying a Vue.js application with Now',
@@ -14,7 +13,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Vue.js%20App**%20with%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Fv1551318573%2Ffront%2Fdocs%2Fogp%2Fvue-logo.svg',
   editUrl: 'pages/guides/deploying-vuejs-to-now.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 Vue.js is an open source JavaScript framework for building user interfaces. It is popularly known for its gentle learning curve and is adopted by a lot of developers for crafting single-page applications (SPAs) globally.
@@ -63,31 +62,6 @@ You can deploy your Vue.js application with **just a single command**:
 Once the app is deployed, you will receive a deployment URL similar to the following: <https://my-vue-project-ro3oxryae.now.sh/>
 
 You can see that routes were successful by going to the generated `/about` route directly: <https://my-vue-project-ro3oxryae.now.sh/about>
-
-## Resources
-
-For more information on working with Vue.js, please refer to [their documentation](https://vuejs.org/v2/guide/).
-
-To configure Now further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

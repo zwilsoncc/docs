@@ -1,10 +1,7 @@
 import Guide from '~/components/layout/guide'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
-import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
-import { P } from '~/components/text/paragraph'
 import Snippet from '~/components/snippet'
 
 export const meta = {
@@ -16,7 +13,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Static%20Nuxt.js%20App**%20With%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1090208956440633345%2FOkg4uYbh_400x400.jpg&widths=250&widths=auto&heights=undefined&heights=350',
   editUrl: 'pages/guides/deploying-nuxtjs-with-now.mdx',
-  lastEdited: '2019-08-09T19:26:35.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 [Nuxt.js](https://nuxtjs.org/) is an open-source Vue.js-based framework that provides multiple different rendering modes, one of which allows you to statically generate your application.
@@ -72,31 +69,6 @@ You are now ready to deploy your application with **just a single command**:
 
 Once the app is deployed, you will receive a deployment URL similar to the following:
 <https://nuxt-4l3gekrti.now.sh/>
-
-## Resources
-
-For more information on working with Nuxt.js, please refer to [their documentation](https://nuxtjs.org/guide).
-
-To configure Now further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/domains-and-aliases/aliasing-a-deployment/"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

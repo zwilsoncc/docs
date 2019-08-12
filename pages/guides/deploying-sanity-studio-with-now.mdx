@@ -4,7 +4,6 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Deploying Sanity Studio with Now',
@@ -15,7 +14,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/Deploy%20Sanity%20with%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg',
   editUrl: 'pages/guides/deploying-sanity-studio-with-now.mdx',
-  lastEdited: '2019-08-12T12:37:42.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 [Sanity.io](https://www.sanity.io) is a platform for structured content with an open source editing environment. Sanity Studio is a single page application written in React, where you can configure the document types and input fields, with simple JavaScript objects. The Studio connects to Sanity’s hosted real-time APIs. You can also customize the Studio with your own input components, plugins, and tools.
@@ -124,31 +123,6 @@ Once Sanity Studio is deployed, you will need to add it's URL to Sanity’s [COR
 <Caption>Adding CORS credentials to your Sanity project.</Caption>
 
 Alternatively, you can navigate to [manage.sanity.io](https://manage.sanity.io), find your project and under Settings > API, add the Studio URL to the CORS origins list. You should allow credentials as the Studio requires authentication for added security whereas most frontends do not.
-
-## Resources
-
-For more information on working with Sanity Studio, please refer to [their documentation](https://www.sanity.io/docs/content-studio).
-
-To configure Now further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

@@ -5,7 +5,6 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Create an Angular Application That Builds and Deploys with Now',
@@ -16,7 +15,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-angular-with-now.mdx',
-  lastEdited: '2019-08-06T14:58:43.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 Angular is a popular JavaScript framework for building applications across all platforms; web, mobile web, native mobile, and native desktop.
@@ -85,31 +84,6 @@ When your app is deployed, you will receive a deployment URL similar to the one 
   </GenericLink>{' '}
   for the deployment. Download, extract and follow this guide to deploy.
 </Note>
-
-## Resources
-
-For more information on working with Angular, please refer to [their documentation](https://angular.io/docs).
-
-To configure Now further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

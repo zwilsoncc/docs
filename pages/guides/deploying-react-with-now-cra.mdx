@@ -2,7 +2,6 @@ import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Deploy a React application with Now and Create React App',
@@ -11,7 +10,7 @@ export const meta = {
   authors: ['timothy', 'grovesjoseph'],
   url: '/guides/deploying-react-with-now-cra',
   editUrl: 'pages/guides/deploying-react-with-now-cra.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 [React](https://reactjs.org/) is a popular open-source JavaScript framework, maintained by Facebook, for easily creating interactive [single-page applications](https://en.wikipedia.org/wiki/Single-page_application) (SPAs).
@@ -44,31 +43,6 @@ To deploy to a unique alias, use the following [Now CLI](/download) command from
 </Caption>
 
 If you want to deploy your React project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
-
-## Resources
-
-For more information on working with React and Create React App, please refer to [the React documentation](https://reactjs.org/docs/getting-started.html) and the [Create React App documentation](https://facebook.github.io/create-react-app/).
-
-To configure Now further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

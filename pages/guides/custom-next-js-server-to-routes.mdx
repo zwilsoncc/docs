@@ -3,7 +3,6 @@ import { InlineCode } from '~/components/text/code'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Deploying with Custom Serverless Next.js Routing',
@@ -13,7 +12,7 @@ export const meta = {
   authors: ['timothy', 'timneutkens'],
   url: '/guides/custom-next-js-server-to-routes',
   editUrl: 'pages/guides/custom-next-js-server-to-routes.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 Next.js offers developers [a built-in routing system](https://nextjs.org/docs/#routing) that allows you to link to other pages whilst also giving those pages a custom URL. When a user refreshes the custom URL, however, the browser will not be able to load the link because the page was previously routed client-side. To resolve this, we need to also handle routing server-side.
@@ -119,26 +118,6 @@ With the Next.js application setup complete, we can deploy our application [usin
 If you are using either [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/); pushing your code to your repository is all you need to do for Now to automatically deploy your application.
 
 Once you deploy, you will receive a deployment URL which contains this example with a few styling tweaks for ease on the eyes: <https://nextjs-routes.zeit.sh/>
-
-## Read More
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  After deploying, alias your Next.js application to your domain.
-</Card>
-
-<Card
-  title="Next.js Builder"
-  href="/docs/v2/deployments/official-builders/next-js-now-next"
->
-  Deploy your Next.js applications with Now and the Next.js Builder.
-</Card>
-
-<Card title="Deployment Examples" href="/examples">
-  View more examples for deploying any application with Now.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

@@ -5,7 +5,6 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 import { P } from '~/components/text/paragraph'
 
 export const meta = {
@@ -17,7 +16,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-08-06T14:58:43.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
@@ -286,31 +285,4 @@ if (context.res) {
 
 Deploy this new version to Now with `yarn deploy`. You minimal blog is now being served even faster thanks to the [Now Smart CDN](/smart-cdn). You can try adding or modifying content in your Prismic repository and it **will be served instantaneously** on your now public site.
 
-This small guide goes over the basics of setting up a Prismic + Next.js project. You can build much more complex web applications that will be served at blazing fast speeds for users all around the globe by reading the [resources below](#resources).
-
-## Resources
-
-For more information, consult the documentation about working with [Next and Prismic](https://prismic.io/docs/reactjs/getting-started/prismic-nextjs).
-
-<Card
-  title="Complete Next.js Blog Project"
-  href="https://user-guides.prismic.io/examples/next-js-samples/sample-blog-with-api-based-cms-in-nextjs"
->
-  Fully featured example of the blog project that includes previews, slices and more.
-</Card>
-<Card
-  title="Multi-Page Site Project"
-  href="https://user-guides.prismic.io/examples/next-js-samples/sample-multi-page-site-with-navigation-in-nextjs"
->
-  Another example project for a more complicated site with multiple pages built using slice components.
-</Card>
-<Card title="Rendering Slices" href="https://prismic.io/docs/reactjs/rendering/slices">
-  Documentation on how to render Slices which will serve as the body of Prismic pages.
-</Card>
-
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
-
-// need to remove GenericLink href='localhost:3000' to enable
-// export const config = {
-// amp: 'hybrid'
-// }

@@ -5,7 +5,6 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Create and Deploy a MongoDB-powered Node.js API with Now',
@@ -18,7 +17,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -288,43 +287,6 @@ You can view the aliased deployment from this guide, using the API path, here: <
 Instead of deploying manually through your terminal, you can also get **automatic deployments with each git push** when you use [Now for GitHub](/github) or [Now for GitLab](/gitlab).
 
 Push to any branch, pull, or merge request and get a fresh deployment to review. Merging into the default branch results in an automatic alias to production. No extra work needed.
-
-See more on ZEIT Git Integrations:
-
-<Card title="Now for GitHub" href="/docs/v2/integrations/now-for-github">
-  Learn more about automatic deployments and aliasing for every push to a GitHub
-  repository.
-</Card>
-
-<Card title="Now for GitLab" href="/docs/v2/integrations/now-for-gitlab">
-  Learn more about automatic deployments and aliasing for every push to a GitLab
-  project.
-</Card>
-
-## Resources
-
-For more information on working with MongoDB, please refer to [their documentation](https://docs.mongodb.com/).
-
-To configure [Now](/docs/v2/getting-started/introduction-to-now) further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

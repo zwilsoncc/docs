@@ -2,7 +2,6 @@ import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
-import Card from '~/components/card'
 
 export const meta = {
   title: 'Create a Gatsby Website and Deploy It with Now',
@@ -12,7 +11,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/deploying-gatsby-with-now',
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-12T14:08:03.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
@@ -46,31 +45,6 @@ Now allows you to [deploy your project](/docs/v2/deployments/basics) from the te
 <Caption>Deploying you Gatsby website with Now CLI.</Caption>
 
 If you want to deploy your Gatsby project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/integrations/now-for-github/) or [Now for GitLab](/docs/v2/integrations/now-for-gitlab/) to have your project automatically deployed on every push, and aliased on push to master.
-
-## Resources
-
-For more information on working with Gatsby, please refer to [their documentation](https://www.gatsbyjs.org/docs/).
-
-To configure Now further, please see these additional topics and guides:
-
-<Card title="Deploying Basics" href="/docs/v2/deployments/basics">
-  Deploy any of your applications with ZEIT Now.
-</Card>
-
-<Card
-  title="Aliasing"
-  href="/docs/v2/custom-domains#deploying-with-your-domain"
->
-  Learn more about aliasing to your deployments.
-</Card>
-
-<Card title="www. Redirect" href="/guides/redirect-from-www">
-  Create a redirect from the www. subdomain to your naked domain.
-</Card>
-
-<Card title="More Guides" href="/guides">
-  See more guides that help you move forward with your projects and deployments.
-</Card>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
