@@ -159,6 +159,7 @@ class APIPage extends Component {
                 <Sidebar
                   active={navigationActive}
                   innerRef={this.handleSidebarRef}
+                  fixed
                 >
                   <div className="toggle-group-wrapper">
                     <ToggleGroup>

@@ -18,7 +18,7 @@ class Layout extends React.Component {
   state = {
     navigationActive: false,
     zenModeActive: false,
-    scrollPosition: 0,
+    scrollPosition: (typeof window !== 'undefined' && window.pageYOffset) || 0,
     scrollDirection: null
   }
 

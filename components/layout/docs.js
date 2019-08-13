@@ -188,11 +188,7 @@ class withDoc extends React.Component {
                 </ToggleGroup>
               </div>
 
-              <DocsNavbarDesktop
-                data={versionData}
-                url={router}
-                scrollSelectedIntoView={true}
-              />
+              <DocsNavbarDesktop data={versionData} url={router} />
 
               <h5 className="platform-select-title">Now Platform Version</h5>
               <VersionSelect
