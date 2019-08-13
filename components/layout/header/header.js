@@ -13,6 +13,7 @@ import AutoComplete from '~/components/search'
 import Avatar from '~/components/avatar'
 import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
+import MenuToggle from './menu-toggle'
 import { HeaderFeedback } from '~/components/feedback-input'
 import { API_DOCS_FEEDBACK } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
@@ -399,22 +400,9 @@ class Header extends Component {
                 </Fragment>
               )}
             </Navigation>
-            <button
-              onClick={onToggleNavigation}
-              className={cn('arrow-toggle', { active: navigationActive })}
-              data-amp-bind-class={buildAmpNavClass('arrow-toggle')}
-              name="menu-toggle"
-              on={
-                isAmp
-                  ? 'tap:AMP.setState({ header: { active: !header.active } })'
-                  : undefined
-              }
-              role="switch"
-              tabIndex="1"
-            >
-              <div className="line top" />
-              <div className="line bottom" />
-            </button>
+            <div className="menu-arrow" onClick={onToggleNavigation}>
+              <MenuToggle expanded={navigationActive} />
+            </div>
           </div>
         </LayoutHeader>
 
@@ -584,10 +572,6 @@ class Header extends Component {
             padding-right: 0;
           }
 
-          :global(.chat:hover .chat-count) {
-            background-color: #000;
-          }
-
           @keyframes load {
             from {
               opacity: 0;
@@ -606,87 +590,15 @@ class Header extends Component {
             margin-left: 8px;
           }
 
-          :global(.arrow-toggle) {
-            cursor: pointer;
+          :global(.header .menu-arrow) {
             display: none;
-            margin-left: auto;
-            padding: 10px;
-            border: none;
-            background: transparent;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-
-          :global(.arrow-toggle:focus) {
-            outline: 0;
-          }
-
-          :global(.line) {
-            height: 1px;
-            width: 22px;
-            background-color: #000;
-            transition: transform 0.15s ease;
-          }
-
-          :global(.line:last-child) {
-            transform: translateY(4px) rotate(0deg);
-          }
-
-          :global(.line:first-child) {
-            transform: translateY(-4px) rotate(0deg);
-          }
-
-          :global(.active .line:first-child) {
-            transform: translateY(1px) rotate(45deg);
-          }
-
-          :global(.active .line:last-child) {
-            transform: translateY(0px) rotate(-45deg);
+            height: 40px;
+            width: 40px;
+            margin: 0 -10px;
           }
 
           .logo {
             display: flex;
-          }
-
-          .avatar-link {
-            flex: 0;
-            margin: -8px -15px;
-            padding: 8px 15px;
-          }
-          a.avatar-link:hover,
-          a.avatar-user-info:hover {
-            background: none;
-          }
-          .avatar-user-info {
-            margin-left: 15px;
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 50px;
-          }
-          .avatar-user-info .username {
-            color: #000;
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 3px;
-            text-decoration: none;
-          }
-          .avatar-link:hover,
-          .username:hover {
-            background-color: white;
-            opacity: 0.7;
-          }
-          .avatar-link,
-          .username {
-            transition: opacity 0.2s ease;
-          }
-          span.settings {
-            font-size: 12px;
-          }
-
-          .mobile_search {
-            display: none;
           }
 
           .search-wrapper {
@@ -719,8 +631,8 @@ class Header extends Component {
               display: none;
             }
 
-            :global(.arrow-toggle) {
-              display: flex;
+            :global(.header .menu-arrow) {
+              display: block;
             }
 
             :global(.header .main-navigation.active) {
@@ -766,25 +678,6 @@ class Header extends Component {
             :global(.header .navigation-sidebar) {
               margin-top: 14px;
               margin-left: 32px;
-            }
-
-            .mobile_search {
-              display: block;
-              opacity: 1;
-              visibility: visible;
-              transition: visibility 0s linear 0s, opacity 300ms;
-            }
-            .mobile_search.hidden {
-              visibility: hidden;
-              opacity: 0;
-              transition: visibility 0s linear 300ms, opacity 300ms;
-            }
-          }
-
-          @media screen and (max-width: 360px) {
-            .mobile_search {
-              max-width: 242px;
-              width: 70%;
             }
           }
 
