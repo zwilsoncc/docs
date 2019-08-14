@@ -13,7 +13,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Static%20Nuxt.js%20App**%20With%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1090208956440633345%2FOkg4uYbh_400x400.jpg&widths=250&widths=auto&heights=undefined&heights=350',
   editUrl: 'pages/guides/deploying-nuxtjs-with-now.mdx',
-  lastEdited: '2019-08-12T14:08:03.000Z'
+  lastEdited: '2019-08-14T18:58:28.000Z'
 }
 
 [Nuxt.js](https://nuxtjs.org/) is an open-source Vue.js-based framework that provides multiple different rendering modes, one of which allows you to statically generate your application.
@@ -34,25 +34,35 @@ When asked which rendering mode you want to use, select **Single Page App**.
 
 With your Nuxt.js project initialized, move into the directory:
 
-<Snippet dark text="cd my-nuxt-project" />
+<Snippet dark text="cd my-nuxt-app" />
 <Caption>
   Using the <InlineCode>cd</InlineCode> command to move into the project
   directory.
 </Caption>
 
-## Step 2: Deploying With Now
+Before deploying with Now, provide Nuxt.js with instructions on which directory the build should be output to. Add the following to your `nuxt.config.js` file:
 
-With your Nuxt.js application set up, it is ready to be [deployed](/docs/v2/deployments/basics/) with [Now](/docs/v2).
+```json
+{
+  ...
+  "generate": {
+    "dir": "public"
+  }
+}
+```
 
-If you have not yet installed Now, you can do so by installing the [Now CLI](/download).
+<Caption>
+  Adding an output directory to the <InlineCode>nuxt.config.js</InlineCode>{' '}
+  file.
+</Caption>
 
-Next, change the build script in the `package.json` file to the following:
+Following that, change the build script in the `package.json` file to the following:
 
 ```json
 {
   "scripts": {
     ...
-    "build": "nuxt generate && mv dist public"
+    "build": "nuxt generate"
   }
 }
 ```
@@ -61,6 +71,12 @@ Next, change the build script in the `package.json` file to the following:
   Adding a <InlineCode>build</InlineCode> script to the
   <InlineCode>package.json</InlineCode> file.
 </Caption>
+
+## Step 2: Deploying With Now
+
+With your Nuxt.js application set up, it is ready to be [deployed](/docs/v2/deployments/basics/) with [Now](/docs/v2).
+
+If you have not yet installed Now, you can do so by installing [Now CLI](/download).
 
 You are now ready to deploy your application with **just a single command**:
 
