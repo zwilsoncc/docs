@@ -236,7 +236,7 @@ class Header extends Component {
           .search-bar :global(.react-autosuggest__suggestions-container--open),
           .search-bar :global(.no-results) {
             top: 40px;
-            width: 400px;
+            width: 480px;
             max-width: calc(100vw - 32px);
             left: 50%;
             transform: translateX(-50%);

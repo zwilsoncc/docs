@@ -325,11 +325,6 @@ class AutoComplete extends Component {
 
           .react-autosuggest__suggestion {
             cursor: pointer;
-            padding: 10px 20px;
-            padding: 12px 16px;
-          }
-
-          .react-autosuggest__suggestion {
             padding: 0 12px;
           }
 
@@ -339,10 +334,12 @@ class AutoComplete extends Component {
             border-radius: 4px;
             display: block;
             padding: 12px;
+            border: 1px solid transparent;
           }
 
           .react-autosuggest__suggestion--highlighted a {
             background: var(--accents-1);
+            border-color: var(--accents-2);
           }
 
           .react-autosuggest__suggestion--highlighted a span {
