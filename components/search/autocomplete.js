@@ -114,6 +114,7 @@ class AutoComplete extends Component {
       onChange: this.onChange,
       onFocus: this.onToggleFocus,
       onBlur: this.onToggleFocus,
+      type: 'search',
       value
     }
 
