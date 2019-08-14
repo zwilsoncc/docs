@@ -196,16 +196,15 @@ class Header extends Component {
             height: 32px;
             max-width: 60vw;
             width: 278px;
-            background: var(--accents-1);
             padding: 0 12px;
-            border-radius: 4px;
+            border-radius: 5px;
           }
 
           .search-bar
             :global(.search__container.focused .react-autosuggest__input),
           .search-bar :global(.react-autosuggest__input:focus),
           .search-bar input:focus {
-            border-color: var(--accents-3);
+            border-color: var(--accents-5);
             box-shadow: none;
             background: var(--geist-background);
           }
@@ -219,7 +218,7 @@ class Header extends Component {
             width: 278px;
             background: var(--accents-1);
             padding: 0 12px;
-            border-radius: 4px;
+            border-radius: 5px;
           }
 
           .search-bar

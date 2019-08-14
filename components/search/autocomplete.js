@@ -269,10 +269,6 @@ class AutoComplete extends Component {
             -webkit-appearance: none;
           }
 
-          .react-autosuggest__input:hover {
-            border: 1px solid var(--accents-3);
-          }
-
           .search__container.focused .react-autosuggest__input,
           .react-autosuggest__input:focus,
           .react-autosuggest__input:valid {
