@@ -1,5 +1,3 @@
-import { FONT_FAMILY_MONO } from '~/lib/css-config'
-
 const Caption = ({ children, ...props }) => (
   <p {...props}>
     {children}
@@ -24,7 +22,7 @@ const Code = ({ children }) => (
       {`
         code {
           color: #666;
-          font-family: ${FONT_FAMILY_MONO};
+          font-family: var(--font-mono);
         }
 
         code::before {
