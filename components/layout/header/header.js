@@ -338,6 +338,7 @@ class Header extends Component {
                   >
                     <MenuPopOver
                       title="API"
+                      offsetArrowLeft={60}
                       primaryList={[
                         { title: 'Platform API', url: '/docs/api' },
                         {

@@ -15,8 +15,8 @@ const TableBody = ({ children, ...props }) => (
 
       tbody :global(td) {
         color: #444444;
-        font-size: var(--font-size-primary);
-        line-height: var(--line-height-primary);
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-small);
       }
     `}</style>
   </tbody>
