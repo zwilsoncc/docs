@@ -324,7 +324,8 @@ class IntegrationsPage extends Component {
             }
 
             .platform-select-title {
-              font-size: 14px;
+              font-size: var(--font-size-primary);
+              line-height: var(--line-height-primary);
               font-weight: bold;
               margin-bottom: 16px;
               margin-top: 0;

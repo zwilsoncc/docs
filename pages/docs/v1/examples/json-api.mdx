@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
 import { InternalLink } from '~/components/text/link'
-import { P } from '~/components/text/paragraph'
+import { P } from '~/components/text'
 import { Image } from '~/components/media'
 import { TerminalInput, TerminalOutput } from '~/components/text/terminal'
 
@@ -10,7 +10,7 @@ export const meta = {
   description: 'Building a basic JSON API with Micro and deploying it with Now',
   date: '20 Feb 2017',
   editUrl: 'pages/docs/v1/examples/json-api.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-15T13:37:26.000Z'
 }
 
 Nowadays, every properly built application requires at least one API endpoint where it can load data from.
@@ -67,7 +67,7 @@ The exported arrow function shown above simply returns an object with the curren
 BOOM! The service will start running and you'll see a message like this one showing that `micro` started exposing the code you wrote on the default port **3000**:
 
 <TerminalOutput>
-  &gt; Ready! Listening on <P.B>http://0.0.0.0:3000</P.B>
+  &gt; Ready! Listening on <b>http://0.0.0.0:3000</b>
 </TerminalOutput>
 
 Go to the URL returned (`http://0.0.0.0:3000`) and you should see something like this:

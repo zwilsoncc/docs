@@ -4,11 +4,11 @@ const Caption = ({ children, ...props }) => (
     <style jsx>
       {`
         p {
-          color: #999;
-          font-size: 12px;
+          color: var(--accents-5);
+          font-size: var(--font-size-small);
+          line-height: var(--line-height-small);
           margin: -24px 0 40px 0;
           text-align: center;
-          line-height: 2;
         }
       `}
     </style>

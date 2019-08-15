@@ -8,7 +8,7 @@ export const meta = {
   title: 'Building a Basic GraphQL Application',
   date: '01 March 2017',
   editUrl: 'pages/docs/v1/examples/graphql.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-15T13:37:26.000Z'
 }
 
 Since Facebook released their [GraphQL](http://graphql.org/) technology back in 2015, it has evolved into a wonderful query language perfectly suited for all kinds of today's API endpoints. Why?
@@ -154,11 +154,11 @@ import App from './App'
 
 Continue with creating an instance of `ApolloClient` and pointing it to your GraphQL server created earlier:
 
-```
+```js
 const client = new ApolloClient({
-  networkInterface: createNetworkInterface({ uri: `}
-    <P.B>'REPLACE_THIS_WITH_YOUR_API_URL'</P.B>
-    {` })
+  networkInterface: createNetworkInterface({ uri:
+    'REPLACE_THIS_WITH_YOUR_API_URL'
+  )
 })
 ```
 

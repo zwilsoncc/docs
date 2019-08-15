@@ -179,8 +179,8 @@ class AutoComplete extends Component {
             color: var(--accents-6);
             box-shadow: var(--shadow-medium);
             border-radius: 0 0 8px 8px;
-            font-size: 14px;
-            line-height: 1.444em;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             text-align: center;
           }
 
@@ -196,7 +196,8 @@ class AutoComplete extends Component {
             position: absolute;
             z-index: 3;
             transition: opacity 0.15s ease;
-            font-size: 14px;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             color: var(--accents-5);
             pointer-events: none;
           }
@@ -208,22 +209,24 @@ class AutoComplete extends Component {
           }
 
           .suggestion__title {
-            font-size: 16px;
+            font-size: var(--font-size-primary);
+            line-height: var(--line-height-primary);
             font-weight: 500;
             margin-bottom: 8px;
-            line-height: 1.5em;
             display: flex;
           }
 
           .suggestion__section {
-            font-size: 14px;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             font-weight: 500;
             margin-bottom: 12px;
             display: block;
           }
 
           .suggestion__content {
-            font-size: 14px;
+            font-size: var(--font-size-primary);
+            line-height: var(--line-height-primary);
             color: var(--accents-7);
             display: block;
             line-height: 1.6;
@@ -263,7 +266,8 @@ class AutoComplete extends Component {
             width: 528px;
             height: 48px;
             padding: 16px;
-            font-size: 14px;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             border: 1px solid var(--accents-2);
             border-radius: 8px;
             transition: border 0.15s ease;
@@ -359,7 +363,8 @@ class AutoComplete extends Component {
 
           @media screen and (max-width: 950px) {
             .react-autosuggest__input {
-              font-size: 16px;
+              font-size: var(--font-size-small);
+              line-height: var(--line-height-small);
               width: 300px;
             }
 
@@ -375,7 +380,8 @@ class AutoComplete extends Component {
 
           @media screen and (max-width: 350px) {
             .react-autosuggest__input {
-              font-size: 16px;
+              font-size: var(--font-size-small);
+              line-height: var(--line-height-small);
               width: 200px;
             }
 

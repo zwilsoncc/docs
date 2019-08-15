@@ -159,8 +159,8 @@ class FeedbackInput extends Component {
             border-width: 0;
             border-radius: 5px;
             padding: 4px 8px;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: var(--font-size-primary);
+            line-height: var(--line-height-primary);
             font-family: var(--font-sans);
             resize: none;
             position: absolute;

@@ -4,7 +4,7 @@ import { Image } from '~/components/media'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
-import { P } from '~/components/text/paragraph'
+import { P } from '~/components/text'
 import Card from '~/components/card'
 import Note from '~/components/text/note'
 
@@ -13,7 +13,7 @@ export const meta = {
   description:
     "See what's changed in the latest iteration of the ZEIT Now Platform.",
   editUrl: 'pages/docs/v2/advanced/platform/changes-in-now-2-0.mdx',
-  lastEdited: '2019-08-12T13:29:31.000Z'
+  lastEdited: '2019-08-15T13:37:26.000Z'
 }
 
 The ZEIT Now Platform 2.0 simplifies and streamlines the deployment of static and serverless workloads. In this guide we will walk you through the key differences between Now 1.0 and 2.0, and the improvements this brings.
@@ -140,7 +140,7 @@ We support the [`regions`](/docs/v2/advanced/configuration#regions) parameter in
 
 <Note hint>
   For the best Lambda performance, we recommend using the region{' '}
-  <P.B>closest to your date source</P.B>.
+  <b>closest to your date source</b>.
 </Note>
 
 Due to our **deduplication system** which prevents re-building and re-uploading unnecessarily at any given step, re-deploying code to different regions is now fast and practical.

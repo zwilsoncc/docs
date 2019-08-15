@@ -21,7 +21,7 @@ import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import { P } from '~/components/text/paragraph'
+import { P } from '~/components/text'
 import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import withPermalink from '~/lib/api/with-permalink'
 
@@ -197,8 +197,8 @@ class APIPage extends Component {
                 <Content>
                   <div className="note">
                     <Note warning>
-                      This API documentation is for <P.B>version 1</P.B> of the
-                      Now platform. For the latest features, please see{' '}
+                      This API documentation is for <b>version 1</b> of the Now
+                      platform. For the latest features, please see{' '}
                       <GenericLink href="/docs/api/v2">
                         the version 2 API reference
                       </GenericLink>
@@ -318,7 +318,8 @@ class APIPage extends Component {
             }
 
             .platform-select-title {
-              font-size: 14px;
+              font-size: var(--font-size-primary);
+              line-height: var(--line-height-primary);
               font-weight: bold;
               margin-bottom: 16px;
               margin-top: 0;

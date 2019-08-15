@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
-import { P } from '~/components/text/paragraph'
+import { P } from '~/components/text'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 
@@ -9,7 +9,7 @@ export const meta = {
   title: 'Encryption',
   description: 'Every ZEIT Now deployment is served of a HTTPS Connection.',
   editUrl: 'pages/docs/v2/network/encryption.mdx',
-  lastEdited: '2019-08-12T19:45:54.000Z'
+  lastEdited: '2019-08-15T13:37:26.000Z'
 }
 
 Out of the box, every **Deployment** on Now is served over an HTTPS connection. The [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) certificates for these unique URLs are automatically generated free of charge.
@@ -31,7 +31,7 @@ It is not possible to disable this redirection or prevent the **Deployment** f
 
 <Note>
   {' '}
-  If the client that is issuing requests to your <P.B>Deployment</P.B> wants to establish
+  If the client that is issuing requests to your <b>Deployment</b> wants to establish
   a WebSocket connection, please ensure it is connecting using HTTPS directly, as
   the WSS protocol does not support redirections.
 </Note>
@@ -79,7 +79,7 @@ Theoretically, you could set the `max-age` parameter to a different value (it 
   </GenericLink>. It also allows submitting the domain to Google Chrome's hardcoded
   HSTS list. Making it onto that list means your site will become even faster, as
   it is always accessed over HTTPS right away, instead of the browser following the
-  redirection issued by our <P.B>Network</P.B> layer.
+  redirection issued by our <b>Network</b> layer.
 </Note>
 
 ## How Certificates Are Handled

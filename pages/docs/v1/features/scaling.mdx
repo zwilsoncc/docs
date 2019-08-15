@@ -3,7 +3,7 @@ import Now from '~/components/text/now'
 import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 import Note from '~/components/text/note'
-import { P } from '~/components/text/paragraph'
+import { P } from '~/components/text'
 
 export const meta = {
   title: 'Global Scaling',
@@ -11,7 +11,7 @@ export const meta = {
     'Scaling your deployments to be instances in multiple global locations with Now',
   date: '01 Apr 2018',
   editUrl: 'pages/docs/v1/features/scaling.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-08-15T13:37:26.000Z'
 }
 
 In this feature guide, you will learn how to globally distribute
@@ -122,8 +122,8 @@ enable it in both BRU and SFO, pass both regions to the command:
 
 <Note>
   For the best performance, you should choose the region(s){' '}
-  <P.B>in closest proximity</P.B> to your datasources and/or where your audience
-  is based.
+  <b>in closest proximity</b> to your datasources and/or where your audience is
+  based.
 </Note>
 
 ### Pre-Defining Scaling Rules

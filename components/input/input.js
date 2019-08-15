@@ -157,8 +157,8 @@ class Input extends Component {
             box-sizing: border-box;
             display: block;
             font-family: var(--font-sans);
-            font-size: 14px;
-            line-height: 27px;
+            font-size: var(--font-size-primary);
+            line-height: var(--line-height-primary);
             outline: 0;
             width: 100%;
           }

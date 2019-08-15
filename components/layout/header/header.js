@@ -213,7 +213,8 @@ class Header extends Component {
             border: 1px solid var(--accents-2);
             outline: 0;
             text-align: left;
-            font-size: 14px;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             max-width: 60vw;
             width: 278px;
             background: var(--accents-1);

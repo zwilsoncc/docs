@@ -182,7 +182,8 @@ export class MenuPopOver extends Component {
             visibility: hidden;
             user-select: none;
             border: 0;
-            font-size: 14px;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             color: #666;
             padding: 0 8px;
             transition: all 200ms ease;
@@ -209,7 +210,8 @@ export class MenuPopOver extends Component {
             color: #ff0080;
           }
           a {
-            font-size: 14px;
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
             text-decoration: none;
           }
           .tag {
