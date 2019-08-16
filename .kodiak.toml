@@ -2,7 +2,7 @@ version = 1
 
 [merge]
 require_automerge_label = false
-blacklist_labels = ["in progress"]
+blacklist_labels = ["In Progress"]
 method = "squash"
 delete_branch_on_merge = true
 block_on_reviews_requested = false
