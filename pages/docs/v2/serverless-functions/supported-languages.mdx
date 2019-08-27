@@ -10,7 +10,7 @@ export const meta = {
   title: 'Supported Languages for Serverless Functions',
   description: 'Learn how to deploy serverless functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-08-27T21:53:11.000Z'
+  lastEdited: '2019-08-27T22:06:11.000Z'
 }
 
 Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as serverless function.
@@ -235,7 +235,7 @@ The Node.js version, though defaulted to **8.10.x**, can be changed to **10.x** 
 **File Extension**: `.go`<br />
 **Default Runtime Version**: Go 1.x
 
-Go files within the `api` directory, containing a singular exported function integrated with the `net/http` Go API, will be served as a serverless function.
+Go files in the `api` directory that export a function matching the `net/http` Go API will be served as a serverless function.
 
 For example, the following would live in `api/date.go`:
 
@@ -256,10 +256,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 <Caption>An example Go function that returns the current date.</Caption>
 
-<Note>
-  Your Go function must be an exported function that implements the{' '}
-  <InlineCode>net/http</InlineCode> API.
-</Note>
+<Note>Your Go function must begin with a capital letter in order to be exported.</Note>
 
 When deployed, the example function above will be served as a serverless function, returning the latest date. See it live with the following link: <https://go-api.now-examples.now.sh/api/date>
 
