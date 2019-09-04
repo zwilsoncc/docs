@@ -65,7 +65,7 @@ class EntryIndex extends Component {
             {entry.title}
           </a>
         ) : (
-          <Link href={href} as={as}>
+          <Link href={href} as={as} prefetch>
             <a
               className={cns({ active: isEntryActive(this.props) })}
               onClick={this.handleClick}

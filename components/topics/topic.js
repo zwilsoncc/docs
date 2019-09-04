@@ -1,33 +1,31 @@
-import Link from 'next/link'
 import { H5 } from '~/components/text'
+import { LinkWithHoverPrefetch as Link } from '~/components/text/link'
 
 export default function Topic({ topic, icons, href }) {
   return (
     <div className="topic">
       <Link href={href}>
-        <a>
-          <span className="topic-icons">
-            {Array.isArray(icons) ? (
-              icons.map(icon =>
-                typeof icon === 'object' ? (
-                  <span key={icon.src} style={{ backgroundColor: icon.color }}>
-                    <img alt={`Icon for ${topic}`} src={icon.src} />
-                  </span>
-                ) : (
-                  <img alt={`Icon for ${topic}`} key={icon} src={icon} />
-                )
+        <span className="topic-icons">
+          {Array.isArray(icons) ? (
+            icons.map(icon =>
+              typeof icon === 'object' ? (
+                <span key={icon.src} style={{ backgroundColor: icon.color }}>
+                  <img alt={`Icon for ${topic}`} src={icon.src} />
+                </span>
+              ) : (
+                <img alt={`Icon for ${topic}`} key={icon} src={icon} />
               )
-            ) : typeof icons === 'object' ? (
-              <span style={{ backgroundColor: icons.color }}>
-                <img alt={`Icon for ${topic}`} src={icons.src} />
-              </span>
-            ) : (
-              <img alt={`Icon for ${topic}`} src={icons} />
-            )}
-          </span>
-          <H5>{topic}</H5>
-          <span className="note">Read the guide</span>
-        </a>
+            )
+          ) : typeof icons === 'object' ? (
+            <span style={{ backgroundColor: icons.color }}>
+              <img alt={`Icon for ${topic}`} src={icons.src} />
+            </span>
+          ) : (
+            <img alt={`Icon for ${topic}`} src={icons} />
+          )}
+        </span>
+        <H5>{topic}</H5>
+        <span className="note">Read the guide</span>
       </Link>
       <style jsx>{`
         .topic :global(a) {

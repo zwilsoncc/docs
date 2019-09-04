@@ -83,7 +83,7 @@ class SectionIndex extends Component {
                 {section.title}
               </a>
             ) : (
-              <Link href={href} as={as}>
+              <Link href={href} as={as} prefetch>
                 <a
                   className={cns('title', { active })}
                   onClick={this.handleClick}

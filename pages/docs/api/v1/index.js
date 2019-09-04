@@ -154,21 +154,21 @@ class APIPage extends Component {
                           !router.pathname.startsWith('/docs/api')
                         }
                       >
-                        <Link href="/docs">
+                        <Link prefetch href="/docs">
                           <a onClick={this.handleIndexClick}>Docs</a>
                         </Link>
                       </ToggleItem>
                       <ToggleItem
                         active={router.pathname.startsWith('/docs/api')}
                       >
-                        <Link href="/docs/api">
+                        <Link prefetch href="/docs/api">
                           <a onClick={this.handleIndexClick}>API Reference</a>
                         </Link>
                       </ToggleItem>
                       <ToggleItem
                         active={router.pathname.startsWith('/examples')}
                       >
-                        <Link href="/examples">
+                        <Link prefetch href="/examples">
                           <a onClick={this.handleIndexClick}>Examples</a>
                         </Link>
                       </ToggleItem>

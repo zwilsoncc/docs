@@ -1,4 +1,6 @@
-import Link from 'next/link'
+import { Component } from 'react'
+import { withRouter } from 'next/router'
+import NativeLink from 'next/link'
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 import CircledQuestion from '~/components/icons/circled-question'
@@ -31,9 +33,9 @@ export const InternalLink = ({
   hover
 }) => (
   <span className={cn({ 'no-underline': !underlineOnHover })}>
-    <Link href={href} as={as}>
-      <a onClick={onClick}>{children}</a>
-    </Link>
+    <LinkWithHoverPrefetch href={href} as={as} onClick={onClick}>
+      {children}
+    </LinkWithHoverPrefetch>
     <style jsx>{`
       span :global(a) {
         text-decoration: none;
@@ -444,6 +446,22 @@ IconExternalLink.contextTypes = {
   disabled: PropTypes.bool
 }
 
+class HoverPrefetchLink extends Component {
+  render() {
+    const { children, router, onClick, ...rest } = this.props
+    return (
+      <NativeLink {...rest}>
+        <a
+          onMouseEnter={() => router.prefetch(this.props.href)}
+          onClick={onClick}
+        >
+          {children}
+        </a>
+      </NativeLink>
+    )
+  }
+}
+
 export const HelpLink = ({ children, href, hasIcon, ...props }) => (
   <a href={href} {...props} className={hasIcon ? 'icon' : ''}>
     <span>{children}</span>
@@ -478,3 +496,5 @@ export const HelpLink = ({ children, href, hasIcon, ...props }) => (
     `}</style>
   </a>
 )
+
+export const LinkWithHoverPrefetch = withRouter(HoverPrefetchLink)

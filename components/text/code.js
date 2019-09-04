@@ -57,8 +57,6 @@ Code.contextTypes = {
   darkBg: PropTypes.bool
 }
 
-const literal = '`'
-
 export const InlineCode = ({ children, noWrap, color }) => (
   <code className={noWrap && 'no-wrap'}>
     {children}
@@ -78,11 +76,11 @@ export const InlineCode = ({ children, noWrap, color }) => (
         }
 
         code::before {
-          content: '${literal}';
+          content: '\`';
         }
 
         code::after {
-          content: '${literal}';
+          content: '\`';
         }
       `}
     </style>
