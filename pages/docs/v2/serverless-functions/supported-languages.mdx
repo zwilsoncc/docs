@@ -10,7 +10,7 @@ export const meta = {
   title: 'Supported Languages for Serverless Functions',
   description: 'Learn how to deploy serverless functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-08-28T11:08:27.000Z'
+  lastEdited: '2019-09-06T06:39:01.000Z'
 }
 
 Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as serverless function.
@@ -283,6 +283,27 @@ With GitHub, you will need to [create a personal token](https://github.com/setti
 <Caption>
   An example build environment variable using a GitHub personal token for
   Private Go Packages.
+</Caption>
+
+### Go Build Configuration
+
+You can provide custom build flags by using the `GO_BUILD_FLAGS` [build environment variable](/docs/v2/build-step/#using-environment-variables-and-secrets).
+
+```json
+{
+  "build": {
+    "env": {
+      "GO_BUILD_FLAGS": "-ldflags '-s -w'"
+    }
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>-ldflags</InlineCode> flag with{' '}
+  <InlineCode>-s -w</InlineCode>. This will remove debug information from the
+  output file. This is the default value when no{' '}
+  <InlineCode>GO_BUILD_FLAGS</InlineCode> are provided.
 </Caption>
 
 ---
