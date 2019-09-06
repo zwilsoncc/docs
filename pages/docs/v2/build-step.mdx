@@ -18,7 +18,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2019-08-30T15:53:46.000Z'
+  lastEdited: '2019-09-05T22:10:21.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -88,6 +88,11 @@ Adding environment variables requires two steps, defining the environment variab
 To define an environment variable, you should use **Now Secrets**. By using **Now Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
 
 Adding **Now Secrets** can be done with [Now CLI](/download), providing three options to work with them.
+
+<Note>
+  When adding Now Secrets with Now CLI, the secret name is automatically
+  lowercased before being stored.
+</Note>
 
 To **define a Now Secret**, use the following command:
 
