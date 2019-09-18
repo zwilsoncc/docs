@@ -36,8 +36,8 @@ By default we return a `Cache-Control` header containing `public, max-age=0, mus
 In order for our CDN to cache the response of a Lambda, you need to include the response header `Cache-Control` with **any** of the following directives:
 
 - `s-maxage=N`
-- `maxage=N, public`
-- `maxage=N, immutable`
+- `max-age=N, public`
+- `max-age=N, immutable`
 
 Where `N` is the number of seconds the response should be cached. The response must also be cacheable as detailed above.
 
