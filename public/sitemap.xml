@@ -626,6 +626,11 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
+    <loc>https://zeit.co/guides/deploying-nextjs-nodejs-and-faunadb-with-zeit-now/</loc>
+    <lastmod>2019-09-05T22:57:11.000Z</lastmod>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
     <loc>https://zeit.co/guides/deploying-nextjs-with-now/</loc>
     <lastmod>2019-09-12T11:06:22.000Z</lastmod>
     <changefreq>hourly</changefreq>
@@ -643,11 +648,6 @@
   <url>
     <loc>https://zeit.co/guides/deploying-pusher-channels-with-zeit-now/</loc>
     <lastmod>2019-08-30T09:17:58.000Z</lastmod>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://zeit.co/guides/deploying-react-forms-using-formspree-with-zeit-now/</loc>
-    <lastmod>2019-09-12T09:58:56.000Z</lastmod>
     <changefreq>hourly</changefreq>
   </url>
   <url>
