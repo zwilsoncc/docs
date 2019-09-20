@@ -10,7 +10,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy serverless functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-08-22T10:47:21.000Z'
+  lastEdited: '2019-09-20T15:47:43.000Z'
 }
 
 ZEIT Now deployments support various backend languages that you can deploy as Serverless functions.
@@ -18,6 +18,16 @@ ZEIT Now deployments support various backend languages that you can deploy as Se
 ## Deploying Serverless Functions
 
 To deploy serverless functions without any additional configuration, you can put files with extensions matching [supported languages](/docs/v2/serverless-functions/supported-languages) and exported functions in the `api` directory at your project's root.
+
+<Note>
+  If you are using Next.js, use the <InlineCode>/pages/api</InlineCode>{' '}
+  directory instead.
+  <br />
+  <GenericLink href="https://nextjs.org/docs#api-routes">
+    Read more about API functionality with Next.js
+  </GenericLink>
+  .
+</Note>
 
 Then, using [Now CLI](/download), run the following command to deploy from your terminal:
 
