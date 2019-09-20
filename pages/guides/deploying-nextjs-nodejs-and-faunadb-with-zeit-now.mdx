@@ -19,7 +19,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20FaunaDB-Powered%20Next.js%20app**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=70px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fres-3.cloudinary.com%2Fcrunchbase-production%2Fimage%2Fupload%2Fc_lpad%2Ch_256%2Cw_256%2Cf_auto%2Cq_auto%3Aeco%2Fywnzi0pt0uw9klatmadc',
   editUrl: 'pages/guides/deploying-nextjs-nodejs-and-faunadb-with-zeit-now.mdx',
-  lastEdited: '2019-09-19T16:46:34.000Z'
+  lastEdited: '2019-09-20T15:44:49.000Z'
 }
 
 [FaunaDB](https://fauna.com/) is a serverless cloud database that gives you low-latency access to your app data around the world.
@@ -88,6 +88,13 @@ On the **Keys** page, you will receive a unique hash called a **Secret**. The **
   This is the only time you will see this hash, so record it somewhere private.
   However, if the hash is lost, a new one can be created.
 </Note>
+
+Create a [Now Secret](/docs/v2/serverless-functions/env-and-secrets/) to store the access key received, this will be used later when accessing the database.
+
+<Snippet dark text="now secrets add FAUNADB_SECRET_KEY [your-access-key]" />
+<Caption>
+  Adding the access key as a <strong>Now Secret</strong>.
+</Caption>
 
 ## Step 3: Creating Your Next.js App
 
@@ -244,6 +251,21 @@ module.exports = async (req, res) => {
 <Caption>
   An example <InlineCode>/pages/api/index.js</InlineCode> file that retrieves
   information from the database.
+</Caption>
+
+Create a `now.json` at the root of the project directory, this is used to make the [Now Secret](https://zeit.co/docs/v2/serverless-functions/env-and-secrets/) defined in [step 2](#step-2:-create-an-access-key) available to the Serverless Function.
+
+```json
+{
+  "env": {
+    "FAUNADB_SECRET_KEY": "@faunadb_secret_key"
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file that makes a{' '}
+  <strong>Now Secret</strong> available to the application.
 </Caption>
 
 ## Step 5: Deploying
