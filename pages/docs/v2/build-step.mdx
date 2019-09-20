@@ -18,7 +18,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2019-09-12T11:06:22.000Z'
+  lastEdited: '2019-09-19T12:56:18.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -184,6 +184,26 @@ CVS
   You do not need to add any of the above files and folders to your{' '}
   <InlineCode>.nowignore</InlineCode> file.
 </Note>
+
+## Technical Details
+
+### Maximum Build Duration
+
+A build can last for a maximum of 30 minutes. If the build exceeds this time, the deployment will error.
+
+### Caching
+
+Each build step will cache files used to build the project, or files used in subsequent deployments, such as `node_modules`, `yarn.lock`, `package-lock.json`, which are cached by default.
+
+The caching mechanism for builds ensures that the next deployment will happen quicker by skipping downloading files that have already been used in a previous deployment.
+
+The maximum stored cache for builds is 3Gb.
+
+If a deployment fails, a cache may still be established for successfully built files, but failed builds will not be cached.
+
+#### Prevent Cache Usage
+
+If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for Now CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
 
 ## Related
 
