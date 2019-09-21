@@ -8,7 +8,7 @@ import Request from '~/components/api/request'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/projects.mdx',
-  lastEdited: '2019-08-28T18:26:43.000Z'
+  lastEdited: '2019-09-20T21:42:24.000Z'
 }
 
 ## Projects
@@ -88,7 +88,7 @@ Example response:
 
 ### Get All Projects
 
-<Endpoint method="GET" url="/v1/projects/list" />
+<Endpoint method="GET" url="/v2/projects/" />
 
 Get a list of all the projects you currently have under your account.
 
@@ -105,33 +105,33 @@ Get a list of all the projects you currently have under your account.
 | **from**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | No       | The `updatedAt` point where the list should start. |
 | **search** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Search projects by the name field.                 |
 
-<Example>	
+<Example>
   <span>Example request:</span>
 
-<Request url="https://api.zeit.co/v1/projects/list?limit=5" auth />
+<Request url="https://api.zeit.co/v2/projects/?limit=2" auth />
 
 Example response:
 
-<Code lang="json">{`	
-[	
-  {	
-    "id":"QmQKrt94KYKF3sDysJq19N8gvhmE8Wicbt2GirePy1dH8U",	
-    "name":"a-project-name",	
+<Code lang="json">{`
+[
+  {
+    "id":"QmQKrt94KYKF3sDysJq19N8gvhmE8Wicbt2GirePy1dH8U",
+    "name":"a-project-name",
     "alias": [],
-    "accountId":"K4amb7K9dAt5R2vBJWF32bmY",	
-    "createdAt":1555413045188,	
-    "updatedAt":1555413045188	
-  },	
-  {	
-    "id":"QmRhxc9HAmRMcLvWhCAf2ALLctxZ4s4fwsM1D5kNM8PJuL",	
-    "name":"another-project-name",	
+    "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
+    "createdAt":1555413045188,
+    "updatedAt":1555413045188
+  },
+  {
+    "id":"QmRhxc9HAmRMcLvWhCAf2ALLctxZ4s4fwsM1D5kNM8PJuL",
+    "name":"another-project-name",
     "alias": [],
-    "accountId":"K4amb7K9dAt5R2vBJWF32bmY",	
-    "createdAt":1555072968396,	
-    "updatedAt":1555345633993	
-  }	
-]	
-`}</Code>	
+    "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
+    "createdAt":1555072968396,
+    "updatedAt":1555345633993
+  }
+]
+`}</Code>
 </Example>
 
 ### Get a Single Project
