@@ -1,0 +1,434 @@
+import Snippet from '~/components/snippet'
+import Caption from '~/components/text/caption'
+import { InlineCode, Code } from '~/components/text/code'
+import Example from '~/components/example'
+import { GenericLink } from '~/components/text/link'
+import Note from '~/components/text/note'
+import Tag from '~/components/text/tag'
+
+export const meta = {
+  editUrl: 'pages/docs/now-cli/v2/now-cli-mdx/commands/commands.mdx',
+  lastEdited: '2019-09-06T19:54:35.000Z'
+}
+
+# Official Builders
+
+Builders are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](https://zeit.co/docs/v2/advanced/concepts/lambdas/), which are served by our [CDN at the edge](https://zeit.co/docs/v2/advanced/concepts/cdn-and-global-distribution/).
+
+<Note warning>
+  In most cases, advanced Builders usage with configuration is not necessary.
+  See{' '}
+  <GenericLink href="/docs/v2/introduction">
+    the ZEIT Now Introduction documentation
+  </GenericLink>{' '}
+  or the{' '}
+  <GenericLink href="/docs/v2/serverless-functions/introduction">
+    Serverless Functions documentation
+  </GenericLink>{' '}
+  for more information.
+</Note>
+
+Listed below are all official Builders from ZEIT.
+
+| Builder                         | Description                                                                                                                                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Static](#static)               | The Static Builder takes any file as an entrypoint and moves it to the deployment as a static file.                                                                               |
+| [Static Builds](#static-builds) | The Static Builds Builder takes a `package.json` or `build.sh` file as an entrypoint and executes a command within them to produce static files in a `public` directory to serve. |
+| [Node.js](#node.js)             | The Node.js Builder takes an entrypoint of a Node.js function, builds its dependencies (if any) and bundles them into a Serverless Function.                                      |
+| [Next.js](#next.js)             | The Next.js Builder takes a Next.js application, defined by a `next.config.js` entrypoint and pages directory, and converts those pages into a series of Serverless Functions.    |
+| [Go](#go)                       | The Go Builder takes in a Go program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                                |
+| [Python](#python)               | The Python Builder takes in a Python program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                        |
+| [Ruby](#ruby)                   | The Ruby Builder takes in a Ruby program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                            |
+
+## Static
+
+<Tag>Status: Stable</Tag>
+
+The Static Builder is used to serve files statically in a project by default when there is no [static build](#static-builds) defined, or if a `public` directory exists, that directory is served instead.
+
+<Note>
+  Files inside an <InlineCode>/api</InlineCode> directory are not served
+  statically.
+</Note>
+
+To configure the behavior of this Builder to affect specific files explicitly, see the [Advanced Builders Usage section](#advanced-builders-usage).
+
+---
+
+## Static Builds
+
+<Tag>Status: Stable</Tag>
+
+By default, the Static Builds Builder is used when Now detects a `build` script inside a `package.json` file at the root of a project. This script is executed when deploying, and if the output is built to a `public` directory, that directory is served.
+
+For example, to build a Gatsby project, you would use the following `scripts` object in a `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "gatsby build"
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>package.json</InlineCode> file with a{' '}
+  <InlineCode>build</InlineCode> script to build Gatsby.
+</Caption>
+
+To configure the behavior of this Builder to affect specific files explicitly, see the [Advanced Static Builds Configuration section](#advanced-static-builds-configuration).
+
+### Static Build Project Node.js Version
+
+The default Node.js version used is **8.10.x** but can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+
+### Static Build npm Dependencies
+
+For dependencies listed in the `package.json` file, the following behavior is used:
+
+- If a `package-lock.json` file is present in the project, `npm install` is used.
+- Otherwise, `yarn` is used, by default.
+
+---
+
+## Node.js
+
+<Tag>Status: Stable</Tag>
+
+The Node.js Builder, by default, builds and serves Serverless Functions within the `/api` directory of a project, providing the files have a file extension of either `.js` or `.ts`.
+
+A Node.js Serverless Function must export a default function handler, for example:
+
+```js
+module.exports = (req, res) => {
+  const { name = 'World' } = req.query
+  res.send(`Hello ${name}!`)
+}
+```
+
+<Caption>
+  An example serverless Node.js function using{' '}
+  <GenericLink href="#node.js-request-and-response-objects">
+    the Request and Response objects
+  </GenericLink>
+  .
+</Caption>
+
+<Note>
+  The Node.js Builder also supports{' '}
+  <GenericLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">
+    {' '}
+    asynchronous functions
+  </GenericLink>
+  .
+</Note>
+
+If you need more advanced behavior, such as a custom build step or private npm modules, see the [Advanced Node.js Usage section](#advanced-node.js-usage).
+
+### Node.js Version
+
+The default Node.js version used is **8.10.x** but can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+
+### Node.js Dependencies
+
+**For dependencies** listed in a `package.json` file at the root of a project, the following behavior is used:
+
+- If a `package-lock.json` file is present in the project, `npm install` is used.
+- Otherwise, `yarn` is used, by default.
+
+### Using TypeScript with the Node.js Builder
+
+The Node.js Builder supports files ending with `.ts` inside of the `/api` directory as TypeScript files to compile and serve when deploying.
+
+An example TypeScript file that exports a default Node.js function and takes in [the standard Node.js Request and Response](#request-and-response-objects) objects is as follows:
+
+```js
+import { NowRequest, NowResponse } from '@now/node'
+
+export default function(req: NowRequest, res: NowResponse) {
+  const { name = 'World' } = req.query
+  res.send(`Hello ${name}!`)
+}
+```
+
+<Caption>
+  An example serverless Node.js function written in TypeScript, using types from
+  the <InlineCode>@now/node</InlineCode> module for the helper methods.
+</Caption>
+
+The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#node.js-request-and-response-objects), including the [helper methods](#node.js-helpers) with ZEIT Now. These types can be installed from npm with the following command:
+
+<Snippet dark text="npm install @now/node --save-dev" />
+<Caption>Installing <InlineCode>@now/node</InlineCode> for types when using Node.js on ZEIT Now.</Caption>
+
+You can also use a `tsconfig.json` file at the root of your project to configure the TypeScript compiler. Most options are supported aside from ["Path Mappings"](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and ["Project References"](https://www.typescriptlang.org/docs/handbook/project-references.html).
+
+### Node.js Request and Response Objects
+
+Each request to a Node.js Serverless Function gives access to Request and Response objects. These objects are the standard HTTP [Request](https://nodejs.org/api/http.html#http_event_request) and [Response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects from Node.js.
+
+#### Node.js Helpers
+
+ZEIT Now additionally provides helper methods inside of the Request and Response objects passed to Node.js Serverless Functions. These methods are:
+
+| method             | description                                                                                                                                                                                    | object   |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `req.query`        | An object containing the request's [query string](https://en.wikipedia.org/wiki/Query_string), or `{}` if the request does not have a query string.                                            | Request  |
+| `req.cookies`      | An object containing the cookies sent by the request, or `{}` if the request contains no cookies.                                                                                              | Request  |
+| `req.body`         | An object containing the body sent by the request, or `null` if no body is sent.                                                                                                               | Request  |
+| `res.status(code)` | A function to set the status code sent with the response where `code` must be a valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). Returns `res` for chaining. | Response |
+| `res.send(body)`   | A function to set the content of the response where `body` can be a `string`, an `object` or a `Buffer`.                                                                                       | Response |
+| `res.json(obj)`    | A function to send a JSON response where `obj` is the JSON object to send.                                                                                                                     | Response |
+
+The following Node.js Serverless Function example showcases the use of `req.query`, `req.cookies` and `req.body` helpers:
+
+```js
+module.exports = (req, res) => {
+  let who = 'anonymous'
+
+  if (req.body && req.body.who) {
+    who = req.body.who
+  } else if (req.query.who) {
+    who = req.query.who
+  } else if (req.cookies.who) {
+    who = req.cookies.who
+  }
+
+  res.status(200).send(`Hello ${who}!`)
+}
+```
+
+<Caption>
+  Example Node.js Serverless Function using the{' '}
+  <InlineCode>req.query</InlineCode>, <InlineCode>req.cookies</InlineCode>, and{' '}
+  <InlineCode>req.body</InlineCode> helpers. It returns greetings for the user
+  specified using <InlineCode>req.send()</InlineCode>.
+</Caption>
+
+<Note>
+  If needed, you can opt-out of Now providing <InlineCode>helpers</InlineCode>{' '}
+  using{' '}
+  <GenericLink href="#disabling-helpers-for-node.js">
+    advanced configuration
+  </GenericLink>
+  .
+</Note>
+
+#### `req.body`
+
+We populate the `req.body` property with a parsed version of the content sent with the request when possible.
+
+We follow a set of rules on the `Content-type` header sent by the request to do so:
+
+| `Content-Type` header               | Value of `req.body`                                                                     |
+| ----------------------------------- | --------------------------------------------------------------------------------------- |
+| No header                           | `undefined`                                                                             |
+| `application/json`                  | An object representing the parsed JSON sent by the request.                             |
+| `application/x-www-form-urlencoded` | An object representing the parsed data sent by with the request.                        |
+| `text/plain`                        | A string containing the text sent by the request.                                       |
+| `application/octet-stream`          | A [Buffer](https://nodejs.org/api/buffer.html) containing the data sent by the request. |
+
+With the `req.body` helper, you can build applications without extra dependencies or having to [parse the content of the request manually](https://nodejs.org/ja/docs/guides/anatomy-of-an-http-transaction/#request-body).
+
+---
+
+## Next.js
+
+<Tag>Status: Stable</Tag>
+
+The [Next.js](https://nextjs.org) Builder is used to deploy production-ready Next.js applications when a `pages` directory exists (along with the `next` dependency existing in a `package.json` file).
+
+The Next.js Builder converts pages into a series of individual Serverless Functions or static files, depending on their implementation, and caches `node_modules` and compiler artifacts by default for faster deployment.
+
+To build your Next.js projects with each deployment, provide the following `build` script in your `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "next build"
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>package.json</InlineCode> file with a{' '}
+  <InlineCode>build</InlineCode> script to build Next.js when deploying.
+</Caption>
+
+<Note>
+  This Builder separates your pages into individual Serverless Functions, so you
+  cannot use a custom server. You can still achieve most of the logic that you
+  have in a custom server by using{' '}
+  <GenericLink href="https://nextjs.org/docs/#fetching-data-and-component-lifecycle">
+    <InlineCode>getInitialProps()</InlineCode>
+  </GenericLink>
+  . For more on advanced routing, see the <GenericLink href="/guides/custom-next-js-server-to-routes">
+    Custom Routes Guide for Next.js on ZEIT Now
+  </GenericLink>.
+</Note>
+
+For more advanced usage of Next.js on ZEIT Now, such as environment variables or private npm modules, see [the Advanced Next.js Usage section](#advanced-next.js-usage).
+
+### Next.js Project Node.js Version
+
+The default Node.js version used is **8.10.x** but can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+
+### Next.js Project Dependencies
+
+**For dependencies** listed in a `package.json` file at the root of a project, the following behavior is used:
+
+- If a `package-lock.json` file is present in the project, `npm install` is used.
+- Otherwise, `yarn` is used, by default.
+
+---
+
+## Go
+
+<Tag>Status: Alpha</Tag>
+
+The Go Builder is used by Now to compile Go Serverless Functions that expose a single HTTP handler, from a `.go` file within an `/api` directory at your project's root.
+
+For example, define an `index.go` file inside an `/api` directory as follows:
+
+```go
+package handler
+
+import (
+  "fmt"
+  "net/http"
+)
+
+func Handler(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintf(w, "<h1>Hello from Go on Now!</h1>")
+}
+```
+
+<Caption>
+  An example <InlineCode>index.go</InlineCode> file inside an{' '}
+  <InlineCode>/api</InlineCode> directory.
+</Caption>
+
+For advanced usage, such as using private packages with your Go projects, see the [Advanced Go Usage section](#advanced-go-usage).
+
+<Note>
+  The exported function needs to include the{' '}
+  <GenericLink href="https://golang.org/pkg/net/http/#HandlerFunc">
+    <InlineCode>HandlerFunc</InlineCode>
+  </GenericLink>{' '}
+  signature type, but can use any valid Go exported function declaration as the
+  function name.
+</Note>
+
+### Go Version
+
+Go version 1.x is used for Go projects deployed with ZEIT Now.
+
+### Go Dependencies
+
+The Go Builder will automatically detect a `go.mod` file to install dependencies at the root of a project.
+
+---
+
+## Python
+
+<Tag>Status: Beta</Tag>
+
+The Python Builder is used by Now to compile Python Serverless Functions, that defines a singlular HTTP `handler` variable, inheritting from the `BaseHTTPRequestHandler` class, from a `.py` file within an `/api` directory at your project's root.
+
+For example, define an `index.py` file inside a `/api` directory as follows:
+
+```python
+from http.server import BaseHTTPRequestHandler
+from cowpy import cow
+
+class handler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type','text/plain')
+        self.end_headers()
+        message = cow.Cowacter().milk('Hello from Python from a ZEIT Now Serverless Function!')
+        self.wfile.write(message.encode())
+        return
+```
+
+<Caption>
+  An example <InlineCode>index.py</InlineCode> file inside an{' '}
+  <InlineCode>/api</InlineCode> directory.
+</Caption>
+
+Inside `requirements.txt` define:
+
+```
+cowpy==1.0.3
+```
+
+<Caption>
+  An example <InlineCode>requirements.txt</InlineCode> file that defines{' '}
+  <InlineCode>cowpy</InlineCode> as a dependency.
+</Caption>
+
+For advanced usage, such as using WSGI or ASGI for your Python projects, see the [Advanced Python Usage section](#advanced-python-usage).
+
+### Python Version
+
+Python projects deployed with ZEIT Now use Python version 3.6.
+
+### Python Dependencies
+
+You can install dependencies for your Python projects by defining them in a `requirements.txt` or a `Pipfile.lock` file.
+
+---
+
+## Ruby
+
+<Tag>Status: Alpha</Tag>
+
+The Ruby Builder is used by Now to compile Ruby Serverless Functions that define a singlular HTTP handler from `.rb` files within an `/api` directory at your project's root.
+
+Ruby files must have one of the following variables defined:
+
+- `Handler` proc that matches the `do |req, res|` signature.
+- `Handler` class that inherits from the `WEBrick::HTTPServlet::AbstractServlet` class.
+
+For example, define a `index.rb` file inside a `/api` directory as follows:
+
+```ruby
+require 'cowsay'
+
+Handler = Proc.new do |req, res|
+    res.status = 200
+    res['Content-Type'] = 'text/plain'
+    res.body = Cowsay.say('hello world', 'cow')
+end
+```
+
+<Caption>
+  An example <InlineCode>index.rb</InlineCode> file inside an{' '}
+  <InlineCode>/api</InlineCode> directory.
+</Caption>
+
+Inside a `Gemfile` define:
+
+```ruby
+source "https://rubygems.org"
+
+gem "cowsay", "~> 0.3.0"
+```
+
+<Caption>
+  An example <InlineCode>Gemfile</InlineCode> file that defines{' '}
+  <InlineCode>cowpy</InlineCode> as a dependency.
+</Caption>
+
+For advanced usage, such as using a Rack Interface for your Ruby projects, see the [Advanced Ruby Usage section](#advanced-ruby-usage).
+
+### Ruby Version
+
+Ruby 2.5.5 is used.
+
+### Ruby Dependencies
+
+This Builder supports installing dependencies defined in the `Gemfile`. Alternatively, dependencies can be vendored with the `bundler install --deployment` command (useful for gems that require native extensions). In this case, dependencies are not built on deployment.

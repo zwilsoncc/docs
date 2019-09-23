@@ -98,12 +98,12 @@
     {
       "src": "/docs/v2/deployments/(?:builders|official-builders)/(.*)/?",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/builders" }
+      "headers": { "Location": "/docs/builders" }
     },
     {
-      "src": "/docs/v2/advanced/builders/.*",
+      "src": "/docs/v2/advanced/builders.*",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/builders" }
+      "headers": { "Location": "/docs/builders" }
     },
     {
       "src": "/docs/v2/deployments/(routes|configuration|concepts)(.*)",
@@ -137,7 +137,7 @@
     {
       "src": "/docs/v2/deployments/builds/?",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/builders" }
+      "headers": { "Location": "/docs/builders" }
     },
     {
       "src": "/docs/v2/development/environment-variables(.*)",

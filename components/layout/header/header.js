@@ -306,6 +306,10 @@ class Header extends Component {
                           {
                             title: 'Now CLI',
                             url: '/docs/now-cli'
+                          },
+                          {
+                            title: 'Builders',
+                            url: '/docs/builders'
                           }
                         ]}
                       />

@@ -24,7 +24,11 @@ class DocsIndex extends Component {
         <ul>{this.props.structure.map(this.renderCategory)}</ul>
         <style jsx>{`
           .wrapper {
-            padding: ${this.props.examples ? '16px' : '48px'} 0;
+            padding: 12px 0;
+          }
+
+          .wrapper:not(:only-child) {
+            padding: 48px 0;
           }
 
           ul {

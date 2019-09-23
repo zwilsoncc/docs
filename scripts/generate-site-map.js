@@ -90,7 +90,7 @@ function generateSiteMap() {
       const pagePath = filePath.replace(/\\/g, '/')
 
       // Only v2 pages are included in sitemap.xml
-      if (isV2Page(pagePath)) {
+      if (isV2Page(pagePath) && !pagePath.startsWith('.')) {
         const { node } = xmlUrlNode(pagePath)
         carry.push(node)
       }
