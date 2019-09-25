@@ -126,4 +126,4 @@ function generateSiteMap() {
   )
 }
 
-module.exports = generateSiteMap
+generateSiteMap()

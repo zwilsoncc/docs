@@ -34,7 +34,7 @@ module.exports = withMDX({
 
   webpack(config, { isServer }) {
     if (isServer) {
-      require('./scripts/generate-site-map')()
+      require('./scripts/generate-site-map')
     }
     return config
   }
