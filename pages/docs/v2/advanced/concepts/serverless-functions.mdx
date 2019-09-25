@@ -27,9 +27,11 @@ If you have these files in your deployment's directory:
 - `package.json`
 - `static/logo.svg`
 - `pages/index.js`
-- `api/date.js`
+- `pages/api/date.js`
 
 With `pages/index.js` being a [Next.js](https://nextjs.org) page without any need for server-side rendering, it will be statically exported automatically.
+
+Next.js also provides support for Node.js API's within the `pages/api` directory, therefore allowing `pages/api/data.js` to be exported as a Serverless Function.
 
 In this case, we will want our Next.js page and `static/logo.svg` to be served statically from our [CDN](/docs/v2/advanced/concepts/cdn-and-global-distribution).
 
@@ -38,7 +40,7 @@ In this case, we will want our Next.js page and `static/logo.svg` to be served s
   Functions (per-page).
 </Note>
 
-The `api/date.js` API endpoint (using Node.js) will be invoked dynamically as it is requested.
+The `pages/api/date.js` API endpoint (using Node.js) will be invoked dynamically as it is requested.
 
 The API file needs only to export a **function**:
 
@@ -49,7 +51,7 @@ module.exports = (req, res) => {
 ```
 
 <Caption>
-  An example <InlineCode>/api/date.js</InlineCode> Serverless Function.
+  An example <InlineCode>pages/api/date.js</InlineCode> Serverless Function.
 </Caption>
 
 When you deploy an application using a similar structure, with static files and dynamic functions, the **build processes happens in parallel** and all yield independent outputs which the deployment then serves.
@@ -83,7 +85,7 @@ Serverless Functions have a lot of benefits over booting up and managing contain
 
 One of the main benefits is that the developer only needs to reason about one concurrent computation happening in the context of their code, despite many of them being able to run in parallel.
 
-In the example above, `api/date.js` handles an incoming request, runs some computation, and responds. If another request comes to the same path, the system will automatically spawn a new isolated function, thus scaling automatically.
+In the example above, `pages/api/date.js` handles an incoming request, runs some computation, and responds. If another request comes to the same path, the system will automatically spawn a new isolated function, thus scaling automatically.
 
 In contrast, processes and containers tend to expose **an entire server** as their entrypoint. That server would then define code for handling **many types of requests**.
 
