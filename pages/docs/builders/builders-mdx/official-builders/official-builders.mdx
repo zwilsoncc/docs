@@ -9,7 +9,7 @@ import Tag from '~/components/text/tag'
 export const meta = {
   editUrl:
     'pages/docs/builders/builders-mdx/official-builders/official-builders.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2019-09-25T23:16:10.000Z'
 }
 
 # Official Builders
@@ -31,28 +31,28 @@ Builders are modules that transform your source code into compiled outputs, bein
 
 Listed below are all official Builders from ZEIT.
 
-| Builder                         | Description                                                                                                                                                                       |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Static](#static)               | The Static Builder takes any file as an entrypoint and moves it to the deployment as a static file.                                                                               |
-| [Static Builds](#static-builds) | The Static Builds Builder takes a `package.json` or `build.sh` file as an entrypoint and executes a command within them to produce static files in a `public` directory to serve. |
-| [Node.js](#node.js)             | The Node.js Builder takes an entrypoint of a Node.js function, builds its dependencies (if any) and bundles them into a Serverless Function.                                      |
-| [Next.js](#next.js)             | The Next.js Builder takes a Next.js application, defined by a `next.config.js` entrypoint and pages directory, and converts those pages into a series of Serverless Functions.    |
-| [Go](#go)                       | The Go Builder takes in a Go program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                                |
-| [Python](#python)               | The Python Builder takes in a Python program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                        |
-| [Ruby](#ruby)                   | The Ruby Builder takes in a Ruby program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                            |
+| Builder                                           | Description                                                                                                                                                                       |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Static](#official-builders/static)               | The Static Builder takes any file as an entrypoint and moves it to the deployment as a static file.                                                                               |
+| [Static Builds](#official-builders/static-builds) | The Static Builds Builder takes a `package.json` or `build.sh` file as an entrypoint and executes a command within them to produce static files in a `public` directory to serve. |
+| [Node.js](#official-builders/node-js)             | The Node.js Builder takes an entrypoint of a Node.js function, builds its dependencies (if any) and bundles them into a Serverless Function.                                      |
+| [Next.js](#official-builders/next-js)             | The Next.js Builder takes a Next.js application, defined by a `next.config.js` entrypoint and pages directory, and converts those pages into a series of Serverless Functions.    |
+| [Go](#official-builders/go)                       | The Go Builder takes in a Go program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                                |
+| [Python](#official-builders/python)               | The Python Builder takes in a Python program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                        |
+| [Ruby](#official-builders/ruby)                   | The Ruby Builder takes in a Ruby program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                            |
 
 ## Static
 
 <Tag>Status: Stable</Tag>
 
-The Static Builder is used to serve files statically in a project by default when there is no [static build](#static-builds) defined, or if a `public` directory exists, that directory is served instead.
+The Static Builder is used to serve files statically in a project by default when there is no [static build](#official-builders/static-builds) defined, or if a `public` directory exists, that directory is served instead.
 
 <Note>
   Files inside an <InlineCode>/api</InlineCode> directory are not served
   statically.
 </Note>
 
-To configure the behavior of this Builder to affect specific files explicitly, see the [Advanced Builders Usage section](#advanced-builders-usage).
+To configure the behavior of this Builder to affect specific files explicitly, see the [Advanced Builders Usage section](#advanced-usage).
 
 ---
 
@@ -78,7 +78,7 @@ For example, to build a Gatsby project, you would use the following `scripts` ob
   <InlineCode>build</InlineCode> script to build Gatsby.
 </Caption>
 
-To configure the behavior of this Builder to affect specific files explicitly, see the [Advanced Static Builds Configuration section](#advanced-static-builds-configuration).
+To configure the behavior of this Builder to affect specific files explicitly, see the [Advanced Static Builds Configuration section](#advanced-usage/advanced-static-builds-configuration).
 
 ### Static Build Project Node.js Version
 
@@ -125,7 +125,7 @@ module.exports = (req, res) => {
   .
 </Note>
 
-If you need more advanced behavior, such as a custom build step or private npm modules, see the [Advanced Node.js Usage section](#advanced-node.js-usage).
+If you need more advanced behavior, such as a custom build step or private npm modules, see the [Advanced Node.js Usage section](#advanced-usage/advanced-node.js-usage).
 
 ### Node.js Version
 
@@ -142,7 +142,7 @@ The default Node.js version used is **8.10.x** but can be changed to **10.x** by
 
 The Node.js Builder supports files ending with `.ts` inside of the `/api` directory as TypeScript files to compile and serve when deploying.
 
-An example TypeScript file that exports a default Node.js function and takes in [the standard Node.js Request and Response](#request-and-response-objects) objects is as follows:
+An example TypeScript file that exports a default Node.js function and takes in [the standard Node.js Request and Response](#official-builders/node-js/node-js-request-and-response-objects) objects is as follows:
 
 ```js
 import { NowRequest, NowResponse } from '@now/node'
@@ -158,7 +158,7 @@ export default function(req: NowRequest, res: NowResponse) {
   the <InlineCode>@now/node</InlineCode> module for the helper methods.
 </Caption>
 
-The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#node.js-request-and-response-objects), including the [helper methods](#node.js-helpers) with ZEIT Now. These types can be installed from npm with the following command:
+The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#official-builders/node-js/node-js-request-and-response-objects), including the helper methods with ZEIT Now. These types can be installed from npm with the following command:
 
 <Snippet dark text="npm install @now/node --save-dev" />
 <Caption>Installing <InlineCode>@now/node</InlineCode> for types when using Node.js on ZEIT Now.</Caption>
@@ -210,7 +210,7 @@ module.exports = (req, res) => {
 <Note>
   If needed, you can opt-out of Now providing <InlineCode>helpers</InlineCode>{' '}
   using{' '}
-  <GenericLink href="#disabling-helpers-for-node.js">
+  <GenericLink href="#advanced-usage/advanced-node-js-usage/disabling-helpers-for-node-js">
     advanced configuration
   </GenericLink>
   .
@@ -270,7 +270,7 @@ To build your Next.js projects with each deployment, provide the following `buil
   </GenericLink>.
 </Note>
 
-For more advanced usage of Next.js on ZEIT Now, such as environment variables or private npm modules, see [the Advanced Next.js Usage section](#advanced-next.js-usage).
+For more advanced usage of Next.js on ZEIT Now, such as environment variables or private npm modules, see [the Advanced Next.js Usage section](#advanced-usage/advanced-next-js-usage).
 
 ### Next.js Project Node.js Version
 
@@ -311,7 +311,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
   <InlineCode>/api</InlineCode> directory.
 </Caption>
 
-For advanced usage, such as using private packages with your Go projects, see the [Advanced Go Usage section](#advanced-go-usage).
+For advanced usage, such as using private packages with your Go projects, see the [Advanced Go Usage section](#advanced-usage/advanced-go-usage).
 
 <Note>
   The exported function needs to include the{' '}
@@ -371,7 +371,7 @@ cowpy==1.0.3
   <InlineCode>cowpy</InlineCode> as a dependency.
 </Caption>
 
-For advanced usage, such as using WSGI or ASGI for your Python projects, see the [Advanced Python Usage section](#advanced-python-usage).
+For advanced usage, such as using WSGI or ASGI for your Python projects, see the [Advanced Python Usage section](#advanced-usage/advanced-python-usage).
 
 ### Python Version
 
@@ -424,7 +424,7 @@ gem "cowsay", "~> 0.3.0"
   <InlineCode>cowpy</InlineCode> as a dependency.
 </Caption>
 
-For advanced usage, such as using a Rack Interface for your Ruby projects, see the [Advanced Ruby Usage section](#advanced-ruby-usage).
+For advanced usage, such as using a Rack Interface for your Ruby projects, see the [Advanced Ruby Usage section](#advanced-usage/advanced-ruby-usage).
 
 ### Ruby Version
 

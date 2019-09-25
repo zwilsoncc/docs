@@ -8,7 +8,7 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   editUrl: 'pages/docs/builders/builders-mdx/advanced/advanced.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2019-09-25T23:16:10.000Z'
 }
 
 # Advanced Usage
@@ -83,7 +83,7 @@ The following is a list of community maintained Builders.
 
 <Note>
   If you need to create a custom Builder, see the{' '}
-  <GenericLink href="#developing-your-own-builder">
+  <GenericLink href="#advanced-usage/developing-your-own-builder">
     Developing Your Own Builder section
   </GenericLink>
   .
@@ -154,7 +154,7 @@ tar -xzf hugo_0.55.6_Linux-64bit.tar.gz
   An example shell file that installs and builds a Hugo project.
 </Caption>
 
-For depencency installation with [shell file entry points](#shell-file-entry-point), `yum` is available.
+For depencency installation with [shell file entry points](#advanced-usage/advanced-static-builds-usage/shell-file-entry-point-for-static-builds), `yum` is available.
 
 ### Private npm Modules for Static Builds
 
@@ -186,11 +186,11 @@ You can configure your own build step using the Node.js Builder, to compile Node
   using the Node.js Builder.
 </Caption>
 
-**The entry point for `src` must be a glob matching `.js` or `.ts` files** that export a default function. For more information on using this Builder, [see the Node.js Builder section](#node.js).
+**The entry point for `src` must be a glob matching `.js` or `.ts` files** that export a default function. For more information on using this Builder, [see the Node.js Builder section](#official-builders/node-js).
 
 ### Disabling Helpers for Node.js
 
-Within a `now.json` configuration file at your project's root, use the following build step with config to disable [helpers](#node.js-helpers).
+Within a `now.json` configuration file at your project's root, use the following build step with config to disable [helpers](#official-builders/node-js/node-js-request-and-response-objects).
 
 ```json
 {
@@ -336,7 +336,7 @@ You can configure your own build step using the Next.js Builder, to compile Next
   using the Next.js Builder.
 </Caption>
 
-**The entry point of this Builder** is a `package.json` file with Next.js 9 or newer defined in `dependencies`. For more information on using this Builder, [see the Next.js Builder section](#next.js).
+**The entry point of this Builder** is a `package.json` file with Next.js 9 or newer defined in `dependencies`. For more information on using this Builder, [see the Next.js Builder section](#official-builders/next-js).
 
 For more information on this, see [the Next.js documentation](https://github.com/zeit/next.js#serverless-deployment).
 
@@ -410,7 +410,7 @@ You can configure your own build step using the Go Builder, to compile Go source
   using the Go Builder.
 </Caption>
 
-**The entry point of this Builder is a global matching `.go` files** that export a function that implements the `http.HandlerFunc` signature. For more information on using this Builder, [see the Go Builder section](#go).
+**The entry point of this Builder is a global matching `.go` files** that export a function that implements the `http.HandlerFunc` signature. For more information on using this Builder, [see the Go Builder section](#official-builders/go).
 
 ### Private Packages for Go
 
@@ -556,14 +556,14 @@ You can configure your own build step using the Ruby Builder, to compile Ruby so
   using the Ruby Builder.
 </Caption>
 
-**The entry point of this Builder is a glob matching `.rb` or `.ru` (for [Rack](#rack-interface)) source files** with one of the following variables defined:
+**The entry point of this Builder is a glob matching `.rb` or `.ru` (for [Rack](#advanced-usage/advanced-ruby-usage/rack-interface)) source files** with one of the following variables defined:
 
 - `Handler` proc that matches the `do |req, res|` signature.
 - `Handler` class that inherits from the `WEBrick::HTTPServlet::AbstractServlet` class.
 
-For more information on using this Builder, [see the Ruby Builder section](#ruby).
+For more information on using this Builder, [see the Ruby Builder section](#official-builders/ruby).
 
-Alternatively, [a `.ru` Rack config file](#rack-interface) will serve the Ruby application it contains.
+Alternatively, [a `.ru` Rack config file](#advanced-usage/advanced-ruby-usage/rack-interface) will serve the Ruby application it contains.
 
 ### Rack Interface
 
