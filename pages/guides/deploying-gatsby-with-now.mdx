@@ -2,6 +2,7 @@ import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { GenericLink } from '~/components/text/link'
+import { Image } from '~/components/media'
 
 export const meta = {
   title: 'Create a Gatsby Website and Deploy It with ZEIT Now',
@@ -11,16 +12,22 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/deploying-gatsby-with-now',
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
-  lastEdited: '2019-08-30T09:17:58.000Z'
+  lastEdited: '2019-09-25T20:27:19.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
 
-In this guide, we will show how you can set up your Gatsby project and deploy with Now in a few moments.
+Create and deploy a new Gatsby project with ZEIT Now without the setup using the button below.
+
+<a href="https://zeit.co/new/project?template=https://github.com/zeit/now-examples/tree/master/gatsby">
+  <Image src="https://zeit.co/button" width={104} height={36} />
+</a>
+
+Alternatively, set up Gatsby locally and deploy using Now CLI with the following steps.
 
 ## Step 1: Set Up Your Gatsby Project
 
-If you have not already [set up a Gatsby project](https://www.gatsbyjs.org/docs/quick-start) you can do so by first installing Gatsby CLI globally from your terminal:
+Firstly, [set up a Gatsby project](https://www.gatsbyjs.org/docs/quick-start) by installing Gatsby CLI globally from your terminal:
 
 <Snippet dark text="npm i -g gatsby-cli" />
 <Caption>Installing <GenericLink href="https://www.gatsbyjs.org/docs/gatsby-cli/">gatsby-cli</GenericLink> globally with <GenericLink href="https://www.npmjs.com/">npm</GenericLink>.</Caption>
@@ -32,13 +39,11 @@ Then you can run the following command to create a Gatsby project locally:
 
 Next, move into the directory from your terminal with `cd my-gatsby-project`. You can see your new project in a local development environment by using the `npm develop` command, set in the `package.json` by Gatsby CLI.
 
-## Step 2: Deploying Your Gatsby Website
+## Step 2: Deploying Your Gatsby Website with ZEIT Now
 
 With a Gatsby app set up, it is ready to deploy live with [Now](/docs/v2).
 
-If you have not yet installed Now, you can do so by [installing Now CLI](/download).
-
-Now allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command**:
+Now allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command** using [Now CLI](/download):
 
 <Snippet dark text="now" />
 

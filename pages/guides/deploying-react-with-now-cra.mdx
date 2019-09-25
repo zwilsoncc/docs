@@ -2,6 +2,7 @@ import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
+import { Image } from '~/components/media'
 
 export const meta = {
   title: 'Deploy a React App with ZEIT Now and Create React App',
@@ -11,12 +12,18 @@ export const meta = {
   authors: ['timothy', 'grovesjoseph'],
   url: '/guides/deploying-react-with-now-cra',
   editUrl: 'pages/guides/deploying-react-with-now-cra.mdx',
-  lastEdited: '2019-09-12T11:06:22.000Z'
+  lastEdited: '2019-09-25T20:27:19.000Z'
 }
 
 [React](https://reactjs.org/) is a popular open-source JavaScript framework, maintained by Facebook, for easily creating interactive [single-page apps](https://en.wikipedia.org/wiki/Single-page_application) (SPAs).
 
 In this guide, we will cover how to set up a React app with [Create React App](https://facebook.github.io/create-react-app/docs/getting-started) (CRA) and how to deploy it with [ZEIT Now](/docs/v2).
+
+Create and deploy a new React project with ZEIT Now without the setup using the button below.
+
+<a href="https://zeit.co/new/project?template=https://github.com/zeit/now-examples/tree/master/create-react-app">
+  <Image src="https://zeit.co/button" width={104} height={36} />
+</a>
 
 ## Step 1: Set Up Your React Project
 
@@ -29,9 +36,11 @@ Using [npm](https://www.npmjs.com), you can setup a React app with CRA with the 
 
 If you would prefer to use another method, see the [Quick Start documentation for CRA](https://facebook.github.io/create-react-app/docs/getting-started#quick-start).
 
-## Step 2: Deploying
+## Step 2: Deploying Your React Project with ZEIT Now
 
-The final step is to deploy your app with **a single command**.
+With your React application set up, it is ready to deploy with [Now](/docs/v2).
+
+If you have not yet installed Now, you can do so by [installing Now CLI](/download).
 
 With Now, you can deploy your app to [different environments](/docs/v2/custom-domains#deploying-with-your-domain), depending on what stage your app is at; either staging or production.
 

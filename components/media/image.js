@@ -15,13 +15,19 @@ import VideoComponent from './video'
 // Because if you want to do that, you need to set the aspect
 // ratio of the image's container BEFORE the image loads
 
-const AmpImg = ({ children, src, srcSet, height, width, alt }) => {
+const AmpImg = ({
+  children,
+  src,
+  srcSet,
+  height,
+  width,
+  alt,
+  layout = 'responsive'
+}) => {
   const isAmp = useAmp()
 
   if (isAmp)
-    return (
-      <amp-img layout="responsive" {...{ src, srcSet, height, width, alt }} />
-    )
+    return <amp-img layout={layout} {...{ src, srcSet, height, width, alt }} />
   return children
 }
 
@@ -62,7 +68,9 @@ class Image extends Component {
       oversize = false,
       borderRadius = false,
       children,
-      shadow
+      shadow,
+      layout,
+      centered
     } = this.props
 
     const aspectRatio = String((height / width) * 100) + '%'
@@ -73,7 +81,7 @@ class Image extends Component {
     }
 
     return (
-      <AmpImg {...this.props}>
+      <AmpImg layout={layout} {...this.props}>
         <IObserver
           once
           onIntersect={this.handleIntersect}
@@ -84,7 +92,11 @@ class Image extends Component {
             <main style={{ width }}>
               <div className="container" style={{ paddingBottom: aspectRatio }}>
                 {this.state.src ? (
-                  <img src={this.state.src || null} />
+                  <img
+                    src={this.state.src || null}
+                    width={width}
+                    height={height}
+                  />
                 ) : (
                   children
                 )}
@@ -104,7 +116,6 @@ class Image extends Component {
               }
 
               main {
-                margin: 0 auto;
                 max-width: 100%;
               }
 
@@ -130,6 +141,19 @@ class Image extends Component {
                 font-size: 12px;
                 margin: 0;
                 text-align: center;
+              }
+            `}</style>
+            <style jsx>{`
+              figure {
+                margin: ${margin}px 0;
+              }
+
+              main {
+                margin: ${centered ? `0 auto` : `0`};
+              }
+
+              img {
+                ${borderRadius ? `border-radius: 5px;` : ''};
               }
 
               .has-shadow + :global(.caption) {
