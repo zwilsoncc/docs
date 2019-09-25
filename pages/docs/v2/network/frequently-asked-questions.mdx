@@ -5,18 +5,18 @@ export const meta = {
   description:
     'A list of common questions and answers related to the ZEIT Network.',
   editUrl: 'pages/docs/v2/network/frequently-asked-questions.mdx',
-  lastEdited: '2019-08-14T17:58:04.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 ### What are the CDN defaults?
 
 - Static files are cached by all Regions for 31 days by default. If you need to configure this duration, you can set a `Cache-Control` header in your `now.json` file.
-- Dynamic responses (from Lambdas) are not cached unless they contain a `Cache-Control` header with specific directives (e.g. `s-maxage`).
+- Dynamic responses (from Serverless Functions) are not cached unless they contain a `Cache-Control` header with specific directives (e.g. `s-maxage`).
 - Read more about this in the [caching documentation](/docs/v2/network/caching).
 
 ### How can I control the CDN and what caching headers (and values) it accepts?
 
-- Your lambdas have total control on how the [CDN](/docs/v2/network/caching) caches your responses using the `Cache-Control` header.
+- Your Serverless Functions have total control on how the [CDN](/docs/v2/network/caching) caches your responses using the `Cache-Control` header.
 
 ### What if I have an existing CDN like Akamai, Fastly, Cloudflare?
 
@@ -45,7 +45,7 @@ export const meta = {
 ### What is the relation between the seconds on `s-maxage` and `stale-while-revalidate` ?
 
 - `s-maxage` is the number of seconds a response is considered "fresh" by the CDN.
-- After this period ends, the CDN will continue to serve the response from the edge but it's now considered "stale" so it will be requested again to your lambda in the background to get a "fresh" one.
+- After this period ends, the CDN will continue to serve the response from the edge but it's now considered "stale" so it will be requested again to your Serverless Function in the background to get a "fresh" one.
 
 ### Is my browser aware of `stale-while-revalidate`? Should I expect content-flash if yes?
 

@@ -8,12 +8,12 @@ import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Supported Languages for Serverless Functions',
-  description: 'Learn how to deploy serverless functions with ZEIT Now.',
+  description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-09-06T06:39:01.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
-Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as serverless function.
+Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
 
 ## Supported Languages:
 
@@ -26,7 +26,7 @@ Within the `/api` directory of your projects, ZEIT Now will automatically recogn
 **File Extensions**: `.js`, `.ts`<br />
 **Default Runtime Version**: 8.10.x (or [defined](#defined-node.js-version))
 
-Node.js files through a JavaScript file or a TypeScript file within the `api` directory, containing a default exported function, will be served as a serverless function.
+Node.js files through a JavaScript file or a TypeScript file within the `api` directory, containing a default exported function, will be served as a Serverless Function.
 
 For example, the following would live in `api/hello.js`:
 
@@ -48,11 +48,11 @@ Example deployment: <https://node-api.now-examples.now.sh/api/hello?name=reader>
   width={1376/2}
   height={882/2}
 />
-<Caption>The serverless function with the <InlineCode>name</InlineCode> query parameter using Node.js to change the name.</Caption>
+<Caption>The Serverless Function with the <InlineCode>name</InlineCode> query parameter using Node.js to change the name.</Caption>
 
 ### Node.js TypeScript support:
 
-Deploying a Node.js function with the `.ts` extension will automatically be recognized as a TypeScript file and compiled to a serverless function.
+Deploying a Node.js function with the `.ts` extension will automatically be recognized as a TypeScript file and compiled to a Serverless Function.
 
 As an example; a file called `hello.ts` in the `api` directory, and importing types for the ZEIT Now platform [Request and Response]() objects from [the `@now/node` module]():
 
@@ -96,7 +96,7 @@ You can also define a `tsconfig.json` to configure the ZEIT Now TypeScript compi
 
 ### Node.js Request and Response Objects
 
-For each request of a Node.js serverless function, two objects, request and response, are passed to it. These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js, but they include extended helpers provided by ZEIT Now:
+For each request of a Node.js Serverless Function, two objects, request and response, are passed to it. These objects are the standard HTTP [request](https://nodejs.org/api/http.html#http_event_request) and [response](https://nodejs.org/api/http.html#http_class_http_serverresponse) objects given and used by Node.js, but they include extended helpers provided by ZEIT Now:
 
 #### Node.js Helpers
 
@@ -235,7 +235,7 @@ The Node.js version, though defaulted to **8.10.x**, can be changed to **10.x** 
 **File Extension**: `.go`<br />
 **Default Runtime Version**: Go 1.x
 
-Go files in the `api` directory that export a function matching the `net/http` Go API will be served as a serverless function.
+Go files in the `api` directory that export a function matching the `net/http` Go API will be served as a Serverless Function.
 
 For example, the following would live in `api/date.go`:
 
@@ -260,7 +260,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
   Your Go function must begin with a capital letter in order to be exported.
 </Note>
 
-When deployed, the example function above will be served as a serverless function, returning the latest date. See it live with the following link: <https://go-api.now-examples.now.sh/api/date>
+When deployed, the example function above will be served as a Serverless Function, returning the latest date. See it live with the following link: <https://go-api.now-examples.now.sh/api/date>
 
 ### Private Packages for Go
 
@@ -313,7 +313,7 @@ You can provide custom build flags by using the `GO_BUILD_FLAGS` [build environm
 **File Extension**: `.py`<br />
 **Default Runtime Version**: Python 3.6
 
-Python files within the `api` directory, containing an handler variable that inherits from the `BaseHTTPRequestHandler` class or an `app` variable that exposes a WSGI or ASGI application, will be served as a serverless function.
+Python files within the `api` directory, containing an handler variable that inherits from the `BaseHTTPRequestHandler` class or an `app` variable that exposes a WSGI or ASGI application, will be served as a Serverless Function.
 
 For example, the following would live in `api/date.py`:
 
@@ -333,7 +333,7 @@ class handler(BaseHTTPRequestHandler):
 
 <Caption>An example Python function that returns the current date.</Caption>
 
-When deployed, the example function above will be served as a serverless function, returning the current date and time. See it live with the following link: <https://python-api.now-examples.now.sh/api/date>
+When deployed, the example function above will be served as a Serverless Function, returning the current date and time. See it live with the following link: <https://python-api.now-examples.now.sh/api/date>
 
 ### Python Dependencies
 

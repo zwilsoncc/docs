@@ -8,7 +8,7 @@ export const meta = {
   description:
     'Directory listings are shown for deployments that have no index files.',
   editUrl: 'pages/docs/v2/network/directory-listing.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 The content of any path that does not contain an **Index File** (within a deployment) is rendered using our **Directory Listing**.
@@ -23,7 +23,7 @@ Here is an example of how this could look like:
 
 As you can see, the directory listing contains three items:
 
-- `first.php` and `second.php` are **Lambdas**
+- `first.php` and `second.php` are **Serverless Functions**
 - `third.png` is a **Static File**
 
 However, no **Index File** is present. If one would be present, the path of the **Directory Listing** would render that file instead.
@@ -46,7 +46,7 @@ If multiple files match this pattern, `index.html` will take precedence followed
 There are two types of list items (which matches the **Output** of a **Build**):
 
 - **Static Files** (indicated with a blank or picture icon)
-- **Lambdas** (indicated with a λ icon)
+- **Serverless Functions** (indicated with a λ icon)
 
 ## Disabling the Directory Listing
 

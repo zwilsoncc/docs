@@ -26,7 +26,7 @@
       "src": "/docs/max-lambda-size",
       "status": 301,
       "headers": {
-        "Location": "/docs/v2/advanced/concepts/lambdas#maximum-bundle-size"
+        "Location": "/docs/v2/advanced/concepts/serverless-functions#maximum-bundle-size"
       }
     },
     {
@@ -249,6 +249,13 @@
       "status": 301,
       "headers": {
         "Location": "/docs/v2/advanced/platform/frequently-asked-questions#platform-version-detection"
+      }
+    },
+    {
+      "src": "/docs/v2/advanced/concepts/lambdas(.*)",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/advanced/concepts/serverless-functions$1"
       }
     }
   ]

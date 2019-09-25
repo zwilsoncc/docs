@@ -12,16 +12,16 @@ export const meta = {
   description:
     "See what's changed in the latest iteration of the ZEIT Now Platform.",
   editUrl: 'pages/docs/v2/advanced/platform/changes-in-now-2-0.mdx',
-  lastEdited: '2019-08-22T10:47:21.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 The ZEIT Now Platform 2.0 simplifies and streamlines the deployment of static and serverless workloads. In this guide we will walk you through the key differences between Now 1.0 and 2.0, and the improvements this brings.
 
 ## Compared to 1.0:
 
-- There are **no** **deployment types**. A single deployment can have multiple static and [dynamic entrypoints](/docs/v2/advanced/concepts/lambdas), even written in multiple different [languages](#migration-examples)
+- There are **no** **deployment types**. A single deployment can have multiple static and [dynamic entrypoints](/docs/v2/advanced/concepts/serverless-functins), even written in multiple different [languages](#migration-examples)
 - Your app's source code can be structured as a **monorepo**. No need to think in terms of microservices, multiple repositories, composition via YAML files, services meshes, etc.
-- Multiple **parallel builds** can be specified to compile source into [static files or serverless Lambdas](/docs/v2/advanced/builders)
+- Multiple **parallel builds** can be specified to compile source into [static files or Serverless Functions](/docs/v2/advanced/builders)
 
 Migrating your projects to 2.0 will result in:
 
@@ -86,7 +86,7 @@ The following prices were drastically reduced:
 
 - Cost of compute
 - Cost of DNS and CDN zones
-- Cost of logging (no more storage costs, charged [per-line](/docs/v2/advanced/concepts/lambdas#capabilities-and-limits) and [strictly](/docs/v2/advanced/concepts/lambdas#capabilities-and-limits) ephemeral)
+- Cost of logging (no more storage costs, charged [per-line](/docs/v2/advanced/concepts/serverless-functions#capabilities-and-limits) and [strictly](/docs/v2/advanced/concepts/serverless-functions#capabilities-and-limits) ephemeral)
 
 ### Fully on-demand
 
@@ -108,7 +108,7 @@ This in turn enables:
 
 - Monorepo support
 - Multiple programming languages and frameworks to co-exist
-- Faster cold boot-up times due to refined [entrypoint granularity](/docs/v2/advanced/concepts/lambdas#per-entrypoint-granularity)
+- Faster cold boot-up times due to refined [entrypoint granularity](/docs/v2/advanced/concepts/serverless-functions#per-entrypoint-granularity)
 - Faster build times by greater **parallelization** and **deduplication**
 
 ## No Daemons
@@ -129,16 +129,16 @@ To help our customers in the transition, we won't announce a deprecation date fo
 
 With Now 2.0 we're removing the notion of a **deployment instance**. There's no need to keep track of them and they just add overhead to the UI and database.
 
-While it's still very useful to think about what happens when an [instance of a container](/docs/v2/advanced/concepts/lambdas/#versus-processes-and-containers) is running or not as it pertains to hot vs cold invocation of [Lambdas](/docs/v2/advanced/concepts/lambdas), attempts to count or enumerate instances in a UI are impractical and not very beneficial to the developer experience.
+While it's still very useful to think about what happens when an [instance of a container](/docs/v2/advanced/concepts/serverless-functions/#versus-processes-and-containers) is running or not as it pertains to hot vs cold invocation of [Serverless Functions](/docs/v2/advanced/concepts/serverless-Functions), attempts to count or enumerate instances in a UI are impractical and not very beneficial to the developer experience.
 
 ### No Config Mutability
 
-All static assets and caches are served from our [Global CDN](/docs/v2/advanced/concepts/cdn-and-global-distribution) **by default**. When it comes to code invocation with [Lambdas](/docs/v2/advanced/concepts/lambdas), it makes sense to think about whether the code is executed in a single region or multiple.
+All static assets and caches are served from our [Global CDN](/docs/v2/advanced/concepts/cdn-and-global-distribution) **by default**. When it comes to code invocation with [Serverless Functions](/docs/v2/advanced/concepts/serverless-functions), it makes sense to think about whether the code is executed in a single region or multiple.
 
-We support the [`regions`](/docs/v2/advanced/configuration#regions) parameter in `now.json` to this end. When you make a deployment and Lambdas are produced in the [build steps](/docs/v2/build-step), we deploy them to the specified regions.
+We support the [`regions`](/docs/v2/advanced/configuration#regions) parameter in `now.json` to this end. When you make a deployment and Serverless Functions are produced in the [build steps](/docs/v2/build-step), we deploy them to the specified regions.
 
 <Note hint>
-  For the best Lambda performance, we recommend using the region{' '}
+  For the best Serverless Function performance, we recommend using the region{' '}
   <b>closest to your data source</b>.
 </Note>
 
@@ -154,7 +154,7 @@ While effective, this meant constraining a project to serial execution. Serverle
 
 With Now 2.0, your build steps are specified as a list of `builds` inside `now.json`.
 
-For example, say you want to build 2 sub-projects statically and 2 APIs wrapped as Lambdas:
+For example, say you want to build 2 sub-projects statically and 2 APIs wrapped as Serverless Functions:
 
 ```json
 {
@@ -172,7 +172,7 @@ For example, say you want to build 2 sub-projects statically and 2 APIs wrapped 
   build the different parts of your app.
 </Caption>
 
-The build process will happen in parallel and the deployment shows all the resulting output files and Lambdas.
+The build process will happen in parallel and the deployment shows all the resulting output files and Serverless Functions.
 
 ### Index behavior changes
 
@@ -188,13 +188,13 @@ While this is desirable for the purpose of quickly sharing a static file, e.g.:
 
 We have decided to make this logic happen on the client side, instead of the server side. [Now CLI](/download) will define an item in `routes` that also maps `/` as a special case.
 
-Furthermore, we have redesigned the directory listing style and added a new icon to represent [Lambdas](/docs/v2/advanced/concepts/lambdas):
+Furthermore, we have redesigned the directory listing style and added a new icon to represent [Serverless Functions](/docs/v2/advanced/concepts/serverless-functions):
 
 <Image src={`https://assets.zeit.co/image/upload/v1541620549/front/docs/v2-upgrade/lambda-icon.png`}
 width={1456/2}
 height={962/2}
 />
-<Caption>The new Lambda icon shows in the source view of deployments to show which files are Lambdas.</Caption>
+<Caption>The new Lambda icon shows in the source view of deployments to show which files are Serverless Functions.</Caption>
 
 ### Universal Now, in the Cloud
 
@@ -258,7 +258,7 @@ Additionally, some environment variables keys are now reserved. You can see a fu
 **Removals:**
 
 - ~~`--links`~~ is no longer supported when deploying. The feature had very niche use-cases and was limited in effectiveness
-- ~~`now scale`~~ is no longer necessary for 2.0 and deprecated. If you wish to change the regions your Lambdas get deployed to, use the [`regions`](/docs/v2/advanced/configuration#regions) config and re-deploy
+- ~~`now scale`~~ is no longer necessary for 2.0 and deprecated. If you wish to change the regions your Serverless Functions get deployed to, use the [`regions`](/docs/v2/advanced/configuration#regions) config and re-deploy
 - Custom providers are removed, as we shift the strategy to executing the cross-provider logic from our backend instead
 
 ## Migration Examples

@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A guide for how ZEIT Now caches and how to control that caching.',
   editUrl: 'pages/docs/v2/network/caching.mdx',
-  lastEdited: '2019-08-13T14:57:49.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 Our [Smart CDN](/smart-cdn) caches your content at the edge in order to serve data to your users as fast as possible.
@@ -33,7 +33,7 @@ By default we return a `Cache-Control` header containing `public, max-age=0, mus
 
 ## Serverless Functions (Lambdas)
 
-In order for our CDN to cache the response of a Lambda, you need to include the response header `Cache-Control` with **any** of the following directives:
+In order for our CDN to cache the response of a Serverless Function, you need to include the response header `Cache-Control` with **any** of the following directives:
 
 - `s-maxage=N`
 - `max-age=N, public`
@@ -47,7 +47,7 @@ You can read more about the suggested way to define the `Cache-Control` header [
 
 Our CDN supports a powerful recent extension to the `Cache-Control` header called `stale-while-revalidate`.
 
-The benefit of using `stale-while-revalidate` is that we can serve a resource from our CDN cache while simultaneously updating the cache **in the background** with the response from your lambda.
+The benefit of using `stale-while-revalidate` is that we can serve a resource from our CDN cache while simultaneously updating the cache **in the background** with the response from your Serverless Function.
 
 Some situations where `stale-while-revalidate` is of great value:
 
@@ -89,7 +89,7 @@ Responses include a header called `X-Now-Cache` that contain details about the s
 
 ## Limits
 
-These limits apply to both static and Lambda responses:
+These limits apply to both static and Serverless Function responses:
 
 - Max Cacheable Response Size = **10MB**
 - Max Cache Time = 60 \* 60 \* 24 \* 365 (**1 year in seconds**)

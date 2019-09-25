@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-08-30T09:17:58.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -91,7 +91,7 @@ When this is complete, add [`serverless-mysql`](https://github.com/jeremydaly/se
 
 Adding [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) to the project will allow you to make connections to your MySQL database. In addition to this, it also **manages connections**, ensuring you do not 'max out' the available connections.
 
-Managing MySQL connections is an essential part of using it **successfully in a serverless environment**. This is because [serverless functions](/docs/v2/advanced/concepts/lambdas/) will create multiple database connections as traffic increases. Therefore, all connections can be consumed quickly unless managed correctly - this is **all handled for you** by [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql).
+Managing MySQL connections is an essential part of using it **successfully in a serverless environment**. This is because [Serverless Functions](/docs/v2/advanced/concepts/serverless-functions/) will create multiple database connections as traffic increases. Therefore, all connections can be consumed quickly unless managed correctly - this is **all handled for you** by [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql).
 
 <Note>
   Using <InlineCode>sql-template-strings</InlineCode> is strongly recommended to
@@ -178,7 +178,7 @@ Your `db.js` file performs the following functions:
   prevents your app from exhausting all available connections.
 </Note>
 
-Now you have a reusable database connection, perfectly suited for a [serverless](/docs/v2/advanced/concepts/lambdas/) environment.
+Now you have a reusable database connection, perfectly suited for a [serverless](/docs/v2/advanced/concepts/serverless-functions/) environment.
 
 ## Step 4: Creating Your Node.js API
 
@@ -239,7 +239,7 @@ Your `index.js` file performs the following functions:
   </GenericLink>.
 </Note>
 
-That is all the API code required to successfully use pagination in a [serverless](/docs/v2/advanced/concepts/lambdas/) environment.
+That is all the API code required to successfully use pagination in a [serverless](/docs/v2/advanced/concepts/serverless-functions/) environment.
 
 Next, create a `profile.js` file in your `/profiles` directory containing the code below:
 
@@ -402,7 +402,7 @@ You now have a **complete app** with both an API and interface, the next section
 
 Getting your project ready to [deploy](/docs/v2/deployments/basics/) with [Now](/docs/v2/getting-started/introduction-to-now) could hardly be simpler, all that's required is the inclusion of [environment variables](/docs/v2/deployments/environment-variables-and-secrets).
 
-Create a [`now.json` file](/docs/v2/advanced/configuration) with the following configuration to make the environment variables available to your serverless functions:
+Create a [`now.json` file](/docs/v2/advanced/configuration) with the following configuration to make the environment variables available to your Serverless Functions:
 
 ```json
 {

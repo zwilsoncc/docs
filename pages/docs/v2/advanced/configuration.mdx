@@ -11,7 +11,7 @@ export const meta = {
   description:
     'Configuring ZEIT Now so that your deployments are exactly as you need them.',
   editUrl: 'pages/docs/v2/advanced/configuration.mdx',
-  lastEdited: '2019-09-02T08:56:24.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 When using [Now CLI](/download), [Now for GitHub](/docs/v2/advanced/now-for-github) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab), the configuration for your deployment is read from the `now.json` file.
@@ -111,13 +111,15 @@ Furthermore, it also affects any other actions that the user takes within the di
 
 **Valid values:** environment keys and values.
 
-Environment variables passed to the invoked [Lambdas](/docs/v2/advanced/concepts/lambdas).
+Environment variables passed to the invoked [Serverless Functions](/docs/v2/advanced/concepts/serverless-functions).
 
 <Example>
   <b>Usage Example:</b>
   <P>
     This example will pass the <InlineCode>MY_KEY</InlineCode> static env to all{' '}
-    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>{' '}
+    <GenericLink href="/docs/v2/advanced/concepts/serverless-functions">
+      Serverless Functions
+    </GenericLink>{' '}
     and <InlineCode>SECRET</InlineCode> resolved from the{' '}
     <InlineCode>my-secret-name</InlineCode>{' '}
     <GenericLink href="/docs/v2/serverless-functions/env-and-secrets">
@@ -181,7 +183,10 @@ Environment variables passed to the invoked [Lambdas](/docs/v2/advanced/concepts
     The following will include all HTML files as-is (to be served statically),
     and <GenericLink href="/docs/v2/advanced/builders">Build</GenericLink> all
     Python files and JS files into{' '}
-    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>.
+    <GenericLink href="/docs/v2/advanced/concepts/serverless-functions">
+      Serverless Functions
+    </GenericLink>
+    .
   </P>
   <Code lang="json">{`{
   "builds": [
@@ -225,7 +230,9 @@ For more information on Builds and Builders, see the documentation:
   <b>Usage Example:</b>
   <P>
     This example configures custom routes that map to static files and{' '}
-    <GenericLink href="/docs/v2/advanced/concepts/lambdas">Lambdas</GenericLink>
+    <GenericLink href="/docs/v2/advanced/concepts/serverless-functions">
+      Serverless Functions
+    </GenericLink>
     .
   </P>
   <Code lang="json">{`{
@@ -257,7 +264,7 @@ For more information on routes, see the documentation:
 
 **Valid values:** a list of valid [region identifiers](/docs/v2/advanced/platform/regions-and-providers).
 
-By setting and modifying this value, you can decide the deployment **regions** of the [Lambdas](/docs/v2/advanced/concepts/lambdas) that get created as a result of the [build steps](/docs/v2/build-step). By default, the closest region to the geographical location of the deployment is used, or if using a Now for Git integration, SFO is used by default.
+By setting and modifying this value, you can decide the deployment **regions** of the [Serverless Functions](/docs/v2/advanced/concepts/serverless-functions) that get created as a result of the [build steps](/docs/v2/build-step). By default, the closest region to the geographical location of the deployment is used, or if using a Now for Git integration, SFO is used by default.
 
 This value does not impact static files or edge caches, since deployments always have a [CDN layer](/docs/v2/advanced/concepts/cdn-and-global-distribution/) in front.
 

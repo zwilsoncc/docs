@@ -8,16 +8,16 @@ import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Serverless Functions',
-  description: 'Learn how to deploy serverless functions with ZEIT Now.',
+  description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-09-20T15:47:43.000Z'
+  lastEdited: '2019-09-24T17:47:39.000Z'
 }
 
 ZEIT Now deployments support various backend languages that you can deploy as Serverless functions.
 
 ## Deploying Serverless Functions
 
-To deploy serverless functions without any additional configuration, you can put files with extensions matching [supported languages](/docs/v2/serverless-functions/supported-languages) and exported functions in the `api` directory at your project's root.
+To deploy Serverless Functions without any additional configuration, you can put files with extensions matching [supported languages](/docs/v2/serverless-functions/supported-languages) and exported functions in the `api` directory at your project's root.
 
 <Note>
   If you are using Next.js, use the <InlineCode>/pages/api</InlineCode>{' '}
@@ -49,7 +49,7 @@ module.exports = (req, res) => {
 ```
 
 <Caption>
-  An example Node.js serverless function using Express.js-like helper methods
+  An example Node.js Serverless Function using Express.js-like helper methods
   from the{' '}
   <GenericLink href="/docs/v2/serverless-functions/supported-languages#node.js-request-and-response-objects">
     Request and Response objects
@@ -64,13 +64,13 @@ Then, all you need to do, to have a live API, is deploy with [Now CLI](/download
 <Snippet dark text="now" />
 <Caption>One-command deployment with <GenericLink href="/download">Now CLI</GenericLink>.</Caption>
 
-The resulting deployment will contain your Node.js serverless function and will provide you with a URL like the following, with your API ready to go: <https://node-echo-api.now-examples.now.sh/api/?name=zeit>
+The resulting deployment will contain your Node.js Serverless Function and will provide you with a URL like the following, with your API ready to go: <https://node-echo-api.now-examples.now.sh/api/?name=zeit>
 
 ### More Examples and Supported Languages
 
 For all supported languages, see the [Supported Languages for Severless Functions documentation](/docs/v2/serverless-functions/supported-languages).
 
-More examples of applications you can deploy paired with serverless functions can be found in the [ZEIT Now examples repository on GitHub](https://github.com/zeit/now-examples).
+More examples of applications you can deploy paired with Serverless Functions can be found in the [ZEIT Now examples repository on GitHub](https://github.com/zeit/now-examples).
 
 You can use any of the Now examples by using the following command from [Now CLI](/download) in your terminal, then choosing an application to start with:
 
@@ -79,7 +79,7 @@ You can use any of the Now examples by using the following command from [Now CLI
 
 ## Path Segments
 
-Deploying serverless functions with ZEIT Now gives you the ability to use path segments through file names instead of a complex routes file.
+Deploying Serverless Functions with ZEIT Now gives you the ability to use path segments through file names instead of a complex routes file.
 
 Creating a file using any of the [supported languages](/docs/v2/serverless-functions/supported-languages) in the `api` directory and wrapping the filename in square brackets, such as `[name].js` will provide you with a file that takes a path segment and gives it to the function when requested with a value.
 
@@ -98,7 +98,7 @@ module.exports = (req, res) => {
 ```
 
 <Caption>
-  An example of a Node.js serverless function that takes a name path segment and
+  An example of a Node.js Serverless Function that takes a name path segment and
   returns a string using it.
 </Caption>
 
@@ -114,12 +114,12 @@ The resulting deployment can be found here: <https://path-segment-with-node.now-
 
 ## Local Development
 
-ZEIT Now provides an additional command with [Now CLI](/download) to help you develop serverless functions locally by replicating the production environment on Now with your localhost.
+ZEIT Now provides an additional command with [Now CLI](/download) to help you develop Serverless Functions locally by replicating the production environment on Now with your localhost.
 
 If you have an `api` directory like the [above examples](#deploying-serverless-functions) on this page, you can run the following command to start a local development environment that supports your serverless API and allows you to develop locally, just make sure to install your project's dependencies first with `npm install`:
 
 <Snippet dark text="now dev" />
-<Caption>starting a local development environment using Now CLI, for serverless functions.</Caption>
+<Caption>starting a local development environment using Now CLI, for Serverless Functions.</Caption>
 
 <Note>
   The <InlineCode>now dev</InlineCode> command is still in beta. If you have any
