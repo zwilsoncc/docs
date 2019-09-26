@@ -69,8 +69,7 @@ class Image extends Component {
       borderRadius = false,
       children,
       shadow,
-      layout,
-      centered
+      layout
     } = this.props
 
     const aspectRatio = String((height / width) * 100) + '%'
@@ -149,7 +148,7 @@ class Image extends Component {
               }
 
               main {
-                margin: ${centered ? `0 auto` : `0`};
+                margin: 0 auto;
               }
 
               img {
