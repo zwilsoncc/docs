@@ -27,10 +27,6 @@ class DocsIndex extends Component {
             padding: 12px 0;
           }
 
-          .wrapper:not(:only-child) {
-            padding: 48px 0;
-          }
-
           ul {
             list-style: none;
             margin: 0;

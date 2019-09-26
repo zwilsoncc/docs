@@ -11,6 +11,7 @@ import Main from '~/components/layout/main'
 import changeHash from '~/lib/utils/change-hash'
 import components from '~/lib/mdx-components'
 import Content from '~/components/layout/content'
+import VersionSwitcher from '~/components/layout/version-switcher'
 import Context from '~/lib/api/slugs-context'
 import DocsBuilder from '~/lib/api/builder'
 import DocsIndex from '~/components/layout/index'
@@ -18,7 +19,6 @@ import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
 import Head from '~/components/layout/head'
 import scrollToElement from '~/lib/utils/scroll-to-element'
-import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
 import Note from '~/components/text/note'
 import { GenericLink } from '~/components/text/link'
@@ -175,17 +175,10 @@ class APIPage extends Component {
                     </ToggleGroup>
                   </div>
                   <div className="select-wrapper">
-                    <h5 className="platform-select-title">
-                      Now Platform Version
-                    </h5>
-                    <Select
-                      width="100%"
-                      defaultValue={version}
+                    <VersionSwitcher
+                      version={version}
                       onChange={this.handleVersionChange}
-                    >
-                      <option value="v1">1.0</option>
-                      <option value="v2">2.0 (Latest)</option>
-                    </Select>
+                    />
                   </div>
                   <DocsIndex
                     activeItem={active}
@@ -345,8 +338,8 @@ class APIPage extends Component {
               margin-top: 0;
             }
 
-            .select-wrapper :global(.select) {
-              width: 100%;
+            .select-wrapper {
+              margin-bottom: 48px;
             }
 
             .toggle-group-wrapper {

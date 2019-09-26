@@ -191,20 +191,6 @@ class IntegrationsPage extends Component {
                       </ToggleItem>
                     </ToggleGroup>
                   </div> */}
-                  <div className="select-wrapper">
-                    <h5 className="platform-select-title">
-                      Now Platform Version
-                    </h5>
-                    <Select
-                      width="100%"
-                      defaultValue={version}
-                      onChange={this.handleVersionChange}
-                      disabled
-                    >
-                      <option value="v1">1.0</option>
-                      <option value="v2">2.0 (Latest)</option>
-                    </Select>
-                  </div>
                   <DocsIndex
                     activeItem={active}
                     getHref={getHref}

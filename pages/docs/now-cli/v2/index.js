@@ -18,7 +18,6 @@ import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
 import Head from '~/components/layout/head'
 import scrollToElement from '~/lib/utils/scroll-to-element'
-import Select from '~/components/select'
 import Sidebar from '~/components/layout/sidebar'
 import withPermalink from '~/lib/api/with-permalink'
 import HR from '~/components/text/hr'
@@ -191,20 +190,6 @@ class NowCLIDocs extends Component {
                       </ToggleItem>
                     </ToggleGroup>
                   </div> */}
-                  <div className="select-wrapper">
-                    <h5 className="platform-select-title">
-                      Now Platform Version
-                    </h5>
-                    <Select
-                      width="100%"
-                      defaultValue={version}
-                      onChange={this.handleVersionChange}
-                      disabled
-                    >
-                      <option value="v1">1.0</option>
-                      <option value="v2">2.0 (Latest)</option>
-                    </Select>
-                  </div>
                   <DocsIndex
                     activeItem={active}
                     getHref={getHref}

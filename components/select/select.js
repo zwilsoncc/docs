@@ -44,7 +44,7 @@ const Select = (
           color: ${darkBg ? '#fff' : '#000'};
           background: ${darkBg ? '#000' : '#fff'};
           display: inline-flex;
-          height: ${small ? '24px' : '40px'};
+          height: ${small ? '32px' : '40px'};
           outline: none;
           border: 1px solid ${darkBg ? '#666' : '#eaeaea'};
           font-size: 12px;
@@ -72,7 +72,7 @@ const Select = (
           box-shadow: none;
           background: transparent;
           background-image: none;
-          color: ${darkBg ? '#fff' : '#000'};
+          color: currentColor;
           line-height: ${small ? '22px' : '40px'};
           font-size: ${small ? '12px' : '14px'};
           margin-right: -20px;

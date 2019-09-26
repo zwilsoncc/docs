@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import { useAmp } from 'next/amp'
 import { withRouter } from 'next/router'
 import { MDXProvider } from '@mdx-js/tag'
@@ -10,17 +9,16 @@ import Layout from '~/components/layout/layout'
 import Main from '~/components/layout/main'
 import Heading from '~/components/text/linked-heading'
 import Sidebar from '~/components/layout/sidebar'
+import VersionSwitcher from '~/components/layout/version-switcher'
 import Content from '~/components/layout/content'
 import ContentFooter from '~/components/layout/content-footer'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
-import ToggleGroup, { ToggleItem } from '~/components/toggle-group'
 import { GenericLink } from '~/components/text/link'
 import components from '~/lib/mdx-components'
 import { H1, H2, H3, H4 } from '~/components/text'
 import HR from '~/components/text/hr'
 import dataV1 from '~/lib/data/v1/docs'
 import dataV2 from '~/lib/data/v2/docs'
-import Select from '~/components/select'
 import Note from '~/components/text/note'
 import { FooterFeedback } from '~/components/feedback-input'
 
@@ -77,31 +75,6 @@ const DocH4 = ({ children }) => (
 )
 
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
-
-const VersionSelect = ({ onChange, version }) => {
-  const isAmp = useAmp()
-  const href = `/docs/${version === 'v1' ? 'v2' : 'v1'}`
-  const curSelect = (
-    <Select
-      width="100%"
-      onChange={onChange}
-      defaultValue={version}
-      on={
-        isAmp ? `change:AMP.navigateTo(url='${href}', target=_top)` : undefined
-      }
-    >
-      <option value="v1">1.0</option>
-      <option value="v2">2.0 (Latest)</option>
-    </Select>
-  )
-  if (!isAmp) return curSelect
-  // have to wrap it in a form to use `autoComplete="off"`
-  return (
-    <form action="/" method="GET" autoComplete="off" target="_top">
-      {curSelect}
-    </form>
-  )
-}
 
 class withDoc extends React.Component {
   state = {
@@ -160,40 +133,13 @@ class withDoc extends React.Component {
           <Main>
             <NonAmpOnly>
               <Sidebar active={navigationActive}>
-                <div className="toggle-group-wrapper">
-                  <ToggleGroup>
-                    <ToggleItem
-                      active={
-                        router.pathname.startsWith('/docs') &&
-                        !router.pathname.startsWith('/docs/api')
-                      }
-                    >
-                      <Link href="/docs">
-                        <a onClick={this.handleIndexClick}>Docs</a>
-                      </Link>
-                    </ToggleItem>
-                    <ToggleItem
-                      active={router.pathname.startsWith('/docs/api')}
-                    >
-                      <Link href="/docs/api">
-                        <a onClick={this.handleIndexClick}>API Reference</a>
-                      </Link>
-                    </ToggleItem>
-                    <ToggleItem
-                      active={router.pathname.startsWith('/examples')}
-                    >
-                      <Link href="/examples">
-                        <a onClick={this.handleIndexClick}>Examples</a>
-                      </Link>
-                    </ToggleItem>
-                  </ToggleGroup>
-                </div>
                 <DocsNavbarDesktop data={versionData} url={router} />
-                <h5 className="platform-select-title">Now Platform Version</h5>
-                <VersionSelect
-                  version={version}
-                  onChange={this.handleVersionChange}
-                />
+                <div className="select-wrapper">
+                  <VersionSwitcher
+                    version={version}
+                    onChange={this.handleVersionChange}
+                  />
+                </div>
               </Sidebar>
             </NonAmpOnly>
             <Content>
@@ -238,6 +184,10 @@ class withDoc extends React.Component {
               padding: 0;
             }
 
+            .select-wrapper {
+              margin-top: 64px;
+            }
+
             .category-wrapper {
               padding: 40px 0;
             }
@@ -252,19 +202,6 @@ class withDoc extends React.Component {
               font-weight: 400;
               margin-bottom: 16px;
               margin-top: 32px;
-            }
-
-            .toggle-group-wrapper {
-              display: none;
-            }
-
-            @media screen and (max-width: 950px) {
-              .toggle-group-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 40px;
-              }
             }
           `}</style>
         </Layout>
