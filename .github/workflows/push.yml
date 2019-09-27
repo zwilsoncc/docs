@@ -1,0 +1,24 @@
+on: push
+name: Build and Index Files
+jobs:
+  master:
+    name: Master
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Master
+      uses: actions/bin/filter@master
+      with:
+        args: branch master && not deleted
+    - name: Install
+      uses: docker://mhart/alpine-node:10
+      with:
+        entrypoint: sh
+        args: -c "yarn install --production"
+    - name: Index Files
+      uses: docker://mhart/alpine-node:10
+      env:
+        ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+      with:
+        entrypoint: sh
+        args: -c "ALGOLIA_API_KEY=$ALGOLIA_API_KEY yarn docs-index"
