@@ -10,7 +10,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2019-09-27T18:07:04.000Z'
 }
 
 ZEIT Now deployments support various backend languages that you can deploy as Serverless functions.
@@ -119,7 +119,7 @@ ZEIT Now provides an additional command with [Now CLI](/download) to help you de
 If you have an `api` directory like the [above examples](#deploying-serverless-functions) on this page, you can run the following command to start a local development environment that supports your serverless API and allows you to develop locally, just make sure to install your project's dependencies first with `npm install`:
 
 <Snippet dark text="now dev" />
-<Caption>starting a local development environment using Now CLI, for Serverless Functions.</Caption>
+<Caption>Starting a local development environment using Now CLI, for Serverless Functions.</Caption>
 
 <Note>
   The <InlineCode>now dev</InlineCode> command is still in beta. If you have any
@@ -136,7 +136,7 @@ If you have a statically generated frontend that supports its own development en
 {
   ...
   "scripts": {
-    "dev": "next"
+    "dev": "next --port $PORT"
   }
 }
 ```
@@ -145,6 +145,13 @@ If you have a statically generated frontend that supports its own development en
   Defining a custom <InlineCode>dev</InlineCode> script for Next.js in a{' '}
   <InlineCode>package.json</InlineCode> file.
 </Caption>
+
+<Note>
+  The above script example uses <InlineCode>--port $PORT</InlineCode> in the{' '}
+  <InlineCode>dev</InlineCode> command. This uses the framework's – in this case
+  Next.js – port argument to pass the port from <InlineCode>now dev</InlineCode>{' '}
+  so that it can properly fetch the running framework.
+</Note>
 
 ### Using Environment Variables Locally
 
