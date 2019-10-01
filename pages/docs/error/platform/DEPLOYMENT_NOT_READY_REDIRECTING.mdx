@@ -1,0 +1,37 @@
+import Standard from '~/components/layout/standard'
+import Snippet from '~/components/snippet'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import { InlineCode } from '~/components/text/code'
+
+export const meta = {
+  title: 'Deployment Not Ready',
+  description: 'The requested deployment is not ready and will be redirected.',
+  editUrl: 'pages/docs/error/platform/DEPLOYMENT_NOT_READY_REDIRECTING.mdx',
+  lastEdited: '2019-09-23T15:41:06.000Z'
+}
+
+#### Platform Error
+
+The deployment has not made it through the deployment pipeline and the request was redirected to the deployment status page.
+
+<br />
+
+<Note label={false}>
+  <b>303</b>: See Other
+  <br />
+  Code: <InlineCode>DEPLOYMENT_NOT_READY_REDIRECTING</InlineCode>
+</Note>
+
+---
+
+#### Troubleshoot
+
+- Please wait for a few seconds and refresh.
+- If the error does not resolve when refreshing, please **[contact support](mailto:support@zeit.co)** along with the ID on the error page from your deployment.
+
+export default ({ children }) => <Standard meta={meta}>{children}</Standard>
+
+export const config = {
+  amp: 'hybrid'
+}
