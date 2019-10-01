@@ -1,3 +1,3 @@
 import redirect from '~/lib/redirect'
 
-export default redirect('/docs/v2/routing/directory-listing')
+export default redirect('/docs/directory-listing')

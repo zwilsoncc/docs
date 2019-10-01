@@ -341,7 +341,7 @@
   </url>
   <url>
     <loc>https://zeit.co/docs/v2/advanced/concepts/serverless-functions/</loc>
-    <lastmod>2019-09-24T20:45:27.000Z</lastmod>
+    <lastmod>2019-10-01T20:09:33.000Z</lastmod>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -520,6 +520,10 @@
     <changefreq>hourly</changefreq>
   </url>
   <url>
+    <loc>https://zeit.co/docs/v2/network/.DS_Store/</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
     <loc>https://zeit.co/docs/v2/network/caching/</loc>
     <lastmod>2019-09-24T17:47:39.000Z</lastmod>
     <changefreq>hourly</changefreq>
@@ -527,11 +531,6 @@
   <url>
     <loc>https://zeit.co/docs/v2/network/compression/</loc>
     <lastmod>2019-08-12T19:45:54.000Z</lastmod>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>https://zeit.co/docs/v2/network/directory-listing/</loc>
-    <lastmod>2019-09-24T17:47:39.000Z</lastmod>
     <changefreq>hourly</changefreq>
   </url>
   <url>
@@ -561,7 +560,7 @@
   </url>
   <url>
     <loc>https://zeit.co/docs/v2/network/status-codes/</loc>
-    <lastmod>2019-09-24T17:47:39.000Z</lastmod>
+    <lastmod>2019-10-01T20:09:33.000Z</lastmod>
     <changefreq>hourly</changefreq>
   </url>
   <url>

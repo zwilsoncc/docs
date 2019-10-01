@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Serverless functions that are invoked upon request and serve a dynamic response, easily deployed with ZEIT Now.',
   editUrl: 'pages/docs/v2/advanced/concepts/serverless-functions.mdx',
-  lastEdited: '2019-09-24T20:45:27.000Z'
+  lastEdited: '2019-10-01T20:09:33.000Z'
 }
 
 When you make a deployment, by running `now` with our [CLI](/download), making an [API](/api) call or with either our [GitHub](/docs/v2/integrations/now-for-github) or [GitLab](/docs/v2/integrations/now-for-gitlab) integrations, we synchronize the source code and optionally build them to your specification.
@@ -55,8 +55,6 @@ module.exports = (req, res) => {
 </Caption>
 
 When you deploy an application using a similar structure, with static files and dynamic functions, the **build processes happens in parallel** and all yield independent outputs which the deployment then serves.
-
-Within a [Directory Listing](/docs/v2/network/directory-listing/) or [source view](/docs/v2/advanced/concepts/special-paths/#source-view), built Serverless Functions (represented by the icon **λ**) show up as "files" alongside static ones.
 
 When a request is received by a Serverless Function, the code package, deployed to the [specified regions](/docs/v2/advanced/platform/regions-and-providers), is executed and its response returned.
 
