@@ -8,6 +8,7 @@ import Button from '~/components/buttons'
 import EmojiIcon from '~/components/icons/emoji'
 import ClickOutside from '~/components/click-outside'
 import X from '~/components/icons/cross'
+import Checkmark from '~/components/icons/checkmark-in-circle'
 
 const EMOJIS = new Map([
   ['🤩', 'f929'],
@@ -254,6 +255,7 @@ class HeaderFeedback extends Component {
 
               {this.state.success && (
                 <div className="success-message">
+                  <Checkmark size="2rem" className="checkmark" />
                   <p>Your feedback has been received!</p>
                   <p>Thank you for your help.</p>
                 </div>
@@ -410,12 +412,19 @@ class HeaderFeedback extends Component {
                 .success-message p {
                   margin: 0;
                   opacity: 0;
+                  white-space: nowrap;
                   animation: appear 500ms ease forwards;
                 }
 
+                .success-message :global(.checkmark) {
+                  opacity: 0;
+                  animation: appear 200ms 100ms ease forwards;
+                }
+
                 .success-message p:first-of-type {
-                  margin-bottom: var(--geist-gap-half);
-                  animation-delay: 100ms;
+                  margin-top: var(--geist-gap-half);
+                  margin-bottom: var(--geist-gap-quarter);
+                  animation-delay: 300ms;
                 }
 
                 .success-message p:nth-of-type(2) {
