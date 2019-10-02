@@ -382,6 +382,7 @@ class HeaderFeedback extends Component {
                   width: var(--open-width);
                   height: var(--open-height);
                   box-shadow: var(--shadow-large);
+                  background: var(--geist-background);
                   border-radius: 4px;
                   overflow: hidden;
                   position: relative;
