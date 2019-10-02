@@ -197,7 +197,7 @@ class HeaderFeedback extends Component {
   }
 
   render() {
-    const { className, open, ...props } = this.props
+    const { className, open, loggedOut, ...props } = this.props
     const { focused } = this.state
     delete props.onFeedback
 
@@ -291,10 +291,16 @@ class HeaderFeedback extends Component {
               )}
             </div>
 
+            {/* Dyanmic Styles */}
+            <style jsx>{`
+              .geist-feedback-input {
+                --open-width: ${loggedOut ? '262px' : '252px'};
+              }
+            `}</style>
+
             <style jsx>
               {`
                 .geist-feedback-input {
-                  --open-width: 252px;
                   --open-height: 174px;
                   --closed-width: 90px;
                   --closed-height: 32px;
@@ -494,13 +500,6 @@ class HeaderFeedback extends Component {
                     opacity: 1;
                   }
                 }
-
-                /* At 951px the dots menu disappears and changes the width */
-                @media (max-width: 951px) {
-                  .geist-feedback-input {
-                    --open-width: 300px;
-                  }
-                }
               `}
             </style>
           </div>
@@ -514,7 +513,8 @@ HeaderFeedback.propTypes = {
   dryRun: PropTypes.bool,
   open: PropTypes.bool,
   currentTeamSlug: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  loggedOut: PropTypes.bool
 }
 
 class EmojiSelector extends Component {
