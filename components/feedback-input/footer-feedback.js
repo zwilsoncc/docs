@@ -231,7 +231,7 @@ export default class GuidesFeedback extends Component {
               className={cn(
                 'geist-feedback-input',
                 {
-                  focused: focused,
+                  focused,
                   error: this.state.errorMessage,
                   loading: this.state.loading,
                   success: this.state.success
