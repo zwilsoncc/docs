@@ -1,23 +1,23 @@
 # Learn how to add code owners here:
 # https://help.github.com/en/articles/about-code-owners
 
-*                                           @timothyis @msweeneydev
+*                                           @timothyis @msweeneydev @coetry
 pages/docs/v2/introduction.mdx              @joecohens @paulogdm @msweeneydev @timothyis @coetry
-pages/docs/v2/git-integration.mdx           @arunoda @timothyis @msweeneydev
-pages/docs/v2/build-step.mdx                @leo @AndyBitz @TooTallNate @timothyis @msweeneydev
-pages/docs/v2/custom-domains.mdx            @anatrajkovska @javivelasco @mglagola @joecohens @timothyis @msweeneydev
-pages/docs/v2/serverless-functions/         @leo @AndyBitz @TooTallNate @timothyis @msweeneydev
-pages/docs/v2/network/                      @juancampa @hharnisc @dav-is @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/now-for-github.mdx   @arunoda @timothyis @msweeneydev
-pages/docs/v2/advanced/now-for-gitlab.mdx   @arunoda @timothyis @msweeneydev
-pages/docs/v2/advanced/configuration.mdx    @leo @styfle @AndyBitz @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/global-configuration.mdx    @leo @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/routes.mdx           @leo @AndyBitz @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/deploy-hooks.mdx     @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/builders.mdx         @leo @AndyBitz @styfle @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/concepts/            @leo @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/domains/             @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens
-pages/docs/v2/advanced/platform/            @leo @styfle @timothyis @msweeneydev @joecohens
-pages/docs/api/                             @anatrajkovska @arunoda @javivelasco @mglagola @timothyis @msweeneydev
-pages/docs/integrations/                    @arunoda @timothyis @msweeneydev
-pages/docs/error/                           @juancampa @dav-is @timothyis @msweeneydev @joecohens
+pages/docs/v2/git-integration.mdx           @arunoda @timothyis @msweeneydev @coetry
+pages/docs/v2/build-step.mdx                @leo @AndyBitz @TooTallNate @timothyis @msweeneydev @coetry
+pages/docs/v2/custom-domains.mdx            @anatrajkovska @javivelasco @mglagola @joecohens @timothyis @msweeneydev @coetry
+pages/docs/v2/serverless-functions/         @leo @AndyBitz @TooTallNate @timothyis @msweeneydev @coetry
+pages/docs/v2/network/                      @juancampa @hharnisc @dav-is @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/now-for-github.mdx   @arunoda @timothyis @msweeneydev @coetry
+pages/docs/v2/advanced/now-for-gitlab.mdx   @arunoda @timothyis @msweeneydev @coetry
+pages/docs/v2/advanced/configuration.mdx    @leo @styfle @AndyBitz @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/global-configuration.mdx    @leo @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/routes.mdx           @leo @AndyBitz @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/deploy-hooks.mdx     @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/builders.mdx         @leo @AndyBitz @styfle @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/concepts/            @leo @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/domains/             @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/platform/            @leo @styfle @timothyis @msweeneydev @joecohens @coetry
+pages/docs/api/                             @anatrajkovska @arunoda @javivelasco @mglagola @timothyis @msweeneydev @coetry
+pages/docs/integrations/                    @arunoda @timothyis @msweeneydev @coetry
+pages/docs/error/                           @juancampa @dav-is @timothyis @msweeneydev @joecohens @coetry
