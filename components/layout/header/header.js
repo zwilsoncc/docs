@@ -106,6 +106,10 @@ class Header extends Component {
 
   handleLogout = async () => {
     await logout()
+    // Stop recording after logout
+    if (typeof window !== 'undefined' && window.FS) {
+      window.FS.shutdown()
+    }
     Router.push('/login')
   }
 
