@@ -276,7 +276,8 @@ class Header extends Component {
                         router.pathname.startsWith('/docs') &&
                         !router.pathname.startsWith('/docs/api') &&
                         !router.pathname.startsWith('/docs/integrations') &&
-                        !router.pathname.startsWith('/docs/now-cli')
+                        !router.pathname.startsWith('/docs/now-cli') &&
+                        !router.pathname.startsWith('/docs/builders')
                       }
                       onClick={handleIndexClick}
                     >
@@ -295,7 +296,8 @@ class Header extends Component {
                         active:
                           router.pathname.startsWith('/docs/api') ||
                           router.pathname.startsWith('/docs/integrations') ||
-                          router.pathname.startsWith('/docs/now-cli')
+                          router.pathname.startsWith('/docs/now-cli') ||
+                          router.pathname.startsWith('/docs/builders')
                       })}
                     >
                       <MenuPopOver
@@ -396,7 +398,8 @@ class Header extends Component {
                     router.pathname.startsWith('/docs') &&
                     !router.pathname.startsWith('/docs/api') &&
                     !router.pathname.startsWith('/docs/integrations') &&
-                    !router.pathname.startsWith('/docs/now-cli')
+                    !router.pathname.startsWith('/docs/now-cli') &&
+                    !router.pathname.startsWith('/docs/builders')
                   }
                   onClick={handleIndexClick}
                 >
@@ -405,7 +408,8 @@ class Header extends Component {
                 {router.pathname.startsWith('/docs') &&
                   !router.pathname.startsWith('/docs/api') &&
                   !router.pathname.startsWith('/docs/integrations') &&
-                  !router.pathname.startsWith('/docs/now-cli') && (
+                  !router.pathname.startsWith('/docs/now-cli') &&
+                  !router.pathname.startsWith('/docs/builders') && (
                     <div className="navigation">
                       <DocsNavbarDesktop
                         data={data}
@@ -451,6 +455,15 @@ class Header extends Component {
                   onClick={handleIndexClick}
                 >
                   Now CLI
+                </NavigationItem>
+              </div>
+              <div className="group">
+                <NavigationItem
+                  href="/docs/builders"
+                  active={router.pathname.startsWith('/docs/builders')}
+                  onClick={handleIndexClick}
+                >
+                  Builders
                 </NavigationItem>
               </div>
             </div>
