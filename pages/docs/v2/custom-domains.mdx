@@ -9,7 +9,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-10-02T14:55:32.000Z'
+  lastEdited: '2019-10-09T12:56:09.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` prefixed domain.
@@ -124,7 +124,7 @@ To update your production deployment, you can use the `--prod` argument with the
 
 ### With Git
 
-When a custom domain is assigned as a production domain to a project with a [Now for Git integration](/docs/v2/git-integration) enabled, each push (including merges) to the default branch (commonly `master`) will trigger a deployment that targets the defined domain.
+When a custom domain is assigned as a production domain to a project with a [Now for Git integration](/docs/v2/git-integration) enabled, each push (including merges) to the default branch (commonly `master`) will trigger a deployment to the defined domain.
 
 Reverts take effect immediately, assigning the custom domain to the deployment made prior to the point the revert is effective from.
 
