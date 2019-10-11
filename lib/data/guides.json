@@ -32,10 +32,10 @@
     "title": "Deploying Apollo Server to ZEIT Now",
     "description": "Deploy Your Apollo GraphQL Server to ZEIT Now.",
     "published": "2019-01-24T03:00:00.860Z",
-    "authors": ["unicodeveloper, msweeneydev"],
+    "authors": ["unicodeveloper", "msweeneydev"],
     "url": "/guides/deploying-apolloserver-to-now",
     "editUrl": "pages/guides/deploying-apolloserver-to-now.mdx",
-    "lastEdited": "2019-10-02T14:07:07.000Z"
+    "lastEdited": "2019-10-11T23:41:55.000Z"
   },
   {
     "title": "Create a Charge App That Builds and Deploys with ZEIT Now",
@@ -304,10 +304,10 @@
     "title": "Prevent Uploading Source Paths with `.nowignore` on ZEIT Now",
     "description": "Use a .nowignore file to prevent the uploading of source paths when deploying with ZEIT Now.",
     "published": "2019-01-24T03:00:00.860Z",
-    "authors": ["unicodeveloper, msweeneydev"],
+    "authors": ["unicodeveloper", "msweeneydev"],
     "url": "/guides/prevent-uploading-sourcepaths-with-nowignore",
     "editUrl": "pages/guides/prevent-uploading-sourcepaths-with-nowignore.mdx",
-    "lastEdited": "2019-10-02T12:59:12.000Z"
+    "lastEdited": "2019-10-11T23:41:55.000Z"
   },
   {
     "title": "Redirect from www. To Your Root Domain with ZEIT Now",
