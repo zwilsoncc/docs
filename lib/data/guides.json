@@ -327,6 +327,15 @@
     "lastEdited": "2019-10-02T14:07:07.000Z"
   },
   {
+    "title": "Transferring Domains to ZEIT Now",
+    "description": "How to transfer your domain to ZEIT Now.",
+    "published": "2019-10-11T17:00:00.860Z",
+    "authors": ["msweeneydev"],
+    "url": "/guides/transferring-domains-to-zeit-now",
+    "editUrl": "pages/guides/transferring-domains-to-zeit-now.mdx",
+    "lastEdited": "2019-10-11T14:28:51.000Z"
+  },
+  {
     "title": "How to Update Now CLI",
     "description": "Update Now CLI using a package manager.",
     "published": "2019-03-20T03:00:00.860Z",
