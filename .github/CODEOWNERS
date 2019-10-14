@@ -11,7 +11,6 @@ pages/docs/v2/network/                      @juancampa @hharnisc @dav-is @timoth
 pages/docs/v2/advanced/now-for-github.mdx   @arunoda @timothyis @msweeneydev @coetry
 pages/docs/v2/advanced/now-for-gitlab.mdx   @arunoda @timothyis @msweeneydev @coetry
 pages/docs/configuration    @leo @styfle @AndyBitz @timothyis @msweeneydev @joecohens @coetry
-pages/docs/v2/advanced/routes.mdx           @leo @AndyBitz @timothyis @msweeneydev @joecohens @coetry
 pages/docs/v2/advanced/deploy-hooks.mdx     @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens @coetry
 pages/docs/v2/advanced/builders.mdx         @leo @AndyBitz @styfle @timothyis @msweeneydev @joecohens @coetry
 pages/docs/v2/advanced/concepts/            @leo @timothyis @msweeneydev @joecohens @coetry

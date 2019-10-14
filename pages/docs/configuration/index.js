@@ -251,6 +251,7 @@ class ConfigurationReference extends Component {
 
             .category-wrapper:not(:last-child) {
               border-bottom: 1px solid #eaeaea;
+              padding-bottom: 48px;
             }
 
             .category-wrapper:last-child {

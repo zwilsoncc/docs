@@ -8,18 +8,10 @@ import Note from '~/components/text/note'
 export const meta = {
   editUrl:
     'pages/docs/configuration/configuration-mdx/configuration/configuration.mdx',
-  lastEdited: '2019-10-09T21:12:01.000Z'
+  lastEdited: '2019-10-14T12:32:29.000Z'
 }
 
-# Configuration
-
-When using [Now CLI](/download), [Now for GitHub](/docs/v2/advanced/now-for-github) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab), the configuration for your deployment is read from the `now.json` file.
-
-The parameters stored in that file are passed to the [Deployment Creation API endpoint](/docs/api/v2#endpoints/deployments/create-a-new-deployment), which performs validation and stores the metadata in our backend.
-
-The following sections describe each field allowed in a `now.json` configuration file and how to use them.
-
-Each deployment receives and understands the `now.json` configuration as instructions of how to build and then act when deployed.
+# Project
 
 ## name
 
@@ -249,7 +241,7 @@ For more information on Builds and Builders, see the documentation:
 
 For more information on routes, see the documentation:
 
-<Card title="Routes" href="/docs/v2/advanced/routes">
+<Card title="Routes" href="/docs/configuration#routes">
   Control your deployment's paths in detail with routes.
 </Card>
 
@@ -291,92 +283,3 @@ When set to `true`, both the [source view](/docs/v2/advanced/concepts/special-pa
   "public": true
 }`}</Code>
 </Example>
-
-## github.enabled
-
-**Type**: `Boolean`.
-
-When set to `false`, [Now for GitHub](/docs/v2/advanced/now-for-github) will not deploy the given project regardless of the GitHub app being installed.
-
-<Example>
-  <b>Usage Example:</b>
-  <Code lang="json">{`{
-  "github": {
-    "enabled": false
-  }
-}`}</Code>
-</Example>
-
-## github.autoAlias
-
-**Type**: `Boolean`.
-
-When set to `false`, [Now for GitHub](/docs/v2/advanced/now-for-github) will not apply the alias upon merge.
-
-<Example>
-  <b>Usage Example:</b>
-  <Code lang="json">{`{
-  "alias": ["my-zeit-website.com"],
-  "github": {
-    "autoAlias": false
-  }
-}`}</Code>
-</Example>
-
-## github.silent
-
-**Type**: `Boolean`.
-
-When set to `true`, [Now for GitHub](/docs/v2/advanced/now-for-github) will stop commenting on pull requests and commits.
-
-<Example>
-  <b>Usage Example:</b>
-  <Code lang="json">{`{
-  "github": {
-    "silent": true
-  }
-}`}</Code>
-</Example>
-
-## github.autoJobCancelation
-
-**Type**: `Boolean`.
-
-When set to false, [Now for GitHub](/docs/v2/advanced/now-for-github) will always build pushes in sequence without cancelling a build for the most recent commit.
-
-<Example>
-  <b>Usage Example:</b>
-  <Code lang="json">{`{
-  "github": {
-    "autoJobCancelation": false
-  }
-}`}</Code>
-</Example>
-
-## Reserved Variables
-
-The following environment variable names are [reserved](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#lambda-environment-variables) and therefore unavailable for use:
-
-- `AWS_REGION`
-- `AWS_DEFAULT_REGION`
-- `AWS_ACCESS_KEY_ID`
-- `AWS_SECRET_KEY`
-- `AWS_SECRET_ACCESS_KEY`
-- `AWS_EXECUTION_ENV`
-- `AWS_LAMBDA_LOG_GROUP_NAME`
-- `AWS_LAMBDA_LOG_STREAM_NAME`
-- `AWS_LAMBDA_FUNCTION_NAME`
-- `AWS_LAMBDA_FUNCTION_MEMORY_SIZE`
-- `AWS_LAMBDA_FUNCTION_VERSION`
-- `AWS_SESSION_TOKEN`
-- `NOW_REGION`
-- `TZ`
-- `_HANDLER`
-- `LAMBDA_TASK_ROOT`
-- `LAMBDA_RUNTIME_DIR`
-
-Using any of these environment variables will result in the deployment failing.
-
-## Schemas
-
-If you are looking for a strict or machine-friendly specification of the configuration, we recommend [looking at `zeit/schemas`](https://github.com/zeit/schemas).

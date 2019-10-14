@@ -130,9 +130,9 @@
       "headers": { "Location": "/docs/configuration$2" }
     },
     {
-      "src": "/docs/v2/deployments/routes(.*)",
+      "src": "/docs/v2/deployments/routes.*",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/routes/$1" }
+      "headers": { "Location": "/docs/configuration#routes" }
     },
     {
       "src": "/docs/v2/deployments/builds/?",
@@ -218,7 +218,7 @@
     {
       "src": "/docs/v2/platform/global-configuration.*",
       "status": 301,
-      "headers": { "Location": "/docs/configuration#global-configuration" }
+      "headers": { "Location": "/docs/configuration#global" }
     },
     {
       "src": "/docs/v2/platform/(.*)/?",
