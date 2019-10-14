@@ -42,7 +42,8 @@ async function main() {
       'dist/guides/**/*.html',
       'dist/docs/v2/**/*.html',
       'dist/docs/api/v2/**/*.html',
-      'dist/docs/integrations/v2/**/*.html'
+      'dist/docs/integrations/v2/**/*.html',
+      'dist/docs/now-cli/**/*.html'
     ])
     // filter out AMP pages
     files = files.filter(f => f.indexOf('.amp/index.html') < 0)
