@@ -4,7 +4,14 @@ const path = require('path')
 const prettier = require('prettier')
 
 const DOMAIN = 'https://zeit.co'
-const SITE_PATHS = ['/docs', '/docs/api', '/docs/integrations']
+const SITE_PATHS = [
+  '/docs',
+  '/docs/api',
+  '/docs/integrations',
+  '/docs/now-cli',
+  '/docs/configuration',
+  '/docs/builders'
+]
 const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/
 const SITEMAP_PATH = 'public/sitemap.xml'
 const GUIDES_PATH = 'lib/data/guides.json'
@@ -37,7 +44,7 @@ function recursiveReadDirSync(dir, arr = [], rootDir = dir) {
 
 function isV2Page(pagePath) {
   return (
-    !pagePath.includes('api-docs-mdx') &&
+    !pagePath.endsWith('-mdx') &&
     SITE_PATHS.some(
       dir =>
         pagePath.startsWith(dir + '/index') || pagePath.startsWith(dir + '/v2')
