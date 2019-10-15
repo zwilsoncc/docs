@@ -73,6 +73,7 @@ async function main() {
 
     // Current heading and element, initially null
     let currentHeading = null
+    let currentCategory = null
     let currentSection = null
     let currentSubSection = null
     let currentEl = null
@@ -95,7 +96,9 @@ async function main() {
             .attr('href')
         }
 
-        if (tag === 'h2') {
+        if (tag === 'h1') {
+          currentCategory = currentEl.text()
+        } else if (tag === 'h2') {
           currentSection = currentEl.text()
         } else if (tag === 'h3') {
           currentSubSection = currentEl.text()
@@ -108,7 +111,10 @@ async function main() {
 
         // Create record with title, (if it exists) section heading, url (inferred), paragraph content, and order
         const record = {
-          title: isAPISection || isRefSection ? currentSection : pageTitle,
+          title:
+            isAPISection || isRefSection
+              ? currentSection || currentCategory
+              : pageTitle,
           ...(isAPISection || isRefSection
             ? currentSubSection && { section: currentSubSection }
             : currentHeading && { section: currentHeading.text }),
