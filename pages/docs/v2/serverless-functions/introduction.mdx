@@ -10,10 +10,31 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-10-09T12:52:23.000Z'
+  lastEdited: '2019-10-22T22:13:11.000Z'
 }
 
-ZEIT Now deployments support various backend languages that you can deploy as Serverless functions.
+With ZEIT Now, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
+
+You can use Serverless Functions to handle user authentication, form submission, database queries, custom
+slack commands, and more.
+
+## Creating Serverless Functions
+
+To create a Serverless Function, create a file in an `api` directory from your project root with the appropriate language extension. For example, to create a TypeScript function, you can create a file called `get-user.ts` like below.
+
+```ts
+import { NowRequest, NowResponse } from '@now/node'
+
+export default (req: NowRequest, res: NowResponse) => {
+  res.json({ name: 'John', email: 'john@example.com' })
+}
+```
+
+<Caption>
+  A TypeScript Serverless Function that returns a JSON response.
+</Caption>
+
+When a user visits `/api/get-user`, they will receive the JSON from above. Note that you don't have to explicitly set up any routing rules for this to work. By default, [filesystem routing](https://zeit.co/docs/configuration/#routes) is leveraged.
 
 ## Deploying Serverless Functions
 
