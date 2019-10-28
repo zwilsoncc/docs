@@ -23,7 +23,7 @@ import withPermalink from '~/lib/api/with-permalink'
 import HR from '~/components/text/hr'
 import { FooterFeedback } from '~/components/feedback-input'
 
-import NowCLI from './now-cli-mdx/index.mdx'
+import NowCLI from '~/components/references-mdx/now-cli/index.mdx'
 
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 

@@ -24,7 +24,7 @@ import withPermalink from '~/lib/api/with-permalink'
 import HR from '~/components/text/hr'
 import { FooterFeedback } from '~/components/feedback-input'
 
-import IntegrationsDocs from './integrations-docs-mdx/index.mdx'
+import IntegrationsDocs from '~/components/references-mdx/integrations/index.mdx'
 
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 
