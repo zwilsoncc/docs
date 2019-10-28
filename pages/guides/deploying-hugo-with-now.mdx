@@ -13,7 +13,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/deploying-hugo-with-now',
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
-  lastEdited: '2019-10-02T14:07:07.000Z'
+  lastEdited: '2019-10-28T13:42:13.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -78,8 +78,8 @@ You can now see your project running locally with the following command:
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
-  , the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
+  the content of your posts won't show up in production.
 </Note>
 
 ## Step 2: Deploying Your Hugo Website with ZEIT Now
@@ -91,8 +91,7 @@ First, create a `package.json` in the project directory with the following conte
 ```json
 {
   "scripts": {
-    "install": "curl -L -O https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.tar.gz && tar -xzf hugo_0.55.6_Linux-64bit.tar.gz",
-    "build": "./hugo"
+    "build": "hugo"
   }
 }
 ```

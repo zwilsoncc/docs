@@ -7,7 +7,7 @@ import Tag from '~/components/text/tag'
 
 export const meta = {
   editUrl: 'pages/docs/builders/builders-mdx/advanced/advanced.mdx',
-  lastEdited: '2019-10-17T14:44:04.000Z'
+  lastEdited: '2019-10-28T13:42:13.000Z'
 }
 
 # Advanced Usage
@@ -138,19 +138,19 @@ If you want to configure a directory other than `public` for your build output, 
 
 ### Shell File Entry Point for Static Builds
 
-Using a file with a `.sh` file extension as an entry point for the `@now/static-build` Builder allows you to define build instructions in a shell file.
+Using a file with a `.sh` file extension as an entry point for the `@now/static-build` Builder allows you to define a custom build script.
 
-For example, creating a shell file, with the name `build.sh`, with the following contents, will install and build a [Hugo project](https://zeit.co/guides/deploying-hugo-with-now/):
+For example, the following `build.sh` file will create a `dist` directory containing an `index.html` file using Bash.
 
 ```shell
-curl -L -O https://github.com/gohugoio/hugo/releases/download/v0.55.6/hugo_0.55.6_Linux-64bit.tar.gz
-tar -xzf hugo_0.55.6_Linux-64bit.tar.gz
-
-./hugo
+#!/bin/bash
+mkdir dist
+echo 'Hello World' > dist/index.html
 ```
 
 <Caption>
-  An example shell file that installs and builds a Hugo project.
+  An example Bash script that creates an <InlineCode>index.html</InlineCode> file in a <InlineCode>dist</InlineCode>
+  directory.
 </Caption>
 
 For depencency installation with [shell file entry points](#advanced-usage/advanced-static-builds-usage/shell-file-entry-point-for-static-builds), `yum` is available.
