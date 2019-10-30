@@ -18,12 +18,18 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2019-10-22T15:47:35.000Z'
+  lastEdited: '2019-10-30T10:56:45.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
 
 Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
+
+<Note type="warning">
+  If you are using an{' '}
+  <GenericLink href="#optimized-frameworks">optimized framework</GenericLink>,
+  you must use the default output directory provided by the framework.
+</Note>
 
 You are also able to use [environment variables](#using-environment-variables-and-secrets) (including secrets) in your builds if you do not want to hardcode values for the build.
 

@@ -1,15 +1,27 @@
 import Doc from '~/components/layout/docs'
+import { GenericLink } from '~/components/text/link'
+import Note from '~/components/text/note'
+import Caption from '~/components/text/caption'
+import { InlineCode } from '~/components/text/code'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/advanced/platform/frequently-asked-questions.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2019-10-30T10:56:45.000Z'
 }
 
 ## Missing Public Directory
 
 If your project contains a `package.json` file with a `build` [script](https://docs.npmjs.com/misc/scripts), and no `now.json` configuration, it is expected to output its static files into a directory named `public`, at the root of the project, when the `build` [script](https://docs.npmjs.com/misc/scripts) is executed.
+
+<Note type="warning">
+  If you are using an{' '}
+  <GenericLink href="/docs/v2/build-step/#optimized-frameworks">
+    optimized framework
+  </GenericLink>
+  , you must use the default output directory provided by the framework.
+</Note>
 
 You are seeing this error because your setup did not satisfy the above constraint.
 
@@ -20,22 +32,38 @@ For example, this is how your `package.json` file might look:
 ```json
 {
   "scripts": {
-    "build": "my-framework build"
+    "build": "[my-framework] build"
   }
 }
 ```
 
+<Caption>
+  An example <InlineCode>build</InlineCode> script in a{' '}
+  <InlineCode>package.json</InlineCode> file.
+</Caption>
+
 If you are seeing this error with a similar `build` script already, you may need to adjust the command to direct its static output files into the `public` directory instead.
+
+<Note>
+  Consult your framework's documentation to understand how to specify the build
+  output directory.
+</Note>
 
 Depending on your framework, the option for this might be called `--output`, `--out`, `--output-dir` or similar:
 
 ```json
 {
   "scripts": {
-    "build": "my-framework build --output public"
+    "build": "[my-framework] build --output public"
   }
 }
 ```
+
+<Caption>
+  An example <InlineCode>build</InlineCode> script in a{' '}
+  <InlineCode>package.json</InlineCode> file that specifies the output
+  directory.
+</Caption>
 
 Once you have done this, the error will disappear since the output will be the expected directory, `public`.
 
@@ -48,10 +76,16 @@ When properly configured, your `package.json` file would look similar to this:
 ```json
 {
   "scripts": {
-    "build": "my-framework build --output public"
+    "build": "[my-framework] build --output public"
   }
 }
 ```
+
+<Caption>
+  An example <InlineCode>build</InlineCode> script in a{' '}
+  <InlineCode>package.json</InlineCode> file that specifies the output
+  directory.
+</Caption>
 
 Once you have defined the `build` [script](https://docs.npmjs.com/misc/scripts), this error will disappear. Furthermore, it will not be displayed if you are using `package.json` purely to provide dependencies for your Serverless Functions located inside the `api` directory.
 
