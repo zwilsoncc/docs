@@ -42,7 +42,6 @@ Create a new project with the `name` request parameter. If the project already e
 <Code lang="json">{`{
   "id":"QmQKrt94KYKF3sDysJq19N87uMmE8Wicbt2GirePy1dH8U",
   "name":"a-project-name",
-  "alias": [],
   "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
   "updatedAt":1555413045188,
   "createdAt":1555413045188
@@ -79,7 +78,6 @@ Create a project with the `name` request parameter if it does not already exist.
 <Code lang="json">{`{
   "id":"QmQKrt94KYKF3sDysJq19N87uMmE8Wicbt2GirePy1dH8U",
   "name":"a-project-name",
-  "alias": [],
   "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
   "updatedAt":1555413045188,
   "createdAt":1555413045188
@@ -115,18 +113,20 @@ Get a list of all the projects you currently have under your account.
   {
     "id":"QmQKrt94KYKF3sDysJq19N8gvhmE8Wicbt2GirePy1dH8U",
     "name":"a-project-name",
-    "alias": [],
     "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
     "createdAt":1555413045188,
-    "updatedAt":1555413045188
+    "updatedAt":1555413045188,
+    "targets": {},
+    "latestDeployments": []
   },
   {
     "id":"QmRhxc9HAmRMcLvWhCAf2ALLctxZ4s4fwsM1D5kNM8PJuL",
     "name":"another-project-name",
-    "alias": [],
     "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
     "createdAt":1555072968396,
-    "updatedAt":1555345633993
+    "updatedAt":1555345633993,
+    "targets": {},
+    "latestDeployments": []
   }
 ]
 `}</Code>
@@ -148,6 +148,20 @@ Get the information for a specific project by passing either the project `id` or
 | **id**   | <HelpLink href="#api-basics/types">ID</HelpLink>           | No       | The unique project identifier. |
 | **name** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The project name.              |
 
+#### Response Parameters
+
+| Key                   | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                           |
+| --------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **id**                | <HelpLink href="#api-basics/types">ID</HelpLink>           | A string holding the unique ID of the project.                                                                        |
+| **name**              | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the project.                                                                                              |
+| **alias**             | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of production domains for the project.                                                                         |
+| **accountId**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The unique ID of the user or team the project belongs to.                                                             |
+| **createdAt**         | <HelpLink href="#api-basics/types">Date</HelpLink>         | A number containing the date when the project was created in milliseconds.                                            |
+| **updatedAt**         | <HelpLink href="#api-basics/types">Date</HelpLink>         | A number containing the date when the project was updated in milliseconds.                                            |
+| **env**               | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of environment variables configured for the project.                                                           |
+| **targets**           | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object which has a `production` key containing the production deployment object, if a production deployment exists |
+| **latestDeployments** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the latest deployments for the project                                                                      |
+
 ##### Example Request
 
 <Request url="https://api.zeit.co/v1/projects/a-project-name" auth />
@@ -157,10 +171,85 @@ Get the information for a specific project by passing either the project `id` or
 <Code lang="json">{`{
   "id":"QmQKrt94KYKF3sDysJq19N8gvhmE8Wicbt2GirePy1dH8U",
   "name":"a-project-name",
-  "alias": [],
+  "alias": [
+    {
+      "createdAt": 1555413045188,
+      "domain": "foobar.com",
+      "target": "PRODUCTION",
+      "configuredBy": "A",
+      "configuredChangedAt": 1555413045188
+    }
+  ],
   "accountId":"K4amb7K9dAt5R2vBJWF32bmY",
   "createdAt":1555413045188,
-  "updatedAt":1555413045188
+  "updatedAt":1555413045188,
+  "env": [
+    {
+      "key": "API_SECRET",
+      "value": "@a-new-secret",
+      "configurationId": null,
+      "updatedAt": 1557241361455,
+      "createdAt": 1557241361455
+    }
+  ],
+  "targets": {
+    "production": {
+      "alias": [
+        "foobar.com"
+      ],
+      "aliasAssigned": 1571239348998,
+      "builds": [
+        {
+          "use": "@now/static",
+          "src": "**"
+        }
+      ],
+      "createdAt": 1571239348998,
+      "createdIn": "sfo1",
+      "deploymentHostname": "a-project-name-rjtr4pz3f",
+      "forced": false,
+      "id": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
+      "meta": {},
+      "plan": "unlimited",
+      "private": true,
+      "readyState": "READY",
+      "requestedAt": 1571239348998,
+      "target": "production",
+      "teamId": null,
+      "type": "LAMBDAS",
+      "url": "a-project-name-rjtr4pz3f.now.sh",
+      "userId": "K4amb7K9dAt5R2vBJWF32bmY"
+    }
+  },
+  "latestDeployments": [
+    {
+      "alias": [
+        "foobar.com"
+      ],
+      "aliasAssigned": 1571239348998,
+      "builds": [
+        {
+          "use": "@now/static",
+          "src": "**"
+        }
+      ],
+      "createdAt": 1571239348998,
+      "createdIn": "sfo1",
+      "deploymentHostname": "a-project-name-rjtr4pz3f",
+      "forced": false,
+      "id": "dpl_89qyp1cskzkLrVicDaZoDbjyHuDJ",
+      "meta": {},
+      "plan": "unlimited",
+      "private": true,
+      "readyState": "READY",
+      "requestedAt": 1571239348998,
+      "target": "production",
+      "teamId": null,
+      "type": "LAMBDAS",
+      "url": "a-project-name-rjtr4pz3f.now.sh",
+      "userId": "K4amb7K9dAt5R2vBJWF32bmY"
+    }
+  ]
 }`}</Code>
 
 ### Remove a Single Project
@@ -218,8 +307,9 @@ Retrieve the environment variables for a given project by passing the project `i
   {
     "key": "API_SECRET",
     "value": "@a-new-secret",
-    "installationId": null,
-    "updatedAt": 1557241361455
+    "configurationId": null,
+    "updatedAt": 1557241361455,
+    "createdAt": 1557241361455
   }
 ]`}</Code>
 
@@ -256,6 +346,9 @@ Create a new environment variable for the project by passing the project `id` in
 <Request
   method="POST"
   url="https://api.zeit.co/v1/projects/QmXtXGhXF6mZQ5ete2AwbeV3zAS17wEj7LYM3LuQ3Y45FF/env"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
   auth
   body={{
     key: 'API_SECRET',
@@ -269,8 +362,9 @@ Create a new environment variable for the project by passing the project `id` in
   {
     "key": "API_SECRET",
     "value": "@a-new-secret",
-    "installationId": null,
-    "updatedAt": 1557241361455
+    "configurationId": null,
+    "updatedAt": 1557241361455,
+    "createdAt": 1557241361455
   }
 ]`}</Code>
 
@@ -279,63 +373,8 @@ Create a new environment variable for the project by passing the project `id` in
 </Note>
 
 <Note>
-  The <InlineCode>installationId</InlineCode> depends on the token used to make
+  The <InlineCode>configurationId</InlineCode> depends on the token used to make
   the request.
-</Note>
-
-### Replace a Project Environment Variable
-
-<Endpoint method="PUT" url="/v1/projects/:id/env" />
-
-Set all environment variables for the project by passing the project `id` in the URL and an `env` map as a request parameter. Any env variable that is present in the project but not given in the payload will be removed.
-
-<Note>
-  For security, only secrets can be used for these environment variables.
-</Note>
-
-<Note>
-  Only deployments made after this call will receive the environment variables
-  set.
-</Note>
-
-#### URL Parameters
-
-| Key    | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                    |
-| ------ | ---------------------------------------------------------- | -------- | ------------------------------ |
-| **id** | <HelpLink href="#api-basics/types">ID</HelpLink>           | Yes      | The unique project identifier. |
-
-#### Request Parameters
-
-| Key     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                            |
-| ------- | ---------------------------------------------------------- | -------- | -------------------------------------- |
-| **env** | <HelpLink href="#api-basics/types">Map</HelpLink>          | Yes      | A set of secret environment variables. |
-
-##### Example Request
-
-<Request
-  method="PUT"
-  url="https://api.zeit.co/v1/projects/QmXtXGhXF6mZQ5ete2AwbeV3zAS17wEj7LYM3LuQ3Y45FF/env"
-  auth
-  body={{
-    env: {
-      API_SECRET: '@a-new-secret'
-    }
-  }}
-/>
-
-##### Example Response
-
-<Code lang="json">{`[
-  {
-    "key": "API_SECRET",
-    "value": "@a-new-secret",
-    "installationId": null,
-    "updatedAt": 1557241361455
-  }
-]`}</Code>
-
-<Note>
-  The response will include all environment variables for the project.
 </Note>
 
 ### Delete a Specific Environment Variable
@@ -372,7 +411,7 @@ Delete a specific environment variable for a given project by passing both the p
 
 <Endpoint method="POST" url="/v1/projects/:id/alias" />
 
-Add a domain to the project by passing the project `id` in the URL and `domain` as request parameters.
+Add a domain to the project by passing the project `id` in the URL and the `domain` and `redirect` as request parameters. If the domain already exists on the project, fails with `400` status code.
 
 #### URL Parameters
 
@@ -387,11 +426,16 @@ Add a domain to the project by passing the project `id` in the URL and `domain` 
 | **domain**   | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The name of the production domain.     |
 | **redirect** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Target destination domain for redirect |
 
+<Note>You can only redirect to domains that belong to the project.</Note>
+
 ##### Example Request
 
 <Request
   method="POST"
   url="https://api.zeit.co/v1/projects/QmXtXGhXF6mZQ5ete2AwbeV3zAS17wEj7LYM3LuQ3Y45FF/alias"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
   auth
   body={{
     domain: 'foobar.com',
@@ -399,14 +443,31 @@ Add a domain to the project by passing the project `id` in the URL and `domain` 
   }}
 />
 
-##### Example Response
+##### Example Response (successful)
 
 <Code lang="json">{`[
   {
     "createdAt": 1562119110860,
-    "domain": "foobar.com"
+    "domain": "foobar.com",
+    "target": "PRODUCTION",
+    "configuredBy": "A",
+    "configuredChangedAt": 1562119110860
   }
 ]`}</Code>
+
+##### Example response (unsuccessful)
+
+<Code lang="json">{`{
+  "error": {
+    "code": "ALIAS_DOMAIN_EXIST",
+    "domain": "foobar.com",
+    "project": {
+      "id": "QmXtXGhXF6mZQ5ete2AwbeV3zAS17wEj7LYM3LuQ3Y45FF",
+      "name": "a-project-name",
+      "accountId": "K4amb7K9dAt5R2vBJWF32bmY",
+    }
+  }
+}`}</Code>
 
 <Note>
   The response will include all production domains configured for the project.
@@ -432,13 +493,14 @@ Set redirect from specified domain to a different domain in the same project (st
 
 #### Request Parameters
 
-| Key          | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                            |
-| ------------ | ---------------------------------------------------------- | -------- | -------------------------------------- |
-| **domain**   | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The name of the production domain.     |
+| Key          | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                             |
+| ------------ | ---------------------------------------------------------- | -------- | --------------------------------------- |
+| **domain**   | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The name of the production domain.      |
 | **redirect** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Target destination domain for redirect. |
 
-<Example>
-  <span>Example request:</span>
+<Note>You can only redirect to domains that belong to the project.</Note>
+
+##### Example Request
 
 <Request
   method="PATCH"
@@ -450,14 +512,13 @@ Set redirect from specified domain to a different domain in the same project (st
   }}
 />
 
-Example response:
+##### Example response:
 
 <Code lang="json">{`[
   {
     "createdAt": 1571138625066,
     "domain": "foobar.com",
     "target": "PRODUCTION",
-    "redirect": null,
     "configuredBy": "A",
     "configuredChangedAt": 1571945629322
   },
@@ -470,7 +531,6 @@ Example response:
     "configuredChangedAt": 1571945629501
   }
 ]`}</Code>
-</Example>
 
 <Note>
   The response will include all production domains configured for the project.
@@ -498,6 +558,12 @@ Delete a specific production domain configuration from a project by passing the 
 | Key    | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                    |
 | ------ | ---------------------------------------------------------- | -------- | ------------------------------ |
 | **id** | <HelpLink href="#api-basics/types">ID</HelpLink>           | Yes      | The unique project identifier. |
+
+#### Query Parameters
+
+| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                        |
+| ---------- | ---------------------------------------------------------- | -------- | ---------------------------------- |
+| **domain** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The name of the production domain. |
 
 ##### Example Request
 
