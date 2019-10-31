@@ -226,9 +226,9 @@
       "headers": { "Location": "/docs/configuration#global" }
     },
     {
-      "src": "/docs/v2/platform/(.*)/?",
+      "src": "/docs/v2/advanced/platform/(.*)/?",
       "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/platform/$1" }
+      "headers": { "Location": "/docs/v2/platform/$1" }
     },
     {
       "src": "/docs/v2/development/basic/(.*)/?",
@@ -253,14 +253,7 @@
       "src": "/docs/version-detection",
       "status": 301,
       "headers": {
-        "Location": "/docs/v2/advanced/platform/frequently-asked-questions#platform-version-detection"
-      }
-    },
-    {
-      "src": "/docs/v2/advanced/concepts/lambdas(.*)",
-      "status": 301,
-      "headers": {
-        "Location": "/docs/v2/advanced/concepts/serverless-functions$1"
+        "Location": "/docs/v2/platform/frequently-asked-questions#platform-version-detection"
       }
     }
   ]

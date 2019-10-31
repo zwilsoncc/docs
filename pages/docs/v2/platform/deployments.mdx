@@ -9,11 +9,11 @@ import { InlineCode } from '~/components/text/code'
 export const meta = {
   title: 'Deployments',
   description: 'Understanding and making deployments with ZEIT Now.',
-  editUrl: 'pages/docs/v2/advanced/platform/deployments.mdx',
-  lastEdited: '2019-10-22T08:05:40.000Z'
+  editUrl: 'pages/docs/v2/platform/deployments.mdx',
+  lastEdited: '2019-10-30T09:43:23.000Z'
 }
 
-A deployment is the result of building your [Project](/docs/v2/advanced/platform/projects/) and making it available through a live URL.
+A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
 
 This section contains information about making, managing, and understanding the behavior of deployments.
 
@@ -21,40 +21,40 @@ This section contains information about making, managing, and understanding the 
 
 There are multiple ways to make deployments with ZEIT Now; these include via a [Git Integration](#git-integration), [Now CLI](#now-cli), [Deploy Hooks](#deploy-hooks), and the [Now API](#now-api).
 
-When making deployments, the [Project](/docs/v2/advanced/platform/projects/) will be uploaded and transformed into a production-ready output through the use of a [Build Step](/docs/v2/build-step).
+When making deployments, the [Project](/docs/v2/platform/projects/) will be uploaded and transformed into a production-ready output through the use of a [Build Step](/docs/v2/build-step).
 
-Once the build step has completed successfully, a new, [immutable](https://en.wikipedia.org/wiki/Immutable_object) deployment will be made available at the [staging domain](/docs/v2/advanced/platform/deployments/#staging).
+Once the build step has completed successfully, a new, [immutable](https://en.wikipedia.org/wiki/Immutable_object) deployment will be made available at the [staging domain](/docs/v2/platform/deployments/#staging).
 
 ### Git Integration
 
 You can make deployments with Git by using either the [Now for GitHub](/docs/v2/advanced/now-for-github/) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab/) integrations.
 
-When using these integrations, every push to a branch will provide you with a [staging deployment](/docs/v2/advanced/platform/deployments/#staging) to view your changes.
+When using these integrations, every push to a branch will provide you with a [staging deployment](/docs/v2/platform/deployments/#staging) to view your changes.
 
-When merging to the default branch (commonly `master`), a [production deployment](/docs/v2/advanced/platform/deployments/#production) will be made.
+When merging to the default branch (commonly `master`), a [production deployment](/docs/v2/platform/deployments/#production) will be made.
 
 ### Now CLI
 
-By using [Now CLI](/download), you can deploy [Projects](/docs/v2/advanced/platform/projects/) with **a single command** from your terminal.
+By using [Now CLI](/download), you can deploy [Projects](/docs/v2/platform/projects/) with **a single command** from your terminal.
 
-To make a [staging deployment](/docs/v2/advanced/platform/deployments/#staging), use the `now` command:
+To make a [staging deployment](/docs/v2/platform/deployments/#staging), use the `now` command:
 
 <Snippet dark text="now" />
 <Caption>Making a staging deployment with the <InlineCode>now</InlineCode> command.</Caption>
 
 <Note>
   The first deployment for a <strong>Project</strong> is always both a{' '}
-  <GenericLink href="/docs/v2/advanced/platform/deployments/#staging">
+  <GenericLink href="/docs/v2/platform/deployments/#staging">
     staging
   </GenericLink>{' '}
   and{' '}
-  <GenericLink href="/docs/v2/advanced/platform/deployments/#production">
+  <GenericLink href="/docs/v2/platform/deployments/#production">
     production
   </GenericLink>{' '}
   deployment.
 </Note>
 
-To make a [production deployment](/docs/v2/advanced/platform/deployments/#staging), use the `now --prod` command:
+To make a [production deployment](/docs/v2/platform/deployments/#staging), use the `now --prod` command:
 
 <Snippet dark text="now --prod" />
 <Caption>Making a production deployment with the <InlineCode>now</InlineCode> command.</Caption>
@@ -65,7 +65,7 @@ To make a [production deployment](/docs/v2/advanced/platform/deployments/#stagin
 
 There are many use cases for Deploy Hooks, for example, rebuilding your site to reflect changes in a Headless CMS or scheduling deployments with Cron Jobs.
 
-To create a Deploy Hook, visit the settings page of your [Project](/docs/v2/advanced/platform/projects/) where you can choose the branch to deploy when the HTTP endpoint receives a POST request.
+To create a Deploy Hook, visit the settings page of your [Project](/docs/v2/platform/projects/) where you can choose the branch to deploy when the HTTP endpoint receives a POST request.
 
 <Note>
   Deploy Hooks require a{' '}
@@ -91,7 +91,7 @@ There are two types of deployment on the ZEIT Now platform: **staging** and **pr
 
 By making a **staging deployment**, the **staging domain** will be updated to reflect that of the latest deployment made.
 
-The **staging domain** is provided either by the deployment output from Now CLI or on a pull or merge request when using a git integration and contains the name of the user or team to which the [Project](/docs/v2/advanced/platform/projects/) belongs.
+The **staging domain** is provided either by the deployment output from Now CLI or on a pull or merge request when using a git integration and contains the name of the user or team to which the [Project](/docs/v2/platform/projects/) belongs.
 
 ### Production
 
@@ -101,7 +101,7 @@ By making a **production deployment**, the **production domain(s)** will be upda
 
 The **production domain(s)** are defined from the **Domains** tab of a Project on the ZEIT Dashboard.
 
-To add a **production domain** to a [Project](/docs/v2/advanced/platform/projects/), visit **Domains** from the Project Overview page, you can read more about this in the [custom domains documentation](/docs/v2/custom-domains/).
+To add a **production domain** to a [Project](/docs/v2/platform/projects/), visit **Domains** from the Project Overview page, you can read more about this in the [custom domains documentation](/docs/v2/custom-domains/).
 
 ## Managing Deployments
 
