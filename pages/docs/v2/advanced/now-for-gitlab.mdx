@@ -9,10 +9,10 @@ export const meta = {
   description:
     'Deploy each change in your GitLab projects with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/advanced/now-for-gitlab.mdx',
-  lastEdited: '2019-10-30T09:43:23.000Z'
+  lastEdited: '2019-11-01T15:20:23.000Z'
 }
 
-The Now for GitLab integration automatically deploys your GitLab projects with [ZEIT Now](/now), providing staging URLs and automatic production domain updates.
+The Now for GitLab integration automatically deploys your GitLab projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
 
 Now for GitLab provides:
 
@@ -86,16 +86,16 @@ If production domains are set from the project domains dashboard, pushes and mer
 
 If you decide to revert a commit that has already updated a product domain, the previous commit's deployment will automatically be made available at the production domain instantly; providing you with instant rollbacks.
 
-### Staging URLs for Each Merge Request
+### preview URLs for Each Merge Request
 
-The latest push to any pull request will automatically be made available at a unique staging URL based on the project name, branch, and team or username. These URLs will be given through a comment on each merge request.
+The latest push to any pull request will automatically be made available at a unique preview URL based on the project name, branch, and team or username. These URLs will be given through a comment on each merge request.
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-now-for-gitlab/merge-request-alias.png`}
   width={2080/2.5}
   height={1392/2.5}
 />
-<Caption style={{marginTop: '-40px'}}>A staging URL created from a merge request.</Caption>
+<Caption style={{marginTop: '-40px'}}>A preview URL created from a merge request.</Caption>
 
 ## Included Environment Variables
 

@@ -10,10 +10,10 @@ export const meta = {
   description:
     'Deploy each change in your GitHub repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/advanced/now-for-github.mdx',
-  lastEdited: '2019-10-10T22:31:41.000Z'
+  lastEdited: '2019-11-01T15:20:23.000Z'
 }
 
-The Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/now), providing staging URLs and automatic production domain updates.
+The Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
 
 The Now for GitHub integration features:
 
@@ -79,9 +79,9 @@ If production domains are set from the project domains dashboard, pushes and mer
 
 If you decide to revert a commit that has already updated a product domain, the previous commit's deployment will automatically be made available at the production domain instantly; providing you with instant rollbacks.
 
-### Staging URLs for the Latest Changes for Each Pull Request
+### Preview URLs for the Latest Changes for Each Pull Request
 
-The latest push to any pull request will automatically be made available at a unique staging URL based on the project name, branch, and team or username. These URLs will be given through a comment on each pull request.
+The latest push to any pull request will automatically be made available at a unique preview URL based on the project name, branch, and team or username. These URLs will be given through a comment on each pull request.
 
 ### Deployment Authorizations for Forks
 
@@ -93,7 +93,7 @@ This behavior protects you and your project from a leak of sensitive information
 
 Now for GitHub uses the deployment API to bring you an extended user interface both in GitHub, when showing deployments, and Slack, if you have notifications setup using the [Slack GitHub app](https://slack.github.com).
 
-You will see all of your deployments, production or staging, from within GitHub in its own page. See the page for this very documentation: <https://github.com/zeit/docs/deployments>
+You will see all of your deployments, production or preview, from within GitHub in its own page. See the page for this very documentation: <https://github.com/zeit/docs/deployments>
 
 Due to using GitHub's Deployments API, you will also be able to integrate with other services through [GitHub's checks](https://help.github.com/en/articles/about-status-checks). Now for GitHub will provide the deployment URL to the checks that require it, for example; to a testing suite such as [Ghost Inspector](https://ghostinspector.com/docs/integration/github/).
 
