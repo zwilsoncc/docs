@@ -305,6 +305,16 @@
     "lastEdited": "2019-10-30T17:18:03.000Z"
   },
   {
+    "title": "Deploy UmiJS with ZEIT Now",
+    "description": "Create an UmiJS app and deploy it live with ZEIT Now.",
+    "published": "2019-11-04T12:00:00.860Z",
+    "authors": ["msweeneydev"],
+    "url": "/guides/deploying-umijs-with-zeit-now",
+    "image": "https://og-image.now.sh/**Deploy%20UmiJS%20Apps**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fgithub.com%2Fumijs.png%3Fsize%3D200&widths=300&widths=300&heights=300&heights=300",
+    "editUrl": "pages/guides/deploying-umijs-with-zeit-now.mdx",
+    "lastEdited": "2019-11-04T10:14:03.000Z"
+  },
+  {
     "title": "Deploying a Vue.js App with ZEIT Now",
     "description": "Create your Vue.js app and deploy it with ZEIT Now.",
     "published": "2019-01-26T03:00:00.860Z",
