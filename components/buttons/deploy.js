@@ -16,7 +16,11 @@ export default function DeployButton({ url }) {
 
         .deploy-button :global(.button) {
           padding: 0;
-          width: 100%;
+        }
+
+        .deploy-button :global(.button:hover) {
+          background: var(--geist-success-dark);
+          color: #fff;
         }
 
         .deploy-button :global(.button .text) {
@@ -34,6 +38,11 @@ export default function DeployButton({ url }) {
           display: flex;
           align-item: center;
           height: 38px;
+          background: var(--geist-success);
+        }
+
+        .deploy-button :global(.button.icon-color:hover .icon svg path) {
+          fill: #fff;
         }
       `}</style>
     </div>

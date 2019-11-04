@@ -21,29 +21,29 @@ export default function({ quickstart, icons, href, deployUrl }) {
 
   return (
     <div className="quickstart">
-      <span className="quickstart-icons">
-        {Array.isArray(icons) ? (
-          icons.map(icon =>
-            typeof icon === 'object' ? (
-              <span key={icon.src} style={{ backgroundColor: icon.color }}>
-                <Icon source={icon.src} />
-              </span>
-            ) : (
-              <Icon source={icon} key={icon} />
+      <GenericLink href={href}>
+        <span className="quickstart-icons">
+          {Array.isArray(icons) ? (
+            icons.map(icon =>
+              typeof icon === 'object' ? (
+                <span key={icon.src} style={{ backgroundColor: icon.color }}>
+                  <Icon source={icon.src} />
+                </span>
+              ) : (
+                <Icon source={icon} key={icon} />
+              )
             )
-          )
-        ) : typeof icons === 'object' ? (
-          <span style={{ backgroundColor: icons.color }}>
-            <Icon source={icons.src} />
-          </span>
-        ) : (
-          <Icon source={icons} />
-        )}
-      </span>
-      <H4>{quickstart}</H4>
-      <span className="note">
-        <GenericLink href={href}>Read the guide</GenericLink>
-      </span>
+          ) : typeof icons === 'object' ? (
+            <span style={{ backgroundColor: icons.color }}>
+              <Icon source={icons.src} />
+            </span>
+          ) : (
+            <Icon source={icons} />
+          )}
+        </span>
+        <H4>{quickstart}</H4>
+        <span className="note">Read the guide</span>
+      </GenericLink>
       {deployUrl && <DeployButton url={deployUrl} />}
 
       <style jsx>{`
@@ -54,8 +54,17 @@ export default function({ quickstart, icons, href, deployUrl }) {
           padding: 24px;
           display: flex;
           flex-direction: column;
-          transition: box-shadow 0.1s ease, border 0.1s ease;
+          transition: box-shadow 0.2s ease, border 0.2s ease;
           text-decoration: none;
+        }
+
+        .quickstart:hover {
+          box-shadow: var(--shadow-hover);
+          border-color: transparent;
+        }
+
+        .quickstart :global(a) {
+          display: block;
         }
 
         .quickstart :global(.deploy-button) {
@@ -72,14 +81,15 @@ export default function({ quickstart, icons, href, deployUrl }) {
           height: 48px;
         }
 
-        .quickstart :global(a:hover h4) {
-          color: var(--geist-link-color);
-        }
-
         .quickstart :global(h4) {
           margin-bottom: 8px;
           margin-top: 24px;
           transition: color 0.1s ease;
+          color: var(--accents-7);
+        }
+
+        .quickstart :global(a:hover h4) {
+          color: var(--geist-foreground);
         }
 
         .quickstart-icons span {
@@ -113,6 +123,17 @@ export default function({ quickstart, icons, href, deployUrl }) {
           color: var(--accents-5);
           font-size: var(--font-size-primary);
           line-height: var(--line-height-primary);
+          transition: color 0.1s ease;
+        }
+
+        .quickstart :global(a):hover .note {
+          color: var(--accents-7);
+        }
+
+        @media screen and (max-width: 600px) {
+          .quickstart :global(.deploy-button .button) {
+            width: 100%;
+          }
         }
       `}</style>
     </div>
