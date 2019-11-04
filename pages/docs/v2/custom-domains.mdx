@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-10-30T10:31:11.000Z'
+  lastEdited: '2019-11-04T23:30:38.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` prefixed domain.
@@ -54,7 +54,7 @@ From the **Project Domains** page, enter the domain you wish to add to the proje
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/enter-domain.png`}
   width={1350 / 2}
-  height={465 / 2}
+  height={447 / 2}
   shadow
 />
 <Caption>Entering a domain for the project from the Project Domains page.</Caption>
@@ -72,7 +72,7 @@ You can verify apex domains either through the **Nameservers** or **ANAME** meth
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/verify-apex-domain.png`}
   width={1350 / 2}
-  height={939 / 2}
+  height={984 / 2}
   shadow
 />
 <Caption>Instructions on verifying an <strong>apex domain</strong> from the Project Domains page.</Caption>
@@ -84,7 +84,7 @@ You can verify subdomains either through the **Nameservers** or **CNAME** method
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/verify-subdomain.png`}
   width={1350 / 2}
-  height={989 / 2}
+  height={984 / 2}
   shadow
 />
 <Caption>Instructions on verifying a <strong>subdomain</strong> from the Project Domains page.</Caption>
@@ -96,7 +96,7 @@ Once the domain has been verified, the card status will change to reflect this.
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/verified-domain.png`}
   width={1350 / 2}
-  height={226 / 2}
+  height={210 / 2}
   shadow
 />
 <Caption>A verified domain on the Project Domains page.</Caption>
@@ -113,9 +113,9 @@ You can use your custom domain as a Wildcard Domain by prefixing it with `*.`.
 To add a Wildcard Domain, follow the steps to [add a domain](#step-1:-selecting-your-project), the only change being; at [step 3](#step-3:-entering-your-chosen-domain), where you should instead use the prefix mentioned above, for example; `*.acme.com`.
 
 <Image
-  src={`${process.env.ASSETS}/docs/custom-domains/wildcard-domains.png`}
+  src={`${process.env.ASSETS}/docs/custom-domains/wildcard-domain.png`}
   width={1350 / 2}
-  height={926 / 2}
+  height={532 / 2}
   shadow
 />
 <Caption>A <b>Wildcard Domain</b> awaiting verification.</Caption>
@@ -168,7 +168,7 @@ To remove a domain that is assigned to your ZEIT account or team, navigate to th
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/verified-domain.png`}
   width={1350 / 2}
-  height={226 / 2}
+  height={210 / 2}
   shadow
 />
 <Caption>A verified domain on the Project Domains page with the option to remove.</Caption>
