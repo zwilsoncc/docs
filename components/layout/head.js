@@ -281,43 +281,6 @@ class Head extends React.PureComponent {
 
           {this.props.children}
         </NextHead>
-        <style jsx global>
-          {`
-            #nprogress {
-              pointer-events: none;
-            }
-            #nprogress .bar {
-              position: fixed;
-              z-index: 2000;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 2px;
-            }
-            #nprogress .peg {
-              display: block;
-              position: absolute;
-              right: 0px;
-              width: 100px;
-              height: 100%;
-              opacity: 1;
-              transform: rotate(3deg) translate(0px, -4px);
-            }
-          `}
-        </style>
-        <style jsx global>
-          {`
-            #nprogress .bar {
-              background: ${darkBg ? '#fff' : '#000'};
-            }
-
-            #nprogress .peg {
-              box-shadow: ${darkBg
-                ? '0 0 10px #fff, 0 0 5px #fff'
-                : '0 0 10px #ccc, 0 0 5px #ccc'};
-            }
-          `}
-        </style>
       </div>
     )
   }

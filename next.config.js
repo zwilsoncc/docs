@@ -12,6 +12,10 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   target: 'serverless',
 
+  experimental: {
+    css: true
+  },
+
   exportTrailingSlash: true,
 
   // Allow mdx and md files to be pages

@@ -1,3 +1,5 @@
+import '~/styles/global.css'
+
 import App from 'next/app'
 import React from 'react'
 import authenticate from '~/lib/authenticate'

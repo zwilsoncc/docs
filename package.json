@@ -21,6 +21,7 @@
     "@next/mdx": "9.0.5",
     "@sindresorhus/slugify": "0.6.0",
     "@skidding/react-codemirror": "1.0.2",
+    "@types/classnames": "^2.2.9",
     "algoliasearch": "3.32.1",
     "async-retry": "1.2.3",
     "babel-plugin-root-import": "6.1.0",
@@ -41,14 +42,14 @@
     "lodash.debounce": "4.0.8",
     "md5": "2.2.1",
     "mitt": "1.1.2",
-    "next": "9.1.2-canary.5",
+    "next": "9.1.2-canary.8",
     "nprogress": "0.2.0",
     "prop-types": "15.6.2",
     "qs": "6.6.0",
     "ramda": "0.25.0",
-    "react": "16.10.2",
+    "react": "16.11.0",
     "react-autosuggest": "9.4.3",
-    "react-dom": "16.10.2",
+    "react-dom": "16.11.0",
     "react-instantsearch-dom": "5.4.0",
     "react-markdown": "4.0.6",
     "refractor": "2.8.0",
@@ -69,6 +70,7 @@
   },
   "devDependencies": {
     "@rxts/eslint-plugin-mdx": "0.9.5",
+    "@types/react": "16.9.11",
     "babel-eslint": "8.2.3",
     "eslint": "6.1.0",
     "eslint-plugin-import": "2.18.2",
@@ -77,7 +79,8 @@
     "execa": "1.0.0",
     "husky": "1.2.1",
     "lint-staged": "8.1.0",
-    "prettier": "1.16.1"
+    "prettier": "1.16.1",
+    "typescript": "3.6.4"
   },
   "babel": {
     "presets": [
