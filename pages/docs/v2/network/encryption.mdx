@@ -9,15 +9,15 @@ export const meta = {
   title: 'Encryption',
   description: 'Every ZEIT Now deployment is served of a HTTPS Connection.',
   editUrl: 'pages/docs/v2/network/encryption.mdx',
-  lastEdited: '2019-08-21T15:24:05.000Z'
+  lastEdited: '2019-11-05T19:50:59.000Z'
 }
 
 Out of the box, every **Deployment** on ZEIT Now is served over an HTTPS connection. The [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) certificates for these unique URLs are automatically generated free of charge.
 
-Furthermore, any HTTP requests to your **Deployments** are automatically forwarded to HTTPS using the `301` status code:
+Furthermore, any HTTP requests to your **Deployments** are automatically forwarded to HTTPS using the `308` status code:
 
 ```
-HTTP/1.1 301 Moved Permanently
+HTTP/1.1 308 Moved Permanently
 Content-Type: text/plain
 Location: https://<your-deployment-host>
 ```
@@ -38,37 +38,53 @@ It is not possible to disable this redirection or prevent the **Deployment** f
 
 ## Supported TLS Versions
 
-ZEIT Now supports TLS version [1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2).
+ZEIT Now supports TLS version [1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2) and TLS version [1.3](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.3).
 
 ## Supported Ciphers
 
-In order to ensure the integrity of the data received and sent by any **Deployment** running on the **ZEIT Now** platform, we only support ciphers with [forward secrecy](https://en.wikipedia.org/wiki/Forward_secrecy).
+In order to ensure the integrity of the data received and sent by any **Deployment** running on the **ZEIT Now** platform, we only support strong ciphers with [forward secrecy](https://en.wikipedia.org/wiki/Forward_secrecy).
 
 The following cipher algorithms are supported:
 
-- ECDH+AESGCM
-- ECDH+AES256
-- ECDH+AES128
-- DH+3DES
-- !ADH
-- !AECDH
-- !MD5
-- !EDH-RSA-DES-CBC3-SHA
+- TLS_AES_128_GCM_SHA256 (TLS 1.3)
+- TLS_AES_256_GCM_SHA384 (TLS 1.3)
+- TLS_CHACHA20_POLY1305_SHA256 (TLS 1.3)
+- ECDHE-ECDSA-AES128-GCM-SHA256 (TLS 1.2)
+- ECDHE-RSA-AES128-GCM-SHA256 (TLS 1.2)
+- ECDHE-ECDSA-AES256-GCM-SHA384 (TLS 1.2)
+- ECDHE-RSA-AES256-GCM-SHA384 (TLS 1.2)
+- ECDHE-ECDSA-CHACHA20-POLY1305 (TLS 1.2)
+- ECDHE-RSA-CHACHA20-POLY1305 (TLS 1.2)
+- DHE-RSA-AES128-GCM-SHA256 (TLS 1.2)
+- DHE-RSA-AES256-GCM-SHA384 (TLS 1.2)
+
+This is the [recommended configuration from Mozilla](https://wiki.mozilla.org/Security/Server_Side_TLS#Intermediate_compatibility_.28recommended.29).
 
 ## Support for HSTS
 
-Only the `.now.sh` domain (and therefore all of its sub domains, which are the unique URLs set when creating a deployment) support HSTS.
-
-You can enable this by setting the `Strict-Transport-Security` ([more details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)) header to the following value in your **Deployment**:
+The `.now.sh` domain (and therefore all of its sub domains, which are the unique URLs set when creating a deployment) support HSTS automatically and are preloaded.
 
 ```
-Strict-Transport-Security: max-age=31536000; includeSubDomains;
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload;
 ```
 
 <Caption>
-  An example <InlineCode>Strict-Transport-Security</InlineCode> header enabling
-  HSTS.
+  The default <InlineCode>Strict-Transport-Security</InlineCode> header for
+  *.now.sh
 </Caption>
+
+Custom domains use HSTS, but only for the particular subdomain.
+
+```
+Strict-Transport-Security: max-age=63072000;
+```
+
+<Caption>
+  The default <InlineCode>Strict-Transport-Security</InlineCode> header for
+  custom domains
+</Caption>
+
+You can modify this by setting the `Strict-Transport-Security` ([more details](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)) header in your deployment.
 
 Theoretically, you could set the `max-age` parameter to a different value (it indicates how long the client should remember that your site is only accessible over HTTPS), but since we do not allow connections made over HTTP, there is no point in setting it to a shorter value, as the client can just remember it forever.
 

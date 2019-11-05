@@ -7,7 +7,7 @@ import { Code } from '~/components/text/code'
 
 export const meta = {
   editUrl: 'pages/docs/configuration/configuration-mdx/routes/routes.mdx',
-  lastEdited: '2019-10-22T21:47:59.000Z'
+  lastEdited: '2019-11-05T19:44:00.000Z'
 }
 
 # Routes
@@ -154,13 +154,13 @@ For example, you can use this property in combination with [the `headers` proper
 
 The `status` property defines the status code that Now should respond with when a path is requested.
 
-For example, you can use this property in combination with [the `headers` property](#headers) to create a redirect with the initial status code of 301 (Moved Permanently).
+For example, you can use this property in combination with [the `headers` property](#headers) to create a redirect with the initial status code of 308 (Moved Permanently).
 
 <Code lang="json">{`{
   "routes": [
     {
       "src": "/about.html",
-      "status": 301,
+      "status": 308,
       "headers": { "Location": "/about-us.html" }
     }
   ]

@@ -7,7 +7,7 @@ import Note from '~/components/text/note'
 export const meta = {
   editUrl:
     'pages/docs/configuration/configuration-mdx/configuration/configuration.mdx',
-  lastEdited: '2019-10-22T21:47:59.000Z'
+  lastEdited: '2019-11-05T19:44:00.000Z'
 }
 
 # Project
@@ -210,7 +210,7 @@ For more information on Builds and Builders, see the documentation:
     { "src": "/users/(?<id>[^/]*)", "dest": "/users-api.js?id=$id" },
     { "src": "/.*", "dest": "https://my-old-site.com"},
     { "src": "/legacy", "status": 404},
-    { "src": "/redirect", "status": 301, "headers": { "Location": "https://zeit.co/" } }
+    { "src": "/redirect", "status": 308, "headers": { "Location": "https://zeit.co/" } }
   ]
 }`}</Code>
 
