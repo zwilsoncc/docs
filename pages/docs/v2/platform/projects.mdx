@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 import { InlineCode } from '~/components/text/code'
 import Snippet from '~/components/snippet'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 
@@ -9,7 +9,7 @@ export const meta = {
   title: 'Projects',
   description: 'Setting up projects with a list of deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2019-10-30T09:43:23.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 A project is a logical structure that groups deployments and [custom domains](/docs/v2/custom-domains) inside of an account or team, based on the name of the project. This structure allows easier tracking and managing of deployments.
@@ -31,7 +31,7 @@ Then, you can create a project by just giving it a name.
 You can create project by just typing the following command:
 
 <Snippet dark text="now projects add <your-project-name>" />
-<Caption>Creating a project with <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
+<Caption>Creating a project with <Link href="/now">Now CLI</Link>.</Caption>
 
 <Note>
   You need to download the latest version of Now CLI in order to run the above
@@ -69,7 +69,7 @@ You can remove a project and all of the deployments contained within it with the
 
 <Snippet dark text="now projects rm <your-project-name>" />
 
-<Note alert label="Note">
+<Note type="warning" label="Note">
   This will also delete the deployments from the project. If you have any
   deployments that are assigned to a custom domain and do not want them to be
   removed, make sure to deploy and assign them to the custom domain under a

@@ -1,7 +1,7 @@
 import { Code, RequestHeader } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/api-basics/rate-limits.mdx',
@@ -32,8 +32,5 @@ status "**429 Too Many Requests**":
 
 <Note>
   You can find the complete list of rate limits in the{' '}
-  <GenericLink href="/docs/v2/platform/limits/">
-    limits documentation
-  </GenericLink>
-  .
+  <Link href="/docs/v2/platform/limits/">limits documentation</Link>.
 </Note>

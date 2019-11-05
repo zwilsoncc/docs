@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import cn from 'classnames'
 import qs from 'querystring'
 import { parse } from 'url'
@@ -311,9 +311,9 @@ export class NavLink extends React.Component {
             {info.name}
           </a>
         ) : (
-          <Link href={info.href} as={info.as || info.href}>
+          <NextLink href={info.href} as={info.as || info.href}>
             <a onClick={onClick}>{info.name}</a>
-          </Link>
+          </NextLink>
         )}
         <style jsx>{`
           div.selected {

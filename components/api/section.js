@@ -7,7 +7,7 @@ import HR from '~/components/text/hr'
 import { UL, LI } from '../text/list'
 import { H1, H2, H3, H4, P } from '../text'
 import { InlineCode, Code } from '../text/code'
-import { GenericLink } from '../text/link'
+import Link from '../text/link'
 
 class DocH2 extends React.PureComponent {
   render() {
@@ -87,7 +87,7 @@ export const components = {
   h4: DocH4,
   code: Code,
   inlineCode: InlineCode,
-  a: GenericLink,
+  a: Link,
   blockquote: Quote,
   hr: HR
 }

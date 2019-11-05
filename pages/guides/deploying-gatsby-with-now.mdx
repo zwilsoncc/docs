@@ -1,7 +1,7 @@
 import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 
 export const meta = {
@@ -11,26 +11,20 @@ export const meta = {
   published: '2019-01-31T12:00:00.860Z',
   authors: ['timothy'],
   url: '/guides/deploying-gatsby-with-now',
+  example: 'gatsby',
+  demo: 'https://gatsby-functions.now-examples.now.sh',
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
-  lastEdited: '2019-10-04T13:30:10.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
-
-Create and deploy a new Gatsby project with ZEIT Now without the setup using the button below.
-
-<a href="https://zeit.co/new/project?template=https://github.com/zeit/now-examples/tree/master/gatsby">
-  <Image src="https://zeit.co/button" width={104} height={36} align="left" />
-</a>
-
-Alternatively, set up Gatsby locally and deploy using Now CLI with the following steps.
 
 ## Step 1: Set Up Your Gatsby Project
 
 Firstly, [set up a Gatsby project](https://www.gatsbyjs.org/docs/quick-start) by installing Gatsby CLI globally from your terminal:
 
 <Snippet dark text="npm i -g gatsby-cli" />
-<Caption>Installing <GenericLink href="https://www.gatsbyjs.org/docs/gatsby-cli/">gatsby-cli</GenericLink> globally with <GenericLink href="https://www.npmjs.com/">npm</GenericLink>.</Caption>
+<Caption>Installing <Link href="https://www.gatsbyjs.org/docs/gatsby-cli/">gatsby-cli</Link> globally with <Link href="https://www.npmjs.com/">npm</Link>.</Caption>
 
 Then you can run the following command to create a Gatsby project locally:
 

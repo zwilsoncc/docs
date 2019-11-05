@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { P } from '~/components/text'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
@@ -16,7 +16,7 @@ export const meta = {
     'All you need to know about assigning domains to your Now deployments',
   date: '21 Feb 2017',
   editUrl: 'pages/docs/v1/features/aliases.mdx',
-  lastEdited: '2019-08-15T13:37:26.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 This guide covers how to assign two types of domains to your <Now color="#000"/> deployments.
@@ -150,7 +150,7 @@ After executing the `alias` above, just run `now domains ls` to see all the doma
 As you can see, there are two types of domains:
 
 - **external**: the domain is associated with a third-party nameserver provider like DNSimple.
-- **zeit.world**: the domain is hosted with <GenericLink href="/world">zeit.world</GenericLink> and `now alias` automatically sets up records.
+- **zeit.world**: the domain is hosted with <Link href="/world">zeit.world</Link> and `now alias` automatically sets up records.
 
 Once a domain appears under `now domains ls`, **only you can point aliases to it** until you remove it from your account.
 

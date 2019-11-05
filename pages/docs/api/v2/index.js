@@ -2,9 +2,9 @@ import { Component } from 'react'
 import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
 import { useAmp } from 'next/amp'
-import Link from 'next/link'
 import debounce from 'lodash.debounce'
 import { HEADER_HEIGHT } from '~/lib/constants'
+import NextLink from 'next/link'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
 import Layout from '~/components/layout/layout'
@@ -174,23 +174,23 @@ class APIPage extends Component {
                           !router.pathname.startsWith('/docs/api')
                         }
                       >
-                        <Link href="/docs">
+                        <NextLink href="/docs">
                           <a onClick={this.handleIndexClick}>Docs</a>
-                        </Link>
+                        </NextLink>
                       </ToggleItem>
                       <ToggleItem
                         active={router.pathname.startsWith('/docs/api')}
                       >
-                        <Link href="/docs/api">
+                        <NextLink href="/docs/api">
                           <a onClick={this.handleIndexClick}>API Reference</a>
-                        </Link>
+                        </NextLink>
                       </ToggleItem>
                       <ToggleItem
                         active={router.pathname.startsWith('/examples')}
                       >
-                        <Link href="/examples">
+                        <NextLink href="/examples">
                           <a onClick={this.handleIndexClick}>Examples</a>
-                        </Link>
+                        </NextLink>
                       </ToggleItem>
                     </ToggleGroup>
                   </div>

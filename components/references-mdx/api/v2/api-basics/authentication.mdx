@@ -1,4 +1,4 @@
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { InlineCode, Code } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
@@ -28,11 +28,11 @@ API queries for resources owned by a team require a `teamId` query string at the
     query string.
 </Caption>
 
-<Note hint>
+<Note>
   You can find your own team's ID using the{' '}
-  <GenericLink href="#endpoints/teams/list-all-your-teams">
+  <Link href="#endpoints/teams/list-all-your-teams">
     <InlineCode>teams</InlineCode> endpoint
-  </GenericLink>
+  </Link>
   .
 </Note>
 

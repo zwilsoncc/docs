@@ -1,6 +1,6 @@
 import Example from '~/components/example'
 import { Code, InlineCode } from '~/components/text/code'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Now from '~/components/text/now'
 import {
   InputTable,
@@ -69,9 +69,9 @@ manage DNS records for the domain.
     <TypeCell>Boolean</TypeCell>
     <Cell>
       If it is an{' '}
-      <GenericLink href="/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname">
+      <Link href="/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname">
         externally handled domain
-      </GenericLink>
+      </Link>
       .
     </Cell>
   </Row>
@@ -159,9 +159,9 @@ been created, the user may retry the same POST and the endpoint shall return
     <BooleanCell status={false} />
     <Cell>
       <InlineCode>external</InlineCode> for{' '}
-      <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">
+      <Link href="/docs/features/dns#adding-a-domain-using-external-nameservers">
         externally handled domain
-      </GenericLink>
+      </Link>
       ; <InlineCode>zeit.world</InlineCode> for managed.
     </Cell>
   </Row>
@@ -185,9 +185,9 @@ been created, the user may retry the same POST and the endpoint shall return
     <TypeCell>String</TypeCell>
     <Cell>
       The{' '}
-      <GenericLink href="/docs/features/dns#adding-a-domain-using-external-nameservers">
+      <Link href="/docs/features/dns#adding-a-domain-using-external-nameservers">
         token
-      </GenericLink>{' '}
+      </Link>{' '}
       required to verify the ownership of an external domain.
     </Cell>
   </Row>

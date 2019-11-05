@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Snippet from '~/components/snippet'
 import { Image } from '~/components/media'
 import Note from '~/components/text/note'
@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Using ZEIT Now with a scope of a user or a team and how to manage them.',
   editUrl: 'pages/docs/v2/platform/users-and-teams.mdx',
-  lastEdited: '2019-10-30T09:43:23.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 There are identity forms available on Now, called "scopes": Users and teams.
@@ -31,7 +31,7 @@ Once they have created their own user account, you can create a team by clicking
   width={1138/2}
   height={560/2}
 />
-<Caption>Creating a team from the account picker from the <GenericLink href="/dashboard">account dashboard</GenericLink>.</Caption>
+<Caption>Creating a team from the account picker from the <Link href="/dashboard">account dashboard</Link>.</Caption>
 
 After clicking the link, you will be asked to select whether you would like to set up your team with GitHub directly (which we highly suggest) and then to enter the URL of your future team. For this, please choose an accurate representation of your team's name:
 
@@ -69,7 +69,7 @@ Click on your avatar on the top left, then select the team of your choice:
   width={1124/2}
   height={584/2}
 />
-<Caption>Switching teams from the account picker in the <GenericLink href="/dashboard">dashboard</GenericLink>.</Caption>
+<Caption>Switching teams from the account picker in the <Link href="/dashboard">dashboard</Link>.</Caption>
 
 ### Now CLI
 
@@ -117,10 +117,7 @@ However, you still need to attach a token of your user account as described [her
 
 <Note>
   For more information on the teams API endpoint, see our{' '}
-  <GenericLink href="/docs/api/v2#endpoints/teams">
-    API reference documentation
-  </GenericLink>
-  .
+  <Link href="/docs/api/v2#endpoints/teams">API reference documentation</Link>.
 </Note>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

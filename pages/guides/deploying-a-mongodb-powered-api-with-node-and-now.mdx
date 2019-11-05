@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Create and Deploy a MongoDB-Powered Node.js API with ZEIT Now',
@@ -17,7 +17,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2019-11-01T15:20:23.000Z'
+  lastEdited: '2019-11-05T20:55:16.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/now).
@@ -60,7 +60,7 @@ Next, install [the MongoDB Node.js client](https://mongodb.github.io/node-mongod
 
 <Snippet dark text="npm i mongodb" />
 <Caption>
-  Adding the <InlineCode>mongodb</InlineCode> Node.js client as a <GenericLink href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependency</GenericLink> to the project.
+  Adding the <InlineCode>mongodb</InlineCode> Node.js client as a <Link href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependency</Link> to the project.
 </Caption>
 
 To connect to MongoDB, you will need your MongoDB connection string.
@@ -81,7 +81,7 @@ To use your MongoDB connection string without hard-coding it in your project, yo
 
 <Snippet dark text="now secrets add my-mongodb-uri mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<database-name>?retryWrites=true" />
 <Caption>
-  Adding a <GenericLink href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secret</GenericLink>, using the MongoDB connection string, to the project.
+  Adding a <Link href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secret</Link>, using the MongoDB connection string, to the project.
 </Caption>
 
 <Note>
@@ -103,9 +103,9 @@ Finally, set up [the `now.json` configuration file](/docs/configuration) that in
 
 <Caption>
   A{' '}
-  <GenericLink href="/docs/configuration">
+  <Link href="/docs/configuration">
     <InlineCode>now.json</InlineCode> configuration file
-  </GenericLink>{' '}
+  </Link>{' '}
   for development and deployment.
 </Caption>
 
@@ -118,9 +118,9 @@ The above file tells Now the following:
 <Note>
   To use this environment variable in local development, you will need to use a{' '}
   <InlineCode>.env</InlineCode> file.{' '}
-  <GenericLink href="/docs/v2/development/environment-variables/">
+  <Link href="/docs/v2/development/environment-variables/">
     Read more about local development and environment variables
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -130,9 +130,9 @@ Now that you have a MongoDB database, it's time to create the Node.js API endpoi
 
 <Note>
   If you don't have any data to insert into your database, you can{' '}
-  <GenericLink href="https://docs.atlas.mongodb.com/getting-started/#insert-data-into-your-cluster">
+  <Link href="https://docs.atlas.mongodb.com/getting-started/#insert-data-into-your-cluster">
     load a sample dataset
-  </GenericLink>{' '}
+  </Link>{' '}
   to start.
 </Note>
 
@@ -191,13 +191,13 @@ module.exports = async (req, res) => {
   A Node.js API Endpoint that retrieves data from a MongoDB database collection.
 </Caption>
 
-<Note hint>
+<Note>
   In the code snippet above, you probably noticed that we used{' '}
   <InlineCode>res.status()</InlineCode> and <InlineCode>res.json()</InlineCode>{' '}
   to send a response. These methods are automatically added for you when you use
-  <InlineCode>@now/node</InlineCode>. Read more about this in the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node#helpers">
+  <InlineCode>@now/node</InlineCode>. Read more about this in the <Link href="/docs/v2/deployments/official-builders/node-js-now-node#helpers">
     <InlineCode>@now/node</InlineCode> Builder documentation page
-  </GenericLink>.
+  </Link>.
 </Note>
 
 ## Step 3: Local Development
@@ -247,13 +247,13 @@ Now, deploy your project to a production environment using the following command
 
 <Note>
   For optimal performance,{' '}
-  <GenericLink href="/docs/configuration#project/regions">
+  <Link href="/docs/configuration#project/regions">
     deploy your API to the closest region, or regions
-  </GenericLink>
+  </Link>
   , of where your MongoDB cluster is located in. You can see the regions Now supports
-  in the <GenericLink href="/docs/v2/platform/regions-and-providers">
+  in the <Link href="/docs/v2/platform/regions-and-providers">
     Regions and Providers documentation
-  </GenericLink>.
+  </Link>.
 </Note>
 
 When complete, Now CLI will provide you with the URL your project has been deployed to. In the case above, the production domain was set to `my-mongodb-api.now.sh`.

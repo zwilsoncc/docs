@@ -4,7 +4,7 @@ import Caption from '~/components/text/caption'
 import { Code, InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Request from '~/components/api/request'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Handling Node.js Request Bodies with ZEIT Now',
@@ -14,7 +14,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/handling-node-request-body',
   editUrl: 'pages/guides/handling-node-request-body.mdx',
-  lastEdited: '2019-10-22T21:51:28.000Z'
+  lastEdited: '2019-11-05T20:55:16.000Z'
 }
 
 In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [Now](/now), without requiring a framework such as Express.
@@ -42,13 +42,11 @@ module.exports = async (req, res) => {
 
 <Caption>
   An example of how to parse a request body using{' '}
-  <GenericLink href="https://nodejs.org/dist/latest-v12.x/docs/api/">
-    Node.js
-  </GenericLink>{' '}
+  <Link href="https://nodejs.org/dist/latest-v12.x/docs/api/">Node.js</Link>{' '}
   with a{' '}
-  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
+  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
     Helper property
-  </GenericLink>
+  </Link>
   .
 </Caption>
 
@@ -56,16 +54,15 @@ This function takes a POST request, parses the body, and uses data from the body
 
 The key part here is line 2. [Now](/now) adds a number of Express like [helper properties](/docs/v2/deployments/official-builders/node-js-now-node/#helpers) to make wording with Node.js even easier.
 
-<Note hint>
+<Note>
   You can read more about{' '}
-  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
+  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
     helper properties
-  </GenericLink>{' '}
-  either in the{' '}
-  <GenericLink href="/blog/now-node-helpers">blog post</GenericLink> or in the{' '}
-  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
+  </Link>{' '}
+  either in the <Link href="/blog/now-node-helpers">blog post</Link> or in the{' '}
+  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/#helpers">
     documentation
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -97,7 +94,7 @@ To verify that the JSON is being parsed correctly, make a POST request to your n
   }}
 />
 <Caption>
-    Making a POST request using <GenericLink href="https://curl.haxx.se/">curl</GenericLink>.
+    Making a POST request using <Link href="https://curl.haxx.se/">curl</Link>.
 </Caption>
 
 <Note>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { GenericLink } from './link'
+import Link from './link'
 
 export const TerminalInput = ({ children }, { darkBg = false }) => (
   <div className={darkBg ? 'dark' : ''}>
@@ -96,7 +96,7 @@ export class TerminalOutput extends React.Component {
 
 export const TerminalLink = props => (
   <span>
-    <GenericLink {...props} />
+    <Link {...props} />
     <style jsx>
       {`
         span :global(a) {

@@ -3,7 +3,7 @@ import Note from '~/components/text/note'
 import Caption from '~/components/text/caption'
 import { Image } from '~/components/media'
 import { Span } from '~/components/text'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   editUrl:
@@ -31,10 +31,10 @@ Complete the form and at the end you will find two fields named:
 
 For now, you can leave the Redirect URL empty and add <http://localhost:5005> to the **UI Hook URL** field.
 
-<Note warning>
+<Note type="warning">
 We recommend using <b>Google Chrome</b> for local UIHook development.
 
-To work with UIHooks using either Safari or Firefox, you will require the use of a tunnelling service such as <GenericLink href="https://ngrok.com/">ngrok</GenericLink>.
+To work with UIHooks using either Safari or Firefox, you will require the use of a tunnelling service such as <Link href="https://ngrok.com/">ngrok</Link>.
 
 When using <InlineCode>ngrok</InlineCode>, the command <InlineCode>ngrok http 5000</InlineCode> will provide you with an address that can be used in the <b>UI Hook URL</b> field.
 

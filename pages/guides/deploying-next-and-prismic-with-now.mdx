@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Create and Deploy a Next.js and Prismic App with ZEIT Now',
@@ -15,7 +15,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2019-08-23T14:21:42.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [Now](/docs/v2).
@@ -67,9 +67,9 @@ Just a simple blog home page and a couple of posts will do for now, **but you ca
   In this case, you will be using a rich text field that will serve as the body
   of the post, for the sake of simplicity. Normally, the body of a document
   would be a group of{' '}
-  <GenericLink href="https://user-guides.prismic.io/content-modeling-and-custom-types/field-reference/slices">
+  <Link href="https://user-guides.prismic.io/content-modeling-and-custom-types/field-reference/slices">
     Slices
-  </GenericLink>{' '}
+  </Link>{' '}
   to allow more flexibility when creating your posts.
 </Note>
 
@@ -110,9 +110,9 @@ The `home` prop now contains the [document object](https://prismic.io/docs/react
 <Note>
   If you run the app now with <InlineCode>npm run dev</InlineCode>, you will see
   this information displayed at{' '}
-  <GenericLink href="localhost:3000">
+  <Link href="localhost:3000">
     <InlineCode>localhost:3000</InlineCode>
-  </GenericLink>
+  </Link>
   .
 </Note>
 

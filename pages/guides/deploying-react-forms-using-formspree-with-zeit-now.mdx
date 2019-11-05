@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { Image } from '~/components/media'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Deploying React Forms Using Formspree with ZEIT Now',
@@ -17,7 +17,7 @@ export const meta = {
     'https://og-image.now.sh/**Deploying%20React%20and%20Formspree%20Forms**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fformspree-icon.msweeneydev.now.sh%2Fformspree.svg&widths=250&widths=250&heights=200&heights=250',
   editUrl:
     'pages/guides/deploying-react-forms-using-formspree-with-zeit-now.mdx',
-  lastEdited: '2019-09-25T21:34:27.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 [Formspree](https://formspree.io/) is a form backend that sends submissions via email which can connect to several third-party services such as Google Sheets, MailChimp, Slack, and more. Formspree also provides spam mitigation and filtering, file upload, automatic responses, and other tools to help you manage your forms.
@@ -47,9 +47,9 @@ Go to your form's **Settings** to find the reCAPTCHA setting and toggle it off. 
 
 <Note>
   You can find more information on using reCAPTCHA with AJAX in the Formspree{' '}
-  <GenericLink href="https://help.formspree.io/hc/en-us/articles/360022811154-Adding-a-custom-reCAPTCHA-key">
+  <Link href="https://help.formspree.io/hc/en-us/articles/360022811154-Adding-a-custom-reCAPTCHA-key">
     documentation
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -191,10 +191,7 @@ This form takes two inputs, the user email and message, using `axios` to make th
 <Note>
   Make sure to replace <InlineCode>your-formspree-endpoint</InlineCode> with the
   endpoint received in{' '}
-  <GenericLink href="#step-1:-creating-a-new-formspree-form">
-    Step 1
-  </GenericLink>
-  .
+  <Link href="#step-1:-creating-a-new-formspree-form">Step 1</Link>.
 </Note>
 
 Now you just need to use the form in your app. Change the contents of the `App.js` file to the following:
@@ -219,12 +216,12 @@ export default function App() {
 
 <Note>
   If you wish to use the same styles as our{' '}
-  <GenericLink href="https://react-formspree.now-examples.now.sh/">
-    example app
-  </GenericLink>
-  , you can find them <GenericLink href="https://react-formspree.now-examples.now.sh/styles/index.css">
+  <Link href="https://react-formspree.now-examples.now.sh/">example app</Link>,
+  you can find them{' '}
+  <Link href="https://react-formspree.now-examples.now.sh/styles/index.css">
     here
-  </GenericLink>.
+  </Link>
+  .
 </Note>
 
 ## Step 3: Deploy With ZEIT Now
@@ -266,7 +263,7 @@ This allows you to quickly reply to form submissions in your inbox and is shown 
 
 Use this name to set the subject of notification emails. This will override the default **New submission from …** subject.
 
-<Note warning>
+<Note type="warning">
   You should place this in a hidden input as done in the example below.
 </Note>
 

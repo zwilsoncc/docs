@@ -1,7 +1,7 @@
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { InlineCode, Code } from '~/components/text/code'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import Tag from '~/components/text/tag'
 
@@ -12,7 +12,7 @@ export const meta = {
 
 # Advanced Usage
 
-<Note warning>
+<Note type="warning">
   Using Builders in advanced configuration will disable the zero configuration
   functionality of ZEIT Now.
 </Note>
@@ -82,21 +82,19 @@ The following is a list of community maintained Builders.
 
 <Note>
   If you need to create a custom Builder, see the{' '}
-  <GenericLink href="#advanced-usage/developing-your-own-builder">
+  <Link href="#advanced-usage/developing-your-own-builder">
     Developing Your Own Builder section
-  </GenericLink>
+  </Link>
   .
 </Note>
 
 ## Advanced Static Builds Usage
 
-<Note alert>
+<Note type="warning">
   The following configuration step will disable the{' '}
-  <GenericLink href="/docs/v2/introduction">
-    zero configuration nature
-  </GenericLink>{' '}
-  of ZEIT Now, and you will have to define build steps for all source files that
-  you intend to serve from your deployments.
+  <Link href="/docs/v2/introduction">zero configuration nature</Link> of ZEIT
+  Now, and you will have to define build steps for all source files that you
+  intend to serve from your deployments.
 </Note>
 
 You can configure your own build step using the Static Builds Builder by providing configuration like the following, inside of a `now.json` file:
@@ -149,7 +147,8 @@ echo 'Hello World' > dist/index.html
 ```
 
 <Caption>
-  An example Bash script that creates an <InlineCode>index.html</InlineCode> file in a <InlineCode>dist</InlineCode>
+  An example Bash script that creates an <InlineCode>index.html</InlineCode>{' '}
+  file in a <InlineCode>dist</InlineCode>
   directory.
 </Caption>
 
@@ -163,11 +162,11 @@ Alternatively, define `NPM_RC` as a [build environment variable](/docs/configura
 
 ## Advanced Node.js Usage
 
-<Note alert>
+<Note type="warning">
   The following configuration step will disable the{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction">
+  <Link href="/docs/v2/serverless-functions/introduction">
     zero configuration nature
-  </GenericLink>{' '}
+  </Link>{' '}
   of ZEIT Now, and you will have to define build steps for all source files that
   you intend to serve from your deployments.
 </Note>
@@ -313,13 +312,11 @@ The `awsLambdaHandler` uses the same syntax as [AWS Handler](https://docs.aws.am
 
 ## Advanced Next.js Usage
 
-<Note alert>
+<Note type="warning">
   The following configuration step will disable the{' '}
-  <GenericLink href="/docs/v2/introduction">
-    zero configuration nature
-  </GenericLink>{' '}
-  of ZEIT Now, and you will have to define build steps for all source files that
-  you intend to serve from your deployments.
+  <Link href="/docs/v2/introduction">zero configuration nature</Link> of ZEIT
+  Now, and you will have to define build steps for all source files that you
+  intend to serve from your deployments.
 </Note>
 
 You can configure your own build step using the Next.js Builder, to compile Next.js source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
@@ -387,11 +384,11 @@ This will allow you to use `process.env.customKey` and `process.env.mySecret` in
 
 ## Advanced Go Usage
 
-<Note alert>
+<Note type="warning">
   The following configuration step will disable the{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction">
+  <Link href="/docs/v2/serverless-functions/introduction">
     zero configuration nature
-  </GenericLink>{' '}
+  </Link>{' '}
   of ZEIT Now, and you will have to define build steps for all source files that
   you intend to serve from your deployments.
 </Note>
@@ -436,11 +433,11 @@ With GitHub, you will need to [create a personal token](https://github.com/setti
 
 ## Advanced Python Usage
 
-<Note alert>
+<Note type="warning">
   The following configuration step will disable the{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction">
+  <Link href="/docs/v2/serverless-functions/introduction">
     zero configuration nature
-  </GenericLink>{' '}
+  </Link>{' '}
   of ZEIT Now, and you will have to define build steps for all source files that
   you intend to serve from your deployments.
 </Note>
@@ -533,11 +530,11 @@ sanic==19.6.0
 
 ## Advanced Ruby Usage
 
-<Note alert>
+<Note type="warning">
   The following configuration step will disable the{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction">
+  <Link href="/docs/v2/serverless-functions/introduction">
     zero configuration nature
-  </GenericLink>{' '}
+  </Link>{' '}
   of ZEIT Now, and you will have to define build steps for all source files that
   you intend to serve from your deployments.
 </Note>
@@ -672,12 +669,12 @@ In some cases, you may wish to include templates or views that are not able to b
 }`}</Code>
 <Caption>
   Using the{' '}
-  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/">
+  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/">
     @now/node Builder
-  </GenericLink>{' '}
+  </Link>{' '}
   and configuring the <InlineCode>includeFiles</InlineCode> within a{' '}
-  <GenericLink href="/docs/configuration#project/builds">
+  <Link href="/docs/configuration#project/builds">
     now.json configuration file
-  </GenericLink>
+  </Link>
   .
 </Caption>

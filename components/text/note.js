@@ -3,16 +3,20 @@ import cn from 'classnames'
 import PropTypes from 'prop-types'
 
 import Text from '~/components/text'
-import getColor from '~/lib/utils/get-color'
+import withType from '~/lib/with-type'
 
-const Note = ({ children, className, type, fill, label, small, ...props }) => {
-  // The default filled variant should be inverted colors
-  if (fill && !type) {
-    type = 'default'
-  }
-
+const Note = ({
+  children,
+  className,
+  type = 'default',
+  fill,
+  label,
+  small,
+  center,
+  ...props
+}) => {
   return (
-    <div className={cn('note', className, { small })} {...props}>
+    <div className={cn('note', className, { small, fill, center })} {...props}>
       {label !== false && (
         <Text bold span uppercase>
           {(label && `${label}: `) ||
@@ -31,24 +35,34 @@ const Note = ({ children, className, type, fill, label, small, ...props }) => {
             ? 'var(--geist-gap-quarter) var(--geist-gap-half)'
             : 'var(--geist-gap-half) var(--geist-gap)'};
           border-radius: var(--geist-radius);
-          background: ${fill ? getColor(type) : 'var(--geist-background)'};
-          border: 1px solid ${getColor(type) || 'var(--accents-2)'};
-          font-size: var(--font-size-primary);
-          line-height: var(--line-height-primary);
-          color: ${fill
-            ? type === 'default'
-              ? 'var(--geist-background)'
-              : '#FFF'
-            : getColor(type) || 'var(--geist-foreground)'};
-          margin-bottom: 24px;
+          background: var(--themed-bg);
+          border: 1px solid var(--themed-border);
+          font-size: 16px;
+          line-height: 1.8;
+          color: var(--themed-fg);
+        }
+
+        .note:not(.geist-themed) {
+          --themed-border: var(--accents-2);
+        }
+
+        .note.fill:not(.geist-themed) {
+          --themed-bg: var(--geist-foreground);
+          --themed-fg: var(--geist-background);
+          --themed-border: var(--geist-foreground);
         }
 
         .note__type {
           text-transform: uppercase;
           font-weight: 500;
         }
+
         .note.small {
           padding: 5px var(--geist-gap-half);
+        }
+
+        .note.center {
+          text-align: center;
         }
       `}</style>
     </div>
@@ -64,9 +78,10 @@ Note.propTypes = {
     'success',
     'error',
     'warning',
-    'default'
+    'default',
+    'lite'
   ]),
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }
 
-export default Note
+export default withType(Note)

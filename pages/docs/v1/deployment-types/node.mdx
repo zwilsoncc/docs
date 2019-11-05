@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 
 import Now from '~/components/text/now'
-import { InternalLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
@@ -10,7 +10,7 @@ export const meta = {
     'What counts as a Node.js App for Now deployments and more information about them',
   date: '09 March 2017',
   editUrl: 'pages/docs/v1/deployment-types/node.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 If your project contains a `package.json` (and no `Dockerfile`) file, it will always be treated as a [Node.js](https://nodejs.org/en/) deployment.
@@ -37,7 +37,7 @@ For this process, we're using our so-called "ace" technology behind the curtains
 
 It not only comes with a global shared cache of public modules to avoid repetitive work in each deployment, but it also caches the artifacts of binary packages which requires packages like `node-canvas` to only get compiled once. Afterward, our build servers securely share it with all of our customers (which saves a lot of time).
 
-You can read more about it <InternalLink href="/blog/faster-javascript-deployments">here</InternalLink>.
+You can read more about it <Link href="/blog/faster-javascript-deployments">here</Link>.
 
 ## Ignoring devDependencies
 
@@ -45,7 +45,7 @@ If you only want to install `dependencies`, not `devDependencies`, you can set t
 
 <TerminalInput>now -e NODE_ENV="production"</TerminalInput>
 
-or using the <InternalLink href="/docs/features/configuration#`env`-(object)">env</InternalLink> configuration property:
+or using the <Link href="/docs/features/configuration#`env`-(object)">env</Link> configuration property:
 
 ```
 "env": {
@@ -77,7 +77,7 @@ Other than selecting the version of Node.js using the engines property,
 }
 ```
 
-there are no other ways to interfere with the image of your deployment. This means that if you want to use a custom runtime, a special version of Linux or some other form of low-level customization, you should consider a <InternalLink href="/docs/deployment-types/docker">Docker deployment</InternalLink>.
+there are no other ways to interfere with the image of your deployment. This means that if you want to use a custom runtime, a special version of Linux or some other form of low-level customization, you should consider a <Link href="/docs/deployment-types/docker">Docker deployment</Link>.
 
 It will allow you to specify all of these things inside a `Dockerfile`. This results in much wider customization options.
 

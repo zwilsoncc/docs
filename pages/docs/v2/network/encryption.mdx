@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { P } from '~/components/text'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
@@ -9,7 +9,7 @@ export const meta = {
   title: 'Encryption',
   description: 'Every ZEIT Now deployment is served of a HTTPS Connection.',
   editUrl: 'pages/docs/v2/network/encryption.mdx',
-  lastEdited: '2019-11-05T19:50:59.000Z'
+  lastEdited: '2019-11-05T20:55:16.000Z'
 }
 
 Out of the box, every **Deployment** on ZEIT Now is served over an HTTPS connection. The [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) certificates for these unique URLs are automatically generated free of charge.
@@ -88,14 +88,14 @@ You can modify this by setting the `Strict-Transport-Security` ([more details]
 
 Theoretically, you could set the `max-age` parameter to a different value (it indicates how long the client should remember that your site is only accessible over HTTPS), but since we do not allow connections made over HTTP, there is no point in setting it to a shorter value, as the client can just remember it forever.
 
-<Note hint>
+<Note>
   {' '}
-  You can test whether your site qualifies for HSTS Preloading <GenericLink href="https://hstspreload.org/">
+  You can test whether your site qualifies for HSTS Preloading <Link href="https://hstspreload.org/">
     here
-  </GenericLink>. It also allows submitting the domain to Google Chrome's hardcoded
-  HSTS list. Making it onto that list means your site will become even faster, as
-  it is always accessed over HTTPS right away, instead of the browser following the
-  redirection issued by our <b>Network</b> layer.
+  </Link>. It also allows submitting the domain to Google Chrome's hardcoded HSTS
+  list. Making it onto that list means your site will become even faster, as it is
+  always accessed over HTTPS right away, instead of the browser following the redirection
+  issued by our <b>Network</b> layer.
 </Note>
 
 ## How Certificates Are Handled

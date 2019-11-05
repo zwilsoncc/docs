@@ -5,7 +5,7 @@ import Head from '~/components/layout/head'
 import Wrapper from '~/components/layout/wrapper'
 import { H1, H4, P } from '~/components/text'
 import { AvatarGroup } from '~/components/avatar'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Button from '~/components/buttons'
 import guides from '~/lib/data/guides.json'
 
@@ -30,14 +30,14 @@ const Guides = () => (
 
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
-            <GenericLink
+            <Link
               href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Guides&template=guide-report-or-request.md"
               underlineOnHover={false}
             >
               <Button secondary small>
                 Request a Guide
               </Button>
-            </GenericLink>
+            </Link>
           </div>
         </Wrapper>
       </div>
@@ -45,7 +45,7 @@ const Guides = () => (
       <Wrapper>
         <div className="guide-list">
           {sortedGuides.map((guide, i) => (
-            <GenericLink href={guide.url} key={`${guide.title}.${i}`}>
+            <Link href={guide.url} key={`${guide.title}.${i}`}>
               <article className="guide">
                 <div className="titles">
                   <H4>{guide.title}</H4>
@@ -63,10 +63,10 @@ const Guides = () => (
                   />
                 </div>
               </article>
-            </GenericLink>
+            </Link>
           ))}
 
-          <GenericLink href="https://github.com/zeit/docs/blob/master/CONTRIBUTING.md#guides">
+          <Link href="https://github.com/zeit/docs/blob/master/CONTRIBUTING.md#guides">
             <article className="guide contribute">
               <div className="titles">
                 <H4>Write Your Guide →</H4>
@@ -80,7 +80,7 @@ const Guides = () => (
                 <div className="avatar">You</div>
               </div>
             </article>
-          </GenericLink>
+          </Link>
         </div>
       </Wrapper>
     </div>

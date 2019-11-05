@@ -1,7 +1,7 @@
 import Card from '~/components/card'
 import { Code, InlineCode } from '~/components/text/code'
 import { P } from '~/components/text'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 
 export const meta = {
@@ -59,9 +59,9 @@ You can deploy to the defined aliases using [Now CLI](/download) by setting the 
 <Note>
   Aliases from a <InlineCode>now.json</InlineCode> file will be <b>ignored</b>{' '}
   when there are domains that have been{' '}
-  <GenericLink href="/docs/v2/custom-domains/#deploying-with-your-domain">
+  <Link href="/docs/v2/custom-domains/#deploying-with-your-domain">
     configured for the project through the dashboard
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -89,14 +89,14 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 
 <P>
   This example will pass the <InlineCode>MY_KEY</InlineCode> static env to all{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction/">
+  <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
-  </GenericLink>{' '}
+  </Link>{' '}
   and <InlineCode>SECRET</InlineCode> resolved from the{' '}
   <InlineCode>my-secret-name</InlineCode>{' '}
-  <GenericLink href="/docs/v2/serverless-functions/env-and-secrets">
+  <Link href="/docs/v2/serverless-functions/env-and-secrets">
     secret
-  </GenericLink>{' '}
+  </Link>{' '}
   dynamically.
 </P>
 <Code lang="json">{`{
@@ -117,12 +117,12 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 <P>
   The following example will pass the <InlineCode>MY_KEY</InlineCode> static
   env to all{' '}
-  <GenericLink href="/docs/v2/advanced/builders">Builds</GenericLink> and
+  <Link href="/docs/v2/advanced/builders">Builds</Link> and
   <InlineCode>SECRET</InlineCode> resolved from the <InlineCode>
     my-secret-name
-  </InlineCode> <GenericLink href="/docs/v2/build-step/#using-environment-variables-and-secrets">
+  </InlineCode> <Link href="/docs/v2/build-step/#using-environment-variables-and-secrets">
     secret
-  </GenericLink> dynamically.
+  </Link> dynamically.
 </P>
 <Code lang="json">{`{
   "build": {
@@ -147,11 +147,11 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 
 <P>
   The following will include all HTML files as-is (to be served statically),
-  and <GenericLink href="/docs/v2/advanced/builders">Build</GenericLink> all
+  and <Link href="/docs/v2/advanced/builders">Build</Link> all
   Python files and JS files into{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction/">
+  <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
-  </GenericLink>
+  </Link>
   .
 </P>
 <Code lang="json">{`{
@@ -193,9 +193,9 @@ For more information on Builds and Builders, see the documentation:
 
 <P>
   This example configures custom routes that map to static files and{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction/">
+  <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
-  </GenericLink>
+  </Link>
   .
 </P>
 <Code lang="json">{`{

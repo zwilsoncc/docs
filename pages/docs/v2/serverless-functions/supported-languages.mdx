@@ -10,7 +10,7 @@ export const meta = {
   title: 'Supported Languages for Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2019-11-05T17:41:32.000Z'
 }
 
 Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
@@ -54,7 +54,7 @@ Example deployment: <https://node-api.now-examples.now.sh/api/hello?name=reader>
 
 Deploying a Node.js function with the `.ts` extension will automatically be recognized as a TypeScript file and compiled to a Serverless Function.
 
-As an example; a file called `hello.ts` in the `api` directory, and importing types for the ZEIT Now platform [Request and Response]() objects from [the `@now/node` module]():
+As an example; a file called `hello.ts` in the `api` directory, and importing types for the ZEIT Now platform Request and Response objects from the `@now/node` module:
 
 ```ts
 import { NowRequest, NowResponse } from '@now/node'

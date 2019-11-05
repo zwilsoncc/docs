@@ -1,7 +1,7 @@
 import Note from '~/components/text/note'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   editUrl:
@@ -18,7 +18,7 @@ This allows you to maintain a stable version of your Integration whilst still be
 To deploy your UIHook into production, **all it takes is one command**:
 
 <TerminalInput>now --target=production</TerminalInput>
-<Caption>Deploying a UIHook to <GenericLink href="/docs/v2/custom-domains#deploying-with-your-domain">a production environment</GenericLink>.</Caption>
+<Caption>Deploying a UIHook to <Link href="/docs/v2/custom-domains#deploying-with-your-domain">a production environment</Link>.</Caption>
 
 The output from this command will contain the alias URL for your UIHook, you should add this to your Integration in the **UI Hook URL** field.
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import { withRouter } from 'next/router'
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 const ActivePageButton = withRouter(({ children, router, href }) => {
   return (
-    <Link href={href}>
+    <NextLink href={href}>
       <span className="active-button">
         {children}
         <style jsx>{`
@@ -16,7 +16,7 @@ const ActivePageButton = withRouter(({ children, router, href }) => {
           }
         `}</style>
       </span>
-    </Link>
+    </NextLink>
   )
 })
 

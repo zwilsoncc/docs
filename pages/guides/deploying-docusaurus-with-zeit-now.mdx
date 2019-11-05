@@ -1,7 +1,7 @@
 import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 
@@ -12,28 +12,22 @@ export const meta = {
   published: '2019-10-09T12:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-docusaurus-with-zeit-now',
+  example: 'docusaurus',
+  demo: 'https://docusaurus.now-examples.now.sh',
   image:
     'https://og-image.now.sh/**Deploy%20Docusaurus%20Sites**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fv2.docusaurus.io%2Fimg%2Fdocusaurus_keytar.svg&widths=250&widths=350&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-docusaurus-with-zeit-now.mdx',
-  lastEdited: '2019-10-14T11:01:35.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 [Docusaurus](https://docusaurus.io/) is a documentation framework that makes it easy to maintain open source documentation websites.
-
-Create and deploy a new Docusaurus project with ZEIT Now without the setup using the button below.
-
-<a href="https://zeit.co/new/project?template=https://github.com/zeit/now-examples/tree/master/docusaurus">
-  <Image src="https://zeit.co/button" width={104} height={36} align="left" />
-</a>
-
-Alternatively, set up Docusaurus locally and deploy using Now CLI with the following steps.
 
 ## Step 1: Set Up Your Docusaurus Project
 
 Firstly, [set up a Docusaurus project](https://docusaurus.io/docs/en/tutorial-setup#install-the-docusaurus-init-command) by installing the Docusaurus CLI globally from your terminal:
 
 <Snippet dark text="npm i -g docusaurus-init" />
-<Caption>Installing <GenericLink href="https://docusaurus.io/docs/en/tutorial-setup#install-the-docusaurus-init-command">docusaurus-init</GenericLink> globally with <GenericLink href="https://www.npmjs.com/">npm</GenericLink>.</Caption>
+<Caption>Installing <Link href="https://docusaurus.io/docs/en/tutorial-setup#install-the-docusaurus-init-command">docusaurus-init</Link> globally with <Link href="https://www.npmjs.com/">npm</Link>.</Caption>
 
 Create and move into a directory for your Docusaurus website:
 

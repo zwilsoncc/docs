@@ -5,7 +5,7 @@ import {
   BoldCell,
   FullWidthCell
 } from '~/components/api/table'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { InlineCode } from '~/components/text/code'
 
 export const meta = {
@@ -83,10 +83,7 @@ Along the documentation we're going to use many different types of data. Here yo
     <BoldCell>Date</BoldCell>
     <Cell>
       A String representing a date with the{' '}
-      <GenericLink href="http://en.wikipedia.org/wiki/ISO_8601">
-        ISO 8601
-      </GenericLink>{' '}
-      format.
+      <Link href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</Link> format.
     </Cell>
     <Cell>
       <InlineCode>"2018-09-03T19:48:46.555Z"</InlineCode>

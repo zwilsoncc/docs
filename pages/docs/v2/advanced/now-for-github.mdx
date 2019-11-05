@@ -3,14 +3,14 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Now for GitHub',
   description:
     'Deploy each change in your GitHub repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/advanced/now-for-github.mdx',
-  lastEdited: '2019-11-01T15:20:23.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 The Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
@@ -131,9 +131,9 @@ To prevent Now from commenting on pull requests and commits, use the following c
 <Note>
   Although Now will stop commenting, it will not stop deploying the latest
   updates. For this configuration option, see{' '}
-  <GenericLink href="#disabling-now-for-github-with-now.json">
+  <Link href="#disabling-now-for-github-with-now.json">
     disabling Now for GitHub
-  </GenericLink>
+  </Link>
 </Note>
 
 ```json
@@ -175,9 +175,9 @@ In order to support that, ZEIT Now will deploy your app with following built-in 
 
 <Note>
   You can access these as{' '}
-  <GenericLink href="/docs/v2/build-step#using-environment-variables-and-secrets">
+  <Link href="/docs/v2/build-step#using-environment-variables-and-secrets">
     build environment variables
-  </GenericLink>{' '}
+  </Link>{' '}
   also.
 </Note>
 

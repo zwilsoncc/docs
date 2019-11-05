@@ -2,7 +2,7 @@ import Guide from '~/components/layout/guide'
 import Snippet from '~/components/snippet'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 
@@ -14,12 +14,12 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2019-10-30T09:43:23.000Z'
+  lastEdited: '2019-11-05T20:55:16.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
 
-<Note warning>
+<Note type="warning">
   We <b>strongly advise against using external verification</b> as it prevents
   you from receiving the full benefits of ZEIT's platform and services, such as
   the automatic renewal of wildcard certificates. Furthermore, many DNS
@@ -33,7 +33,7 @@ When migrating to another set of nameservers, there can often be downtime incurr
 To get the process started, you will need to add your domain to your account or team by using the following command:
 
 <Snippet dark text="now domains add <domain>" />
-<Caption>Adding a domain to a ZEIT account using <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
+<Caption>Adding a domain to a ZEIT account using <Link href="/now">Now CLI</Link>.</Caption>
 
 This command will add the domain to your account and output information you will need in order to verify the domain is yours.
 
@@ -47,7 +47,7 @@ You will receive two options:
   width={1670/2}
   height={1046/2}
 />
-<Caption>Adding a domain with <GenericLink href="/docs/v2/getting-started/installation">Now CLI</GenericLink>.</Caption>
+<Caption>Adding a domain with <Link href="/docs/v2/getting-started/installation">Now CLI</Link>.</Caption>
 
 To avoid pointing the nameservers to Now prematurely, use the TXT method for verification.
 
@@ -71,7 +71,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   width={1670/2}
   height={1046/2}
 />
-<Caption>Verifying a domain with <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
+<Caption>Verifying a domain with <Link href="/now">Now CLI</Link>.</Caption>
 
 ## Step 2: Preparing the Domain with DNS, Certs, and Deploying to Production
 
@@ -82,7 +82,7 @@ Now that your domain is verified, you have more control over it with Now. You ca
 With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL certificate for your domain and all subdomains, called common names (CNs), with the following command:
 
 <Snippet dark text="now certs issue \*.<domain> <domain> --challenge-only" />
-<Caption>Generating an SSL certificate for a domain and all subdomains with <GenericLink href="/now">Now CLI</GenericLink>.</Caption>
+<Caption>Generating an SSL certificate for a domain and all subdomains with <Link href="/now">Now CLI</Link>.</Caption>
 
 You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that Now has sufficient permissions, consisting of two TXT records.
 
@@ -100,8 +100,7 @@ In this example, we'll take Gmail's current MX records and add them with Now CLI
 />
 
 <Caption>
-  Adding MX records to a domain with{' '}
-  <GenericLink href="/now">Now CLI</GenericLink>.
+  Adding MX records to a domain with <Link href="/now">Now CLI</Link>.
 </Caption>
 
 The above demonstrates using the `now dns add` command to add multiple MX record to your domain.
@@ -110,13 +109,10 @@ The above demonstrates using the `now dns add` command to add multiple MX record
 
 To use your custom domain with your project, you can add it to your project from the **Domains** section of the project dashboard.
 
-<Note hint>
+<Note>
   A project is defined when first deploying (using the directory name), or when
   creating a project from your dashboard. You can read more about them in the{' '}
-  <GenericLink href="/docs/v2/platform/projects/">
-    projects documentation
-  </GenericLink>
-  .
+  <Link href="/docs/v2/platform/projects/">projects documentation</Link>.
 </Note>
 
 Select a project from your dashboard and click the **Domains** tab. Add your custom domain for production here, such as `[custom domain name].[tld]`, a subdomain `[subdomain].[custom domain name].[tld]` (providing the root domain is added to your account), or using the free `now.sh` deployment suffix `[name].now.sh`.
@@ -131,14 +127,8 @@ When the domain is verified, you can deploy your project to production with Now 
 <Note>
   Your projects will automatically use your custom domain when merging or
   pushing to the default branch when using either{' '}
-  <GenericLink href="/docs/v2/integrations/now-for-gitlab">
-    Now for GitHub
-  </GenericLink>{' '}
-  or{' '}
-  <GenericLink href="/docs/v2/integrations/now-for-gitlab">
-    Now for GitLab
-  </GenericLink>
-  .
+  <Link href="/docs/v2/integrations/now-for-gitlab">Now for GitHub</Link> or{' '}
+  <Link href="/docs/v2/integrations/now-for-gitlab">Now for GitLab</Link>.
 </Note>
 
 Now, your domain will be pointing to your latest deployment and you're are ready to move your nameservers across to show that deployment.

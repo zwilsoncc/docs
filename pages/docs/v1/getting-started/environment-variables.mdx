@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 
 import { TerminalInput } from '~/components/text/terminal'
-import { InternalLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Now from '~/components/text/now'
 
 export const meta = {
@@ -10,7 +10,7 @@ export const meta = {
     'Setting up environment variables to use in your deployed Now apps',
   date: '6 August 2017',
   editUrl: 'pages/docs/v1/getting-started/environment-variables.mdx',
-  lastEdited: '2019-01-07T00:27:37.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 Almost every app needs to get configurations at runtime. These configurations could be anything, including:
@@ -53,6 +53,6 @@ You can also expose these environment variables with [now.json](https://zeit.co/
 
 After that, `now` will use above environment variables when you deploy your app.
 
-> It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <InternalLink href="/docs/getting-started/secrets"><Now color="#0076FF"/> Secrets</InternalLink>.
+> It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <Link href="/docs/getting-started/secrets"><Now color="#0076FF"/> Secrets</Link>.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

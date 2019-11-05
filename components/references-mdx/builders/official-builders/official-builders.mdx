@@ -2,7 +2,7 @@ import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { InlineCode, Code } from '~/components/text/code'
 import Example from '~/components/example'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import Tag from '~/components/text/tag'
 
@@ -16,16 +16,16 @@ export const meta = {
 
 Builders are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](/docs/v2/serverless-functions/introduction/), which are served by our [CDN at the edge](/docs/v2/network/caching/).
 
-<Note warning>
+<Note type="warning">
   In most cases, advanced Builders usage with configuration is not necessary.
   See{' '}
-  <GenericLink href="/docs/v2/introduction">
+  <Link href="/docs/v2/introduction">
     the ZEIT Now Introduction documentation
-  </GenericLink>{' '}
+  </Link>{' '}
   or the{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction">
+  <Link href="/docs/v2/serverless-functions/introduction">
     Serverless Functions documentation
-  </GenericLink>{' '}
+  </Link>{' '}
   for more information.
 </Note>
 
@@ -110,18 +110,18 @@ module.exports = (req, res) => {
 
 <Caption>
   An example serverless Node.js function using{' '}
-  <GenericLink href="#node.js-request-and-response-objects">
+  <Link href="#node.js-request-and-response-objects">
     the Request and Response objects
-  </GenericLink>
+  </Link>
   .
 </Caption>
 
 <Note>
   The Node.js Builder also supports{' '}
-  <GenericLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">
+  <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">
     {' '}
     asynchronous functions
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -210,9 +210,9 @@ module.exports = (req, res) => {
 <Note>
   If needed, you can opt-out of Now providing <InlineCode>helpers</InlineCode>{' '}
   using{' '}
-  <GenericLink href="#advanced-usage/advanced-node-js-usage/disabling-helpers-for-node-js">
+  <Link href="#advanced-usage/advanced-node-js-usage/disabling-helpers-for-node-js">
     advanced configuration
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -262,12 +262,12 @@ To build your Next.js projects with each deployment, provide the following `buil
   This Builder separates your pages into individual Serverless Functions, so you
   cannot use a custom server. You can still achieve most of the logic that you
   have in a custom server by using{' '}
-  <GenericLink href="https://nextjs.org/docs/#fetching-data-and-component-lifecycle">
+  <Link href="https://nextjs.org/docs/#fetching-data-and-component-lifecycle">
     <InlineCode>getInitialProps()</InlineCode>
-  </GenericLink>
-  . For more on advanced routing, see the <GenericLink href="/guides/custom-next-js-server-to-routes">
+  </Link>
+  . For more on advanced routing, see the <Link href="/guides/custom-next-js-server-to-routes">
     Custom Routes Guide for Next.js on ZEIT Now
-  </GenericLink>.
+  </Link>.
 </Note>
 
 For more advanced usage of Next.js on ZEIT Now, such as environment variables or private npm modules, see [the Advanced Next.js Usage section](#advanced-usage/advanced-next-js-usage).
@@ -315,9 +315,9 @@ For advanced usage, such as using private packages with your Go projects, see th
 
 <Note>
   The exported function needs to include the{' '}
-  <GenericLink href="https://golang.org/pkg/net/http/#HandlerFunc">
+  <Link href="https://golang.org/pkg/net/http/#HandlerFunc">
     <InlineCode>HandlerFunc</InlineCode>
-  </GenericLink>{' '}
+  </Link>{' '}
   signature type, but can use any valid Go exported function declaration as the
   function name.
 </Note>

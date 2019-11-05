@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { AnchorLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { P } from '~/components/text'
 
 function CaseStudyCard({ icon, description }) {
@@ -8,7 +8,7 @@ function CaseStudyCard({ icon, description }) {
     <div className="case-study-card-container">
       <Icon />
       <P>{description}</P>
-      <AnchorLink>Read case study</AnchorLink>
+      <Link href="#">Read case study</Link>
       <style jsx>{`
         .case-study-card-container {
           display: flex;

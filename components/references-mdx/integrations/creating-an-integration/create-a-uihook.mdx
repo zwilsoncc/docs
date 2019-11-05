@@ -2,7 +2,7 @@ import Note from '~/components/text/note'
 import { TerminalInput } from '~/components/text/terminal'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   editUrl:
@@ -42,14 +42,9 @@ This is happening inside the ZEIT Dashboard under a configuration page for this 
 
 <Note>
   You can find more complex examples{' '}
-  <GenericLink href="/docs/integrations#examples/">
-    later in the documentation
-  </GenericLink>{' '}
-  or you can view the code on the{' '}
-  <GenericLink href="https://github.com/zeit/integrations">
-    Integrations Gallery
-  </GenericLink>
-  .
+  <Link href="/docs/integrations#examples/">later in the documentation</Link> or
+  you can view the code on the{' '}
+  <Link href="https://github.com/zeit/integrations">Integrations Gallery</Link>.
 </Note>
 
 ### Running the UIHook Locally

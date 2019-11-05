@@ -1,6 +1,6 @@
 import Example from '~/components/example'
 import { TerminalInput } from '~/components/text/terminal'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { Code } from '~/components/text/code'
 import Quote from '~/components/text/quote'
 
@@ -29,16 +29,16 @@ If the authentication is unsuccessful, the status code **403** is returned.
       ? "Since you're logged in, "
       : [
           'When ',
-          <GenericLink href="/login" key="loggedin">
+          <Link href="/login" key="loggedin">
             logged in
-          </GenericLink>,
+          </Link>,
           ','
         ]}{' '}
     the examples in the API will contain your secret token. Don't share them!
     For example, to get a{' '}
-    <GenericLink href="#endpoints/deployments/list-all-the-deployments">
+    <Link href="#endpoints/deployments/list-all-the-deployments">
       list of deployments
-    </GenericLink>{' '}
+    </Link>{' '}
     try the following:
   </Quote>
   <TerminalInput>

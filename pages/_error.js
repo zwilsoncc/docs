@@ -5,7 +5,7 @@ import Layout from '~/components/layout/layout'
 import Content from '~/components/layout/content'
 import Text, { H1, H4 } from '~/components/text'
 import { LinkList } from '~/components/list'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 function ErrorPage({ statusCode }) {
   if (statusCode !== 404) {
@@ -110,9 +110,9 @@ function ErrorPage({ statusCode }) {
             documentation for keywords.
           </Text>
           <LinkList>
-            <GenericLink href="/docs">Docs</GenericLink>
-            <GenericLink href="/guides">Guides</GenericLink>
-            <GenericLink href="/blog">Blog</GenericLink>
+            <Link href="/docs">Docs</Link>
+            <Link href="/guides">Guides</Link>
+            <Link href="/blog">Blog</Link>
           </LinkList>
         </div>
       </Content>

@@ -1,6 +1,6 @@
 import Example from '~/components/example'
 import { Code, InlineCode } from '~/components/text/code'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import {
   InputTable,
   OutputTable,
@@ -42,9 +42,9 @@ Get a list of DNS records created for a domain name specified in the URL.
     <TypeCell>Enum</TypeCell>
     <Cell>
       The type of record, it could be{' '}
-      <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">
+      <Link href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">
         any valid DNS record
-      </GenericLink>
+      </Link>
       .
     </Cell>
   </Row>
@@ -130,9 +130,9 @@ field should be set for MX records and left out otherwise.
     <BooleanCell status={true} />
     <Cell>
       The type of record, it could be{' '}
-      <GenericLink href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">
+      <Link href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">
         any valid DNS record
-      </GenericLink>
+      </Link>
       .
     </Cell>
   </Row>

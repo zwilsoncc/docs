@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import cn from 'classnames'
 import { withRouter } from 'next/router'
 import PropTypes from 'prop-types'
@@ -76,7 +76,7 @@ class AutoComplete extends Component {
 
   renderSuggestion = hit => {
     return (
-      <Link
+      <NextLink
         href={`${hit.url}?query=${encodeURIComponent(this.state.value)}${
           hit.anchor ? `${hit.anchor}` : ''
         }`}
@@ -101,7 +101,7 @@ class AutoComplete extends Component {
             <Snippet hit={hit} attribute="content" tagName="mark" />
           </span>
         </a>
-      </Link>
+      </NextLink>
     )
   }
 

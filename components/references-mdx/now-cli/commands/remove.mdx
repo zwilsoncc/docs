@@ -2,7 +2,7 @@ import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   editUrl: 'pages/docs/now-cli/now-cli-mdx/commands/remove.mdx',
@@ -33,9 +33,8 @@ The `now remove` command, which can be shortened to `now rm`, is used to remove 
 <Caption>Using the <InlineCode>now remove</InlineCode> command to remove all deployments for a project from the ZEIT Now platform.</Caption>
 
 <Note type="warning">
-  By using the{' '}
-  <GenericLink href="/docs/v2/platform/projects/">project name</GenericLink>,
-  the entire project will be removed from the account unless the{' '}
+  By using the <Link href="/docs/v2/platform/projects/">project name</Link>, the
+  entire project will be removed from the account unless the{' '}
   <InlineCode>--safe</InlineCode> is used.
 </Note>
 

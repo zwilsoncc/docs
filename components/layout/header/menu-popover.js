@@ -1,11 +1,10 @@
 import { Component } from 'react'
-import Link from 'next/link'
 
 import * as PopOver from '~/components/popover'
 import PopOverLink from '~/components/popover/popover-link'
 import Badge from './badge'
 
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export class MenuPopOver extends Component {
   state = { isOpen: false }
@@ -78,7 +77,7 @@ export class MenuPopOver extends Component {
                             fullWidth
                             active={section === item.url}
                           >
-                            <GenericLink href={item.url} target={null}>
+                            <Link href={item.url} target={null}>
                               {item.title}
                               {item.isHot && (
                                 <>
@@ -90,7 +89,7 @@ export class MenuPopOver extends Component {
                                   />
                                 </>
                               )}
-                            </GenericLink>
+                            </Link>
                           </PopOver.Item>
                         )
                       })}
@@ -114,9 +113,9 @@ export class MenuPopOver extends Component {
                             fullWidth
                             active={section === item.url}
                           >
-                            <GenericLink href={item.url} target={null}>
+                            <Link href={item.url} target={null}>
                               {item.title}
-                            </GenericLink>
+                            </Link>
                           </PopOver.Item>
                         )
                       })}

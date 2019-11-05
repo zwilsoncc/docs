@@ -211,7 +211,7 @@ To make the creation of documentation and guides as simple as possible, we have 
 
 You can find multiple examples in each page of how to import and use these components, below is an example import statement:
 
-`import { GenericLink } from '~/components/text/link'`
+`import Link from '~/components/text/link'`
 
 We believe that these components should be enough to cover usage in nearly all situations, however, if you feel that a new component should be added then please do so in a separate pull request, stating clearly your reasons for adding it.
 

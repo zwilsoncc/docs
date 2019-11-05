@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
-import { InternalLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
 
@@ -9,7 +9,7 @@ export const meta = {
   description: 'Targeting and deploying a Git repository with Now',
   date: '12 Mar 2017',
   editUrl: 'pages/docs/v1/features/repositories.mdx',
-  lastEdited: '2019-08-16T15:05:32.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 If you're developing a project that requires local changes before it can be deployed (like a regular application), running just now is the right way to move your code into the cloud.
@@ -28,9 +28,9 @@ Thanks to the process I've explained earlier, configuring the deployment of a Gi
 
 If you want, you can either use `now.json` or the `now` property inside `package.json` within your repository for customizing the deployments. But please note that these settings can't be interfered with by the user. They're fixed.
 
-For the cases in which the user needs to specify his own settings, <InternalLink href="/docs/features/env-and-secrets">environment variables</InternalLink> can be used.
+For the cases in which the user needs to specify his own settings, <Link href="/docs/features/env-and-secrets">environment variables</Link> can be used.
 
-When deploying [rauchg](https://twitter.com/rauchg)'s [slackin](https://github.com/now-examples/slackin) project, for example, you somehow need to define the API token and subdomain of your Slack team. And that's exactly where <InternalLink href="/docs/features/env-and-secrets">environment variables</InternalLink> come in really nicely:
+When deploying [rauchg](https://twitter.com/rauchg)'s [slackin](https://github.com/now-examples/slackin) project, for example, you somehow need to define the API token and subdomain of your Slack team. And that's exactly where <Link href="/docs/features/env-and-secrets">environment variables</Link> come in really nicely:
 
 <TerminalInput>
   {

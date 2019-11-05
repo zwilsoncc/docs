@@ -1,6 +1,6 @@
 import { Code, InlineCode, RequestHeader } from '~/components/text/code'
 import Note from '~/components/text/note'
-import { GenericLink, HelpLink } from '~/components/text/link'
+import Link, { HelpLink } from '~/components/text/link'
 import { P, Span } from '~/components/text'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
@@ -93,9 +93,9 @@ In the case you want to inline each file inside the create deployment request ea
 In the case you want to first [upload each file](#endpoints/deployments/upload-deployment-files) and then create a deployment you need to pass the file name and the file content SHA1 which is going to be used to check the integrity and match the requests with the file.
 
 <Note>
-  <GenericLink href="#endpoints/deployments/upload-deployment-files">
+  <Link href="#endpoints/deployments/upload-deployment-files">
     Uploading each file
-  </GenericLink>{' '}
+  </Link>{' '}
   and then creating the deployment with files using SHA1 strings is especially
   useful when uploading many, or big, files. This is helpful when retrying
   deployments without needing to upload the files again.
@@ -424,9 +424,9 @@ Before you create a deployment you need to upload the required files for that de
 <Note>
   If you need to upload only a few small files for a deployment you could inline
   them when you're{' '}
-  <GenericLink href="#endpoints/deployments/create-a-new-deployment">
+  <Link href="#endpoints/deployments/create-a-new-deployment">
     creating a new deployment
-  </GenericLink>
+  </Link>
   .
 </Note>
 

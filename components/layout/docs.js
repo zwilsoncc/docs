@@ -13,7 +13,7 @@ import VersionSwitcher from '~/components/layout/version-switcher'
 import Content from '~/components/layout/content'
 import ContentFooter from '~/components/layout/content-footer'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import components from '~/lib/mdx-components'
 import { H1, H2, H3, H4 } from '~/components/text'
 import HR from '~/components/text/hr'
@@ -148,13 +148,11 @@ class withDoc extends React.Component {
                   <Note>
                     This documentation is for <b>version 1</b> of the Now
                     platform. For the latest features, please see{' '}
-                    <GenericLink href="/docs/v2">
-                      the version 2 documentation
-                    </GenericLink>
-                    . If you have yet to upgrade, see the{' '}
-                    <GenericLink href="/guides/migrate-to-zeit-now/">
+                    <Link href="/docs/v2">the version 2 documentation</Link>. If
+                    you have yet to upgrade, see the{' '}
+                    <Link href="/guides/migrate-to-zeit-now/">
                       upgrade guide
-                    </GenericLink>
+                    </Link>
                     .
                   </Note>
                 )}

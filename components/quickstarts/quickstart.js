@@ -1,7 +1,7 @@
 import { useAmp } from 'next/amp'
 import { H4 } from '~/components/text'
 import { DeployButton } from '~/components/buttons'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export default function({ quickstart, icons, href, deployUrl }) {
   const isAmp = useAmp()
@@ -21,7 +21,7 @@ export default function({ quickstart, icons, href, deployUrl }) {
 
   return (
     <div className="quickstart">
-      <GenericLink href={href}>
+      <Link href={href}>
         <span className="quickstart-icons">
           {Array.isArray(icons) ? (
             icons.map(icon =>
@@ -43,7 +43,7 @@ export default function({ quickstart, icons, href, deployUrl }) {
         </span>
         <H4>{quickstart}</H4>
         <span className="note">Read the guide</span>
-      </GenericLink>
+      </Link>
       {deployUrl && <DeployButton url={deployUrl} />}
 
       <style jsx>{`

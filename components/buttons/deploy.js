@@ -4,7 +4,7 @@ import Button from './button'
 export default function DeployButton({ url }) {
   return (
     <div className="deploy-button">
-      <a href={url}>
+      <a href={url} target="_blank" rel="noopener">
         <Button type="success" icon={<Logo height={16} width={16} />}>
           Deploy
         </Button>
@@ -16,6 +16,7 @@ export default function DeployButton({ url }) {
 
         .deploy-button :global(.button) {
           padding: 0;
+          min-width: 124px;
         }
 
         .deploy-button :global(.button:hover) {

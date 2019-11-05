@@ -13,6 +13,7 @@ import { H1, H2, H3, H4, H5, P } from '~/components/text'
 import { Avatar } from '~/components/avatar'
 import HR from '~/components/text/hr'
 import { FooterFeedback } from '~/components/feedback-input'
+import DeployBanner from '~/components/deploy-banner'
 
 const DocH2 = ({ children }) => (
   <>
@@ -93,6 +94,9 @@ class Guide extends React.PureComponent {
 
             <Wrapper width="768">
               <section className="guide content">
+                {meta.example && meta.demo && (
+                  <DeployBanner example={meta.example} demo={meta.demo} />
+                )}
                 {this.props.children}
                 <NonAmpOnly>
                   <>

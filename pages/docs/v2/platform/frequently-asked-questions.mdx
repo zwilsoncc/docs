@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
@@ -8,7 +8,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2019-10-31T22:43:10.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 ## Missing Public Directory
@@ -17,9 +17,9 @@ If your project contains a `package.json` file with a `build` [script](https://d
 
 <Note type="warning">
   If you are using an{' '}
-  <GenericLink href="/docs/v2/build-step/#optimized-frameworks">
+  <Link href="/docs/v2/build-step/#optimized-frameworks">
     optimized framework
-  </GenericLink>
+  </Link>
   , you must use the default output directory provided by the framework.
 </Note>
 

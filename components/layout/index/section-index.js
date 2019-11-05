@@ -1,5 +1,5 @@
 import cns from 'classnames'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { Component, Fragment } from 'react'
 import EntryIndex from './entry-index'
 import * as metrics from '~/lib/metrics'
@@ -83,7 +83,7 @@ class SectionIndex extends Component {
                 {section.title}
               </a>
             ) : (
-              <Link href={href} as={as}>
+              <NextLink href={href} as={as}>
                 <a
                   className={cns('title', { active })}
                   onClick={this.handleClick}
@@ -91,7 +91,7 @@ class SectionIndex extends Component {
                 >
                   {section.title}
                 </a>
-              </Link>
+              </NextLink>
             )}
           </Fragment>
         ) : (

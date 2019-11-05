@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
@@ -12,7 +12,7 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/upgrade-to-zero-configuration',
   editUrl: 'pages/guides/upgrade-to-zero-configuration.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 With zero configuration, it's never been easier to deploy an app with ZEIT Now. This guide highlights a set of common scenarios, showing you how to take advantage of these new features.
@@ -99,9 +99,9 @@ To check the output directory for your framework, run `npm run build` inside you
 
 <Note>
   Add the build output directory{' '}
-  <GenericLink href="/guides/prevent-uploading-sourcepaths-with-nowignore">
+  <Link href="/guides/prevent-uploading-sourcepaths-with-nowignore">
     to <InlineCode>.nowignore</InlineCode>
-  </GenericLink>{' '}
+  </Link>{' '}
   so that your project is rebuilt with each deployment.
 </Note>
 
@@ -183,9 +183,9 @@ module.exports = (req, res) => {
 
 <Caption>
   An example Node.js Serverless Function that uses Path Segments through{' '}
-  <GenericLink href="/docs/v2/serverless-functions/supported-languages#node.js-helpers">
+  <Link href="/docs/v2/serverless-functions/supported-languages#node.js-helpers">
     helper methods
-  </GenericLink>{' '}
+  </Link>{' '}
   with ZEIT Now.
 </Caption>
 

@@ -1,7 +1,7 @@
 import Doc from '~/components/layout/docs'
 
 import Now from '~/components/text/now'
-import { InternalLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
@@ -9,7 +9,7 @@ export const meta = {
   description: 'Managing your DNS records for domains used with Now',
   date: '15 Mar 2017',
   editUrl: 'pages/docs/v1/features/dns.mdx',
-  lastEdited: '2019-07-16T22:07:48.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 Thanks to the `now dns` CLI command, managing existing DNS records with <Now color="#000" /> is simple.
@@ -73,7 +73,7 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 > In this case, you'll be in charge of certificate management for your domain.<br/>
 > Most probably, you'll need to use `CAA` records to:
 >
-> 1. use a custom certificate for your <Now color="#000" /> deployment with <InternalLink href="/docs/features/certs#now-certs-replace">`now certs replace`</InternalLink>
+> 1. use a custom certificate for your <Now color="#000" /> deployment with <Link href="/docs/features/certs#now-certs-replace">`now certs replace`</Link>
 > 2. run an app outside of <Now color="#000" /> with TLS for a subdomain
 
 ### now dns rm &lt;ID>

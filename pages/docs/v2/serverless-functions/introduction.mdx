@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Snippet from '~/components/snippet'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
@@ -10,7 +10,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-10-22T22:13:11.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 With ZEIT Now, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -44,9 +44,9 @@ To deploy Serverless Functions without any additional configuration, you can put
   If you are using Next.js, use the <InlineCode>/pages/api</InlineCode>{' '}
   directory instead.
   <br />
-  <GenericLink href="https://nextjs.org/docs#api-routes">
+  <Link href="https://nextjs.org/docs#api-routes">
     Read more about API functionality with Next.js
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -72,9 +72,9 @@ module.exports = (req, res) => {
 <Caption>
   An example Node.js Serverless Function using Express.js-like helper methods
   from the{' '}
-  <GenericLink href="/docs/v2/serverless-functions/supported-languages#node.js-request-and-response-objects">
+  <Link href="/docs/v2/serverless-functions/supported-languages#node.js-request-and-response-objects">
     Request and Response objects
-  </GenericLink>
+  </Link>
   .
 </Caption>
 
@@ -83,7 +83,7 @@ The above example echoes the `body`, path `query`, and `cookie`s, passed with th
 Then, all you need to do, to have a live API, is deploy with [Now CLI](/download) from your terminal:
 
 <Snippet dark text="now" />
-<Caption>One-command deployment with <GenericLink href="/download">Now CLI</GenericLink>.</Caption>
+<Caption>One-command deployment with <Link href="/download">Now CLI</Link>.</Caption>
 
 The resulting deployment will contain your Node.js Serverless Function and will provide you with a URL like the following, with your API ready to go: <https://node-echo-api.now-examples.now.sh/api/?name=zeit>
 
@@ -137,9 +137,9 @@ The resulting deployment can be found here: <https://path-segment-with-node.now-
 
 <Note>
   Any{' '}
-  <GenericLink href="/docs/v2/serverless-functions/supported-languages">
+  <Link href="/docs/v2/serverless-functions/supported-languages">
     supported language
-  </GenericLink>{' '}
+  </Link>{' '}
   can utilize path segments.
 </Note>
 
@@ -154,11 +154,7 @@ If you have an `api` directory like the [above examples](#deploying-serverless-f
 
 <Note>
   The <InlineCode>now dev</InlineCode> command is still in beta. If you have any
-  feedback,{' '}
-  <GenericLink href="https://zeit.co/feedback/dev">
-    please let us know
-  </GenericLink>
-  .
+  feedback, <Link href="https://zeit.co/feedback/dev">please let us know</Link>.
 </Note>
 
 If you have a statically generated frontend that supports its own development environment, such as Next.js, we recommend creating a `dev` script within a `package.json` file at the root of your project that `now dev` can use and extend:

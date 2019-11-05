@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title:
@@ -18,7 +18,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2019-10-22T21:51:28.000Z'
+  lastEdited: '2019-11-05T20:55:16.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -86,7 +86,7 @@ When this is complete, add [`serverless-mysql`](https://github.com/jeremydaly/se
 
 <Snippet dark text="npm i serverless-mysql sql-template-strings" />
 <Caption>
-  Adding <InlineCode>serverless-mysql</InlineCode> and <InlineCode>sql-template-strings</InlineCode> as <GenericLink href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependencies</GenericLink> to the project.
+  Adding <InlineCode>serverless-mysql</InlineCode> and <InlineCode>sql-template-strings</InlineCode> as <Link href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependencies</Link> to the project.
 </Caption>
 
 Adding [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) to the project will allow you to make connections to your MySQL database. In addition to this, it also **manages connections**, ensuring you do not 'max out' the available connections.
@@ -96,13 +96,11 @@ Managing MySQL connections is an essential part of using it **successfully in a 
 <Note>
   Using <InlineCode>sql-template-strings</InlineCode> is strongly recommended to
   prevent attacks via{' '}
-  <GenericLink href="https://en.wikipedia.org/wiki/SQL_injection">
-    SQL Injection
-  </GenericLink>{' '}
+  <Link href="https://en.wikipedia.org/wiki/SQL_injection">SQL Injection</Link>{' '}
   by using{' '}
-  <GenericLink href="https://blogs.msdn.microsoft.com/sqlphp/2008/09/30/how-and-why-to-use-parameterized-queries/">
+  <Link href="https://blogs.msdn.microsoft.com/sqlphp/2008/09/30/how-and-why-to-use-parameterized-queries/">
     parameterized queries
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -125,7 +123,7 @@ Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-
 
 <Snippet dark text="now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
-  Adding <GenericLink href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secrets</GenericLink> to the project.
+  Adding <Link href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secrets</Link> to the project.
 </Caption>
 
 ## Step 3: Create Your Reusable Database Connection
@@ -229,14 +227,14 @@ Your `index.js` file performs the following functions:
 - Uses the records count to calculate pagination
 - Sends the retrieved profiles and pagination details as a response
 
-<Note hint>
+<Note>
   In the code snippet above, you probably noticed that we used{' '}
   <InlineCode>req.query</InlineCode>, <InlineCode>res.status()</InlineCode> and{' '}
   <InlineCode>res.json()</InlineCode> . These property and methods are
   automatically added for you when you use
-  <InlineCode>@now/node</InlineCode>. Read more about this in the <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node#helpers">
+  <InlineCode>@now/node</InlineCode>. Read more about this in the <Link href="/docs/v2/deployments/official-builders/node-js-now-node#helpers">
     <InlineCode>@now/node</InlineCode> Builder documentation page
-  </GenericLink>.
+  </Link>.
 </Note>
 
 That is all the API code required to successfully use pagination in a serverless environment.

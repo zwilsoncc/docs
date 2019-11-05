@@ -2,7 +2,7 @@ import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import Note from '~/components/text/note'
-import { GenericLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import { Code } from '~/components/text/code'
 
 export const meta = {
@@ -20,9 +20,9 @@ By default, routing is defined by the filesystem of your deployment. For example
   For Serverless Function routes, you can configure an{' '}
   <InlineCode>/api</InlineCode> directory to provide filesystem routing and
   handle dynamic routing with{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction/#path-segments">
+  <Link href="/docs/v2/serverless-functions/introduction/#path-segments">
     path segments, without the need for configuration
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -90,7 +90,7 @@ The following example shows a `now.json` configuration that takes a `src` path a
 <Caption>
   This will route to <InlineCode>/about</InlineCode> without proxying, but
   routes like this are usually redundant with{' '}
-  <GenericLink href="#wildcard-routes">handle filesystem</GenericLink>.
+  <Link href="#wildcard-routes">handle filesystem</Link>.
 </Caption>
 
 ## headers
@@ -169,9 +169,9 @@ For example, you can use this property in combination with [the `headers` proper
 <Caption>
   Redirecting one path to another using the <InlineCode>status</InlineCode>{' '}
   property to provide a{' '}
-  <GenericLink href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
+  <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">
     HTTP status code
-  </GenericLink>
+  </Link>
   .
 </Caption>
 
@@ -210,14 +210,14 @@ As an example, you can use this property when you have an API endpoint and only 
 
 <Note>
   The above example uses the{' '}
-  <GenericLink href="/docs/v2/deployments/official-builders/node-js-now-node/">
+  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/">
     @now/node
-  </GenericLink>{' '}
+  </Link>{' '}
   Builder as an example of a <InlineCode>now.json</InlineCode> configuration
   that tells Now to build JavaScript files with Node.js and outputs them as{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction/">
+  <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
-  </GenericLink>
+  </Link>
   .
 </Note>
 
@@ -266,9 +266,9 @@ This type of configuration can be seen in [single-page applications](https://en.
 <Note>
   <b>This method is for advanced usecases</b> when using route parameters and
   path segments. For most cases, please see{' '}
-  <GenericLink href="/docs/v2/serverless-functions/introduction/#path-segments">
+  <Link href="/docs/v2/serverless-functions/introduction/#path-segments">
     the Serverless Functions documentation on path segments
-  </GenericLink>{' '}
+  </Link>{' '}
   for the recommended method, using the filesystem.
 </Note>
 

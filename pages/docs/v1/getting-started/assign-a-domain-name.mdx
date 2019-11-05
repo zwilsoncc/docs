@@ -2,7 +2,7 @@ import Doc from '~/components/layout/docs'
 
 import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
-import { InternalLink } from '~/components/text/link'
+import Link from '~/components/text/link'
 import Now from '~/components/text/now'
 
 export const meta = {
@@ -10,7 +10,7 @@ export const meta = {
   description: 'Using Now `alias` to assign a domain to your deployments',
   date: '2 August 2017',
   editUrl: 'pages/docs/v1/getting-started/assign-a-domain-name.mdx',
-  lastEdited: '2019-08-06T15:31:27.000Z'
+  lastEdited: '2019-11-05T13:14:41.000Z'
 }
 
 When you deploy an app with <Now color="000"/>, you will have a unique deployment URL like this: <https://my-web-app-avvuiuuwto.now.sh>.
@@ -34,18 +34,16 @@ In this guide, we are going to map a domain name into one of those deployment UR
 
 The four different ways to use the `now alias` command are:
 
-1. <InternalLink href="#1.-using-a-now.sh-domain">
-     Using a now.sh domain
-   </InternalLink>
-2. <InternalLink href="#2.-using-a-custom-domain,-managed-by-now">
+1. <Link href="#1.-using-a-now.sh-domain">Using a now.sh domain</Link>
+2. <Link href="#2.-using-a-custom-domain,-managed-by-now">
      Using a custom domain, managed by now
-   </InternalLink>
-3. <InternalLink href="#3.-using-a-custom-domain,-dns-managed-by-now">
+   </Link>
+3. <Link href="#3.-using-a-custom-domain,-dns-managed-by-now">
      Using a custom domain, DNS managed by now
-   </InternalLink>
-4. <InternalLink href="#4.-using-a-custom-domain-with-a-cname">
+   </Link>
+4. <Link href="#4.-using-a-custom-domain-with-a-cname">
      Using a custom domain with a CNAME
-   </InternalLink>
+   </Link>
 
 Let us explore each method in detail.
 
