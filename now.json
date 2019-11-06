@@ -23,6 +23,11 @@
       "headers": { "Location": "/docs/v2/network/status-codes" }
     },
     {
+      "src": "/docs/builders",
+      "status": 301,
+      "headers": { "Location": "/docs/runtimes" }
+    },
+    {
       "src": "/docs/max-lambda-size",
       "status": 301,
       "headers": {
@@ -98,12 +103,12 @@
     {
       "src": "/docs/v2/deployments/(?:builders|official-builders)/(.*)/?",
       "status": 301,
-      "headers": { "Location": "/docs/builders" }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/v2/advanced/builders.*",
       "status": 301,
-      "headers": { "Location": "/docs/builders" }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/(integrations|now-cli)/v2(.*)",
@@ -142,7 +147,7 @@
     {
       "src": "/docs/v2/deployments/builds/?",
       "status": 301,
-      "headers": { "Location": "/docs/builders" }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/v2/development/environment-variables(.*)",

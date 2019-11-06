@@ -112,12 +112,12 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 
 **Valid values:** environment keys and values.
 
-[Environment variables](/docs/v2/build-step/#using-environment-variables-and-secrets) passed to the [Build](/docs/v2/advanced/builders) processes.
+[Environment variables](/docs/v2/build-step/#using-environment-variables-and-secrets) passed to the [Build](/docs/v2/build-step) processes.
 
 <P>
   The following example will pass the <InlineCode>MY_KEY</InlineCode> static
   env to all{' '}
-  <Link href="/docs/v2/advanced/builders">Builds</Link> and
+  <Link href="/docs/v2/build-step">Builds</Link> and
   <InlineCode>SECRET</InlineCode> resolved from the <InlineCode>
     my-secret-name
   </InlineCode> <Link href="/docs/v2/build-step/#using-environment-variables-and-secrets">
@@ -133,47 +133,58 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
   }
 }`}</Code>
 
-## builds
+## functions
 
-**Type:** `Array` of build `Object`.
+**Type:** `Object` of function `Object`.
 
-**Valid values:** a list of build descriptions whose `src` references valid source files.
+**Valid values:** a list of function definitions.
 
-**Build object definition:**
+**Function object definition:**
 
-- `src` (`String`): A glob expression or pathname. If more than one file is resolved, one build will be created per matched file. It can include `*` and `**`.
-- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/advanced/builders). It can include a semver compatible version (e.g.: `@org/proj@1`).
-- `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Builder.
+- `runtime` (optional): The npm package name of a [Runtime](/docs/runtimes), including its version.
+- `memory` (optional): A integer defining the memory your serverless function should be provided with (between `128` and `3008`, in steps of `64`).
+- `maxDuration` (optional): A integer defining how long your serverless function should be allowed to run on every request (between `1` and the maximum limit of your plan, as mentioned below).
 
-<P>
-  The following will include all HTML files as-is (to be served statically),
-  and <Link href="/docs/v2/advanced/builders">Build</Link> all
-  Python files and JS files into{' '}
-  <Link href="/docs/v2/serverless-functions/introduction/">
-    Serverless Functions
-  </Link>
-  .
-</P>
+**Description:**
+
+By default, no configuration is needed to deploy serverless functions to ZEIT Now.
+
+For all [officially supported runtimes](/docs/v2/serverless-functions/supported-languages/), the only requirement is creating a `api` directory and placing your serverless functions inside.
+
+When deployed, each serverless function receives the following properties:
+
+- **Memory:** 1024 MB (1 GB)
+- **Maximum Execution Duration:** 10s (Free), 60s (Pro), 600s (Business), or 900s (Enterprise)
+
+To configure them, you can add the `functions` property like so:
+
 <Code lang="json">{`{
-  "builds": [
-    { "src": "*.html", "use": "@now/static" },
-    { "src": "*.py", "use": "@now/python" },
-    { "src": "*.js", "use": "@now/node" }
-  ]
+  "functions": {
+    "api/test.js": {
+      "memory": 3008,
+      "maxDuration": 60
+    }
+  }
 }`}</Code>
 
-<Note>
-  When at least one <InlineCode>builds</InlineCode> item is specified, only the
-  outputs of the build processes will be included in the resulting deployment as
-  a security precaution. This is why we need to white-list static files
-  explicitly with
-  <InlineCode>@now/static</InlineCode>.
-</Note>
+Both sub properties are optional and need to match the following constraints mentioned at the top of this section.
 
-For more information on Builds and Builders, see the documentation:
+In order to use a runtime that is not [officially supported](/docs/v2/serverless-functions/supported-languages/), you can add a `runtime` property to the definition:
 
-<Card title="Builders" href="/docs/v2/advanced/builders">
-  Choose from a range of existing builders or make your own.
+<Code lang="json">{`{
+  "functions": {
+    "api/test.php": {
+      "runtime": "now-php"
+    }
+  }
+}`}</Code>
+
+In the example above, the `api/test.php` serverless function does use one of the [officially supported runtimes](/docs/v2/serverless-functions/supported-languages/). In turn, a `runtime` property was added in order to invoke the [now-php](https://www.npmjs.com/package/now-php) community runtime.
+
+For more information on Runtimes, see the documentation:
+
+<Card title="Runtimes" href="/docs/runtimes">
+  Choose from a range of existing Runtimes or make your own.
 </Card>
 
 ## routes

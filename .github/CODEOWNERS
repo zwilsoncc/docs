@@ -13,7 +13,7 @@ pages/docs/v2/advanced/now-for-github.mdx   @arunoda @timothyis @msweeneydev @co
 pages/docs/v2/advanced/now-for-gitlab.mdx   @arunoda @timothyis @msweeneydev @coetry
 pages/docs/configuration                    @leo @styfle @AndyBitz @timothyis @msweeneydev @joecohens @coetry
 pages/docs/v2/advanced/deploy-hooks.mdx     @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens @coetry
-pages/docs/v2/advanced/builders.mdx         @leo @AndyBitz @styfle @timothyis @msweeneydev @joecohens @coetry
+pages/docs/v2/advanced/runtimes.mdx         @leo @AndyBitz @styfle @timothyis @msweeneydev @joecohens @coetry
 pages/docs/v2/advanced/domains/             @anatrajkovska @javivelasco @mglagola @timothyis @msweeneydev @joecohens @coetry
 pages/docs/api/                             @anatrajkovska @arunoda @javivelasco @mglagola @timothyis @msweeneydev @coetry
 pages/docs/integrations/                    @arunoda @timothyis @msweeneydev @coetry

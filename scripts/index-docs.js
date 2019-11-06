@@ -45,7 +45,7 @@ async function main() {
       'dist/docs/integrations/v2/**/*.html',
       'dist/docs/now-cli/**/*.html',
       'dist/docs/configuration/**/*.html',
-      'dist/docs/builders/**/*.html'
+      'dist/docs/runtimes/**/*.html'
     ])
     // filter out AMP pages
     files = files.filter(f => f.indexOf('.amp/index.html') < 0)
@@ -58,7 +58,7 @@ async function main() {
     const isAPISection = !!file.startsWith('dist/docs/api/v2')
     const isRefSection =
       !!file.startsWith('dist/docs/now-cli') ||
-      !!file.startsWith('dist/docs/builders') ||
+      !!file.startsWith('dist/docs/runtimes') ||
       !!file.startsWith('dist/docs/configuration') ||
       !!file.startsWith('dist/docs/integrations/v2')
     const isDocs = !!file.startsWith('dist/docs/v2')
