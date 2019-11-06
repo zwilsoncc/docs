@@ -25,10 +25,10 @@ export const meta = {
 
 Set up an Aurelia app with [`npx`](https://www.npmjs.com/package/npx) and move into the project directory, choosing the option **Default ESNext App**:
 
-<Snippet dark text="npx au new && cd aurelia-app" />
+<Snippet dark text="npx aurelia-cli new && cd aurelia-app" />
 <Caption>Initializing an Aurelia app with <Link href="https://www.npmjs.com/package/npx">npx</Link> and moving into the project directory.</Caption>
 
-In the `/aurelia_project/aurelia.json` file, under the `platform` key, change the output directory for the project to `public`:
+In the `./aurelia_project/aurelia.json` file, under the `platform` key, change the output directory for the project to `public`:
 
 ```diff
 "platform": {
