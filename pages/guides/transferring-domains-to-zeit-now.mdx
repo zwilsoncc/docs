@@ -11,10 +11,10 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/transferring-domains-to-zeit-now',
   editUrl: 'pages/guides/transferring-domains-to-zeit-now.mdx',
-  lastEdited: '2019-10-11T14:28:51.000Z'
+  lastEdited: '2019-11-06T15:33:04.000Z'
 }
 
-With ZEIT Now, you can [assign a custom domain](/docs/v2/custom-domains#deploying-with-your-domain) to any of your projects. If you want to transfer your domain in from an external registrar to ZEIT, you can do that painlessly without worrying about domain and DNS configuration.
+With ZEIT Now, you can [assign a custom domain](/docs/v2/custom-domains#adding-a-domain) to any of your projects. If you want to transfer your domain in from an external registrar to ZEIT, you can do that painlessly without worrying about domain and DNS configuration.
 
 This guide will walk you through how to transfer your domain to ZEIT in a few steps.
 
@@ -96,6 +96,17 @@ By setting a production domain from your projects' **Domains** dashboard, you wi
 This command will deploy your project and make it accessible at the production domain that you have setup.
 
 For more information on production domains, you can read the [custom domains documentation](/docs/v2/custom-domains#deploying-with-your-domain).
+
+## Transferring Out
+
+If you are looking to transfer your domain away from ZEIT Now, you can do so by [emailing support](mailto:support@zeit.co?subject=Domain%20Transfer%20Out) at support@zeit.co with details of the domain you wish to transfer.
+
+<Note type="warning">
+  Before requesting a domain transfer, make sure that the domain has been
+  registered with ZEIT for at least 60 days.
+</Note>
+
+Once your request has been verified by support, you will be provided with an authorization code. Please consult your new providers' documentation for information on how to use the authorization code and the likely speed of the transfer.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
