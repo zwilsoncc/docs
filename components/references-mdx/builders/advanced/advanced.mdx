@@ -6,20 +6,20 @@ import Note from '~/components/text/note'
 import Tag from '~/components/text/tag'
 
 export const meta = {
-  editUrl: 'pages/docs/runtimes/runtimes-mdx/advanced/advanced.mdx',
+  editUrl: 'pages/docs/builders/builders-mdx/advanced/advanced.mdx',
   lastEdited: '2019-10-22T21:47:59.000Z'
 }
 
 # Advanced Usage
 
 <Note type="warning">
-  Using Runtimes in advanced configuration will disable the zero configuration
+  Using Builders in advanced configuration will disable the zero configuration
   functionality of ZEIT Now.
 </Note>
 
-If your project has source files that need to be built requiring a different structure than Now provides by default, you can use Runtimes with advanced configuration to achieve that structure.
+If your project has source files that need to be built requiring a different structure than Now provides by default, you can use Builders with advanced configuration to achieve that structure.
 
-Runtimes can be used with Now by creating a `now.json` file in a project and then [using a `builds` property](/docs/configuration#project/builds) within that configuration:
+Builders can be used with Now by creating a `now.json` file in a project and then [using a `builds` property](/docs/configuration#project/builds) within that configuration:
 
 ```json
 {
@@ -36,19 +36,19 @@ Runtimes can be used with Now by creating a `now.json` file in a project and the
 
 The `builds` property is an array of objects where each object is a build step, including a `src` and a `use` property, at least.
 
-The Runtime will receive a list of files based on the `src` property's [glob](<https://en.wikipedia.org/wiki/Glob_(programming)>) value.
+The Builder will receive a list of files based on the `src` property's [glob](<https://en.wikipedia.org/wiki/Glob_(programming)>) value.
 
 <Note>
   It is important to remember that the <InlineCode>src</InlineCode> property is
-  a glob. In the above example, this will only use the Static Runtime for the
+  a glob. In the above example, this will only use the Static Builder for the
   HTML files in the root directory. If you need it to be used throughout
   subdirectories, you need the appropriate glob syntax:{' '}
   <InlineCode>**/*.html</InlineCode>.
 </Note>
 
-The `use` property of a build step can contain the name of a Runtime module published to npm. For example, the following list contains the Official Runtimes and their module names to use.
+The `use` property of a build step can contain the name of a Builder module published to npm. For example, the following list contains the Official Builders and their module names to use.
 
-| Runtime      | Runtime Module      |
+| Builder      | Builder Module      |
 | ------------ | ------------------- |
 | Static       | `@now/static`       |
 | Static Build | `@now/static-build` |
@@ -58,7 +58,7 @@ The `use` property of a build step can contain the name of a Runtime module publ
 | Python       | `@now/python`       |
 | Ruby         | `@now/ruby`         |
 
-Since Runtimes are published to [npm](https://npmjs.com), the `use` statement in your [`now.json` file](/docs/configuration) uses a similar syntax to `npm install`, meaning that versioning can be used by tagging the runtimes, like for example:
+Since Builders are published to [npm](https://npmjs.com), the `use` statement in your [`now.json` file](/docs/configuration) uses a similar syntax to `npm install`, meaning that versioning can be used by tagging the builders, like for example:
 
 ```json
 {
@@ -68,22 +68,22 @@ Since Runtimes are published to [npm](https://npmjs.com), the `use` statement in
 
 <Caption>
   A <InlineCode>now.json</InlineCode> file that lists a build step with a
-  Runtime using a pinned version.
+  Builder using a pinned version.
 </Caption>
 
-## Community Runtimes
+## Community Builders
 
-The following is a list of community maintained Runtimes.
+The following is a list of community maintained Builders.
 
-| Runtime | Runtime Module | Docs                                     |
+| Builder | Builder Module | Docs                                     |
 | ------- | -------------- | ---------------------------------------- |
 | PHP     | `now-php`      | <https://github.com/juicyfx/now-php>     |
 | Rust    | `now-rust`     | <https://github.com/mike-engel/now-rust> |
 
 <Note>
-  If you need to create a custom Runtime, see the{' '}
-  <Link href="#advanced-usage/developing-your-own-runtime">
-    Developing Your Own Runtime section
+  If you need to create a custom Builder, see the{' '}
+  <Link href="#advanced-usage/developing-your-own-builder">
+    Developing Your Own Builder section
   </Link>
   .
 </Note>
@@ -97,7 +97,7 @@ The following is a list of community maintained Runtimes.
   intend to serve from your deployments.
 </Note>
 
-You can configure your own build step using the Static Builds Runtime by providing configuration like the following, inside of a `now.json` file:
+You can configure your own build step using the Static Builds Builder by providing configuration like the following, inside of a `now.json` file:
 
 ```json
 {
@@ -107,14 +107,14 @@ You can configure your own build step using the Static Builds Runtime by providi
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Static Builds Runtime.
+  using the Static Builds Builder.
 </Caption>
 
 **The entry point for `src` must be a `package.json` file** with a `build` script that, when executed, compiles the built application into a `public` directory.
 
-### Configuring the Build Output Directory with Static Builds Runtime
+### Configuring the Build Output Directory with Static Builds Builder
 
-If you want to configure a directory other than `public` for your build output, you can pass an optional `distDir` option in the runtime's config:
+If you want to configure a directory other than `public` for your build output, you can pass an optional `distDir` option in the builder's config:
 
 ```json
 {
@@ -131,12 +131,12 @@ If you want to configure a directory other than `public` for your build output, 
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that uses the Static Builds
-  Runtime with a configured output directory.
+  Builder with a configured output directory.
 </Caption>
 
 ### Shell File Entry Point for Static Builds
 
-Using a file with a `.sh` file extension as an entry point for the `@now/static-build` Runtime allows you to define a custom build script.
+Using a file with a `.sh` file extension as an entry point for the `@now/static-build` Builder allows you to define a custom build script.
 
 For example, the following `build.sh` file will create a `dist` directory containing an `index.html` file using Bash.
 
@@ -171,7 +171,7 @@ Alternatively, define `NPM_RC` as a [build environment variable](/docs/configura
   you intend to serve from your deployments.
 </Note>
 
-You can configure your own build step using the Node.js Runtime, to compile Node.js source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
+You can configure your own build step using the Node.js Builder, to compile Node.js source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
 
 ```json
 {
@@ -181,14 +181,14 @@ You can configure your own build step using the Node.js Runtime, to compile Node
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Node.js Runtime.
+  using the Node.js Builder.
 </Caption>
 
-**The entry point for `src` must be a glob matching `.js` or `.ts` files** that export a default function. For more information on using this Runtime, [see the Node.js Runtime section](#official-runtimes/node-js).
+**The entry point for `src` must be a glob matching `.js` or `.ts` files** that export a default function. For more information on using this Builder, [see the Node.js Builder section](#official-builders/node-js).
 
 ### Disabling Helpers for Node.js
 
-Within a `now.json` configuration file at your project's root, use the following build step with config to disable [helpers](#official-runtimes/node-js/node-js-request-and-response-objects).
+Within a `now.json` configuration file at your project's root, use the following build step with config to disable [helpers](#official-builders/node-js/node-js-request-and-response-objects).
 
 ```json
 {
@@ -204,7 +204,7 @@ Within a `now.json` configuration file at your project's root, use the following
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that has a build step using
-  the Node.js Runtime with configuration.
+  the Node.js Builder with configuration.
 </Caption>
 
 ### Private npm Modules for Node.js
@@ -265,14 +265,14 @@ module.exports = (req, res) => {
 
 ### Legacy Serverful Behavior
 
-A Node.js Runtime entrypoint can contain one of the following to retain legacy serverful behavior:
+A Node.js Builder entrypoint can contain one of the following to retain legacy serverful behavior:
 
 - Default export server, such as `module.exports = http.createServer((req, res) => { res.end('hello') })`.
 - Server listens on a port, such as `http.createServer((req, res) => { res.end('hello') }).listen(3000)`.
 
 ### AWS Lambda API
 
-The Node.js Runtime provides a `config.awsLambdaHandler` to opt into the [AWS Lambda API](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). This is useful if you have existing functions you wish to deploy to ZEIT Now but do not want to change the API.
+The Node.js Builder provides a `config.awsLambdaHandler` to opt into the [AWS Lambda API](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). This is useful if you have existing functions you wish to deploy to ZEIT Now but do not want to change the API.
 
 ```js
 exports.handler = async function() {
@@ -319,7 +319,7 @@ The `awsLambdaHandler` uses the same syntax as [AWS Handler](https://docs.aws.am
   intend to serve from your deployments.
 </Note>
 
-You can configure your own build step using the Next.js Runtime, to compile Next.js source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
+You can configure your own build step using the Next.js Builder, to compile Next.js source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
 
 ```json
 {
@@ -329,10 +329,10 @@ You can configure your own build step using the Next.js Runtime, to compile Next
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Next.js Runtime.
+  using the Next.js Builder.
 </Caption>
 
-**The entry point of this Runtime** is a `package.json` file with Next.js 9 or newer defined in `dependencies`. For more information on using this Runtime, [see the Next.js Runtime section](#official-runtimes/next-js).
+**The entry point of this Builder** is a `package.json` file with Next.js 9 or newer defined in `dependencies`. For more information on using this Builder, [see the Next.js Builder section](#official-builders/next-js).
 
 For more information on this, see [the Next.js documentation](https://github.com/zeit/next.js#serverless-deployment).
 
@@ -393,7 +393,7 @@ This will allow you to use `process.env.customKey` and `process.env.mySecret` in
   you intend to serve from your deployments.
 </Note>
 
-You can configure your own build step using the Go Runtime, to compile Go source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
+You can configure your own build step using the Go Builder, to compile Go source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
 
 ```json
 {
@@ -403,10 +403,10 @@ You can configure your own build step using the Go Runtime, to compile Go source
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Go Runtime.
+  using the Go Builder.
 </Caption>
 
-**The entry point of this Runtime is a global matching `.go` files** that export a function that implements the `http.HandlerFunc` signature. For more information on using this Runtime, [see the Go Runtime section](#official-runtimes/go).
+**The entry point of this Builder is a global matching `.go` files** that export a function that implements the `http.HandlerFunc` signature. For more information on using this Builder, [see the Go Builder section](#official-builders/go).
 
 ### Private Packages for Go
 
@@ -442,7 +442,7 @@ With GitHub, you will need to [create a personal token](https://github.com/setti
   you intend to serve from your deployments.
 </Note>
 
-You can configure your own build step using the Python Runtime, to compile Python source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
+You can configure your own build step using the Python Builder, to compile Python source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
 
 ```json
 {
@@ -452,10 +452,10 @@ You can configure your own build step using the Python Runtime, to compile Pytho
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Python Runtime.
+  using the Python Builder.
 </Caption>
 
-**The entry point of this Runtime is a glob matching `.py` source files** with one of the following variables defined:
+**The entry point of this Builder is a glob matching `.py` source files** with one of the following variables defined:
 
 - `handler` that inherits from the `BaseHTTPRequestHandler` class.
 - `app` that exposes a WSGI or ASGI Application.
@@ -539,7 +539,7 @@ sanic==19.6.0
   you intend to serve from your deployments.
 </Note>
 
-You can configure your own build step using the Ruby Runtime, to compile Ruby source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
+You can configure your own build step using the Ruby Builder, to compile Ruby source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
 
 ```json
 {
@@ -549,15 +549,15 @@ You can configure your own build step using the Ruby Runtime, to compile Ruby so
 
 <Caption>
   An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Ruby Runtime.
+  using the Ruby Builder.
 </Caption>
 
-**The entry point of this Runtime is a glob matching `.rb` or `.ru` (for [Rack](#advanced-usage/advanced-ruby-usage/rack-interface)) source files** with one of the following variables defined:
+**The entry point of this Builder is a glob matching `.rb` or `.ru` (for [Rack](#advanced-usage/advanced-ruby-usage/rack-interface)) source files** with one of the following variables defined:
 
 - `Handler` proc that matches the `do |req, res|` signature.
 - `Handler` class that inherits from the `WEBrick::HTTPServlet::AbstractServlet` class.
 
-For more information on using this Runtime, [see the Ruby Runtime section](#official-runtimes/ruby).
+For more information on using this Builder, [see the Ruby Builder section](#official-builders/ruby).
 
 Alternatively, [a `.ru` Rack config file](#advanced-usage/advanced-ruby-usage/rack-interface) will serve the Ruby application it contains.
 
@@ -606,11 +606,11 @@ run Sinatra::Application
 
 ---
 
-## Developing Your Own Runtime
+## Developing Your Own Builder
 
-Extending the feature-set of a ZEIT Now deployment is as simple as creating a Runtime that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/serverless-functions/introduction/).
+Extending the feature-set of a ZEIT Now deployment is as simple as creating a Builder that takes a list of files and outputs either static files or dynamic [Serverless Functions](/docs/v2/serverless-functions/introduction/).
 
-[A full API reference is available to help with creating Runtimes.](https://github.com/zeit/now/blob/canary/DEVELOPING_A_BUILDER.md)
+[A full API reference is available to help with creating Builders.](https://github.com/zeit/now/blob/canary/DEVELOPING_A_BUILDER.md)
 
 ---
 
@@ -618,26 +618,26 @@ Extending the feature-set of a ZEIT Now deployment is as simple as creating a Ru
 
 ### Caching Data
 
-A runtime can retain an archive of up to `100mb` of the filesystem at `build` time. The cache key is generated as a combination of:
+A builder can retain an archive of up to `100mb` of the filesystem at `build` time. The cache key is generated as a combination of:
 
 - Project name.
 - Team id or user id.
 - Entrypoint path (e.g., `api/users/index.go`).
-- Runtime identifier including version (e.g.: `@now/go@0.0.1`).
+- Builder identifier including version (e.g.: `@now/go@0.0.1`).
 
 The cache will be invalidated if any of those items changes. The user can bypass the cache by running `now -f`.
 
 ### Limits
 
-- Runtimes can run for a maximum of 5 minutes before the execution times out.
-- The maximum cache archive size of a Runtime is 100mb.
+- Builders can run for a maximum of 5 minutes before the execution times out.
+- The maximum cache archive size of a Builder is 100mb.
 - The cache TTL is 7 days.
 
 ### Including Additional Files
 
-Most Runtimes use static analysis to determine which source files should be included in the Serverless Function output based on the build `src` input. Any unused code or assets is ignored to ensure your Serverless Function is as small as possible.
+Most Builders use static analysis to determine which source files should be included in the Serverless Function output based on the build `src` input. Any unused code or assets is ignored to ensure your Serverless Function is as small as possible.
 
-For example, the Node Runtime looks at calls to `require()` or `fs.readFile()` in order to determine which files to include automatically.
+For example, the Node Builder looks at calls to `require()` or `fs.readFile()` in order to determine which files to include automatically.
 
 <Code lang="javascript">{`// index.js
 const { readFileSync } = require('fs');
@@ -651,7 +651,7 @@ const file = readFileSync(join(__dirname, 'config', 'ci.yml'), 'utf8');
     to the current file.
   </Caption>
 
-In some cases, you may wish to include templates or views that are not able to be statically analyzed. Runtimes provide a configuration for `includeFiles` that accepts an array of globs that will always be included in the Serverless Functions output.
+In some cases, you may wish to include templates or views that are not able to be statically analyzed. Builders provide a configuration for `includeFiles` that accepts an array of globs that will always be included in the Serverless Functions output.
 
 <Code lang="json">{`{
   "builds": [
@@ -669,8 +669,8 @@ In some cases, you may wish to include templates or views that are not able to b
 }`}</Code>
 <Caption>
   Using the{' '}
-  <Link href="/docs/v2/deployments/official-runtimes/node-js-now-node/">
-    @now/node Runtime
+  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/">
+    @now/node Builder
   </Link>{' '}
   and configuring the <InlineCode>includeFiles</InlineCode> within a{' '}
   <Link href="/docs/configuration#project/builds">

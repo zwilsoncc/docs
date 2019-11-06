@@ -10,7 +10,7 @@ const SITE_PATHS = [
   '/docs/integrations',
   '/docs/now-cli',
   '/docs/configuration',
-  '/docs/runtimes'
+  '/docs/builders'
 ]
 const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/
 const SITEMAP_PATH = 'public/sitemap.xml'
