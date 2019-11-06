@@ -1,1 +1,1 @@
-export { default } from './official-builders.mdx'
+export { default } from './official-runtimes.mdx'

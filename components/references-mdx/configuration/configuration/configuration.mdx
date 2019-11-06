@@ -112,12 +112,12 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 
 **Valid values:** environment keys and values.
 
-[Environment variables](/docs/v2/build-step/#using-environment-variables-and-secrets) passed to the [Build](/docs/v2/advanced/builders) processes.
+[Environment variables](/docs/v2/build-step/#using-environment-variables-and-secrets) passed to the [Build](/docs/v2/advanced/runtimes) processes.
 
 <P>
   The following example will pass the <InlineCode>MY_KEY</InlineCode> static
   env to all{' '}
-  <Link href="/docs/v2/advanced/builders">Builds</Link> and
+  <Link href="/docs/v2/advanced/runtimes">Builds</Link> and
   <InlineCode>SECRET</InlineCode> resolved from the <InlineCode>
     my-secret-name
   </InlineCode> <Link href="/docs/v2/build-step/#using-environment-variables-and-secrets">
@@ -142,12 +142,12 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 **Build object definition:**
 
 - `src` (`String`): A glob expression or pathname. If more than one file is resolved, one build will be created per matched file. It can include `*` and `**`.
-- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/advanced/builders). It can include a semver compatible version (e.g.: `@org/proj@1`).
-- `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Builder.
+- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/advanced/runtimes). It can include a semver compatible version (e.g.: `@org/proj@1`).
+- `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Runtime.
 
 <P>
   The following will include all HTML files as-is (to be served statically),
-  and <Link href="/docs/v2/advanced/builders">Build</Link> all
+  and <Link href="/docs/v2/advanced/runtimes">Build</Link> all
   Python files and JS files into{' '}
   <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
@@ -170,10 +170,10 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
   <InlineCode>@now/static</InlineCode>.
 </Note>
 
-For more information on Builds and Builders, see the documentation:
+For more information on Builds and Runtimes, see the documentation:
 
-<Card title="Builders" href="/docs/v2/advanced/builders">
-  Choose from a range of existing builders or make your own.
+<Card title="Runtimes" href="/docs/v2/advanced/runtimes">
+  Choose from a range of existing runtimes or make your own.
 </Card>
 
 ## routes
