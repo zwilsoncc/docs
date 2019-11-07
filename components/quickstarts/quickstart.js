@@ -1,9 +1,9 @@
 import { useAmp } from 'next/amp'
-import { H4 } from '~/components/text'
-import { DeployButton } from '~/components/buttons'
+import { H5 } from '~/components/text'
+import { DeployButton, Button } from '~/components/buttons'
 import Link from '~/components/text/link'
 
-export default function({ quickstart, icons, href, deployUrl }) {
+export default function({ quickstart, icons, href, example, demo }) {
   const isAmp = useAmp()
 
   const Icon = ({ source }) =>
@@ -41,10 +41,17 @@ export default function({ quickstart, icons, href, deployUrl }) {
             <Icon source={icons} />
           )}
         </span>
-        <H4>{quickstart}</H4>
+        <H5>{quickstart}</H5>
         <span className="note">Read the guide</span>
       </Link>
-      {deployUrl && <DeployButton url={deployUrl} />}
+      <div className="buttons">
+        {example && <DeployButton url={example} />}
+        {demo && (
+          <a href={demo} target="_blank">
+            <Button type="secondary">Live Example</Button>
+          </a>
+        )}
+      </div>
 
       <style jsx>{`
         .quickstart {
@@ -67,10 +74,6 @@ export default function({ quickstart, icons, href, deployUrl }) {
           display: block;
         }
 
-        .quickstart :global(.deploy-button) {
-          margin-top: 24px;
-        }
-
         .quickstart :global(figure) {
           margin: 0;
         }
@@ -81,14 +84,14 @@ export default function({ quickstart, icons, href, deployUrl }) {
           height: 48px;
         }
 
-        .quickstart :global(h4) {
-          margin-bottom: 8px;
-          margin-top: 24px;
+        .quickstart :global(h5) {
+          margin-bottom: 4px;
+          margin-top: 16px;
           transition: color 0.1s ease;
           color: var(--accents-7);
         }
 
-        .quickstart :global(a:hover h4) {
+        .quickstart :global(a:hover h5) {
           color: var(--geist-foreground);
         }
 
@@ -130,10 +133,32 @@ export default function({ quickstart, icons, href, deployUrl }) {
           color: var(--accents-7);
         }
 
-        @media screen and (max-width: 600px) {
-          .quickstart :global(.deploy-button .button) {
-            width: 100%;
-          }
+        .quickstart .buttons {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 24px;
+        }
+
+        .quickstart .buttons :global(> *) {
+          flex: 1 1 50%;
+        }
+
+        .quickstart .buttons :global(> *:not(:last-child)) {
+          margin-right: 8px;
+        }
+
+        .quickstart .buttons :global(> *:not(:first-child)) {
+          margin-left: 8px;
+        }
+
+        .quickstart .buttons :global(.button) {
+          width: 100%;
+          min-width: 104px;
+          padding: 0;
+        }
+
+        .quickstart .buttons a {
+          text-decoration: none;
         }
       `}</style>
     </div>

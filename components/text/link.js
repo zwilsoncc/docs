@@ -1,23 +1,11 @@
 import React from 'react'
 import NextLink from 'next/link'
 import PropTypes from 'prop-types'
+import canPrefetch from '~/lib/can-prefetch'
 
 import IconAnchor from '~/components/icons/link'
 import IconExternal from '~/components/icons/external-link'
 import CircledQuestion from '~/components/icons/circled-question'
-
-function canPrefetch(href) {
-  if (!href) {
-    return false
-  }
-
-  return (
-    href.startsWith('/docs') &&
-    href.startsWith('/api') &&
-    href.startsWith('/error') &&
-    href.startsWith('/guides')
-  )
-}
 
 const External = props => {
   const {

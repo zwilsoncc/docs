@@ -3,10 +3,6 @@ import { DeployButton } from '~/components/buttons'
 import Link from '~/components/text/link'
 
 export default function DeployBanner({ example, demo }) {
-  const deployUrl = example.includes('github.com/zeit/now-examples')
-    ? `https://zeit.co/new/project?template=${example}`
-    : `https://zeit.co/new/${example}`
-
   return (
     <div className="deploy-banner">
       <Note label={false}>
@@ -16,7 +12,7 @@ export default function DeployBanner({ example, demo }) {
             {demo}
           </Link>
         </span>
-        <DeployButton url={deployUrl} />
+        <DeployButton url={example} />
       </Note>
       <style jsx>{`
         .deploy-banner {

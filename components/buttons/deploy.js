@@ -2,9 +2,13 @@ import Logo from '~/components/icons/logo-light'
 import Button from './button'
 
 export default function DeployButton({ url }) {
+  const deployUrl = url.includes('github.com/zeit/now-examples')
+    ? `https://zeit.co/new/project?template=${url}`
+    : `https://zeit.co/new/${url}`
+
   return (
     <div className="deploy-button">
-      <a href={url} target="_blank" rel="noopener">
+      <a href={deployUrl} target="_blank" rel="noopener">
         <Button type="success" icon={<Logo height={16} width={16} />}>
           Deploy
         </Button>
