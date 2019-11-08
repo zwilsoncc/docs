@@ -10,7 +10,7 @@ export const meta = {
   title: 'Deployments',
   description: 'Understanding and making deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2019-11-05T13:14:41.000Z'
+  lastEdited: '2019-11-08T11:22:36.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -120,17 +120,42 @@ All deployment URLs have two special pathnames:
 - `/_src`
 - `/_logs`
 
-### Source view
+### Source View
 
 By appending `/_src` to a deployment URL or [custom domain](/docs/v2/custom-domains), the deployment inspector will be open and you'll be able to browse your deployment sources and [build](/docs/v2/build-step) outputs.
 
-### Logs view
+### Logs View
 
 By appending `/_logs` to a deployment URL or [custom domain](/docs/v2/custom-domains), you will be able to see a realtime stream of logs from your deployment build processes and serverless invocations.
 
-### Security considerations
+### Security Considerations
 
 These pathnames redirect to `https://zeit.co` and **require logging in** to access any sensitive information. A 3rd-party can **never** access your source or logs by crafting a deployment URL with one of these paths.
+
+## Technical Details
+
+### Deduplication
+
+The URL structure of each preview deployment contains the name of the application and a random UID.
+
+Now generates a new UID (and therefore a new deployment), by combining the following information into an internal digest that is looked up within the deployment database:
+
+- The entire deployment configuration from `now.json`.
+- The owner ID (either the user ID or team ID, if deploying within a team).
+- The description of the filesystem. This includes symlinks, [modes](<https://en.wikipedia.org/wiki/Modes_(Unix)>), pathnames, and the [checksum](https://en.wikipedia.org/wiki/Checksum) of each file's contents.
+
+Now ensures that the digest is computed [deterministically](https://en.wikipedia.org/wiki/Deterministic_algorithm) by sorting and ordering all the inputs involved in the algorithm.
+
+Our lookup excludes deployments that are in an `ERROR` state – if a previous deployment matches the digest but failed to build correctly.
+
+#### Skipping Deduplication
+
+There are two ways to force a **new** deployment to be created when our system would otherwise deduplicate.
+
+- **Make any change** to any of the parameters considered by the algorithm, listed above. For example, even changing one character in a comment of a source file yields a new deployment.
+- **Force a new deployment** by instructing your client to do so.
+  - For [Now CLI](/download) you can run `now --force`
+  - If using our API, include the [`forceNew` query parameter](/docs/api/v2#endpoints/deployments/create-a-new-deployment)
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
