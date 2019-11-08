@@ -28,13 +28,6 @@
       "headers": { "Location": "/docs/runtimes" }
     },
     {
-      "src": "/docs/max-lambda-size",
-      "status": 301,
-      "headers": {
-        "Location": "/docs/v2/advanced/concepts/serverless-functions#maximum-bundle-size"
-      }
-    },
-    {
       "src": "/docs/github",
       "status": 301,
       "headers": {
@@ -116,11 +109,6 @@
       "headers": { "Location": "/docs/$1/$2" }
     },
     {
-      "src": "/docs/v2/deployments/(routes|configuration|concepts)(.*)",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/$1$2" }
-    },
-    {
       "src": "/docs/v2/deployments/ignoring-source-paths(.*)",
       "status": 301,
       "headers": {
@@ -138,6 +126,11 @@
       "src": "/docs/v2/(deployments|advanced)/configuration(.*)",
       "status": 301,
       "headers": { "Location": "/docs/configuration$2" }
+    },
+    {
+      "src": "/docs/v2/advanced/concepts.*",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/platform/deployments" }
     },
     {
       "src": "/docs/v2/deployments/routes.*",
