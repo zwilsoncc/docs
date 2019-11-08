@@ -210,10 +210,6 @@ For more information on Runtimes, see the documentation:
   .
 </P>
 <Code lang="json">{`{
-  "builds": [
-    { "src": "*.html", "use": "@now/static" },
-    { "src": "*.js", "use": "@now/node" }
-  ],
   "routes": [
     { "src": "/custom-page", "headers": {"cache-control": "s-maxage=1000"}, "dest": "/index.html" },
     { "src": "/api", "dest": "/my-api.js" },

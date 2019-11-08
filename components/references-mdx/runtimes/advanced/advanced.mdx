@@ -12,65 +12,34 @@ export const meta = {
 
 # Advanced Usage
 
-<Note type="warning">
-  Using Runtimes in advanced configuration will disable the zero configuration
-  functionality of ZEIT Now.
-</Note>
+By default, no configuration is needed to deploy Serverless Functions to ZEIT Now.
 
-If your project has source files that need to be built requiring a different structure than Now provides by default, you can use Runtimes with advanced configuration to achieve that structure.
+For all officially supported languages (see below), the only requirement is creating a `api` directory and placing your Serverless Functions inside.
 
-Runtimes can be used with Now by creating a `now.json` file in a project and then [using a `builds` property](/docs/configuration#project/builds) within that configuration:
+| File Extensions | Language |
+| --------------- | -------- |
+| .js, .ts        | Node.js  |
+| .go             | Go       |
+| .py             | Python   |
+| .rb             | Ruby     |
 
-```json
-{
-  "builds": [
-    { "src": "*.html", "use": "@now/static" },
-    { "src": "date.js", "use": "@now/node" }
-  ]
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file using build steps.
-</Caption>
-
-The `builds` property is an array of objects where each object is a build step, including a `src` and a `use` property, at least.
-
-The Runtime will receive a list of files based on the `src` property's [glob](<https://en.wikipedia.org/wiki/Glob_(programming)>) value.
-
-<Note>
-  It is important to remember that the <InlineCode>src</InlineCode> property is
-  a glob. In the above example, this will only use the Static Runtime for the
-  HTML files in the root directory. If you need it to be used throughout
-  subdirectories, you need the appropriate glob syntax:{' '}
-  <InlineCode>**/*.html</InlineCode>.
-</Note>
-
-The `use` property of a build step can contain the name of a Runtime module published to npm. For example, the following list contains the Official Runtimes and their module names to use.
-
-| Runtime | Runtime Module |
-| ------- | -------------- |
-| Node.js | `@now/node`    |
-| Go      | `@now/go`      |
-| Python  | `@now/python`  |
-| Ruby    | `@now/ruby`    |
-
-Since Runtimes are published to [npm](https://npmjs.com), the `use` statement in your [`now.json` file](/docs/configuration) uses a similar syntax to `npm install`, meaning that versioning can be used by tagging the runtimes, like for example:
-
-```json
-{
-  "builds": [{ "src": "api/**/*.js", "use": "@now/node@0.12.3" }]
-}
-```
-
-<Caption>
-  A <InlineCode>now.json</InlineCode> file that lists a build step with a
-  Runtime using a pinned version.
-</Caption>
+In order to customize the Memory or Maximum Execution Duration of your Serverless Functions, you can use the [`functions` property](/docs/configuration#project/functions).
 
 ## Community Runtimes
 
-The following is a list of community maintained Runtimes.
+If you would like to use a language that ZEIT Now does not support by default, you can use a Community Runtime by setting the [`functions` property](/docs/configuration#project/functions) in `now.json`:
+
+```json
+{
+  "functions": {
+    "api/test.php": {
+      "runtime": "now-php@0.0.7"
+    }
+  }
+}
+```
+
+The following Community Runtimes are recommended by ZEIT Now:
 
 | Runtime | Runtime Module | Docs                                     |
 | ------- | -------------- | ---------------------------------------- |
@@ -78,7 +47,7 @@ The following is a list of community maintained Runtimes.
 | Rust    | `now-rust`     | <https://github.com/mike-engel/now-rust> |
 
 <Note>
-  If you need to create a custom Runtime, see the{' '}
+  If you would like to create a Community Runtime, see the{' '}
   <Link href="#advanced-usage/developing-your-own-runtime">
     Developing Your Own Runtime section
   </Link>
@@ -87,49 +56,27 @@ The following is a list of community maintained Runtimes.
 
 ## Advanced Node.js Usage
 
-<Note type="warning">
-  The following configuration step will disable the{' '}
-  <Link href="/docs/v2/serverless-functions/introduction">
-    zero configuration nature
-  </Link>{' '}
-  of ZEIT Now, and you will have to define build steps for all source files that
-  you intend to serve from your deployments.
-</Note>
-
-You can configure your own build step using the Node.js Runtime, to compile Node.js source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
-
-```json
-{
-  "builds": [{ "src": "index.js", "use": "@now/node" }]
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Node.js Runtime.
-</Caption>
+In order to use this Runtime, no configuration is needed. You only need to create a file inside the `api` directory.
 
 **The entry point for `src` must be a glob matching `.js` or `.ts` files** that export a default function. For more information on using this Runtime, [see the Node.js Runtime section](#official-runtimes/node-js).
 
 ### Disabling Helpers for Node.js
 
-Within a `now.json` configuration file at your project's root, use the following build step with config to disable [helpers](#official-runtimes/node-js/node-js-request-and-response-objects).
+Within a `now.json` configuration file at your project's root, use the following build environment variable to disable [helpers](#official-runtimes/node-js/node-js-request-and-response-objects).
 
 ```json
 {
-  "builds": [
-    {
-      "src": "my-file.js",
-      "use": "@now/node",
-      "config": { "helpers": "false" }
+  "build": {
+    "env": {
+      "NODEJS_HELPERS": "0"
     }
-  ]
+  }
 }
 ```
 
 <Caption>
-  An example <InlineCode>now.json</InlineCode> file that has a build step using
-  the Node.js Runtime with configuration.
+  An example <InlineCode>now.json</InlineCode> file that will turn off the
+  default helpers for your Node.js Serverless Function.
 </Caption>
 
 ### Private npm Modules for Node.js
@@ -197,10 +144,10 @@ A Node.js Runtime entrypoint can contain one of the following to retain legacy s
 
 ### AWS Lambda API
 
-The Node.js Runtime provides a `config.awsLambdaHandler` to opt into the [AWS Lambda API](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). This is useful if you have existing functions you wish to deploy to ZEIT Now but do not want to change the API.
+The Node.js Runtime provides a way to opt into the [AWS Lambda API](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). This is useful if you have existing Serverless Functions you wish to deploy to ZEIT Now but do not want to change the API.
 
 ```js
-exports.handler = async function() {
+exports.handler = async function(event, context, callback) {
   return {
     statusCode: 200,
     headers: {},
@@ -209,55 +156,21 @@ exports.handler = async function() {
 }
 ```
 
-<Caption>
-  A file <InlineCode>index.js</InlineCode> that exports a{' '}
-  <InlineCode>handler</InlineCode> function.
-</Caption>
-
-You can deploy this function with the following `now.json` configuration file:
-
 ```json
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@now/node",
-      "config": { "awsLambdaHandler": "index.handler" }
+  "build": {
+    "env": {
+      "NODEJS_AWS_HANDLER_NAME": "handler"
     }
-  ]
-```
-
-<Caption>
-  The <InlineCode>awsLambdaHandler</InlineCode> configuration must match the
-  file name followed by the exported function name.
-</Caption>
-
-The `awsLambdaHandler` uses the same syntax as [AWS Handler](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) which is the file name and the exported function name.
-
-## Advanced Go Usage
-
-<Note type="warning">
-  The following configuration step will disable the{' '}
-  <Link href="/docs/v2/serverless-functions/introduction">
-    zero configuration nature
-  </Link>{' '}
-  of ZEIT Now, and you will have to define build steps for all source files that
-  you intend to serve from your deployments.
-</Note>
-
-You can configure your own build step using the Go Runtime, to compile Go source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
-
-```json
-{
-  "builds": [{ "src": "index.go", "use": "@now/go" }]
+  }
 }
 ```
 
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Go Runtime.
-</Caption>
+The value of the environment variable needs to match the name of the method that is exported from your Serverless Functions.
+
+## Advanced Go Usage
+
+In order to use this Runtime, no configuration is needed. You only need to create a file inside the `api` directory.
 
 **The entry point of this Runtime is a global matching `.go` files** that export a function that implements the `http.HandlerFunc` signature. For more information on using this Runtime, [see the Go Runtime section](#official-runtimes/go).
 
@@ -286,27 +199,7 @@ With GitHub, you will need to [create a personal token](https://github.com/setti
 
 ## Advanced Python Usage
 
-<Note type="warning">
-  The following configuration step will disable the{' '}
-  <Link href="/docs/v2/serverless-functions/introduction">
-    zero configuration nature
-  </Link>{' '}
-  of ZEIT Now, and you will have to define build steps for all source files that
-  you intend to serve from your deployments.
-</Note>
-
-You can configure your own build step using the Python Runtime, to compile Python source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
-
-```json
-{
-  "builds": [{ "src": "index.py", "use": "@now/python" }]
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Python Runtime.
-</Caption>
+In order to use this Runtime, no configuration is needed. You only need to create a file inside the `api` directory.
 
 **The entry point of this Runtime is a glob matching `.py` source files** with one of the following variables defined:
 
@@ -383,27 +276,7 @@ sanic==19.6.0
 
 ## Advanced Ruby Usage
 
-<Note type="warning">
-  The following configuration step will disable the{' '}
-  <Link href="/docs/v2/serverless-functions/introduction">
-    zero configuration nature
-  </Link>{' '}
-  of ZEIT Now, and you will have to define build steps for all source files that
-  you intend to serve from your deployments.
-</Note>
-
-You can configure your own build step using the Ruby Runtime, to compile Ruby source files into Serverless Functions, by providing configuration like the following, inside of a `now.json` file:
-
-```json
-{
-  "builds": [{ "src": "index.rb", "use": "@now/ruby" }]
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file that lists a build step
-  using the Ruby Runtime.
-</Caption>
+In order to use this Runtime, no configuration is needed. You only need to create a file inside the `api` directory.
 
 **The entry point of this Runtime is a glob matching `.rb` or `.ru` (for [Rack](#advanced-usage/advanced-ruby-usage/rack-interface)) source files** with one of the following variables defined:
 
@@ -507,23 +380,19 @@ const file = readFileSync(join(__dirname, 'config', 'ci.yml'), 'utf8');
 In some cases, you may wish to include templates or views that are not able to be statically analyzed. Runtimes provide a configuration for `includeFiles` that accepts an array of globs that will always be included in the Serverless Functions output.
 
 <Code lang="json">{`{
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@now/node",
-      "config": {
-        "includeFiles": [
-          "templates/**",
-          "views/**"
-        ]
-      }
+  "functions": {
+    "api/test.js": {
+      "includeFiles": [
+        "templates/**",
+        "views/**"
+      ]
     }
-  ]
+  }
 }`}</Code>
 <Caption>
   Using the{' '}
   <Link href="/docs/v2/deployments/official-runtimes/node-js-now-node/">
-    @now/node Runtime
+    default Node.js language
   </Link>{' '}
   and configuring the <InlineCode>includeFiles</InlineCode> within a{' '}
   <Link href="/docs/configuration#project/builds">
