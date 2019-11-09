@@ -14,7 +14,7 @@ export const meta = {
 
 # Official Runtimes
 
-Runtimes are modules that transform your source code into [Serverless Functions](/docs/v2/serverless-functions/introduction/), which are served by our [CDN at the edge](/docs/v2/network/caching/).
+Runtimes are modules that transform your source code into compiled outputs, being either static files and/or [Serverless Functions](/docs/v2/serverless-functions/introduction/), which are served by our [CDN at the edge](/docs/v2/network/caching/).
 
 <Note type="warning">
   In most cases, advanced Runtimes usage with configuration is not necessary.
@@ -31,12 +31,67 @@ Runtimes are modules that transform your source code into [Serverless Functions]
 
 Listed below are all official Runtimes from ZEIT.
 
-| Runtime                               | Description                                                                                                                                  |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Node.js](#official-runtimes/node-js) | The Node.js Runtime takes an entrypoint of a Node.js function, builds its dependencies (if any) and bundles them into a Serverless Function. |
-| [Go](#official-runtimes/go)           | The Go Runtime takes in a Go program that defines a singular HTTP handler and outputs it as a Serverless Function.                           |
-| [Python](#official-runtimes/python)   | The Python Runtime takes in a Python program that defines a singular HTTP handler and outputs it as a Serverless Function.                   |
-| [Ruby](#official-runtimes/ruby)       | The Ruby Runtime takes in a Ruby program that defines a singular HTTP handler and outputs it as a Serverless Function.                       |
+| Runtime                                           | Description                                                                                                                                                                       |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Static](#official-runtimes/static)               | The Static Runtime takes any file as an entrypoint and moves it to the deployment as a static file.                                                                               |
+| [Static Builds](#official-runtimes/static-builds) | The Static Builds Runtime takes a `package.json` or `build.sh` file as an entrypoint and executes a command within them to produce static files in a `public` directory to serve. |
+| [Node.js](#official-runtimes/node-js)             | The Node.js Runtime takes an entrypoint of a Node.js function, builds its dependencies (if any) and bundles them into a Serverless Function.                                      |
+| [Next.js](#official-runtimes/next-js)             | The Next.js Runtime takes a Next.js application, defined by a `next.config.js` entrypoint and pages directory, and converts those pages into a series of Serverless Functions.    |
+| [Go](#official-runtimes/go)                       | The Go Runtime takes in a Go program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                                |
+| [Python](#official-runtimes/python)               | The Python Runtime takes in a Python program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                        |
+| [Ruby](#official-runtimes/ruby)                   | The Ruby Runtime takes in a Ruby program that defines a singular HTTP handler and outputs it as a Serverless Function.                                                            |
+
+## Static
+
+<Tag>Status: Stable</Tag>
+
+The Static Runtime is used to serve files statically in a project by default when there is no [static build](#official-runtimes/static-builds) defined, or if a `public` directory exists, that directory is served instead.
+
+<Note>
+  Files inside an <InlineCode>/api</InlineCode> directory are not served
+  statically.
+</Note>
+
+To configure the behavior of this Runtime to affect specific files explicitly, see the [Advanced Runtimes Usage section](#advanced-usage).
+
+---
+
+## Static Builds
+
+<Tag>Status: Stable</Tag>
+
+By default, the Static Builds Runtime is used when Now detects a `build` script inside a `package.json` file at the root of a project. This script is executed when deploying, and if the output is built to a `public` directory, that directory is served.
+
+For example, to build a Gatsby project, you would use the following `scripts` object in a `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "gatsby build"
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>package.json</InlineCode> file with a{' '}
+  <InlineCode>build</InlineCode> script to build Gatsby.
+</Caption>
+
+To configure the behavior of this Runtime to affect specific files explicitly, see the [Advanced Static Builds Usage section](#advanced-usage/advanced-static-builds-usage).
+
+### Static Build Project Node.js Version
+
+The default Node.js version used is **8.10.x** but can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+
+### Static Build npm Dependencies
+
+For dependencies listed in the `package.json` file, the following behavior is used:
+
+- If a `package-lock.json` file is present in the project, `npm install` is used.
+- Otherwise, `yarn` is used, by default.
+
+---
 
 ## Node.js
 
@@ -176,6 +231,57 @@ We follow a set of rules on the `Content-type` header sent by the request to do 
 | `application/octet-stream`          | A [Buffer](https://nodejs.org/api/buffer.html) containing the data sent by the request. |
 
 With the `req.body` helper, you can build applications without extra dependencies or having to [parse the content of the request manually](https://nodejs.org/ja/docs/guides/anatomy-of-an-http-transaction/#request-body).
+
+---
+
+## Next.js
+
+<Tag>Status: Stable</Tag>
+
+The [Next.js](https://nextjs.org) Runtime is used to deploy production-ready Next.js applications when a `pages` directory exists (along with the `next` dependency existing in a `package.json` file).
+
+The Next.js Runtime converts pages into a series of individual Serverless Functions or static files, depending on their implementation, and caches `node_modules` and compiler artifacts by default for faster deployment.
+
+To build your Next.js projects with each deployment, provide the following `build` script in your `package.json` file:
+
+```json
+{
+  ...
+  "scripts": {
+    "build": "next build"
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>package.json</InlineCode> file with a{' '}
+  <InlineCode>build</InlineCode> script to build Next.js when deploying.
+</Caption>
+
+<Note>
+  This Runtime separates your pages into individual Serverless Functions, so you
+  cannot use a custom server. You can still achieve most of the logic that you
+  have in a custom server by using{' '}
+  <Link href="https://nextjs.org/docs/#fetching-data-and-component-lifecycle">
+    <InlineCode>getInitialProps()</InlineCode>
+  </Link>
+  . For more on advanced routing, see the <Link href="/guides/custom-next-js-server-to-routes">
+    Custom Routes Guide for Next.js on ZEIT Now
+  </Link>.
+</Note>
+
+For more advanced usage of Next.js on ZEIT Now, such as environment variables or private npm modules, see [the Advanced Next.js Usage section](#advanced-usage/advanced-next-js-usage).
+
+### Next.js Project Node.js Version
+
+The default Node.js version used is **8.10.x** but can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+
+### Next.js Project Dependencies
+
+**For dependencies** listed in a `package.json` file at the root of a project, the following behavior is used:
+
+- If a `package-lock.json` file is present in the project, `npm install` is used.
+- Otherwise, `yarn` is used, by default.
 
 ---
 
