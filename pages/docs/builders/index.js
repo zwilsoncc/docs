@@ -12,7 +12,7 @@ import changeHash from '~/lib/utils/change-hash'
 import components from '~/lib/mdx-components'
 import Content from '~/components/layout/content'
 import Context from '~/lib/api/slugs-context'
-import DocsRuntime from '~/lib/api/runtime'
+import DocsBuilder from '~/lib/api/builder'
 import DocsIndex from '~/components/layout/index'
 import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
@@ -23,16 +23,16 @@ import withPermalink from '~/lib/api/with-permalink'
 import HR from '~/components/text/hr'
 import { FooterFeedback } from '~/components/feedback-input'
 
-import RuntimesRef from '~/components/references-mdx/runtimes/index.mdx'
+import BuildersRef from '~/components/references-mdx/builders/index.mdx'
 
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 
 const debouncedChangeHash = debounce(changeHash, 200)
 
-class RuntimesReference extends Component {
+class BuildersReference extends Component {
   state = {
-    activeCategory: 'official runtimes',
-    activeSection: 'official runtimes',
+    activeCategory: 'official builders',
+    activeSection: 'official builders',
     activeEntry: null,
     navigationActive: false
   }
@@ -121,13 +121,13 @@ class RuntimesReference extends Component {
       >
         <Layout>
           <Head
-            description="A complete reference of Runtimes on ZEIT Now; listing official runtimes and their usage."
-            title={`Official Runtimes`}
+            description="A complete reference of Builders on ZEIT Now; listing official builders and their usage."
+            title={`Official Builders`}
             titlePrefix=""
             titleSuffix=" - ZEIT Documentation"
           />
 
-          <DocsRuntime docs={<RuntimesRef />}>
+          <DocsBuilder docs={<BuildersRef />}>
             {({ structure }) => (
               <Main>
                 <Sidebar
@@ -232,7 +232,7 @@ class RuntimesReference extends Component {
                 </Content>
               </Main>
             )}
-          </DocsRuntime>
+          </DocsBuilder>
 
           <style jsx>{`
             ul {
@@ -303,4 +303,4 @@ class RuntimesReference extends Component {
   }
 }
 
-export default withRouter(RuntimesReference)
+export default withRouter(BuildersReference)
