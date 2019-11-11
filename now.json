@@ -42,11 +42,6 @@
       }
     },
     {
-      "src": "/docs/dns",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/domains/dns" }
-    },
-    {
       "src": "/docs/v2/routing/(.*)/?",
       "status": 301,
       "headers": { "Location": "/docs/v2/network/$1" }
@@ -181,11 +176,6 @@
       "headers": { "Location": "/docs/v2/serverless-functions/edge-caching" }
     },
     {
-      "src": "/docs/v2/domains-and-aliases/dns/?",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/advanced/domains/dns" }
-    },
-    {
       "src": "/examples(.*)",
       "status": 301,
       "headers": { "Location": "https://github.com/zeit/now-examples" }
@@ -239,13 +229,18 @@
       "src": "/docs/v2/integrations/(.*)",
       "status": 301,
       "headers": {
-        "Location": "/docs/v2/advanced/$1"
+        "Location": "/docs/v2/more/$1"
       }
     },
     {
       "src": "/docs/v2/domains-and-aliases/(.*)",
       "status": 301,
       "headers": { "Location": "/docs/v2/custom-domains" }
+    },
+    {
+      "src": "/docs/v2/advanced/(.*)",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/more/$1" }
     },
     {
       "src": "/docs/version-detection",
