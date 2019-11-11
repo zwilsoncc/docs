@@ -12,7 +12,7 @@ import components from '~/lib/mdx-components'
 import Content from '~/components/layout/content'
 import VersionSwitcher from '~/components/layout/version-switcher'
 import Context from '~/lib/api/slugs-context'
-import DocsBuilder from '~/lib/api/builder'
+import DocsRuntime from '~/lib/api/runtime'
 import DocsIndex from '~/components/layout/index'
 import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
@@ -137,7 +137,7 @@ class APIPage extends Component {
             <meta name="robots" content="noindex" />
           </Head>
 
-          <DocsBuilder docs={<ApiDocs />}>
+          <DocsRuntime docs={<ApiDocs />}>
             {({ structure }) => (
               <Main>
                 <Sidebar
@@ -285,7 +285,7 @@ class APIPage extends Component {
                 </Content>
               </Main>
             )}
-          </DocsBuilder>
+          </DocsRuntime>
 
           <style jsx>{`
             ul {

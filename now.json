@@ -23,11 +23,9 @@
       "headers": { "Location": "/docs/v2/network/status-codes" }
     },
     {
-      "src": "/docs/max-lambda-size",
+      "src": "/docs/builders",
       "status": 301,
-      "headers": {
-        "Location": "/docs/v2/advanced/concepts/serverless-functions#maximum-bundle-size"
-      }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/github",
@@ -92,18 +90,18 @@
       "src": "/docs/v2/(?:deployments|advanced)/builders/developer-guide(.*)",
       "status": 301,
       "headers": {
-        "Location": "https://github.com/zeit/now/blob/canary/DEVELOPING_A_BUILDER.md"
+        "Location": "https://github.com/zeit/now/blob/canary/DEVELOPING_A_RUNTIME.md"
       }
     },
     {
       "src": "/docs/v2/deployments/(?:builders|official-builders)/(.*)/?",
       "status": 301,
-      "headers": { "Location": "/docs/builders" }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/v2/advanced/builders.*",
       "status": 301,
-      "headers": { "Location": "/docs/builders" }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/(integrations|now-cli)/v2(.*)",
@@ -142,7 +140,7 @@
     {
       "src": "/docs/v2/deployments/builds/?",
       "status": 301,
-      "headers": { "Location": "/docs/builders" }
+      "headers": { "Location": "/docs/runtimes" }
     },
     {
       "src": "/docs/v2/development/environment-variables(.*)",
