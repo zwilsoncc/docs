@@ -431,7 +431,7 @@
     "authors": ["timothy"],
     "url": "/guides/setup-godaddy-domain-now",
     "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
-    "lastEdited": "2019-11-11T10:29:24.000Z"
+    "lastEdited": "2019-11-05T13:14:41.000Z"
   },
   {
     "title": "Setup a Namecheap Domain with ZEIT Now",
@@ -440,7 +440,7 @@
     "authors": ["unicodeveloper"],
     "url": "/guides/setup-namecheap-domain-now",
     "editUrl": "pages/guides/setup-namecheap-domain-now.mdx",
-    "lastEdited": "2019-11-11T10:29:24.000Z"
+    "lastEdited": "2019-11-05T13:14:41.000Z"
   },
   {
     "title": "Transferring Domains to ZEIT Now",
