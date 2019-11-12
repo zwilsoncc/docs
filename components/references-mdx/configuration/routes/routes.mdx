@@ -199,8 +199,7 @@ As an example, you can use this property when you have an API endpoint and only 
       "methods": ["POST", "GET"],
       "dest": "/api/user.js"
     }
-  ],
-  "builds": [{ "src": "*.js", "use": "@now/node" }]
+  ]
 }`}</Code>
 
 <Caption>
@@ -210,11 +209,9 @@ As an example, you can use this property when you have an API endpoint and only 
 
 <Note>
   The above example uses the{' '}
-  <Link href="/docs/v2/deployments/official-builders/node-js-now-node/">
-    @now/node
-  </Link>{' '}
-  Builder as an example of a <InlineCode>now.json</InlineCode> configuration
-  that tells Now to build JavaScript files with Node.js and outputs them as{' '}
+  <Link href="/docs/runtimes#official-builders/node-js">@now/node</Link> Runtime
+  as an example of a <InlineCode>now.json</InlineCode> configuration that tells
+  Now to build JavaScript files with Node.js and outputs them as{' '}
   <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
   </Link>

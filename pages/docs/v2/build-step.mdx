@@ -18,7 +18,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2019-11-09T00:01:02.000Z'
+  lastEdited: '2019-11-09T00:07:28.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -214,7 +214,13 @@ The maximum stored cache for builds is 3Gb.
 
 If a deployment fails, a cache may still be established for successfully built files, but failed builds will not be cached.
 
-#### Prevent Cache Usage
+### Private npm Modules for Static Builds
+
+To install private npm modules, define `NPM_TOKEN` as a [build environment variable](/docs/configuration#project/build-env) in a `now.json` file.
+
+Alternatively, define `NPM_RC` as a [build environment variable](/docs/configuration#project/build-env) with the contents of `~/.npmrc`.
+
+### Prevent Cache Usage
 
 If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for Now CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
 

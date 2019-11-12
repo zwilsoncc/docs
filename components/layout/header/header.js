@@ -277,7 +277,7 @@ class Header extends Component {
                         !router.pathname.startsWith('/docs/api') &&
                         !router.pathname.startsWith('/docs/integrations') &&
                         !router.pathname.startsWith('/docs/now-cli') &&
-                        !router.pathname.startsWith('/docs/builders') &&
+                        !router.pathname.startsWith('/docs/runtimes') &&
                         !router.pathname.startsWith('/docs/configuration')
                       }
                       onClick={handleIndexClick}
@@ -298,7 +298,7 @@ class Header extends Component {
                           router.pathname.startsWith('/docs/api') ||
                           router.pathname.startsWith('/docs/integrations') ||
                           router.pathname.startsWith('/docs/now-cli') ||
-                          router.pathname.startsWith('/docs/builders') ||
+                          router.pathname.startsWith('/docs/runtimes') ||
                           router.pathname.startsWith('/docs/configuration')
                       })}
                     >
@@ -315,8 +315,8 @@ class Header extends Component {
                             url: '/docs/configuration'
                           },
                           {
-                            title: 'Builders',
-                            url: '/docs/builders'
+                            title: 'Runtimes',
+                            url: '/docs/runtimes'
                           },
                           {
                             title: 'Platform API',
@@ -408,7 +408,7 @@ class Header extends Component {
                     !router.pathname.startsWith('/docs/api') &&
                     !router.pathname.startsWith('/docs/integrations') &&
                     !router.pathname.startsWith('/docs/now-cli') &&
-                    !router.pathname.startsWith('/docs/builders') &&
+                    !router.pathname.startsWith('/docs/runtimes') &&
                     !router.pathname.startsWith('/docs/configuration')
                   }
                   onClick={handleIndexClick}
@@ -419,7 +419,7 @@ class Header extends Component {
                   !router.pathname.startsWith('/docs/api') &&
                   !router.pathname.startsWith('/docs/integrations') &&
                   !router.pathname.startsWith('/docs/now-cli') &&
-                  !router.pathname.startsWith('/docs/builders') &&
+                  !router.pathname.startsWith('/docs/runtimes') &&
                   !router.pathname.startsWith('/docs/configuration') && (
                     <div className="navigation">
                       <DocsNavbarDesktop
@@ -470,11 +470,11 @@ class Header extends Component {
               </div>
               <div className="group">
                 <NavigationItem
-                  href="/docs/builders"
-                  active={router.pathname.startsWith('/docs/builders')}
+                  href="/docs/runtimes"
+                  active={router.pathname.startsWith('/docs/runtimes')}
                   onClick={handleIndexClick}
                 >
-                  Builders
+                  Runtimes
                 </NavigationItem>
               </div>
               <div className="group">
