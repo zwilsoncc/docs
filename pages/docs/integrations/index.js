@@ -12,7 +12,7 @@ import changeHash from '~/lib/utils/change-hash'
 import components from '~/lib/mdx-components'
 import Content from '~/components/layout/content'
 import Context from '~/lib/api/slugs-context'
-import DocsRuntime from '~/lib/api/runtime'
+import DocsBuilder from '~/lib/api/builder'
 import DocsIndex from '~/components/layout/index'
 import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
@@ -155,7 +155,7 @@ class IntegrationsPage extends Component {
             titleSuffix=" - ZEIT"
           />
 
-          <DocsRuntime docs={<IntegrationsDocs />}>
+          <DocsBuilder docs={<IntegrationsDocs />}>
             {({ structure }) => (
               <Main>
                 <Sidebar
@@ -288,7 +288,7 @@ class IntegrationsPage extends Component {
                 </Content>
               </Main>
             )}
-          </DocsRuntime>
+          </DocsBuilder>
 
           <style jsx>{`
             ul {
