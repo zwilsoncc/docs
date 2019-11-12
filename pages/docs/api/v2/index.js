@@ -14,7 +14,7 @@ import components from '~/lib/mdx-components'
 import Content from '~/components/layout/content'
 import VersionSwitcher from '~/components/layout/version-switcher'
 import Context from '~/lib/api/slugs-context'
-import DocsRuntime from '~/lib/api/runtime'
+import DocsBuilder from '~/lib/api/builder'
 import DocsIndex from '~/components/layout/index'
 import getFragment from '~/lib/api/get-fragment'
 import getHref from '~/lib/api/get-href'
@@ -158,7 +158,7 @@ class APIPage extends Component {
             titleSuffix=" - ZEIT"
           />
 
-          <DocsRuntime docs={<ApiDocs />}>
+          <DocsBuilder docs={<ApiDocs />}>
             {({ structure }) => (
               <Main>
                 <Sidebar
@@ -297,7 +297,7 @@ class APIPage extends Component {
                 </Content>
               </Main>
             )}
-          </DocsRuntime>
+          </DocsBuilder>
 
           <style jsx>{`
             ul {
