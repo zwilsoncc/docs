@@ -135,11 +135,13 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 
 ## functions
 
-**Type:** `Object` of function `Object`.
+**Type:** `Object` of key `String` and value `Object`.
 
-**Valid values:** a list of function definitions.
+**Key definition:**
 
-**Function object definition:**
+A [glob](https://github.com/isaacs/node-glob#glob-primer) pattern that matches the paths of the Serverless Functions you would like to customize (like `api/*.js` or `api/test.js`).
+
+**Value definition:**
 
 - `runtime` (optional): The npm package name of a [Runtime](/docs/runtimes), including its version.
 - `memory` (optional): An integer defining the memory your Serverless Function should be provided with (between `128` and `3008`, in intervals of `64`).
