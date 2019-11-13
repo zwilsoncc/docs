@@ -126,7 +126,10 @@ function generateSiteMap() {
     `sitemap.xml with ${nodes.length} entries was written to ${SITEMAP_PATH}`
   )
 
-  const guidesJson = JSON.stringify(guidesMeta, null, 2)
+  const sortedGuides = guidesMeta.sort(
+    (a, b) => new Date(b.published) - new Date(a.published)
+  )
+  const guidesJson = JSON.stringify(sortedGuides, null, 2)
 
   fs.writeFileSync(GUIDES_PATH, prettier.format(guidesJson, { parser: 'json' }))
 

@@ -9,10 +9,6 @@ import Link from '~/components/text/link'
 import Button from '~/components/buttons'
 import guides from '~/lib/data/guides.json'
 
-const sortedGuides = guides.sort((a, b) =>
-  new Date(a.published) >= new Date(b.published) ? -1 : 1
-)
-
 const Guides = () => (
   <Layout>
     <Head
@@ -44,7 +40,7 @@ const Guides = () => (
 
       <Wrapper>
         <div className="guide-list">
-          {sortedGuides.map((guide, i) => (
+          {guides.map((guide, i) => (
             <Link href={guide.url} key={`${guide.title}.${i}`}>
               <article className="guide">
                 <div className="titles">
