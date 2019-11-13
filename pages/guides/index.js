@@ -9,8 +9,8 @@ import Link from '~/components/text/link'
 import Button from '~/components/buttons'
 import guides from '~/lib/data/guides.json'
 
-const sortedGuides = guides.sort(
-  (a, b) => new Date(b.published) - new Date(a.published)
+const sortedGuides = guides.sort((a, b) =>
+  new Date(a.published) >= new Date(b.published) ? -1 : 1
 )
 
 const Guides = () => (
