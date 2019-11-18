@@ -5,12 +5,12 @@ import Request from '~/components/api/request'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/logs.mdx',
-  lastEdited: '2019-10-17T14:44:04.000Z'
+  lastEdited: '2019-11-18T10:10:38.000Z'
 }
 
 ## Logs
 
-### Get deployment logs
+### Get Deployment Logs
 
 <Endpoint method="GET" url="/v2/now/deployments/:id/events" />
 
@@ -38,7 +38,7 @@ These are the keys of the `payload` key of the logs.
 
 #### Types
 
-These are the possible types of logs and what they mean.
+These are the available log types with an explanation of what they mean.
 
 | Type         | Description                                           |
 | ------------ | ----------------------------------------------------- |
@@ -143,7 +143,7 @@ These are the possible types of logs and what they mean.
 
 <Endpoint method="GET" url="/v2/now/deployments/:id/events?follow=1" />
 
-Open an HTTP stream of realtime logs for a Serverless Function by it's name.
+Open a HTTP stream of realtime logs for a Serverless Function by it's name.
 
 #### Request Parameters
 

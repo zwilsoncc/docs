@@ -703,14 +703,14 @@ Each Build is an object with the following keys:
 
 These are the keys of the `output` Map of the Build.
 
-| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                      |
-| ---------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **type**   | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of the output. Either `lambda` or `file`.                                                               |
-| **path**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The absolute path of the file or Serverless Function.                                                            |
-| **digest** | <HelpLink href="#api-basics/types">String</HelpLink>       | The SHA1 of the file.                                                                                            |
-| **mode**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The POSIX file permissions.                                                                                      |
-| **size**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The size of the file in bytes.                                                                                   |
-| **lambda** | <HelpLink href="#api-basics/types">Map</HelpLink>          | If the output is a Serverless Function, it returns an object that contains `functionName` and `deployedTo` keys. |
+| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                             |
+| ---------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **type**   | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of the output. Either `lambda` or `file`.                                                                                      |
+| **path**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The absolute path of the file or Serverless Function.                                                                                   |
+| **digest** | <HelpLink href="#api-basics/types">String</HelpLink>       | The SHA1 of the file.                                                                                                                   |
+| **mode**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The POSIX file permissions.                                                                                                             |
+| **size**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The size of the file in bytes.                                                                                                          |
+| **lambda** | <HelpLink href="#api-basics/types">Map</HelpLink>          | If the output is a Serverless Function, it returns an object that contains `functionName`, `deployedTo`, and optional `memorySize` keys. |
 
 ##### Example Request
 
