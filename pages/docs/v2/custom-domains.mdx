@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-11-08T15:57:59.000Z'
+  lastEdited: '2019-11-19T16:08:37.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` prefixed domain.
@@ -59,47 +59,47 @@ From the **Project Domains** page, enter the domain you wish to add to the proje
 />
 <Caption>Entering a domain for the project from the Project Domains page.</Caption>
 
-### Step 4: Verifying the Domain
+### Step 4: Configuring the Domain
 
-Once the domain has been added, you will be presented with different methods for verifying it, depending on whether it is an **apex domain** (zeit.co) or **subdomain** (docs.zeit.co).
+Once the domain has been added, you will be presented with different methods for configuring it, depending on whether it is an **apex domain** (zeit.co) or **subdomain** (docs.zeit.co).
 
-Both domain types can be verified using the **Nameservers** method, however **apex domains** also allow for verification via the **ANAME** record, whilst **subdomains** allow for verification via the **CNAME** record.
+Both domain types can be configured using the **Nameservers** method, however **apex domains** also allow for verification via the **ANAME** record, whilst **subdomains** allow for verification via the **CNAME** record.
 
 #### Apex Domains
 
-You can verify apex domains either through the **Nameservers** or **ANAME** methods.
+You can configure apex domains either through the **Nameservers** or **ANAME** methods.
 
 <Image
-  src={`${process.env.ASSETS}/docs/custom-domains/verify-apex-domain.png`}
+  src={`${process.env.ASSETS}/docs/custom-domains/configure-apex-domain.png`}
   width={1350 / 2}
   height={984 / 2}
   shadow
 />
-<Caption>Instructions on verifying an <strong>apex domain</strong> from the Project Domains page.</Caption>
+<Caption>Instructions on configuring an <strong>apex domain</strong> from the Project Domains page.</Caption>
 
 #### Subdomains
 
-You can verify subdomains either through the **Nameservers** or **CNAME** methods.
+You can configure subdomains either through the **Nameservers** or **CNAME** methods.
 
 <Image
-  src={`${process.env.ASSETS}/docs/custom-domains/verify-subdomain.png`}
+  src={`${process.env.ASSETS}/docs/custom-domains/configure-subdomain.png`}
   width={1350 / 2}
   height={984 / 2}
   shadow
 />
-<Caption>Instructions on verifying a <strong>subdomain</strong> from the Project Domains page.</Caption>
+<Caption>Instructions on configuring a <strong>subdomain</strong> from the Project Domains page.</Caption>
 
-### Step 5: Domain Verified
+### Step 5: Domain Configured
 
-Once the domain has been verified, the card status will change to reflect this.
+Once the domain has been configured, the card status will change to reflect this.
 
 <Image
-  src={`${process.env.ASSETS}/docs/custom-domains/verified-domain.png`}
+  src={`${process.env.ASSETS}/docs/custom-domains/configured-domain.png`}
   width={1350 / 2}
   height={210 / 2}
   shadow
 />
-<Caption>A verified domain on the Project Domains page.</Caption>
+<Caption>A configured domain on the Project Domains page.</Caption>
 
 ## Wildcard Domains
 
@@ -124,7 +124,7 @@ After the verification process is complete, the status of the domain will be upd
 
 ## Deploying with Your Domain
 
-Once the domain has been added to your project and verified, it is **automatically applied to your latest deployment**.
+Once the domain has been added to your project and configured, it is **automatically applied to your latest deployment**.
 
 If you want to update your production deployment, there are two options available, [using Now CLI](#using-now-cli) or [with Git](#with-git).
 
@@ -166,12 +166,12 @@ To add a redirect, select the domain you want to redirect to from the **Redirect
 To remove a domain that is assigned to your ZEIT account or team, navigate to the **Domains** tab from the Project Overview and click the **Edit** button for the domain you want to remove:
 
 <Image
-  src={`${process.env.ASSETS}/docs/custom-domains/verified-domain.png`}
+  src={`${process.env.ASSETS}/docs/custom-domains/configured-domain.png`}
   width={1350 / 2}
   height={210 / 2}
   shadow
 />
-<Caption>A verified domain on the Project Domains page with the option to edit.</Caption>
+<Caption>A configured domain on the Project Domains page with the option to edit.</Caption>
 
 Once the **Edit** button has been clicked, you will be presented with further options. Click the **Remove** button to remove the domain from the project:
 
@@ -181,7 +181,7 @@ Once the **Edit** button has been clicked, you will be presented with further op
   height={590 / 2}
   shadow
 />
-<Caption>A verified domain on the Project Domains page with the option to remove.</Caption>
+<Caption>A configured domain on the Project Domains page with the option to remove.</Caption>
 
 ## Related
 
