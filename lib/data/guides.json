@@ -258,7 +258,7 @@
     "demo": "https://nuxtjs.now-examples.now.sh",
     "image": "https://og-image.now.sh/**Deploy%20Nuxt.js%20Apps**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fnuxtjs.org%2Flogos%2Fnuxt-square.svg&widths=250&widths=300&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-nuxtjs-with-zeit-now.mdx",
-    "lastEdited": "2019-11-05T13:14:41.000Z"
+    "lastEdited": "2019-11-19T10:41:22.000Z"
   },
   {
     "title": "Upgrade Your Existing ZEIT Now Projects With Zero Configuration",
@@ -406,7 +406,7 @@
     "demo": "https://angular.now-examples.now.sh",
     "image": "https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-angular-with-now.mdx",
-    "lastEdited": "2019-11-05T13:14:41.000Z"
+    "lastEdited": "2019-11-19T10:41:22.000Z"
   },
   {
     "title": "Create a Hugo Website and Deploy It with ZEIT Now",
@@ -463,17 +463,6 @@
     "lastEdited": "2019-11-18T14:07:17.000Z"
   },
   {
-    "title": "Creating and Deploying a VuePress App with ZEIT Now",
-    "description": "Create your VuePress app and deploy it with ZEIT Now.",
-    "published": "2019-01-26T03:00:00.860Z",
-    "authors": ["unicodeveloper"],
-    "url": "/guides/deploying-vuepress-to-now",
-    "example": "vuepress",
-    "demo": "https://vuepress.now-examples.now.sh",
-    "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
-    "lastEdited": "2019-11-05T13:14:41.000Z"
-  },
-  {
     "title": "Deploying a Vue.js App with ZEIT Now",
     "description": "Create your Vue.js app and deploy it with ZEIT Now.",
     "published": "2019-01-26T03:00:00.860Z",
@@ -483,7 +472,18 @@
     "demo": "https://vue.now-examples.now.sh",
     "image": "https://og-image.now.sh/**Deploy%20a%20Vue.js%20App**%20with%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Fv1551318573%2Ffront%2Fdocs%2Fogp%2Fvue-logo.svg",
     "editUrl": "pages/guides/deploying-vuejs-to-now.mdx",
-    "lastEdited": "2019-11-05T13:14:41.000Z"
+    "lastEdited": "2019-11-19T10:41:22.000Z"
+  },
+  {
+    "title": "Creating and Deploying a VuePress App with ZEIT Now",
+    "description": "Create your VuePress app and deploy it with ZEIT Now.",
+    "published": "2019-01-26T03:00:00.860Z",
+    "authors": ["unicodeveloper"],
+    "url": "/guides/deploying-vuepress-to-now",
+    "example": "vuepress",
+    "demo": "https://vuepress.now-examples.now.sh",
+    "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
+    "lastEdited": "2019-11-19T10:41:22.000Z"
   },
   {
     "title": "Prevent Uploading Source Paths with `.nowignore` on ZEIT Now",
@@ -495,15 +495,6 @@
     "lastEdited": "2019-11-05T20:55:16.000Z"
   },
   {
-    "title": "Setup a GoDaddy Domain with ZEIT Now",
-    "description": "Use your GoDaddy registered domain for your ZEIT Now deployments.",
-    "published": "2019-01-23T17:00:00.860Z",
-    "authors": ["timothy"],
-    "url": "/guides/setup-godaddy-domain-now",
-    "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
-    "lastEdited": "2019-11-11T10:29:24.000Z"
-  },
-  {
     "title": "Deploying with Custom Serverless Next.js Routing",
     "description": "Migrate from a Next.js app with a custom server to a serverless Next.js app using Now routes.",
     "published": "2019-01-23T17:00:00.860Z",
@@ -511,5 +502,14 @@
     "url": "/guides/custom-next-js-server-to-routes",
     "editUrl": "pages/guides/custom-next-js-server-to-routes.mdx",
     "lastEdited": "2019-11-05T13:14:41.000Z"
+  },
+  {
+    "title": "Setup a GoDaddy Domain with ZEIT Now",
+    "description": "Use your GoDaddy registered domain for your ZEIT Now deployments.",
+    "published": "2019-01-23T17:00:00.860Z",
+    "authors": ["timothy"],
+    "url": "/guides/setup-godaddy-domain-now",
+    "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
+    "lastEdited": "2019-11-11T10:29:24.000Z"
   }
 ]
