@@ -10,11 +10,23 @@ export const meta = {
 
 ## Logs
 
-### Get deployment logs
+### Get Build Logs
 
 <Endpoint method="GET" url="/v2/now/deployments/:id/events" />
 
-Get the logs of a deployment by its ID.
+Get the build logs of a deployment by deployment ID and build ID.
+
+#### Request Parameters
+
+| Key           | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                                                                                         |
+| ------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **name**      | <HelpLink href="#api-basics/types">String</HelpLink>       | Deployment build ID.                                                                                                                                                                                                |
+| **limit**     | <HelpLink href="#api-basics/types">Number</HelpLink>       | Maximum number of events to return. Provide `-1` to return all available logs.                                                                                                                                      |
+| **types**     | <HelpLink href="#api-basics/types">List</HelpLink>         | The type of log; either: `request`, `response`, `command` or `stdout`.                                                                                                                                              |
+| **since**     | <HelpLink href="#api-basics/types">Number</HelpLink>       | Timestamp for when build logs should be pulled from.                                                                                                                                                                |
+| **until**     | <HelpLink href="#api-basics/types">Number</HelpLink>       | Timestamp for when the build logs should be pulled up until.                                                                                                                                                        |
+| **direction** | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Direction in which logs would be returned. Either `backward` or `forward`.                                                                                                                                          |
+| **follow**    | <HelpLink href="#api-basics/types">Number</HelpLink>       | When `follow` is set to `1`, the API will return an HTTP stream similar to [Serverless Function Logs](#endpoints/logs/stream-serverless-function-logs), which allows you to see realtime feedback on build progress. |
 
 #### Response Parameters
 
