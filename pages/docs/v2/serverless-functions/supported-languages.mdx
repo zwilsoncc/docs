@@ -10,7 +10,7 @@ export const meta = {
   title: 'Supported Languages for Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-11-05T17:41:32.000Z'
+  lastEdited: '2019-11-20T16:34:53.000Z'
 }
 
 Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
@@ -24,7 +24,7 @@ Within the `/api` directory of your projects, ZEIT Now will automatically recogn
 ## Node.js
 
 **File Extensions**: `.js`, `.ts`<br />
-**Default Runtime Version**: 8.10.x (or [defined](#defined-node.js-version))
+**Default Runtime Version**: 10.x (or [defined](#defined-node.js-version))
 
 Node.js files through a JavaScript file or a TypeScript file within the `api` directory, containing a default exported function, will be served as a Serverless Function.
 
@@ -212,19 +212,19 @@ The installation of dependencies behaves as follows:
 
 ### Defined Node.js Version
 
-The Node.js version, though defaulted to **8.10.x**, can be changed to **10.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`:
+The Node.js version, though defaulted to **10.x**, can be changed to **12.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`:
 
 ```json
 {
   "name": "my-app",
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   }
 }
 ```
 
 <Caption>
-  Defining the <InlineCode>10.x</InlineCode> Node.js version in a{' '}
+  Defining the <InlineCode>12.x</InlineCode> Node.js version in a{' '}
   <InlineCode>package.json</InlineCode>.
 </Caption>
 
