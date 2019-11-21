@@ -6,7 +6,7 @@ export const meta = {
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2019-11-12T19:50:43.000Z'
+  lastEdited: '2019-11-21T12:40:44.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -72,6 +72,12 @@ The ZEIT Now platform does not currently support HTTP/2 Push.
 For security reasons, the ZEIT Now platform blocks outgoing SMTP connections.
 
 As a result of this, we recommend using a third-party service to enable email functionality for [deployments](/docs/v2/platform/deployments).
+
+## Serverless Function Concurrency
+
+The maximum number of concurrent executions for a [Serverless Function](/docs/v2/serverless-functions/introduction/) is `1000`.
+
+If you require a limit above `1000`, you should [contact our enterprise department](mailto:sales@zeit.co) to discuss custom limits available on an enterprise plan.
 
 ## Reserved Variables
 
