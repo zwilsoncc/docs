@@ -133,6 +133,52 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
   }
 }`}</Code>
 
+## builds
+
+<Note type="alert">
+  The <InlineCode>builds</InlineCode> property has been deprecated in favor of{' '}
+  <Link href="/docs/configuration#project/functions">functions</Link>. In the
+  majority of cases, you are no longer required to specify a{' '}
+  <InlineCode>build</InlineCode>, instead relying on the{' '}
+  <Link href="/docs/v2/build-step/">build step</Link>.
+</Note>
+
+**Type:** `Array` of build `Object`.
+
+**Valid values:** a list of build descriptions whose `src` references valid source files.
+
+**Build object definition:**
+
+- `src` (`String`): A glob expression or pathname. If more than one file is resolved, one build will be created per matched file. It can include `*` and `**`.
+- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/advanced/builders). It can include a semver compatible version (e.g.: `@org/proj@1`).
+- `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Builder.
+
+<P>
+  The following will include all HTML files as-is (to be served statically), and{' '}
+  <Link href="/docs/v2/advanced/runtimes">Build</Link> all Python files and JS
+  files into{' '}
+  <Link href="/docs/v2/serverless-functions/introduction/">
+    Serverless Functions
+  </Link>
+  .
+</P>
+
+<Code lang="json">{`{
+  "builds": [
+    { "src": "*.html", "use": "@now/static" },
+    { "src": "*.py", "use": "@now/python" },
+    { "src": "*.js", "use": "@now/node" }
+  ]
+}`}</Code>
+
+<Note>
+  When at least one <InlineCode>builds</InlineCode> item is specified, only the
+  outputs of the build processes will be included in the resulting deployment as
+  a security precaution. This is why we need to white-list static files
+  explicitly with
+  <InlineCode>@now/static</InlineCode>.
+</Note>
+
 ## functions
 
 **Type:** `Object` of key `String` and value `Object`.
