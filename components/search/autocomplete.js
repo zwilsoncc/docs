@@ -26,11 +26,34 @@ class AutoComplete extends Component {
   }
 
   componentDidMount() {
+    document.addEventListener('keyup', this.onKeyUp.bind(this), false)
+
     if (this.props.router.query.query) {
       this.setState({
         value: decodeURIComponent(this.props.router.query.query) || ''
       })
     }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup', this.onKeyUp.bind(this), false)
+  }
+
+  onKeyUp(event) {
+      switch (event.key) {
+          case '/':
+              this.input.focus()
+              break;
+          case 'Escape':
+              this.input.blur()
+              break;
+      }
+  }
+
+  storeInputReference = autosuggest => {
+      if (autosuggest !== null) {
+          this.input = autosuggest.input;
+      }
   }
 
   onChange = (_, { newValue }) => {
@@ -146,6 +169,7 @@ class AutoComplete extends Component {
           )}
 
           <AutoSuggest
+            ref={this.storeInputReference}
             suggestions={hits}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
