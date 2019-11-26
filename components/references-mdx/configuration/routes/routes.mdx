@@ -555,7 +555,7 @@ In this example, when requesting `/test`, it will look for a response at `/src/p
 
 ### Common Regex
 
-When using the `.` character in a [PCRE Regex](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions), you should keep in mind that in regex, it matches anything. A literal `.` is denoted `\\.`. Slashes do not need to be escaped because the regular expression is enclosed in quotes.
+When using the `.` character in a [PCRE Regex](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions), you should keep in mind that in regex, it matches anything. A literal `.` must be escaped with two backslashes `\\\\.`. Forward slashes do not need to be escaped because the regular expression is enclosed in quotes.
 
 Incorrect:
 
@@ -572,7 +572,7 @@ Considering this example, `/test/file.json` would match, but `/test/file-json` w
 Correct:
 
 ```json
-{ "src": "/test/file\\.json", "status": 404, "dest": "/404" }
+{ "src": "/test/file\\\\.json", "status": 404, "dest": "/404" }
 ```
 
 <Caption>
