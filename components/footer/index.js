@@ -64,6 +64,11 @@ const Footer = ({ className }) => {
               <a>Now for GitLab</a>
             </Link>
           </li>
+          <li className="now-for-bitbucket">
+            <Link href="/bitbucket">
+              <a>Now for Bitbucket</a>
+            </Link>
+          </li>
           <li>
             <Link href="/smart-cdn">
               <a>Smart CDN</a>

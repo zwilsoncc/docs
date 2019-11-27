@@ -9,7 +9,7 @@ export const meta = {
   description: 'Targeting and deploying a Git repository with Now',
   date: '12 Mar 2017',
   editUrl: 'pages/docs/v1/features/repositories.mdx',
-  lastEdited: '2019-11-05T13:14:41.000Z'
+  lastEdited: '2019-11-27T13:36:05.000Z'
 }
 
 If you're developing a project that requires local changes before it can be deployed (like a regular application), running just now is the right way to move your code into the cloud.
@@ -18,7 +18,7 @@ However, if you'd like to provide a pre-built application or tool which only nee
 
 <TerminalInput>{'now <username>/<repository>'}</TerminalInput>
 
-When running this command for a certain [Git](https://git-scm.com/) repository of your choice (make sure to replace `<username>` and `<repository>`), the repository will be looked up on [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), and [BitBucket](https://bitbucket.org/). When found, <Now color="#000" /> will automatically clone it, set any custom properties you've defined and deploy it.
+When running this command for a certain [Git](https://git-scm.com/) repository of your choice (make sure to replace `<username>` and `<repository>`), the repository will be looked up on [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), and [Bitbucket](https://bitbucket.org/). When found, <Now color="#000" /> will automatically clone it, set any custom properties you've defined and deploy it.
 
 From there on, it will work just like any other deployment: You'll get a unique URL once the files have started uploading, your deployment will be initialized and then started up as usual.
 
@@ -70,7 +70,7 @@ By default, <Now color="#000" /> will select the master branch. However, as you 
 
 ## Using URLs
 
-All of the things mentioned above can also be achieved by simply telling <Now color="#000" /> the URL of the repository which you'd like to deploy (also supports GitLab and BitBucket):
+All of the things mentioned above can also be achieved by simply telling <Now color="#000" /> the URL of the repository which you'd like to deploy (also supports GitLab and Bitbucket):
 
 <TerminalInput>
   now <b>https://github.com/rauchg/slackin</b>

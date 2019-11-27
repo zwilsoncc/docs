@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy Hooks allow you to create URLs that accept HTTP POST requests to trigger deployments. Each URL correspond to a branch of a GitHub or GitLab repository linked to the project.',
   editUrl: 'pages/docs/v2/more/deploy-hooks.mdx',
-  lastEdited: '2019-11-11T10:29:24.000Z'
+  lastEdited: '2019-11-27T13:36:05.000Z'
 }
 
 Deploy Hooks allow you to create URLs that accept HTTP POST requests in order to trigger deployments, to re-run the [Build Step](/docs/v2/build-step), from outside ZEIT. These URLs are uniquely linked to your project, repository, and branch, so there is no need to use any authentication mechanism or provide any payload to the POST request.
@@ -23,7 +23,7 @@ This feature allows you to integrate ZEIT Now deployments with other systems get
 
 ## Creating a Deploy Hook
 
-To create a Deploy Hook, the first thing you need to do is to install [Now for GitHub](/docs/v2/advanced/now-for-github) or [Now for GitLab](/docs/v2/advanced/now-for-gitlab). This allows you to link a ZEIT project to a new or existing Git repository.
+To create a Deploy Hook, the first thing you need to do is to install [Now for GitHub](/docs/v2/more/now-for-github), [Now for GitLab](/docs/v2/more/now-for-gitlab), or [Now for Bitbucket](/docs/v2/more/now-for-bitbucket). This allows you to link a ZEIT project to a new or existing Git repository.
 
 <Image
   src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/create-new-project.png`}

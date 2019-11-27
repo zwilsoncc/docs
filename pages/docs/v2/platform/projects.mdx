@@ -9,7 +9,7 @@ export const meta = {
   title: 'Projects',
   description: 'Setting up projects with a list of deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2019-11-05T13:14:41.000Z'
+  lastEdited: '2019-11-27T13:47:09.000Z'
 }
 
 A project is a logical structure that groups deployments and [custom domains](/docs/v2/custom-domains) inside of an account or team, based on the name of the project. This structure allows easier tracking and managing of deployments.
@@ -59,9 +59,9 @@ Use the `--name` option to mention the project name as follows:
 
 If you didn't specify a project name explicitly via one of the above methods, we try to select a project automatically based on following rules:
 
-- If this is GitHub deployment, we use the GitHub repo name as the project
-- If this is a [Now CLI](/download) based deployment, we use the directory name of your app as the project
-- If this is a file or a set of files, we use the `files` project
+- If this is a [Git Integration](/docs/v2/git-integration/) deployment, we use the Git repo or project as the project name.
+- If this is a [Now CLI](/download) based deployment, we use the directory name of your app as the project name.
+- If this is a file or a set of files, we use the `files` project name.
 
 ## Deleting a Project
 

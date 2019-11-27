@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Deploy each change in your GitLab projects with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/more/now-for-gitlab.mdx',
-  lastEdited: '2019-11-11T10:29:24.000Z'
+  lastEdited: '2019-11-27T13:47:09.000Z'
 }
 
 The Now for GitLab integration automatically deploys your GitLab projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
@@ -18,7 +18,7 @@ Now for GitLab provides:
 
 - Automatic deployments for every push to branches and merge requests to preview changes live.
 - Updates production domains with the most recent changes from the [default branch](https://docs.gitlab.com/ee/user/project/repository/branches/#default-branch).
-- Instant rollbacks when reverting changes that have been made to production domains
+- Instant rollbacks when reverting changes that have been made to production domains.
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-now-for-gitlab/deploy-comment.png`}
@@ -86,7 +86,7 @@ If production domains are set from the project domains dashboard, pushes and mer
 
 If you decide to revert a commit that has already updated a product domain, the previous commit's deployment will automatically be made available at the production domain instantly; providing you with instant rollbacks.
 
-### preview URLs for Each Merge Request
+### Preview URLs for Each Merge Request
 
 The latest push to any pull request will automatically be made available at a unique preview URL based on the project name, branch, and team or username. These URLs will be given through a comment on each merge request.
 
