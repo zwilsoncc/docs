@@ -74,7 +74,28 @@ If you need more advanced behavior, such as a custom build step or private npm m
 
 ### Node.js Version
 
-The default Node.js version used is **10.x** but can be changed to **12.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`.
+The default Node.js version used is **10.x** but can be changed to **12.x** by defining an `engines` property in a `package.json` file like in the example below:
+
+```json
+{
+  "engines": "12.x"
+}
+```
+
+<Caption>
+  Defining the <InlineCode>engines</InlineCode> property in a{' '}
+  <InlineCode>package.json</InlineCode> file.
+</Caption>
+
+When defining an `engines` property, there are two different values that can be supplied, **10.x** - the default if the property is not defined - or **12.x**.
+
+The `.x` portion of the `engines` value is required by our upstream providers and cannot be changed.
+
+<Note type="warning">
+  The only options that can be passed are <InlineCode>10.x</InlineCode> or{' '}
+  <InlineCode>12.x</InlineCode>, passing any other value will cause your build
+  to fail.
+</Note>
 
 ### Node.js Dependencies
 
