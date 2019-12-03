@@ -485,6 +485,17 @@
     "lastEdited": "2019-11-27T13:36:05.000Z"
   },
   {
+    "title": "Creating and Deploying a VuePress App with ZEIT Now",
+    "description": "Create your VuePress app and deploy it with ZEIT Now.",
+    "published": "2019-01-26T03:00:00.860Z",
+    "authors": ["unicodeveloper"],
+    "url": "/guides/deploying-vuepress-to-now",
+    "example": "vuepress",
+    "demo": "https://vuepress.now-examples.now.sh",
+    "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
+    "lastEdited": "2019-11-27T13:36:05.000Z"
+  },
+  {
     "title": "Deploying a Vue.js App with ZEIT Now",
     "description": "Create your Vue.js app and deploy it with ZEIT Now.",
     "published": "2019-01-26T03:00:00.860Z",
@@ -497,17 +508,6 @@
     "lastEdited": "2019-11-27T13:36:05.000Z"
   },
   {
-    "title": "Creating and Deploying a VuePress App with ZEIT Now",
-    "description": "Create your VuePress app and deploy it with ZEIT Now.",
-    "published": "2019-01-26T03:00:00.860Z",
-    "authors": ["unicodeveloper"],
-    "url": "/guides/deploying-vuepress-to-now",
-    "example": "vuepress",
-    "demo": "https://vuepress.now-examples.now.sh",
-    "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
-  },
-  {
     "title": "Prevent Uploading Source Paths with `.nowignore` on ZEIT Now",
     "description": "Use a .nowignore file to prevent the uploading of source paths when deploying with ZEIT Now.",
     "published": "2019-01-24T03:00:00.860Z",
@@ -517,21 +517,21 @@
     "lastEdited": "2019-11-05T20:55:16.000Z"
   },
   {
-    "title": "Deploying with Custom Serverless Next.js Routing",
-    "description": "Migrate from a Next.js app with a custom server to a serverless Next.js app using Now routes.",
-    "published": "2019-01-23T17:00:00.860Z",
-    "authors": ["timothy", "timneutkens"],
-    "url": "/guides/custom-next-js-server-to-routes",
-    "editUrl": "pages/guides/custom-next-js-server-to-routes.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
-  },
-  {
     "title": "Setup a GoDaddy Domain with ZEIT Now",
     "description": "Use your GoDaddy registered domain for your ZEIT Now deployments.",
     "published": "2019-01-23T17:00:00.860Z",
     "authors": ["timothy"],
     "url": "/guides/setup-godaddy-domain-now",
     "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
+    "lastEdited": "2019-11-27T13:36:05.000Z"
+  },
+  {
+    "title": "Deploying with Custom Serverless Next.js Routing",
+    "description": "Migrate from a Next.js app with a custom server to a serverless Next.js app using Now routes.",
+    "published": "2019-01-23T17:00:00.860Z",
+    "authors": ["timothy", "timneutkens"],
+    "url": "/guides/custom-next-js-server-to-routes",
+    "editUrl": "pages/guides/custom-next-js-server-to-routes.mdx",
     "lastEdited": "2019-11-27T13:36:05.000Z"
   }
 ]

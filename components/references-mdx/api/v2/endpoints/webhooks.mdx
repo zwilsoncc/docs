@@ -1,5 +1,6 @@
 import { Code } from '~/components/text/code'
 import { HelpLink } from '~/components/text/link'
+import Caption from '~/components/text/caption'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 
@@ -105,3 +106,40 @@ Here's a list of supported event types and their payload.
 | **plan**            | <HelpLink href="#api-basics/types">String</HelpLink>       | The plan type of the deployment. (unlimited, free)    |
 | **regions**         | <HelpLink href="#api-basics/types">List</HelpLink>         | An array of the supported regions for the deployment. |
 | **deployment.meta** | <HelpLink href="#api-basics/types">Map</HelpLink>          | A Map of deployment metadata.                         |
+
+### Securing Webhooks
+
+Once your server is configured to receive payloads, it will listen for any payload sent to the endpoint you configured. By knowing the URL of your webhook, anybody can send you requests. It is therefore recommend to check whether the requests are coming from ZEIT or not.
+
+The recommended method to check is to use the `x-zeit-signature` security header you receive with each request. The value of this header corresponds to the `sha1` of the payload body using your [client secret](/docs/api#endpoints/oauth2).
+
+For example, you can validate a webhook message as follows:
+
+```js
+const crypto = require('crypto');
+const { send } = require('micro');
+
+module.exports = (req, res) => {
+  const payload = await json(req);
+
+  if (!verifySignature(req, payload)) {
+    return send(res, 403, {
+      code: `invalid_signature`,
+      error: `signature didn't match`
+    });
+  }
+
+  // Process the payload
+};
+
+function verifySignature(req, payload) {
+  const signature = crypto.createHmac('sha1', process.env.OAUTH2_SECRET)
+    .update(payload)
+    .digest('hex');
+  return signature === req.headers['x-zeit-signature'];
+}
+```
+
+<Caption>Example on how to validate a webhook message.</Caption>
+
+You can compute the signature using a HMAC hexdigest from the secret token of OAuth2 and request body, then compare it with the value of the `x-zeit-signature` header to validate the payload.
