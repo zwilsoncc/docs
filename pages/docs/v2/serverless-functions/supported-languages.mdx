@@ -10,7 +10,7 @@ export const meta = {
   title: 'Supported Languages for Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2019-11-20T16:34:53.000Z'
+  lastEdited: '2019-12-04T20:07:25.000Z'
 }
 
 Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
@@ -212,11 +212,10 @@ The installation of dependencies behaves as follows:
 
 ### Defined Node.js Version
 
-The Node.js version, though defaulted to **10.x**, can be changed to **12.x** by defining [engines](https://docs.npmjs.com/files/package.json#engines) in `package.json`:
+The default Node.js version used is **10.x** but can be changed to **12.x** by defining an `engines` property in a `package.json` file like in the example below:
 
 ```json
 {
-  "name": "my-app",
   "engines": {
     "node": "12.x"
   }
@@ -224,9 +223,19 @@ The Node.js version, though defaulted to **10.x**, can be changed to **12.x** by
 ```
 
 <Caption>
-  Defining the <InlineCode>12.x</InlineCode> Node.js version in a{' '}
-  <InlineCode>package.json</InlineCode>.
+  Defining the <InlineCode>engines</InlineCode> property in a{' '}
+  <InlineCode>package.json</InlineCode> file.
 </Caption>
+
+When defining an `engines` property, there are two different values that can be supplied, **10.x** - the default if the property is not defined - or **12.x**.
+
+The `.x` portion of the `engines` value is required by our upstream providers and cannot be changed.
+
+<Note type="warning">
+  The only options that can be passed are <InlineCode>10.x</InlineCode> or{' '}
+  <InlineCode>12.x</InlineCode>, passing any other value will cause your build
+  to fail.
+</Note>
 
 ---
 
