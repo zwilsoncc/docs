@@ -1,5 +1,17 @@
 [
   {
+    "title": "Deploy Foundation with ZEIT Now",
+    "description": "Create a Foundation app and deploy it live with ZEIT Now.",
+    "published": "2019-12-02T12:00:00.860Z",
+    "authors": ["msweeneydev"],
+    "url": "/guides/deploying-foundation-with-zeit-now",
+    "example": "foundation",
+    "demo": "https://foundation.now-examples.now.sh",
+    "image": "https://og-image.now.sh/**Deploy%20Foundation%20Apps**%20%3C%2Fbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Ffoundation.svg&widths=300&widths=300&heights=300&heights=300",
+    "editUrl": "pages/guides/deploying-foundation-with-zeit-now.mdx",
+    "lastEdited": "2019-12-03T22:47:49.000Z"
+  },
+  {
     "title": "Deploy a Next.js and FaunaDB-Powered Guestbook with ZEIT Now",
     "description": "Create a Next.js and FaunaDB-Powered Guestbook App and deploy it with ZEIT Now.",
     "published": "2019-11-19T17:00:00.000Z",
@@ -90,18 +102,6 @@
     "image": "https://og-image.now.sh/**Deploy%20Aurelia%20Apps**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Faurelia.svg&widths=300&widths=300&heights=300&heights=300",
     "editUrl": "pages/guides/deploying-aurelia-with-zeit-now.mdx",
     "lastEdited": "2019-11-27T13:36:05.000Z"
-  },
-  {
-    "title": "Deploy Foundation with ZEIT Now",
-    "description": "Create a Foundation app and deploy it live with ZEIT Now.",
-    "published": "2019-11-01T12:00:00.860Z",
-    "authors": ["msweeneydev"],
-    "url": "/guides/deploying-foundation-with-zeit-now",
-    "example": "foundation",
-    "demo": "https://foundation.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20Foundation%20Apps**%20%3C%2Fbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Ffoundation.svg&widths=300&widths=300&heights=300&heights=300",
-    "editUrl": "pages/guides/deploying-foundation-with-zeit-now.mdx",
-    "lastEdited": "2019-12-02T21:35:21.000Z"
   },
   {
     "title": "Deploy Hexo with ZEIT Now",
@@ -485,17 +485,6 @@
     "lastEdited": "2019-11-27T13:36:05.000Z"
   },
   {
-    "title": "Creating and Deploying a VuePress App with ZEIT Now",
-    "description": "Create your VuePress app and deploy it with ZEIT Now.",
-    "published": "2019-01-26T03:00:00.860Z",
-    "authors": ["unicodeveloper"],
-    "url": "/guides/deploying-vuepress-to-now",
-    "example": "vuepress",
-    "demo": "https://vuepress.now-examples.now.sh",
-    "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
-  },
-  {
     "title": "Deploying a Vue.js App with ZEIT Now",
     "description": "Create your Vue.js app and deploy it with ZEIT Now.",
     "published": "2019-01-26T03:00:00.860Z",
@@ -508,6 +497,17 @@
     "lastEdited": "2019-11-27T13:36:05.000Z"
   },
   {
+    "title": "Creating and Deploying a VuePress App with ZEIT Now",
+    "description": "Create your VuePress app and deploy it with ZEIT Now.",
+    "published": "2019-01-26T03:00:00.860Z",
+    "authors": ["unicodeveloper"],
+    "url": "/guides/deploying-vuepress-to-now",
+    "example": "vuepress",
+    "demo": "https://vuepress.now-examples.now.sh",
+    "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
+    "lastEdited": "2019-11-27T13:36:05.000Z"
+  },
+  {
     "title": "Prevent Uploading Source Paths with `.nowignore` on ZEIT Now",
     "description": "Use a .nowignore file to prevent the uploading of source paths when deploying with ZEIT Now.",
     "published": "2019-01-24T03:00:00.860Z",
@@ -517,21 +517,21 @@
     "lastEdited": "2019-11-05T20:55:16.000Z"
   },
   {
-    "title": "Setup a GoDaddy Domain with ZEIT Now",
-    "description": "Use your GoDaddy registered domain for your ZEIT Now deployments.",
-    "published": "2019-01-23T17:00:00.860Z",
-    "authors": ["timothy"],
-    "url": "/guides/setup-godaddy-domain-now",
-    "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
-  },
-  {
     "title": "Deploying with Custom Serverless Next.js Routing",
     "description": "Migrate from a Next.js app with a custom server to a serverless Next.js app using Now routes.",
     "published": "2019-01-23T17:00:00.860Z",
     "authors": ["timothy", "timneutkens"],
     "url": "/guides/custom-next-js-server-to-routes",
     "editUrl": "pages/guides/custom-next-js-server-to-routes.mdx",
+    "lastEdited": "2019-11-27T13:36:05.000Z"
+  },
+  {
+    "title": "Setup a GoDaddy Domain with ZEIT Now",
+    "description": "Use your GoDaddy registered domain for your ZEIT Now deployments.",
+    "published": "2019-01-23T17:00:00.860Z",
+    "authors": ["timothy"],
+    "url": "/guides/setup-godaddy-domain-now",
+    "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
     "lastEdited": "2019-11-27T13:36:05.000Z"
   }
 ]

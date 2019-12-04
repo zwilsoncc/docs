@@ -150,7 +150,7 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 **Build object definition:**
 
 - `src` (`String`): A glob expression or pathname. If more than one file is resolved, one build will be created per matched file. It can include `*` and `**`.
-- `use` (`String`): A npm module to be installed by the [build process](/docs/v2/advanced/builders). It can include a semver compatible version (e.g.: `@org/proj@1`).
+- `use` (`String`): An npm module to be installed by the [build process](/docs/v2/advanced/builders). It can include a semver compatible version (e.g.: `@org/proj@1`).
 - `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Builder.
 
 <P>
@@ -200,6 +200,14 @@ A [glob](https://github.com/isaacs/node-glob#glob-primer) pattern that matches t
 By default, no configuration is needed to deploy Serverless Functions to ZEIT Now.
 
 For all [officially supported runtimes](/docs/v2/serverless-functions/supported-languages/), the only requirement is to create an `api` directory at the root of your project directory, placing your Serverless Functions inside.
+
+<Note type="warning">
+  It is currently not possible to use the <InlineCode>functions</InlineCode>{' '}
+  property when not using the <InlineCode>/api</InlineCode> directory for your
+  Serverless Functions. If this behavior is required, you should use the{' '}
+  <Link href="/docs/configuration#project/builds">builds</Link> property
+  instead.
+</Note>
 
 When deployed, each Serverless Function receives the following properties:
 
