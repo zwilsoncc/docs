@@ -126,9 +126,11 @@ function generateSiteMap() {
     `sitemap.xml with ${nodes.length} entries was written to ${SITEMAP_PATH}`
   )
 
-  const sortedGuides = guidesMeta.sort(
-    (a, b) => new Date(b.published) - new Date(a.published)
-  )
+  const sortedGuides = guidesMeta.sort((a, b) => {
+    if (a.published === b.published) return a.url.localeCompare(b.url)
+
+    return new Date(b.published) - new Date(a.published)
+  })
   const guidesJson = JSON.stringify(sortedGuides, null, 2)
 
   fs.writeFileSync(GUIDES_PATH, prettier.format(guidesJson, { parser: 'json' }))
