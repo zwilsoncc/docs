@@ -15,7 +15,7 @@ This repository is broken down into several sections, these include:
 - [Components](https://github.com/zeit/docs/tree/master/components) - a collection of reusable components to be used when creating documentation
 - [Documentation](https://github.com/zeit/docs/tree/master/pages/docs) - the documentation for both Now v1 and v2
 - [Guides](https://github.com/zeit/docs/tree/master/pages/guides) - guides created to show how to use Now v2 in a variety of ways
-- [Static Assets](https://github.com/zeit/docs/tree/master/static/guides) - the location for static assets, such as images, to be used in guides
+- [Static Assets](https://github.com/zeit/docs/tree/master/public/static/guides) - the location for static assets, such as images, to be used in guides
 - [Code of Conduct](https://github.com/zeit/docs/blob/master/CODE_OF_CONDUCT.md) - our Code of Conduct, adapted from the [Contributor Covenant](http://contributor-covenant.org)
 - [Contributing Guidelines](https://github.com/zeit/docs/blob/master/CONTRIBUTING.md) - a guide on how to contribute to the ZEIT Now documentation
 
