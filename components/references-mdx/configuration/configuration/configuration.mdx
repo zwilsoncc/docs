@@ -247,6 +247,15 @@ For more information on Runtimes, see the documentation:
 
 ## routes
 
+<Note type="alert">
+  The <InlineCode>routes</InlineCode> property has been deprecated in favor of{' '}
+  <Link href="/docs/configuration#project/redirects">redirects</Link>,{' '}
+  <Link href="/docs/configuration#project/rewrites">rewrites</Link>,{' '}
+  <Link href="/docs/configuration#project/headers">headers</Link>,{' '}
+  <Link href="/docs/configuration#project/cleanurls">cleanUrls</Link>, and{' '}
+  <Link href="/docs/configuration#project/trailingslash">trailingSlash</Link>.
+</Note>
+
 **Type:** `Array` of route `Object`.
 
 **Valid values:** a list of route definitions.
@@ -312,8 +321,156 @@ The special value `all` can be used to target all available regions.
 
 **Type**: `Boolean`.
 
+**Default Value**: `false`.
+
 When set to `true`, both the [source view](/docs/v2/platform/deployments/#source-view) and [logs view](/docs/v2/platform/deployments/#logs-view) will be publicly accessible (when the user is authenticated with ZEIT).
 
 <Code lang="json">{`{
   "public": true
+}`}</Code>
+
+## cleanUrls
+
+**Type**: `Boolean`.
+
+**Default Value**: `false`.
+
+When set to `true`, all HTML files will have their `.html` extension removed. When visiting a page that ends with `.html`, a 308 response will redirect the client to the extensionless page.
+
+For example, a file named `about.html` will be served when visiting the `/about` page. Visiting `/about.html` will redirect to `/about`.
+
+<Code lang="json">{`{
+  "cleanUrls": true
+}`}</Code>
+
+## trailingSlash
+
+**Type**: `Boolean`.
+
+**Default Value**: `null`.
+
+When set to `true`, visiting a path that does not end with a forward slash will respond with a 308 status code and redirect to the path with a trailing slash.
+
+When set to `false`, visiting a path that ends with a forward slash will respond with a 308 status code and redirect to the path without the trailing slash.
+
+For example, when `trailingSlash: false` the `/about/` path will redirect to `/about`.
+
+<Code lang="json">{`{
+  "trailingSlash": false
+}`}</Code>
+
+## redirects
+
+**Type:** `Array` of redirect `Object`.
+
+**Valid values:** a list of redirect definitions.
+
+**Redirect object definition:**
+
+- `source`: A pattern that matches each incoming pathname (excluding querystring).
+- `destination`: A location destination defined as an absolute pathname or external URL.
+- `statusCode`: An optional HTTP status code in the [301-308](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections) range (default 308).
+
+<P>
+  This example configures custom redirects that map to static files,{' '}
+  <Link href="/docs/v2/serverless-functions/introduction">
+    Serverless Functions
+  </Link>,{' '}
+  and external URLs.
+</P>
+<Code lang="json">{`{
+  "redirects": [
+    { "source": "/me", "destination": "/profile.html" },
+    { "source": "/user", "destination": "/api/user", "statusCode": 308 },
+    { "source": "/view-source", "destination": "https://github.com/zeit/now" }
+  ]
+}`}</Code>
+
+## rewrites
+
+**Type:** `Array` of rewrite `Object`.
+
+**Valid values:** a list of rewrite definitions.
+
+**Rewrite object definition:**
+
+- `source`: A pattern that matches each incoming pathname (excluding querystring).
+- `destination`: An absolute pathname to an existing resource or an external URL.
+
+<P>
+  This example configures custom rewrites that map to static files,{' '}
+  <Link href="/docs/v2/serverless-functions/introduction">
+    Serverless Functions
+  </Link>,{' '}
+  automatic query string matching, and a wildcard proxy.
+</P>
+<Code lang="json">{`{
+  "rewrites": [
+    { "source": "/about", "destination": "/about-our-company.html" },
+    { "source": "/resize/:width/:height", "destination": "/api/sharp" },
+    { "source": "/user/:id", "destination": "/api/user?uid=:id" },
+    { "source": "/proxy/(.*)", "destination": "https://example.com/$1" }
+  ]
+}`}</Code>
+
+## headers
+
+**Type:** `Array` of header `Object`.
+
+**Valid values:** a list of header definitions.
+
+**Header object definition:**
+
+- `source`: A pattern that matches each incoming pathname (excluding querystring).
+- `headers`: An array of key/value pairs representing each response header.
+
+<P>
+  This example configures custom response headers for static files,{' '}
+  <Link href="/docs/v2/serverless-functions/introduction">
+    Serverless Functions
+  </Link>,
+  and a wildcard that matches all routes.
+</P>
+<Code lang="json">{`{
+  "headers": [
+    {
+      "source": "/service-worker.js",
+      "headers" : [
+        {
+          "key" : "Cache-Control",
+          "value" : "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/api/feed",
+      "headers" : [
+        {
+          "key" : "Content-Type",
+          "value" : "application/rss+xml"
+        },
+        {
+          "key" : "Cache-Control",
+          "value" : "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers" : [
+        {
+          "key" : "X-Content-Type-Options",
+          "value" : "nosniff"
+        },
+        {
+          "key" : "X-Frame-Options",
+          "value" : "DENY"
+        },
+        {
+          "key" : "X-XSS-Protection",
+          "value" : "1; mode=block"
+        }
+      ]
+    }
+  ]
 }`}</Code>

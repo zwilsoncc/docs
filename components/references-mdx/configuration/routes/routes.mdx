@@ -12,6 +12,15 @@ export const meta = {
 
 # Routes
 
+<Note type="alert">
+  The <InlineCode>routes</InlineCode> property has been deprecated in favor of{' '}
+  <Link href="/docs/configuration#project/redirects">redirects</Link>,{' '}
+  <Link href="/docs/configuration#project/rewrites">rewrites</Link>,{' '}
+  <Link href="/docs/configuration#project/headers">headers</Link>,{' '}
+  <Link href="/docs/configuration#project/cleanurls">cleanUrls</Link>, and{' '}
+  <Link href="/docs/configuration#project/trailingslash">trailingSlash</Link>.
+</Note>
+
 ZEIT Now uses Routes to define the behavior of how a request is handled by the routing layer. For example, you might use a Route to proxy a URL to another, redirect a client, or apply a header with the response to a request.
 
 By default, routing is defined by the filesystem of your deployment. For example, if a user makes a request to `/123.png`, and your [`now.json` file](/docs/configuration#project/routes) does not contain any routes with a valid `src` matching that path, it will fallback to the filesystem and serve `/123.png` if it exists.
@@ -286,6 +295,17 @@ For example, if you are using URL parameters but want to use a custom URL path y
   custom URL path in <InlineCode>dest</InlineCode>.
 </Caption>
 
+```json
+{
+  "rewrites": [{ "source": "/product/:id", "destination": "/product" }]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> usage above, but instead using{' '}
+  <InlineCode>rewrites</InlineCode>.
+</Caption>
+
 This will take a URL, like `/product/532004` and proxies it to `/product?id=532004` with the user seeing your custom URL in their browser.
 
 <Note>
@@ -311,6 +331,23 @@ As another example, if you want to redirect from all paths under a certain direc
 <Caption>
   Redirecting from all paths in the <InlineCode>posts</InlineCode> directory but
   keeping the path in the new location.
+</Caption>
+
+```json
+{
+  "redirects": [
+    {
+      "source": "/posts/(.*)",
+      "destination": "/blog/$1",
+      "statusCode": 301
+    }
+  ]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> usage above, but instead using{' '}
+  <InlineCode>redirects</InlineCode>.
 </Caption>
 
 If you are using a Next.js app and want to learn more about using custom routes with ZEIT Now, read our guide:
@@ -354,6 +391,19 @@ You might find that there are many routes without a `dest`. These routes can be 
 </Caption>
 
 In this example, handle filesystem expands to route `/about` and `/contact`.
+
+When using `rewrites`, handle filesystem is assumed so this example can be simplified to the following:
+
+```json
+{
+  "rewrites": [{ "source": "/:slug", "destination": "/blog" }]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
+  <InlineCode>rewrites</InlineCode>.
+</Caption>
 
 ### Custom 404
 
@@ -410,6 +460,17 @@ A common pattern with single-page applications (SPAs) is to route everything tow
   A <InlineCode>now.json</InlineCode> file, providing a fallback to{' '}
   <InlineCode>index.html</InlineCode> after checking for matches against
   filesystem routes.
+</Caption>
+
+```json
+{
+  "rewrites": [{ "source": "/.*", "destination": "/index.html" }]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
+  <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 In the example above, routing will take place based on the filesystem first, allowing for correct routing of assets and Serverless Functions, before falling back to the `index.html` file.
@@ -525,6 +586,37 @@ A common usage for `"continue": true` is to add global headers to routes, this i
   <InlineCode>continue</InlineCode> to add global headers.
 </Caption>
 
+```json
+{
+  "headers": [
+    {
+      "source": "/.*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/blog.*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=600"
+        }
+      ]
+    }
+  ],
+  "rewrites": [{ "source": "/blog/:slug", "destination": "/post" }]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
+  <InlineCode>headers</InlineCode> and <InlineCode>rewrites</InlineCode>.
+</Caption>
+
 In this example, `/test` would be cached for `3600`, `/blog/whatever` would be cached for `600`. It's important to note when using `continue` and headers, if a header is already set, it is overridden.
 
 #### dest and continue
@@ -549,6 +641,31 @@ When you need to rewrite the URL without matching, you should use `"continue": t
 <Caption>
   A <InlineCode>now.json</InlineCode> file using{' '}
   <InlineCode>continue</InlineCode> to rewrite a URL without matching.
+</Caption>
+
+```json
+{
+  "headers": [
+    {
+      "source": "/test",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=600"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/src/public/$1" },
+    { "source": "/src/public/test", "destination": "/src/function/test" }
+  ]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
+  <InlineCode>headers</InlineCode> and <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 In this example, when requesting `/test`, it will look for a response at `/src/public/test`. Any routes that follow the `dest` + `continue` route will match against the new path. For example, `/test` would match all 3 routes.
@@ -579,6 +696,22 @@ Correct:
   A correct example of a <InlineCode>now.json</InlineCode> route.
 </Caption>
 
+When using `rewrites`, the `.` character is considered a literal unless wrapped in a group.
+
+```json
+{
+  "rewrites": [
+    { "source": "/test/file.json", "destination": "/api/generate-json" },
+    { "source": "/proxy/(.*)", "destination": "https://example.com/$1" }
+  ]
+}
+```
+
+<Caption>
+  The first rewrite generates a <InlineCode>json</InlineCode> file from a Serverless Function. The
+  second rewrite proxies all traffic to <InlineCode>example.com</InlineCode>.
+</Caption>
+
 ### Catch-All Except
 
 A common pattern for URL slugs is catch-all except:
@@ -589,6 +722,17 @@ A common pattern for URL slugs is catch-all except:
 
 <Caption>
   A <InlineCode>now.json</InlineCode> route using a catch-all except regex.
+</Caption>
+
+```json
+{
+  "rewrites": [{ "source": "/blog/:post", "destination": "/blog" }]
+}
+```
+
+<Caption>
+  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
+  <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 Anything that is not a `/` will match in `$1`. This allows `/blog/post` to work, while not allowing `/blog/post/edit`.
