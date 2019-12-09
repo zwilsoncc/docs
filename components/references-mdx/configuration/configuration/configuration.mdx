@@ -335,9 +335,9 @@ When set to `true`, both the [source view](/docs/v2/platform/deployments/#source
 
 **Default Value**: `false`.
 
-When set to `true`, all HTML files will have their `.html` extension removed. When visiting a page that ends with `.html`, a 308 response will redirect the client to the extensionless page.
+When set to `true`, all HTML files will have their `.html` extension removed. When visiting a path that ends with `.html`, a 308 response will redirect the client to the extensionless path.
 
-For example, a file named `about.html` will be served when visiting the `/about` page. Visiting `/about.html` will redirect to `/about`.
+For example, a file named `about.html` will be served when visiting the `/about` path. Visiting `/about.html` will redirect to `/about`.
 
 <Code lang="json">{`{
   "cleanUrls": true
