@@ -79,6 +79,14 @@ Furthermore, it also affects any other actions that the user takes within the di
   "scope": "my-team"
 }`}</Code>
 
+<Note>
+  Deployments made via{' '}
+  <Link href="/docs/v2/git-integration">Git Integration</Link> will{' '}
+  <b>ignore</b> the <InlineCode>scope</InlineCode> property because the
+  repository is already connected to a{' '}
+  <Link href="/docs/v2/platform/projects">project</Link>.
+</Note>
+
 ## env
 
 **Type:** `Object` of `String` keys and values.
