@@ -50,7 +50,7 @@ ZEIT Now Routes have multiple properties for each route object that help define 
 
 ## src
 
-**Type**: String supporting [PCRE Regex](https://www.pcre.org/original/doc/html/pcrepattern.html) and [Route Parameters](#route-parameters) like `/product/(?<id>[^/]+)`.
+**Type**: String supporting [PCRE Regex](https://www.pcre.org/original/doc/html/pcrepattern.html) and [Route Parameters](#routes/advanced/route-parameters) like `/product/(?<id>[^/]+)`.
 
 For each route, `src` is required to set the path which the behavior will affect.
 
@@ -302,8 +302,8 @@ For example, if you are using URL parameters but want to use a custom URL path y
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> usage above, but instead using{' '}
-  <InlineCode>rewrites</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> usage above, but
+  instead using <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 This will take a URL, like `/product/532004` and proxies it to `/product?id=532004` with the user seeing your custom URL in their browser.
@@ -346,8 +346,8 @@ As another example, if you want to redirect from all paths under a certain direc
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> usage above, but instead using{' '}
-  <InlineCode>redirects</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> usage above, but
+  instead using <InlineCode>redirects</InlineCode>.
 </Caption>
 
 If you are using a Next.js app and want to learn more about using custom routes with ZEIT Now, read our guide:
@@ -401,8 +401,8 @@ When using `rewrites`, handle filesystem is assumed so this example can be simpl
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
-  <InlineCode>rewrites</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> example above,
+  but instead using <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 ### Custom 404
@@ -469,8 +469,8 @@ A common pattern with single-page applications (SPAs) is to route everything tow
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
-  <InlineCode>rewrites</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> example above,
+  but instead using <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 In the example above, routing will take place based on the filesystem first, allowing for correct routing of assets and Serverless Functions, before falling back to the `index.html` file.
@@ -613,8 +613,9 @@ A common usage for `"continue": true` is to add global headers to routes, this i
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
-  <InlineCode>headers</InlineCode> and <InlineCode>rewrites</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> example above,
+  but instead using <InlineCode>headers</InlineCode> and{' '}
+  <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 In this example, `/test` would be cached for `3600`, `/blog/whatever` would be cached for `600`. It's important to note when using `continue` and headers, if a header is already set, it is overridden.
@@ -664,8 +665,9 @@ When you need to rewrite the URL without matching, you should use `"continue": t
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
-  <InlineCode>headers</InlineCode> and <InlineCode>rewrites</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> example above,
+  but instead using <InlineCode>headers</InlineCode> and{' '}
+  <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 In this example, when requesting `/test`, it will look for a response at `/src/public/test`. Any routes that follow the `dest` + `continue` route will match against the new path. For example, `/test` would match all 3 routes.
@@ -708,8 +710,9 @@ When using `rewrites`, the `.` character is considered a literal unless wrapped 
 ```
 
 <Caption>
-  The first rewrite generates a <InlineCode>json</InlineCode> file from a Serverless Function. The
-  second rewrite proxies all traffic to <InlineCode>example.com</InlineCode>.
+  The first rewrite generates a <InlineCode>json</InlineCode> file from a
+  Serverless Function. The second rewrite proxies all traffic to{' '}
+  <InlineCode>example.com</InlineCode>.
 </Caption>
 
 ### Catch-All Except
@@ -731,8 +734,8 @@ A common pattern for URL slugs is catch-all except:
 ```
 
 <Caption>
-  An equivalent example to the <InlineCode>routes</InlineCode> example above, but instead using{' '}
-  <InlineCode>rewrites</InlineCode>.
+  An equivalent example to the <InlineCode>routes</InlineCode> example above,
+  but instead using <InlineCode>rewrites</InlineCode>.
 </Caption>
 
 Anything that is not a `/` will match in `$1`. This allows `/blog/post` to work, while not allowing `/blog/post/edit`.
