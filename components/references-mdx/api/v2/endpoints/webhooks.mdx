@@ -6,7 +6,7 @@ import Request from '~/components/api/request'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/webhooks.mdx',
-  lastEdited: '2019-10-17T14:44:04.000Z'
+  lastEdited: '2019-12-10T22:32:39.987Z'
 }
 
 ## Webhooks
@@ -97,6 +97,21 @@ The webhook URL receives a HTTP POST request with a JSON payload for each event.
 Here's a list of supported event types and their payload.
 
 #### deployment
+
+Occurs whenever a deployment is created.
+
+| Key                 | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                           |
+| ------------------- | ---------------------------------------------------------- | ----------------------------------------------------- |
+| **deploymentId**    | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the deployment.                             |
+| **project**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The project name of the deployment.                   |
+| **url**             | <HelpLink href="#api-basics/types">String</HelpLink>       | The URL of the deployment.                            |
+| **plan**            | <HelpLink href="#api-basics/types">String</HelpLink>       | The plan type of the deployment. (unlimited, free)    |
+| **regions**         | <HelpLink href="#api-basics/types">List</HelpLink>         | An array of the supported regions for the deployment. |
+| **deployment.meta** | <HelpLink href="#api-basics/types">Map</HelpLink>          | A Map of deployment metadata.                         |
+
+#### deployment-ready
+
+Occurs whenever a deployment is ready.
 
 | Key                 | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                           |
 | ------------------- | ---------------------------------------------------------- | ----------------------------------------------------- |
