@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-11-19T16:08:37.000Z'
+  lastEdited: '2019-12-20T13:50:09.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` prefixed domain.
@@ -155,20 +155,34 @@ To add a redirect, select the domain you want to redirect to from the **Redirect
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/redirecting-domains.png`}
-  width={1350 / 2}
-  height={370 / 2}
+  width={1398 / 2.1}
+  height={642 / 2.1}
   shadow
 />
 <Caption>A <b>domain redirect</b> that redirects requests made to <InlineCode>www.zeit.rocks</InlineCode> to <InlineCode>zeit.rocks</InlineCode>.</Caption>
+
+## Assigning a Domain to a Git Branch
+
+Every commit pushed to the default branch of your Git repository using our [Git integration](/docs/v2/git-integration) will be assigned the Domains [configured in your project](#adding-a-domain).
+
+In order to automatically assign a Domain to a different branch, you can select it in the **Git Branch** dropdown of your Domain:
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/branch-domains.png`}
+  width={1398 / 2.1}
+  height={640 / 2.1}
+  shadow
+/>
+<Caption>A Domain that is automatically assigned to the <InlineCode>staging</InlineCode> <b>Git Branch</b>.</Caption>
 
 ## Removing a Domain
 
 To remove a domain that is assigned to your ZEIT account or team, navigate to the **Domains** tab from the Project Overview and click the **Edit** button for the domain you want to remove:
 
 <Image
-  src={`${process.env.ASSETS}/docs/custom-domains/configured-domain.png`}
-  width={1350 / 2}
-  height={210 / 2}
+  src={`${process.env.ASSETS}/docs/custom-domains/edit-domain.png`}
+  width={1400 / 2.1}
+  height={218 / 2.1}
   shadow
 />
 <Caption>A configured domain on the Project Domains page with the option to edit.</Caption>
@@ -177,8 +191,8 @@ Once the **Edit** button has been clicked, you will be presented with further op
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/remove-domain.png`}
-  width={1350 / 2}
-  height={590 / 2}
+  width={1400 / 2.1}
+  height={642 / 2.1}
   shadow
 />
 <Caption>A configured domain on the Project Domains page with the option to remove.</Caption>
