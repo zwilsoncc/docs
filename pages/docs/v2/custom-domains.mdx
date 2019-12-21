@@ -10,10 +10,10 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-12-20T13:50:09.000Z'
+  lastEdited: '2019-12-20T03:02:30.000Z'
 }
 
-By default, all deployments are assigned a `.now.sh` prefixed domain.
+By default, all deployments are assigned a `.now.sh` suffixed domain.
 
 This domain can be replaced with a **Custom Domain** of your choice. This Custom Domain can be purchased with ZEIT or a third-party.
 
@@ -177,7 +177,7 @@ In order to automatically assign a Domain to a different branch, you can select 
 
 ## Removing a Domain
 
-To remove a domain that is assigned to your ZEIT account or team, navigate to the **Domains** tab from the Project Overview and click the **Edit** button for the domain you want to remove:
+To remove a domain that is assigned to a project, navigate to the **Domains** tab from the Project Overview and click the **Edit** button for the domain you want to remove:
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/edit-domain.png`}
@@ -196,6 +196,10 @@ Once the **Edit** button has been clicked, you will be presented with further op
   shadow
 />
 <Caption>A configured domain on the Project Domains page with the option to remove.</Caption>
+
+## Moving a Domain
+
+If you own a domain, you can move it to another account or team in which you are a member using [Now CLI](https://zeit.co/docs/now-cli#commands/domains/extended-usage).
 
 ## Related
 
