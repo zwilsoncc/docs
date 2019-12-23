@@ -74,7 +74,7 @@ If you need more advanced behavior, such as a custom build step or private npm m
 
 ### Node.js Version
 
-The default Node.js version used is **10.x** but can be changed to **12.x** by defining an `engines` property in a `package.json` file like in the example below:
+The default Node.js version used is **10**, but can be changed to **12** by defining an `engines` property in a `package.json` file, like in the example below:
 
 ```json
 {
@@ -89,14 +89,17 @@ The default Node.js version used is **10.x** but can be changed to **12.x** by d
   <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-When defining an `engines` property, there are two different values that can be supplied, **10.x** - the default if the property is not defined - or **12.x**.
+When defining an `engines` property, there are various different values that can be supplied. However, all of them have to satisfy one of two [SemVer ranges](https://devhints.io/semver):
 
-The `.x` portion of the `engines` value is required by our upstream providers and cannot be changed.
+- **10.x** (The default if the property is not defined)
+- **12.x**
+
+For example, you could set the field to **12.x** directly, but also **>=12.0.0** or **>=10.0.0**, because they satisfy the same contraints.
 
 <Note type="warning">
-  The only options that can be passed are <InlineCode>10.x</InlineCode> or{' '}
-  <InlineCode>12.x</InlineCode>, passing any other value will cause your build
-  to fail.
+  Our upstream providers unfortunately do not support passing a specific version
+  like <InlineCode>12.14.0</InlineCode>. Only "more loose" values like{' '}
+  <InlineCode>12.x</InlineCode> or <InlineCode>>=12.0.0</InlineCode> will work.
 </Note>
 
 ### Node.js Dependencies
