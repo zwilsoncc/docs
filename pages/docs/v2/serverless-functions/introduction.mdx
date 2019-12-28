@@ -10,7 +10,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2019-11-25T10:20:02.000Z'
+  lastEdited: '2019-12-28T22:54:43.000Z'
 }
 
 With ZEIT Now, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -20,7 +20,7 @@ slack commands, and more.
 
 ## Creating Serverless Functions
 
-To create a Serverless Function, create a file in an `api` directory from your project root with the appropriate language extension.
+To create a Serverless Function, create a file in an `/api` directory from your project root with the appropriate language extension.
 
 <Note>
   If you are using Next.js, use the <InlineCode>/pages/api</InlineCode>{' '}
@@ -124,9 +124,17 @@ If you kept your utility functions inside of `/api/utils`, one called `date.js` 
 
 Deploying Serverless Functions with ZEIT Now gives you the ability to use path segments through file names instead of a complex routes file.
 
-Creating a file using any of the [supported languages](/docs/v2/serverless-functions/supported-languages) in the `api` directory and wrapping the filename in square brackets, such as `[name].js` will provide you with a file that takes a path segment and gives it to the function when requested with a value.
+Creating a file using any of the [supported languages](/docs/v2/serverless-functions/supported-languages) in the `/api` directory and wrapping the filename in square brackets, such as `[name].js` will provide you with a file that takes a path segment and gives it to the function when requested with a value.
 
-For example, creating a `name` directory (within `/api`) with a `[name].js` file will allow you to receive the path segment entered when accessing `/api/name/your-name`.
+<Note>
+  When using path segments, the value passed is made available to the{' '}
+  <InlineCode>req.query</InlineCode> object under the key used for the file
+  name.
+</Note>
+
+When using path segments, **any dynamic filename can be used**, this is indicated by the use of square brackets. The filename for the path segment is used solely for the purpose of providing a key name for accessing the value on the `req.query` object.
+
+For example, creating a `name` directory (within `/api`) that contains a `[name].js` file will allow you to receive the path segment entered when accessing `/api/name/your-name` on the `req.query.name` object.
 
 The following Node.js example code could then use the path segment in its functionality when requested:
 
