@@ -15,7 +15,7 @@ export const meta = {
   example: 'hugo',
   demo: 'https://hugo.now-examples.now.sh',
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
-  lastEdited: '2019-11-27T13:36:05.000Z'
+  lastEdited: '2020-01-06T14:18:45.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -74,8 +74,8 @@ You can now see your project running locally with the following command:
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
-  , the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
+  the content of your posts won't show up in production.
 </Note>
 
 ## Step 2: Deploying Your Hugo Website with ZEIT Now
@@ -110,6 +110,25 @@ With Now installed, you can deploy from your terminal with **a single command**:
 </Caption>
 
 If you want to deploy your Hugo project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/more/now-for-github), [Now for GitLab](/docs/v2/more/now-for-gitlab), or [Now for Bitbucket](/docs/v2/more/now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
+
+## Optional: Defining a Hugo Version
+
+If you want to use a specific version of Hugo, you can create a `now.json` file containing a`HUGO_VERSION` [build environment variable](/docs/v2/build-step#providing-environment-variables).
+
+```json
+{
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.61.0"
+    }
+  }
+}
+```
+
+<Caption>
+  An optional <InlineCode>now.json</InlineCode> configuration file that selects
+  Hugo version 0.61.0 for the build step.
+</Caption>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
