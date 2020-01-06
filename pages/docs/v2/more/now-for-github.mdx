@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy each change in your GitHub repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/more/now-for-github.mdx',
-  lastEdited: '2019-11-11T10:29:24.000Z'
+  lastEdited: '2020-01-06T14:54:53.000Z'
 }
 
 The Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
@@ -179,6 +179,49 @@ In order to support that, ZEIT Now will deploy your app with following built-in 
     build environment variables
   </Link>{' '}
   also.
+</Note>
+
+## Required GitHub Permissions
+
+We require some permissions through our Now for GitHub integration. Below are listed the permissions required and a description for what they are used for.
+
+### Repository Permissions
+
+Repository permissions allow us to interact with repositories belonging to or associated with (if permitted) the connected account.
+
+| Permission        | Read | Write | Description                                                                                                               |
+| ----------------- | ---- | ----- | ------------------------------------------------------------------------------------------------------------------------- |
+| `Administration`  | Y    | Y     | Allows us to create repositories on the user's behalf.                                                                    |
+| `Checks`          | Y    | Y     | Allows us to add checks against source code on push.                                                                      |
+| `Contents`        | Y    | Y     | Allows us to fetch and write source code for new project templates for the connected user or organization.                |
+| `Deployments`     | Y    | Y     | Allows us to synchronize deployment status between GitHub and the ZEIT infrastructure.                                    |
+| `Pull Requests`   | Y    | Y     | Allows us create deployments for each Pull Request (PR) and comment on those PR's with status updates.                     |
+| `Issues`          | Y    | Y     | Allows us to interact with Pull Requests as with the `Pull Requests` permissions due to GitHub requiring both for access. |
+| `Metadata`        | Y    | N     | Allows us to read basic repository metadata to provide a detailed dashboard.                                              |
+| `Web Hooks`       | Y    | Y     | Allows us to react to various GitHub events.                                                                              |
+| `Commit Statuses` | Y    | Y     | Allows us to synchronize commit status between GitHub and ZEIT.                                                            |
+
+### Organization Permissions
+
+Organization permissions allow us to offer an enhanced experience through information about the connected organization.
+
+| Permission | Read | Write | Description                                             |
+| ---------- | ---- | ----- | ------------------------------------------------------- |
+| `Members`  | Y    | N     | Allows us to offer a better team onboarding experience. |
+
+### User Permissions
+
+User permissions allow us to offer an enhanced experience through information about the connected user.
+
+| Permission        | Read | Write | Description                                            |
+| ----------------- | ---- | ----- | ------------------------------------------------------ |
+| `Email addresses` | Y    | N     | Allows us to associate an email with a GitHub account. |
+
+<Note>
+  We use the permissions above in order to provide you with the best possible
+  deployment experience. If you have any questions or concerns about any of the
+  permission scopes, please reach out to
+  [support@zeit.co](mailto:support@zeit.co).
 </Note>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
