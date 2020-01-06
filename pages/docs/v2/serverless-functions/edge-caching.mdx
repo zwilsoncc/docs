@@ -8,12 +8,12 @@ export const meta = {
   description:
     'Learn how Serverless Function responses are cached with ZEIT Now and how you can define the cache behavior.',
   editUrl: 'pages/docs/v2/serverless-functions/edge-caching.mdx',
-  lastEdited: '2019-11-01T15:20:23.000Z'
+  lastEdited: '2019-12-18T17:13:57.000Z'
 }
 
 The ZEIT Smart CDN is active for all deployments and domains on your account and caches your content at [the edge](/docs/v2/network/regions-and-providers/) to serve data to your users as fast as possible.
 
-The Smart CDN is available for both the [Free and Unlimited plans](/pricing) and can be activated for [Serverless Functions](/docs/v2/serverless-functions/introduction) by providing [`Cache-Control` headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
+The Smart CDN is available for all of our [pricing plans](/docs/v2/platform/limits#plans) (including the Free plan) and can be activated for [Serverless Functions](/docs/v2/serverless-functions/introduction) by providing [`Cache-Control` headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
 
 If `Cache-Control` headers are provided **all dynamic responses** from Serverless Functions will be cached in **all regions**.
 

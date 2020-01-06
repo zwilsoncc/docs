@@ -136,7 +136,7 @@ In the case you want to first [upload each file](#endpoints/deployments/upload-d
   "url": "my-instant-deployment-2i7mwl1a1w.now.sh",
   "name": "my-instant-deployment",
   "meta": {},
-  "plan": "unlimited",
+  "plan": "pro",
   "public": false,
   "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
   "readyState": "READY",
@@ -205,7 +205,7 @@ In the case you want to attach metadata to a new deployment, you need to pass th
     "kito": "lavender",
     "foo": "bar"
   },
-  "plan": "unlimited",
+  "plan": "pro",
   "public": false,
   "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
   "readyState": "READY",
@@ -258,7 +258,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
   "name": "my-instant-deployment",
   "meta": {},
-  "plan": "unlimited",
+  "plan": "pro",
   "public": false,
   "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
   "readyState": "READY",
@@ -311,7 +311,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   "url": "my-instant-deployment-613cx07atx.now.sh",
   "name": "my-instant-deployment",
   "meta": {},
-  "plan": "unlimited",
+  "plan": "pro",
   "public": false,
   "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
   "readyState": "READY",
@@ -385,7 +385,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
   "url": "my-instant-deployment-3ij3cxz9qr.now.sh",
   "name": "my-instant-deployment",
   "meta": {},
-  "plan": "unlimited",
+  "plan": "pro",
   "public": false,
   "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
   "readyState": "READY",
@@ -544,7 +544,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
   "name": "my-instant-deployment",
   "version": 2
   "meta": {},
-  "plan": "unlimited",
+  "plan": "pro",
   "public": false,
   "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
   "readyState": "QUEUED",
@@ -703,13 +703,13 @@ Each Build is an object with the following keys:
 
 These are the keys of the `output` Map of the Build.
 
-| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                             |
-| ---------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **type**   | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of the output. Either `lambda` or `file`.                                                                                      |
-| **path**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The absolute path of the file or Serverless Function.                                                                                   |
-| **digest** | <HelpLink href="#api-basics/types">String</HelpLink>       | The SHA1 of the file.                                                                                                                   |
-| **mode**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The POSIX file permissions.                                                                                                             |
-| **size**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The size of the file in bytes.                                                                                                          |
+| Key        | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                              |
+| ---------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **type**   | <HelpLink href="#api-basics/types">Enum</HelpLink>         | The type of the output. Either `lambda` or `file`.                                                                                       |
+| **path**   | <HelpLink href="#api-basics/types">String</HelpLink>       | The absolute path of the file or Serverless Function.                                                                                    |
+| **digest** | <HelpLink href="#api-basics/types">String</HelpLink>       | The SHA1 of the file.                                                                                                                    |
+| **mode**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The POSIX file permissions.                                                                                                              |
+| **size**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | The size of the file in bytes.                                                                                                           |
 | **lambda** | <HelpLink href="#api-basics/types">Map</HelpLink>          | If the output is a Serverless Function, it returns an object that contains `functionName`, `deployedTo`, and optional `memorySize` keys. |
 
 ##### Example Request
