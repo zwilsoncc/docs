@@ -18,12 +18,27 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-01-03T11:18:39.000Z'
+  lastEdited: '2020-01-06T11:09:53.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
 
 Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
+
+You are also able to use [environment variables](#using-environment-variables-and-secrets) (including secrets) in your builds if you do not want to hardcode values for the build.
+
+<Note>
+  If you are looking exclusively for an API only workflow, please take a look at
+  our section on{' '}
+  <Link href="/docs/v2/serverless-functions/introduction/">
+    Serverless Functions
+  </Link>
+  .
+</Note>
+
+## Optimized Frameworks
+
+A variety of frameworks have been optimized for ZEIT Now. The following list contains those frameworks that have been optimized and what has been done to aid their performance only on Now. Any getting started method will immediately be ready to deploy with [Now CLI's `now` command](/download) from the terminal, or to be deployed with a [Git integration](/docs/v2/git-integration):
 
 <Note>
   If you are using an{' '}
@@ -31,11 +46,7 @@ Now also supports optimized frameworks that only need to be created and then the
   the default output directory provided by the framework.
 </Note>
 
-You are also able to use [environment variables](#using-environment-variables-and-secrets) (including secrets) in your builds if you do not want to hardcode values for the build.
-
-## Optimized Frameworks
-
-A variety of frameworks have been optimized for ZEIT Now. The following list contains those frameworks that have been optimized and what has been done to aid their performance only on Now. Any getting started method will immediately be ready to deploy with [Now CLI's `now` command](/download) from the terminal, or to be deployed with a [Git integration](/docs/v2/git-integration):
+<br />
 
 | Framework        | Get Started Command                                 | Optimized                 |
 | ---------------- | --------------------------------------------------- | ------------------------- |
