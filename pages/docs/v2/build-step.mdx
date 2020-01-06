@@ -18,7 +18,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-01-06T11:09:53.000Z'
+  lastEdited: '2020-01-06T12:51:34.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -235,6 +235,34 @@ Alternatively, define `NPM_RC` as a [build environment variable](/docs/configura
 ### Prevent Cache Usage
 
 If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for Now CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
+
+### Framework Versioning
+
+In some cases, currently only for Hugo and Zola, you can choose which version of a framework to install for your deployments.
+
+By including [a `build.env` configuration property](/docs/configuration#project/build-env) in [a `now.json` file](/docs/configuration) at your project's root, you can define your framework's version with the following keys:
+
+| Framework | Variable Key     |
+| --------- | ---------------- |
+| Hugo      | `"HUGO_VERSION"` |
+| Zola      | `"ZOLA_VERSION"` |
+
+For example, defining the Hugo version in a `now.json` file would look like the following snippet:
+
+```json
+{
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.61.0"
+    }
+  }
+}
+```
+
+<Caption>
+  An example of defining a version for Hugo with a{' '}
+  <InlineCode>now.json</InlineCode> configuration.
+</Caption>
 
 ## Related
 
