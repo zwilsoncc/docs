@@ -74,7 +74,7 @@ If you need more advanced behavior, such as a custom build step or private npm m
 
 ### Node.js Version
 
-When creating a new project, it automatically receives the latest Node.js version available on ZEIT Now. In order to understand which Node.js version your project is using, log the output of `process.version`.
+When creating a new project, it automatically receives the latest LTS Node.js version available on ZEIT Now. In order to understand which Node.js version your project is using, log the output of `process.version`.
 
 <Note type="warning">
   Just recently, our upstream providers have deprecated support for Node.js 8. In turn, existing deployments using this version have to be upgraded to either version 10 or 12, as described above.
@@ -97,8 +97,8 @@ The available Node.js versions are either **10** or **12** and can be configured
 
 When defining an `engines` property, there are various different values that can be supplied. However, all of them have to satisfy one of two [SemVer ranges](https://devhints.io/semver):
 
-- **10.x** (The default if the property is not defined)
-- **12.x**
+- **10.x**
+- **12.x** (The default if the property is not defined)
 
 For example, you could set the field to **12.x** directly, but also **>=12.0.0** or **>=10.0.0**, because they satisfy the same contraints.
 
