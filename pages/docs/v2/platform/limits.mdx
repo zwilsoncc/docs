@@ -1,12 +1,13 @@
 import Doc from '~/components/layout/docs'
 import Limits from '~/components/limits'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Limits',
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2019-11-21T12:40:44.000Z'
+  lastEdited: '2019-12-18T17:52:45.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -18,6 +19,13 @@ This section highlights two areas relating to pricing plans, **Usage Allowances*
 ### Usage Allowances
 
 **Usage Allowances** are the maximum limits provided by each pricing plan. They specify a limit for the amount of resources available for use under that plan before deployments are blocked (Free plan) or [additional costs](/pricing) are incurred.
+
+<Note>
+  Execution time is calculated in units of 100ms. For example, 36ms will be
+  billed as 100ms and 286ms will be billed as 300ms.
+</Note>
+
+<br />
 
 | Limit                  | Free | Pro | Business | Enterprise |
 | ---------------------- | ---- | --- | -------- | ---------- |
