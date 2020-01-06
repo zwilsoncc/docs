@@ -5,7 +5,7 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 
 export const meta = {
-  title: 'Deploy Ionic with ZEIT Now',
+  title: 'Deploy Ionic React with ZEIT Now',
   description: 'Create an Ionic React app and deploy it live with ZEIT Now.',
   published: '2019-11-11T12:00:00.860Z',
   authors: ['msweeneydev'],
@@ -15,16 +15,17 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20Ionic%20Apps**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Fionic.svg',
   editUrl: 'pages/guides/deploying-ionic-react-with-zeit-now.mdx',
-  lastEdited: '2019-11-27T13:36:05.000Z'
+  lastEdited: '2019-12-20T22:44:33.000Z'
 }
 
-[Ionic](https://ionicframework.com/) is the app development platform for developers that allows you to develop for mobile and desktop with the same codebase.
+[Ionic Framework](https://ionicframework.com/docs/intro) is an open source UI toolkit for building performant, high-quality mobile and desktop apps using web technologies (HTML, CSS, and JavaScript).
+
 
 ## Step 1: Set Up Your Ionic React Project
 
-Set up an Ionic React app with [`npx`](https://www.npmjs.com/package/npx) and move into the project directory, choosing the **blank** option when presented:
+Set up an Ionic React app with [`npx`](https://www.npmjs.com/package/npx) and move into the project directory.
 
-<Snippet dark text="npx ionic start ionic-react --type react && cd ionic-react" />
+<Snippet dark text="npx ionic start [project-name] conference --type react && cd [project-name]" />
 <Caption>Initializing an Ionic app with <Link href="https://www.npmjs.com/package/npx">npx</Link> and moving into the project directory.</Caption>
 
 ## Step 2: Deploying Your Ionic React App with ZEIT Now
