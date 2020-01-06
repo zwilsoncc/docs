@@ -74,7 +74,13 @@ If you need more advanced behavior, such as a custom build step or private npm m
 
 ### Node.js Version
 
-The default Node.js version used is **10**, but can be changed to **12** by defining an `engines` property in a `package.json` file, like in the example below:
+When creating a new project, it automatically receives the latest Node.js version available on ZEIT Now. In order to understand which Node.js version your project is using, log the output of `process.version`.
+
+<Note type="warning">
+  Just recently, our upstream providers have deprecated support for Node.js 8. In turn, existing deployments using this version have to be upgraded to either version 10 or 12, as described above.
+</Note>
+
+The available Node.js versions are either **10** or **12** and can be configured by defining an `engines` property in a `package.json` file, like in the example below:
 
 ```json
 {
