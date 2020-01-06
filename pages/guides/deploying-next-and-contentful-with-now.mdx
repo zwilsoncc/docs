@@ -17,7 +17,7 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-contentful-with-now/deploying-next-contentful-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-contentful-with-now.mdx',
-  lastEdited: '2020-01-06T23:11:48.000Z'
+  lastEdited: '2020-01-06T23:41:24.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [Contentful](https://www.contentful.com/) client, before deploying **with a single command** to [ZEIT Now](/docs/v2).
@@ -125,16 +125,8 @@ const client = require('contentful').createClient({
 })
 
 function HomePage() {
-  async function fetchContentTypes() {
-    const types = await client.getContentTypes()
-    if (types.items) return types.items
-    console.log('Error getting Content Types.')
-  }
-
-  async function fetchEntriesForContentType(contentType) {
-    const entries = await client.getEntries({
-      content_type: contentType.sys.id
-    })
+  async function fetchEntries() {
+    const entries = await client.getEntries()
     if (entries.items) return entries.items
     console.log(`Error getting Entries for ${contentType.name}.`)
   }
@@ -143,8 +135,7 @@ function HomePage() {
 
   useEffect(() => {
     async function getPosts() {
-      const contentTypes = await fetchContentTypes()
-      const allPosts = await fetchEntriesForContentType(contentTypes[0])
+      const allPosts = await fetchEntries()
       setPosts([...allPosts])
     }
     getPosts()
@@ -276,38 +267,21 @@ Add a `now.json` file at the root of your project directory with the following c
   Contentful project.
 </Caption>
 
-With your `now.json` file created, you should add a `next.config.js` file at the root of your project directory with the code below:
-
-```js
-module.exports = {
-  env: {
-    SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
-    ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>next.config.js</InlineCode> file for your Next.js +
-  Contentful project.
-</Caption>
-
-The `next.config.js` file provides access to environment variables inside your Next.js app.
-
-Now, add the following build script to your `package.json` file:
+Now, add the following scripts to your `package.json` file:
 
 ```json
 {
   ...
   "scripts": {
+    "dev": "next dev",
     "build": "next build"
   }
 }
 ```
 
 <Caption>
-  Adding a build script to your <InlineCode>package.json</InlineCode> file for
-  your Next.js + Contentful project.
+  Adding <InlineCode>dev</InlineCode> and <InlineCode>build</InlineCode> scripts
+  to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
 Next, you will make your API keys available to your app during local development by creating a `.env.build` file.
