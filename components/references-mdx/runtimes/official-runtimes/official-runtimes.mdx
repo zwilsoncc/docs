@@ -77,7 +77,9 @@ If you need more advanced behavior, such as a custom build step or private npm m
 When creating a new project, it automatically receives the latest LTS Node.js version available on ZEIT Now. In order to understand which Node.js version your project is using, log the output of `process.version`.
 
 <Note type="warning">
-  Just recently, our upstream providers have deprecated support for Node.js 8. In turn, existing deployments using this version have to be upgraded to either version 10 or 12, as described above.
+  Just recently, our upstream providers have deprecated support for Node.js 8.
+  In turn, existing deployments using this version have to be upgraded to either
+  version 10 or 12, as described above.
 </Note>
 
 The available Node.js versions are either **10** or **12** and can be configured by defining an `engines` property in a `package.json` file, like in the example below:
@@ -255,6 +257,27 @@ Go version 1.x is used for Go projects deployed with ZEIT Now.
 ### Go Dependencies
 
 The Go Runtime will automatically detect a `go.mod` file to install dependencies at the root of a project.
+
+### Go Build Configuration
+
+You can provide custom build flags by using the `GO_BUILD_FLAGS` [build environment variable](/docs/v2/build-step/#using-environment-variables-and-secrets).
+
+```json
+{
+  "build": {
+    "env": {
+      "GO_BUILD_FLAGS": "-ldflags '-s -w'"
+    }
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>-ldflags</InlineCode> flag with{' '}
+  <InlineCode>-s -w</InlineCode>. This will remove debug information from the
+  output file. This is the default value when no{' '}
+  <InlineCode>GO_BUILD_FLAGS</InlineCode> are provided.
+</Caption>
 
 ---
 
