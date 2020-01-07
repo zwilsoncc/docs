@@ -220,9 +220,9 @@
     "published": "2019-08-28T19:22:52.039Z",
     "authors": ["coetry"],
     "url": "/guides/deploying-pusher-channels-with-zeit-now",
-    "image": "https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250",
+    "image": "https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250",
     "editUrl": "pages/guides/deploying-pusher-channels-with-zeit-now.mdx",
-    "lastEdited": "2019-11-05T20:55:16.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Deploy Gridsome Sites with ZEIT Now",
@@ -232,9 +232,9 @@
     "url": "/guides/deploying-gridsome-with-zeit-now",
     "example": "gridsome",
     "demo": "https://gridsome.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploying%20Gridsome%20Sites**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fgridsome.org%2Flogos%2Fonly-logo.svg&widths=auto&widths=auto",
+    "image": "https://og-image.now.sh/**Deploying%20Gridsome%20Sites**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fgridsome.org%2Flogos%2Fonly-logo.svg&widths=auto&widths=auto",
     "editUrl": "pages/guides/deploying-gridsome-with-zeit-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Gather Emails on Your Next.js Site with StaticKit and ZEIT Now",
@@ -243,8 +243,8 @@
     "authors": ["msweeneydev"],
     "url": "/guides/deploying-statickit-with-zeit-now",
     "editUrl": "pages/guides/deploying-statickit-with-zeit-now.mdx",
-    "image": "https://og-image.now.sh/**Deploy%20a%20StaticKit%20Project**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iNDYwcHgiIGhlaWdodD0iNDYwcHgiIHZpZXdCb3g9IjAgMCA0NjAgNDYwIiB2%250D%250AZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxp%250D%250Abms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBz%250D%250AdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI%2BCiAgICAgICAg%250D%250APGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwLjAwMDAwMCwgMTAwLjAwMDAwMCkiIGZpbGw9IiMw%250D%250AMDAwMDAiIGZpbGwtcnVsZT0ibm9uemVybyI%2BCiAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLDAgTDI2%250D%250AMCwwIEwyNjAsNzYuNzgxMjUgTDI2MCwyNjAgTDAsMjYwIEwwLDAgWiBNMzAsMzAgTDMwLDIzMCBM%250D%250AMjMwLDIzMCBMMjMwLDMwIEwzMCwzMCBaIj48L3BhdGg%2BCiAgICAgICAgICAgIDxwb2x5Z29uIHRy%250D%250AYW5zZm9ybT0idHJhbnNsYXRlKDEzMC4wMDAwMDAsIDEzMC4wMDAwMDApIHJvdGF0ZSgtNDUuMDAw%250D%250AMDAwKSB0cmFuc2xhdGUoLTEzMC4wMDAwMDAsIC0xMzAuMDAwMDAwKSAiIHBvaW50cz0iNzAgMTQ1%250D%250AIDE5MCAxNDUgMTkwIDExNSA3MCAxMTUiPjwvcG9seWdvbj4KICAgICAgICA8L2c%2BCiAgICA8L2c%2B%250D%250ACjwvc3ZnPgo%3D&heights=200&heights=300",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "image": "https://og-image.now.sh/**Deploy%20a%20StaticKit%20Project**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iNDYwcHgiIGhlaWdodD0iNDYwcHgiIHZpZXdCb3g9IjAgMCA0NjAgNDYwIiB2%250D%250AZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxp%250D%250Abms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBz%250D%250AdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI%2BCiAgICAgICAg%250D%250APGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAwLjAwMDAwMCwgMTAwLjAwMDAwMCkiIGZpbGw9IiMw%250D%250AMDAwMDAiIGZpbGwtcnVsZT0ibm9uemVybyI%2BCiAgICAgICAgICAgIDxwYXRoIGQ9Ik0wLDAgTDI2%250D%250AMCwwIEwyNjAsNzYuNzgxMjUgTDI2MCwyNjAgTDAsMjYwIEwwLDAgWiBNMzAsMzAgTDMwLDIzMCBM%250D%250AMjMwLDIzMCBMMjMwLDMwIEwzMCwzMCBaIj48L3BhdGg%2BCiAgICAgICAgICAgIDxwb2x5Z29uIHRy%250D%250AYW5zZm9ybT0idHJhbnNsYXRlKDEzMC4wMDAwMDAsIDEzMC4wMDAwMDApIHJvdGF0ZSgtNDUuMDAw%250D%250AMDAwKSB0cmFuc2xhdGUoLTEzMC4wMDAwMDAsIC0xMzAuMDAwMDAwKSAiIHBvaW50cz0iNzAgMTQ1%250D%250AIDE5MCAxNDUgMTkwIDExNSA3MCAxMTUiPjwvcG9seWdvbj4KICAgICAgICA8L2c%2BCiAgICA8L2c%2B%250D%250ACjwvc3ZnPgo%3D&heights=200&heights=300",
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Create a Svelte Component Library Using Storybook and Deploy It with ZEIT Now",
@@ -255,8 +255,8 @@
     "example": "storybook",
     "demo": "https://storybook.now-examples.now.sh",
     "editUrl": "pages/guides/deploying-storybook-with-zeit-now.mdx",
-    "image": "https://og-image.now.sh/**Deploy%20a%20Storybook%20Library**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1100804485616566273%2FsOct-Txm_400x400.png",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "image": "https://og-image.now.sh/**Deploy%20a%20Storybook%20Library**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1100804485616566273%2FsOct-Txm_400x400.png",
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Create and Deploy a Preact App with ZEIT Now",
@@ -267,8 +267,8 @@
     "editUrl": "pages/guides/deploying-preact-with-zeit-now.mdx",
     "example": "preact",
     "demo": "https://preact.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20a%20Preact%20App**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fwww.stickpng.com%2Fassets%2Fimages%2F584815e7cef1014c0b5e4978.png",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "image": "https://og-image.now.sh/**Deploy%20a%20Preact%20App**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fwww.stickpng.com%2Fassets%2Fimages%2F584815e7cef1014c0b5e4978.png",
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Deploying a Static Nuxt.js App with ZEIT Now",
@@ -278,9 +278,9 @@
     "url": "/guides/deploying-nuxtjs-with-zeit-now",
     "example": "nuxtjs",
     "demo": "https://nuxtjs.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20Nuxt.js%20Apps**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fnuxtjs.org%2Flogos%2Fnuxt-square.svg&widths=250&widths=300&heights=250&heights=300",
+    "image": "https://og-image.now.sh/**Deploy%20Nuxt.js%20Apps**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fnuxtjs.org%2Flogos%2Fnuxt-square.svg&widths=250&widths=300&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-nuxtjs-with-zeit-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Upgrade Your Existing ZEIT Now Projects With Zero Configuration",
@@ -355,9 +355,9 @@
     "published": "2019-05-30T03:00:00.000Z",
     "authors": ["knut"],
     "url": "/guides/deploying-sanity-studio-with-now",
-    "image": "https://og-image.now.sh/Deploy%20Sanity%20with%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg",
+    "image": "https://og-image.now.sh/Deploy%20Sanity%20with%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg",
     "editUrl": "pages/guides/deploying-sanity-studio-with-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Create and Deploy a MongoDB-Powered Node.js API with ZEIT Now",
@@ -396,9 +396,9 @@
     "url": "/guides/deploying-charge-with-now",
     "example": "charge",
     "demo": "https://charge.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20a%20Charge%20site**%20with%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fd33wubrfki0l68.cloudfront.net%2F25151dcf9878a3c40b686628cc84c9292d95ca0e%2F9e22f%2Fimages%2Flogomark.svg",
+    "image": "https://og-image.now.sh/**Deploy%20a%20Charge%20site**%20with%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fd33wubrfki0l68.cloudfront.net%2F25151dcf9878a3c40b686628cc84c9292d95ca0e%2F9e22f%2Fimages%2Flogomark.svg",
     "editUrl": "pages/guides/deploying-charge-with-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Automatic Deployments with Now for GitLab",
@@ -426,9 +426,9 @@
     "url": "/guides/deploying-angular-with-now",
     "example": "angular",
     "demo": "https://angular.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300",
+    "image": "https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-angular-with-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Create a Hugo Website and Deploy It with ZEIT Now",
@@ -438,8 +438,9 @@
     "url": "/guides/deploying-hugo-with-now",
     "example": "hugo",
     "demo": "https://hugo.now-examples.now.sh",
+    "image": "https://og-image.now.sh/**Deploying%20Hugo%20Sites**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fimg.stackshare.io%2Fservice%2F1158%2Fhugo-icon.png&widths=250&widths=300&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-hugo-with-now.mdx",
-    "lastEdited": "2020-01-06T14:18:45.000Z"
+    "lastEdited": "2020-01-07T13:30:24.000Z"
   },
   {
     "title": "Setup a Namecheap Domain with ZEIT Now",
@@ -458,9 +459,9 @@
     "url": "/guides/deploying-nextjs-with-now",
     "example": "nextjs",
     "demo": "https://nextjs.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20Serverless%20Next.js**%20with%20Now.png?theme=light&md=1&fontSize=83px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&heights=250&heights=350",
+    "image": "https://og-image.now.sh/**Deploy%20Serverless%20Next.js**%20with%20Now.png?theme=light&md=1&fontSize=83px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&heights=250&heights=350",
     "editUrl": "pages/guides/deploying-nextjs-with-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Deploy a React App with ZEIT Now and Create React App",
@@ -470,8 +471,9 @@
     "url": "/guides/deploying-react-with-now-cra",
     "example": "create-react-app-functions",
     "demo": "https://create-react-app.now-examples.now.sh",
+    "image": "https://og-image.now.sh/**Deploying%20React%20Apps**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Freact.svg&widths=250&widths=300&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-react-with-now-cra.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:30:24.000Z"
   },
   {
     "title": "Create a Gatsby Website and Deploy It with ZEIT Now",
@@ -481,8 +483,9 @@
     "url": "/guides/deploying-gatsby-with-now",
     "example": "gatsby-functions",
     "demo": "https://gatsby-functions.now-examples.now.sh",
+    "image": "https://og-image.now.sh/**Deploying%20Gatsby%20Sites**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Fgatsby.svg",
     "editUrl": "pages/guides/deploying-gatsby-with-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:30:24.000Z"
   },
   {
     "title": "Deploying a Vue.js App with ZEIT Now",
@@ -492,9 +495,9 @@
     "url": "/guides/deploying-vuejs-to-now",
     "example": "vue",
     "demo": "https://vue.now-examples.now.sh",
-    "image": "https://og-image.now.sh/**Deploy%20a%20Vue.js%20App**%20with%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Fv1551318573%2Ffront%2Fdocs%2Fogp%2Fvue-logo.svg",
+    "image": "https://og-image.now.sh/**Deploy%20a%20Vue.js%20App**%20with%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Fv1551318573%2Ffront%2Fdocs%2Fogp%2Fvue-logo.svg",
     "editUrl": "pages/guides/deploying-vuejs-to-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:16:17.000Z"
   },
   {
     "title": "Creating and Deploying a VuePress App with ZEIT Now",
@@ -504,8 +507,9 @@
     "url": "/guides/deploying-vuepress-to-now",
     "example": "vuepress",
     "demo": "https://vuepress.now-examples.now.sh",
+    "image": "https://og-image.now.sh/**Deploying%20VuePress%20Sites**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fvuepress.vuejs.org%2Fhero.png&widths=250&widths=300&heights=250&heights=300",
     "editUrl": "pages/guides/deploying-vuepress-to-now.mdx",
-    "lastEdited": "2019-11-27T13:36:05.000Z"
+    "lastEdited": "2020-01-07T13:30:24.000Z"
   },
   {
     "title": "Prevent Uploading Source Paths with `.nowignore` on ZEIT Now",
