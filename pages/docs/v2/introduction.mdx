@@ -1,23 +1,40 @@
 import Doc from '~/components/layout/docs'
+import Card from '~/components/card'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
-import Card from '~/components/card'
+import Quickstarts, { Quickstart } from '~/components/quickstarts'
+
+import { quickstarts } from '~/lib/data/v2/quickstarts'
 
 export const meta = {
   title: 'Introduction to ZEIT Now',
   description:
     'An introduction to the ZEIT Now platform and how to get started deploying any kind of application.',
   editUrl: 'pages/docs/v2/introduction.mdx',
-  lastEdited: '2019-11-01T15:20:23.000Z'
+  lastEdited: '2020-01-07T11:33:05.000Z'
 }
 
 ZEIT Now is a cloud platform for **static sites** and **Serverless Functions**. It enables developers to host websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
 
 Getting started with Now takes just a few steps and lets you get up and running with your new project in less than a minute.
 
-## Install Now CLI
+## Quickstarts
 
-To deploy with ZEIT Now, you will need to install [Now CLI](/download), a frequently updated, and [open-source](https://github.com/zeit/now), command-line interface.
+Quickstarts let you get started quickly. The following quickstarts are paired with guides and a deploy button, based on [ZEIT Now examples](https://github.com/zeit/now-examples), to help you get going with your project as fast as possible.
+
+<Quickstarts>
+  {quickstarts.map(({ name, ...quickstart }) => (
+    <Quickstart quickstart={name} {...quickstart} />
+  ))}
+</Quickstarts>
+
+## Deploying a Project Locally
+
+If you like to do things manually, you can deploy with ZEIT Now through your terminal with any local project.
+
+### Installing Now CLI
+
+To deploy with ZEIT Now through your terminal, you will need to install [Now CLI](/download), a frequently updated, and [open-source](https://github.com/zeit/now), command-line interface.
 
 You can get Now CLI from either npm or Yarn. Using npm, run the following command from your terminal:
 
@@ -37,7 +54,7 @@ With Now CLI installed, you can now login using the following command:
 />
 <Caption>Login with Now CLI from the terminal.</Caption>
 
-## Creating a Project and Deploying
+### Creating a Project and Deploying
 
 You can create a new Next.js application with the following command using either npm or Yarn:
 
