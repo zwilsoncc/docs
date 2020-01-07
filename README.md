@@ -31,7 +31,7 @@ Contributing to the ZEIT Now documentation should be an enjoyable experience, as
 
 The guidelines cover important information such as the difference between documentation and guides, how to use the provided components and where to put static assets.
 
-We have tried to make contributing to the ZEIT Now documentation as easy as possible, especially for those new to Open Source. If anything is unclear or you have any questions then please reach out to us on [ZEIT Spectrum](https://spectrum.chat/zeit) where we will do our best to help you.
+We have tried to make contributing to the ZEIT Now documentation as easy as possible, especially for those new to Open Source. If anything is unclear or you have any questions then please create an issue to discuss your contribution and how best to make it.
 
 ## Reporting Issues
 
@@ -47,4 +47,4 @@ The ZEIT Now documentation is an open source project released under the [MIT Lic
 
 ## Get In Touch
 
-If you have any questions that are not covered by raising an issue then please get in touch with us on the [ZEIT Spectrum](https://spectrum.chat/zeit). There you will find both members of the community and staff who are happy to help answer questions on anything ZEIT related.
+If you have any questions that are not covered by raising an issue then please get in touch with us by emailing support@zeit.co. There you will find both members of the community and staff who are happy to help answer questions on anything ZEIT related.
