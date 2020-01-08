@@ -49,6 +49,12 @@ export default function Quickstarts({ children }) {
         .more.expanded.finished {
           overflow: visible;
         }
+
+        @media screen and (max-width: 600px) {
+          .more.expanded {
+            max-height: ${more.length * 251}px;
+          }
+        }
       `}</style>
     </>
   )
