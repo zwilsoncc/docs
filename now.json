@@ -118,6 +118,13 @@
       }
     },
     {
+      "src": "/docs/v2/environment-variables-and-secrets/",
+      "status": 301,
+      "headers": {
+        "Location": "/docs/v2/serverless-functions/env-and-secrets/"
+      }
+    },
+    {
       "src": "/docs/v2/(deployments|advanced)/configuration(.*)",
       "status": 301,
       "headers": { "Location": "/docs/configuration$2" }
