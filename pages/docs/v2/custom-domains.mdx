@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2019-12-20T03:02:30.000Z'
+  lastEdited: '2020-01-09T12:35:21.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` suffixed domain.
@@ -161,6 +161,47 @@ To add a redirect, select the domain you want to redirect to from the **Redirect
 />
 <Caption>A <b>domain redirect</b> that redirects requests made to <InlineCode>www.zeit.rocks</InlineCode> to <InlineCode>zeit.rocks</InlineCode>.</Caption>
 
+## Moving Domains
+
+You can move domains to another profile or team using the **Domains** tab from the **ZEIT Dashboard**.
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/select-domains-tab.png`}
+  width={1224 / 2}
+  height={278 / 2}
+  shadow
+/>
+<Caption>Selecting the <b>Domains</b> tab from the ZEIT Dashboard page.</Caption>
+
+Once on the **Domains** tab, select the domain(s) you wish to move by using the checkbox next to each domain then click **Move**.
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/domains-list.png`}
+  width={1350 / 2}
+  height={492 / 2}
+  shadow
+/>
+<Caption>Selecting which domains to move from the <b>Domains</b> tab.</Caption>
+
+After selecting the domain(s) and clicking **Move**, you will be asked to confirm which profile or team you wish to move them to.
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/move-modal.png`}
+  width={840 / 2}
+  height={818 / 2}
+  shadow
+/>
+<Caption>Entering a new profile or team destination for a domain.</Caption>
+
+When selecting the input field, you will be provided with a list of teams you belong to. If the profile or team you wish to move the domain(s) to is not present, enter the `slug` value instead. You can find the `slug` value in **Settings** page for both profiles and teams.
+
+<Note type="warning">
+  When moving domains to another team or profile, they will be removed from{' '}
+  <b>all projects</b> they are currently part of.
+</Note>
+
+To confirm the change, select **Move**. The domains will be transferred to the new profile of team immediately.
+
 ## Assigning a Domain to a Git Branch
 
 Every commit pushed to the default branch of your Git repository using our [Git integration](/docs/v2/git-integration) will be assigned the Domains [configured in your project](#adding-a-domain).
@@ -196,10 +237,6 @@ Once the **Edit** button has been clicked, you will be presented with further op
   shadow
 />
 <Caption>A configured domain on the Project Domains page with the option to remove.</Caption>
-
-## Moving a Domain
-
-If you own a domain, you can move it to another account or team in which you are a member using [Now CLI](https://zeit.co/docs/now-cli#commands/domains/extended-usage).
 
 ## Related
 
