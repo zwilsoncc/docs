@@ -13,16 +13,6 @@
       "headers": { "Location": "/docs/api" }
     },
     {
-      "src": "/docs/router-status/(?<code>[^/]*)",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/network/status-codes#$code" }
-    },
-    {
-      "src": "/docs/router-status",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/network/status-codes" }
-    },
-    {
       "src": "/docs/builders",
       "status": 301,
       "headers": { "Location": "/docs/runtimes" }
