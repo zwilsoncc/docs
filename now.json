@@ -175,12 +175,16 @@
     {
       "src": "/examples(.*)",
       "status": 301,
-      "headers": { "Location": "https://github.com/zeit/now-examples" }
+      "headers": {
+        "Location": "https://github.com/zeit/now/tree/master/examples"
+      }
     },
     {
       "src": "/docs/v1/examples/.*",
       "status": 301,
-      "headers": { "Location": "https://github.com/zeit/now-examples" }
+      "headers": {
+        "Location": "https://github.com/zeit/now/tree/master/examples"
+      }
     },
     {
       "src": "/docs/other/(.*)",

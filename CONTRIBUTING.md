@@ -15,7 +15,7 @@ This document contains all the required information and links to resources neede
   - [Platform and Usage Documentation](#platform-and-usage-documentation) - information on contributing to `pages/docs`
   - [Guides](#guides) - information on contributing to `pages/guides`
   - [API Reference](#api-reference) - information on contributing to `pages/docs/api`
-  - [Examples](#examples) - information on contributing to the [now-examples](https://github.com/zeit/now-examples) repository
+  - [Examples](#examples) - information on contributing to the [examples](https://github.com/zeit/now/tree/master/examples) repository
   - [Using Components](#using-components) - how to make the most out of pre-built component library
   - [Static Assets](#static-assets) - where to put static assets and how the naming convention works
 
@@ -28,7 +28,7 @@ available at [http://contributor-covenant.org/version/1/4](http://contributor-co
 
 ## Reporting Issues
 
-If you have found a bug, spelling mistake, missing information, or anything related to the ZEIT documentation that you feel is an issue that should be reported, please create a new issue here on GitHub. For issues relating to examples, please [create an issue on the now-examples repository](https://github.com/zeit/now-examples/issues/new).
+If you have found a bug, spelling mistake, missing information, or anything related to the ZEIT documentation that you feel is an issue that should be reported, please create a new issue here on GitHub. For issues relating to examples, please [create an issue on the Now repository](https://github.com/zeit/now/issues/new).
 
 An issue can be raised by clicking the 'Issues' tab at the top of the repository, followed by the Green 'New issue' button. To make this process as easy as possible we have created a few basic templates to choose from, there are, however, often cases that will fall outside of the templates provided.
 
@@ -203,7 +203,7 @@ An example API Reference MDX file: https://github.com/zeit/docs/blob/master/page
 
 ## Examples
 
-The content for the examples section is not contained within this repository. To contribute an example, please head over to the [now-examples](https://github.com/zeit/now-examples) repository where you will find all the relevant information to do so.
+The content for the examples section is not contained within this repository. To contribute an example, please head over to the [now](https://github.com/zeit/now/) repository where you will find all the relevant information to do so.
 
 ## Using Components
 
