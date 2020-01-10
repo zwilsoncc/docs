@@ -420,7 +420,7 @@ For example, when `trailingSlash: false` the `/about/` path will redirect to `/a
   "rewrites": [
     { "source": "/about", "destination": "/about-our-company.html" },
     { "source": "/resize/:width/:height", "destination": "/api/sharp" },
-    { "source": "/user/:id", "destination": "/api/user?uid=:id" },
+    { "source": "/user/:id", "destination": "/api/user" },
     { "source": "/proxy/(.*)", "destination": "https://example.com/$1" }
   ]
 }`}</Code>
