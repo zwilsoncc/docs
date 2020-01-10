@@ -37,56 +37,46 @@ class APIPage extends Component {
     activeCategory: 'getting-started',
     activeSection: 'introduction',
     activeEntry: null,
+    activeSubEntry: null,
     navigationActive: false,
     version: this.props.router.asPath.split(/(v[0-9])/)[1] || 'v2'
   }
-
-  // componentDidMount() {
-  //   this.performFetch()
-  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (
       this.state.activeCategory !== prevState.activeCategory ||
       this.state.activeSection !== prevState.activeSection ||
-      this.state.activeEntry !== prevState.activeEntry
+      this.state.activeEntry !== prevState.activeEntry ||
+      this.state.activeSubEntry !== prevState.activeSubEntry
     ) {
       debouncedChangeHash(
         getFragment({
           category: this.state.activeCategory,
           section: this.state.activeSection,
-          entry: this.state.activeEntry
+          entry: this.state.activeEntry,
+          subEntry: this.state.activeSubEntry
         })
       )
     }
   }
 
-  // performFetch = () =>
-  //   new Promise(async resolve => {
-  //     fetchAPI(API_USER_TOKEN_TESTING, getToken(), {
-  //       throwOnHTTPError: true
-  //     })
-  //       .then(({ token }) => {
-  //         this.setState({ testingToken: token.token })
-  //       })
-  //       .catch(err => {
-  //         // eslint-disable-next-line no-console
-  //         console.error(err)
-  //       })
-
-  //     resolve()
-  //   })
-
-  updateActive = ({ category = null, section = null, entry = null }) => {
+  updateActive = ({
+    category = null,
+    section = null,
+    entry = null,
+    subEntry = null
+  }) => {
     if (
       this.state.activeCategory !== category ||
       this.state.activeSection !== section ||
-      this.state.activeEntry !== entry
+      this.state.activeEntry !== entry ||
+      this.state.activeSubEntry !== subEntry
     ) {
       this.setState({
         activeCategory: category,
         activeSection: section,
-        activeEntry: entry
+        activeEntry: entry,
+        activeSubEntry: subEntry
       })
     }
   }
@@ -95,10 +85,11 @@ class APIPage extends Component {
     href,
     category = null,
     section = null,
-    entry = null
+    entry = null,
+    subEntry = null
   }) => {
     if (this.props.router.asPath.endsWith(href)) {
-      this.updateActive({ category, section, entry })
+      this.updateActive({ category, section, entry, subEntry })
     }
   }
 
@@ -137,7 +128,8 @@ class APIPage extends Component {
     const active = {
       category: this.state.activeCategory,
       section: this.state.activeSection,
-      entry: this.state.activeEntry
+      entry: this.state.activeEntry,
+      subEntry: this.state.activeSubEntry
     }
 
     return (
@@ -225,7 +217,6 @@ class APIPage extends Component {
                             <Context.Provider
                               value={{
                                 slugs: categorySlugs,
-                                // testingToken,
                                 updateActive: this.updateActive
                               }}
                             >
@@ -247,7 +238,6 @@ class APIPage extends Component {
                                   <Context.Provider
                                     value={{
                                       slugs: sectionSlugs,
-                                      // testingToken,
                                       updateActive: this.updateActive
                                     }}
                                   >
@@ -270,12 +260,45 @@ class APIPage extends Component {
                                           <Context.Provider
                                             value={{
                                               slugs: entrySlugs,
-                                              // testingToken,
                                               updateActive: this.updateActive
                                             }}
                                           >
                                             {entry.content}
                                           </Context.Provider>
+                                          <div>
+                                            {entry.subEntries.map(subEntry => {
+                                              const subEntrySlugs = {
+                                                category: category.slug,
+                                                section: section.slug,
+                                                entry: entry.slug,
+                                                subEntry: subEntry.slug
+                                              }
+
+                                              return (
+                                                <div
+                                                  className="entry-wrapper"
+                                                  key={getFragment(
+                                                    subEntrySlugs
+                                                  )}
+                                                >
+                                                  <span
+                                                    id={getFragment(
+                                                      subEntrySlugs
+                                                    )}
+                                                  />
+                                                  <Context.Provider
+                                                    value={{
+                                                      slugs: subEntrySlugs,
+                                                      updateActive: this
+                                                        .updateActive
+                                                    }}
+                                                  >
+                                                    {subEntry.content}
+                                                  </Context.Provider>
+                                                </div>
+                                              )
+                                            })}
+                                          </div>
                                         </div>
                                       )
                                     })}
