@@ -289,7 +289,12 @@ Alternatively, [a `.ru` Rack config file](#advanced-usage/advanced-ruby-usage/ra
 
 ### Rack Interface
 
-Many Ruby frameworks interface with [Rack](https://rack.github.io/) for forwarding HTTP requests to web applications written in Ruby. You can use Rack with frameworks such as Sinatra or Rails.
+Many Ruby frameworks interface with [Rack](https://rack.github.io/) for forwarding HTTP requests to web applications written in Ruby. You can use Rack with frameworks such as Sinatra.
+
+<Note type="warning">
+  Using Rails is not recommended because it is not optimized for a serverless environment. You are likely to find
+  size or cold start limitations.
+</Note>
 
 Instead of defining a handler, write the application as usual, like this Sinatra application:
 
