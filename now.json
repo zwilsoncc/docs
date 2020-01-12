@@ -36,6 +36,11 @@
       "status": 301,
       "headers": { "Location": "/docs/v2/network/$1" }
     },
+     {
+      "src": "/docs/v2/environment-variables-and-secrets/?",
+      "status": 301,
+      "headers": { "Location": "/docs/v2/build-step/#using-environment-variables-and-secrets" }
+    },
     {
       "src": "/docs/features/(.*)",
       "status": 301,
