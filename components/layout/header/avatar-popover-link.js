@@ -21,7 +21,7 @@ export default class AvatarPopOverLink extends React.Component {
       .split('/')
       .slice(0, 2)
       .join('/')
-    const { user, sticky } = this.props
+    const { user } = this.props
 
     if (!user) return null
 
@@ -33,10 +33,10 @@ export default class AvatarPopOverLink extends React.Component {
         <PopOverLink
           noIcon
           hideOnClick
-          fixed={sticky}
+          fixed
           offsetTop={17}
           offsetLeft={-168}
-          top={sticky ? '20px' : top}
+          top={top}
           inline={false}
           ref={ref => (this.popover = ref)}
           to={
