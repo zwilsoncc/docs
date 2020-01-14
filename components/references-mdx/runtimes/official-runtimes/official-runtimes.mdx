@@ -74,15 +74,11 @@ If you need more advanced behavior, such as a custom build step or private npm m
 
 ### Node.js Version
 
-When creating a new project, it automatically receives the latest LTS Node.js version available on ZEIT Now. In order to understand which Node.js version your project is using, log the output of `process.version`.
+When creating a new deployment, it automatically receives the latest LTS Node.js version available on ZEIT Now at that point in time (run `node -v` to understand which one).
 
-<Note type="warning">
-  Just recently, our upstream providers have deprecated support for Node.js 8.
-  In turn, existing deployments using this version have to be upgraded to either
-  version 10 or 12, as described above.
-</Note>
+In order to customize it, add a `package.json` file with an `engines` field.
 
-The available Node.js versions are either **10** or **12** and can be configured by defining an `engines` property in a `package.json` file, like in the example below:
+The available Node.js versions are either **10**, or **12**, and can be configured like so:
 
 ```json
 {
