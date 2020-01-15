@@ -1,3 +1,6 @@
+import css from 'styled-jsx/css'
+
+export default css`
 :root {
   /* Themed Color Defaults */
   --themed-bg: var(--geist-background);
@@ -89,3 +92,4 @@
   --themed-bg: transparent;
   --themed-border: transparent;
 }
+`

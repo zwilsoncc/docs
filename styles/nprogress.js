@@ -1,3 +1,6 @@
+import css from 'styled-jsx/css'
+
+export default css.global`
 #nprogress {
   pointer-events: none;
 }
@@ -18,3 +21,4 @@
 #nprogress .peg {
   box-shadow: 0 0 10px var(--geist-foreground), 0 0 5px var(--geist-foreground);
 }
+`

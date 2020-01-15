@@ -1,3 +1,6 @@
+import css from 'styled-jsx/css'
+
+export default css.global`
 :root {
   /* Spacing variables */
   --geist-gap: 16pt;
@@ -141,10 +144,10 @@ hr.geist-hr-reset {
 
 a.geist-secondary-link {
   line-height: normal;
-  text-decoration-line: underline !important;
-  text-decoration-style: dashed !important;
-  text-decoration-color: var(--accents-3) !important;
-  text-decoration-skip-ink: none !important;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--accents-3);
+  text-decoration-skip-ink: none;
   transition: color 0.15s ease;
 }
 
@@ -155,7 +158,7 @@ a.geist-secondary-link:hover {
 /* Media Queries */
 @media screen and (min-width: 601px) {
   .geist-show-on-mobile {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -164,23 +167,23 @@ a.geist-secondary-link:hover {
     text-align: center;
   }
   .geist-hide-on-mobile {
-    display: none !important;
+    display: none;
   }
   .geist-overflow-reset-mobile {
-    overflow: initial !important;
-    -webkit-overflow-scrolling: initial !important;
+    overflow: initial;
+    -webkit-overflow-scrolling: initial;
   }
 }
 
 @media screen and (min-width: 961px) {
   .geist-show-on-tablet {
-    display: none !important;
+    display: none;
   }
 }
 
 @media screen and (max-width: 960px) {
   .geist-hide-on-tablet {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -263,3 +266,4 @@ a.geist-secondary-link:hover {
   opacity: 0.01;
   transition: opacity .2s ease;
 }
+`
