@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-export default css`
+export default css.global`
 :root {
   /* Themed Color Defaults */
   --themed-bg: var(--geist-background);
