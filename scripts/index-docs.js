@@ -107,7 +107,10 @@ async function main() {
         // If the element is a paragraph, create the record using available information, including the current heading, and push it to the index array.
 
         // Infer URL from filepath
-        const url = `/${file.replace('dist/', '').replace('/index.html', '')}`
+        const url = `/${file
+          .replace('dist/', '')
+          .replace('/index.html', '')
+          .replace('.html', '')}`
 
         // Create record with title, (if it exists) section heading, url (inferred), paragraph content, and order
         const record = {
