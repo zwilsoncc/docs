@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-01-16T15:46:49.000Z'
+  lastEdited: '2020-01-16T18:43:54.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -92,6 +92,10 @@ If you require a limit above `1000`, you should [contact our enterprise departme
 It is possible to deploy [Serverless Functions](/docs/v2/serverless-functions/introduction/) to multiple regions, however this featured is limited to [paid plans](/pricing).
 
 When attempting to deploy Serverless Functions to multiple regions on the Free plan, the deployment will fail before entering the [build step](/docs/v2/build-step/).
+
+## Streaming Responses
+
+ZEIT Now does not support streaming responses from Serverless Functions due to an upstream limitation from AWS.
 
 ## Reserved Variables
 
