@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2020-01-09T12:35:21.000Z'
+  lastEdited: '2020-01-16T18:58:02.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` suffixed domain.
@@ -61,13 +61,13 @@ From the **Project Domains** page, enter the domain you wish to add to the proje
 
 ### Step 4: Configuring the Domain
 
-Once the domain has been added, you will be presented with different methods for configuring it, depending on whether it is an **apex domain** (zeit.co) or **subdomain** (docs.zeit.co).
+Once the domain has been added, you will be presented with different methods for configuring it, depending on whether it is an [**apex domain**](/docs/v2/platform/glossary#apex-domain) (zeit.co) or **subdomain** (docs.zeit.co).
 
 Both domain types can be configured using the **Nameservers** method, however **apex domains** also allow for verification via the **ANAME** record, whilst **subdomains** allow for verification via the **CNAME** record.
 
 #### Apex Domains
 
-You can configure apex domains either through the **Nameservers** or **ANAME** methods.
+You can configure [apex domains](/docs/v2/platform/glossary#apex-domain) either through the **Nameservers** or **ANAME** methods.
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/configure-apex-domain.png`}
