@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2019-12-18T17:52:45.000Z'
+  lastEdited: '2020-01-16T15:46:49.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -86,6 +86,12 @@ As a result of this, we recommend using a third-party service to enable email fu
 The maximum number of concurrent executions for a [Serverless Function](/docs/v2/serverless-functions/introduction/) is `1000`.
 
 If you require a limit above `1000`, you should [contact our enterprise department](mailto:sales@zeit.co) to discuss custom limits available on an enterprise plan.
+
+## Serverless Function Regions
+
+It is possible to deploy [Serverless Functions](/docs/v2/serverless-functions/introduction/) to multiple regions, however this featured is limited to [paid plans](/pricing).
+
+When attempting to deploy Serverless Functions to multiple regions on the Free plan, the deployment will fail before entering the [build step](/docs/v2/build-step/).
 
 ## Reserved Variables
 
