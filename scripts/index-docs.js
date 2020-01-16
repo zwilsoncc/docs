@@ -110,7 +110,8 @@ async function main() {
         const url = `/${file
           .replace('dist/', '')
           .replace('/index.html', '')
-          .replace('.amp.html', '')}`
+          .replace('.amp', '')
+          .replace('.html', '')}`
 
         // Create record with title, (if it exists) section heading, url (inferred), paragraph content, and order
         const record = {
