@@ -343,9 +343,11 @@ For example, define a `index.rb` file inside a `/api` directory as follows:
 require 'cowsay'
 
 Handler = Proc.new do |req, res|
-    res.status = 200
-    res['Content-Type'] = 'text/plain'
-    res.body = Cowsay.say('hello world', 'cow')
+  name = req.query['name'] || 'World'
+
+  res.status = 200
+  res['Content-Type'] = 'text/plain'
+  res.body = Cowsay.say("Hello #{name}", 'cow')
 end
 ```
 
@@ -364,7 +366,7 @@ gem "cowsay", "~> 0.3.0"
 
 <Caption>
   An example <InlineCode>Gemfile</InlineCode> file that defines{' '}
-  <InlineCode>cowpy</InlineCode> as a dependency.
+  <InlineCode>cowsay</InlineCode> as a dependency.
 </Caption>
 
 For advanced usage, such as using a Rack Interface for your Ruby projects, see the [Advanced Ruby Usage section](#advanced-usage/advanced-ruby-usage).
