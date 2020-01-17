@@ -302,7 +302,7 @@ Instead of defining a handler, write the application as usual, like this Sinatra
 require 'sinatra'
 
 get '/*' do
-    'Hello world'
+  'Hello world'
 end
 ```
 
@@ -326,13 +326,27 @@ gem "rack", "~> 2.0"
 Add a Rack config file at `index.ru` to start the application:
 
 ```ruby
-require './app'
+require_relative 'app'
 
 run Sinatra::Application
 ```
 
 <Caption>
   An example <InlineCode>index.ru</InlineCode> file.
+</Caption>
+
+```js
+{
+  "functions": {
+    "api/**/*.ru": {
+      "runtime": "@now/ruby@1.0.1"
+    }
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>now.json</InlineCode> that uses the Ruby Runtime for all files with a <InlineCode>.ru</InlineCode> suffix.
 </Caption>
 
 ---
