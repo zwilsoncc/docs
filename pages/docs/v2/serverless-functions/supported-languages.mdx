@@ -168,10 +168,9 @@ For example, the following would live in `api/date.rb`:
 
 ```rb
 Handler = Proc.new do |req, res|
-    time = Time.new
-    res.status = 200
-    res['Content-Type'] = 'text/plain'
-    res.body = "Current Time: " + time.inspect
+  res.status = 200
+  res['Content-Type'] = 'text/plain'
+  res.body = "Current Time: #{Time.new}"
 end
 ```
 
