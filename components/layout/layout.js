@@ -1,17 +1,8 @@
 import React from 'react'
-import { useAmp } from 'next/amp'
 import Page from '~/components/layout/page'
-import Header from '~/components/layout/header'
-import { UserContext } from '~/lib/user-context'
 import { ZenContext } from '~/lib/zen-context'
-import UseTeamInfo from '~/lib/use-team-info'
 import { withToasts } from '~/components/toasts'
 import * as bodyLocker from '~/lib/utils/body-locker'
-
-const LayoutHeader = React.memo(props => {
-  const isAmp = useAmp()
-  return <Header {...props} isAmp={isAmp} />
-})
 
 class Layout extends React.Component {
   static contextType = ZenContext
@@ -83,9 +74,9 @@ class Layout extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll.bind(this))
     document.removeEventListener('keydown', this.onKeyDown.bind(this), false)
     document.removeEventListener('keyUp', this.onKeyUp.bind(this), false)
+    window.removeEventListener('scroll', this.onScroll.bind(this))
   }
 
   handleToggleNavigation = () => {
@@ -109,41 +100,10 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children, dynamicSearch, data } = this.props
-    const { scrollPosition, scrollDirection } = this.state
-
-    const hideHeader =
-      scrollDirection === 'down' && scrollPosition > 0 ? true : false
-    const detached = scrollPosition > 0
+    const { children } = this.props
 
     return (
       <Page>
-        <UserContext.Consumer>
-          {({ user, userLoaded }) => (
-            <UseTeamInfo
-              user={user}
-              render={({ teams }) => (
-                <LayoutHeader
-                  hideHeader={hideHeader}
-                  detached={detached}
-                  inHero={scrollPosition < 334}
-                  isTop={scrollPosition <= 0}
-                  hideHeaderSearch={dynamicSearch && scrollPosition < 334}
-                  dynamicSearch={dynamicSearch}
-                  onToggleNavigation={this.handleToggleNavigation}
-                  user={user}
-                  teams={teams}
-                  userLoaded={userLoaded}
-                  navigationActive={this.state.navigationActive}
-                  handleIndexClick={this.handleIndexClick}
-                  zenModeActive={this.state.zenModeActive}
-                  exitZenMode={this.exitZenMode}
-                  data={data}
-                />
-              )}
-            />
-          )}
-        </UserContext.Consumer>
         <ZenContext.Provider value={this.state.zenModeActive}>
           {children}
         </ZenContext.Provider>

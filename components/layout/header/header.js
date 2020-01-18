@@ -349,9 +349,9 @@ class Header extends Component {
               </div>
 
               <div className="right-nav">
-                <Navigation className="user-navigation">
-                  <AmpUserFeedback />
-                  {!zenModeActive && userLoaded && (
+                {!zenModeActive && userLoaded && (
+                  <Navigation className="user-navigation">
+                    <AmpUserFeedback />
                     <Fragment>
                       {!user ? (
                         <Fragment>
@@ -387,8 +387,8 @@ class Header extends Component {
                         </Fragment>
                       )}
                     </Fragment>
-                  )}
-                </Navigation>
+                  </Navigation>
+                )}
                 <div className="menu-arrow" onClick={onToggleNavigation}>
                   <MenuToggle expanded={navigationActive} />
                 </div>
@@ -604,7 +604,6 @@ class Header extends Component {
           }
 
           :global(.header .user-navigation) {
-            padding-right: 0;
           }
 
           @keyframes load {
@@ -619,6 +618,7 @@ class Header extends Component {
           :global(.header .user-navigation) {
             animation-name: load;
             animation-duration: 1s;
+            padding-right: 0;
           }
 
           .avatar-wrapper {
