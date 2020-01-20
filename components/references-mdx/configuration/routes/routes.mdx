@@ -19,10 +19,9 @@ export const meta = {
   <Link href="/docs/configuration#project/headers">headers</Link>,{' '}
   <Link href="/docs/configuration#project/cleanurls">cleanUrls</Link>, and{' '}
   <Link href="/docs/configuration#project/trailingslash">trailingSlash</Link>{' '}
-  for a better experience. However, their feature set is still being
-  improved, so you may use{' '}
-  <Link href="/docs/configuration#project/routes">routes</Link> if they suit your
-  needs better.
+  for a better experience. However, their feature set is still being improved,
+  so you may use <Link href="/docs/configuration#project/routes">routes</Link>{' '}
+  if they suit your needs better.
 </Note>
 
 ZEIT Now uses Routes to define the behavior of how a request is handled by the routing layer. For example, you might use a Route to proxy a URL to another, redirect a client, or apply a header with the response to a request.
@@ -73,7 +72,7 @@ The following example shows a `now.json` configuration that takes a `src` path a
 
 **Type**: String
 
-`dest` is used to proxy the [`src`](#src) path to another path, such as another URL or Now hosted Serverless Function.
+`dest` is used to proxy the [`src`](#src) path to another path, such as another URL or ZEIT Now hosted Serverless Function.
 
 [The example for the `src` property](#src) shows how both methods work together to create a proxy.
 
@@ -90,9 +89,9 @@ The following example shows a `now.json` configuration that takes a `src` path a
 </Caption>
 
 <Note>
-  You can point the <InlineCode>dest</InlineCode> path to any URL, Now hosted
-  Serverless Function, or even non-Now hosted URLs as shown in the code above.
-  If you don't perform any proxying, you can safely remove{' '}
+  You can point the <InlineCode>dest</InlineCode> path to any URL, ZEIT Now
+  hosted Serverless Function, or even non ZEIT Now hosted URLs as shown in the
+  code above. If you don't perform any proxying, you can safely remove{' '}
   <InlineCode>dest</InlineCode>.
 </Note>
 
@@ -168,7 +167,7 @@ For example, you can use this property in combination with [the `headers` proper
 
 **Type**: Integer
 
-The `status` property defines the status code that Now should respond with when a path is requested.
+The `status` property defines the status code that ZEIT Now should respond with when a path is requested.
 
 For example, you can use this property in combination with [the `headers` property](#headers) to create a redirect with the initial status code of 308 (Moved Permanently).
 
@@ -193,7 +192,7 @@ For example, you can use this property in combination with [the `headers` proper
 
 <Note>
   In a redirect case as shown above, the <InlineCode>Location</InlineCode>{' '}
-  property can also point to non-Now hosted URLs.
+  property can also point to non ZEIT Now hosted URLs.
 </Note>
 
 Read more about redirecting your `www.` subdomain to your root domain in the [custom domains documentation](/docs/v2/custom-domains/#redirecting-domains).
@@ -227,7 +226,7 @@ As an example, you can use this property when you have an API endpoint and only 
   The above example uses the{' '}
   <Link href="/docs/runtimes#official-builders/node-js">@now/node</Link> Runtime
   as an example of a <InlineCode>now.json</InlineCode> configuration that tells
-  Now to build JavaScript files with Node.js and outputs them as{' '}
+  ZEIT Now to build JavaScript files with Node.js and outputs them as{' '}
   <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
   </Link>

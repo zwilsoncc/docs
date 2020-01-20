@@ -108,7 +108,7 @@ class Head extends React.PureComponent {
               this.props.image ||
               `https://og-image.now.sh/${encodeURIComponent(
                 this.props.ogTitle || this.props.title
-              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnow-black.svg`
+              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg`
             }
           />
           {this.props.image ? (

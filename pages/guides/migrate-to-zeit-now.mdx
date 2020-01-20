@@ -13,7 +13,7 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/migrate-to-zeit-now',
   editUrl: 'pages/guides/migrate-to-zeit-now.mdx',
-  lastEdited: '2019-11-05T13:14:41.000Z'
+  lastEdited: '2020-01-20T21:51:41.000Z'
 }
 
 This guide highlights a set of common scenarios and how they are deployed with ZEIT Now.
@@ -41,7 +41,7 @@ When your project uses this method to build a frontend framework, you can deploy
 
 <Snippet dark text="now" />
 
-Next, [setup a Now for Git integration](/docs/v2/git-integration) to deploy your projects automatically on each push, and add a [custom domain](/docs/v2/custom-domains) to deploy your projects to.
+Next, [setup a ZEIT Now for Git integration](/docs/v2/git-integration) to deploy your projects automatically on each push, and add a [custom domain](/docs/v2/custom-domains) to deploy your projects to.
 
 ## Serverful vs. Serverless APIs
 
@@ -73,7 +73,7 @@ When a path is requested, the Serverless Function for that path is [invoked](/do
 
 #### Step 1: Creating an API Directory
 
-The only requirement for Serverless Functions on Now, without advanced configuration, is that you place your files inside of an `/api` directory. By doing this, Now will be able to handle both the routing and building of these files – dramatically simplifying the process of developing an API.
+The only requirement for Serverless Functions on ZEIT Now, without advanced configuration, is that you place your files inside of an `/api` directory. By doing this, ZEIT Now will be able to handle both the routing and building of these files – dramatically simplifying the process of developing an API.
 
 When using the `/api` directory, routing is based on the filesystem, making it easy to keep track of endpoints simply by looking at the file tree. For example, the file `/api/teams/zeit.js` would be available at the endpoint `/api/teams/zeit`.
 
@@ -138,7 +138,7 @@ module.exports = (req, res) => {
 
 #### Bonus: Dynamic Routes
 
-Using route parameters with your Serverless Functions is made easy with Now. Let's first take a look at another serverful Express.js example that uses a dynamic route.
+Using route parameters with your Serverless Functions is made easy with ZEIT Now. Let's first take a look at another serverful Express.js example that uses a dynamic route.
 
 ```js
 app.get('/teams/:member', function(req, res) {
@@ -153,11 +153,11 @@ app.get('/teams/:member', function(req, res) {
 
 The above route uses the route parameter _member_, with Express.js making it available as part of the `req.query` object.
 
-To convert this route for use inside of the `/api` directory with Now, we will once again place it inside the `/teams` directory. However, this time we will name it `[member].js` - this is called a _Path Segment_.
+To convert this route for use inside of the `/api` directory with ZEIT Now, we will once again place it inside the `/teams` directory. However, this time we will name it `[member].js` - this is called a _Path Segment_.
 
 Path Segments allow your endpoints to receive route parameters and, just like Express, they are made available on the `req.query` object with the key specified in the filename.
 
-Taking this into account, we can convert the above Express route for Now with the following code:
+Taking this into account, we can convert the above Express route for ZEIT Now with the following code:
 
 ```js
 // api/teams/[member].js

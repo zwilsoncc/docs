@@ -18,12 +18,12 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-01-08T22:17:44.000Z'
+  lastEdited: '2020-01-20T21:51:41.000Z'
 }
 
-When you make a deployment with ZEIT Now, the first step is the build step. Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
+When you make a deployment with ZEIT Now, the first step is the build step. ZEIT Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
 
-Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
+ZEIT Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
 
 You are also able to use [environment variables](#using-environment-variables-and-secrets) (including secrets) in your builds if you do not want to hardcode values for the build.
 
@@ -38,7 +38,7 @@ You are also able to use [environment variables](#using-environment-variables-an
 
 ## Optimized Frameworks
 
-A variety of frameworks have been optimized for ZEIT Now. The following list contains those frameworks that have been optimized and what has been done to aid their performance only on Now. Any getting started method will immediately be ready to deploy with [Now CLI's `now` command](/download) from the terminal, or to be deployed with a [Git integration](/docs/v2/git-integration):
+A variety of frameworks have been optimized for ZEIT Now. The following list contains those frameworks that have been optimized and what has been done to aid their performance only on ZEIT Now. Any getting started method will immediately be ready to deploy with [Now CLI's `now` command](/download) from the terminal, or to be deployed with a [Git integration](/docs/v2/git-integration):
 
 <Note>
   If you are using an{' '}
@@ -69,7 +69,7 @@ A variety of frameworks have been optimized for ZEIT Now. The following list con
 
 ## Defining a Build Script
 
-To build your project, Now looks for a `build` script inside of a `package.json` file. By providing a build script, Now will build your project from fresh on every deployment.
+To build your project, ZEIT Now looks for a `build` script inside of a `package.json` file. By providing a build script, ZEIT Now will build your project from fresh on every deployment.
 
 For example, to build Next.js fresh, each time you deploy, the following `build` script should be placed in the `package.json`:
 

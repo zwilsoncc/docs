@@ -17,7 +17,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20a%20Charge%20site**%20with%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fd33wubrfki0l68.cloudfront.net%2F25151dcf9878a3c40b686628cc84c9292d95ca0e%2F9e22f%2Fimages%2Flogomark.svg',
   editUrl: 'pages/guides/deploying-charge-with-now.mdx',
-  lastEdited: '2020-01-07T13:16:17.000Z'
+  lastEdited: '2020-01-20T20:40:45.000Z'
 }
 
 [Charge](https://charge.js.org/) is an opinionated, zero-config static site generator written in JavaScript. Charge is fast, simple and behaves the way you expect it to.
@@ -176,15 +176,15 @@ export default () => {
   that imports the About content component and uses it in the page.
 </Caption>
 
-Now that you have a simple Charge site created, you're ready to deploy with [Now](/docs/v2).
+Now that you have a simple Charge site created, you're ready to deploy with [ZEIT Now](/docs/v2).
 
 ## Step 3: Deploy Your Charge Project with ZEIT Now
 
 The last step is to deploy the app with [ZEIT Now](/docs/v2/getting-started/introduction-to-now).
 
-If you have not yet installed Now, you can do so by [installing Now CLI](/download).
+If you have not yet installed ZEIT Now, you can do so by [installing Now CLI](/download).
 
-Now allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command**:
+ZEIT Now allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command**:
 
 <Snippet dark text="now" />
 
@@ -195,12 +195,12 @@ Now allows you to [deploy your project](/docs/v2/deployments/basics) from the te
 You will see a short build step in your terminal followed by the news that your Charge project has now been [deployed](https://zeit.co/docs/v2/deployments/basics/), it should look similar to this: <https://charge.now-examples.now.sh/>
 
 <Note>
-  By default, Now will cache static assets in every{' '}
+  By default, ZEIT Now will cache static assets in every{' '}
   <Link href="/docs/v2/platform/regions-and-providers">region</Link>, making
   your site fast to load wherever you are in the world.
 </Note>
 
-If you want to deploy your Charge project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/more/now-for-github), [Now for GitLab](/docs/v2/more/now-for-gitlab), or [Now for Bitbucket](/docs/v2/more/now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
+If you want to deploy your Charge project when you push to a Git repository, you can use either [ZEIT Now for GitHub](/docs/v2/more/now-for-github), [ZEIT Now for GitLab](/docs/v2/more/now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/more/now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

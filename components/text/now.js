@@ -3,7 +3,7 @@ export default function Now(props) {
 
   return (
     <span className="now" style={{ color }}>
-      Now
+      ZEIT Now
       <style jsx>
         {`
           span span {

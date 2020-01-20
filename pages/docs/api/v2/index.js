@@ -144,8 +144,8 @@ class APIPage extends Component {
       >
         <Layout>
           <Head
-            description="A comprehensive guide to using the Now API and gaining control over the Now platform"
-            title={`Now API Documentation`}
+            description="A comprehensive guide to using the ZEIT Now API and gaining control over the ZEIT Now platform."
+            title={`ZEIT Now API Documentation`}
             titlePrefix=""
             titleSuffix=" - ZEIT"
           />

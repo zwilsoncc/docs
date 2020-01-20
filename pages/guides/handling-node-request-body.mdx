@@ -14,10 +14,10 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/handling-node-request-body',
   editUrl: 'pages/guides/handling-node-request-body.mdx',
-  lastEdited: '2019-11-09T00:06:30.000Z'
+  lastEdited: '2020-01-20T21:51:41.000Z'
 }
 
-In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [Now](/now), without requiring a framework such as Express.
+In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [ZEIT Now](/now), without requiring a framework such as Express.
 
 This guide assumes the request is sent with a [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of [`application/json`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON). However, many more content types can be parsed if required.
 
@@ -52,7 +52,7 @@ module.exports = async (req, res) => {
 
 This function takes a POST request, parses the body, and uses data from the body in the response.
 
-The key part here is line 2. [Now](/now) adds a number of Express like [helper properties](/docs/v2/deployments/official-runtimes/node-js-now-node/#helpers) to make wording with Node.js even easier.
+The key part here is line 2. [ZEIT Now](/now) adds a number of Express like [helper properties](/docs/v2/deployments/official-runtimes/node-js-now-node/#helpers) to make wording with Node.js even easier.
 
 <Note>
   You can read more about{' '}
@@ -70,7 +70,7 @@ With the `req.body` helper, the incoming `request` is parsed automatically, remo
 
 ## Step 2: Deploying the Function
 
-Deploying your function to [Now](/now) can be done with **a single command**:
+Deploying your function to [ZEIT Now](/now) can be done with **a single command**:
 
 <Snippet dark text="now" />
 <Caption>
@@ -109,7 +109,7 @@ You will receive a response similar to the following:
     An example response from making a POST request.
 </Caption>
 
-Congratulations, now you know how to parse request bodies with [Now](/now) in Node.js!
+Congratulations, now you know how to parse request bodies with [ZEIT Now](/now) in Node.js!
 
 ## Bonus: Understanding Why this Works
 

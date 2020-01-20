@@ -12,7 +12,7 @@ const example = {
   name: 'simple-now-deployment',
   files: {
     'pages/index.js':
-      'export default () => (\n  <section>\n    <h1>Welcome to Now!</h1>\n    <p>To test the API, <a href="/api/date">check todays date</a>.</p>\n  </section> \n);',
+      'export default () => (\n  <section>\n    <h1>Welcome to ZEIT Now!</h1>\n    <p>To test the API, <a href="/api/date">check todays date</a>.</p>\n  </section> \n);',
     'api/date.js':
       'module.exports = (req, res) => {\n  res.send(new Date());\n};',
     'package.json':

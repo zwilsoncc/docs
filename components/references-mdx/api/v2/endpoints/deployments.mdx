@@ -26,7 +26,7 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | ------------- | ---------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**      | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A string with the project name used in the deployment URL. The name string has a max length of `52` characters.                                                                                                                 |
 | **files**     | <HelpLink href="#api-basics/types">List</HelpLink>         | Yes      | A list of objects with the files to be deployed.                                                                                                                                                                                |
-| **version**   | <HelpLink href="#api-basics/types">Integer</HelpLink>      | Yes      | The version of Now Platform to use. Must have the value of `2`.                                                                                                                                                                 |
+| **version**   | <HelpLink href="#api-basics/types">Integer</HelpLink>      | Yes      | The version of ZEIT Now Platform to use. Must have the value of `2`.                                                                                                                                                            |
 | **meta**      | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's metadata. Multiple key-value pairs can be attached to a deployment. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                               |
 | **env**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values. _Secrets can be referenced by prefixing the value with `@`_.                                                                                       |
 | **build.env** | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values to be passed to Builds. _Secrets can be referenced by prefixing the value with `@`_.                                                                |
@@ -82,7 +82,7 @@ In the case you want to inline each file inside the create deployment request ea
       {
         file: 'index.html',
         data:
-          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
+          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ZEIT Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
       }
     ]
   }}
@@ -245,7 +245,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
       {
         file: 'index.html',
         data:
-          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
+          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ZEIT Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
       }
     ]
   }}
@@ -296,7 +296,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
       {
         file: 'index.html',
         data:
-          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
+          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ZEIT Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
       }
     ]
   }}
@@ -339,7 +339,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 | **url**           | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                                                |
 | **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
 | **meta**          | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
-| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated with.                                                                                                                                               |
+| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The ZEIT Now platform version the deployment is associated with.                                                                                                                                          |
 | **regions**       | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
 | **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
 | **functions**     | <HelpLink href="#api-basics/types">Map</HelpLink>          | A list of objects used to configure your Serverless Functions. For example, <InlineCode noWrap>{ "api/test.js": { "memory": 3008 } }</InlineCode>.                                                        |
@@ -372,7 +372,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
       {
         file: 'index.html',
         data:
-          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
+          '<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ZEIT Now API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">ZEIT&apos;s Now API</a>!</p>\n    </body>\n</html>'
       }
     ]
   }}
@@ -448,7 +448,7 @@ The file content must be placed inside the body of the request. In the case of a
     <title>My Instant Deployment</title>\n
   </head>\n
   <body>\n
-    &nbsp;<h1>My Instant Now Deployment</h1>\n
+    &nbsp;<h1>My Instant ZEIT Now Deployment</h1>\n
     <p>Hello world!</p>\n
   </body>
 </html>
@@ -511,7 +511,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 | **url**           | <HelpLink href="#api-basics/types">String</HelpLink>       | A string with the unique URL of the deployment. If it hasn't finished uploading (is incomplete), the value will be `null`.                                                     |
 | **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                    |
 | **meta**          | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                        |
-| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The Now platform version the deployment is associated with.                                                                                                                    |
+| **version**       | <HelpLink href="#api-basics/types">Integer</HelpLink>      | The ZEIT Now platform version the deployment is associated with.                                                                                                               |
 | **regions**       | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                             |
 | **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.         |
 | **functions**     | <HelpLink href="#api-basics/types">Map</HelpLink>          | A list of objects used to configure your Serverless Functions. For example, <InlineCode noWrap>{ "api/test.js": { "memory": 3008 } }</InlineCode>.                             |
@@ -669,7 +669,7 @@ The body will contain the raw content of the file.
  <title>My Instant Deployment</title>
  </head>
  <body>
- <h1>My Instant Now Deployment</h1>
+ <h1>My Instant ZEIT Now Deployment</h1>
  <p>Hello world!</p>
  </body>
 </html>`}</Code>

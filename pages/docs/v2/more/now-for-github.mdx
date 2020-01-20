@@ -6,16 +6,16 @@ import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 
 export const meta = {
-  title: 'Now for GitHub',
+  title: 'ZEIT Now for GitHub',
   description:
     'Deploy each change in your GitHub repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/more/now-for-github.mdx',
-  lastEdited: '2020-01-08T09:34:16.000Z'
+  lastEdited: '2020-01-20T20:40:45.000Z'
 }
 
-The Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
+The ZEIT Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
 
-The Now for GitHub integration features:
+The ZEIT Now for GitHub integration features:
 
 - Deploys every push in branches and pull requests to preview changes live
 - Updates production domains with the most recent changes from the master branch
@@ -26,18 +26,18 @@ src={`${process.env.IMAGE_ASSETS_URL}/blog/now-for-github/ci.png`}
 width={581}
 height={185}
 />
-<Caption>Now for GitHub providing a deployment for a GitHub pull request.</Caption>
+<Caption>ZEIT Now for GitHub providing a deployment for a GitHub pull request.</Caption>
 
 ## Connecting the App to Your GitHub Account or Organization
 
-Now for GitHub is directly connected with your ZEIT account and can be linked from within your [account](/account) or team settings. Within the settings page under the "General" tab, the first section will offer for you to install Now for GitHub if it is not already installed.
+ZEIT Now for GitHub is directly connected with your ZEIT account and can be linked from within your [account](/account) or team settings. Within the settings page under the "General" tab, the first section will offer for you to install ZEIT Now for GitHub if it is not already installed.
 
 <Image
 src={`${process.env.IMAGE_ASSETS_URL}/docs/now-for-github/github-connect.png`}
 width={1448/2}
 height={484/2}
 />
-<Caption>The Now for GitHub installation section within the account or team general settings page.</Caption>
+<Caption>The ZEIT Now for GitHub installation section within the account or team general settings page.</Caption>
 
 If you are a new user signing up, this process can also be started from within the onboarding stage.
 
@@ -46,9 +46,9 @@ src={`${process.env.IMAGE_ASSETS_URL}/docs/now-for-github/onboarding.png`}
 width={1492/2}
 height={1212/2}
 />
-<Caption>The Now for GitHub installation section within the account or team onboarding.</Caption>
+<Caption>The ZEIT Now for GitHub installation section within the account or team onboarding.</Caption>
 
-Clicking the **Install Now for GitHub** button will take you to GitHub where they will prompt you, if you have an account belonging to any organizations, which profile the installation should be installed with. You can pick either your GitHub account or any of the organizations you have access to.
+Clicking the **Install ZEIT Now for GitHub** button will take you to GitHub where they will prompt you, if you have an account belonging to any organizations, which profile the installation should be installed with. You can pick either your GitHub account or any of the organizations you have access to.
 
 If you are not part of any organization, you will skip straight to the repository selection.
 
@@ -61,17 +61,17 @@ For organizations that you have limited permissions for, GitHub will ask you to 
 />
 <Caption>The account or organization selection step on GitHub.</Caption>
 
-With an account or organization selected, GitHub will now ask for which repositories Now for GitHub should work with. In this step you are able to allow all repositories to be deployed or an optional set of repositories.
+With an account or organization selected, GitHub will now ask for which repositories ZEIT Now for GitHub should work with. In this step you are able to allow all repositories to be deployed or an optional set of repositories.
 
-With the GitHub profile and repositories chosen for Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository to be deployed with ZEIT Now.
+With the GitHub profile and repositories chosen for ZEIT Now for GitHub to work with, the application will be ready to start using. The next step is to prepare the repository to be deployed with ZEIT Now.
 
 ## Default Behavior
 
 ### A Deployment for Each Push
 
-Now for GitHub will **deploy every push by default**. This includes pushes and pull requests made to branches. This allows those working within the repository to preview changes made before the changes are pushed to production.
+ZEIT Now for GitHub will **deploy every push by default**. This includes pushes and pull requests made to branches. This allows those working within the repository to preview changes made before the changes are pushed to production.
 
-With each new push, if Now is already building a previous commit, Now will cancel that current build to start the most recent commit so that you always have the latest changes deployed as quickly as possible.
+With each new push, if ZEIT Now is already building a previous commit, ZEIT Now will cancel that current build to start the most recent commit so that you always have the latest changes deployed as quickly as possible.
 
 ### Updating the Production Domain
 
@@ -85,17 +85,17 @@ The latest push to any pull request will automatically be made available at a un
 
 ### Deployment Authorizations for Forks
 
-If you receive a pull request from a fork of your repository and there is either a change to the [`now.json`](/docs/configuration) file or there are [secrets](/docs/v2/serverless-functions/env-and-secrets#adding-secrets) used in your project; Now will require an authorization from you or a member of your team to deploy the pull request.
+If you receive a pull request from a fork of your repository and there is either a change to the [`now.json`](/docs/configuration) file or there are [secrets](/docs/v2/serverless-functions/env-and-secrets#adding-secrets) used in your project; ZEIT Now will require an authorization from you or a member of your team to deploy the pull request.
 
 This behavior protects you and your project from a leak of sensitive information.
 
 ## Extending Your GitHub Workflow
 
-Now for GitHub uses the deployment API to bring you an extended user interface both in GitHub, when showing deployments, and Slack, if you have notifications setup using the [Slack GitHub app](https://slack.github.com).
+ZEIT Now for GitHub uses the deployment API to bring you an extended user interface both in GitHub, when showing deployments, and Slack, if you have notifications setup using the [Slack GitHub app](https://slack.github.com).
 
 You will see all of your deployments, production or preview, from within GitHub in its own page. See the page for this very documentation: <https://github.com/zeit/docs/deployments>
 
-Due to using GitHub's Deployments API, you will also be able to integrate with other services through [GitHub's checks](https://help.github.com/en/articles/about-status-checks). Now for GitHub will provide the deployment URL to the checks that require it, for example; to a testing suite such as [Ghost Inspector](https://ghostinspector.com/docs/integration/github/).
+Due to using GitHub's Deployments API, you will also be able to integrate with other services through [GitHub's checks](https://help.github.com/en/articles/about-status-checks). ZEIT Now for GitHub will provide the deployment URL to the checks that require it, for example; to a testing suite such as [Ghost Inspector](https://ghostinspector.com/docs/integration/github/).
 
 <Image
   src={`${process.env.ASSETS}/docs/now-for-github/github-checks.png`}
@@ -108,7 +108,7 @@ Due to using GitHub's Deployments API, you will also be able to integrate with o
 
 ### Disabling Production Domain Updates
 
-To prevent Now from [automatically updating production domains](#updating-the-production-domain), use the following configuration option in a `now.json` file:
+To prevent ZEIT Now from [automatically updating production domains](#updating-the-production-domain), use the following configuration option in a `now.json` file:
 
 ```json
 {
@@ -121,18 +121,18 @@ To prevent Now from [automatically updating production domains](#updating-the-pr
 <Caption>
   This example is of an entire <InlineCode>now.json</InlineCode> file with the
   noted configuration option to disable automatically updating production
-  domains with Now for GitHub.
+  domains with ZEIT Now for GitHub.
 </Caption>
 
 ### Disable Commenting with Silent Mode
 
-To prevent Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/configuration) for the repository you want to stop this behavior in.
+To prevent ZEIT Now from commenting on pull requests and commits, use the following configuration option in [a `now.json` file](/docs/configuration) for the repository you want to stop this behavior in.
 
 <Note>
-  Although Now will stop commenting, it will not stop deploying the latest
+  Although ZEIT Now will stop commenting, it will not stop deploying the latest
   updates. For this configuration option, see{' '}
   <Link href="#disabling-now-for-github-with-now.json">
-    disabling Now for GitHub
+    disabling ZEIT Now for GitHub
   </Link>
 </Note>
 
@@ -146,7 +146,7 @@ To prevent Now from commenting on pull requests and commits, use the following c
 
 ### Disable Auto Job Cancellation
 
-To prevent Now from canceling in-progress builds to prioritize building newer commits, use the following configuration option in [a `now.json` file](/docs/configuration) for the repository that this behavior should exist in.
+To prevent ZEIT Now from canceling in-progress builds to prioritize building newer commits, use the following configuration option in [a `now.json` file](/docs/configuration) for the repository that this behavior should exist in.
 
 ```json
 {
@@ -163,7 +163,7 @@ In order to support that, ZEIT Now will deploy your app with following built-in 
 
 | Variable Key                     | Description                                                                                                         |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `NOW_GITHUB_DEPLOYMENT`          | An indicator for whether the app was deployed by Now for GitHub.                                                    |
+| `NOW_GITHUB_DEPLOYMENT`          | An indicator for whether the app was deployed by ZEIT Now for GitHub.                                               |
 | `NOW_GITHUB_ORG`                 | The GitHub organization who the app belongs to.                                                                     |
 | `NOW_GITHUB_REPO`                | The origin repository of the app.                                                                                   |
 | `NOW_GITHUB_COMMIT_ORG`          | The organization of which the commit belongs. For example, when submitting a pull request from a forked repository. |
@@ -183,7 +183,7 @@ In order to support that, ZEIT Now will deploy your app with following built-in 
 
 ## Required GitHub Permissions
 
-We require some permissions through our Now for GitHub integration. Below are listed the permissions required and a description for what they are used for.
+We require some permissions through our ZEIT Now for GitHub integration. Below are listed the permissions required and a description for what they are used for.
 
 ### Repository Permissions
 

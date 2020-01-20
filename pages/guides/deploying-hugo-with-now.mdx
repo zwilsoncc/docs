@@ -17,7 +17,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploying%20Hugo%20Sites**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fimg.stackshare.io%2Fservice%2F1158%2Fhugo-icon.png&widths=250&widths=300&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
-  lastEdited: '2020-01-07T13:30:24.000Z'
+  lastEdited: '2020-01-20T20:40:45.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -76,13 +76,13 @@ You can now see your project running locally with the following command:
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
-  , the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
+  the content of your posts won't show up in production.
 </Note>
 
 ## Step 2: Deploying Your Hugo Website with ZEIT Now
 
-With your Hugo application set up, it is ready to deploy with [Now](/docs/v2).
+With your Hugo application set up, it is ready to deploy with [ZEIT Now](/docs/v2).
 
 First, create a `package.json` in the project directory with the following content:
 
@@ -101,9 +101,9 @@ First, create a `package.json` in the project directory with the following conte
 
 With the build scripts added, you can now deploy your Hugo project.
 
-If you have not yet installed Now, you can do so by [installing Now CLI](/download).
+If you have not yet installed ZEIT Now, you can do so by [installing Now CLI](/download).
 
-With Now installed, you can deploy from your terminal with **a single command**:
+With ZEIT Now installed, you can deploy from your terminal with **a single command**:
 
 <Snippet dark text="now" />
 
@@ -111,7 +111,7 @@ With Now installed, you can deploy from your terminal with **a single command**:
   Deploying the app with the <InlineCode>now</InlineCode> command.
 </Caption>
 
-If you want to deploy your Hugo project when you push to a Git repository, you can use either [Now for GitHub](/docs/v2/more/now-for-github), [Now for GitLab](/docs/v2/more/now-for-gitlab), or [Now for Bitbucket](/docs/v2/more/now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
+If you want to deploy your Hugo project when you push to a Git repository, you can use either [ZEIT Now for GitHub](/docs/v2/more/now-for-github), [ZEIT Now for GitLab](/docs/v2/more/now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/more/now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
 
 ## Optional: Defining a Hugo Version
 

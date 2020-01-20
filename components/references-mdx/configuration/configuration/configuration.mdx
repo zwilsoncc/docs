@@ -34,7 +34,7 @@ The defined name is also used to organize the deployment into [a project](/docs/
 
 **Valid values**: `1`, `2`.
 
-Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
+Specifies the [ZEIT Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
 
 <Code lang="json">{`{
   "version": 2
@@ -48,7 +48,7 @@ Specifies the [Now Platform version](/docs/v2/platform/overview#versioning) the 
 
 **Limit**: A maximum of 64 aliases in the array
 
-The alias or aliases are applied automatically using [Now for GitHub](/docs/v2/more/now-for-github), [Now for GitLab](/docs/v2/more/now-for-gitlab), or [Now for Bitbucket](/docs/v2/more/now-for-bitbucket) when merging or pushing to the default branch.
+The alias or aliases are applied automatically using [ZEIT Now for GitHub](/docs/v2/more/now-for-github), [ZEIT Now for GitLab](/docs/v2/more/now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/more/now-for-bitbucket) when merging or pushing to the default branch.
 
 You can deploy to the defined aliases using [Now CLI](/download) by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
 
@@ -262,10 +262,9 @@ For more information on Runtimes, see the documentation:
   <Link href="/docs/configuration#project/headers">headers</Link>,{' '}
   <Link href="/docs/configuration#project/cleanurls">cleanUrls</Link>, and{' '}
   <Link href="/docs/configuration#project/trailingslash">trailingSlash</Link>{' '}
-  for a better experience. However, their feature set is still being
-  improved, so you may use{' '}
-  <Link href="/docs/configuration#project/routes">routes</Link> if they suit your
-  needs better.
+  for a better experience. However, their feature set is still being improved,
+  so you may use <Link href="/docs/configuration#project/routes">routes</Link>{' '}
+  if they suit your needs better.
 </Note>
 
 **Type:** `Array` of route `Object`.
@@ -312,7 +311,7 @@ For more information on routes, see the documentation:
 
 **Valid values:** a list of valid [region identifiers](/docs/v2/platform/regions-and-providers).
 
-By setting and modifying this value, you can decide the deployment **regions** of the [Serverless Functions](/docs/v2/serverless-functions/introduction/) that get created as a result of the [build steps](/docs/v2/build-step). By default, the closest region to the geographical location of the deployment is used, or if using a Now for Git integration, SFO is used by default.
+By setting and modifying this value, you can decide the deployment **regions** of the [Serverless Functions](/docs/v2/serverless-functions/introduction/) that get created as a result of the [build steps](/docs/v2/build-step). By default, the closest region to the geographical location of the deployment is used, or if using a ZEIT Now for Git integration, SFO is used by default.
 
 This value does not impact static files or edge caches, since deployments always have a [CDN layer](/docs/v2/network/caching/) in front.
 

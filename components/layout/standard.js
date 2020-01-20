@@ -33,7 +33,7 @@ class withStandard extends React.Component {
   render() {
     const {
       meta = {
-        title: 'Now Documentation',
+        title: 'ZEIT Now Documentation',
         description:
           'The knowledge base and documentation for how to use ZEIT Now and how it works.'
       }

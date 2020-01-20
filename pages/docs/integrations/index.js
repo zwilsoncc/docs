@@ -140,8 +140,8 @@ class IntegrationsPage extends Component {
       >
         <Layout>
           <Head
-            description="A comprehensive guide to creating and using the Now Integrations API and gaining control over the Now platform"
-            title={`Now Integrations Documentation`}
+            description="A comprehensive guide to creating and using the ZEIT Now Integrations API and gaining control over the ZEIT Now platform."
+            title={`ZEIT Now Integrations Documentation`}
             titlePrefix=""
             titleSuffix=" - ZEIT"
           />

@@ -14,7 +14,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2019-11-27T13:36:05.000Z'
+  lastEdited: '2020-01-20T21:51:41.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
@@ -49,7 +49,7 @@ You will receive two options:
 />
 <Caption>Adding a domain with <Link href="/docs/v2/getting-started/installation">Now CLI</Link>.</Caption>
 
-To avoid pointing the nameservers to Now prematurely, use the TXT method for verification.
+To avoid pointing the nameservers to ZEIT Now prematurely, use the TXT method for verification.
 
 With your domain provider, create the TXT record using the `name` (also known as `host` or `alias`) `_now` and the value provided when adding the domain.
 
@@ -62,7 +62,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   to retrieve the verification methods and value again.
 </Note>
 
-[Now](/now) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force Now to check for the verification by using the following command:
+[ZEIT Now](/now) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force ZEIT Now to check for the verification by using the following command:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -75,7 +75,7 @@ With your domain provider, create the TXT record using the `name` (also known as
 
 ## Step 2: Preparing the Domain with DNS, Certs, and Deploying to Production
 
-Now that your domain is verified, you have more control over it with Now. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
+Now that your domain is verified, you have more control over it with ZEIT Now. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
 
 ### Generating an SSL Certificate
 
@@ -84,7 +84,7 @@ With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL c
 <Snippet dark text="now certs issue \*.<domain> <domain> --challenge-only" />
 <Caption>Generating an SSL certificate for a domain and all subdomains with <Link href="/now">Now CLI</Link>.</Caption>
 
-You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that Now has sufficient permissions, consisting of two TXT records.
+You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that ZEIT Now has sufficient permissions, consisting of two TXT records.
 
 Once these TXT records are added to your domain via your domain provider, run the `now certs issue \*.<domain> <domain>` command again to attempt the certificate issuance.
 
@@ -127,9 +127,12 @@ When the domain is verified, you can deploy your project to production with Now 
 <Note>
   Your projects will automatically use your custom domain when merging or
   pushing to the default branch when using either{' '}
-  <Link href="/docs/v2/integrations/now-for-gitlab">Now for GitHub</Link>,
-  <Link href="/docs/v2/integrations/now-for-gitlab">Now for GitLab</Link>, or 
-  <Link href="/docs/v2/integrations/now-for-bitbucket">Now for Bitbucket</Link>.
+  <Link href="/docs/v2/integrations/now-for-gitlab">ZEIT Now for GitHub</Link>,
+  <Link href="/docs/v2/integrations/now-for-gitlab">ZEIT Now for GitLab</Link>,
+  or
+  <Link href="/docs/v2/integrations/now-for-bitbucket">
+    ZEIT Now for Bitbucket
+  </Link>.
 </Note>
 
 Now, your domain will be pointing to your latest deployment and you're are ready to move your nameservers across to show that deployment.

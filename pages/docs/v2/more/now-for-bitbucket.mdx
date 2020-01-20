@@ -9,7 +9,7 @@ export const meta = {
   description:
     'Deploy each change in your Bitbucket repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/more/now-for-bitbucket.mdx',
-  lastEdited: '2019-11-27T18:39:55.000Z'
+  lastEdited: '2020-01-20T20:40:45.000Z'
 }
 
 The ZEIT Now for Bitbucket integration automatically deploys your Bitbucket projects with [ZEIT Now](/now), providing preview URLs and automatic production domain updates.
@@ -25,13 +25,13 @@ ZEIT Now for Bitbucket provides:
   width={2240/2.5}
   height={1282/2.5}
 />
-<Caption style={{marginTop: '-40px'}}>Commits pushed to Bitbucket are automatically built and deployed with Now.</Caption>
+<Caption style={{marginTop: '-40px'}}>Commits pushed to Bitbucket are automatically built and deployed with ZEIT Now.</Caption>
 
 ## Set up ZEIT Now for Bitbucket
 
 ### Step 1: Link ZEIT Now to Your Bitbucket Account
 
-You can connect your Now account to Bitbucket by visiting your [account or team](/docs/v2/platform/users-and-teams) [settings page](/account) and clicking the "Connect with Bitbucket" button.
+You can connect your ZEIT Now account to Bitbucket by visiting your [account or team](/docs/v2/platform/users-and-teams) [settings page](/account) and clicking the "Connect with Bitbucket" button.
 
 <Image
 src={`${process.env.ASSETS}/docs/now-for-bitbucket/connect-with-bitbucket.png`}
@@ -40,7 +40,7 @@ height={640/2}
 />
 <Caption style={{marginTop: '-80px'}}>The ZEIT Now for Bitbucket installation section within the account or team general settings page.</Caption>
 
-Next, you will need to authorize the Now application on Bitbucket with your account.
+Next, you will need to authorize the ZEIT Now application on Bitbucket with your account.
 
 Once authorized, you will be redirected back to your ZEIT account or team settings page.
 
@@ -63,7 +63,7 @@ You can also link a Bitbucket project from the [New Project page](/new):
 
 If you have, or will have, [connected](#step-1:-link-now-to-your-bitbucket-account) your personal Bitbucket account to your ZEIT Now account, you can login with Bitbucket from our [login page](/login).
 
-Alternatively; if you do not already have a Now account, you can sign up to ZEIT using your Bitbucket account from [the sign up page](/signup).
+Alternatively; if you do not already have a ZEIT Now account, you can sign up to ZEIT using your Bitbucket account from [the sign up page](/signup).
 
 <Image
   src={`${process.env.ASSETS}/docs/now-for-bitbucket/login-with-bitbucket.png`}
@@ -78,7 +78,7 @@ Alternatively; if you do not already have a Now account, you can sign up to ZEIT
 
 ZEIT Now for Bitbucket will **deploy each push by default**. This includes pushes and pull requests made to branches. This allows those working within the project to preview the changes made before they are pushed to production.
 
-With each new push, if Now is already building a previous commit, it will cancel that current build to start the most recent commit, ensuring you always have the latest changes deployed as quickly as possible.
+With each new push, if ZEIT Now is already building a previous commit, it will cancel that current build to start the most recent commit, ensuring you always have the latest changes deployed as quickly as possible.
 
 ### Updating the Production Domain
 

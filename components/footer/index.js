@@ -56,17 +56,17 @@ const Footer = ({ className }) => {
           </li>
           <li className="now-for-github">
             <Link href="/github">
-              <a>Now for GitHub</a>
+              <a>ZEIT Now for GitHub</a>
             </Link>
           </li>
           <li className="now-for-gitlab">
             <Link href="/gitlab">
-              <a>Now for GitLab</a>
+              <a>ZEIT Now for GitLab</a>
             </Link>
           </li>
           <li className="now-for-bitbucket">
             <Link href="/bitbucket">
-              <a>Now for Bitbucket</a>
+              <a>ZEIT Now for Bitbucket</a>
             </Link>
           </li>
           <li>

@@ -15,14 +15,14 @@ const Guides = () => (
       titlePrefix=""
       titleSuffix=""
       title="ZEIT Now Guides"
-      description="Learn how to quickly deploy with Now in any situation."
+      description="Learn how to quickly deploy with ZEIT Now in any situation."
     />
 
     <div className="guides">
       <div className="guide-heading">
         <Wrapper>
           <H1>Guides</H1>
-          <P>A list of guides for using Now with any project.</P>
+          <P>A list of guides for using ZEIT Now with any project.</P>
 
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
@@ -67,8 +67,8 @@ const Guides = () => (
               <div className="titles">
                 <H4>Write Your Guide →</H4>
                 <P>
-                  Write about using Now in combination with a technology of your
-                  choosing and get featured!
+                  Write about using ZEIT Now in combination with a technology of
+                  your choosing and get featured!
                 </P>
               </div>
               <div className="meta">
