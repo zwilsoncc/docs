@@ -10,7 +10,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2020-01-14T14:43:59.000Z'
+  lastEdited: '2020-01-20T10:35:40.000Z'
 }
 
 With ZEIT Now, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -209,6 +209,14 @@ During local development with `now dev`, you may wish to provide your applicatio
 For an advanced configuration and structure, you can create a `now.json` file to use [Runtimes](/docs/runtimes) and other customizations.
 
 We do, however, recommend using the `api` directory to keep things simple for your project.
+
+## Technical Details
+
+### CPU Calculation
+
+Serverless Functions are allocated CPU power according to the amount of memory configured for them.
+
+For example, with 1,792MB memory configured, a Serverless Function will have the equivelent of one vCPU.
 
 ## Related
 
