@@ -4,7 +4,6 @@ import { withRouter } from 'next/router'
 import { MDXProvider } from '@mdx-js/tag'
 
 import Head from '~/components/layout/head'
-import Layout from '~/components/layout/layout'
 import Main from '~/components/layout/main'
 import Heading from '~/components/text/linked-heading'
 import Content from '~/components/layout/content'
@@ -41,7 +40,7 @@ class withStandard extends React.Component {
 
     return (
       <MDXProvider components={components}>
-        <Layout dynamicSearch={false}>
+        <>
           <Head
             titlePrefix=""
             titleSuffix=" - ZEIT Documentation"
@@ -76,7 +75,7 @@ class withStandard extends React.Component {
               />
             </Content>
           </Main>
-        </Layout>
+        </>
       </MDXProvider>
     )
   }

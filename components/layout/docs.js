@@ -5,15 +5,9 @@ import { MDXProvider } from '@mdx-js/tag'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
 import Head from '~/components/layout/head'
-import Layout from '~/components/layout/layout'
-import Main from '~/components/layout/main'
 import Heading from '~/components/text/linked-heading'
-import Sidebar from '~/components/layout/sidebar'
-import VersionSwitcher from '~/components/layout/version-switcher'
-import DataContext from '~/lib/data-context'
 import Content from '~/components/layout/content'
 import ContentFooter from '~/components/layout/content-footer'
-import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import Link from '~/components/text/link'
 import components from '~/lib/mdx-components'
 import { H1, H2, H3, H4 } from '~/components/text'
@@ -22,6 +16,10 @@ import dataV1 from '~/lib/data/v1/docs'
 import dataV2 from '~/lib/data/v2/docs'
 import Note from '~/components/text/note'
 import { FooterFeedback } from '~/components/feedback-input'
+import Sidebar from '~/components/layout/sidebar'
+import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
+import VersionSwitcher from '~/components/layout/version-switcher'
+import Main from '~/components/layout/main'
 
 const DocH1 = ({ children }) => (
   <>
@@ -76,6 +74,7 @@ const DocH4 = ({ children }) => (
 )
 
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
+
 const defaultDescription =
   'The knowledge base and documentation for how to use ZEIT Now and how it works.'
 
@@ -89,9 +88,6 @@ function Doc({
     router.asPath.split(/(v[0-9])/)[1] || 'v2'
   )
   const versionData = version === 'v2' ? dataV2 : dataV1
-  const dataContext = useContext(DataContext)
-
-  dataContext.setData(versionData)
 
   const handleVersionChange = event => {
     const href = `/docs/${event.target.value}`
@@ -115,7 +111,7 @@ function Doc({
         h4: DocH4
       }}
     >
-      <Layout>
+      <>
         <Head
           titlePrefix=""
           titleSuffix=" - ZEIT Documentation"
@@ -139,6 +135,7 @@ function Doc({
               </div>
             </Sidebar>
           </NonAmpOnly>
+
           <Content>
             <div className="heading content-heading">
               {version === 'v1' && (
@@ -197,7 +194,7 @@ function Doc({
             margin-top: 32px;
           }
         `}</style>
-      </Layout>
+      </>
     </MDXProvider>
   )
 }

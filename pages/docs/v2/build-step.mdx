@@ -18,7 +18,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-01-24T19:13:27.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. ZEIT Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -86,6 +86,10 @@ For example, to build Next.js fresh, each time you deploy, the following `build`
   An example <InlineCode>package.json</InlineCode> file with a{' '}
   <InlineCode>build</InlineCode> script that builds Next.js on each deploy.
 </Caption>
+
+If you wish to use a script specific to ZEIT Now, you can override this behavior by providing a `now-build` script.
+
+When ZEIT Now encounters a `package.json` file with both `build` and `now-build` scripts, only `now-build` will be used.
 
 ## Using Environment Variables and Secrets
 
