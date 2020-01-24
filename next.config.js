@@ -58,7 +58,37 @@ module.exports = withMDX({
         {
           source: '/docs/github',
           permanent: true,
-          destination: '/docs/v2/advanced/now-for-github'
+          destination: '/docs/v2/git-integrations/zeit-now-for-github'
+        },
+        {
+          source: '/docs/gitlab',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-gitlab'
+        },
+        {
+          source: '/docs/bitbucket',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-bitbucket'
+        },
+        {
+          source: '/docs/v2/git-integration',
+          permanent: true,
+          destination: '/docs/v2/git-integrations'
+        },
+        {
+          source: '/docs/v2/more/now-for-github',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-github'
+        },
+        {
+          source: '/docs/v2/more/now-for-gitlab',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-gitlab'
+        },
+        {
+          source: '/docs/v2/more/now-for-bitbucket',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-bitbucket'
         },
         {
           source: '/docs/aliasing',
@@ -125,7 +155,8 @@ module.exports = withMDX({
         {
           source: '/docs/v2/deployments/environment-variables-and-secrets',
           permanent: true,
-          destination: '/docs/v2/build-step/#using-environment-variables-and-secrets'
+          destination:
+            '/docs/v2/build-step/#using-environment-variables-and-secrets'
         },
         {
           source: '/docs/v2/advanced/concepts(.*)',
@@ -214,11 +245,6 @@ module.exports = withMDX({
           destination: '/docs/v2/serverless-functions/introduction'
         },
         {
-          source: '/docs/v2/integrations/:path*',
-          permanent: true,
-          destination: '/docs/v2/more/:path*'
-        },
-        {
           source: '/docs/v2/domains-and-aliases/(.*)',
           permanent: true,
           destination: '/docs/v2/custom-domains'
@@ -237,7 +263,6 @@ module.exports = withMDX({
       ]
     }
   },
-
 
   // Allow mdx and md files to be pages
   pageExtensions: ['jsx', 'js', 'mdx', 'md'],

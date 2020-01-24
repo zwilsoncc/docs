@@ -14,7 +14,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/Deploy%20Sanity%20with%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg',
   editUrl: 'pages/guides/deploying-sanity-studio-with-now.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-01-24T23:33:43.000Z'
 }
 
 [Sanity.io](https://www.sanity.io) is a platform for structured content with an open source editing environment. Sanity Studio is a single page app written in React, where you can configure the document types and input fields, with simple JavaScript objects. The Studio connects to Sanity’s hosted real-time APIs. You can also customize the Studio with your own input components, plugins, and tools.
@@ -96,7 +96,7 @@ Add the following scripts to the Studio’s `package.json` file:
   when Sanity's CLI asks questions.
 </Note>
 
-Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [ZEIT Now](/now) to build your project on deployment.
+Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [ZEIT Now](/) to build your project on deployment.
 
 <Snippet dark text="npm i -D @sanity/cli" />
 <Caption>
@@ -107,7 +107,7 @@ After saving your `package.json` file you will be ready to deploy your project.
 
 ## Step 3: Deploy With ZEIT Now
 
-You can choose whether you want to deploy the Studio directly from the command line, or from a Git repository by installing either the [ZEIT Now for GitHub](/docs/v2/more/now-for-github), [ZEIT Now for GitLab](/docs/v2/more/now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/more/now-for-bitbucket) integrations.
+You can choose whether you want to deploy the Studio directly from the command line, or from a Git repository by installing either the [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) integrations.
 
 To deploy your project from the command line, all it takes is **a single command**:
 

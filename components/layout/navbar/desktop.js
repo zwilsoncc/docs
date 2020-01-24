@@ -116,8 +116,8 @@ function Category({ info, level = 1, onClick, ...props }) {
         }
 
         .open > .label :global(svg) {
-          margin-left: 1px;
-          margin-right: 13px;
+          margin-left: -0.5px;
+          margin-right: 15.5px;
           transform: rotate(90deg);
         }
 
@@ -150,8 +150,8 @@ function Category({ info, level = 1, onClick, ...props }) {
           margin-top: 0;
           height: 0;
           overflow: hidden;
-          padding-left: 19px;
-          margin-left: 4px;
+          padding-left: 18px;
+          margin-left: 2px;
         }
 
         .open > .posts {
@@ -197,7 +197,7 @@ function Post({ info, level = 1, onClick, ...props }) {
           align-items: center;
         }
 
-        .link::before {
+        .link.level-1::before {
           content: '';
           flex-basis: 4px;
           flex-shrink: 0;

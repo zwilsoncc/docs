@@ -5,7 +5,7 @@ export const meta = {
   description:
     'A list of the terms used in context of ZEIT Now and what those terms mean or describe.',
   editUrl: 'pages/docs/v2/platform/glossary.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-01-13T16:53:48.000Z'
 }
 
 These are the terms we encourage you to learn in order to deeply understand **ZEIT Now**. However, every occurrence of one of these terms is also linked back to this very page, so that you can always jump right to the explanation if needed.
@@ -15,6 +15,32 @@ These are the terms we encourage you to learn in order to deeply understand **ZE
 ### Deployment
 
 A collection of files that were uploaded to **ZEIT Now**.
+
+#### Preview Deployments
+
+Preview Deployments are the default type of deployment. They are made available by pushing to a git branch through a Git integration, or by using the `now` command from Now CLI.
+
+Learn more about [Preview Deployments from the Deployments Concept documentation](/docs/v2/platform/deployments#preview).
+
+#### Production Deployments
+
+Production Deployments are a promoted type of Deployment, made available by merging into a default branch through a Git integration, or by using the `now --prod` command from Now CLI
+
+Learn more about [Production Deployments from the Deployments Concept documentation](/docs/v2/platform/deployments#production).
+
+#### Build Step
+
+The Build Step is the process, before a deploymment is made publically available, in which a deployment's source files are constructed to be production-ready output.
+
+Read more about the Build Step in the [Build Step documentation](/docs/v2/build-step).
+
+#### Run Time
+
+Run Time is the process in the deployment lifecycle that the deployment's code is being executed, after successfully being built through during [the Build Step](#build-step).
+
+### Custom Domains
+
+A Custom Domain is a domain that has been added to a user or team for use with a project. Custom Domains are automatically updated when the project they are assigned to gains a new [Production Deployment](#production-deployments).
 
 ### Source Files
 

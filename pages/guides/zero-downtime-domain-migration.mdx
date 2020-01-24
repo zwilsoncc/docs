@@ -14,7 +14,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-01-24T23:33:43.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
@@ -62,7 +62,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   to retrieve the verification methods and value again.
 </Note>
 
-[ZEIT Now](/now) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force ZEIT Now to check for the verification by using the following command:
+[ZEIT Now](/) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force ZEIT Now to check for the verification by using the following command:
 
 <Snippet dark text="now domains verify <domain>" />
 
