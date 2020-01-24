@@ -106,6 +106,9 @@ class HeaderFeedback extends Component {
                 ? this.props.devLocation || null
                 : window.location.toString(),
             note: this.textAreaRef ? this.textAreaRef.value : '',
+            label: window.location.pathname.includes('guides')
+              ? 'guides'
+              : 'docs',
             emotion: getEmoji(this.state.emoji),
             ua: `${this.props.uaPrefix || ''} + ${
               navigator.userAgent

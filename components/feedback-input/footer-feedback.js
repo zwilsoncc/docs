@@ -96,6 +96,9 @@ export default class GuidesFeedback extends Component {
               : window.location.toString(),
           note: this.textAreaRef ? this.textAreaRef.value : '',
           emotion: getEmoji(this.state.emoji),
+          label: window.location.pathname.includes('guides')
+            ? 'guides'
+            : 'docs',
           ua: `${this.props.uaPrefix || ''} + ${
             navigator.userAgent
           } (${navigator.language || 'unknown language'})`
