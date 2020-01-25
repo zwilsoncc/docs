@@ -1,7 +1,9 @@
 import Doc from '~/components/layout/docs'
 import Card from '~/components/card'
 import Snippet from '~/components/snippet'
+import Link from '~/components/text/link'
 import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
 import Quickstarts, { Quickstart } from '~/components/quickstarts'
 
 import { quickstarts } from '~/lib/data/v2/quickstarts'
@@ -11,12 +13,27 @@ export const meta = {
   description:
     'An introduction to the ZEIT Now platform and how to get started deploying any kind of application.',
   editUrl: 'pages/docs/v2/introduction.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-01-24T11:19:54.000Z'
 }
 
-ZEIT Now is a cloud platform for **static sites** and **Serverless Functions**. It enables developers to host websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
+ZEIT Now is a cloud platform for **static sites** and **Serverless Functions** that fits perfectly with your workflow. It enables developers to host **JAMstack** websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
 
-Getting started with ZEIT Now takes just a few steps and lets you get up and running with your new project in less than a minute.
+## Deploy an Existing Project
+
+Once you have [signed up to ZEIT](/signup), you can use our [Git integrations](/docs/v2/git-integration) with [GitHub](/docs/v2/more/now-for-github), [GitLab](/docs/v2/more/now-for-gitlab), or [Bitbucket](/docs/v2/more/now-for-bitbucket) to deploy an existing project – then with a deployment for every push – by selecting a repository from your Git account.
+
+Connect through the ["New Project"](/new) page under the "From an existing project" section, and then from the same place, set up a project using your Git integration.
+
+<Note>
+  For more information on setting up Git to deploy with ZEIT and what you can do
+  with it, see{' '}
+  <Link color href="/docs/v2/git-integration">
+    the Git integrations documentation
+  </Link>
+  .
+</Note>
+
+Alternatively, if you want to start fresh with a new project, use a Quickstart template from below. Additionally, you can use this method to start a new Git repository with any connected Git integration.
 
 ## Quickstarts
 
@@ -31,8 +48,6 @@ Quickstarts let you get started quickly. The following quickstarts are paired wi
 ## Deploying a Project Locally
 
 If you like to do things manually, you can deploy with ZEIT Now through your terminal with any local project.
-
-### Installing Now CLI
 
 To deploy with ZEIT Now through your terminal, you will need to install [Now CLI](/download), a frequently updated, and [open-source](https://github.com/zeit/now), command-line interface.
 
@@ -54,23 +69,13 @@ With Now CLI installed, you can now login using the following command:
 />
 <Caption>Login with Now CLI from the terminal.</Caption>
 
-### Creating a Project and Deploying
-
-You can create a new Next.js application with the following command using either npm or Yarn:
-
-<Snippet
-  dark
-  text="npm init next-app my-next-project"
-/>
-<Caption>Creating a new Next.js project with npm.</Caption>
-
-When your Next.js app is created, all you have to do is move into the directory (with `cd my-next-project` in your terminal) and then deploy your app with a single command in your terminal:
+Logged in, you can type the following command to deploy from your project's repository:
 
 <Snippet
   dark
   text="now"
 />
-<Caption>Deploying your new Next.js project with Now CLI.</Caption>
+<Caption>Deploying with Now CLI from the terminal.</Caption>
 
 Once deployed, you will get a preview URL that is assigned on each deployment to share the latest changes under the same address.
 
