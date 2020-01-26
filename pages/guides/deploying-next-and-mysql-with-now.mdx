@@ -21,7 +21,7 @@ export const meta = {
   lastEdited: '2020-01-20T21:51:41.000Z'
 }
 
-In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
+In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
 
 [Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a production-ready framework that can help you create fast React apps. By using it along with MySQL, you can create a fast, modern web app that interacts with customer data in a performant manner.
 
@@ -91,7 +91,7 @@ When this is complete, add [`serverless-mysql`](https://github.com/jeremydaly/se
 
 Adding [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql) to the project will allow you to make connections to your MySQL database. In addition to this, it also **manages connections**, ensuring you do not 'max out' the available connections.
 
-Managing MySQL connections is an essential part of using it **successfully in a serverless environment**. This is because [Serverless Functions](/docs/v2/serverless-functions/introduction/) will create multiple database connections as traffic increases. Therefore, all connections can be consumed quickly unless managed correctly - this is **all handled for you** by [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql).
+Managing MySQL connections is an essential part of using it **successfully in a serverless environment**. This is because [Serverless Functions](/docs/v2/serverless-functions/introduction) will create multiple database connections as traffic increases. Therefore, all connections can be consumed quickly unless managed correctly - this is **all handled for you** by [`serverless-mysql`](https://github.com/jeremydaly/serverless-mysql).
 
 <Note>
   Using <InlineCode>sql-template-strings</InlineCode> is strongly recommended to
@@ -119,7 +119,7 @@ Next, add a build script to your `package.json` file:
   Adding a build script to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [Now CLI](/download#now-cli) to keep them secure:
+Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/serverless-functions/env-and-secrets) using the [Now CLI](/download#now-cli) to keep them secure:
 
 <Snippet dark text="now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
@@ -168,7 +168,7 @@ exports.query = async query => {
 
 Your `db.js` file performs the following functions:
 
-- Creates a connection to your MySQL database using credentials defined as [secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets)
+- Creates a connection to your MySQL database using credentials defined as [secrets](/docs/v2/serverless-functions/env-and-secrets)
 - Exports a function that ensures connections are closed once the query has resolved
 
 <Note>
@@ -176,7 +176,7 @@ Your `db.js` file performs the following functions:
   prevents your app from exhausting all available connections.
 </Note>
 
-Now you have a reusable database connection, perfectly suited for a [serverless](/docs/v2/serverless-functions/introduction/) environment.
+Now you have a reusable database connection, perfectly suited for a [serverless](/docs/v2/serverless-functions/introduction) environment.
 
 ## Step 4: Creating Your Node.js API
 
@@ -394,11 +394,11 @@ Your `pages/index.js` file performs the following functions:
 - Receives the profile data, making it available as a prop
 - Displays the profile with an option to go back to the gallery
 
-You now have a **complete app** with both an API and interface, the next section will show you how to deploy it seamlessly with [ZEIT Now](/docs/v2/getting-started/introduction-to-now).
+You now have a **complete app** with both an API and interface, the next section will show you how to deploy it seamlessly with [ZEIT Now](https://zeit.co).
 
 ## Step 6: Deploy Your Project with ZEIT Now
 
-Getting your project ready to [deploy](/docs/v2/deployments/basics/) with [ZEIT Now](/docs/v2/getting-started/introduction-to-now) could hardly be simpler, all that's required is the inclusion of [environment variables](/docs/v2/deployments/environment-variables-and-secrets).
+Getting your project ready to [deploy](/docs/v2/introduction) with [ZEIT Now](https://zeit.co) could hardly be simpler, all that's required is the inclusion of [environment variables](/docs/v2/serverless-functions/env-and-secrets).
 
 Create a [`now.json` file](/docs/configuration) with the following configuration to make the environment variables available to your Serverless Functions:
 
@@ -417,11 +417,11 @@ Create a [`now.json` file](/docs/configuration) with the following configuration
   An example <InlineCode>now.json</InlineCode> file for your project.
 </Caption>
 
-Finally, deploy the app with [ZEIT Now](/docs/v2/getting-started/introduction-to-now).
+Finally, deploy the app with [ZEIT Now](https://zeit.co).
 
 If you have not yet installed ZEIT Now, you can do so by [installing Now CLI](/download).
 
-[ZEIT Now](/docs/v2/getting-started/introduction-to-now) allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command**:
+[ZEIT Now](https://zeit.co) allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command**:
 
 <Snippet dark text="now" />
 
@@ -429,7 +429,7 @@ If you have not yet installed ZEIT Now, you can do so by [installing Now CLI](/d
   Deploying the app with the <InlineCode>now</InlineCode> command.
 </Caption>
 
-You will see a short build step in your terminal followed by the news that your project has been [deployed](https://zeit.co/docs/v2/deployments/basics/), it should look similar to this: <https://next-mysql.now.sh/>
+You will see a short build step in your terminal followed by the news that your project has been [deployed](docs/v2/introduction), it should look similar to this: <https://next-mysql.now.sh/>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
