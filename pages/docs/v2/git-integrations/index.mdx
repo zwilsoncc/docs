@@ -4,6 +4,11 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Collapse, { CollapseGroup } from '~/components/collapse'
+import { IconCard } from '~/components/card'
+import { List } from '~/components/list'
+import BitbucketIcon from '~/components/icons/bitbucket'
+import GitLabIcon from '~/components/icons/gitlab'
+import GitHubIcon from '~/components/icons/github'
 
 export const meta = {
   title: 'Git Integrations',
@@ -11,7 +16,7 @@ export const meta = {
     "How to use the ZEIT Now Git Integrations for GitHub, GitLab, or Bitbucket to automatic deploy from your project's repository for each push and ship to production on merge to the main branch.",
   image: `${process.env.ASSETS}/docs/git-integrations/git-push.png`,
   editUrl: 'pages/docs/v2/git-integrations/index.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-01-27T22:50:43.000Z'
 }
 
 ZEIT Now provides integrations for your [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), and [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) projects, allowing for **automatic deployments on every branch push** and merge to the default branch.
@@ -36,9 +41,26 @@ When merging to the default branch, a **Production Deployment** is made, making 
 
 Click any Git integration from the list below to skip to its section:
 
-- [GitHub](/docs/v2/git-integrations/zeit-now-for-github)
-- [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab)
-- [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket)
+<List columnsDesktop={3} columnsTablet={1}>
+  <IconCard
+    label="GitHub"
+    icon={<GitHubIcon />}
+    href="/docs/v2/git-integrations/zeit-now-for-github"
+    arrowed
+  />
+  <IconCard
+    label="GitLab"
+    icon={<GitLabIcon />}
+    href="/docs/v2/git-integrations/zeit-now-for-gitlab"
+    arrowed
+  />
+  <IconCard
+    label="Bitbucket"
+    icon={<BitbucketIcon />}
+    href="/docs/v2/git-integrations/zeit-now-for-bitbucket"
+    arrowed
+  />
+</List>
 
 ## Quick Installation
 

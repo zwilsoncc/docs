@@ -4,7 +4,7 @@ import cn from 'classnames'
 import qs from 'querystring'
 import { parse } from 'url'
 import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
-import ArrowRight from '~/components/icons/arrow-right'
+import ArrowRight from '~/components/icons/chevron-right'
 import * as metrics from '~/lib/metrics'
 
 function scrollIntoViewIfNeeded(elem, centerIfNeeded, options, config) {
@@ -63,7 +63,9 @@ function Category({ info, level = 1, onClick, ...props }) {
       key={info.name || ''}
     >
       <span className="label" onClick={onToggleCategory}>
-        <ArrowRight fill="#999" />
+        <span className="arrow">
+          <ArrowRight size="16" />
+        </span>
         {info.href ? (
           <NavLink
             info={info}
@@ -101,23 +103,25 @@ function Category({ info, level = 1, onClick, ...props }) {
           color: var(--accents-6);
         }
 
-        .label :global(svg) {
-          margin-right: 14px;
-          transition: all 0.15s ease;
-        }
-
         .selected > .label {
           font-weight: 600;
           color: #000;
+        }
+
+        .label .arrow {
+          display: flex;
+          color: var(--accents-3);
+          margin-left: -5px;
+          margin-right: 9px;
         }
 
         .open > .label {
           color: #000;
         }
 
-        .open > .label :global(svg) {
-          margin-left: -0.5px;
-          margin-right: 15.5px;
+        .open > .label .arrow {
+          margin-left: -5.5px;
+          margin-right: 10.5px;
           transform: rotate(90deg);
         }
 
