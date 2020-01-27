@@ -10,7 +10,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2020-01-20T20:40:45.000Z'
+  lastEdited: '2020-01-24T10:37:14.000Z'
 }
 
 With ZEIT Now, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -50,7 +50,7 @@ When a user visits `/api/get-user`, they will receive the JSON from above. Note 
 
 ## Deploying Serverless Functions
 
-To deploy Serverless Functions without any additional configuration, you can put files with extensions matching [supported languages](/docs/v2/serverless-functions/supported-languages) and exported functions in the `api` directory at your project's root.
+To deploy Serverless Functions without any additional configuration, you can put files with extensions matching [supported languages](/docs/v2/serverless-functions/supported-languages) and exported functions in the `/api` directory at your project's root.
 
 <Note>
   If you are using Next.js, use the <InlineCode>/pages/api</InlineCode>{' '}
@@ -62,14 +62,11 @@ To deploy Serverless Functions without any additional configuration, you can put
   .
 </Note>
 
-Then, using [Now CLI](/download), run the following command to deploy from your terminal:
-
-<Snippet dark text="now" />
-<Caption>Deploying a project with Now CLI in one command.</Caption>
+Then, push to your connected Git repository using a [ZEIT Now for Git Integration](/docs/v2/git-integrations) to receive a deployment automatically.
 
 ### An Example Node.js Serverless Function
 
-To deploy a [serverless Node.js API](/docs/v2/serverless-functions/supported-languages#node.js), provide a main export function like the following, in a `.js` file within the `api` directory:
+To deploy a [serverless Node.js API](/docs/v2/serverless-functions/supported-languages#node.js), provide a main export function like the following, in a `.js` file within the `/api` directory:
 
 ```js
 module.exports = (req, res) => {
@@ -92,10 +89,7 @@ module.exports = (req, res) => {
 
 The above example echoes the `body`, path `query`, and `cookie`s, passed with the request object, as a JSON object using helper methods provided through the [Request and Response](/docs/v2/serverless-functions/supported-languages/#node.js-request-and-response-objects).
 
-Then, all you need to do, to have a live API, is deploy with [Now CLI](/download) from your terminal:
-
-<Snippet dark text="now" />
-<Caption>One-command deployment with <Link href="/download">Now CLI</Link>.</Caption>
+Then, all you need to do, to have a live API, is push to your connected Git repository using a [ZEIT Now for Git Integration](/docs/v2/git-integrations) to receive a deployment automatically.
 
 The resulting deployment will contain your Node.js Serverless Function and will provide you with a URL like the following, with your API ready to go: <https://node-echo-api.now-examples.now.sh/api/?name=zeit>
 
@@ -103,12 +97,9 @@ The resulting deployment will contain your Node.js Serverless Function and will 
 
 For all supported languages, see the [Supported Languages for Serverless Functions documentation](/docs/v2/serverless-functions/supported-languages).
 
-More examples of applications you can deploy paired with Serverless Functions can be found in the [Now repository on GitHub](https://github.com/zeit/now/tree/master/examples).
+More examples of applications you can deploy paired with Serverless Functions can be found in the [ZEIT Now repository on GitHub](https://github.com/zeit/now/tree/master/examples).
 
-You can use any of the ZEIT Now examples by using the following command from [Now CLI](/download) in your terminal, then choosing an application to start with:
-
-<Snippet dark text="now init" />
-<Caption>Initializing a project with Now CLI.</Caption>
+You can get started with many of the ZEIT Now examples by deploying them from the [Quickstarts section](/docs/v2/introduction#quickstarts).
 
 ## Prevent Endpoint Listing
 

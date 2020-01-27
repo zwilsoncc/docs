@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Using ZEIT Now with a scope of a user or a team and how to manage them.',
   editUrl: 'pages/docs/v2/platform/users-and-teams.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-01-24T10:37:14.000Z'
 }
 
 There are identity forms available on ZEIT Now, called "scopes": Users and teams.
@@ -57,13 +57,7 @@ After clicking the "INVITE" button the person is now part of your team and has a
 
 ## Switching Between Users and Teams
 
-If you are part of one or multiple teams, you might want to change whether you are deploying to one of those teams or to your own user account.
-
-To do this, you have several options depending on the client you are using:
-
-### Dashboard
-
-Click on your avatar on the top left, then select the team of your choice:
+If you are part of one or multiple teams, you can choose which to show project information for or manage from the [ZEIT Dashboard](/dashboard). To do this, click on your avatar on the top left, then select the team of your choice:
 
 <Image src={`https://assets.zeit.co/image/upload/v1541367165/front/docs/users-and-teams/team-dashboard.png`}
   width={1124/2}
@@ -71,15 +65,11 @@ Click on your avatar on the top left, then select the team of your choice:
 />
 <Caption>Switching teams from the account picker in the <Link href="/dashboard">dashboard</Link>.</Caption>
 
-### Now CLI
-
-Run the following command and pick the user or team of your choice:
-
-<Snippet dark text="now switch" />
-
-You can also run this command with the slug of a team or username you would like to switch to:
-
-<Snippet dark text="now switch <team-slug|username>" />
+<Note>
+  You can also use <Link href="/docs/now-cli#commands/switch">Now CLI</Link> to
+  switch between users and teams when making{' '}
+  <Link href="/docs/v2/platform/deployments#preview">Preview Deployments</Link>.
+</Note>
 
 ## Changing the User or Team Settings
 

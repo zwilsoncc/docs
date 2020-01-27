@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2020-01-20T20:40:45.000Z'
+  lastEdited: '2020-01-24T10:37:14.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` suffixed domain.
@@ -126,24 +126,12 @@ After the verification process is complete, the status of the domain will be upd
 
 Once the domain has been added to your project and configured, it is **automatically applied to your latest deployment**.
 
-If you want to update your production deployment, there are two options available, [using Now CLI](#using-now-cli) or [with Git](#with-git).
-
 <Note>
-  The first successful deployment of a new project will be marked as production
-  and subsequently assigned with your custom domain automatically if you have
-  used one of the following methods.
+  The first deployment of a new project will be marked as production and
+  subsequently assigned with your custom domain automatically.
 </Note>
 
-### Using Now CLI
-
-To update your production deployment, you can use the `--prod` argument with the [`now` command](/docs/now-cli/#commands/now) in your terminal:
-
-<Snippet dark text="now --prod" />
-<Caption>Deploying a project to production.</Caption>
-
-### With Git
-
-When a custom domain is assigned as a production domain to a project with a [ZEIT Now for Git integration](/docs/v2/git-integration) enabled, each push (including merges) to the default branch (commonly `master`) will trigger a deployment to the defined domain.
+When a custom domain is assigned to a project with an enabled [ZEIT Now for Git integration](/docs/v2/git-integrations), each push (including merges) to the default branch (commonly `master`) will trigger a deployment to the defined domain.
 
 Reverts take effect immediately, assigning the custom domain to the deployment made prior to the point the revert is effective from.
 

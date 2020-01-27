@@ -10,59 +10,20 @@ export const meta = {
   title: 'Projects',
   description: 'Setting up projects with a list of deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-01-20T20:29:20.000Z'
+  lastEdited: '2020-01-24T10:37:14.000Z'
 }
 
-A project is a logical structure that groups deployments and [custom domains](/docs/v2/custom-domains) inside of an account or team, based on the name of the project. This structure allows easier tracking and managing of deployments.
+A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains) inside of an account or team, based on the name of the project. This structure allows easier tracking and managing of deployments.
 
-The projects structure enables faster locating of [deployments logs](/docs/v2/platform/deployments/#logs-view), [source code](/docs/v2/platform/deployments/#source-view), and [custom domains](/docs/v2/custom-domains).
+The Projects structure enables faster locating of [deployments logs](/docs/v2/platform/deployments/#logs-view), [source code](/docs/v2/platform/deployments/#source-view), and [custom domains](/docs/v2/custom-domains).
 
 ## Creating a Project
 
-A project can be created either from the ZEIT account or team dashboard, by using [Now CLI](/download), or automatically when [deploying](/docs/v2/build-step).
+Projects are automatically created when making a deployment using the name of the repository connected with a [ZEIT Now for Git Integration](/docs/v2/git-integrations).
 
-### 1. From the Dashboard
+You can import your existing project from the ["Create a new project"](/new) section of the ZEIT Dashboard. If you do not have an existing project, this page also allows you to get started from a template.
 
-Simply visit [the ZEIT dashboard](/dashboard)(optionally selecting a team from the team picker), then click on the "Projects" link in the dashboard navigation.
-
-Then, you can create a project by just giving it a name.
-
-### 2. With Now CLI
-
-You can create project by just typing the following command:
-
-<Snippet dark text="now projects add <your-project-name>" />
-<Caption>Creating a project with <Link href="/now">Now CLI</Link>.</Caption>
-
-<Note>
-  You need to download the latest version of Now CLI in order to run the above
-  command.
-</Note>
-
-### 3. Automatic Project Creation
-
-This is simplest way to create a project as it does not require any action from the user. A project will automatically be created when making a deployment using the defined name.
-
-(To select a project for a deployment, check the following section)
-
-## Selecting an Existing Project for a Deployment
-
-When [deploying an app](/docs/v2/build-step), you can select an existing project for it. To do this, either:
-
-### 1. Select the Project from Now CLI
-
-Use the `--name` option to mention the project name as follows:
-
-<Snippet dark text="now --name <your-project-name>" />
-<Caption>Deploying the current directory with Now CLI and <InlineCode>--name</InlineCode> option.</Caption>
-
-### 2. Automatic Project Selection
-
-If you didn't specify a project name explicitly via one of the above methods, we try to select a project automatically based on following rules:
-
-- If this is a [Git Integration](/docs/v2/git-integration/) deployment, we use the Git repo or project as the project name.
-- If this is a [Now CLI](/download) based deployment, we use the directory name of your app as the project name.
-- If this is a file or a set of files, we use the `files` project name.
+If you would like your Project to be created with a name different to that of the repository, you can include a configuration file and use the [name property](/docs/configuration#project/name).
 
 ## Deleting a Project
 
