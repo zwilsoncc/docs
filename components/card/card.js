@@ -2,6 +2,7 @@ import cn from 'classnames'
 import NextLink from 'next/link'
 import Text, { H4 } from '~/components/text'
 import ArrowRight from '~/components/icons/chevron-right'
+import Plus from '~/components/icons/plus'
 
 export function IconCard({ href, buttonHref, icon, label, width, arrowed }) {
   return (
@@ -12,6 +13,11 @@ export function IconCard({ href, buttonHref, icon, label, width, arrowed }) {
         {arrowed && (
           <span className="arrow">
             <ArrowRight />
+          </span>
+        )}
+        {plus && (
+          <span className="arrow">
+            <Plus />
           </span>
         )}
         <style jsx>{`

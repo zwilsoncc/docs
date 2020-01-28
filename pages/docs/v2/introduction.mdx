@@ -5,6 +5,11 @@ import Link from '~/components/text/link'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Quickstarts, { Quickstart } from '~/components/quickstarts'
+import { IconCard } from '~/components/card'
+import { List } from '~/components/list'
+import BitbucketIcon from '~/components/icons/bitbucket'
+import GitLabIcon from '~/components/icons/gitlab'
+import GitHubIcon from '~/components/icons/github'
 
 import { quickstarts } from '~/lib/data/v2/quickstarts'
 
@@ -13,12 +18,33 @@ export const meta = {
   description:
     'An introduction to the ZEIT Now platform and how to get started deploying any kind of application.',
   editUrl: 'pages/docs/v2/introduction.mdx',
-  lastEdited: '2020-01-28T00:14:27.000Z'
+  lastEdited: '2020-01-28T11:59:32.000Z'
 }
 
 ZEIT Now is a cloud platform for **static sites** and **Serverless Functions** that fits perfectly with your workflow. It enables developers to host **JAMstack** websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
 
 ## Deploy an Existing Project
+
+<List columnsDesktop={3} columnsTablet={1}>
+  <IconCard
+    label="GitHub"
+    icon={<GitHubIcon />}
+    href="/docs/v2/git-integrations/zeit-now-for-github"
+    plus
+  />
+  <IconCard
+    label="GitLab"
+    icon={<GitLabIcon />}
+    href="/docs/v2/git-integrations/zeit-now-for-gitlab"
+    plus
+  />
+  <IconCard
+    label="Bitbucket"
+    icon={<BitbucketIcon />}
+    href="/docs/v2/git-integrations/zeit-now-for-bitbucket"
+    plus
+  />
+</List>
 
 Once you have [signed up to ZEIT](/signup), you can use our [Git integrations](/docs/v2/git-integration) with [GitHub](/docs/v2/more/now-for-github), [GitLab](/docs/v2/more/now-for-gitlab), or [Bitbucket](/docs/v2/more/now-for-bitbucket) to deploy an existing project – then with a deployment for every push – by selecting a repository from your Git account.
 
