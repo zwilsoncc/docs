@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-01-16T18:43:54.000Z'
+  lastEdited: '2020-01-29T22:18:15.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -74,6 +74,14 @@ Deployments made that contain more than 10,000 files will fail at the [build ste
 ## HTTP/2 Push
 
 The ZEIT Now platform does not currently support HTTP/2 Push.
+
+## WebSockets
+
+The ZEIT Now platform does not currently support WebSockets.
+
+Instead of pushing data, you can intelligently fetch data on-demand. For example, the `zeit.co` dashboard delivers real-time updates using [SWR](https://swr.now.sh).
+
+If you need persistent connections to push data to the client, consider using third party pub/sub services. See the [Pusher Channels Guide](/guides/deploying-pusher-channels-with-zeit-now) for an example.
 
 ## SMTP
 
