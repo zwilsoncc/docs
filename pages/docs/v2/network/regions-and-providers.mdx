@@ -5,18 +5,18 @@ export const meta = {
   description:
     'A listing and explanation of the regions and providers ZEIT Now implements.',
   editUrl: 'pages/docs/v2/network/regions-and-providers.mdx',
-  lastEdited: '2019-09-24T17:47:39.000Z'
+  lastEdited: '2020-01-29T14:43:14.000Z'
 }
 
 A typical server configuration might begin by selecting the region where the physical server is located. A local business would have no issue selecting the closest region to their store, but businesses with traffic spanning cities, countries, or even the entire globe might struggle to serve all their customers. This is where the ZEIT Smart CDN comes in.
 
-## Automatic Edge CDN
-
-When an application is deployed to ZEIT Now, it automatically serves static files and caches responses in all of our CDN Regions across the globe. Serverless functions will execute in the nearest Origin Region to the developer by default. The developer can choose which Origin Regions to deploy to by using `--regions` in the CLI or the `regions` key in a `now.json` file.
-
 ## Origin vs Edge Regions
 
-An Origin Region is a Region where content originates, whereas an Edge Region can _only_ serve cached or static content. An application should generally only deploy to the Origin Regions closest to the Regions where the data is stored.
+Edge Regions are restricted to serving static files or cached responses from Serverless Functions. Origin Regions do not have this restriction and can therefore host Serverless Functions.
+
+When an application is deployed to ZEIT Now, it automatically serves static files and caches responses in [all Regions](#routing) (both Origin and Edge) across the globe. Serverless Functions will execute in the nearest Origin Region to the developer by default. The developer can choose which Origin Regions to deploy to by using `--regions` in Now CLI or the [`regions` key](/docs/configuration#project/regions) in a `now.json` file.
+
+When choosing Origin Regions, consider where your database (if any) is located and choose the Origin Regions closest to where the data is stored.
 
 ## Providers
 
