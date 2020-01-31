@@ -11,11 +11,11 @@ export const meta = {
 
 ## Webhooks
 
-Webhooks allow you to subscribe to certain events on ZEIT. For this, you can setup a URL using your [OAuth2](/docs/api#endpoints/oauth2) app credentials so that it is associated with your app.
+Webhooks allow you to subscribe to certain events on ZEIT by providing a destination URL.
 
 We send a `POST` request to that URL with an event `payload` every time an event associated with the webhook happens.
 
-Each OAuth2 app can register up to 5 webhooks for a given team or user account.
+Each URL can register up to 5 webhooks for a given team or user account.
 
 ### List all Webhooks
 

@@ -47,9 +47,15 @@ This section highlights two areas relating to pricing plans, **Usage Allowances*
 
 ## Logs
 
-Both log types – **build time** and **runtime** – are stored for **20 days only**. It is not possible to retrieve either of these log types beyond the age of 20 days.
+All log types - **Build Time**, **Edge Network**, and **Runtime** - have differing behavior when it comes to storing logs.
 
-For [Serverless Functions](/docs/v2/serverless-functions/introduction/), each log output is **limited to 4kb**. For log outputs greater than 4kb, only the last 4kb will be retained.
+During the [Build Step](/docs/v2/platform/glossary#build-step), all logs are stored and **persisted**.
+
+For [Edge Network requests](/docs/v2/network/regions-and-providers#automatic-edge-cdn), all logs are **not persisted**.
+
+For [Serverless Functions](/docs/v2/serverless-functions/introduction/), only logs from failed requests are **persisted**.
+
+All other logs are stored in memory only and are **not persisted** between page views. Each log output is **limited to 4kb**. For log outputs greater than 4kb per Serverless Function invocation, only the last 4kb will be retained.
 
 ## Environment Variables
 
