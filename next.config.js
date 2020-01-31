@@ -91,6 +91,21 @@ module.exports = withMDX({
           destination: '/docs/v2/git-integrations/zeit-now-for-bitbucket'
         },
         {
+          source: '/docs/v2/integrations/now-for-github',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-github'
+        },
+        {
+          source: '/docs/v2/integrations/now-for-gitlab',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-gitlab'
+        },
+        {
+          source: '/docs/v2/integrations/now-for-bitbucket',
+          permanent: true,
+          destination: '/docs/v2/git-integrations/zeit-now-for-bitbucket'
+        },
+        {
           source: '/docs/aliasing',
           permanent: true,
           destination: '/docs/v2/aliasing-a-deployment'
