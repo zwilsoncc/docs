@@ -375,7 +375,8 @@ class HeaderFeedback extends Component {
                 .textarea-wrapper {
                   height: var(--closed-height);
                   width: var(--closed-width);
-                  transition: all 150ms ease-in-out;
+                  transition: all 150ms ease-in-out,
+                    border-radius 150ms step-start;
                 }
 
                 .geist-feedback-input.focused .textarea-wrapper {
@@ -390,6 +391,8 @@ class HeaderFeedback extends Component {
                   overflow: hidden;
                   position: relative;
                   z-index: 1000;
+                  transition: all 150ms ease-in-out,
+                    border-radius 150ms step-end;
                 }
 
                 .geist-feedback-input.focused .textarea-wrapper textarea {
