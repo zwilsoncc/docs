@@ -1,16 +1,11 @@
 import React from 'react'
-import Error from 'next/error'
 import Head from '~/components/layout/head'
 import Content from '~/components/layout/content'
 import Text, { H1, H4 } from '~/components/text'
 import { LinkList } from '~/components/list'
 import Link from '~/components/text/link'
 
-function ErrorPage({ statusCode }) {
-  if (statusCode !== 404) {
-    return <Error statusCode={statusCode} />
-  }
-
+function ErrorPage() {
   return (
     <>
       <Head
@@ -150,11 +145,6 @@ function ErrorPage({ statusCode }) {
       `}</style>
     </>
   )
-}
-
-ErrorPage.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-  return { statusCode }
 }
 
 export default ErrorPage

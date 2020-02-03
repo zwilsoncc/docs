@@ -13,7 +13,8 @@ module.exports = withMDX({
   target: 'serverless',
 
   experimental: {
-    css: true,
+    pages404: true,
+    polyfillsOptimization: true,
 
     rewrites() {
       return [
