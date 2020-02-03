@@ -45,6 +45,8 @@ If your issue doesn't fit with any of the templates then that's okay, please sub
 
 The ZEIT Now documentation is an open source project released under the [MIT License](https://github.com/zeit/docs/blob/master/LICENSE.md).
 
+The ZEIT Now documentation uses the emojis from [Twemoji](https://twemoji.twitter.com). Copyright 2020 Twitter, Inc and other contributors. Licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0).
+
 ## Get In Touch
 
 If you have any questions that are not covered by raising an issue then please get in touch with us by emailing support@zeit.co. There you will find both members of the community and staff who are happy to help answer questions on anything ZEIT related.
