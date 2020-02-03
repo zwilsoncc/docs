@@ -1,16 +1,13 @@
 import { memo } from 'react'
 import PropTypes from 'prop-types'
-import { useDarkMode } from '~/lib/with-dark-mode'
 
 const Badge = memo(
   ({
     content,
     backgroundColor = '#f00',
-    darkFontColor = '#000',
     fontColor = '#fff',
     hoverBackgroundColor
   }) => {
-    const darkBg = useDarkMode()
     const isNumber = typeof content === 'number' ? true : false
 
     return (
@@ -19,7 +16,7 @@ const Badge = memo(
         <style jsx>
           {`
             .badge {
-              color: ${darkBg ? darkFontColor : fontColor};
+              color: ${fontColor};
               background: ${backgroundColor};
               display: inline-block;
               font-size: 10px;
@@ -51,7 +48,6 @@ const Badge = memo(
 Badge.propTypes = {
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   backgroundColor: PropTypes.string,
-  darkFontColor: PropTypes.string,
   fontColor: PropTypes.string,
   hoverBackgroundColor: PropTypes.string
 }

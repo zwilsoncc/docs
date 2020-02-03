@@ -2,8 +2,17 @@ import cn from 'classnames'
 import NextLink from 'next/link'
 import Text, { H4 } from '~/components/text'
 import ArrowRight from '~/components/icons/chevron-right'
+import Plus from '~/components/icons/plus'
 
-export function IconCard({ href, buttonHref, icon, label, width, arrowed }) {
+export function IconCard({
+  href,
+  buttonHref,
+  icon,
+  label,
+  width,
+  arrowed,
+  plus
+}) {
   return (
     <NextLink href={href}>
       <a className={cn('icon-card', { button: !!buttonHref })}>
@@ -12,6 +21,11 @@ export function IconCard({ href, buttonHref, icon, label, width, arrowed }) {
         {arrowed && (
           <span className="arrow">
             <ArrowRight />
+          </span>
+        )}
+        {plus && (
+          <span className="plus">
+            <Plus />
           </span>
         )}
         <style jsx>{`
@@ -40,6 +54,23 @@ export function IconCard({ href, buttonHref, icon, label, width, arrowed }) {
             margin-left: auto;
             color: var(--accents-3);
             transition: color 0.12s ease;
+          }
+
+          .plus {
+            background: var(--geist-success);
+            border-radius: 5px;
+            margin-left: auto;
+            color: var(--geist-background);
+            height: 32px;
+            width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.12s ease;
+          }
+
+          .icon-card:hover .plus {
+            background: var(--geist-success-dark);
           }
 
           .icon-card:hover .arrow {
