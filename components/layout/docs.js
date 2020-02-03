@@ -4,6 +4,7 @@ import { withRouter } from 'next/router'
 import { MDXProvider } from '@mdx-js/tag'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
+import DataContext from '~/lib/data-context'
 import Head from '~/components/layout/head'
 import Heading from '~/components/text/linked-heading'
 import Content from '~/components/layout/content'
@@ -88,6 +89,9 @@ function Doc({
     router.asPath.split(/(v[0-9])/)[1] || 'v2'
   )
   const versionData = version === 'v2' ? dataV2 : dataV1
+  const dataContext = useContext(DataContext)
+
+  dataContext.setData(versionData)
 
   const handleVersionChange = event => {
     const href = `/docs/${event.target.value}`
