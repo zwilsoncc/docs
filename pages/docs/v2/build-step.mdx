@@ -18,7 +18,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-01-30T14:48:24.000Z'
+  lastEdited: '2020-02-03T16:11:46.000Z'
 }
 
 When you make a deployment with ZEIT Now, the first step is the build step. ZEIT Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
@@ -265,14 +265,14 @@ If you need to ignore the cache for a deployment, you can do so by using the [`-
 
 ### Framework Versioning
 
-In some cases, currently only for Hugo and Zola, you can choose which version of a framework to install for your deployments.
+Some frameworks do not use `package.json` to select a specific version to install during build time.
 
-By including [a `build.env` configuration property](/docs/configuration#project/build-env) in [a `now.json` file](/docs/configuration) at your project's root, you can define your framework's version with the following keys:
+By including [a `build.env` configuration property](/docs/configuration#project/build-env) in [a `now.json` file](/docs/configuration) at your project's root, you can define your framework's version with one of the following keys:
 
-| Framework | Variable Key     |
-| --------- | ---------------- |
-| Hugo      | `"HUGO_VERSION"` |
-| Zola      | `"ZOLA_VERSION"` |
+| Framework | Build Env Key  |
+| --------- | -------------- |
+| Hugo      | `HUGO_VERSION` |
+| Zola      | `ZOLA_VERSION` |
 
 For example, defining the Hugo version in a `now.json` file would look like the following snippet:
 
@@ -290,6 +290,21 @@ For example, defining the Hugo version in a `now.json` file would look like the 
   An example of defining a version for Hugo with a{' '}
   <InlineCode>now.json</InlineCode> configuration.
 </Caption>
+
+<Note>
+  The value must match an existing GitHub Release with an attached asset. For
+  example, Hugo{' '}
+  <InlineCode>
+    <Link href="https://github.com/gohugoio/hugo/releases/tag/v0.42.0">
+      0.42.0
+    </Link>
+  </InlineCode>{' '}
+  does not exist but Hugo{' '}
+  <InlineCode>
+    <Link href="https://github.com/gohugoio/hugo/releases/tag/v0.42">0.42</Link>
+  </InlineCode>{' '}
+  does exist.
+</Note>
 
 ## Related
 
