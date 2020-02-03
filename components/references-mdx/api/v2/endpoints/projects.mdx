@@ -258,6 +258,60 @@ Get the information for a specific project by passing either the project `id` or
   ]
 }`}</Code>
 
+### Update a Single Project
+
+<Endpoint>
+  PATCH /v2/projects/:id
+  <br />
+  PATCH /v2/projects/:name
+</Endpoint>
+
+Update the fields of a project using either its `name` or `id`.
+
+#### Request Parameters
+
+| Key                 | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                                           |
+| ------------------- | ---------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **framework**       | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The framework that is being used for this project. When `null` is used no framework is selected.                                          |
+| **publicSource**    | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | No       | Specifies whether the source code and logs of the deployments for this project should be public or not.                                |
+| **buildCommand**    | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The build command for this project. When `null` is used this value will be automatically detected.                                    |
+| **devCommand**      | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The dev command for this project. When `null` is used this value will be automatically detected.                                      |
+| **outputDirectory** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The output directory of the project. When `null` is used this value will be automatically detected.                                   |
+| **rootDirectory**   | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The name of a directory or relative path to the source code of your project. When `null` is used it will default to the project root. |
+
+##### Example Request
+
+<Request
+  method="PATCH"
+  url="https://api.zeit.co/v2/projects/a-project-name"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
+  auth
+  body={{
+    framework: 'nextjs',
+    publicSource: false,
+    buildCommand: 'yarn run different-build',
+    devCommand: 'yarn run different-dev',
+    outputDirectory: null
+  }}
+/>
+
+##### Example Response
+
+<Code lang="json">{`{
+  "id": "QmQKrt94KYKF3sDysJq19N87uMmE8Wicbt2GirePy1dH8U",
+  "name": "a-project-name",
+  "accountId": "K4amb7K9dAt5R2vBJWF32bmY",
+  "framework": 'nextjs',
+  "publicSource": false,
+  "buildCommand": "yarn run different-build",
+  "devCommand": "yarn run different-dev",
+  "outputDirectory": null,
+  "updatedAt": 1555413045188,
+  "createdAt": 1575972468641
+}`}</Code>
+
 ### Remove a Single Project
 
 <Endpoint>
