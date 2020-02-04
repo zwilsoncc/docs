@@ -302,7 +302,7 @@ class Header extends Component {
                   >
                     <MenuPopOver
                       title="Reference"
-                      offsetArrowLeft={60}
+                      offsetLeft={-62}
                       primaryList={[
                         {
                           title: 'Now CLI',

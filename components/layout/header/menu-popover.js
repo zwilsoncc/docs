@@ -33,8 +33,6 @@ export class MenuPopOver extends Component {
       offsetLeft
     } = this.props
 
-    const contentWidth = primaryList && secondaryList ? 480 : 295
-
     return (
       <span
         className={cn({ 'is-active': this.state.isOpen })}
@@ -50,11 +48,7 @@ export class MenuPopOver extends Component {
           offsetLeft={offsetLeft}
           offsetTop={0}
           to={
-            <PopOver.Menu
-              tipOffset={60}
-              noPadding
-              width={dashboard ? 140 : contentWidth}
-            >
+            <PopOver.Menu tipOffset={60} noPadding width={180}>
               <div className="wrapper">
                 {primaryList && (
                   <aside className="left">
@@ -246,8 +240,9 @@ export class MenuPopOver extends Component {
 
           @media (min-width: 951px) {
             span {
-              display: block;
+              display: flex;
               visibility: visible;
+              align-items: center;
             }
           }
         `}</style>
