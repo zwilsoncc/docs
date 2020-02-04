@@ -5,18 +5,21 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title:
     'Create a Next.js and Storyblok App That Builds and Deploys with ZEIT Now',
   description:
     'Use Storyblok as a Headless CMS to power content for your Next.js app deployed with ZEIT Now.',
+  name: 'Next.js + Storyblok',
+  type: 'app',
   published: '2019-06-24T16:51:04.000Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-next-and-storyblok-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-storyblok-with-now/deploying-next-storyblok-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-storyblok-with-now.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [Storyblok](https://www.storyblok.com/) headless CMS, before deploying **with a single command** to [ZEIT Now](/docs/v2).
@@ -317,14 +320,7 @@ With those steps out the way you are now able to run your app. You can develop y
 
 ## Step 4: Deploying the App
 
-With your app ready, it is time to deploy it using **a single command**:
-
-<Snippet dark text="now" />
-<Caption>
-  Using the <InlineCode>now</InlineCode> command to deploy your project with ZEIT Now.
-</Caption>
-
-You will see a short build step in your terminal followed by the news that your project has been [deployed](https://zeit.co/docs/v2/deployments/basics/), it should look similar to the [example app](https://nextjs-storyblok.now-examples.now.sh/).
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

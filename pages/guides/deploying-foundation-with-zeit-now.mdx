@@ -4,6 +4,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title: 'Deploy Foundation with ZEIT Now',
@@ -16,7 +17,9 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20Foundation%20Apps**%20%3C%2Fbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.svgporn.com%2Flogos%2Ffoundation.svg&widths=300&widths=300&heights=300&heights=300',
   editUrl: 'pages/guides/deploying-foundation-with-zeit-now.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  name: 'Foundation',
+  type: 'app',
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 [Foundation](https://foundation.zurb.com/) is a family of responsive front-end frameworks that make it easy to design beautiful responsive websites, apps and emails that look amazing on any device.
@@ -43,14 +46,7 @@ PATHS:
 
 ## Step 2: Deploying Your Foundation App with ZEIT Now
 
-With a Foundation app set up, it is ready to deploy live with [ZEIT Now](/docs/v2).
-
-Using [Now CLI](/download), deploy your app with **a single command**:
-
-<Snippet dark text="now" />
-<Caption>Deploying your Foundation app with Now CLI.</Caption>
-
-If you want to deploy your Foundation app when you push to a Git repository, you can use either [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

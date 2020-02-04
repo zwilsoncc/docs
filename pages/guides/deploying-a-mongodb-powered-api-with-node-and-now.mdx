@@ -5,6 +5,7 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title: 'Create and Deploy a MongoDB-Powered Node.js API with ZEIT Now',
@@ -16,8 +17,10 @@ export const meta = {
   image: `${
     process.env.ASSETS
   }/guides/deploying-a-mongodb-powered-api-with-node-and-now/card.png`,
+  name: 'MongoDB',
+  type: 'API',
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/).
@@ -231,40 +234,9 @@ Using the default port, you can find your new API endpoint at <http://localhost:
 
 ## Step 4: Deploying
 
-The next and final step is to deploy your app with a single command.
-
-To deploy your MongoDB API, use the following [Now CLI](/download) command from your terminal:
-
-<Snippet dark text="now" />
-<Caption>Deploying with Now CLI in one command.</Caption>
-
-To use your domain for [production deployments](/docs/v2/custom-domains#deploying-with-your-domain), [add a custom domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) to your project.
-
-Now, deploy your project to a production environment using the following command:
-
-<Snippet dark text="now --prod" />
-<Caption>Deploying to production with ZEIT Now.</Caption>
-
-<Note>
-  For optimal performance,{' '}
-  <Link href="/docs/configuration#project/regions">
-    deploy your API to the closest region, or regions
-  </Link>
-  , of where your MongoDB cluster is located in. You can see the regions ZEIT Now
-  supports in the <Link href="/docs/v2/platform/regions-and-providers">
-    Regions and Providers documentation
-  </Link>.
-</Note>
-
-When complete, Now CLI will provide you with the URL your project has been deployed to. In the case above, the production domain was set to `my-mongodb-api.now.sh`.
+<DeploySection meta={meta} />
 
 You can view the deployment from this guide, using the API path, here: <https://my-mongodb-api.now.sh/api/users.js>
-
-## Deploying Automatically with Git
-
-Instead of deploying manually through your terminal, you can also get **automatic deployments with each git push** when you use [ZEIT Now for GitHub](/github), [ZEIT Now for GitLab](/gitlab), or [ZEIT Now for Bitbucket](/bitbucket).
-
-Push to any branch, pull, or merge request and get a fresh deployment to review. Merging into the default branch results in an automatic update of the production domain. No extra work needed.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

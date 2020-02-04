@@ -5,10 +5,11 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title:
-    'Create a Next.js and Buttercms App That Builds and Deploys with ZEIT Now',
+    'Create a Next.js and ButterCMS App That Builds and Deploys with ZEIT Now',
   description:
     'Deploy your Next.js and ButterCMS app with ZEIT Now in a serverless environment.',
   published: '2019-06-21T16:51:04.000Z',
@@ -18,7 +19,9 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-buttercms-with-now/deploying-next-buttercms-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-buttercms-with-now.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  name: 'Next.js + ButterCMS',
+  type: 'app',
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [ZEIT blog](/blog) by utilizing the [ButterCMS](https://buttercms.com/) content management system, before deploying **with a single command** to [ZEIT Now](/docs/v2).
@@ -300,14 +303,7 @@ With those steps out the way you are now able to run your app. You can develop y
 
 ## Step 4: Deploying the App
 
-With your app ready, it is time to deploy it using **a single command**:
-
-<Snippet dark text="now" />
-<Caption>
-  Using the <InlineCode>now</InlineCode> command to deploy your project with ZEIT Now.
-</Caption>
-
-You will see a short build step in your terminal followed by the news that your project has been [deployed](https://zeit.co/docs/v2/deployments/basics/), it should look similar to the [example app](https://nextjs-buttercms.now-examples.now.sh/).
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

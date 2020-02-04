@@ -5,17 +5,20 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title: 'Create and Deploy a Next.js and Prismic App with ZEIT Now',
   description:
     'Create a Next.js and Prismic app that is deployed with ZEIT Now.',
+  name: 'Next.js + Prismic',
+  type: 'app',
   published: '2019-06-26T14:46:50.000Z',
   authors: ['raulg'],
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [ZEIT Now](/docs/v2).
@@ -259,11 +262,7 @@ You can now refresh your site at [`localhost:3000`](http://localhost:3000/) and 
 
 ## Step 5: Deploying With ZEIT Now
 
-So far, you have been using `npm run dev` to develop locally, but what good is a blog if you don't show it off to the world. It's time to deploy it to the ZEIT Now platform and enjoy your serverless web app.
-
-You can run `npm run deploy` to launch the [Now CLI](/download) which will quickly setup and deploy your project online. Once it's done, you can check the generated url.
-
-Your minimalistic blog using Prismic and built with Next.js is now online on ZEIT Now and **can be shared instantly** using the URL given by the Now CLI.
+<DeploySection meta={meta} />
 
 ## Bonus: Serverless Pre-Rendering
 

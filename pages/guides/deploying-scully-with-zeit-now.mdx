@@ -4,6 +4,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title: 'Deploy Scully with ZEIT Now',
@@ -11,10 +12,12 @@ export const meta = {
   published: '2020-01-13T12:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-scully-with-zeit-now',
+  name: 'Scully',
+  type: 'app',
   example: 'scully',
   demo: 'https://scully.now-examples.now.sh',
   editUrl: 'pages/guides/deploying-scully-with-zeit-now.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 [Scully](https://github.com/scullyio/scully/blob/master/README.md) is the best way to build the fastest Angular apps. Scully is a static site generator for Angular projects looking to embrace the JAMStack.
@@ -43,14 +46,7 @@ Then, use the `ng generate` command to initialize the post module:
 
 ## Step 2: Deploying Your Scully App with ZEIT Now
 
-With a Scully app set up, it is ready to deploy live with [ZEIT Now](/docs/v2).
-
-Using [Now CLI](/download), deploy your app with **a single command**:
-
-<Snippet dark text="now" />
-<Caption>Deploying your Scully app with Now CLI.</Caption>
-
-If you want to deploy your Scully app when you push to a Git repository, you can use either [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

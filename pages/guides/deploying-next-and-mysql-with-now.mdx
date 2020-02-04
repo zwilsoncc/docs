@@ -5,6 +5,7 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title:
@@ -18,7 +19,9 @@ export const meta = {
     process.env.ASSETS
   }/guides/deploying-next-mysql-with-now/deploying-next-mysql-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  name: 'Next.js + MySQL',
+  type: 'app',
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [ZEIT Now](/docs/v2).
@@ -419,17 +422,7 @@ Create a [`now.json` file](/docs/configuration) with the following configuration
 
 Finally, deploy the app with [ZEIT Now](https://zeit.co).
 
-If you have not yet installed ZEIT Now, you can do so by [installing Now CLI](/download).
-
-[ZEIT Now](https://zeit.co) allows you to [deploy your project](/docs/v2/deployments/basics) from the terminal with **a single command**:
-
-<Snippet dark text="now" />
-
-<Caption>
-  Deploying the app with the <InlineCode>now</InlineCode> command.
-</Caption>
-
-You will see a short build step in your terminal followed by the news that your project has been [deployed](docs/v2/introduction), it should look similar to this: <https://next-mysql.now.sh/>
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

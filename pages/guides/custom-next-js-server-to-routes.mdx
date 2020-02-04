@@ -3,6 +3,7 @@ import { InlineCode } from '~/components/text/code'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title: 'Deploying with Custom Serverless Next.js Routing',
@@ -10,9 +11,11 @@ export const meta = {
     'Migrate from a Next.js app with a custom server to a serverless Next.js app using ZEIT Now routes.',
   published: '2019-01-23T17:00:00.860Z',
   authors: ['timothy', 'timneutkens'],
+  name: 'Next.js',
+  type: 'app',
   url: '/guides/custom-next-js-server-to-routes',
   editUrl: 'pages/guides/custom-next-js-server-to-routes.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 Next.js offers developers [a built-in routing system](https://nextjs.org/docs/#routing) that allows you to link to other pages whilst also giving those pages a custom URL. When a user refreshes the custom URL, however, the browser will not be able to load the link because the page was previously routed client-side. To resolve this, we need to also handle routing server-side.
@@ -111,17 +114,7 @@ Now, clicking the espresso product link will result in the URL path being `/prod
 
 ### Step 2: Deploying
 
-With the Next.js app setup complete, we can deploy our app [using ZEIT Now](/docs) with **a single command**.
-
-<Snippet dark text="now" />
-
-<Caption>
-  Deploying our app with the <InlineCode>now</InlineCode> command.
-</Caption>
-
-If you are using either [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket); pushing your code to your repository is all you need to do for ZEIT Now to automatically deploy your app.
-
-Once you deploy, you will receive a deployment URL which contains this example with a few styling tweaks for ease on the eyes: <https://nextjs-routes.zeit.sh/>
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

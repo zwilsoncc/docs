@@ -4,10 +4,13 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import Snippet from '~/components/snippet'
 import { Image } from '~/components/media'
+import DeploySection from '~/components/guides/deploy-section'
 
 export const meta = {
   title: 'Deploying a Static Nuxt.js App with ZEIT Now',
   description: 'Create and deploy your static Nuxt.js app with ZEIT Now.',
+  name: 'Nuxt.js',
+  type: 'app',
   published: '2019-08-06T01:01:52.000Z',
   authors: ['developerayo', 'msweeneydev'],
   url: '/guides/deploying-nuxtjs-with-zeit-now',
@@ -16,7 +19,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploy%20Nuxt.js%20Apps**%20%3Cbr%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fnuxtjs.org%2Flogos%2Fnuxt-square.svg&widths=250&widths=300&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-nuxtjs-with-zeit-now.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-02-04T12:49:00.000Z'
 }
 
 [Nuxt.js](https://nuxtjs.org/) is an open-source Vue.js-based framework that provides multiple different rendering modes, one of which allows you generate a static app.
@@ -61,16 +64,7 @@ Following that, change the build script in the `package.json` file to the follow
 
 ## Step 2: Deploying Your Nuxt.js Project With ZEIT Now
 
-With your Nuxt.js app set up, it is ready to be [deployed](/docs/v2/deployments/basics/) with [ZEIT Now](/docs/v2).
-
-If you have not yet installed ZEIT Now, you can do so by installing [Now CLI](/download).
-
-You are now ready to deploy your app with **a single command**:
-
-<Snippet dark text="now" />
-<Caption>Deploying your project with the <InlineCode>now</InlineCode> command.</Caption>
-
-If you want to deploy your Nuxt.js project when you push to a Git repository, you can use either [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) to have your project automatically deployed on every push, and the [production domain](https://zeit.co/docs/v2/custom-domains/#adding-a-domain) updated on push to master.
+<DeploySection meta={meta} />
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
