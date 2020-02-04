@@ -19,7 +19,7 @@ export const meta = {
   description:
     'An introduction to the ZEIT Now platform and how to get started deploying any kind of application.',
   editUrl: 'pages/docs/v2/introduction.mdx',
-  lastEdited: '2020-01-29T16:31:42.000Z'
+  lastEdited: '2020-02-04T13:49:03.000Z'
 }
 
 ZEIT Now is a cloud platform for **static sites** and **Serverless Functions** that fits perfectly with your workflow. It enables developers to host **JAMstack** websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
@@ -31,23 +31,13 @@ Once you have [signed up to ZEIT](/signup), you can use our [Git integrations](/
 Select a Git provider below to get started deploying your existing repositories and projects:
 
 <List columnsDesktop={3} columnsTablet={3} columnsMobile={1}>
-  <IconCard
-    label="GitHub"
-    icon={<GitHubIcon />}
-    href="/docs/v2/git-integrations/zeit-now-for-github"
-    arrowed
-  />
-  <IconCard
-    label="GitLab"
-    icon={<GitLabIcon />}
-    href="/docs/v2/git-integrations/zeit-now-for-gitlab"
-    arrowed
-  />
+  <IconCard label="GitHub" icon={<GitHubIcon />} href="/new?tab=github" plus />
+  <IconCard label="GitLab" icon={<GitLabIcon />} href="/new?tab=gitlab" plus />
   <IconCard
     label="Bitbucket"
     icon={<BitbucketIcon />}
-    href="/docs/v2/git-integrations/zeit-now-for-bitbucket"
-    arrowed
+    href="/new?tab=bitbucket"
+    plus
   />
 </List>
 
