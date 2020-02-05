@@ -32,6 +32,23 @@ private.html
   An example <InlineCode>.nowignore</InlineCode> file.
 </Caption>
 
+## Allowlist
+
+A typical `.nowignore` file assumes all files are allowed and each entry is a pattern to ignore. Alternatively, you may chose to ignore all files and each entry is a pattern to allow.
+The first step is to add a wildcard `/*` as the first line in `.nowignore`. This will ensure all directories and files in the project root are ignored. The following lines must start with a `!` to invert the ignore action and ensure the directory or file is allowed.
+
+```
+# Ignore everything (folders and files) on root only
+/*
+!api
+!now.json
+!*.html
+```
+
+<Caption>
+  An example <InlineCode>.nowignore</InlineCode> file using the "allowlist" pattern.
+</Caption>
+
 ## Uploaded Files
 
 Aside from the [default exclusions](/docs/v2/build-step/#ignored-files-and-folders), all files within your project are uploaded to ZEIT Now if no source path is specified to be excluded in a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths).
