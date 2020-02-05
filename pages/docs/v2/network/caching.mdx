@@ -7,10 +7,12 @@ export const meta = {
   description:
     'A guide for how ZEIT Now caches and how to control that caching.',
   editUrl: 'pages/docs/v2/network/caching.mdx',
-  lastEdited: '2019-10-22T21:51:28.000Z'
+  lastEdited: '2020-02-05T23:43:02.000Z'
 }
 
 Our [Smart CDN](/smart-cdn) caches your content at the edge in order to serve data to your users as fast as possible.
+
+**Asset caching is automatic for all deployments.** This means that no changes need to be made to headers. You get the best performance possible out of the box with zero configuration required.
 
 ## Cacheable Responses
 
@@ -73,7 +75,7 @@ When the CDN receives a request with `Pragma: no-cache` (such as when the browse
 
 Every deployment has a unique key used for caching based on the deployment url created at build time. This means that users will never see content from a previous deployment and there's normally no need to invalidate it.
 
-If you ever need to invalidate the CDN cache, you can always re-deploy.
+The cache is **automatically purged** upon a new deployment being created. If you ever need to invalidate the CDN cache, you can always re-deploy.
 
 ## X-Now-Cache
 
