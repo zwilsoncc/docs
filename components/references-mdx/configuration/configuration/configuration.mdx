@@ -16,9 +16,9 @@ export const meta = {
 
 <Note type="alert">
   The <InlineCode>name</InlineCode> property has been deprecated in favor of{' '}
-  <Link href="/docs/now-cli#commands/now/project-linking">Project Linking</Link>
-  , which allows you to link a ZEIT Now Project to your local codebase when you
-  run <InlineCode>now</InlineCode>.
+  <Link href="/docs/now-cli#commands/now/project-linking">Project Linking</Link>,
+  which allows you to link a ZEIT Now Project to your local codebase when you run{' '}
+  <InlineCode>now</InlineCode>.
 </Note>
 
 **Type**: `String`.
@@ -371,13 +371,23 @@ Similarly, a Serverless Function named `api/user.go` will be served when visitin
 
 **Type**: `Boolean`.
 
-**Default Value**: `null`.
+**Default Value**: `undefined`.
 
 When set to `true`, visiting a path that does not end with a forward slash will respond with a 308 status code and redirect to the path with a trailing slash.
 
+For example, when `trailingSlash: true`, the `/about` path will redirect to `/about/`.
+
+However, paths that contain a `.` will not redirect.
+
+For example, visting `/about/style.css` will not redirect but `/about/style/` will redirect to `/about/style/`
+
 When set to `false`, visiting a path that ends with a forward slash will respond with a 308 status code and redirect to the path without the trailing slash.
 
-For example, when `trailingSlash: false` the `/about/` path will redirect to `/about`.
+For example, when `trailingSlash: false`, the `/about/` path will redirect to `/about`.
+
+When `undefined`, visiting a path with or without a trailing slash will not redirect.
+
+For example, both `/about` and `/about/` will serve the same content without redirecting.
 
 <Code lang="json">{`{
   "trailingSlash": false
