@@ -1,35 +1,4 @@
 {
   "version": 2,
-  "public": true,
-  "routes": [
-    {
-      "src": "/docs/(integrations|now-cli)/v2(.*)",
-      "status": 301,
-      "headers": { "Location": "/docs/$1/$2" }
-    },
-    {
-      "src": "/docs/v2/deployments/ignoring-source-paths(.*)",
-      "status": 301,
-      "headers": {
-        "Location": "/guides/prevent-uploading-sourcepaths-with-nowignore$1"
-      }
-    },
-    {
-      "src": "/docs/v2/(deployments|advanced)/configuration(.*)",
-      "status": 301,
-      "headers": { "Location": "/docs/configuration$2" }
-    },
-    {
-      "src": "/docs/router-status/(?<code>[^/]*)",
-      "status": 301,
-      "headers": { "Location": "/docs/v2/network/status-codes#$code" }
-    },
-    {
-      "src": "/docs/_next(/static/(?:[^/]+/pages|chunks|runtime)/.+)",
-      "headers": {
-        "cache-control": "immutable,max-age=31536000"
-      },
-      "dest": "/_next$1"
-    }
-  ]
+  "public": true
 }

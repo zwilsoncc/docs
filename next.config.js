@@ -42,15 +42,11 @@ module.exports = withMDX({
           destination: '/:path+'
         },
         {
-          source: '/api',
+          source: '/api(|/.*)',
           permanent: true,
           destination: '/docs/api'
         },
-        {
-          source: '/api/(.*)',
-          permanent: true,
-          destination: '/docs/api'
-        },
+
         {
           source: '/docs/builders',
           permanent: true,
@@ -91,6 +87,22 @@ module.exports = withMDX({
           permanent: true,
           destination: '/docs/v2/git-integrations/zeit-now-for-bitbucket'
         },
+        {
+          source: '/docs/:name(integrations|now-cli)/v2/:path*',
+          permanent: true,
+          destination: '/docs/:name/:path*'
+        },
+        {
+          source: '/docs/v2/deployments/ignoring-source-paths',
+          permanent: true,
+          destination: '/guides/prevent-uploading-sourcepaths-with-nowignore'
+        },
+        {
+          source: '/docs/v2/:name(deployments|advanced)/configuration/:path*',
+          permanent: true,
+          destination: '/docs/configuration/:path*'
+        },
+
         {
           source: '/docs/v2/integrations/now-for-github',
           permanent: true,
