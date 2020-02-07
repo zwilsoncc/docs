@@ -31,5 +31,17 @@
       },
       "dest": "/_next$1"
     }
+  ],
+  "builds": [
+      {
+          "src": "package.json",
+          "use": "@now/next",
+          "config": {
+              "zeroConfig": true,
+              "framework": "nextjs",
+              "forceBuildIn": "iad1",
+              "debug": true
+          }
+      }
   ]
 }
