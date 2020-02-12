@@ -134,6 +134,7 @@ The logs are buffered and submitted as batches with the following formats:
       "host": <hostname>,
       "path": <path of proxy request>,
       "userAgent": <user agent>,
+      "referer": <referer>,
       "statusCode": <HTTP status code of proxy request>,
       "clientIp": <client IP>,
       "region": <region request is processed>,
@@ -155,7 +156,7 @@ Each request receives HTTP headers including `x-zeit-signature`.
 The following is an example `POST` body:
 
 <Code lang="json">{`{"id":"1573817187330377061717300000","message":"done","timestamp":1573817187330,"type":"stdout","source":"build","projectId":"abcdefgdufoJxB6b9b1fEqr1jUtFkyavUURbnDCFCnZxgs","deploymentId":"dpl_233NRGRjVZX1caZrXWtz5g1TAksD","buildId":"bld_cotnkcr76","host":"example-4lp0kffgq.now.sh","entrypoint":"api/index.js"}
-{"id":"1573817250283254651097202070","message":"START RequestId: 643af4e3-975a-4cc7-9e7a-1eda11539d90 Version: $LATEST\\n2019-11-15T11:27:30.721Z\\t643af4e3-975a-4cc7-9e7a-1eda11539d90\\tINFO\\thello\\nEND RequestId: 643af4e3-975a-4cc7-9e7a-1eda11539d90\\nREPORT RequestId: 643af4e3-975a-4cc7-9e7a-1eda11539d90\\tDuration: 16.76 ms\\tBilled Duration: 100 ms\\tMemory Size: 1024 MB\\tMax Memory Used: 78 MB\\tInit Duration: 186.49 ms\\t\\n","timestamp":1573817250283,"source":"lambda","requestId":"894xj-1573817250172-7847d20a4939","statusCode":200,"proxy":{"timestamp":1573817250172,"path":"/api","userAgent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"],"method":"GET","scheme":"https","host":"example-4lp0kffgq.now.sh","statusCode":200,"clientIp":"120.75.16.101","region":"sfo1"},"projectId":"abcdefgdufoJxB6b9b1fEqr1jUtFkyavUURbnDCFCnZxgs","deploymentId":"dpl_233NRGRjVZX1caZrXWtz5g1TAksD","host":"example-4lp0kffgq.now.sh","path":"api/index.js"}`}</Code>
+{"id":"1573817250283254651097202070","message":"START RequestId: 643af4e3-975a-4cc7-9e7a-1eda11539d90 Version: $LATEST\\n2019-11-15T11:27:30.721Z\\t643af4e3-975a-4cc7-9e7a-1eda11539d90\\tINFO\\thello\\nEND RequestId: 643af4e3-975a-4cc7-9e7a-1eda11539d90\\nREPORT RequestId: 643af4e3-975a-4cc7-9e7a-1eda11539d90\\tDuration: 16.76 ms\\tBilled Duration: 100 ms\\tMemory Size: 1024 MB\\tMax Memory Used: 78 MB\\tInit Duration: 186.49 ms\\t\\n","timestamp":1573817250283,"source":"lambda","requestId":"894xj-1573817250172-7847d20a4939","statusCode":200,"proxy":{"timestamp":1573817250172,"path":"/api","userAgent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"],"referer":"http://example.now.sh","method":"GET","scheme":"https","host":"example-4lp0kffgq.now.sh","statusCode":200,"clientIp":"120.75.16.101","region":"sfo1"},"projectId":"abcdefgdufoJxB6b9b1fEqr1jUtFkyavUURbnDCFCnZxgs","deploymentId":"dpl_233NRGRjVZX1caZrXWtz5g1TAksD","host":"example-4lp0kffgq.now.sh","path":"api/index.js"}`}</Code>
 
 ### Syslog Drain
 
@@ -165,7 +166,7 @@ Log Drain messages are formatted according to [RFC5424](https://tools.ietf.org/h
 Syslog messages resemble the following:
 
 ```
-393 <142>1 2019-11-15T11:42:22.562Z example-4lp0kffgq.now.sh now proxy - [proxy@54735 requestId="q8k4w-1573818142562-9adfb40ce9d4" statusCode="200" method="GET" path="/api" userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36" clientIp="120.75.16.101" region="sfo1" signature="b847f4dd531d0b41094fb4b38fd62bde0b0e29a5"]587 <150>1 2019-11-15T11:42:22.833Z example-4lp0kffgq.now.sh now lambda - [lambda@54735 requestId="q8k4w-1573818142562-9adfb40ce9d4" statusCode="200" path="api/index.js" signature="0900101157dac2a2e555524c2f8d61229b15307d"] BOMSTART RequestId: ec00309f-4514-4128-8b8a-9a0e74900283 Version: $LATEST
+425 <142>1 2019-11-15T11:42:22.562Z example-4lp0kffgq.now.sh now proxy - [proxy@54735 requestId="q8k4w-1573818142562-9adfb40ce9d4" statusCode="200" method="GET" path="/api" userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36" referer="http://example.now.sh" clientIp="120.75.16.101" region="sfo1" signature="b847f4dd531d0b41094fb4b38fd62bde0b0e29a5"]587 <150>1 2019-11-15T11:42:22.833Z example-4lp0kffgq.now.sh now lambda - [lambda@54735 requestId="q8k4w-1573818142562-9adfb40ce9d4" statusCode="200" path="api/index.js" signature="0900101157dac2a2e555524c2f8d61229b15307d"] BOMSTART RequestId: ec00309f-4514-4128-8b8a-9a0e74900283 Version: $LATEST
 2019-11-15T11:42:23.176Z\\tec00309f-4514-4128-8b8a-9a0e74900283\\tINFO\\thello
 END RequestId: ec00309f-4514-4128-8b8a-9a0e74900283
 REPORT RequestId: ec00309f-4514-4128-8b8a-9a0e74900283\\tDuration: 20.08 ms\\tBilled Duration: 100 ms Memory Size: 1024 MB\\tMax Memory Used: 77 MB\\tInit Duration: 157.97 ms
