@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2020-02-04T13:36:04.000Z'
+  lastEdited: '2020-02-13T19:57:43.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` suffixed domain.
@@ -225,6 +225,17 @@ Once the **Edit** button has been clicked, you will be presented with further op
   shadow
 />
 <Caption>A configured domain on the Project Domains page with the option to remove.</Caption>
+
+## Provider Specific Instructions
+
+### Cloudflare
+
+To use [Cloudflare](https://www.cloudflare.com/)-managed domains, follow these steps:
+
+1. Configure your domain such that SSL is disabled for the path `/.well-known/**`.
+2. Run `curl http://<domain>/.well-known/acme-challenge` (Replace `<domain>` with your domain. Notice that it’s `http` and not `https`).
+
+If the above `curl` command returns an error (e.g. `{"error":{...}}`), then you’re good to go - it means that ZEIT can generate certificates successfully. Otherwise, make sure that SSL is disabled for `/.well-known/**` and try again.
 
 ## Related
 

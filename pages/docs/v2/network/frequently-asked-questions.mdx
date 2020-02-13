@@ -5,7 +5,7 @@ export const meta = {
   description:
     'A list of common questions and answers related to the ZEIT Network.',
   editUrl: 'pages/docs/v2/network/frequently-asked-questions.mdx',
-  lastEdited: '2019-11-11T10:29:24.000Z'
+  lastEdited: '2020-02-13T19:57:43.000Z'
 }
 
 ### What are the CDN defaults?
@@ -72,10 +72,10 @@ The transition is painless. All you have to do is point your NS records to our [
 
 - We don't currently have an image optimization service in place, if you'd like to see this feature then please [let us know](/feedback).
 
-### How do I use CloudFlare over your CDN (disable it)?
+### How do I use Cloudflare over your CDN (disable it)?
 
-- Use `Origin Control: Off` along with other custom caching rules in CloudFlare, in a `now.json` file, set `s-maxage` to 0 on your routes to disable any caching from ZEIT CDN.
-- When a new deployment is made, you will have to find a way to purge the CloudFlare cache.
+- Use `Origin Control: Off` along with other custom caching rules in Cloudflare, in a `now.json` file, set `s-maxage` to 0 on your routes to disable any caching from ZEIT CDN.
+- When a new deployment is made, you will have to find a way to purge the Cloudflare cache.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 

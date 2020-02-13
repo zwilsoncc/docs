@@ -287,6 +287,11 @@ module.exports = withMDX({
           permanent: true,
           destination:
             '/docs/v2/platform/frequently-asked-questions#platform-version-detection'
+        },
+        {
+          source: '/docs/v1/guides/how-to-use-cloudflare',
+          permanent: true,
+          destination: '/docs/v2/custom-domains#cloudflare'
         }
       ]
     }
