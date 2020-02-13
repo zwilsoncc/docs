@@ -48,7 +48,7 @@ const Guides = () => (
                 </div>
                 <div className="meta">
                   <span className="date">
-                    {formatDate(guide.published, 'MMMM Do YYYY')}
+                    Created on {formatDate(guide.published, 'MMMM Do YYYY')}
                   </span>
                   <AvatarGroup
                     size={24}
@@ -81,6 +81,10 @@ const Guides = () => (
     </div>
 
     <style jsx>{`
+      .titles {
+        margin-right: var(--geist-gap);
+      }
+
       .guides {
         min-height: 100vh;
         padding-bottom: 64px;
@@ -210,7 +214,7 @@ const Guides = () => (
 
       .date {
         color: #666;
-        font-size: var(--font-size-primary);
+        font-size: var(--font-size-small);
         line-height: var(--line-height-primary);
       }
 

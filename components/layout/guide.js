@@ -1,6 +1,5 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/tag'
-import formatDate from 'date-fns/format'
 import { useAmp } from 'next/amp'
 
 import Head from '~/components/layout/head'
@@ -108,18 +107,17 @@ class Guide extends React.PureComponent {
                 <div className="authors-list">
                   {meta.authors.map(author => (
                     <div className="author-info" key={author}>
-                      <Avatar
-                        size={32}
-                        username={author}
-                        title={`Written by ${author}`}
-                      />
+                      <span className="avatar">
+                        <Avatar
+                          size={32}
+                          username={author}
+                          title={`Written by ${author}`}
+                        />
+                      </span>
                       <span className="username">{author}</span>
                     </div>
                   ))}
                 </div>
-                <span className="published">
-                  on {formatDate(meta.published, 'MMMM Do YYYY')}
-                </span>
               </div>
               <ContentFooter
                 lastEdited={meta.lastEdited}
@@ -179,14 +177,6 @@ class Guide extends React.PureComponent {
             margin-right: 8px;
           }
 
-          .published {
-            color: #666;
-            font-size: var(--font-size-primary);
-            line-height: var(--line-height-primary);
-            margin-top: 24px;
-            display: block;
-          }
-
           .guide-heading :global(h1) {
             margin-bottom: 8px;
           }
@@ -205,6 +195,10 @@ class Guide extends React.PureComponent {
           .rate-guide :global(.feedback) {
             display: inline-flex;
             margin-left: 24px;
+          }
+
+          .avatar {
+            margin-right: var(--geist-gap);
           }
 
           @media (max-width: 552px) {
