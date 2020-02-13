@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-01-29T22:18:15.000Z'
+  lastEdited: '2020-02-13T17:33:21.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -94,6 +94,12 @@ If you need persistent connections to push data to the client, consider using th
 For security reasons, the ZEIT Now platform blocks outgoing SMTP connections.
 
 As a result of this, we recommend using a third-party service to enable email functionality for [deployments](/docs/v2/platform/deployments).
+
+## Serverless Function Size
+
+The maximum size for a [Serverless Function](/docs/v2/serverless-functions/introduction) is **50 MB**.
+
+You can configure [functions](/docs/configuration#project/functions) with `includeFiles` and `excludeFiles` which may affect the function size, however the limit cannot be configured.
 
 ## Serverless Function Concurrency
 
