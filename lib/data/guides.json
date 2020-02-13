@@ -1,5 +1,17 @@
 [
   {
+    "title": "Create and Deploy Vue.js Forms using Formcarry with ZEIT Now",
+    "description": "Create and dploy a project to recieve form submissions using Vue.js, Formcarry, and ZEIT Now.",
+    "published": "2020-02-10T18:06:39.170Z",
+    "authors": ["nusualabuga"],
+    "name": "Vue.js + Formcarry",
+    "type": "app",
+    "demo": "https://my-formcarry-site.now.sh",
+    "url": "/guides/vue-js-html-forms-with-formcarry-zeit-now",
+    "editUrl": "pages/guides/vue-js-html-forms-with-formcarry-zeit-now.mdx",
+    "lastEdited": "2020-02-13T20:54:16.000Z"
+  },
+  {
     "title": "Deploy Scully with ZEIT Now",
     "description": "Create a Scully app and deploy it live with ZEIT Now.",
     "published": "2020-01-13T12:00:00.860Z",

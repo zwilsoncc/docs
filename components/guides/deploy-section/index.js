@@ -33,7 +33,7 @@ export default function DeploySection({ meta }) {
         <GitDeploy name={meta.name} type={meta.type} />
         <CLIDeploy name={meta.name} type={meta.type} />
       </Tabs>
-      {meta.demo && (
+      {meta.demo && meta.example && (
         <>
           <p>
             Set up a {meta.name} {meta.type} with a few clicks using the Deploy
