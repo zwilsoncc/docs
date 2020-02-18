@@ -14,7 +14,7 @@ A typical server configuration might begin by selecting the region where the phy
 
 Edge Regions are restricted to serving static files or cached responses from Serverless Functions. Origin Regions do not have this restriction and can therefore host Serverless Functions.
 
-When an application is deployed to ZEIT Now, it automatically serves static files and caches responses in [all Regions](#routing) (both Origin and Edge) across the globe. Serverless Functions will execute in the nearest Origin Region to the developer by default. The developer can choose which Origin Regions to deploy to by using `--regions` in Now CLI or the [`regions` key](/docs/configuration#project/regions) in a `now.json` file.
+When an application is deployed to ZEIT Now, it automatically serves static files and caches responses in [all Regions](#routing) (both Origin and Edge) across the globe. The developer can choose which Origin Regions to deploy Serverless Functions to by using `--regions` in Now CLI or the [`regions` key](/docs/configuration#project/regions) in a `now.json` file.
 
 When choosing Origin Regions, consider where your database (if any) is located and choose the Origin Regions closest to where the data is stored.
 
