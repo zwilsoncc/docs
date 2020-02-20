@@ -10,7 +10,7 @@ export const meta = {
   title: 'Projects',
   description: 'Setting up projects with a list of deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-02-20T17:12:26.000Z'
+  lastEdited: '2020-02-20T19:48:02.000Z'
 }
 
 To deploy on ZEIT Now, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) repository.
@@ -21,34 +21,42 @@ You can [create a new project](/new) from the ZEIT Dashboard. You can either [im
 
 ## Deleting a Project
 
-You can remove a project and all of the deployments contained within it by navigation to your project from your dashboard, followed by its settings tab.
-
-<Image
-  src={`${process.env.ASSETS}/docs/platform/projects/project-tabs.png`}
-  width={714/2}
-  height={208/2}
-  shadow
-  borderRadius
-/>
-<Caption>The tabs for a project overview, with "Settings" active.</Caption>
-
-Within the settings tab, locate the "Delete This Project" fieldset, confirm that you would like to delete your project and then click the "Delete" button.
-
-<Image
-  src={`${process.env.ASSETS}/docs/platform/projects/delete-project.png`}
-  width={1448/2}
-  height={502/2}
-  shadow
-  borderRadius
-/>
-<Caption>The "Delete This Project" fieldset within a project's settings.</Caption>
-
 <Note type="warning" label="Note">
   Deleting your project will also delete the deployments within it. If you have
   any deployments that are assigned to a custom domain and do not want them to
   be removed, make sure to deploy and assign them to the custom domain under a
   different project first.
 </Note>
+
+To delete a project, go to your project page and select the "Settings" tab.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/project-tabs.png`}
+  width={608 / 2}
+  height={220 / 2}
+  shadow
+  borderRadius
+/>
+
+Nex, select "Advanced" from the menu.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/advanced-menu.png`}
+  width={506 / 2}
+  height={256 / 2}
+  shadow
+  borderRadius
+/>
+
+You’ll see the "Delete Project" fieldset. Confirm that you'd like to delete the project and click the "Delete" button.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/delete-project.png`}
+  width={1562 / 2}
+  height={628 / 2}
+  shadow
+  borderRadius
+/>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
