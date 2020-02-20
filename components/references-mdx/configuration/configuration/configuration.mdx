@@ -16,9 +16,9 @@ export const meta = {
 
 <Note type="alert">
   The <InlineCode>name</InlineCode> property has been deprecated in favor of{' '}
-  <Link href="/docs/now-cli#commands/now/project-linking">Project Linking</Link>
-  , which allows you to link a ZEIT Now Project to your local codebase when you
-  run <InlineCode>now</InlineCode>.
+  <Link href="/docs/now-cli#commands/now/project-linking">Project Linking</Link>,
+  which allows you to link a ZEIT Now Project to your local codebase when you run{' '}
+  <InlineCode>now</InlineCode>.
 </Note>
 
 **Type**: `String`.
@@ -173,9 +173,8 @@ Environment variables passed to the invoked [Serverless Functions](/docs/v2/serv
 - `config` (`Object`): Optionally, an object including arbitrary metadata to be passed to the Builder.
 
 <P>
-  The following will include all HTML files as-is (to be served statically), and{' '}
-  <Link href="/docs/v2/advanced/runtimes">Build</Link> all Python files and JS
-  files into{' '}
+  The following will include all HTML files as-is (to be served statically), and
+  build all Python files and JS files into{' '}
   <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
   </Link>
@@ -345,7 +344,7 @@ The special value `all` can be used to target all available regions.
 
 **Default Value**: `false`.
 
-When set to `true`, both the [source view](/docs/v2/platform/deployments/#source-view) and [logs view](/docs/v2/platform/deployments/#logs-view) will be publicly accessible (when the user is authenticated with ZEIT).
+When set to `true`, both the [source view](/docs/v2/platform/deployments/#source-view) and [logs view](/docs/v2/platform/deployments/#logs-view) will be publicly accessible.
 
 <Code lang="json">{`{
   "public": true
