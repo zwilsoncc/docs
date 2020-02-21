@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy Hooks allow you to create URLs that accept HTTP POST requests to trigger deployments. Each URL correspond to a branch of a GitHub or GitLab repository linked to the project.',
   editUrl: 'pages/docs/v2/more/deploy-hooks.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-02-21T22:50:52.000Z'
 }
 
 Deploy Hooks allow you to create URLs that accept HTTP POST requests in order to trigger deployments, to re-run the [Build Step](/docs/v2/build-step), from outside ZEIT. These URLs are uniquely linked to your project, repository, and branch, so there is no need to use any authentication mechanism or provide any payload to the POST request.
@@ -43,7 +43,8 @@ Once your project is connected, go to settings and you will see a section called
 
 <Note>
   We suggest you use a name that easily identifies the Deploy Hook so you will
-  be able to see when it triggers a deployment.
+  be able to see when it triggers a deployment. We also suggest creating only
+  one Deploy Hook per branch unless you’re using multiple data sources.
 </Note>
 
 Once you have selected a branch and chosen a name from the "Deploy Hook" setting section and submitted the form, you will see a URL along with two buttons to copy the URL and another one to remove it.
@@ -76,6 +77,11 @@ To trigger a Deploy Hook, send a POST request to the provided URL. Use the follo
 Posting the request triggers an event in your dashboard to show that there has been a deployment.
 
 Due to Deploy Hooks triggering deployments for the same version of your project, requesting multiple subsequent deployments will result in a cancellation of queued jobs to reduce build times for the latest content.
+
+## Technical Details
+
+- Triggering a deploy hook will not rebuild an existing deployment. Instead, it will create a new deployment using the latest code from the specified branch.
+- Currently, no build cache is used when triggering a deploy hook.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
