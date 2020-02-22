@@ -19,7 +19,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-02-22T07:29:21.000Z'
+  lastEdited: '2020-02-22T08:13:16.000Z'
 }
 
 When you deploy on ZEIT Now, we **build** your project. For many frontend frameworks, we automatically configure the build settings, but you can also customize them. You can also use environment variables to avoid hardcoding values.
@@ -54,6 +54,14 @@ ZEIT Now tries to automatically detect the frontend framework you’re using for
 
 #### Framework Preset
 
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/framework-preset.png`}
+  width={1386 / 2}
+  height={162 / 2}
+  shadow
+/>
+<Caption>The Framework Preset setting.</Caption>
+
 ZEIT Now detects the following frontend frameworks automatically and chooses the best default settings for you.
 
 - [Next.js](https://nextjs.org/)
@@ -85,6 +93,14 @@ If no framework is detected, it will be specified as "Other". You can choose a d
 
 #### Build Command
 
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/build-command.png`}
+  width={1386 / 2}
+  height={114 / 2}
+  shadow
+/>
+<Caption>The Build Command setting.</Caption>
+
 If ZEIT Now detects a framework, the build command will automatically be configured. Depending on a framework, the build command can refer to the project’s configuration file.
 
 For example, if you choose [Next.js](https://nextjs.org/), here’s what happens by default:
@@ -93,6 +109,11 @@ For example, if you choose [Next.js](https://nextjs.org/), here’s what happens
 - If not, `next build` will be the build command.
 
 If you’d like to override the build command, you can toggle the **Override** setting on and specify the command.
+
+<Note>
+  If you update this setting, it will be applied starting from your next
+  deployment.
+</Note>
 
 ##### Question: What if I don’t need to build anything?
 
@@ -105,13 +126,60 @@ In such cases, you should:
 
 #### Output Directory
 
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/output-directory.png`}
+  width={1386 / 2}
+  height={114 / 2}
+  shadow
+/>
+<Caption>The Output Directory setting.</Caption>
+
 After building a project, most frameworks will output the result in a directory. Contents in this **output directory** will be the only things that will be statically served by ZEIT Now.
 
 If ZEIT Now detects a framework, the output directory will automatically be configured.
 
+<Note>
+  If you update this setting, it will be applied starting from your next
+  deployment.
+</Note>
+
 ##### Question: What if I just want to serve the files in the root directory?
 
 **Answer:** You should’ve chosen "Other" as the framework preset. In that case, by default, the output directory will be set as `public` if it exists, or `.` (current directory) otherwise. So as long as it doesn’t have the `public` directory, it will serve the files in the root directory by default. Or you can toggle the **Override** setting and leave the field empty (in which case, the build step will be skipped).
+
+#### Development Command
+
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/development-command.png`}
+  width={1386 / 2}
+  height={114 / 2}
+  shadow
+/>
+<Caption>The Development Command setting.</Caption>
+
+<Note>
+  This setting is relevant only if you’re using <InlineCode>now dev</InlineCode>{' '}
+  locally to develop your project. You should be using{' '}
+  <InlineCode>now dev</InlineCode> only if you need to use a ZEIT Now platform
+  feature like{' '}
+  <Link href="/docs/v2/serverless-functions/introduction">
+    Serverless Functions
+  </Link>
+  . In other cases, you should use the development command your framework provides
+  (like <InlineCode>next dev</InlineCode> for Next.js).
+</Note>
+
+The Development Command setting allows you to customize the behavior of <InlineCode>now dev</InlineCode>.
+
+### Root Directory
+
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/root-directory.png`}
+  width={1242 / 2}
+  height={242 / 2}
+  shadow
+/>
+<Caption>The Root Directory setting.</Caption>
 
 ## Using Environment Variables and Secrets
 
