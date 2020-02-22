@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy Hooks allow you to create URLs that accept HTTP POST requests to trigger deployments. Each URL correspond to a branch of a GitHub or GitLab repository linked to the project.',
   editUrl: 'pages/docs/v2/more/deploy-hooks.mdx',
-  lastEdited: '2020-02-21T22:58:59.000Z'
+  lastEdited: '2020-02-22T00:00:56.000Z'
 }
 
 Deploy Hooks allow you to create URLs that accept HTTP POST requests in order to trigger deployments, to re-run the [Build Step](/docs/v2/build-step), from outside ZEIT. These URLs are uniquely linked to your project, repository, and branch, so there is no need to use any authentication mechanism or provide any payload to the POST request.
@@ -23,21 +23,25 @@ This feature allows you to integrate ZEIT Now deployments with other systems. Fo
 
 ## Creating a Deploy Hook
 
-To create a Deploy Hook, the first thing you need to do is to install [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket). This allows you to link a ZEIT project to a new or existing Git repository.
+To create a Deploy Hook for project, make sure your project is linked to a Git repository using our [Git integrations](/docs/v2/git-integrations).
 
 <Image
-  src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/create-new-project.png`}
-  width={1716/2.5}
-  height={1342/2.5}
+  src={`${process.env.ASSETS}/docs/common/github-from-existing-code.png`}
+  width={1218/2}
+  height={606/2}
+  shadow
+  borderRadius
 />
-<Caption>Creating a project on ZEIT through GitHub at <Link href="https://zeit.co/new">zeit.co/new</Link>.</Caption>
+<Caption>Creating a project using our Git integrations.</Caption>
 
-Once your project is connected, go to settings and you will see a section called "Deploy Hooks". Here, write a name for your Deploy Hook and select the branch that will be deployed when the generated URL is requested.
+Once your project is connected, go to settings and you will see a section called "Deploy Hooks". Here, choose a name for your Deploy Hook and select the branch that will be deployed when the generated URL is requested.
 
 <Image
-  src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/settings-view.png`}
-  width={1716/2.5}
-  height={1412/2.5}
+  src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/deploy-hooks.png`}
+  width={1462/2}
+  height={448/2}
+  shadow
+  borderRadius
 />
 <Caption>Creating a new Deploy Hook presents a URL that you can copy and supply anywhere.</Caption>
 
