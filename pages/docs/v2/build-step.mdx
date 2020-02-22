@@ -7,6 +7,7 @@ import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
 import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import Center from '~/components/layout/center'
+import { Image } from '~/components/media'
 
 export const CenteredIcon = () => (
   <Center>
@@ -21,75 +22,64 @@ export const meta = {
   lastEdited: '2020-02-03T16:11:46.000Z'
 }
 
-When you make a deployment with ZEIT Now, the first step is the build step. ZEIT Now recognizes a custom `build` script, with that build script outputting your app into the `public` directory.
+When you deploy on ZEIT Now, we **build** your project. For many frontend frameworks, we automatically configure the build settings, but you can also customize them. You can also use environment variables to avoid hardcoding values.
 
-ZEIT Now also supports optimized frameworks that only need to be created and then they are ready to deploy with [Now CLI](/download) from the terminal.
+## Customizing Build Settings
 
-You are also able to use [environment variables](#using-environment-variables-and-secrets) (including secrets) in your builds if you do not want to hardcode values for the build.
+To customize build settings for your project, choose a project from the [dashboard](https://zeit.co/dashboard):
 
-<Note>
-  If you are looking exclusively for an API only workflow, please take a look at
-  our section on{' '}
-  <Link href="/docs/v2/serverless-functions/introduction/">
-    Serverless Functions
-  </Link>
-  .
-</Note>
+<Image
+  src={`${process.env.ASSETS}/docs/common/select-project.png`}
+  width={1102 / 2}
+  height={410 / 2}
+  shadow
+/>
+<Caption>Selecting the project from the ZEIT Dashboard.</Caption>
 
-## Optimized Frameworks
+Then, select the **Settings** tab:
 
-A variety of frameworks have been optimized for ZEIT Now. The following list contains those frameworks that have been optimized and what has been done to aid their performance only on ZEIT Now. Any getting started method will immediately be ready to deploy with [Now CLI's `now` command](/download) from the terminal, or to be deployed with a [Git integration](/docs/v2/git-integration):
+<Image
+  src={`${process.env.ASSETS}/docs/common/select-settings.png`}
+  width={626 / 2}
+  height={340 / 2}
+  shadow
+  borderRadius
+/>
 
-<Note>
-  If you are using an{' '}
-  <Link href="#optimized-frameworks">optimized framework</Link>, you must use
-  the default output directory provided by the framework.
-</Note>
+You can then edit build settings from the "Build & Development Settings" and "Root Directory" sections.
 
-<br />
+### Build & Development Settings
 
-| Framework        | Get Started Command                                 | Optimized                 |
-| ---------------- | --------------------------------------------------- | ------------------------- |
-| Next.js          | `npm init next-app my-next-project`                 | <CenteredIcon size="24"/> |
-| Create React App | `npm init react-app my-cra-project`                 | <CenteredIcon size="24"/> |
-| Vue.js           | `npx @vue/cli create my-vue-project`                | <CenteredIcon size="24"/> |
-| Gatsby           | `npx gatsby-cli new my-gatsby-project`              | <CenteredIcon size="24"/> |
-| Ember.js         | `npx ember-cli new my-ember-project`                | <CenteredIcon size="24"/> |
-| Svelte           | `npx degit sveltejs/template my-svelte-project`     | <CenteredIcon size="24"/> |
-| Stencil          | `npm init stencil`                                  | <CenteredIcon size="24"/> |
-| Preact           | `npx preact-cli create default my-preact-project`   | <CenteredIcon size="24"/> |
-| Angular          | `npx @angular/cli new my-angular-project`           | <CenteredIcon size="24"/> |
-| Polymer          | `npx polymer-cli init polymer-3-starter-kit`        | <CenteredIcon size="24"/> |
-| Gridsome         | `npx @gridsome/cli create my-gridsome-project`      | <CenteredIcon size="24"/> |
-| UmiJS            | `npm init umi my-umi-project`                       | <CenteredIcon size="24"/> |
-| Docusaurus       | `npx docusaurus-init`                               | <CenteredIcon size="24"/> |
-| Saber            | `npm init site my-saber-project`                    | <CenteredIcon size="24"/> |
-| 11ty/Eleventy    | `npx degit 11ty/eleventy-base-blog my-11ty-project` | <CenteredIcon size="24"/> |
-| Hexo             | `npx hexo-cli init my-hexo-project`                 | <CenteredIcon size="24"/> |
+ZEIT Now tries to automatically detect the frontend framework you’re using for your project and configure the project settings for you. If you’d like to override the settings or specify a different framework, you can do so from the "Build & Development Settings" section.
 
-## Defining a Build Script
+#### Framework Preset
 
-To build your project, ZEIT Now looks for a `build` script inside of a `package.json` file. By providing a build script, ZEIT Now will build your project from fresh on every deployment.
+ZEIT Now detects the following frontend frameworks automatically:
 
-For example, to build Next.js fresh, each time you deploy, the following `build` script should be placed in the `package.json`:
-
-```json
-{
-  ...
-  "scripts": {
-    "build": "next build"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>package.json</InlineCode> file with a{' '}
-  <InlineCode>build</InlineCode> script that builds Next.js on each deploy.
-</Caption>
-
-If you wish to use a script specific to ZEIT Now, you can override this behavior by providing a `now-build` script.
-
-When ZEIT Now encounters a `package.json` file with both `build` and `now-build` scripts, only `now-build` will be used.
+- [Next.js](https://nextjs.org/)
+- [Gatsby](https://gatsbyjs.org/)
+- [Hexo](https://hexo.io/)
+- [Eleventy](https://www.11ty.dev/)
+- [Docusaurus](https://docusaurus.io/)
+- [Preact](https://preactjs.com)
+- [Ember](https://emberjs.com/)
+- [Vue.js](https://vuejs.org)
+- [Scully](https://github.com/scullyio/scully)
+- [Angular](https://angular.io)
+- [Polymer](https://www.polymer-project.org/)
+- [Svelte](https://svelte.dev)
+- [Ionic React](https://ionicframework.com)
+- [Create React App](https://create-react-app.dev)
+- [Gridsome](https://gridsome.org/)
+- [UmiJS](https://umijs.org)
+- [Sapper](https://sapper.svelte.dev)
+- [Saber](https://saber.land/)
+- [Stencil](https://stenciljs.com/)
+- [Nuxt.js](https://nuxtjs.org)
+- [Hugo](https://gohugo.io)
+- [Jekyll](https://jekyllrb.com/)
+- [Brunch](https://brunch.io/)
+- [Middleman](https://middlemanapp.com/)
 
 ## Using Environment Variables and Secrets
 
