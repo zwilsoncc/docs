@@ -19,7 +19,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-02-22T08:31:58.000Z'
+  lastEdited: '2020-02-23T07:34:45.000Z'
 }
 
 When you deploy on ZEIT Now, we **build** your project. For many frontend frameworks, we automatically configure the build settings, but you can also customize them. You can also use environment variables to avoid hardcoding values.
@@ -184,6 +184,18 @@ If you’d like to use a custom command for <InlineCode>now dev</InlineCode>, yo
   shadow
 />
 <Caption>The Root Directory setting.</Caption>
+
+In some projects, the top-level directory of the repository may not be the root directory of the frontend app you’d like to build. For example, your repository might have a `frontend` directory, which contains a stand-alone [Next.js](https://nextjs.org/) app.
+
+In cases like this, you can specify the project root directory here. If you do so, please note the following:
+
+- If you specify a root directory here, then your app won’t be able to access files outside of that directory. You also cannot use `..` to move up a level.
+- This works with [Now CLI](/download). Instead of doing `now <directory-name>` to deploy, specify `<directory-name>` here.
+
+<Note>
+  If you update this setting, it will be applied starting from your next
+  deployment.
+</Note>
 
 ## Using Environment Variables and Secrets
 
