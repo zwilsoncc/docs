@@ -1,5 +1,14 @@
 [
   {
+    "title": "Monitor Performance with Calibre and ZEIT Now",
+    "description": "Receive performance reports directly in your GitHub Pull Requests, following a ZEIT Now deploy.",
+    "published": "2020-02-21T03:50:35Z",
+    "authors": ["thefoxis"],
+    "url": "/guides/monitoring-performance-with-calibre-and-zeit-now",
+    "editUrl": "pages/guides/monitoring-performance-with-calibre-and-zeit-now.mdx",
+    "lastEdited": "2020-02-21T00:31:58.000Z"
+  },
+  {
     "title": "Create and Deploy Vue.js Forms using Formcarry with ZEIT Now",
     "description": "Create and deploy a project to recieve form submissions using Vue.js, Formcarry, and ZEIT Now.",
     "published": "2020-02-10T18:06:39.170Z",
