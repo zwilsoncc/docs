@@ -12,9 +12,20 @@ export const meta = {
 
 ### List all the domains
 
-<Endpoint method="GET" url="/v4/domains" />
+<Endpoint method="GET" url="/v5/domains" />
 
-Retrieves a list of domains registered for the authenticating user.
+Retrieves a list of domains registered for the authenticating user. By default it returns
+the last 20 domains if no `limit` is provided.
+
+#### Request Query Parameters
+
+The response of this API can be controlled with the following optional query parameters.
+
+| Key       | Description                                           |
+| --------- | ----------------------------------------------------- |
+| **limit** | Maximum number of domains to list from a request.     |
+| **since** | Get domains created after this JavaScript timestamp.  |
+| **until** | Get domains created before this JavaScript timestamp. |
 
 #### Response Parameters
 
@@ -37,7 +48,7 @@ Retrieves a list of domains registered for the authenticating user.
 
 ##### Example Request
 
-<Request url="https://api.zeit.co/v4/domains" auth />
+<Request url="https://api.zeit.co/v5/domains" auth />
 
 ##### Example Response
 
@@ -70,6 +81,12 @@ Retrieves a list of domains registered for the authenticating user.
         "email": "demo@zeit.co"
       }
     }
+  ],
+  "pagination": {
+    "count": 1,
+    "next": 1544658552174,
+    "prev": 1544658552174
+  }
 }`}</Code>
 
 ### Add a New Domain
