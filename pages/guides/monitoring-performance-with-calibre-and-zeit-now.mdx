@@ -17,7 +17,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/Monitoring%20ZEIT%20Now%20Deployments%20with%20Calibre.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1103494136768847873%2FM6AGVCx4_400x400.png',
   editUrl: 'pages/guides/monitoring-performance-with-calibre-and-zeit-now.mdx',
-  lastEdited: '2020-02-24T14:22:21.000Z'
+  lastEdited: '2020-02-24T19:25:42.000Z'
 }
 
 [Calibre](https://calibreapp.com/) is a comprehensive monitoring platform that makes it easy to uncover and address performance issues. In this guide, you will learn how to receive performance [Pull Request Reviews](https://calibreapp.com/pull-request-reviews) directly in your pull requests following [ZEIT Deployment Previews](https://zeit.co/features/deployment-previews).
@@ -26,10 +26,15 @@ export const meta = {
 
 To deploy your project with the [ZEIT Now for GitHub Integration](/docs/v2/git-integrations/zeit-now-for-github), make sure your created project has been pushed to a Git repository.
 
-[Import the project](/new) into ZEIT Now from GitHub:
+[Import the project](/import) into ZEIT Now from GitHub:
 
 <List columnsDesktop={3} columnsTablet={3} columnsMobile={1}>
-  <IconCard label="GitHub" icon={<GitHubIcon />} href="/new?tab=github" plus />
+  <IconCard
+    label="GitHub"
+    icon={<GitHubIcon />}
+    href="/import?tab=github"
+    plus
+  />
 </List>
 
 After your project has been imported, all subsequent pushes to branches will generate [Preview Deployments](/docs/v2/platform/deployments#preview), and all changes made to the default branch (commonly `master`) will result in a [Production Deployment](/docs/v2/platform/deployments#production).
