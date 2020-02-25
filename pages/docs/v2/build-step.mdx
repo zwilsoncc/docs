@@ -19,7 +19,7 @@ export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
   editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-02-25T00:24:04.000Z'
+  lastEdited: '2020-02-25T00:25:08.000Z'
 }
 
 When you deploy on ZEIT Now, we **build** your project. For many frontend frameworks, we automatically configure the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
@@ -118,7 +118,7 @@ If you’d like to override the build command, you can turn on the **Override** 
   deployment.
 </Note>
 
-**If build is not required**: Some projects do not require building. An example of this would be a website with basic HTML/CSS/JS/assets that can be directly uploaded without using any packaging tools. You might just have a single `index.html` file.
+**If build is not required**: Some projects do not require building. An example of this would be a website with basic HTML/CSS/JS/assets that can be deployed directly without building (For example, you might just have a single `index.html` file).
 
 In such cases, you should:
 
