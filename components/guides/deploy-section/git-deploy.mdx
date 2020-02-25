@@ -9,15 +9,25 @@ export const Type = ({ type }) => <span>{type}</span>
 
 To deploy your <Author name={props.name} /> <Type type={props.type} /> with a [ZEIT Now for Git Integration](/docs/v2/git-integrations), make sure your created project has been pushed to a Git repository.
 
-[Import the project](/new) into ZEIT Now using your Git integration of choice:
+[Import the project](/import) into ZEIT Now using your Git integration of choice:
 
 <List columnsDesktop={3} columnsTablet={3} columnsMobile={1}>
-  <IconCard label="GitHub" icon={<GitHubIcon />} href="/new/git?tab=github" plus />
-  <IconCard label="GitLab" icon={<GitLabIcon />} href="/new/git?tab=gitlab" plus />
+  <IconCard
+    label="GitHub"
+    icon={<GitHubIcon />}
+    href="/import/git?tab=github"
+    plus
+  />
+  <IconCard
+    label="GitLab"
+    icon={<GitLabIcon />}
+    href="/import/git?tab=gitlab"
+    plus
+  />
   <IconCard
     label="Bitbucket"
     icon={<BitbucketIcon />}
-    href="/new/git?tab=bitbucket"
+    href="/import/git?tab=bitbucket"
     plus
   />
 </List>
