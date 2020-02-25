@@ -12,7 +12,7 @@ export const meta = {
   description:
     'The Deploy Button can be used to deploy GitHub repositories and GitLab projects to ZEIT Now.',
   editUrl: 'pages/docs/v2/more/deploy-button.mdx',
-  lastEdited: '2020-02-24T19:25:42.000Z'
+  lastEdited: '2020-02-24T23:55:40.000Z'
 }
 
 Use the deploy button to create a ZEIT Project from any GitHub repository or GitLab project, including branches and subdirectories, and optionally create a copy of the original repository in your Git account.
@@ -29,14 +29,14 @@ The example below shows how the deploy button looks when rendered, clicking it a
 
 Consisting of an `.svg` asset and an associated link to a public GitHub repository or GitLab project, the deploy button can be used wherever its rendering is supported.
 
-When implementing the deploy button, provide a link with it to the `/new/project` endpoint and pass a GitHub repository or GitLab project as the template query parameter like so:
+When implementing the deploy button, provide a link with it to the `/import/project` endpoint and pass a GitHub repository or GitLab project as the template query parameter like so:
 
 <Snippet dark text="https://zeit.co/import/project?template=https://github.com/zeit/now/tree/master/examples/gatsby" />
 <Caption>The URL for deploying GitHub repositories to ZEIT Now.</Caption>
 
 The template parameter can be either a repository URL, or alternatively, a URL for a folder within that repository, both are supported.
 
-By combining both the button and the `/new/project` endpoint, you can provide users with a way to deploy projects in seconds. Some common use cases are listed below.
+By combining both the button and the `/import/project` endpoint, you can provide users with a way to deploy projects in seconds. Some common use cases are listed below.
 
 ### Markdown
 
