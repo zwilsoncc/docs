@@ -8,7 +8,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-02-24T21:41:40.000Z'
+  lastEdited: '2020-02-26T07:06:28.000Z'
 }
 
 ## Platform Version Detection
@@ -52,63 +52,13 @@ export const config = {
   amp: 'hybrid'
 }
 
-## Missing Public Directory
+## Error: No Output Directory
 
-<Note>This is only relevant if you’re using Now CLI 16.7.3 or older.</Note>
+The [build step](/docs/v2/build-step) will result in an error if the output directory is missing, empty, or invalid (if it’s actually not a directory). To resolve this error, you can try the following steps:
 
-If your project contains a `package.json` file with a `build` [script](https://docs.npmjs.com/misc/scripts), and no `now.json` configuration, it is expected to output its static files into a directory named `public`, at the root of the project, when the `build` [script](https://docs.npmjs.com/misc/scripts) is executed.
-
-<Note type="warning">
-  If you are using an{' '}
-  <Link href="/docs/v2/build-step/#optimized-frameworks">
-    optimized framework
-  </Link>
-  , you must use the default output directory provided by the framework.
-</Note>
-
-You are seeing this error because your setup did not satisfy the above constraint.
-
-To resolve this error, configure your project to place its static output files into a `public` directory, at the root of your project, when the `build` [script](https://docs.npmjs.com/misc/scripts) from your `package.json` file is invoked.
-
-For example, this is how your `package.json` file might look:
-
-```json
-{
-  "scripts": {
-    "build": "[my-framework] build"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>build</InlineCode> script in a{' '}
-  <InlineCode>package.json</InlineCode> file.
-</Caption>
-
-If you are seeing this error with a similar `build` script already, you may need to adjust the command to direct its static output files into the `public` directory instead.
-
-<Note>
-  Consult your framework's documentation to understand how to specify the build
-  output directory.
-</Note>
-
-Depending on your framework, the option for this might be called `--output`, `--out`, `--output-dir` or similar:
-
-```json
-{
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>build</InlineCode> script in a{' '}
-  <InlineCode>package.json</InlineCode> file that specifies the output
-  directory.
-</Caption>
-
-Once you have done this, the error will disappear since the output will be the expected directory, `public`.
+- Make sure that the output directory is specified correctly in project settings. [Here’s the documentation](/docs/v2/build-step#output-directory).
+- If the output directory is correct, double check the build command ([documentation](/docs/v2/build-step#build-command)) or the root directory ([documentation](/docs/v2/build-step#root-directory)).
+- Try running the build command locally and make sure that the files are correctly generated in the specified output directory.
 
 ## Missing Build Script
 
