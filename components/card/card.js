@@ -3,6 +3,13 @@ import NextLink from 'next/link'
 import Text, { H4 } from '~/components/text'
 import ArrowRight from '~/components/icons/chevron-right'
 import Plus from '~/components/icons/plus'
+import canPrefetch from '~/lib/can-prefetch'
+
+const NextLinkWrapper = ({ href, ...props }) => (
+  <NextLink href={href} passHref>
+    <a {...props} />
+  </NextLink>
+)
 
 export function IconCard({
   href,
@@ -13,80 +20,80 @@ export function IconCard({
   arrowed,
   plus
 }) {
+  const Link = canPrefetch(href) ? NextLinkWrapper : 'a'
+
   return (
-    <NextLink href={href}>
-      <a className={cn('icon-card', { button: !!buttonHref })}>
-        {icon && <span className="icon">{icon}</span>}
-        {label}
-        {arrowed && (
-          <span className="arrow">
-            <ArrowRight />
-          </span>
-        )}
-        {plus && (
-          <span className="plus">
-            <Plus />
-          </span>
-        )}
-        <style jsx>{`
-          .icon-card {
-            background: var(--geist-background);
-            border: 1px solid var(--accents-2);
-            transition: box-shadow 0.12s ease, border 0.12s ease;
-            height: 80px;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--geist-foreground);
-            text-decoration: none;
-            width: ${width ? `${width}px` : 'auto'};
-          }
+    <Link href={href} className={cn('icon-card', { button: !!buttonHref })}>
+      {icon && <span className="icon">{icon}</span>}
+      {label}
+      {arrowed && (
+        <span className="arrow">
+          <ArrowRight />
+        </span>
+      )}
+      {plus && (
+        <span className="plus">
+          <Plus />
+        </span>
+      )}
+      <style jsx>{`
+        .icon-card {
+          background: var(--geist-background);
+          border: 1px solid var(--accents-2);
+          transition: box-shadow 0.12s ease, border 0.12s ease;
+          height: 80px;
+          padding: 0 24px;
+          display: flex;
+          align-items: center;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: 500;
+          color: var(--geist-foreground);
+          text-decoration: none;
+          width: ${width ? `${width}px` : 'auto'};
+        }
 
-          .icon-card:hover {
-            box-shadow: var(--shadow-medium);
-            border-color: var(--geist-background);
-          }
+        .icon-card:hover {
+          box-shadow: var(--shadow-medium);
+          border-color: var(--geist-background);
+        }
 
-          .arrow {
-            margin-left: auto;
-            color: var(--accents-3);
-            transition: color 0.12s ease;
-          }
+        .arrow {
+          margin-left: auto;
+          color: var(--accents-3);
+          transition: color 0.12s ease;
+        }
 
-          .plus {
-            background: var(--geist-success);
-            border-radius: 5px;
-            margin-left: auto;
-            color: var(--geist-background);
-            height: 32px;
-            width: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.12s ease;
-          }
+        .plus {
+          background: var(--geist-success);
+          border-radius: 5px;
+          margin-left: auto;
+          color: var(--geist-background);
+          height: 32px;
+          width: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.12s ease;
+        }
 
-          .icon-card:hover .plus {
-            background: var(--geist-success-dark);
-          }
+        .icon-card:hover .plus {
+          background: var(--geist-success-dark);
+        }
 
-          .icon-card:hover .arrow {
-            color: var(--accents-6);
-          }
+        .icon-card:hover .arrow {
+          color: var(--accents-6);
+        }
 
-          .icon {
-            margin-right: 16px;
-          }
+        .icon {
+          margin-right: 16px;
+        }
 
-          span {
-            display: flex;
-          }
-        `}</style>
-      </a>
-    </NextLink>
+        span {
+          display: flex;
+        }
+      `}</style>
+    </Link>
   )
 }
 

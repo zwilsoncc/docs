@@ -73,145 +73,147 @@ class Guide extends React.PureComponent {
           h4: DocH4
         }}
       >
-        <Head
-          titlePrefix=""
-          titleSuffix=" - ZEIT Now Guides"
-          title={`${meta.title}`}
-          description={meta.description}
-          image={meta.image}
-        />
+        <>
+          <Head
+            titlePrefix=""
+            titleSuffix=" - ZEIT Now Guides"
+            title={`${meta.title}`}
+            description={meta.description}
+            image={meta.image}
+          />
 
-        <article>
-          <header className="guide-heading content-heading">
-            <Wrapper width="900">
-              <H1>{meta.title}</H1>
-              <P>{meta.description}</P>
-            </Wrapper>
-          </header>
+          <article>
+            <header className="guide-heading content-heading">
+              <Wrapper width="900">
+                <H1>{meta.title}</H1>
+                <P>{meta.description}</P>
+              </Wrapper>
+            </header>
 
-          <Wrapper width="768">
-            <section className="guide content">
-              {meta.example && meta.demo && (
-                <DeployBanner example={meta.example} demo={meta.demo} />
-              )}
-              {this.props.children}
-              <NonAmpOnly>
-                <>
-                  <HR />
-                  <FooterFeedback />
-                </>
-              </NonAmpOnly>
-              <HR />
-              <div className="guide-author" id="authors">
-                <H5>Written By</H5>
-                <div className="authors-list">
-                  {meta.authors.map(author => (
-                    <div className="author-info" key={author}>
-                      <span className="avatar">
-                        <Avatar
-                          size={32}
-                          username={author}
-                          title={`Written by ${author}`}
-                        />
-                      </span>
-                      <span className="username">{author}</span>
-                    </div>
-                  ))}
+            <Wrapper width="768">
+              <section className="guide content">
+                {meta.example && meta.demo && (
+                  <DeployBanner example={meta.example} demo={meta.demo} />
+                )}
+                {this.props.children}
+                <NonAmpOnly>
+                  <>
+                    <HR />
+                    <FooterFeedback />
+                  </>
+                </NonAmpOnly>
+                <HR />
+                <div className="guide-author" id="authors">
+                  <H5>Written By</H5>
+                  <div className="authors-list">
+                    {meta.authors.map(author => (
+                      <div className="author-info" key={author}>
+                        <span className="avatar">
+                          <Avatar
+                            size={32}
+                            username={author}
+                            title={`Written by ${author}`}
+                          />
+                        </span>
+                        <span className="username">{author}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <ContentFooter
-                lastEdited={meta.lastEdited}
-                editUrl={meta.editUrl}
-              />
-            </section>
-          </Wrapper>
-        </article>
+                <ContentFooter
+                  lastEdited={meta.lastEdited}
+                  editUrl={meta.editUrl}
+                />
+              </section>
+            </Wrapper>
+          </article>
 
-        <style jsx>{`
-          .guide {
-            width: 100%;
-            padding-bottom: 96px;
-            padding-top: 32px;
-            display: flex;
-            flex-direction: column;
-          }
+          <style jsx>{`
+            .guide {
+              width: 100%;
+              padding-bottom: 96px;
+              padding-top: 32px;
+              display: flex;
+              flex-direction: column;
+            }
 
-          .guide-heading {
-            border-bottom: 1px solid #eaeaea;
-            padding-top: 24px;
-            padding-bottom: 44px;
-            text-align: center;
-          }
+            .guide-heading {
+              border-bottom: 1px solid #eaeaea;
+              padding-top: 24px;
+              padding-bottom: 44px;
+              text-align: center;
+            }
 
-          .guide-meta {
-            margin-top: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+            .guide-meta {
+              margin-top: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
 
-          .guide-meta :global(.avatar-group) {
-            width: auto;
-            margin-right: 16px;
-          }
+            .guide-meta :global(.avatar-group) {
+              width: auto;
+              margin-right: 16px;
+            }
 
-          .guide-author :global(h5) {
-            margin-top: 0;
-          }
+            .guide-author :global(h5) {
+              margin-top: 0;
+            }
 
-          .authors-list {
-            display: flex;
-            flex-flow: row wrap;
-          }
+            .authors-list {
+              display: flex;
+              flex-flow: row wrap;
+            }
 
-          .author-info {
-            display: flex;
-            align-items: center;
-            margin-right: 24px;
-            font-size: var(--font-size-primary);
-            line-height: var(--line-height-primary);
-            margin-bottom: 8px;
-          }
+            .author-info {
+              display: flex;
+              align-items: center;
+              margin-right: 24px;
+              font-size: var(--font-size-primary);
+              line-height: var(--line-height-primary);
+              margin-bottom: 8px;
+            }
 
-          .author-info :global(.avatar) {
-            margin-right: 8px;
-          }
+            .author-info :global(.avatar) {
+              margin-right: 8px;
+            }
 
-          .guide-heading :global(h1) {
-            margin-bottom: 8px;
-          }
+            .guide-heading :global(h1) {
+              margin-bottom: 8px;
+            }
 
-          .guide-heading :global(p) {
-            font-size: 16px;
-            margin-top: 8px;
-            color: #444444;
-          }
+            .guide-heading :global(p) {
+              font-size: 16px;
+              margin-top: 8px;
+              color: #444444;
+            }
 
-          .rate-guide :global(h5) {
-            margin: 0;
-            display: inline-block;
-          }
-
-          .rate-guide :global(.feedback) {
-            display: inline-flex;
-            margin-left: 24px;
-          }
-
-          .avatar {
-            margin-right: var(--geist-gap);
-          }
-
-          @media (max-width: 552px) {
             .rate-guide :global(h5) {
-              display: block;
-              margin-bottom: 32px;
+              margin: 0;
+              display: inline-block;
             }
 
             .rate-guide :global(.feedback) {
-              margin-left: 0;
+              display: inline-flex;
+              margin-left: 24px;
             }
-          }
-        `}</style>
+
+            .avatar {
+              margin-right: var(--geist-gap);
+            }
+
+            @media (max-width: 552px) {
+              .rate-guide :global(h5) {
+                display: block;
+                margin-bottom: 32px;
+              }
+
+              .rate-guide :global(.feedback) {
+                margin-left: 0;
+              }
+            }
+          `}</style>
+        </>
       </MDXProvider>
     )
   }
