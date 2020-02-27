@@ -4,13 +4,14 @@ import Caption from '~/components/text/caption'
 import Collapse, { CollapseGroup } from '~/components/collapse'
 import GitLabDefaultBehaviour from '~/components/git-mdx/gitlab/default-behaviour.mdx'
 import GitLabEnvironmentVariables from '~/components/git-mdx/gitlab/environment-variables.mdx'
+import GitLabDisconnecting from '~/components/git-mdx/gitlab/disconnecting.mdx'
 
 export const meta = {
   title: 'ZEIT Now for GitLab',
   description:
     'Deploy each change in your GitLab projects with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-gitlab.mdx',
-  lastEdited: '2020-02-27T21:18:28.000Z'
+  lastEdited: '2020-02-27T03:14:58.000Z'
 }
 
 The ZEIT Now for GitLab integration automatically deploys your GitLab projects with [ZEIT Now](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -49,7 +50,11 @@ For more information, such as a reference for default environment variables, exp
   </Collapse>
 
 <Collapse title="Included Environment Variables">
-    <GitLabEnvironmentVariables />
+  <GitLabEnvironmentVariables />
+</Collapse>
+
+<Collapse title="Disconnect from GitLab">
+    <GitLabDisconnecting />
   </Collapse>
 </CollapseGroup>
 
