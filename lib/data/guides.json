@@ -1,5 +1,14 @@
 [
   {
+    "title": "Error Reports for Your Projects with URIports and ZEIT Now",
+    "description": "Enable error reporting for your websites deployed with ZEIT Now and act fast on issues.",
+    "published": "2020-02-27T14:20:44.265Z",
+    "authors": ["timothy"],
+    "url": "/guides/client-side-error-reports-with-uriports-zeit-now",
+    "editUrl": "pages/guides/client-side-error-reports-with-uriports-zeit-now.mdx",
+    "lastEdited": "2020-02-27T23:26:35.000Z"
+  },
+  {
     "title": "Monitor Performance with Calibre and ZEIT Now",
     "description": "Receive performance reports directly in your GitHub Pull Requests, following a ZEIT Now deployment.",
     "published": "2020-02-24T03:50:35Z",
