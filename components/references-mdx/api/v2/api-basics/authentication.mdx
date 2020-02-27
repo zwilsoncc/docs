@@ -24,10 +24,7 @@ Requests to the ZEIT Now API must provide an API token through the `Authorizatio
 
 By default, you can access resources contained within your own user account.
 
-To access resources owned by a team, you must first find the team ID. You can do so in one of the two ways:
-
-1. **Use Now CLI**: Switch to the team you want to by running `now switch` on Now CLI ([documentation](/docs/now-cli#commands/switch)). Then, open `~/.now/config.json` and look for the `currentTeam` property. This is the team ID.
-2. **Use API**: Use the `teams` endpoint to find `teamId` ([documentation](#endpoints/teams/list-all-your-teams)).
+To access resources owned by a team, you must first find the team ID. You can do so by using the `teams` endpoint ([documentation](#endpoints/teams/list-all-your-teams)) and obtaining the `id` of a team.
 
 After you obtained the team ID, append it as a query string at the end of the API endpoint URL:
 
