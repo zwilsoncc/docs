@@ -6,13 +6,14 @@ import GitHubDefaultBehaviour from '~/components/git-mdx/github/default-behaviou
 import GitHubEnvironmentVariables from '~/components/git-mdx/github/environment-variables.mdx'
 import GitHubPermissions from '~/components/git-mdx/github/permissions.mdx'
 import GitHubWorkflowExtension from '~/components/git-mdx/github/extended-workflow.mdx'
+import GitHubDisconnecting from '~/components/git-mdx/github/disconnecting.mdx'
 
 export const meta = {
   title: 'ZEIT Now for GitHub',
   description:
     'Deploy each change in your GitHub repositories with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-github.mdx',
-  lastEdited: '2020-02-24T19:31:28.000Z'
+  lastEdited: '2020-02-27T03:14:58.000Z'
 }
 
 The ZEIT Now for GitHub integration automatically deploys your GitHub projects with [ZEIT Now](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -61,7 +62,11 @@ For more information, such as a reference for default environment variables, exp
 </Collapse>
 
 <Collapse title="Required Permissions">
-    <GitHubPermissions />
+  <GitHubPermissions />
+</Collapse>
+
+<Collapse title="Disconnect from GitHub">
+    <GitHubDisconnecting />
   </Collapse>
 </CollapseGroup>
 

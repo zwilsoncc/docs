@@ -87,7 +87,7 @@ const Collapse = ({
       </div>
 
       <div
-        className="collapse-content"
+        className={cn('collapse-content', { open })}
         style={{
           height: open && contentHeight ? contentHeight : 0
         }}
@@ -98,7 +98,9 @@ const Collapse = ({
       <style jsx>{`
         .collapse {
           text-align: left;
-          border-top: ${collapseContext ? '' : '1px solid var(--accents-2)'};
+          border-top: ${collapseContext
+            ? 'none'
+            : '1px solid var(--accents-2)'};
           border-bottom: 1px solid var(--accents-2);
           padding: var(--geist-gap) 0;
         }
@@ -137,6 +139,15 @@ const Collapse = ({
 
         .collapse-content > div {
           overflow-y: hidden;
+        }
+
+        /* Support box shadow on child elements */
+        .collapse-content.open,
+        .collapse-content.open > div {
+          margin-left: -60px;
+          margin-right: -60px;
+          padding-left: 60px;
+          padding-right: 60px;
         }
 
         .icon {
