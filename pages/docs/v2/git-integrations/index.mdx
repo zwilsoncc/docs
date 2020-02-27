@@ -16,7 +16,7 @@ export const meta = {
     "How to use the ZEIT Now Git Integrations for GitHub, GitLab, or Bitbucket to automatic deploy from your project's repository for each push and ship to production on merge to the main branch.",
   image: `${process.env.ASSETS}/docs/git-integrations/git-push.png`,
   editUrl: 'pages/docs/v2/git-integrations/index.mdx',
-  lastEdited: '2020-02-24T19:26:15.000Z'
+  lastEdited: '2020-02-27T20:21:36.000Z'
 }
 
 ZEIT Now provides integrations for your [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), and [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) projects, allowing for **automatic deployments on every branch push** and merge to the default branch.
@@ -64,16 +64,16 @@ Click any Git integration from the list below to skip to its section:
 
 ## Quick Installation
 
-You can install any Git integration directly from your dashboard by clicking ["Import Project"](/import), then from the GitHub, GitLab, or Bitbucket tabs in the "From your existing code" section, clicking the "connect" or "install" button.
+You can install any Git integration directly from your dashboard by clicking ["Import Project"](/import) followed by ["From Git Repository"](/import/git). Then from the GitHub, GitLab, or Bitbucket tabs in the "You own the Repository" section, click the "connect" or "install" button.
 
 <Image
   src={`${process.env.ASSETS}/docs/common/github-from-existing-code.png`}
-  width={1218/2}
-  height={606/2}
+  width={1170/2}
+  height={624/2}
   shadow
   borderRadius
 />
-<Caption>The "From your existing code" section with a prompt to install ZEIT Now for GitHub.</Caption>
+<Caption>The "You own the Repository" section with a prompt to install ZEIT Now for GitHub.</Caption>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
