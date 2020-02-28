@@ -115,8 +115,7 @@ export default class GuidesFeedback extends Component {
   }
 
   handleClickOutside = () => {
-    this.setState({ focused: false, emoji: null, value: '' })
-    this.textAreaRef.value = ''
+    this.setState({ focused: false, emoji: null })
   }
 
   onEmojiSelect = emoji => {
@@ -164,9 +163,6 @@ export default class GuidesFeedback extends Component {
     } else if (prevState.focused && this.textAreaRef) {
       // needed for when we e.g.: unfocus based on pressing escape
       this.textAreaRef.blur()
-
-      // Remove value visibly from textarea while it's unfocused
-      this.textAreaRef.value = ''
 
       // if we unfocused and there was an error before,
       // clear it
@@ -385,6 +381,7 @@ export default class GuidesFeedback extends Component {
             .textarea-wrapper {
               height: 100%;
               margin-top: 16px;
+              transition: all 150ms ease-out, border-radius 150ms step-start;
             }
 
             .geist-feedback-input.focused .textarea-wrapper {
@@ -397,7 +394,7 @@ export default class GuidesFeedback extends Component {
               border-radius: 4px;
               overflow: hidden;
               position: relative;
-              transition: all 150ms ease-out;
+              transition: all 150ms ease-out, border-radius 150ms step-end;
               z-index: 1000;
             }
 
