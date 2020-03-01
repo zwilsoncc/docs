@@ -13,35 +13,19 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/migrate-to-zeit-now',
   editUrl: 'pages/guides/migrate-to-zeit-now.mdx',
-  lastEdited: '2020-02-26T01:19:50.000Z'
+  lastEdited: '2020-03-01T20:16:14.000Z'
 }
-
-This guide highlights a set of common scenarios and how they are deployed with ZEIT Now.
 
 ## Frontend Frameworks
 
-When deploying frontend frameworks, ZEIT Now locates a `build` script in a `package.json` file at your project's root, then executes the script to build and deploy your project. If your project is building using this method, no changes are required.
+ZEIT Now tries to automatically detect the frontend framework you’re using for your project and configure the project settings for you. If you’d like to override the settings or specify a different framework, take a look at [our documentation on build settings](/docs/v2/build-step).
 
-```json
-{
-  ...
-  "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop"
-  }
-}
-```
+## Custom Domains
 
-<Caption>
-  An example Gatsby <InlineCode>build</InlineCode> script inside a{' '}
-  <InlineCode>package.json</InlineCode>.
-</Caption>
+To migrate your domains to ZEIT Now, refer to the following documentation:
 
-When your project uses this method to build a frontend framework, you can deploy using [Now CLI](/download) from your terminal:
-
-<Snippet dark text="now" />
-
-Next, [setup a ZEIT Now for Git integration](/docs/v2/git-integrations) to deploy your projects automatically on each push, and add a [custom domain](/docs/v2/custom-domains) to deploy your projects to.
+- [Custom Domains](/docs/v2/custom-domains)
+- [Zero-Downtime Domain Migration with ZEIT Now](/guides/zero-downtime-domain-migration)
 
 ## Serverful vs. Serverless APIs
 
