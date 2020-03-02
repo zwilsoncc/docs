@@ -3,7 +3,42 @@ import Caption from '~/components/text/caption'
 
 To disconnect your ZEIT Now account from GitHub, take the following steps:
 
-First, [click here](https://github.com/settings/installations) to go to the Applications Settings page on GitHub.
+First, [click here](https://github.com/settings/profile) to go to the Settings page on GitHub.
+
+Then, if you've installed ZEIT Now for your **personal** GitHub account, click on **Applications**.
+
+<Image
+  src={`${process.env.ASSETS}/docs/git-integrations/github-applications.png`}
+  width={470 / 2}
+  height={174 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Application Settings on GitHub.</Caption>
+
+Or, if you've installed ZEIT Now for your **organization** GitHub account, first click on the organization name:
+
+<Image
+  src={`${process.env.ASSETS}/docs/git-integrations/organization-settings.png`}
+  width={463/ 2}
+  height={180 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Organization Settings on GitHub.</Caption>
+
+Then, click on **Installed GitHub Apps**:
+
+<Image
+  src={`${process.env.ASSETS}/docs/git-integrations/github-installed-apps.png`}
+  width={465/ 2}
+  height={246 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Organization Application Settings on GitHub.</Caption>
+
+#### Uninstall ZEIT Now
 
 Then, find the "Now" application and select the **Configure** button next to it.
 
