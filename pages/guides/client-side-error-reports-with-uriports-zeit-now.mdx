@@ -17,12 +17,12 @@ export const meta = {
     'https://og-image.now.sh/**Error%20Reports**%20for%20Your%20Projects%20with%20URIports%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-error-reports-with-uriports-zeit-now%2Flogo.svg',
   url: '/guides/client-side-error-reports-with-uriports-zeit-now',
   editUrl: 'pages/guides/client-side-error-reports-with-uriports-zeit-now.mdx',
-  lastEdited: '2020-02-28T11:56:15.000Z'
+  lastEdited: '2020-03-02T23:48:21.000Z'
 }
 
 Support for client-side generated reports are the standard for modern web browsers, and enabling this for your projects is a great way to identify and resolve issues, and improve site security, without relying on your users as testers.
 
-[URIports](https://uriports.com) makes these reports free and easy to set up. You will only need to add configure a few HTTP headers to start receiving reports.
+[URIports](https://uriports.com) makes these reports free and easy to set up. You will only need to configure a few HTTP headers to start receiving reports.
 
 <Image
   src={`${
@@ -134,7 +134,7 @@ Some report types can potentially flood your URIports account with reports and b
 The following is a few suggestions to help you stop flooding:
 
 - Network-Error-Logging: If you have a high traffic website, you should lower the `failure_fraction` to define a sampling rate. The value must be a number between 0.0 and 1.0 (e.g. 0.05 for 5%.)
-- Content Security Policy: Enabling CSP could result in a massive amount of reports when you use external sources like Google Analytics or files hosted on a CDN. If you have not properly set up a CSP yet, we advise you to start by removing the `report-uri` and `report-to` elements from your CSP-header and use the browser's console to track down external sources and add them to your policy before enabling the report features again. Read more about implementing CSP: <https://www.uriports.com/blog/content-security-policy/>
+- Content Security Policy: Enabling CSP could result in a massive amount of reports when you use external sources like Google Analytics or files hosted on a CDN. If you have not properly set up a CSP yet, we advise you to start by removing the `report-uri` and `report-to` elements from your CSP-header and use the browser's console to track down external sources and add them to your policy before enabling the report features again. Read more about implementing CSP: <https://www.uriports.com/blog/creating-a-content-security-policy-csp/>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
