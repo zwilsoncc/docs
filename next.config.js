@@ -305,9 +305,9 @@ module.exports = withMDX({
   env: {
     NOW_GITHUB_COMMIT_SHA: process.env.NOW_GITHUB_COMMIT_SHA,
     API_URL: process.env.API_URL,
-    IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
-    VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',
-    RAW_ASSETS_URL: 'https://assets.zeit.co/raw/upload/front',
+    IMAGE_ASSETS_URL: 'https://zeit-inc-res.cloudinary.com/image/upload/front',
+    VIDEO_ASSETS_URL: 'https://zeit-inc-res.cloudinary.com/video/upload/front',
+    RAW_ASSETS_URL: 'https://zeit-inc-res.cloudinary.com/raw/upload/front',
     ASSETS: isProd ? '/docs/static' : '/static'
   },
 
