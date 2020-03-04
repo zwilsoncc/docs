@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A list of limits and limitations that apply on the ZEIT Now platform.',
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-02-13T17:52:10.000Z'
+  lastEdited: '2020-03-04T19:22:48.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
@@ -106,6 +106,10 @@ You can configure [functions](/docs/configuration#project/functions) with `inclu
 The maximum number of concurrent executions for a [Serverless Function](/docs/v2/serverless-functions/introduction/) is `1000`.
 
 If you require a limit above `1000`, you should [contact our enterprise department](mailto:sales@zeit.co) to discuss custom limits available on an enterprise plan.
+
+## Serverless Function Payload Size Limit
+
+The maximum payload size for the request body or the response body of a [Serverless Function](/docs/v2/serverless-functions/introduction/) is **5MB**.
 
 ## Serverless Function Regions
 
