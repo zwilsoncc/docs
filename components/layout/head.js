@@ -114,7 +114,7 @@ class Head extends React.PureComponent {
               this.props.image ||
               `https://og-image.now.sh/${encodeURIComponent(
                 this.props.ogTitle || this.props.title
-              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fzeit-inc-res.cloudinary.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg`
+              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg`
             }
           />
           {this.props.image ? (
@@ -193,7 +193,7 @@ class Head extends React.PureComponent {
           />
           <link
             rel="manifest"
-            href="https://zeit-inc-res.cloudinary.com/raw/upload/v1573246315/front/favicon/round-2/site.webmanifest"
+            href="https://assets.zeit.co/raw/upload/v1573246315/front/favicon/round-2/site.webmanifest"
           />
           <link
             rel="mask-icon"
