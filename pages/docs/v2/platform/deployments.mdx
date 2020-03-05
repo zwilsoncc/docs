@@ -10,7 +10,7 @@ export const meta = {
   title: 'Deployments',
   description: 'Understanding and making deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2020-02-27T06:25:07.000Z'
+  lastEdited: '2020-03-05T17:24:23.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -161,9 +161,7 @@ By appending `/_logs` to a deployment URL or [custom domain](/docs/v2/custom-dom
 
 ### Security Considerations
 
-These pathnames redirect to `https://zeit.co` and **require logging in** to access any sensitive information. By default, a 3rd-party can **never** access your source or logs by crafting a deployment URL with one of these paths.
-
-However, you can configure project settings to make these paths public. [Learn more here](/docs/v2/platform/projects#logs-and-source-access).
+These pathnames redirect to `https://zeit.co` and **require logging in** to access any sensitive information. A 3rd-party can **never** access your source or logs by crafting a deployment URL with one of these paths.
 
 ## Technical Details
 
