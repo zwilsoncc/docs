@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy Hooks allow you to create URLs that accept HTTP POST requests to trigger deployments. Each URL correspond to a branch of a GitHub or GitLab repository linked to the project.',
   editUrl: 'pages/docs/v2/more/deploy-hooks.mdx',
-  lastEdited: '2020-03-05T04:46:02.000Z'
+  lastEdited: '2020-03-05T17:06:58.000Z'
 }
 
 Deploy Hooks allow you to create URLs that accept HTTP POST requests in order to trigger deployments and re-run the [Build Step](/docs/v2/build-step). These URLs are uniquely linked to your project, repository, and branch, so there is no need to use any authentication mechanism or provide any payload to the POST request.
@@ -85,11 +85,6 @@ After sending a POST request, you can see that it triggered a deployment on your
 - Triggering a Deploy Hook will not rebuild an existing deployment. Instead, it will create a new deployment using the latest source code available on the specified branch.
 - Currently, no build cache is used when triggering a Deploy Hook.
 - If you send multiple requests to deploy the same version of your project, previous deployments for the same Deploy Hook will be canceled to reduce build times.
-
-## Technical Details
-
-- Triggering a deploy hook will not rebuild an existing deployment. Instead, it will create a new deployment using the latest code from the specified branch.
-- Currently, no build cache is used when triggering a deploy hook.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
