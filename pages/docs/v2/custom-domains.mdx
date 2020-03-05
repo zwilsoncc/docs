@@ -10,7 +10,7 @@ export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2020-02-26T01:19:50.000Z'
+  lastEdited: '2020-03-05T04:08:53.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` suffixed domain.
@@ -59,21 +59,21 @@ Then, select the **Domains** menu item:
 
 ### Step 3: Entering Your Chosen Domain
 
-From the **Project Domains** page, enter the domain you wish to add to the project:
+From the **Domains** page, enter the domain you wish to add to the project:
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/enter-domain.png`}
-  width={1350 / 2}
-  height={447 / 2}
+  width={1492 / 2}
+  height={474 / 2}
   shadow
 />
-<Caption>Entering a domain for the project from the Project Domains page.</Caption>
+<Caption>Entering a domain for the project from the Domains page.</Caption>
 
 ### Step 4: Configuring the Domain
 
 Once the domain has been added, you will be presented with different methods for configuring it, depending on whether it is an [**apex domain**](/docs/v2/platform/glossary#apex-domain) (zeit.co) or **subdomain** (docs.zeit.co).
 
-Both domain types can be configured using the **Nameservers** method, however **apex domains** also allow for verification via the **ANAME** record, whilst **subdomains** allow for verification via the **CNAME** record.
+Both domain types can be configured using the **Nameservers** method. However, **apex domains** also allow for verification via the **ANAME** record, while **subdomains** allow for verification via the **CNAME** record.
 
 #### Apex Domains
 
@@ -81,8 +81,8 @@ You can configure [apex domains](/docs/v2/platform/glossary#apex-domain) either 
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/configure-apex-domain.png`}
-  width={1350 / 2}
-  height={984 / 2}
+  width={1402 / 2}
+  height={1022 / 2}
   shadow
 />
 <Caption>Instructions on configuring an <strong>apex domain</strong> from the Project Domains page.</Caption>
@@ -93,8 +93,8 @@ You can configure subdomains either through the **Nameservers** or **CNAME** met
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/configure-subdomain.png`}
-  width={1350 / 2}
-  height={984 / 2}
+  width={1420 / 2}
+  height={1034 / 2}
   shadow
 />
 <Caption>Instructions on configuring a <strong>subdomain</strong> from the Project Domains page.</Caption>
@@ -105,8 +105,8 @@ Once the domain has been configured, the card status will change to reflect this
 
 <Image
   src={`${process.env.ASSETS}/docs/custom-domains/configured-domain.png`}
-  width={1350 / 2}
-  height={210 / 2}
+  width={1412 / 2}
+  height={212 / 2}
   shadow
 />
 <Caption>A configured domain on the Project Domains page.</Caption>
