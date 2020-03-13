@@ -17,7 +17,7 @@ export const meta = {
     'https://og-image.now.sh/**Error%20Reports**%20for%20Your%20Projects%20with%20URIports%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-error-reports-with-uriports-zeit-now%2Flogo.svg',
   url: '/guides/client-side-error-reports-with-uriports-zeit-now',
   editUrl: 'pages/guides/client-side-error-reports-with-uriports-zeit-now.mdx',
-  lastEdited: '2020-03-09T11:11:15.000Z'
+  lastEdited: '2020-03-13T17:00:21.000Z'
 }
 
 Support for client-side generated reports are the standard for modern web browsers, and enabling this for your projects is a great way to identify and resolve issues, and improve site security, without relying on your users as testers.
@@ -74,31 +74,16 @@ Next, create a `now.json` file at the root of your project and fill it with the 
 
 ```json
 {
-  "headers": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Report-To",
-          "value": "{\\\"group\\\":\\\"default\\\",\\\"max_age\\\":10886400,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://my-report-endpoint.uriports.com/reports\\\"}],\\\"include_subdomains\\\":true}"
-        },
-        {
-          "key": "NEL",
-          "value": "{\\\"report_to\\\":\\\"default\\\",\\\"max_age\\\":2592000,\\\"include_subdomains\\\":true,\\\"failure_fraction\\\":1.0}"
-        },
-        {
-          "key": "Content-Security-Policy-Report-Only",
-          "value": "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; report-uri https://my-report-endpoint.uriports.com/reports/report; report-to default"
-        },
-        {
-          "key": "Expect-CT",
-          "value": "max-age=86400,report-uri=\\\"https://my-report-endpoint.uriports.com/reports/report\\\""
-        },
-        {
-          "key": "Feature-Policy-Report-Only",
-          "value": "geolocation 'none'; camera 'none'; fullscreen *; payment 'self'"
-        }
-      ]
+      "src": "/(.*)",
+      "headers": {
+        "Report-To": "{\\\"group\\\":\\\"default\\\",\\\"max_age\\\":10886400,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://my-report-endpoint.uriports.com/reports\\\"}],\\\"include_subdomains\\\":true}",
+        "NEL": "{\\\"report_to\\\":\\\"default\\\",\\\"max_age\\\":2592000,\\\"include_subdomains\\\":true,\\\"failure_fraction\\\":1.0}",
+        "Content-Security-Policy-Report-Only": "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; report-uri https://my-report-endpoint.uriports.com/reports/report; report-to default",
+        "Expect-CT": "max-age=86400,report-uri=\\\"https://my-report-endpoint.uriports.com/reports/report\\\"",
+        "Feature-Policy-Report-Only": "geolocation 'none'; camera 'none'; fullscreen *; payment 'self'"
+      }
     }
   ]
 }
