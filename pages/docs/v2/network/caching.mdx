@@ -7,7 +7,7 @@ export const meta = {
   description:
     'A guide for how ZEIT Now caches and how to control that caching.',
   editUrl: 'pages/docs/v2/network/caching.mdx',
-  lastEdited: '2020-02-05T23:54:04.000Z'
+  lastEdited: '2020-03-11T15:58:20.000Z'
 }
 
 Our [Smart CDN](/smart-cdn) caches your content at the edge in order to serve data to your users as fast as possible.
@@ -69,7 +69,7 @@ Cache-Control: s-maxage=1, stale-while-revalidate
 
 This tells our CDN to serve from cache and update in the background at most 1 per second.
 
-When the CDN receives a request with `Pragma: no-cache` (such as when the browser devtools are open), it will revalidate any stale resource synchronously, instead of in the background.
+When the CDN receives a request with `Pragma: no-cache` (such as when the browser devtools are open), it will bypass the client cache, but will not bypass the CDN cache.
 
 ## Cache Invalidation
 
