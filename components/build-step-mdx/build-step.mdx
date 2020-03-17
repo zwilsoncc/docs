@@ -1,26 +1,10 @@
-import Doc from '~/components/layout/docs'
 import Link from '~/components/text/link'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
-import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
-import Center from '~/components/layout/center'
 import { Image } from '~/components/media'
-
-export const CenteredIcon = () => (
-  <Center>
-    <CheckmarkInCircle size="24" />
-  </Center>
-)
-
-export const meta = {
-  title: 'Build Step',
-  description: 'Providing ZEIT Now with a build step.',
-  editUrl: 'pages/docs/v2/build-step.mdx',
-  lastEdited: '2020-03-17T21:39:09.000Z'
-}
 
 When you trigger a deploy, ZEIT Now **builds** your project. For many frontend frameworks, ZEIT Now automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
 
@@ -65,30 +49,7 @@ ZEIT Now tries to automatically detect the frontend framework you’re using for
 
 ZEIT Now detects the following frontend frameworks automatically and chooses the best default settings for you.
 
-- [Next.js](https://nextjs.org/)
-- [Gatsby](https://gatsbyjs.org/)
-- [Hexo](https://hexo.io/)
-- [Eleventy](https://www.11ty.dev/)
-- [Docusaurus](https://docusaurus.io/)
-- [Preact](https://preactjs.com)
-- [Ember](https://emberjs.com/)
-- [Vue.js](https://vuejs.org)
-- [Scully](https://github.com/scullyio/scully)
-- [Angular](https://angular.io)
-- [Polymer](https://www.polymer-project.org/)
-- [Svelte](https://svelte.dev)
-- [Ionic React](https://ionicframework.com)
-- [Create React App](https://create-react-app.dev)
-- [Gridsome](https://gridsome.org/)
-- [UmiJS](https://umijs.org)
-- [Sapper](https://sapper.svelte.dev)
-- [Saber](https://saber.land/)
-- [Stencil](https://stenciljs.com/)
-- [Nuxt.js](https://nuxtjs.org)
-- [Hugo](https://gohugo.io)
-- [Jekyll](https://jekyllrb.com/)
-- [Brunch](https://brunch.io/)
-- [Middleman](https://middlemanapp.com/)
+<div>{props.frameworks}</div>
 
 If no framework is detected, "Other" will be selected for you.
 
@@ -429,9 +390,3 @@ For more information on what to do next, we recommend the following articles:
 <Card title="Deploy Hooks" href="/docs/v2/advanced/deploy-hooks">
   Use Deploy Hooks to trigger deployments to build content from outside ZEIT.
 </Card>
-
-export default ({ children }) => <Doc meta={meta}>{children}</Doc>
-
-export const config = {
-  amp: 'hybrid'
-}
