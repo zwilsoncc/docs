@@ -7,7 +7,7 @@ import { API_FRAMEWORKS } from '~/lib/constants'
 export const meta = {
   title: 'Build Step',
   description: 'Providing ZEIT Now with a build step.',
-  editUrl: 'pages/docs/v2/build-step.mdx',
+  editUrl: 'components/build-step-mdx/build-step.mdx',
   lastEdited: '2020-03-17T21:39:09.000Z'
 }
 
@@ -38,8 +38,4 @@ export default ({ frameworks }) => (
 export async function getStaticProps() {
   const frameworks = (await fetchAPI(API_FRAMEWORKS)) || []
   return { props: { frameworks } }
-}
-
-export const config = {
-  amp: 'hybrid'
 }
