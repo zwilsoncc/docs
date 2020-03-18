@@ -8,86 +8,8 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-02-24T19:31:28.000Z'
+  lastEdited: '2020-03-17T17:10:10.000Z'
 }
-
-## Missing Public Directory
-
-If your project contains a `package.json` file with a `build` [script](https://docs.npmjs.com/misc/scripts), and no `now.json` configuration, it is expected to output its static files into a directory named `public`, at the root of the project, when the `build` [script](https://docs.npmjs.com/misc/scripts) is executed.
-
-<Note type="warning">
-  If you are using an{' '}
-  <Link href="/docs/v2/build-step/#optimized-frameworks">
-    optimized framework
-  </Link>
-  , you must use the default output directory provided by the framework.
-</Note>
-
-You are seeing this error because your setup did not satisfy the above constraint.
-
-To resolve this error, configure your project to place its static output files into a `public` directory, at the root of your project, when the `build` [script](https://docs.npmjs.com/misc/scripts) from your `package.json` file is invoked.
-
-For example, this is how your `package.json` file might look:
-
-```json
-{
-  "scripts": {
-    "build": "[my-framework] build"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>build</InlineCode> script in a{' '}
-  <InlineCode>package.json</InlineCode> file.
-</Caption>
-
-If you are seeing this error with a similar `build` script already, you may need to adjust the command to direct its static output files into the `public` directory instead.
-
-<Note>
-  Consult your framework's documentation to understand how to specify the build
-  output directory.
-</Note>
-
-Depending on your framework, the option for this might be called `--output`, `--out`, `--output-dir` or similar:
-
-```json
-{
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>build</InlineCode> script in a{' '}
-  <InlineCode>package.json</InlineCode> file that specifies the output
-  directory.
-</Caption>
-
-Once you have done this, the error will disappear since the output will be the expected directory, `public`.
-
-## Missing Build Script
-
-If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
-
-When properly configured, your `package.json` file would look similar to this:
-
-```json
-{
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>build</InlineCode> script in a{' '}
-  <InlineCode>package.json</InlineCode> file that specifies the output
-  directory.
-</Caption>
-
-Once you have defined the `build` [script](https://docs.npmjs.com/misc/scripts), this error will disappear. Furthermore, it will not be displayed if you are using `package.json` purely to provide dependencies for your Serverless Functions located inside the `api` directory.
 
 ## Platform Version Detection
 
@@ -118,7 +40,7 @@ For more information on our cloud partners' Green energy policies, we recommend 
 
 ZEIT Now is best at deploying technologies that can be served over HTTP and distributed through our CDN network:
 
-- Static websites and static generators (React, Vue, Angular, etc)
+- Static websites and static generators ([Next.js](/guides/deploying-nextjs-with-now), React, Vue, Angular, etc)
 - Code that renders HTML on the server-side
 - API endpoints that query databases or web APIs and return dynamic data
 
@@ -129,3 +51,35 @@ export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 export const config = {
   amp: 'hybrid'
 }
+
+## Missing Public Directory
+
+The [build step](/docs/v2/build-step) will result in an error if the output directory is missing, empty, or invalid (if it’s actually not a directory). To resolve this error, you can try the following steps:
+
+- Make sure that the output directory is specified correctly in project settings. [Here’s the documentation](/docs/v2/build-step#output-directory).
+- If the output directory is correct, double check the Build Command ([documentation](/docs/v2/build-step#build-command)) or the root directory ([documentation](/docs/v2/build-step#root-directory)).
+- Try running the Build Command locally and make sure that the files are correctly generated in the specified output directory.
+
+## Missing Build Script
+
+<Note>This is only relevant if you’re using Now CLI 16.7.3 or older.</Note>
+
+If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
+
+When properly configured, your `package.json` file would look similar to this:
+
+```json
+{
+  "scripts": {
+    "build": "[my-framework] build --output public"
+  }
+}
+```
+
+<Caption>
+  An example <InlineCode>build</InlineCode> script in a{' '}
+  <InlineCode>package.json</InlineCode> file that specifies the output
+  directory.
+</Caption>
+
+Once you have defined the `build` [script](https://docs.npmjs.com/misc/scripts), this error will disappear. Furthermore, it will not be displayed if you are using `package.json` purely to provide dependencies for your Serverless Functions located inside the `api` directory.
