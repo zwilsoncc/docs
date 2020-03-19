@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Deploy Hooks allow you to create URLs that accept HTTP POST requests to trigger deployments. Each URL correspond to a branch of a GitHub or GitLab repository linked to the project.',
   editUrl: 'pages/docs/v2/more/deploy-hooks.mdx',
-  lastEdited: '2020-03-05T04:46:02.000Z'
+  lastEdited: '2020-03-19T03:52:05.000Z'
 }
 
 Deploy Hooks allow you to create URLs that accept HTTP POST requests in order to trigger deployments and re-run the [Build Step](/docs/v2/build-step). These URLs are uniquely linked to your project, repository, and branch, so there is no need to use any authentication mechanism or provide any payload to the POST request.
@@ -34,7 +34,17 @@ To create a Deploy Hook for your project, make sure your project is linked to a 
 />
 <Caption>Importing a project using our Git integrations.</Caption>
 
-Once your project is connected, navigate to its "Settings" page and you will see a section called "Deploy Hooks". Here, choose a name for your Deploy Hook and select the branch that will be deployed when the generated URL is requested.
+Once your project is connected, navigate to its "Settings" page and then select the **Git** menu item.
+
+<Image
+  src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/select-git.png`}
+  width={374 / 2}
+  height={336 / 2}
+  shadow
+/>
+<Caption>Selecting the <b>Git</b> menu item from the Project Settings page.</Caption>
+
+In the "Deploy Hooks" section, choose a name for your Deploy Hook and select the branch that will be deployed when the generated URL is requested.
 
 <Image
   src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/deploy-hooks.png`}
@@ -47,8 +57,8 @@ Once your project is connected, navigate to its "Settings" page and you will see
 
 <Note>
   We suggest you use a name that easily identifies the Deploy Hook so you will
-  be able to understand when it triggers a deployment. We also suggest creating only
-  one Deploy Hook per branch unless you’re using multiple data sources.
+  be able to understand when it triggers a deployment. We also suggest creating
+  only one Deploy Hook per branch unless you’re using multiple data sources.
 </Note>
 
 After submitting the form, you will see a URL that you can copy and use.
