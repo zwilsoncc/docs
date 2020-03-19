@@ -13,48 +13,130 @@ export const meta = {
   lastEdited: '2020-02-24T19:31:28.000Z'
 }
 
-A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains) inside of an account or team, based on the name of the project. This structure allows easier tracking and managing of deployments.
-
-The Projects structure enables faster locating of [deployments logs](/docs/v2/platform/deployments/#logs-view), [source code](/docs/v2/platform/deployments/#source-view), and [custom domains](/docs/v2/custom-domains).
+To deploy on ZEIT Now, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) repository.
 
 ## Creating a Project
 
-Projects are automatically created when making a deployment using the name of the repository connected with a [ZEIT Now for Git Integration](/docs/v2/git-integrations).
+You can create a new project from the ZEIT Dashboard by clicking on [the New Project button](/new).
 
-You can import your existing project from the ["Import a project"](/import) section of the ZEIT Dashboard. If you do not have an existing project, this page also allows you to get started from a template.
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/new-project.png`}
+  width={1744 / 2}
+  height={516 / 2}
+  shadow
+/>
+<Caption>Creating a new project from the ZEIT Dashboard.</Caption>
 
-If you would like your Project to be created with a name different to that of the repository, you can include a configuration file and use the [name property](/docs/configuration#project/name).
+You can either [import from an existing Git repository](/docs/v2/git-integrations) or use one of our templates.
+
+## Project Settings
+
+To edit project settings, choose a project from the [dashboard](https://zeit.co/dashboard):
+
+<Image
+  src={`${process.env.ASSETS}/docs/common/select-project.png`}
+  width={1102 / 2}
+  height={410 / 2}
+  shadow
+/>
+<Caption>Selecting the project from the ZEIT Dashboard.</Caption>
+
+Then, select the **Settings** tab:
+
+<Image
+  src={`${process.env.ASSETS}/docs/common/select-settings.png`}
+  width={626 / 2}
+  height={340 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Selecting the <b>Settings</b> tab from the Project Overview page.</Caption>
+
+### Build & Development Settings and Root Directory
+
+You can edit build and development settings as well as the root directory settings. Check out [our Build Step documentation](/docs/v2/build-step) to learm more.
+
+### Logs and Source Access
+
+If you turn on **Logs and Source Access**, the following paths for your project will be publicly accessible. Even if this setting is disabled, you can still access these paths by logging in.
+
+- `/_src`: Displays the source code and build output.
+- `/_logs`: Displays the build logs.
+
+<Note type="warning">
+  Do not edit this setting if you don’t want your source code or logs to be
+  publicly accessible.
+</Note>
+
+#### Ony applied starting from your next deployment
+
+As with other project settings, the changes you make to this setting will only be applied starting from your **next deployment**.
+
+<Note>
+  When you toggle this setting, none of your existing deployments will be
+  affected. If you’d like to make the source code or logs private on your
+  existing deployments, the only option is to delete them.
+</Note>
+
+### Deploy Hooks
+
+ZEIT Now supports **deploy hooks**, which are unique URLs that accept HTTP POST requests and trigger deployments. Check out [our Deploy Hooks documentation](/docs/v2/more/deploy-hooks) to learn more.
+
+### Custom Domains
+
+You can add **custom domains** for each project. Check out [our Custom Domains documentation](/docs/v2/custom-domains) to learn more.
 
 ## Deleting a Project
 
-You can remove a project and all of the deployments contained within it by navigation to your project from your dashboard, followed by its settings tab.
+<Note type="warning">
+  Deleting your project will also delete the deployments and domains within it.
+  If you have any deployments that are assigned to a custom domain and do not
+  want them to be removed, make sure to deploy and assign them to the custom
+  domain under a different project first.
+</Note>
+
+To delete a project, choose a project from the [dashboard](https://zeit.co/dashboard):
 
 <Image
-  src={`${process.env.ASSETS}/docs/platform/projects/project-tabs.png`}
-  width={714/2}
-  height={208/2}
+  src={`${process.env.ASSETS}/docs/common/select-project.png`}
+  width={1102 / 2}
+  height={410 / 2}
+  shadow
+/>
+<Caption>Selecting the project from the ZEIT Dashboard.</Caption>
+
+Then, select the **Settings** tab:
+
+<Image
+  src={`${process.env.ASSETS}/docs/common/select-settings.png`}
+  width={626 / 2}
+  height={340 / 2}
   shadow
   borderRadius
 />
-<Caption>The tabs for a project overview, with "Settings" active.</Caption>
+<Caption>Selecting the <b>Settings</b> tab from the Project Overview page.</Caption>
 
-Within the settings tab, locate the "Delete This Project" fieldset, confirm that you would like to delete your project and then click the "Delete" button.
+Next, select **Advanced** from the menu.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/advanced-menu.png`}
+  width={506 / 2}
+  height={256 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Selecting the <b>Advanced</b> menu item from the Project Settings page.</Caption>
+
+You’ll see the **Delete Project** section. Confirm that you'd like to delete the project and click the **Delete** button.
 
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/delete-project.png`}
-  width={1448/2}
-  height={502/2}
+  width={1562 / 2}
+  height={628 / 2}
   shadow
   borderRadius
 />
-<Caption>The "Delete This Project" fieldset within a project's settings.</Caption>
-
-<Note type="warning" label="Note">
-  Deleting your project will also delete the deployments within it. If you have
-  any deployments that are assigned to a custom domain and do not want them to
-  be removed, make sure to deploy and assign them to the custom domain under a
-  different project first.
-</Note>
+<Caption>The <b>Delete Project</b> section.</Caption>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 

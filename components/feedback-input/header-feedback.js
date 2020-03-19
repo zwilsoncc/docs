@@ -725,7 +725,7 @@ const Emoji = React.memo(({ code }) => (
     decoding="async"
     width={code === 'f600' || code === 'f62d' || code === 'f615' ? 18.5 : 16}
     height={code === 'f600' || code === 'f62d' || code === 'f615' ? 18.5 : 16}
-    src={`https://zeit-inc-res.cloudinary.com/twemoji/1${code}.svg`}
+    src={`https://assets.zeit.co/twemoji/1${code}.svg`}
     alt="emoji"
     style={{
       transform:
