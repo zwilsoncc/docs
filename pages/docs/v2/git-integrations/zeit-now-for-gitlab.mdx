@@ -11,7 +11,7 @@ export const meta = {
   description:
     'Deploy each change in your GitLab projects with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-gitlab.mdx',
-  lastEdited: '2020-03-04T23:36:44.000Z'
+  lastEdited: '2020-03-20T03:12:50.000Z'
 }
 
 The ZEIT Now for GitLab integration automatically deploys your GitLab projects with [ZEIT Now](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -40,11 +40,20 @@ Once you have authorized the GitLab integration, you will be redirected back to 
 
 For more information on deploying projects, read [the ZEIT Now introduction documentation](/docs).
 
+### Change or Disconnect from your GitLab Repository
+
+If you’d like to:
+
+- Change the GitLab repository your project is connected to
+- Disconnect your project from your GitLab repository
+
+You can do so from [the "Git Integration" fieldset](/docs/v2/platform/projects#git-integration) on [Project Settings](/docs/v2/platform/projects#project-settings).
+
 ### More Information About ZEIT Now for GitLab
 
 For more information, such as a reference for default environment variables, expand the relevant details view below.
 
-<CollapseGroup>
+<CollapseGroup hashToTitle={{ 'disconnect-from-gitlab': 'Disconnect from GitLab'}}>
   <Collapse title="Default Behaviour">
     <GitLabDefaultBehaviour />
   </Collapse>

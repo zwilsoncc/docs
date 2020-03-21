@@ -6,16 +6,9 @@ import Text from '../text'
 import { useCollapse } from './collapse-context'
 import useMediaQuery from '~/lib/use-media-query'
 
-const Collapse = ({
-  defaultExpanded,
-  title,
-  subtitle,
-  id,
-  onToggle,
-  card,
-  children
-}) => {
-  const [active, setActive] = useState(defaultExpanded)
+const Collapse = ({ title, subtitle, id, onToggle, card, children }) => {
+  const [active, setActive] = useState(false)
+  const initialScrollRef = useRef() // Do initial scroll only once
   const [contentHeight, setContentHeight] = useState(null)
   const contentRef = useRef()
   const collapseContext = useCollapse()
@@ -59,6 +52,25 @@ const Collapse = ({
       }
     })
   }, [contentRef])
+
+  useEffect(() => {
+    if (
+      contentRef &&
+      contentRef.current &&
+      collapseContext.initialScrollTarget === title &&
+      !initialScrollRef.current
+    ) {
+      // Wait for the animation to finish
+      setTimeout(() => {
+        if (contentRef.current) {
+          window.scroll({
+            top: contentRef.current.offsetTop
+          })
+        }
+      }, 200)
+      initialScrollRef.current = true
+    }
+  }, [contentRef, initialScrollRef, collapseContext.initialScrollTarget, title])
 
   return (
     <div className={cn('collapse', { card })} id={id}>

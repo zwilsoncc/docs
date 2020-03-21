@@ -10,7 +10,7 @@ export const meta = {
   title: 'Projects',
   description: 'Setting up projects with a list of deployments on ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-03-19T03:52:05.000Z'
+  lastEdited: '2020-03-20T03:35:23.000Z'
 }
 
 To deploy on ZEIT Now, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) repository.
@@ -78,13 +78,55 @@ As with other project settings, the changes you make to this setting will only b
   existing deployments, the only option is to delete them.
 </Note>
 
-### Deploy Hooks
-
-ZEIT Now supports **deploy hooks**, which are unique URLs that accept HTTP POST requests and trigger deployments. Check out [our Deploy Hooks documentation](/docs/v2/more/deploy-hooks) to learn more.
-
 ### Custom Domains
 
 You can add **custom domains** for each project. Check out [our Custom Domains documentation](/docs/v2/custom-domains) to learn more.
+
+### Git Integration
+
+To edit your project’s Git integration settings, select the **Git** menu item from your project settings page.
+
+<Image
+  src={`${process.env.ASSETS}/docs/advanced/deploy-hooks/select-git.png`}
+  width={374 / 2}
+  height={336 / 2}
+  shadow
+/>
+<Caption>Selecting the <b>Git</b> menu item from the project settings page.</Caption>
+
+If you haven’t set up your Git integration for [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) yet, you can do so from here.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/git-integration-not-connected.png`}
+  width={1548 / 2}
+  height={722 / 2}
+  shadow
+/>
+<Caption>Setting up the Git integration.</Caption>
+
+If you have already set up your Git Integration, you can specify which Git repository to connect your project to by entering the repository name.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/git-integration-connected.png`}
+  width={1546 / 2}
+  height={712 / 2}
+  shadow
+/>
+<Caption>Specify the Git repository for your project.</Caption>
+
+If you’d like to disconnect your project from a Git repository, **empty the field** and save it.
+
+#### Disconnect Your Personal Account or Team
+
+If you’d like to disconnect your **personal account** or **team** from GitHub, GitLab, or Bitbucket, follow the directions here:
+
+- [Disconnect from GitHub](/docs/v2/git-integrations/zeit-now-for-github#disconnect-from-github)
+- [Disconnect from GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab#disconnect-from-gitlab)
+- [Disconnect from Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket#disconnect-from-bitbucket)
+
+### Deploy Hooks
+
+ZEIT Now supports **deploy hooks**, which are unique URLs that accept HTTP POST requests and trigger deployments. Check out [our Deploy Hooks documentation](/docs/v2/more/deploy-hooks) to learn more.
 
 ## Deleting a Project
 
