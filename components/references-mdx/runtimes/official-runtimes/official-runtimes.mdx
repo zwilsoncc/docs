@@ -373,7 +373,25 @@ For advanced usage, such as using a Rack Interface for your Ruby projects, see t
 
 ### Ruby Version
 
-Ruby 2.5.x is used.
+New deployments use Ruby 2.7.x as the default version.
+
+You can specify the version of Ruby by defining `ruby` in a `Gemfile`, like so:
+
+```
+source "https://rubygems.org"
+ruby "~> 2.7.x"
+```
+
+When defining a Ruby version, the following Ruby versions can be selected:
+
+- 2.7.x (default)
+- 2.5.x
+
+<Note>
+  If the patch part of the version is defined, like{' '}
+  <InlineCode>2.5.5</InlineCode> it will be ignored and assume the latest{' '}
+  <InlineCode>2.5.x</InlineCode>.
+</Note>
 
 ### Ruby Dependencies
 
