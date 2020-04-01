@@ -801,3 +801,50 @@ These are the keys of the `output` Map of the Build.
     }
   ]
 }`}</Code>
+
+### Cancel a Deployment
+
+<Endpoint>PATCH /v12/now/deployments/:id/cancel</Endpoint>
+
+This API allows you to cancel a deployment, by supplying its `:id` in the URL.
+
+##### Example Request
+
+<Request
+  method="PATCH"
+  url="https://api.zeit.co/v12/now/deployments/dpl_5WJWYSyB7BpgTj3EuwF37WMRBXBtPQ2iTMJHJBJyRfd/cancel"
+  auth
+/>
+
+##### Example Response
+
+<Code lang="json">{`{
+  "id": "dpl_6EZWg2tkQevMN76UQzFgKsD2gaNR",
+  "url": "my-instant-deployment-2i7mwl1a1w.now.sh",
+  "name": "my-instant-deployment",
+  "meta": {},
+  "plan": "pro",
+  "public": false,
+  "ownerId": "ZspSRT4ljIEEmMHgoDwKWDei",
+  "readyState": "CANCELED",
+  "createdAt": 1540257237129,
+  "canceledAt": 1540257249129
+  "createdIn": "sfo1",
+  "regions": [
+    "sfo1"
+  ],
+  "functions": {
+    "api/test.js": {
+      "memory": 3008
+    }
+  },
+  "routes": null,
+  "env": [],
+  "build": {
+    "env": []
+  },
+  "target": null,
+  "alias": [],
+  "aliasError": null,
+  "aliasAssigned": false
+}`}</Code>
