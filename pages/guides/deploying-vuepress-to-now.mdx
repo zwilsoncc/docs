@@ -9,7 +9,7 @@ import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: `Creating and Deploying a VuePress App with ${PRODUCT}`,
-  description: 'Create your VuePress app and deploy it with ZEIT Now.',
+  description: 'Create your VuePress app and deploy it with ${PRODUCT}.',
   name: 'VuePress',
   type: 'app',
   published: '2019-01-26T03:00:00.860Z',
@@ -19,7 +19,7 @@ export const meta = {
   image:
     'https://og-image.now.sh/**Deploying%20VuePress%20Sites**%20%3Cbr%20%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fvuepress.vuejs.org%2Fhero.png&widths=250&widths=300&heights=250&heights=300',
   editUrl: 'pages/guides/deploying-vuepress-to-now.mdx',
-  lastEdited: '2020-04-03T15:51:49.000Z'
+  lastEdited: '2020-04-03T16:44:58.000Z'
 }
 
 VuePress is a vue-powered static generator. It is used for generating static sites with a focus on writing.
@@ -65,7 +65,7 @@ Create a `.vuepress` folder inside the project directory with a `config.js` file
 ```js
 module.exports = {
   title: `My VuePress Project',
-  description: 'A simple VuePress project deployed with ZEIT Now.',
+  description: 'A simple VuePress project deployed with ${PRODUCT}.',
   themeConfig: {
     nav: [{ text: 'Home', link: '/' }, { text: 'Guide', link: '/guides/' }]
   },
