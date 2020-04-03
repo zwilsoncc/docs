@@ -5,6 +5,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -25,7 +26,7 @@ export const meta = {
 
 [Storybook](https://storybook.js.org/) is an open source tool for developing JavaScript UI components in isolation. [Svelte](https://svelte.dev/) is a component framework that allows you to write highly-efficient, imperative code, that surgically updates the DOM to maintain performance.
 
-In this guide, you will discover how to set up a Svelte Storybook component library with [Storybook CLI](https://github.com/storybookjs/storybook/tree/master/lib/cli) and how to deploy it with [ZEIT Now](/).
+In this guide, you will discover how to set up a Svelte Storybook component library with [Storybook CLI](https://github.com/storybookjs/storybook/tree/master/lib/cli) and how to deploy it with [<ProductName/>](/).
 
 ## Step 1: Set Up Your Storybook Project
 
@@ -61,9 +62,9 @@ With the development dependencies added, extend your `package.json` file by addi
   scripts to the <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-By adding these scripts you are able to start a development server from inside your project directory with `npm storybook`. You are also able to deploy the Storybook component library with [ZEIT Now](/) with no additional configuration.
+By adding these scripts you are able to start a development server from inside your project directory with `npm storybook`. You are also able to deploy the Storybook component library with [<ProductName/>](/) with no additional configuration.
 
-## Step 2: Deploying with ZEIT Now
+## Step 2: Deploying with <ProductName/>
 
 <DeploySection meta={meta} />
 

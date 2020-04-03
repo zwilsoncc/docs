@@ -6,6 +6,7 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -24,7 +25,7 @@ export const meta = {
 
 [Sanity.io](https://www.sanity.io) is a platform for structured content with an open source editing environment. Sanity Studio is a single page app written in React, where you can configure the document types and input fields, with simple JavaScript objects. The Studio connects to Sanity’s hosted real-time APIs. You can also customize the Studio with your own input components, plugins, and tools.
 
-This guide will walk you through how to deploy Sanity Studio with ZEIT Now in three simple steps.
+This guide will walk you through how to deploy Sanity Studio with <ProductName/> in three simple steps.
 
 <Image
   src={`${
@@ -58,7 +59,7 @@ Check out [Sanity’s documentation](https://sanity.io/docs) to learn more about
 
 ## Step 2: Preparing for Deployment
 
-To provide ZEIT Now with routing information for the app, add a `now.json` file with the following content:
+To provide <ProductName/> with routing information for the app, add a `now.json` file with the following content:
 
 ```json
 {
@@ -75,7 +76,7 @@ To provide ZEIT Now with routing information for the app, add a `now.json` file 
   project.
 </Caption>
 
-ZEIT Now provides an environment to deploy all types of projects, including static files, making it a good option for deploying your Sanity project with **a single command**.
+<ProductName/> provides an environment to deploy all types of projects, including static files, making it a good option for deploying your Sanity project with **a single command**.
 
 Add the following scripts to the Studio’s `package.json` file:
 
@@ -101,7 +102,7 @@ Add the following scripts to the Studio’s `package.json` file:
   when Sanity's CLI asks questions.
 </Note>
 
-Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [ZEIT Now](/) to build your project on deployment.
+Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [<ProductName/>](/) to build your project on deployment.
 
 <Snippet dark text="npm i -D @sanity/cli" />
 <Caption>
@@ -110,7 +111,7 @@ Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/s
 
 After saving your `package.json` file you will be ready to deploy your project.
 
-## Step 3: Deploy With ZEIT Now
+## Step 3: Deploy With <ProductName/>
 
 <DeploySection meta={meta} />
 

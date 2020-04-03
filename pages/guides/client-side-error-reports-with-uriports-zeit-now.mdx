@@ -6,6 +6,7 @@ import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
 import { Image } from '~/components/media'
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -49,15 +50,15 @@ Setting up reports with URIports, you can receive a variety of reports to inform
 - Expect-CT: When browsers fail to detect the presence of Signed Certificate Timestamps (SCTs) in subsequent TLS connections. This prevents the use of misused certificates from going unnoticed.
 - Feature Policy: The visitor triggered a violation of the Feature Policy. A policy that allows you to selectively enable, disable, or modify the behavior of browser features.
 
-## Step 1: Setting up a project on ZEIT Now
+## Step 1: Setting up a project on <ProductName/>
 
-[ZEIT Now](/) makes it effortless to deploy any static framework and Serverless Function so that you can focus on your project.
+[<ProductName/>](/) makes it effortless to deploy any static framework and Serverless Function so that you can focus on your project.
 
 Firstly, [signup for a free ZEIT account](/signup), then using your project's Git repository, import and deploy your project:
 
 <DeploySection meta={meta} />
 
-Alternatively, you can learn about setting up your project on ZEIT Now or use one of our many Quickstarts from [the ZEIT Now introduction documentation](/docs).
+Alternatively, you can learn about setting up your project on <ProductName/> or use one of our many Quickstarts from [the <ProductName/> introduction documentation](/docs).
 
 Once deployed, you will receive a default production URL for your project which you will need in the setup of your URIports account. Alternatively, you can [assign a Custom Domain](/docs/v2/custom-domains) to your project.
 
@@ -105,7 +106,7 @@ Next, create a `now.json` file at the root of your project and fill it with the 
 
 ## Step 3: Deploy and Receive Reports
 
-With a ZEIT Now project created and URIports setup for your project, you can now deploy your changes and start receiving reports.
+With a <ProductName/> project created and URIports setup for your project, you can now deploy your changes and start receiving reports.
 
 For projects that were deployed from a Git repository, all you need is to push to the default branch (usually `master`) and you will get a fresh production deployment.
 

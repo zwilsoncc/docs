@@ -7,6 +7,7 @@ import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -25,7 +26,7 @@ export const meta = {
   lastEdited: '2020-04-03T16:44:58.000Z'
 }
 
-In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [ZEIT Now](/).
+In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [<ProductName/>](/).
 
 <Image
   src={`${
@@ -40,7 +41,7 @@ In this guide, we will walk you through creating and [deploying](/docs/v2/deploy
 
 To start this example, you will need to have [setup a MongoDB Atlas account and database](https://docs.atlas.mongodb.com/getting-started/).
 
-Make sure that the cluster has [whitelisted connections](https://docs.atlas.mongodb.com/getting-started/#whitelist-your-connection-ip-address) from anywhere, since ZEIT Now does not support static IP addresses.
+Make sure that the cluster has [whitelisted connections](https://docs.atlas.mongodb.com/getting-started/#whitelist-your-connection-ip-address) from anywhere, since <ProductName/> does not support static IP addresses.
 
 Get started by creating a project directory and `cd` into it:
 
@@ -94,7 +95,7 @@ To use your MongoDB connection string without hard-coding it in your project, yo
   string.
 </Note>
 
-Finally, set up [the `now.json` configuration file](/docs/configuration) that instructs ZEIT Now to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
+Finally, set up [the `now.json` configuration file](/docs/configuration) that instructs <ProductName/> to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
 
 ```json
 {
@@ -114,7 +115,7 @@ Finally, set up [the `now.json` configuration file](/docs/configuration) that in
   for development and deployment.
 </Caption>
 
-The above file tells ZEIT Now the following:
+The above file tells <ProductName/> the following:
 
 - The name of the project is "my-mongodb-api"
 - An [Environment Variable](/docs/v2/deployments/environment-variables-and-secrets/), `env`, should be accessible in the app with the value of the secret you added in the first step
@@ -222,7 +223,7 @@ MONGODB_URI=mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<databa
   local development.
 </Caption>
 
-This file allows the ZEIT Now development process to use the environment variable with a value, since you are using a Now Secret in production which isn't accessible outside of the secure deployment environment.
+This file allows the <ProductName/> development process to use the environment variable with a value, since you are using a Now Secret in production which isn't accessible outside of the secure deployment environment.
 
 Next, run the Now CLI development command from the terminal:
 

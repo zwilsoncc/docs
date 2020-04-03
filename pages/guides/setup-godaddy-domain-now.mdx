@@ -5,6 +5,7 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -18,13 +19,13 @@ export const meta = {
   lastEdited: '2020-04-03T16:44:58.000Z'
 }
 
-With ZEIT Now, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to ZEIT Now](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
+With <ProductName/>, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to <ProductName/>](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
 
-This guide will cover **how to point your GoDaddy registered domain towards ZEIT Now** in order to use your domain for your deployments.
+This guide will cover **how to point your GoDaddy registered domain towards <ProductName/>** in order to use your domain for your deployments.
 
 ## Step 1: Adding and Verifying Your Domain
 
-The first step of pointing an external domain to ZEIT Now is to add your domain to your ZEIT account or team and verifying ownership.
+The first step of pointing an external domain to <ProductName/> is to add your domain to your ZEIT account or team and verifying ownership.
 
 To add a domain with [Now CLI](/docs/v2/getting-started/installation#now-cli), use the following command in your terminal:
 
@@ -44,9 +45,9 @@ You will have two options. Either to verify your domain [with nameservers](#veri
 
 ### Verifying with Nameservers
 
-This is the fastest method of getting started with your domain on ZEIT Now. When using nameservers, you are both verifying and pointing to ZEIT Now all at once.
+This is the fastest method of getting started with your domain on <ProductName/>. When using nameservers, you are both verifying and pointing to <ProductName/> all at once.
 
-When using this method, however, if the domain was previously pointing to another host and if you have not yet configured ZEIT Now for your domain, e.g. generating SSL certificates; when it does point to ZEIT Now, it will invoke downtime until the configuration is done. To avoid this, use [the `TXT` verification method](#verifying-with-a-txt-record).
+When using this method, however, if the domain was previously pointing to another host and if you have not yet configured <ProductName/> for your domain, e.g. generating SSL certificates; when it does point to <ProductName/>, it will invoke downtime until the configuration is done. To avoid this, use [the `TXT` verification method](#verifying-with-a-txt-record).
 
 If you want to verify with nameservers, you must use the intended set of nameservers given to you when you [added the domain with Now CLI](/docs/v2/custom-domains). If you need to be reminded of these nameservers, you can use the [following command](/docs/v2/custom-domains):
 
@@ -64,7 +65,7 @@ Going to GoDaddy.com and logging in will result in a page like this:
 />
 <Caption style={{marginTop: '-48px'}}>The GoDaddy domains dashboard.</Caption>
 
-Next, click on the "DNS" button on the domain you want to migrate to ZEIT Now. You will be brought to a page with the two uppermost sections being "Records" and "Nameservers".
+Next, click on the "DNS" button on the domain you want to migrate to <ProductName/>. You will be brought to a page with the two uppermost sections being "Records" and "Nameservers".
 
 Apply the nameservers you received from adding your domain or from the inspect command in the order they are given and then save the configuration.
 
@@ -74,7 +75,7 @@ After GoDaddy has propagated the changed DNS for your domain, your domain is rea
 
 ### Verifying with a TXT Record
 
-This method is used when you want to verify your domain but you do not yet want to point to ZEIT Now, for example if you need to configure ZEIT Now beforehand in order for [zero-downtime](/guides/zero-downtime-domain-migration/).
+This method is used when you want to verify your domain but you do not yet want to point to <ProductName/>, for example if you need to configure <ProductName/> beforehand in order for [zero-downtime](/guides/zero-downtime-domain-migration/).
 
 You can add the TXT record by going to your GoDaddy domains dashboard, as in the [nameservers method](#verifying-with-nameservers), and clicking on `DNS` on the domain you want to migrate, then clicking add in the "Records" section.
 
@@ -88,7 +89,7 @@ Select `TXT` as the record type to add, `_now` as the host, and the value you we
 />
 <Caption style={{marginTop: '-48px'}}>Adding a TXT record with GoDaddy's domain DNS management settings.</Caption>
 
-Once you have added the TXT record, your domain can be verified. ZEIT will periodically check your domain to see if it is verified, but if you do not want to wait and want to start using your domain with ZEIT Now immediately, use the following command to force a verification check:
+Once you have added the TXT record, your domain can be verified. ZEIT will periodically check your domain to see if it is verified, but if you do not want to wait and want to start using your domain with <ProductName/> immediately, use the following command to force a verification check:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -100,13 +101,13 @@ Once you have added the TXT record, your domain can be verified. ZEIT will perio
 />
 <Caption style={{marginTop: '-64px'}}>Verifying a domain with Now CLI</Caption>
 
-## Step 2: Configuring Your Domain on ZEIT Now
+## Step 2: Configuring Your Domain on <ProductName/>
 
 If you have used either verification method, the next step may be to configure your domain with DNS records and to use it for a deployment.
 
 ### Adding DNS Records
 
-Whether you are matching a previous configuration for your domain for a zero-downtime migration or just want to set up DNS records, ZEIT Now provides an easy to use command that allows you to add DNS records from the CLI.
+Whether you are matching a previous configuration for your domain for a zero-downtime migration or just want to set up DNS records, <ProductName/> provides an easy to use command that allows you to add DNS records from the CLI.
 
 For example, adding a set of Gmail MX records with the `now dns add` command:
 
@@ -119,7 +120,7 @@ For example, adding a set of Gmail MX records with the `now dns add` command:
 
 ### Adding a Domain to Deployments
 
-ZEIT Now is dedicated to making deployment easy. If you have not yet deployed an app, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started.
+<ProductName/> is dedicated to making deployment easy. If you have not yet deployed an app, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started.
 
 Adding your production domain to a project can be done from the [ZEIT Dashboard](/dashboard) by selecting the project's **Domains** tab and entering it there, you can find more information on this in the [custom domains documentation](https://zeit.co/docs/v2/custom-domains/#adding-a-domain).
 
@@ -128,9 +129,9 @@ You can then deploy to your production domain with **a single command**:
 <Snippet dark text="now --prod" />
 <Caption>Deploying a project to a production domain.</Caption>
 
-We highly recommend using either the [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) apps which will allow your app to be deployed to your production on push to your GitHub repository, GitLab project, or Bitbucket repository.
+We highly recommend using either the [<ProductName/> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName/> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName/> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) apps which will allow your app to be deployed to your production on push to your GitHub repository, GitLab project, or Bitbucket repository.
 
-## Step 3: Pointing to ZEIT Now
+## Step 3: Pointing to <ProductName/>
 
 As with the ["Verifying with Nameservers"](#verifying-with-nameservers) step, this final part of the migration process will point your domain to ZEIT DNS with the intended nameservers set. If you did not save them when you added your domain, you can see the intended list by running the `now domains inspect <domain>` command.
 
@@ -148,7 +149,7 @@ To set your nameservers, on the DNS management page as you added the TXT record,
 
 Once GoDaddy propagates the changes to the domain with the updated nameservers, your domain will then point to the [app you deployed](#adding-a-domain-to-deployments) before.
 
-That's all. Your domain is successfully migrated to using ZEIT DNS and pointing to your ZEIT Now deployed app.
+That's all. Your domain is successfully migrated to using ZEIT DNS and pointing to your <ProductName/> deployed app.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

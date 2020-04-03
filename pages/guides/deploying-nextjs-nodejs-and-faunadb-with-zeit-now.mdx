@@ -9,6 +9,7 @@ import Card from '~/components/card'
 import { Code } from '~/components/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -28,7 +29,7 @@ export const meta = {
 
 [FaunaDB](https://fauna.com/) is a serverless cloud database that gives you low-latency access to your app data around the world.
 
-This guide walks you through creating a [Next.js app](https://nextjs-faunadb-nodejs.now-examples.now.sh/) that receives data from a [Node.js](https://nodejs.org/en/) API powered by [FaunaDB](https://fauna.com/), and how to deploy it with ZEIT Now.
+This guide walks you through creating a [Next.js app](https://nextjs-faunadb-nodejs.now-examples.now.sh/) that receives data from a [Node.js](https://nodejs.org/en/) API powered by [FaunaDB](https://fauna.com/), and how to deploy it with <ProductName/>.
 
 ## Step 1: Connecting to FaunaDB
 
@@ -203,7 +204,7 @@ export default ({ creditCard, firstName, loading, lastName, telephone }) => (
   Adding a <InlineCode>/components/TableRow.js</InlineCode> file to the project.
 </Caption>
 
-Add a build script to the `package.json` file which will tell ZEIT Now how to build your project:
+Add a build script to the `package.json` file which will tell <ProductName/> how to build your project:
 
 ```json
 {

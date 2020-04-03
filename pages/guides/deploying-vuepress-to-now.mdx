@@ -5,6 +5,7 @@ import Caption from '~/components/text/caption'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -24,7 +25,7 @@ export const meta = {
 
 VuePress is a vue-powered static generator. It is used for generating static sites with a focus on writing.
 
-This guide will cover how to create and deploy a VuePress app to ZEIT Now.
+This guide will cover how to create and deploy a VuePress app to <ProductName/>.
 
 Already have a VuePress project? [Skip to deploying](#step-3:-deploying-your-vuepress-project-with-zeit-now)!
 
@@ -43,7 +44,7 @@ Next, initialize the project and install VuePress as a [local development depend
 Once the dependencies are installed, create a `README.md` with the following contents:
 
 ```markdown
-# Hello From Vuepress on ZEIT Now 2.0!
+# Hello From Vuepress on <ProductName/> 2.0!
 ```
 
 Next, create a `guide` directory within the project and add a `README.md` file with the following code:
@@ -94,7 +95,7 @@ Next, add both a development and build script to the `package.json` file in the 
   <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-## Step 3: Deploying Your VuePress Project with ZEIT Now
+## Step 3: Deploying Your VuePress Project with <ProductName/>
 
 <DeploySection meta={meta} />
 

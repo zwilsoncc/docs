@@ -4,6 +4,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -17,13 +18,13 @@ export const meta = {
   lastEdited: '2020-04-03T16:44:58.000Z'
 }
 
-[ZEIT Now](/) supports configuration required to ignore source files and paths within your project. With a `.nowignore` file in your project directory, a source path can be prevented from being uploaded to ZEIT Now.
+[<ProductName/>](/) supports configuration required to ignore source files and paths within your project. With a `.nowignore` file in your project directory, a source path can be prevented from being uploaded to <ProductName/>.
 
 ## File Syntax
 
 The syntax of a `.nowignore` file matches that of the popular [`.gitignore` file](https://git-scm.com/docs/gitignore#_pattern_format) used in ignoring files when uploading to a Git repository.
 
-An example of a `.nowignore` file that prevents an `/image` directory and `/private.html` file within a project from being uploaded to ZEIT Now would look like this:
+An example of a `.nowignore` file that prevents an `/image` directory and `/private.html` file within a project from being uploaded to <ProductName/> would look like this:
 
 ```
 image
@@ -54,22 +55,22 @@ The first step is to add a wildcard `/*` as the first line in `.nowignore`. This
 
 ## Uploaded Files
 
-Aside from the [default exclusions](/docs/v2/build-step/#ignored-files-and-folders), all files within your project are uploaded to ZEIT Now if no source path is specified to be excluded in a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths).
+Aside from the [default exclusions](/docs/v2/build-step/#ignored-files-and-folders), all files within your project are uploaded to <ProductName/> if no source path is specified to be excluded in a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths).
 
 <Note>
   You can find the complete list of files and directories excluded by default in
   the{' '}
   <Link href="/docs/v2/build-step/#ignored-files-and-folders">
-    ZEIT Now documentation
+    <ProductName/> documentation
   </Link>
   .
 </Note>
 
-Worthy of note is that not all uploaded files are served on ZEIT Now. So, what files are served?
+Worthy of note is that not all uploaded files are served on <ProductName/>. So, what files are served?
 
 ## Served Files
 
-If [ZEIT Now](/) is required to build your project, the non-targeted files are prevented from being deployed and served on ZEIT Now.
+If [<ProductName/>](/) is required to build your project, the non-targeted files are prevented from being deployed and served on <ProductName/>.
 
 The use of a `.nowignore` configuration file allows you to keep private files safe and also makes your deployment faster by uploading only the essential files.
 

@@ -6,6 +6,7 @@ import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -51,7 +52,7 @@ You will receive two options:
 />
 <Caption>Adding a domain with <Link href="/docs/v2/getting-started/installation">Now CLI</Link>.</Caption>
 
-To avoid pointing the nameservers to ZEIT Now prematurely, use the TXT method for verification.
+To avoid pointing the nameservers to <ProductName/> prematurely, use the TXT method for verification.
 
 With your domain provider, create the TXT record using the `name` (also known as `host` or `alias`) `_now` and the value provided when adding the domain.
 
@@ -64,7 +65,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   to retrieve the verification methods and value again.
 </Note>
 
-[ZEIT Now](/) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force ZEIT Now to check for the verification by using the following command:
+[<ProductName/>](/) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force <ProductName/> to check for the verification by using the following command:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -77,7 +78,7 @@ With your domain provider, create the TXT record using the `name` (also known as
 
 ## Step 2: Preparing the Domain with DNS, Certs, and Deploying to Production
 
-Now that your domain is verified, you have more control over it with ZEIT Now. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
+Now that your domain is verified, you have more control over it with <ProductName/>. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
 
 ### Generating an SSL Certificate
 
@@ -86,7 +87,7 @@ With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL c
 <Snippet dark text="now certs issue \*.<domain> <domain> --challenge-only" />
 <Caption>Generating an SSL certificate for a domain and all subdomains with <Link href="/now">Now CLI</Link>.</Caption>
 
-You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that ZEIT Now has sufficient permissions, consisting of two TXT records.
+You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that <ProductName/> has sufficient permissions, consisting of two TXT records.
 
 Once these TXT records are added to your domain via your domain provider, run the `now certs issue \*.<domain> <domain>` command again to attempt the certificate issuance.
 
@@ -129,11 +130,11 @@ When the domain is verified, you can deploy your project to production with Now 
 <Note>
   Your projects will automatically use your custom domain when merging or
   pushing to the default branch when using either{' '}
-  <Link href="/docs/v2/integrations/now-for-gitlab">ZEIT Now for GitHub</Link>,
-  <Link href="/docs/v2/integrations/now-for-gitlab">ZEIT Now for GitLab</Link>,
+  <Link href="/docs/v2/integrations/now-for-gitlab"><ProductName/> for GitHub</Link>,
+  <Link href="/docs/v2/integrations/now-for-gitlab"><ProductName/> for GitLab</Link>,
   or
   <Link href="/docs/v2/integrations/now-for-bitbucket">
-    ZEIT Now for Bitbucket
+    <ProductName/> for Bitbucket
   </Link>.
 </Note>
 

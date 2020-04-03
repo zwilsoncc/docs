@@ -4,6 +4,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -17,13 +18,13 @@ export const meta = {
   lastEdited: '2020-04-03T16:44:58.000Z'
 }
 
-The [ZEIT Now for GitLab integration](/docs/v2/integrations/now-for-gitlab) provides you with automatic deployments for each push to a project, automatic preview URLs for pushes to the default branch, and instant rollbacks for reverts.
+The [<ProductName/> for GitLab integration](/docs/v2/integrations/now-for-gitlab) provides you with automatic deployments for each push to a project, automatic preview URLs for pushes to the default branch, and instant rollbacks for reverts.
 
-This guide will walk you through how to set up the ZEIT Now for GitLab integration for your projects.
+This guide will walk you through how to set up the <ProductName/> for GitLab integration for your projects.
 
-## Step 1: Set Up a ZEIT Now for GitLab Project
+## Step 1: Set Up a <ProductName/> for GitLab Project
 
-To deploy a project with ZEIT Now for GitLab, you must first have a project on GitLab.
+To deploy a project with <ProductName/> for GitLab, you must first have a project on GitLab.
 
 [Create a new GitLab project](https://docs.gitlab.com/ee/gitlab-basics/create-project.html) with a file called `index.html` with the following contents:
 
@@ -43,9 +44,9 @@ Push this file to your GitLab project so you have one file inside of it.
 />
 <Caption style={{marginTop: '-64px'}}>A simple GitLab project setup.</Caption>
 
-## Step 2: Connect ZEIT Now to Your GitLab User and Project
+## Step 2: Connect <ProductName/> to Your GitLab User and Project
 
-For ZEIT Now to make automatic deployments and preview URLs, it needs access to your GitLab account and its associated projects.
+For <ProductName/> to make automatic deployments and preview URLs, it needs access to your GitLab account and its associated projects.
 
 Connect your GitLab account through your [account settings](/account).
 
@@ -65,7 +66,7 @@ From the [account settings](/account) section where you connected your GitLab ac
 
 With a project linked, no further setup is required on ZEIT.
 
-## Step 3: Using ZEIT Now for GitLab
+## Step 3: Using <ProductName/> for GitLab
 
 With configuration done, all future commits from your linked projects will have [automatic deployments for each push](#deployments-for-each-push), [merge requests](#deployments-and-preview-urls-for-merge-requests), and [automatic updates for production domains](#deploying-to-production).
 
@@ -79,9 +80,9 @@ Now, visiting your [commits](https://gitlab.com/now-examples/hello-world/commits
   height={1392/2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>A deployed commit using ZEIT Now for GitLab.</Caption>
+<Caption style={{marginTop: '-40px'}}>A deployed commit using <ProductName/> for GitLab.</Caption>
 
-This green status symbol indicates that ZEIT Now successfully deployed your commit.
+This green status symbol indicates that <ProductName/> successfully deployed your commit.
 
 Clicking the [commit](https://gitlab.com/now-examples/hello-world/commit/9fade7c749778b69a71ac52151a4d2cd94e7e92a) itself, you will see a comment that holds a unique deployment URL to test and share the specific commit build:
 
@@ -119,7 +120,7 @@ After you commit and create the merge request, you will get a [new view](https:/
 />
 <Caption style={{marginTop: '-40px'}}>A merge request deployment pipeline success message.</Caption>
 
-The pipeline information shows the status as ZEIT Now builds your app. In this case, it has successfully built. It will show a different icon when ZEIT Now is building the app.
+The pipeline information shows the status as <ProductName/> builds your app. In this case, it has successfully built. It will show a different icon when <ProductName/> is building the app.
 
 Below the pipeline message, a comment will present a [preview URL](/docs/v2/custom-domains#deploying-with-your-domain) that updates each time the merge request is pushed to, so you can share this link with others without having to worry about sharing the latest update.
 
@@ -158,7 +159,7 @@ When you push this change to the default branch, this and all subsequent commits
 
 ## In Conclusion
 
-Through this guide, you should now have a bulletproof deployment pipeline for all of your GitLab projects, using [ZEIT Now for GitLab](/docs/v2/integrations/now-for-gitlab).
+Through this guide, you should now have a bulletproof deployment pipeline for all of your GitLab projects, using [<ProductName/> for GitLab](/docs/v2/integrations/now-for-gitlab).
 
 With every push, an automatic deployment. With every merge request, a unique preview URL. And with every update to the default branch, your changes are updated for the production domain.
 

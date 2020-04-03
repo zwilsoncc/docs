@@ -6,6 +6,7 @@ import Note from '~/components/text/note'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -25,7 +26,7 @@ export const meta = {
 
 [Pusher Channels](https://pusher.com/channels) is a service that makes it easy to add real-time data and functionality to web and mobile apps by using [WebSockets](https://en.wikipedia.org/wiki/WebSocket).
 
-This guide demonstrates how to get started creating and deploying real-time apps with [Channels](https://pusher.com/channels) and [ZEIT Now](/).
+This guide demonstrates how to get started creating and deploying real-time apps with [Channels](https://pusher.com/channels) and [<ProductName/>](/).
 
 <Note>
   This guide is an overview. For the full code, see the linked example at the
@@ -236,11 +237,11 @@ module.exports = (req, res) => {
 
 When `channels.trigger` is called, an event will be broadcast to all subscribed clients.
 
-## Step 3: Deploying with ZEIT Now
+## Step 3: Deploying with <ProductName/>
 
 <DeploySection meta={meta} />
 
-You can find a full code example of an app made with this guide in [the ZEIT Now repository](https://github.com/zeit/now/tree/master/examples/vanilla-pusher-functions) on GitHub, along with the [live example](https://pusher-whiteboard.now-examples.now.sh/) deployed with ZEIT Now.
+You can find a full code example of an app made with this guide in [the <ProductName/> repository](https://github.com/zeit/now/tree/master/examples/vanilla-pusher-functions) on GitHub, along with the [live example](https://pusher-whiteboard.now-examples.now.sh/) deployed with <ProductName/>.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

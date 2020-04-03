@@ -7,6 +7,7 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -26,7 +27,7 @@ export const meta = {
 
 [Crystallize](https://crystallize.com/) is a super-fast GraphQL based headless e-commerce service with super structured product information management.
 
-In this guide, you will discover how to create a [Crystallize e-commerce site](https://crystallize.now-examples.now.sh/), that uses [Stripe](https://stripe.com/) to process payments, and deploy it with [ZEIT Now](/).
+In this guide, you will discover how to create a [Crystallize e-commerce site](https://crystallize.now-examples.now.sh/), that uses [Stripe](https://stripe.com/) to process payments, and deploy it with [<ProductName/>](/).
 
 <Image
   src={`${
@@ -60,7 +61,7 @@ During the setup, you will be asked a series of questions that will customize th
 
 - Teddy bear shop
 - Next.js + React
-- **Both** ZEIT Now and a payment method
+- **Both** <ProductName/> and a payment method
 - Stripe
 - Configure tokens and API keys now
 
@@ -95,7 +96,7 @@ Using [Now CLI](/download), create [Now Secrets](/docs/v2/serverless-functions/e
   Adding the <InlineCode>stripe-secret-key</InlineCode> as a <strong>Now Secret</strong>.
 </Caption>
 
-## Step 4: Deploying Your Crystallize Site with ZEIT Now
+## Step 4: Deploying Your Crystallize Site with <ProductName/>
 
 <DeploySection meta={meta} />
 

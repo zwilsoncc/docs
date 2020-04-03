@@ -9,6 +9,7 @@ import Card from '~/components/card'
 import { Code } from '~/components/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -29,7 +30,7 @@ export const meta = {
 
 [SendGrid](https://sendgrid.com/) is a cloud-based SMTP provider that allows you to send email without having to maintain email servers.
 
-This guide walks you through creating a [Next.js app](https://nextjs-sendgrid-nodejs.now-examples.now.sh/) with a contact form powered by [SendGrid](https://sendgrid.com/), and how to deploy it with ZEIT Now.
+This guide walks you through creating a [Next.js app](https://nextjs-sendgrid-nodejs.now-examples.now.sh/) with a contact form powered by [SendGrid](https://sendgrid.com/), and how to deploy it with <ProductName/>.
 
 ## Step 1: Creating a SendGrid API Key
 
@@ -169,7 +170,7 @@ export default () => {
   Adding a <InlineCode>/pages/index.js</InlineCode> file to the project.
 </Caption>
 
-Add development and build scripts to the `package.json` file. These allow you to run your app with a development server and tell ZEIT Now how to build your project for deployment:
+Add development and build scripts to the `package.json` file. These allow you to run your app with a development server and tell <ProductName/> how to build your project for deployment:
 
 ```json
 {
@@ -269,7 +270,7 @@ module.exports = {
   <InlineCode>npm run dev</InlineCode>.
 </Note>
 
-Create a [Now Secret](/docs/v2/serverless-functions/env-and-secrets/) to securely store the SendGrid API key, this will be used when deploying the app with ZEIT Now.
+Create a [Now Secret](/docs/v2/serverless-functions/env-and-secrets/) to securely store the SendGrid API key, this will be used when deploying the app with <ProductName/>.
 
 <Snippet dark text="now secrets add sendgrid_api_key [your-sendgrid-api-key]" />
 <Caption>
@@ -293,7 +294,7 @@ Lastly, to make the [Now Secret](https://zeit.co/docs/v2/serverless-functions/en
   <strong>Now Secret</strong> available to the app.
 </Caption>
 
-## Step 4: Deploying the App with ZEIT Now
+## Step 4: Deploying the App with <ProductName/>
 
 <DeploySection meta={meta} />
 

@@ -7,6 +7,7 @@ import { IconCard } from '~/components/card'
 import { List } from '~/components/list'
 import GitHubIcon from '~/components/icons/github'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -24,11 +25,11 @@ export const meta = {
 
 [Calibre](https://calibreapp.com/) is a comprehensive monitoring platform that makes it easy to uncover and address performance issues. In this guide, you will learn how to receive performance [Pull Request Reviews](https://calibreapp.com/pull-request-reviews) directly in your pull requests following [ZEIT Deployment Previews](https://zeit.co/features/deployment-previews).
 
-## Step 1: Deploy with ZEIT Now
+## Step 1: Deploy with <ProductName/>
 
-To deploy your project with the [ZEIT Now for GitHub Integration](/docs/v2/git-integrations/zeit-now-for-github), make sure your created project has been pushed to a Git repository.
+To deploy your project with the [<ProductName/> for GitHub Integration](/docs/v2/git-integrations/zeit-now-for-github), make sure your created project has been pushed to a Git repository.
 
-[Import the project](/import) into ZEIT Now from GitHub:
+[Import the project](/import) into <ProductName/> from GitHub:
 
 <List columnsDesktop={3} columnsTablet={3} columnsMobile={1}>
   <IconCard
@@ -42,7 +43,7 @@ To deploy your project with the [ZEIT Now for GitHub Integration](/docs/v2/git-i
 After your project has been imported, all subsequent pushes to branches will generate [Preview Deployments](/docs/v2/platform/deployments#preview), and all changes made to the default branch (commonly `master`) will result in a [Production Deployment](/docs/v2/platform/deployments#production).
 
 <Note type="warning">
-  While ZEIT Now supports GitHub, Bitbucket, and GitLab, Calibre Pull Request
+  While <ProductName/> supports GitHub, Bitbucket, and GitLab, Calibre Pull Request
   Reviews currently work with ZEIT and GitHub only. GitLab and Bitbucket are not
   supported.
 </Note>

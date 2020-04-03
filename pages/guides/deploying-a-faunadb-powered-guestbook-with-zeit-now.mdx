@@ -9,6 +9,7 @@ import Card from '~/components/card'
 import { Code } from '~/components/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -29,7 +30,7 @@ export const meta = {
 
 With the release of [`create-next-app`](https://nextjs.org/blog/create-next-app), bootstrapping [Next.js](https://nextjs.org/) apps is now a guided process that allows you to get up and running in seconds by using ready-made examples.
 
-This guide walks you through creating a Next.js guestbook app that receives data from a [GraphQL](https://graphql.org/) API powered by [FaunaDB](https://fauna.com/), and how to deploy it with ZEIT Now.
+This guide walks you through creating a Next.js guestbook app that receives data from a [GraphQL](https://graphql.org/) API powered by [FaunaDB](https://fauna.com/), and how to deploy it with <ProductName/>.
 
 ## Step 1: Creating a FaunaDB Database
 
@@ -71,7 +72,7 @@ This script achieves the following:
 
 Next, add the key returned by the setup script to your `next.config.js` file by replacing the value for the `faunaDbSecret` property with the key created by the script.
 
-## Step 3: Deploying Your App with ZEIT Now
+## Step 3: Deploying Your App with <ProductName/>
 
 <DeploySection meta={meta} />
 

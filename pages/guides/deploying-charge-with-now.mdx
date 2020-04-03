@@ -7,6 +7,7 @@ import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -26,7 +27,7 @@ export const meta = {
 
 [Charge](https://charge.js.org/) is an opinionated, zero-config static site generator written in JavaScript. Charge is fast, simple and behaves the way you expect it to.
 
-In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a basic Charge website with [ZEIT Now](/docs/v2).
+In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a basic Charge website with [<ProductName/>](/docs/v2).
 
 <Image
   src={`${
@@ -180,9 +181,9 @@ export default () => {
   that imports the About content component and uses it in the page.
 </Caption>
 
-Now that you have a simple Charge site created, you're ready to deploy with [ZEIT Now](/docs/v2).
+Now that you have a simple Charge site created, you're ready to deploy with [<ProductName/>](/docs/v2).
 
-## Step 3: Deploy Your Charge Project with ZEIT Now
+## Step 3: Deploy Your Charge Project with <ProductName/>
 
 <DeploySection meta={meta} />
 

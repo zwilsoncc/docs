@@ -5,6 +5,7 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -32,7 +33,7 @@ Set up a Polymer app with [`npx`](https://www.npmjs.com/package/npx) and move in
 <Snippet dark text="mkdir my-polymer-app && cd my-polymer-app && npx polymer-cli init polymer-3-starter-kit" />
 <Caption>Creating a project directory and initializing a Polymer app with <Link href="https://www.npmjs.com/package/npx">npx</Link>.</Caption>
 
-## Step 2: Deploying Your Polymer App with ZEIT Now
+## Step 2: Deploying Your Polymer App with <ProductName/>
 
 <DeploySection meta={meta} />
 

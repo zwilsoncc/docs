@@ -7,6 +7,7 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -27,7 +28,7 @@ export const meta = {
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
 
-In this guide, we will walk you through setting up a Hugo website and deploying it with [ZEIT Now](/).
+In this guide, we will walk you through setting up a Hugo website and deploying it with [<ProductName/>](/).
 
 ## Step 1: Setting Up Your Hugo Project
 
@@ -70,7 +71,7 @@ You can add some content to the Hugo project by running the following command:
 Once you are done running the command, edit the `my-first-post.md` file (within the `contents/posts` directories) and add the following content below the generated metadata:
 
 ```markdown
-## Deploying Hugo with ZEIT Now
+## Deploying Hugo with <ProductName/>
 ```
 
 You can now see your project running locally with the following command:
@@ -85,7 +86,7 @@ You can now see your project running locally with the following command:
   , the content of your posts won't show up in production.
 </Note>
 
-## Step 2: Deploying Your Hugo Website with ZEIT Now
+## Step 2: Deploying Your Hugo Website with <ProductName/>
 
 <DeploySection meta={meta} />
 

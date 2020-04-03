@@ -7,6 +7,7 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -27,7 +28,7 @@ export const meta = {
 
 [TakeShape](https://www.takeshape.io/) provides instant, intuitive, adaptable, and collaborative services to power JAMstack projects of any size, shape, or complexity.
 
-In this guide, you will discover how to create a [TakeShape blog](https://next-blog-takeshape.now.sh/), and deploy it with [ZEIT Now](/).
+In this guide, you will discover how to create a [TakeShape blog](https://next-blog-takeshape.now.sh/), and deploy it with [<ProductName/>](/).
 
 ## Step 1: Setting Up with TakeShape
 
@@ -133,7 +134,7 @@ Create a random string that can be used as a preview secret and add it using Now
   Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong>Now Secret</strong>.
 </Caption>
 
-## Step 5: Deploying Your Blog with ZEIT Now
+## Step 5: Deploying Your Blog with <ProductName/>
 
 <DeploySection meta={meta} />
 
