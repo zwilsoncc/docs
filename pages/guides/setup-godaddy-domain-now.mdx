@@ -5,15 +5,17 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 
+import { PRODUCT } from '~/lib/constants'
+
 export const meta = {
-  title: 'Setup a GoDaddy Domain with ZEIT Now',
+  title: `Setup a GoDaddy Domain with ${PRODUCT}`,
   description:
     'Use your GoDaddy registered domain for your ZEIT Now deployments.',
   published: '2019-01-23T17:00:00.860Z',
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-now',
   editUrl: 'pages/guides/setup-godaddy-domain-now.mdx',
-  lastEdited: '2020-01-24T23:33:43.000Z'
+  lastEdited: '2020-04-03T15:51:49.000Z'
 }
 
 With ZEIT Now, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to ZEIT Now](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
