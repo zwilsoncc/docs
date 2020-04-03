@@ -198,7 +198,7 @@ export default Post
 
 ## Step 4: Build Client Side Navigation Links
 
-Now that the pages for your blog post documents are accessible, you can modify the index page so that the list of titles actually links to each of the posts. To do this, it's best to use the [`<Link>`](https://nextjs.org/docs#with-link) component, included with [Next.js](https://nextjs.org/), to provide client-side navigation without a page refresh.
+Now that the pages for your blog post documents are accessible, you can modify the index page so that the list of titles actually links to each of the posts. To do this, it's best to use the [`<Link>`](https://nextjs.org/docs/api-reference/next/link) component, included with [Next.js](https://nextjs.org/), to provide client-side navigation without a page refresh.
 
 The `<Link>` component requires **two main props for navigation**: `href`, which will be the path used to route to the page, and `as`, which will be the path as rendered in the browser. To aid in creating these two different paths, you can use the `linkResolver` and `hrefResolver` helper functions, defined within `prismic-configuration.js`.
 
