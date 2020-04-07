@@ -10,8 +10,7 @@ import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: `Deploying with Custom Serverless Next.js Routing`,
-  description:
-    `Migrate from a Next.js app with a custom server to a serverless Next.js app using ${PRODUCT} routes.`,
+  description: `Migrate from a Next.js app with a custom server to a serverless Next.js app using ${PRODUCT} routes.`,
   published: '2019-01-23T17:00:00.860Z',
   authors: ['timothy', 'timneutkens'],
   name: 'Next.js',
@@ -46,14 +45,14 @@ server.get('/products/:name', (req, res) => {
 <Caption>An example custom server route capture and render method.</Caption>
 
 <Note type="warning">
-  The custom server method will not work with the <ProductName/> 2.0 platform.
+  The custom server method will not work with the <ProductName /> 2.0 platform.
 </Note>
 
 ### The New Routes Method
 
-With [<ProductName/>](https://zeit.co/now) and the serverless approach, each [Next.js page](https://nextjs.org/docs#routing) is a separate entry point, making the sole custom server entry point a thing of the past for the good of performance and stability. Fortunately, **<ProductName/> 2.0 offers a solution**, handling the configuration of routes for you.
+With [<ProductName/>](https://zeit.co/now) and the serverless approach, each [Next.js page](https://nextjs.org/docs/basic-features/pages) is a separate entry point, making the sole custom server entry point a thing of the past for the good of performance and stability. Fortunately, **<ProductName/> 2.0 offers a solution**, handling the configuration of routes for you.
 
-By making use of Next.js path segments with <ProductName/>, [dynamic routing](https://nextjs.org/docs#routing) is achieved through the file structure. No longer are custom servers or additional configuration required, **simplifying the process of building your app significantly**.
+By making use of Next.js path segments with <ProductName/>, [dynamic routing](https://nextjs.org/docs/routing/dynamic-routes) is achieved through the file structure. No longer are custom servers or additional configuration required, **simplifying the process of building your app significantly**.
 
 ## By Example
 

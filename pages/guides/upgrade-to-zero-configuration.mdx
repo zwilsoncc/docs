@@ -9,8 +9,7 @@ import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: `Upgrade Your Existing ${PRODUCT} Projects With Zero Configuration`,
-  description:
-    `Upgrade your existing ${PRODUCT} projects to use no configuration.`,
+  description: `Upgrade your existing ${PRODUCT} projects to use no configuration.`,
   published: '2019-07-31T20:06:26.000Z',
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/upgrade-to-zero-configuration',
@@ -45,7 +44,7 @@ Using [the Next.js example project from the <ProductName/> repository](https://g
 
 With zero configuration, the `now.json` file is no longer required. You only have to remove the `now.json` file from your project.
 
-For Next.js projects that have a **JavaScript API**, you can use a `/pages/api/` folder, this will allow Next.js to [handle the building of these files for you](https://nextjs.org/docs#api-routes).
+For Next.js projects that have a **JavaScript API**, you can use a `/pages/api/` folder, this will allow Next.js to [handle the building of these files for you](https://nextjs.org/docs/api-routes/introduction).
 
 If your Next.js project is using a different language for the API, put it in the top-level `/api` directory instead. By doing that, you will take advantage of <ProductName/>'s native support for Serverless Functions written in multiple languages, while `/pages/api` only supports JavaScript (powered by Next.js).
 
@@ -189,7 +188,7 @@ module.exports = (req, res) => {
   <Link href="/docs/v2/serverless-functions/supported-languages#node.js-helpers">
     helper methods
   </Link>{' '}
-  with <ProductName/>.
+  with <ProductName />.
 </Caption>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
