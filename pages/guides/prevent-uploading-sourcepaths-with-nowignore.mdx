@@ -14,16 +14,16 @@ export const meta = {
   authors: ['unicodeveloper', 'msweeneydev'],
   url: '/guides/prevent-uploading-sourcepaths-with-nowignore',
   editUrl: 'pages/guides/prevent-uploading-sourcepaths-with-nowignore.mdx',
-  lastEdited: '2020-04-03T19:15:03.000Z'
+  lastEdited: '2020-04-07T23:46:59.000Z'
 }
 
-[<ProductName/>](/) supports configuration required to ignore source files and paths within your project. With a `.nowignore` file in your project directory, a source path can be prevented from being uploaded to <ProductName/>.
+[<ProductName />](/) supports configuration required to ignore source files and paths within your project. With a `.nowignore` file in your project directory, a source path can be prevented from being uploaded to <ProductName />.
 
 ## File Syntax
 
 The syntax of a `.nowignore` file matches that of the popular [`.gitignore` file](https://git-scm.com/docs/gitignore#_pattern_format) used in ignoring files when uploading to a Git repository.
 
-An example of a `.nowignore` file that prevents an `/image` directory and `/private.html` file within a project from being uploaded to <ProductName/> would look like this:
+An example of a `.nowignore` file that prevents an `/image` directory and `/private.html` file within a project from being uploaded to <ProductName /> would look like this:
 
 ```
 image
@@ -54,7 +54,7 @@ The first step is to add a wildcard `/*` as the first line in `.nowignore`. This
 
 ## Uploaded Files
 
-Aside from the [default exclusions](/docs/v2/build-step/#ignored-files-and-folders), all files within your project are uploaded to <ProductName/> if no source path is specified to be excluded in a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths).
+Aside from the [default exclusions](/docs/v2/build-step/#ignored-files-and-folders), all files within your project are uploaded to <ProductName /> if no source path is specified to be excluded in a [`.nowignore` configuration file](https://zeit.co/docs/v2/deployments/ignoring-source-paths).
 
 <Note>
   You can find the complete list of files and directories excluded by default in
@@ -65,11 +65,11 @@ Aside from the [default exclusions](/docs/v2/build-step/#ignored-files-and-folde
   .
 </Note>
 
-Worthy of note is that not all uploaded files are served on <ProductName/>. So, what files are served?
+Worthy of note is that not all uploaded files are served on <ProductName />. So, what files are served?
 
 ## Served Files
 
-If [<ProductName/>](/) is required to build your project, the non-targeted files are prevented from being deployed and served on <ProductName/>.
+If [<ProductName />](/) is required to build your project, the non-targeted files are prevented from being deployed and served on <ProductName />.
 
 The use of a `.nowignore` configuration file allows you to keep private files safe and also makes your deployment faster by uploading only the essential files.
 

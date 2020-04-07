@@ -11,13 +11,12 @@ import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: `Zero-Downtime Domain Migration with ${PRODUCT}`,
-  description:
-    `Migrate your domain from an external service to ${PRODUCT} with no downtime, in just a few steps.`,
+  description: `Migrate your domain from an external service to ${PRODUCT} with no downtime, in just a few steps.`,
   published: '2019-07-11T17:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2020-04-03T16:44:58.000Z'
+  lastEdited: '2020-04-07T23:46:59.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
@@ -52,7 +51,7 @@ You will receive two options:
 />
 <Caption>Adding a domain with <Link href="/docs/v2/getting-started/installation">Now CLI</Link>.</Caption>
 
-To avoid pointing the nameservers to <ProductName/> prematurely, use the TXT method for verification.
+To avoid pointing the nameservers to <ProductName /> prematurely, use the TXT method for verification.
 
 With your domain provider, create the TXT record using the `name` (also known as `host` or `alias`) `_now` and the value provided when adding the domain.
 
@@ -65,7 +64,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   to retrieve the verification methods and value again.
 </Note>
 
-[<ProductName/>](/) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force <ProductName/> to check for the verification by using the following command:
+[<ProductName />](/) periodically checks for whether or not the TXT record (or nameservers in another case) has been added and then mark the domain as verified when it detects them. You can force <ProductName /> to check for the verification by using the following command:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -78,7 +77,7 @@ With your domain provider, create the TXT record using the `name` (also known as
 
 ## Step 2: Preparing the Domain with DNS, Certs, and Deploying to Production
 
-Now that your domain is verified, you have more control over it with <ProductName/>. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
+Now that your domain is verified, you have more control over it with <ProductName />. You can now generate an SSL Certificate, add any DNS Records, and deploy your app using your domain, all ready for when you switch over fully.
 
 ### Generating an SSL Certificate
 
@@ -87,7 +86,7 @@ With [Now CLI](/docs/v2/getting-started/installation), you can generate an SSL c
 <Snippet dark text="now certs issue \*.<domain> <domain> --challenge-only" />
 <Caption>Generating an SSL certificate for a domain and all subdomains with <Link href="/now">Now CLI</Link>.</Caption>
 
-You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that <ProductName/> has sufficient permissions, consisting of two TXT records.
+You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that <ProductName /> has sufficient permissions, consisting of two TXT records.
 
 Once these TXT records are added to your domain via your domain provider, run the `now certs issue \*.<domain> <domain>` command again to attempt the certificate issuance.
 
@@ -130,12 +129,16 @@ When the domain is verified, you can deploy your project to production with Now 
 <Note>
   Your projects will automatically use your custom domain when merging or
   pushing to the default branch when using either{' '}
-  <Link href="/docs/v2/integrations/now-for-gitlab"><ProductName/> for GitHub</Link>,
-  <Link href="/docs/v2/integrations/now-for-gitlab"><ProductName/> for GitLab</Link>,
-  or
+  <Link href="/docs/v2/integrations/now-for-gitlab">
+    <ProductName /> for GitHub
+  </Link>
+  ,<Link href="/docs/v2/integrations/now-for-gitlab">
+    <ProductName /> for GitLab
+  </Link>, or
   <Link href="/docs/v2/integrations/now-for-bitbucket">
-    <ProductName/> for Bitbucket
-  </Link>.
+    <ProductName /> for Bitbucket
+  </Link>
+  .
 </Note>
 
 Now, your domain will be pointing to your latest deployment and you're are ready to move your nameservers across to show that deployment.

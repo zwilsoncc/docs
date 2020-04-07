@@ -20,12 +20,12 @@ export const meta = {
   image:
     'https://og-image.now.sh/Deploy%20Sanity%20with%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg',
   editUrl: 'pages/guides/deploying-sanity-studio-with-now.mdx',
-  lastEdited: '2020-04-03T16:44:58.000Z'
+  lastEdited: '2020-04-07T23:46:59.000Z'
 }
 
 [Sanity.io](https://www.sanity.io) is a platform for structured content with an open source editing environment. Sanity Studio is a single page app written in React, where you can configure the document types and input fields, with simple JavaScript objects. The Studio connects to Sanity’s hosted real-time APIs. You can also customize the Studio with your own input components, plugins, and tools.
 
-This guide will walk you through how to deploy Sanity Studio with <ProductName/> in three simple steps.
+This guide will walk you through how to deploy Sanity Studio with <ProductName /> in three simple steps.
 
 <Image
   src={`${
@@ -59,7 +59,7 @@ Check out [Sanity’s documentation](https://sanity.io/docs) to learn more about
 
 ## Step 2: Preparing for Deployment
 
-To provide <ProductName/> with routing information for the app, add a `now.json` file with the following content:
+To provide <ProductName /> with routing information for the app, add a `now.json` file with the following content:
 
 ```json
 {
@@ -76,7 +76,7 @@ To provide <ProductName/> with routing information for the app, add a `now.json`
   project.
 </Caption>
 
-<ProductName/> provides an environment to deploy all types of projects, including static files, making it a good option for deploying your Sanity project with **a single command**.
+<ProductName /> provides an environment to deploy all types of projects, including static files, making it a good option for deploying your Sanity project with **a single command**.
 
 Add the following scripts to the Studio’s `package.json` file:
 
@@ -102,7 +102,7 @@ Add the following scripts to the Studio’s `package.json` file:
   when Sanity's CLI asks questions.
 </Note>
 
-Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [<ProductName/>](/) to build your project on deployment.
+Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), this will allow [<ProductName />](/) to build your project on deployment.
 
 <Snippet dark text="npm i -D @sanity/cli" />
 <Caption>
@@ -111,7 +111,7 @@ Lastly, add `@sanity/cli` as a [development dependency](https://docs.npmjs.com/s
 
 After saving your `package.json` file you will be ready to deploy your project.
 
-## Step 3: Deploy With <ProductName/>
+## Step 3: Deploy With <ProductName />
 
 <DeploySection meta={meta} />
 

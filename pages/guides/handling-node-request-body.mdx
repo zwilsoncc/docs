@@ -11,16 +11,15 @@ import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: `Handling Node.js Request Bodies with ${PRODUCT}`,
-  description:
-    `Parse Node.js request bodies for use inside Serverless Functions deployed with ${PRODUCT}.`,
+  description: `Parse Node.js request bodies for use inside Serverless Functions deployed with ${PRODUCT}.`,
   published: '2019-05-10T09:03:14.819Z',
   authors: ['msweeneydev'],
   url: '/guides/handling-node-request-body',
   editUrl: 'pages/guides/handling-node-request-body.mdx',
-  lastEdited: '2020-04-03T16:44:58.000Z'
+  lastEdited: '2020-04-07T23:46:59.000Z'
 }
 
-In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [<ProductName/>](/), without requiring a framework such as Express.
+In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [<ProductName />](/), without requiring a framework such as Express.
 
 This guide assumes the request is sent with a [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) of [`application/json`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON). However, many more content types can be parsed if required.
 
@@ -55,7 +54,7 @@ module.exports = async (req, res) => {
 
 This function takes a POST request, parses the body, and uses data from the body in the response.
 
-The key part here is line 2. [<ProductName/>](/) adds a number of Express like [helper properties](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects/node-js-helpers) to make wording with Node.js even easier.
+The key part here is line 2. [<ProductName />](/) adds a number of Express like [helper properties](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects/node-js-helpers) to make wording with Node.js even easier.
 
 <Note>
   You can read more about{' '}
@@ -73,7 +72,7 @@ With the `req.body` helper, the incoming `request` is parsed automatically, remo
 
 ## Step 2: Deploying the Function
 
-Deploying your function to [<ProductName/>](/) can be done with **a single command**:
+Deploying your function to [<ProductName />](/) can be done with **a single command**:
 
 <Snippet dark text="now" />
 <Caption>
@@ -112,7 +111,7 @@ You will receive a response similar to the following:
     An example response from making a POST request.
 </Caption>
 
-Congratulations, now you know how to parse request bodies with [<ProductName/>](/) in Node.js!
+Congratulations, now you know how to parse request bodies with [<ProductName />](/) in Node.js!
 
 ## Bonus: Understanding Why this Works
 
