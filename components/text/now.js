@@ -1,9 +1,11 @@
+import { PRODUCT } from '~/lib/constants'
+
 export default function Now(props) {
   const color = props.color || '#fff'
 
   return (
     <span className="now" style={{ color }}>
-      ZEIT Now
+      {PRODUCT}
       <style jsx>
         {`
           span span {

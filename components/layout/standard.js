@@ -12,6 +12,7 @@ import components from '~/lib/mdx-components'
 import { H1 } from '~/components/text'
 import HR from '~/components/text/hr'
 import { FooterFeedback } from '~/components/feedback-input'
+import { PRODUCT } from '~/lib/constants'
 
 const DocH1 = ({ children }) => (
   <>
@@ -32,9 +33,8 @@ class withStandard extends React.Component {
   render() {
     const {
       meta = {
-        title: 'ZEIT Now Documentation',
-        description:
-          'The knowledge base and documentation for how to use ZEIT Now and how it works.'
+        title: `${PRODUCT} Documentation`,
+        description: `The knowledge base and documentation for how to use ${PRODUCT} and how it works.`
       }
     } = this.props
 
@@ -43,7 +43,7 @@ class withStandard extends React.Component {
         <>
           <Head
             titlePrefix=""
-            titleSuffix=" - ZEIT Documentation"
+            titleSuffix={` - ${PRODUCT} Documentation`}
             title={`${meta.title}`}
             description={meta.description}
             image={meta.image}

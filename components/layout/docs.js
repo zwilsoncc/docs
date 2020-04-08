@@ -21,6 +21,7 @@ import Sidebar from '~/components/layout/sidebar'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import VersionSwitcher from '~/components/layout/version-switcher'
 import Main from '~/components/layout/main'
+import { PRODUCT } from '~/lib/constants'
 
 const DocH1 = ({ children }) => (
   <>
@@ -76,12 +77,11 @@ const DocH4 = ({ children }) => (
 
 const NonAmpOnly = ({ children }) => (useAmp() ? null : children)
 
-const defaultDescription =
-  'The knowledge base and documentation for how to use ZEIT Now and how it works.'
+const defaultDescription = `The knowledge base and documentation for how to use ${PRODUCT} and how it works.`
 
 function Doc({
   router,
-  meta = { title: 'ZEIT Now Documentation', description: defaultDescription },
+  meta = { title: `${PRODUCT} Documentation`, description: defaultDescription },
   children
 }) {
   const [navigationActive, setNavigationActive] = useState(false)
@@ -118,7 +118,7 @@ function Doc({
       <>
         <Head
           titlePrefix=""
-          titleSuffix=" - ZEIT Documentation"
+          titleSuffix={` - ${PRODUCT} Documentation`}
           title={`${meta.title}`}
           description={meta.description}
           image={meta.image}
@@ -144,7 +144,7 @@ function Doc({
             <div className="heading content-heading">
               {version === 'v1' && (
                 <Note>
-                  This documentation is for <b>version 1</b> of the ZEIT Now
+                  This documentation is for <b>version 1</b> of the {PRODUCT}
                   platform. For the latest features, please see{' '}
                   <Link href="/docs/v2">the version 2 documentation</Link>. If
                   you have yet to upgrade, see the{' '}
