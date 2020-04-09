@@ -3,6 +3,7 @@ import Link, { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 import ProductName from '~/components/product-name'
+import CdnName from '~/components/product-name/cdn'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/domains.mdx',
@@ -37,7 +38,7 @@ The response of this API can be controlled with the following optional query par
 | **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
 | **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
 | **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                       |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
 | **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
@@ -120,7 +121,7 @@ been created, the user may retry the same POST and the endpoint shall return
 | **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT.             |
 | **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                          |
 | **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                  |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                   |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                        |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                               |
 | **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                 |
@@ -203,7 +204,7 @@ Initiate a domain transfer request from an external Registrar to ZEIT.
 | **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
 | **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
 | **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                       |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
 | **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
@@ -281,7 +282,7 @@ Verify a domain after adding either the intended nameservers or DNS TXT verifica
 | **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
 | **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
 | **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                       |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
 | **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
@@ -382,7 +383,7 @@ Get information for a single domain in an account or team.
 | **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with ZEIT. |
 | **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                              |
 | **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                      |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                       |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
 | **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |

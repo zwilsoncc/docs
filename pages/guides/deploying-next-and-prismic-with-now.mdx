@@ -6,7 +6,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-
+import CdnName from '~/lib/constants/cdn-name'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -20,7 +20,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-09T23:34:23.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [<ProductName />](/docs/v2).
@@ -283,6 +283,6 @@ if (context.res) {
   <InlineCode>Post.getInitialProps</InlineCode> functions.
 </Caption>
 
-Deploy this new version to <ProductName /> with `npm run deploy`. You minimal blog is now being served even faster thanks to the [ZEIT Smart CDN](/smart-cdn). You can try adding or modifying content in your Prismic repository and it **will be served instantaneously** on your now public site.
+Deploy this new version to <ProductName /> with `npm run deploy`. You minimal blog is now being served even faster thanks to the [<CdnName />](/smart-cdn). You can try adding or modifying content in your Prismic repository and it **will be served instantaneously** on your now public site.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
