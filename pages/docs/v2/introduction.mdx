@@ -11,18 +11,19 @@ import { List } from '~/components/list'
 import BitbucketIcon from '~/components/icons/bitbucket'
 import GitLabIcon from '~/components/icons/gitlab'
 import GitHubIcon from '~/components/icons/github'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 import { quickstarts } from '~/lib/data/v2/quickstarts'
 
 export const meta = {
-  title: 'Introduction to ZEIT Now',
-  description:
-    'An introduction to the ZEIT Now platform and how to get started deploying any kind of application.',
+  title: `Introduction to ${PRODUCT}`,
+  description: `An introduction to the ${PRODUCT} platform and how to get started deploying any kind of application.`,
   editUrl: 'pages/docs/v2/introduction.mdx',
-  lastEdited: '2020-04-04T01:08:21.000Z'
+  lastEdited: '2020-04-09T06:24:03.000Z'
 }
 
-ZEIT Now is a cloud platform for **static sites** and **Serverless Functions** that fits perfectly with your workflow. It enables developers to host **Jamstack** websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
+​<ProductName /> is a cloud platform for **static sites** and **Serverless Functions** that fits perfectly with your workflow. It enables developers to host **Jamstack** websites and web services that **deploy instantly**, **scale automatically**, and requires **no supervision**, all with **no configuration**.
 
 ## Deploy an Existing Project
 
@@ -66,7 +67,7 @@ Alternatively, if you want to start fresh with a new project, use a Quickstart t
 
 ## Quickstarts
 
-Quickstarts let you get started quickly. The following quickstarts are paired with guides and a deploy button, based on the example found in the [ZEIT Now repository](https://github.com/zeit/now/tree/master/examples), to help you get going with your project as fast as possible.
+Quickstarts let you get started quickly. The following quickstarts are paired with guides and a deploy button, based on the example found in the [<ProductName /> repository](https://github.com/zeit/now/tree/master/examples), to help you get going with your project as fast as possible.
 
 <Quickstarts>
   {quickstarts.map(({ name, ...quickstart }) => (
@@ -79,7 +80,7 @@ Quickstarts let you get started quickly. The following quickstarts are paired wi
 For more information on what to do next, we recommend the following articles:
 
 <Card title="Git Integrations" href="/docs/v2/git-integrations">
-  Learn more about how ZEIT Now integrates with Git to make your workflow
+  Learn more about how <ProductName /> integrates with Git to make your workflow
   easier.
 </Card>
 
