@@ -3,6 +3,7 @@ import { Code, InlineCode } from '~/components/text/code'
 import { P } from '~/components/text'
 import Link from '~/components/text/link'
 import Note from '~/components/text/note'
+import ProductName from '~/components/product-name'
 
 export const meta = {
   editUrl:
@@ -17,8 +18,8 @@ export const meta = {
 <Note type="alert">
   The <InlineCode>name</InlineCode> property has been deprecated in favor of{' '}
   <Link href="/docs/now-cli#commands/now/project-linking">Project Linking</Link>
-  , which allows you to link a ZEIT Now Project to your local codebase when you
-  run <InlineCode>now</InlineCode>.
+  , which allows you to link a <ProductName /> Project to your local codebase when
+  you run <InlineCode>now</InlineCode>.
 </Note>
 
 **Type**: `String`.
@@ -45,7 +46,7 @@ The defined name is also used to organize the deployment into [a project](/docs/
 
 **Valid values**: `1`, `2`.
 
-Specifies the [ZEIT Now Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
+Specifies the [<ProductName /> Platform version](/docs/v2/platform/overview#versioning) the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. [Git](https://git-scm.com)).
 
 <Code lang="json">{`{
   "version": 2
@@ -59,7 +60,7 @@ Specifies the [ZEIT Now Platform version](/docs/v2/platform/overview#versioning)
 
 **Limit**: A maximum of 64 aliases in the array
 
-The alias or aliases are applied automatically using [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) when merging or pushing to the default branch.
+The alias or aliases are applied automatically using [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) when merging or pushing to the default branch.
 
 You can deploy to the defined aliases using [Now CLI](/download) by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
 
@@ -215,7 +216,7 @@ A [glob](https://github.com/isaacs/node-glob#glob-primer) pattern that matches t
 
 **Description:**
 
-By default, no configuration is needed to deploy Serverless Functions to ZEIT Now.
+By default, no configuration is needed to deploy Serverless Functions to <ProductName />.
 
 For all [officially supported runtimes](/docs/v2/serverless-functions/supported-languages/), the only requirement is to create an `api` directory at the root of your project directory, placing your Serverless Functions inside.
 
@@ -309,7 +310,7 @@ For more information on routes, see the documentation:
 
 **Valid values:** a list of valid [region identifiers](/docs/v2/platform/regions-and-providers).
 
-By setting and modifying this value, you can decide the deployment **regions** of the [Serverless Functions](/docs/v2/serverless-functions/introduction/) that get created as a result of the [build steps](/docs/v2/build-step). By default, the closest region to the geographical location of the deployment is used, or if using a ZEIT Now for Git Integration, SFO is used by default.
+By setting and modifying this value, you can decide the deployment **regions** of the [Serverless Functions](/docs/v2/serverless-functions/introduction/) that get created as a result of the [build steps](/docs/v2/build-step). By default, the closest region to the geographical location of the deployment is used, or if using a <ProductName /> for Git Integration, SFO is used by default.
 
 This value does not impact static files or edge caches, since deployments always have a [CDN layer](/docs/v2/network/caching/) in front.
 
