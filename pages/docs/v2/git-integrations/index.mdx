@@ -9,17 +9,18 @@ import { List } from '~/components/list'
 import BitbucketIcon from '~/components/icons/bitbucket'
 import GitLabIcon from '~/components/icons/gitlab'
 import GitHubIcon from '~/components/icons/github'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Git Integrations',
-  description:
-    "How to use the ZEIT Now Git Integrations for GitHub, GitLab, or Bitbucket to automatic deploy from your project's repository for each push and ship to production on merge to the main branch.",
+  description: `How to use the ${PRODUCT} Git Integrations for GitHub, GitLab, or Bitbucket to automatic deploy from your project's repository for each push and ship to production on merge to the main branch.`,
   image: `${process.env.ASSETS}/docs/git-integrations/git-push.png`,
   editUrl: 'pages/docs/v2/git-integrations/index.mdx',
   lastEdited: '2020-03-04T23:42:31.000Z'
 }
 
-ZEIT Now provides integrations for your [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), and [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) projects, allowing for **automatic deployments on every branch push** and merge to the default branch.
+&#8203;<ProductName /> provides integrations for your [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), and [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) projects, allowing for **automatic deployments on every branch push** and merge to the default branch.
 
 <Image
   src={`${process.env.ASSETS}/docs/git-integrations/git-push.png`}
@@ -27,13 +28,13 @@ ZEIT Now provides integrations for your [GitHub](/docs/v2/git-integrations/zeit-
   height={1440 / 3}
 />
 
-The ZEIT Now Git Integrations provide the following benefits:
+The <ProductName /> Git Integrations provide the following benefits:
 
 - [Preview Deployments](/docs/v2/platform/deployments#preview) for every push.
 - [Production Deployments](/docs/v2/platform/deployments#production) for the most recent changes from the default branch.
 - Instant rollbacks when reverting changes assigned to a custom domain.
 
-The easiest way to use a Git Integration is to think of your **default branch as production**. Every time a pull/merge request is made to the default branch, ZEIT Now will **create a unique deployment**, allowing you to **view the changes in a preview environment before merging**.
+The easiest way to use a Git Integration is to think of your **default branch as production**. Every time a pull/merge request is made to the default branch, <ProductName /> will **create a unique deployment**, allowing you to **view the changes in a preview environment before merging**.
 
 When merging to the default branch, a **Production Deployment** is made, making the latest changes available to assigned custom domains automatically.
 
@@ -73,7 +74,7 @@ You can install any Git Integration directly from your dashboard by clicking ["I
   shadow
   borderRadius
 />
-<Caption>The "You own the Repository" section with a prompt to install ZEIT Now for GitHub.</Caption>
+<Caption>The "You own the Repository" section with a prompt to install <ProductName /> for GitHub.</Caption>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 
