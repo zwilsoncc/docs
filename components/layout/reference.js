@@ -132,7 +132,7 @@ function ReferencePage({
           description={description || ''}
           title={title || `${PRODUCT} Reference`}
           titlePrefix=""
-          titleSuffix={` - ${PRODUCT}`}
+          titleSuffix={` - ZEIT`}
         >
           {versioned && version === 'v1' && (
             <meta name="robots" content="noindex" />
