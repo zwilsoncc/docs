@@ -2,8 +2,9 @@ import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import ProductName from '~/components/product-name'
 
-You may want to use different workflows and APIs based on Git information. To support this, ZEIT Now will deploy your app with the following built-in environment variables when deploying with ZEIT Now for GitHub.
+You may want to use different workflows and APIs based on Git information. To support this, <ProductName /> will deploy your app with the following built-in environment variables when deploying with <ProductName /> for GitHub.
 
 <Note label="hint">
   These environment variables are available at both{' '}
@@ -15,7 +16,7 @@ You may want to use different workflows and APIs based on Git information. To su
 
 | Variable Key                     | Description                                                                                                         |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `NOW_GITHUB_DEPLOYMENT`          | An indicator for whether the app was deployed by ZEIT Now for GitHub.                                               |
+| `NOW_GITHUB_DEPLOYMENT`          | An indicator for whether the app was deployed by <ProductName /> for GitHub.                                        |
 | `NOW_GITHUB_ORG`                 | The GitHub organization that owns the repository the deployment is triggered from.                                  |
 | `NOW_GITHUB_REPO`                | The origin repository of the app.                                                                                   |
 | `NOW_GITHUB_COMMIT_ORG`          | The organization of which the commit belongs. For example, when submitting a pull request from a forked repository. |

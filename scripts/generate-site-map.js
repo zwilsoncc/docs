@@ -3,6 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const prettier = require('prettier')
 
+const PRODUCT = 'ZEIT Now'
 const DOMAIN = 'https://zeit.co'
 const SITE_PATHS = [
   '/docs',
@@ -68,7 +69,7 @@ function xmlUrlNode(pagePath) {
   let lastmod
 
   if (match && typeof match[1] === 'string') {
-    meta = eval('(' + match[1] + ')')
+    meta = eval('(' + match[1].replace(/\${PRODUCT}/g, PRODUCT) + ')')
 
     if (meta.lastEdited) {
       lastmod = meta.lastEdited
@@ -111,7 +112,15 @@ function generateSiteMap() {
         const { node, meta } = xmlUrlNode(pagePath)
 
         if (meta) {
-          guidesMeta.push(meta)
+          guidesMeta.push(
+            // If meta.image (URL) contains a space, replace with '%20'
+            meta.image
+              ? {
+                  ...meta,
+                  image: meta.image.replace(' ', '%20')
+                }
+              : meta
+          )
         }
 
         return node

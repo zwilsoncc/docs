@@ -12,6 +12,7 @@ import { Avatar } from '~/components/avatar'
 import HR from '~/components/text/hr'
 import { FooterFeedback } from '~/components/feedback-input'
 import DeployBanner from '~/components/deploy-banner'
+import { PRODUCT } from '~/lib/constants'
 
 const DocH2 = ({ children }) => (
   <>
@@ -58,9 +59,8 @@ class Guide extends React.PureComponent {
   render() {
     const {
       meta = {
-        title: 'ZEIT Now Documentation',
-        description:
-          'The knowledge base and documentation for how to use ZEIT Now and how it works.'
+        title: `${PRODUCT} Documentation`,
+        description: `The knowledge base and documentation for how to use ${PRODUCT} and how it works.`
       }
     } = this.props
 
@@ -76,7 +76,7 @@ class Guide extends React.PureComponent {
         <>
           <Head
             titlePrefix=""
-            titleSuffix=" - ZEIT Now Guides"
+            titleSuffix={` - ${PRODUCT} Guides`}
             title={`${meta.title}`}
             description={meta.description}
             image={meta.image}

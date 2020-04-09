@@ -5,16 +5,17 @@ import Collapse, { CollapseGroup } from '~/components/collapse'
 import BitbucketDefaultBehaviour from '~/components/git-mdx/bitbucket/default-behaviour.mdx'
 import BitbucketEnvironmentVariables from '~/components/git-mdx/bitbucket/environment-variables.mdx'
 import BitbucketDisconnecting from '~/components/git-mdx/bitbucket/disconnecting.mdx'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
-  title: 'ZEIT Now for Bitbucket',
-  description:
-    'Deploy each change in your Bitbucket projects with ZEIT Now to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.',
+  title: `${PRODUCT} for Bitbucket`,
+  description: `Deploy each change in your Bitbucket projects with ${PRODUCT} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-bitbucket.mdx',
-  lastEdited: '2020-03-20T03:12:50.000Z'
+  lastEdited: '2020-04-09T06:39:03.000Z'
 }
 
-The ZEIT Now for Bitbucket integration automatically deploys your Bitbucket projects with [ZEIT Now](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
+The <ProductName /> for Bitbucket integration automatically deploys your Bitbucket projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
 
 <Image
   src={`${process.env.ASSETS}/docs/now-for-bitbucket/project-commit.png`}
@@ -25,7 +26,7 @@ The ZEIT Now for Bitbucket integration automatically deploys your Bitbucket proj
 
 ### Connecting with Bitbucket
 
-Link your Bitbucket account with your personal account or team on ZEIT Now from your dashboard by clicking ["Import Project"](/import) followed by ["From Git Repository"](/import/git). Then, click the "Bitbucket" tab and click "Connect with Bitbucket".
+Link your Bitbucket account with your personal account or team on <ProductName /> from your dashboard by clicking ["Import Project"](/import) followed by ["From Git Repository"](/import/git). Then, click the "Bitbucket" tab and click "Connect with Bitbucket".
 
 <Image
   src={`${process.env.ASSETS}/docs/git-integrations/connect-bitbucket.png`}
@@ -34,11 +35,11 @@ Link your Bitbucket account with your personal account or team on ZEIT Now from 
   shadow
   borderRadius
 />
-<Caption>ZEIT Now for Bitbucket, ready to connect.</Caption>
+<Caption><ProductName /> for Bitbucket, ready to connect.</Caption>
 
 Once you have authorized the Bitbucket integration, you will be redirected back to the "Import Git Repository" page where you can import a project from an existing repository by clicking the "Import Project from Bitbucket" button under the "Bitbucket" tab.
 
-For more information on deploying projects, read [the ZEIT Now introduction documentation](/docs).
+For more information on deploying projects, read [the <ProductName /> introduction documentation](/docs).
 
 ### Change or Disconnect from your Bitbucket Repository
 
@@ -49,7 +50,7 @@ If you’d like to:
 
 You can do so from [the "Git Integration" fieldset](/docs/v2/platform/projects#git-integration) on [Project Settings](/docs/v2/platform/projects#project-settings).
 
-### More Information About ZEIT Now for Bitbucket
+### More Information About <ProductName /> for Bitbucket
 
 For more information, such as a reference for default environment variables, expand the relevant details view below.
 

@@ -5,8 +5,9 @@ import Note from '~/components/text/note'
 import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
+import ProductName from '~/components/product-name'
 
-When you trigger a deploy, ZEIT Now **builds** your project. For many frontend frameworks, ZEIT Now automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
+When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
 
 ## Customizing Build Settings
 
@@ -35,7 +36,7 @@ You can then edit the build settings from the **Build & Development Settings** a
 
 ### Build & Development Settings
 
-ZEIT Now tries to automatically detect the frontend framework you’re using for your project and configure the project settings for you. If you’d like to override the settings or specify a different framework, you can do so from the **Build & Development Settings** section.
+&#8203;<ProductName /> tries to automatically detect the frontend framework you’re using for your project and configure the project settings for you. If you’d like to override the settings or specify a different framework, you can do so from the **Build & Development Settings** section.
 
 #### Framework Preset
 
@@ -47,7 +48,7 @@ ZEIT Now tries to automatically detect the frontend framework you’re using for
 />
 <Caption>The Framework Preset setting.</Caption>
 
-ZEIT Now detects the following frontend frameworks automatically and chooses the best default settings for you.
+&#8203;<ProductName /> detects the following frontend frameworks automatically and chooses the best default settings for you.
 
 <div>{props.frameworks}</div>
 
@@ -65,7 +66,7 @@ You can always choose a different framework preset or "Other" if you’d like.
 />
 <Caption>The Build Command setting.</Caption>
 
-If ZEIT Now detects a framework, the Build Command will automatically be configured. Depending on a framework, the Build Command can refer to the project’s configuration file.
+If <ProductName /> detects a framework, the Build Command will automatically be configured. Depending on a framework, the Build Command can refer to the project’s configuration file.
 
 For example, if you choose [Next.js](https://nextjs.org/), here’s what happens by default:
 
@@ -84,7 +85,7 @@ If you’d like to override the Build Command, you can turn on the **Override** 
 In such cases, you should:
 
 - Specify "Other" as the framework preset, and
-- Override the Build Command and leave it empty. This will make ZEIT Now to skip the build step.
+- Override the Build Command and leave it empty. This will make <ProductName /> to skip the build step.
 
 #### Output Directory
 
@@ -96,9 +97,9 @@ In such cases, you should:
 />
 <Caption>The Output Directory setting.</Caption>
 
-After building a project, most frameworks will output the result in a directory. Contents in this **output directory** will be the only things that will be statically served by ZEIT Now.
+After building a project, most frameworks will output the result in a directory. Contents in this **output directory** will be the only things that will be statically served by <ProductName />.
 
-If ZEIT Now detects a framework, the output directory will automatically be configured.
+If <ProductName /> detects a framework, the output directory will automatically be configured.
 
 <Note>
   If you update this setting, it will be applied starting with your next
@@ -124,8 +125,8 @@ In some cases, your project might not require building, and you might just want 
 <Note>
   This setting is relevant only if you’re using <InlineCode>now dev</InlineCode>{' '}
   locally to develop your project. You should be using{' '}
-  <InlineCode>now dev</InlineCode> only if you need to use a ZEIT Now platform
-  feature like{' '}
+  <InlineCode>now dev</InlineCode> only if you need to use a <ProductName />{' '}
+  platform feature like{' '}
   <Link href="/docs/v2/serverless-functions/introduction">
     Serverless Functions
   </Link>
@@ -133,13 +134,13 @@ In some cases, your project might not require building, and you might just want 
   (such as <InlineCode>next dev</InlineCode> for Next.js).
 </Note>
 
-The Development Command setting allows you to customize the behavior of <InlineCode>now dev</InlineCode>. If ZEIT Now detects a framework, the development command will automatically be configured.
+The Development Command setting allows you to customize the behavior of <InlineCode>now dev</InlineCode>. If <ProductName /> detects a framework, the development command will automatically be configured.
 
 If you’d like to use a custom command for <InlineCode>now dev</InlineCode>, you can turn on the **Override** toggle. Please note the following:
 
 - If you specify a custom command, your command must pass the `$PORT` variable (which contains the port number) to your framework. For example, for [Next.js](https://nextjs.org/), you should use: `next dev --port $PORT`.
 - If the development command is not specified, `now dev` will fail. If you selected "Other" as the framework preset, the development command will be empty by default.
-- You must create a deployment and have your local project be linked to the project on ZEIT Now (using `now`). Otherwise, `now dev` won’t work correctly.
+- You must create a deployment and have your local project be linked to the project on <ProductName /> (using `now`). Otherwise, `now dev` won’t work correctly.
 
 ### Root Directory
 
@@ -267,11 +268,11 @@ If you change the value of a [Now Secret](#adding-secrets) or environment variab
 
 ### Reserved Variables
 
-The ZEIT Now platform reserves the usage of some environment variable names by default. You can find a list of these names in the [limits documentation](/docs/v2/platform/limits/#reserved-variables).
+The <ProductName /> platform reserves the usage of some environment variable names by default. You can find a list of these names in the [limits documentation](/docs/v2/platform/limits/#reserved-variables).
 
 ## Ignored Files and Folders
 
-By default, ZEIT Now ignores certain files and folders for security and performance reasons, preventing them from being uploaded during the deployment process.
+By default, <ProductName /> ignores certain files and folders for security and performance reasons, preventing them from being uploaded during the deployment process.
 
 ```bash
 .hg
@@ -300,8 +301,8 @@ CVS
 ```
 
 <Caption>
-  A complete list of files and folders ignored by ZEIT Now during the deployment
-  process.
+  A complete list of files and folders ignored by <ProductName /> during the
+  deployment process.
 </Caption>
 
 <Note>
@@ -391,7 +392,7 @@ For example, defining the Hugo version in a `now.json` file would look like the 
 For more information on what to do next, we recommend the following articles:
 
 <Card title="Git Integration" href="/docs/v2/git-integrations">
-  Learn more about how ZEIT Now integrates with Git to make your workflow
+  Learn more about how <ProductName /> integrates with Git to make your workflow
   easier.
 </Card>
 

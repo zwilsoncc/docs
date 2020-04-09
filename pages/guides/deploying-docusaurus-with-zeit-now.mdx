@@ -6,21 +6,22 @@ import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
+
 export const meta = {
-  title: 'Deploy Docusaurus Sites with ZEIT Now',
-  description:
-    'Docusaurus with ZEIT Now makes it easy to create and deploy open source project documentation.',
+  title: `Deploy Docusaurus Sites with ${PRODUCT}`,
+  description: `Docusaurus with ${PRODUCT} makes it easy to create and deploy open source project documentation.`,
   published: '2019-10-09T12:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-docusaurus-with-zeit-now',
   example: 'docusaurus',
   demo: 'https://docusaurus.now-examples.now.sh',
-  image:
-    'https://og-image.now.sh/**Deploy%20Docusaurus%20Sites**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fv2.docusaurus.io%2Fimg%2Fdocusaurus_keytar.svg&widths=250&widths=350&heights=250&heights=300',
+  image: `https://og-image.now.sh/**Deploy%20Docusaurus%20Sites**%20%3Cbr%2F%3E%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fv2.docusaurus.io%2Fimg%2Fdocusaurus_keytar.svg&widths=250&widths=350&heights=250&heights=300`,
   editUrl: 'pages/guides/deploying-docusaurus-with-zeit-now.mdx',
   name: 'Docusaurus',
   type: 'site',
-  lastEdited: '2020-02-04T12:49:00.000Z'
+  lastEdited: '2020-04-07T23:46:59.000Z'
 }
 
 [Docusaurus](https://docusaurus.io/) is a documentation framework that makes it easy to maintain open source documentation websites.
@@ -74,7 +75,7 @@ const siteConfig = {
 
 Adding these two lines tells Docusaurus to use the `path` module to define where the `/docs` folder is located.
 
-## Step 2: Deploying Your Docusaurus Website with ZEIT Now
+## Step 2: Deploying Your Docusaurus Website with <ProductName />
 
 <DeploySection meta={meta} />
 

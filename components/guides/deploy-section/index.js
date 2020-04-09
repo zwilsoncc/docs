@@ -3,14 +3,15 @@ import CLIDeploy from './cli-deploy.mdx'
 import Tabs from '~/components/tabs'
 import Link from '~/components/text/link'
 import { DeployButton } from '~/components/buttons'
+import { PRODUCT } from '~/lib/constants'
 
 export default function DeploySection({ meta }) {
   return (
     <>
       <p>
-        There are two ways to deploy with ZEIT Now. We recommend using a{' '}
+        There are two ways to deploy with {PRODUCT}. We recommend using a{' '}
         <Link href="/docs/v2/git-integrations">
-          <a>ZEIT Now for Git Integration</a>
+          <a>{PRODUCT} for Git Integration</a>
         </Link>{' '}
         for ease-of-use. Alternatively,{' '}
         <Link href="/download">

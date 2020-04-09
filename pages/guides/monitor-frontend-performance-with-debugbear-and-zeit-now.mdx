@@ -4,15 +4,17 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import DeploySection from '~/components/guides/deploy-section'
 
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
+
 export const meta = {
-  title: 'Monitor Frontend Performance with DebugBear and ZEIT Now',
+  title: `Monitor Frontend Performance with DebugBear and ${PRODUCT}`,
   description:
     'Automatically test each ZEIT deployment and report performance changes to GitHub.',
   published: '2020-04-01T20:18:39.807Z',
   authors: ['mattzeunert'],
   url: '/guides/monitor-frontend-performance-with-debugbear-and-zeit-now',
-  image:
-    'https://og-image.now.sh/**Track%20website%20performance**%20with%20DebugBear%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fmonitor-frontend-performance-with-debugbear-and-zeit-now%2Fdebubear-logo.png',
+  image: `https://og-image.now.sh/**Track%20website%20performance**%20with%20DebugBear%20and%20${PRODUCT}.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fmonitor-frontend-performance-with-debugbear-and-zeit-now%2Fdebubear-logo.png`,
   editUrl:
     'pages/guides/monitor-frontend-performance-with-debugbear-and-zeit-now.mdx',
   lastEdited: '2020-04-09T06:55:05.000Z'
@@ -22,7 +24,7 @@ export const meta = {
 
 This guide walks you through setting up continuous monitoring for your production sites, as well as automatic testing of every [Preview Deployment](/docs/v2/platform/deployments#preview).
 
-## Step 1: Import and Deploy with ZEIT Now
+## Step 1: Import and Deploy with <ProductName />
 
 <DeploySection meta={meta} />
 
@@ -40,7 +42,11 @@ Select the account or team your deployed project belongs to. You will then be re
   height={648 / 2}
   oversize
 />
-<Caption>Add the DebugBear integration and grant it access to the account that your project belongs to.</Caption>
+
+<Caption>
+  Add the DebugBear integration and grant it access to the account that your
+  project belongs to.
+</Caption>
 
 ## Step 3: Set Up a DebugBear Account
 

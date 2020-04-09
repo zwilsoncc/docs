@@ -5,12 +5,14 @@ import Caption from '~/components/text/caption'
 import Snippet from '~/components/snippet'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Deployments',
-  description: 'Understanding and making deployments with ZEIT Now.',
+  description: `Understanding and making deployments with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2020-03-05T17:16:05.000Z'
+  lastEdited: '2020-04-08T07:12:50.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -19,7 +21,7 @@ This section contains information about making, managing, and understanding the 
 
 ## Making Deployments
 
-There are multiple ways to make deployments with ZEIT Now; these include via a [ZEIT Now for Git Integration](#git-integration), [Deploy Hooks](#deploy-hooks), [Now CLI](#now-cli), and the [ZEIT Now API](#now-api).
+There are multiple ways to make deployments with <ProductName />; these include via a [<ProductName /> for Git Integration](#git-integration), [Deploy Hooks](#deploy-hooks), [Now CLI](#now-cli), and the [<ProductName /> API](#now-api).
 
 When making deployments, the [Project](/docs/v2/platform/projects/) will be uploaded and transformed into a production-ready output through the use of a [Build Step](/docs/v2/build-step).
 
@@ -27,7 +29,7 @@ Once the build step has completed successfully, a new, [immutable](https://en.wi
 
 ### Git Integration
 
-You can make deployments with Git by using either the [ZEIT Now for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [ZEIT Now for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [ZEIT Now for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) integrations.
+You can make deployments with Git by using either the [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) integrations.
 
 When using these integrations, every push to a branch will provide you with a [preview deployment](/docs/v2/platform/deployments/#preview) to view your changes.
 
@@ -71,13 +73,13 @@ To make a [production deployment](/docs/v2/platform/deployments/#preview), use t
 
 ### Now API
 
-The [ZEIT Now API](/docs/api/) can be used to make deployments by making an HTTP POST request to the relevant endpoint, including the files you wish to deploy as the body.
+The [<ProductName /> API](/docs/api/) can be used to make deployments by making an HTTP POST request to the relevant endpoint, including the files you wish to deploy as the body.
 
-You can find more information about the ZEIT Now API in the [API Reference](/docs/api/#endpoints/deployments).
+You can find more information about the <ProductName /> API in the [API Reference](/docs/api/#endpoints/deployments).
 
 ## Deployment Types
 
-There are two types of deployment on the ZEIT Now platform: **preview** and **production**.
+There are two types of deployment on the <ProductName /> platform: **preview** and **production**.
 
 ### Preview
 
@@ -85,7 +87,7 @@ There are two types of deployment on the ZEIT Now platform: **preview** and **pr
 
 By making a **preview deployment**, the **preview URL** will be updated to reflect that of the latest deployment made.
 
-The **preview URL** is provided on a pull or merge request when using a [ZEIT Now for Git Integration](/docs/v2/git-integrations) and contains the name of the user or team to which the [Project](/docs/v2/platform/projects) belongs.
+The **preview URL** is provided on a pull or merge request when using a [<ProductName /> for Git Integration](/docs/v2/git-integrations) and contains the name of the user or team to which the [Project](/docs/v2/platform/projects) belongs.
 
 If you request a **preview URL**, the `X-Robots-Tag` HTTP header will be set as `noindex`. This ensures that preview URLs will _not_ be indexed by search engines such as Google. Learn more about `X-Robots-Tag` by visiting [Google Search Reference](https://developers.google.com/search/reference/robots_meta_tag#xrobotstag).
 
@@ -171,13 +173,13 @@ However, you can configure project settings to make these paths public. [Learn m
 
 The URL structure of each preview deployment contains the name of the application and a random UID.
 
-ZEIT Now generates a new UID (and therefore a new deployment), by combining the following information into an internal digest that is looked up within the deployment database:
+​<ProductName /> generates a new UID (and therefore a new deployment), by combining the following information into an internal digest that is looked up within the deployment database:
 
 - The entire deployment configuration from `now.json`.
 - The owner ID (either the user ID or team ID, if deploying within a team).
 - The description of the filesystem. This includes symlinks, [modes](<https://en.wikipedia.org/wiki/Modes_(Unix)>), pathnames, and the [checksum](https://en.wikipedia.org/wiki/Checksum) of each file's contents.
 
-ZEIT Now ensures that the digest is computed [deterministically](https://en.wikipedia.org/wiki/Deterministic_algorithm) by sorting and ordering all the inputs involved in the algorithm.
+​<ProductName /> ensures that the digest is computed [deterministically](https://en.wikipedia.org/wiki/Deterministic_algorithm) by sorting and ordering all the inputs involved in the algorithm.
 
 Our lookup excludes deployments that are in an `ERROR` state – if a previous deployment matches the digest but failed to build correctly.
 

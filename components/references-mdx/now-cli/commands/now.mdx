@@ -3,6 +3,7 @@ import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
+import ProductName from '~/components/product-name'
 
 export const meta = {
   editUrl: 'pages/docs/now-cli/now-cli-mdx/commands/now.mdx',
@@ -118,7 +119,8 @@ The `--env` option, shorthand `-e`, can be used to provide environment variables
 <Note type="alert">
   The <InlineCode>--name</InlineCode> option has been deprecated in favor of{' '}
   <Link href="#commands/now/project-linking">Project Linking</Link>, which
-  allows you to link a ZEIT Now Project to your local codebase when you run
+  allows you to link a <ProductName /> Project to your local codebase when you
+  run
   <InlineCode>now</InlineCode>.
 </Note>
 

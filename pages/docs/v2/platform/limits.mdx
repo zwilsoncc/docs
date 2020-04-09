@@ -1,16 +1,17 @@
 import Doc from '~/components/layout/docs'
 import Limits from '~/components/limits'
 import Note from '~/components/text/note'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Limits',
-  description:
-    'A list of limits and limitations that apply on the ZEIT Now platform.',
+  description: `A list of limits and limitations that apply on the ${PRODUCT} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-03-26T15:47:55.000Z'
+  lastEdited: '2020-04-08T07:12:50.000Z'
 }
 
-This page outlines all relevant limits and limitations present when using the ZEIT Now platform.
+This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
 
 ## Plans
 
@@ -81,7 +82,7 @@ Deployments made that contain more files than the limit will fail at the [build 
 
 ## HTTP/2 Push
 
-The ZEIT Now platform does not currently support HTTP/2 Push.
+The <ProductName /> platform does not currently support HTTP/2 Push.
 
 ## WebSockets
 
@@ -93,7 +94,7 @@ If you need persistent connections to push data to the client, consider using th
 
 ## SMTP
 
-For security reasons, the ZEIT Now platform blocks outgoing SMTP connections.
+For security reasons, the <ProductName /> platform blocks outgoing SMTP connections.
 
 As a result of this, we recommend using a third-party service to enable email functionality for [deployments](/docs/v2/platform/deployments).
 
@@ -129,7 +130,7 @@ When attempting to deploy Serverless Functions to multiple regions on the Hobby 
 
 ## Streaming Responses
 
-ZEIT Now does not support streaming responses from Serverless Functions due to an upstream limitation from AWS.
+​<ProductName /> does not support streaming responses from Serverless Functions due to an upstream limitation from AWS.
 
 ## Reserved Variables
 

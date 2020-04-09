@@ -5,15 +5,17 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import Note from '~/components/text/note'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Supported Languages for Serverless Functions',
-  description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
+  description: `Learn how to deploy Serverless Functions with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2020-01-20T21:51:41.000Z'
+  lastEdited: '2020-04-08T06:29:35.000Z'
 }
 
-Within the `/api` directory of your projects, ZEIT Now will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
+Within the `/api` directory of your projects, <ProductName /> will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
 
 ## Supported Languages:
 
@@ -55,7 +57,7 @@ Example deployment: <https://node-api.now-examples.now.sh/api/hello?name=reader>
 
 Deploying a Node.js function with the `.ts` extension will automatically be recognized as a [TypeScript](https://www.typescriptlang.org/) file and compiled to a Serverless Function.
 
-As an example; a file called `hello.ts` in the `api` directory, and importing types for the ZEIT Now platform Request and Response objects from the `@now/node` module:
+As an example; a file called `hello.ts` in the `api` directory, and importing types for the <ProductName /> platform Request and Response objects from the `@now/node` module:
 
 ```ts
 import { NowRequest, NowResponse } from '@now/node'
@@ -78,11 +80,11 @@ You can install the `@now/node` module for type definitions through npm:
 <Snippet dark text="npm i -D @now/node" />
 <Caption>Installing the <InlineCode>@now/node</InlineCode> module for Type definitions of <InlineCode>NowRequest</InlineCode> and <InlineCode>NowResponse</InlineCode></Caption>
 
-You can also define a `tsconfig.json` to configure the ZEIT Now TypeScript compiler.
+You can also define a `tsconfig.json` to configure the <ProductName /> TypeScript compiler.
 
 ### Advanced Node.js Usage
 
-For more advanced usage of Node.js on the ZEIT Now platform, including [information about the request and response objects](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects), [extended helpers](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects) for Node.js on ZEIT Now, [private npm packages](/docs/runtimes#advanced-usage/advanced-node-js-usage/private-npm-modules-for-node-js), or [advanced configuration](/docs/runtimes#advanced-usage/advanced-node-js-usage), see [the Node.js runtime documentation](/docs/runtimes#official-runtimes/node-js).
+For more advanced usage of Node.js on the <ProductName /> platform, including [information about the request and response objects](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects), [extended helpers](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects) for Node.js on <ProductName />, [private npm packages](/docs/runtimes#advanced-usage/advanced-node-js-usage/private-npm-modules-for-node-js), or [advanced configuration](/docs/runtimes#advanced-usage/advanced-node-js-usage), see [the Node.js runtime documentation](/docs/runtimes#official-runtimes/node-js).
 
 ---
 
@@ -120,7 +122,7 @@ When deployed, the example function above will be served as a Serverless Functio
 
 ### Advanced Go Usage
 
-For more advanced usage of Go on the ZEIT Now platform, including [dependencies](/docs/runtimes#official-runtimes/go/go-dependencies), [build configuration](/docs/runtimes#official-runtimes/go/go-build-configuration), [private dependencies](/docs/runtimes#advanced-usage/advanced-go-usage), or [advanced configuration](/docs/runtimes#advanced-usage/advanced-go-usage), see [the Go runtime documentation](/docs/runtimes#official-runtimes/go).
+For more advanced usage of Go on the <ProductName /> platform, including [dependencies](/docs/runtimes#official-runtimes/go/go-dependencies), [build configuration](/docs/runtimes#official-runtimes/go/go-build-configuration), [private dependencies](/docs/runtimes#advanced-usage/advanced-go-usage), or [advanced configuration](/docs/runtimes#advanced-usage/advanced-go-usage), see [the Go runtime documentation](/docs/runtimes#official-runtimes/go).
 
 ---
 
@@ -153,7 +155,7 @@ When deployed, the example function above will be served as a Serverless Functio
 
 ### Advanced Python Usage
 
-For more advanced usage of Python on the ZEIT Now platform, including [dependencies](/docs/runtimes#official-runtimes/python/python-dependencies), [WSGI applications](/docs/runtimes#advanced-usage/advanced-python-usage/web-server-gateway-interface), [ASGI applications](/docs/runtimes#advanced-usage/advanced-python-usage/asynchronous-server-gateway-interface), or [advanced configuration](/docs/runtimes#advanced-usage/advanced-python-usage), see [the Python runtime documentation](/docs/runtimes#official-runtimes/python).
+For more advanced usage of Python on the <ProductName /> platform, including [dependencies](/docs/runtimes#official-runtimes/python/python-dependencies), [WSGI applications](/docs/runtimes#advanced-usage/advanced-python-usage/web-server-gateway-interface), [ASGI applications](/docs/runtimes#advanced-usage/advanced-python-usage/asynchronous-server-gateway-interface), or [advanced configuration](/docs/runtimes#advanced-usage/advanced-python-usage), see [the Python runtime documentation](/docs/runtimes#official-runtimes/python).
 
 ---
 
@@ -180,7 +182,7 @@ When deployed, the example function above will be served as a Serverless Functio
 
 ### Advanced Ruby Usage
 
-For more advanced usage of Ruby on the ZEIT Now platform, including [dependencies](/docs/runtimes#official-runtimes/ruby/ruby-dependencies), or [Rack interfaces](/docs/runtimes#advanced-usage/advanced-ruby-usage/rack-interface), see [the Ruby runtime documentation](/docs/runtimes#official-runtimes/ruby).
+For more advanced usage of Ruby on the <ProductName /> platform, including [dependencies](/docs/runtimes#official-runtimes/ruby/ruby-dependencies), or [Rack interfaces](/docs/runtimes#advanced-usage/advanced-ruby-usage/rack-interface), see [the Ruby runtime documentation](/docs/runtimes#official-runtimes/ruby).
 
 ---
 
@@ -197,7 +199,7 @@ For more information on what to do next, we recommend the following articles:
   introduction.
 </Card>
 
-<Card title="Introduction to ZEIT Now" href="/docs/v2/introduction">
+<Card title="Introduction to <ProductName />" href="/docs/v2/introduction">
   You've got your Serverless Function ready to go, now learn how to deploy it
   with a single-command and a first-class frontend with no extra configuration.
 </Card>

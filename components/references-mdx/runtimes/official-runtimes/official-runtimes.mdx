@@ -5,6 +5,7 @@ import Example from '~/components/example'
 import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import Tag from '~/components/text/tag'
+import ProductName from '~/components/product-name'
 
 export const meta = {
   editUrl:
@@ -20,7 +21,7 @@ Runtimes are modules that transform your source code into [Serverless Functions]
   In most cases, advanced Runtimes usage with configuration is not necessary.
   See{' '}
   <Link href="/docs/v2/introduction">
-    the ZEIT Now Introduction documentation
+    the <ProductName /> Introduction documentation
   </Link>{' '}
   or the{' '}
   <Link href="/docs/v2/serverless-functions/introduction">
@@ -74,7 +75,7 @@ If you need more advanced behavior, such as a custom build step or private npm m
 
 ### Node.js Version
 
-New deployments automatically select the latest LTS Node.js version available on ZEIT Now at that point in time.
+New deployments automatically select the latest LTS Node.js version available on <ProductName /> at that point in time.
 
 In order to select a different version, add a `package.json` file with an `engines` field, like so:
 
@@ -131,10 +132,10 @@ export default function(req: NowRequest, res: NowResponse) {
   the <InlineCode>@now/node</InlineCode> module for the helper methods.
 </Caption>
 
-The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#official-runtimes/node-js/node-js-request-and-response-objects), including the helper methods with ZEIT Now. These types can be installed from npm with the following command:
+The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#official-runtimes/node-js/node-js-request-and-response-objects), including the helper methods with <ProductName />. These types can be installed from npm with the following command:
 
 <Snippet dark text="npm install @now/node --save-dev" />
-<Caption>Installing <InlineCode>@now/node</InlineCode> for types when using Node.js on ZEIT Now.</Caption>
+<Caption>Installing <InlineCode>@now/node</InlineCode> for types when using Node.js on <ProductName />.</Caption>
 
 You can also use a `tsconfig.json` file at the root of your project to configure the TypeScript compiler. Most options are supported aside from ["Path Mappings"](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and ["Project References"](https://www.typescriptlang.org/docs/handbook/project-references.html).
 
@@ -144,7 +145,7 @@ Each request to a Node.js Serverless Function gives access to Request and Respon
 
 #### Node.js Helpers
 
-ZEIT Now additionally provides helper methods inside of the Request and Response objects passed to Node.js Serverless Functions. These methods are:
+&#8203;<ProductName /> additionally provides helper methods inside of the Request and Response objects passed to Node.js Serverless Functions. These methods are:
 
 | method             | description                                                                                                                                                                                    | object   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -181,7 +182,7 @@ module.exports = (req, res) => {
 </Caption>
 
 <Note>
-  If needed, you can opt-out of ZEIT Now providing{' '}
+  If needed, you can opt-out of <ProductName /> providing{' '}
   <InlineCode>helpers</InlineCode> using{' '}
   <Link href="#advanced-usage/advanced-node-js-usage/disabling-helpers-for-node-js">
     advanced configuration
@@ -211,7 +212,7 @@ With the `req.body` helper, you can build applications without extra dependencie
 
 <Tag>Status: Alpha</Tag>
 
-The Go Runtime is used by ZEIT Now to compile Go Serverless Functions that expose a single HTTP handler, from a `.go` file within an `/api` directory at your project's root.
+The Go Runtime is used by <ProductName /> to compile Go Serverless Functions that expose a single HTTP handler, from a `.go` file within an `/api` directory at your project's root.
 
 For example, define an `index.go` file inside an `/api` directory as follows:
 
@@ -246,7 +247,7 @@ For advanced usage, such as using private packages with your Go projects, see th
 
 ### Go Version
 
-Go version 1.x is used for Go projects deployed with ZEIT Now.
+Go version 1.x is used for Go projects deployed with <ProductName />.
 
 ### Go Dependencies
 
@@ -279,7 +280,7 @@ You can provide custom build flags by using the `GO_BUILD_FLAGS` [build environm
 
 <Tag>Status: Beta</Tag>
 
-The Python Runtime is used by ZEIT Now to compile Python Serverless Functions, that defines a singular HTTP `handler` variable, inheritting from the `BaseHTTPRequestHandler` class, from a `.py` file within an `/api` directory at your project's root.
+The Python Runtime is used by <ProductName /> to compile Python Serverless Functions, that defines a singular HTTP `handler` variable, inheritting from the `BaseHTTPRequestHandler` class, from a `.py` file within an `/api` directory at your project's root.
 
 For example, define an `index.py` file inside a `/api` directory as follows:
 
@@ -293,7 +294,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','text/plain')
         self.end_headers()
-        message = cow.Cowacter().milk('Hello from Python from a ZEIT Now Serverless Function!')
+        message = cow.Cowacter().milk('Hello from Python from a Serverless Function!')
         self.wfile.write(message.encode())
         return
 ```
@@ -318,7 +319,7 @@ For advanced usage, such as using WSGI or ASGI for your Python projects, see the
 
 ### Python Version
 
-Python projects deployed with ZEIT Now use Python version 3.6.
+Python projects deployed with <ProductName /> use Python version 3.6.
 
 ### Python Dependencies
 
@@ -330,7 +331,7 @@ You can install dependencies for your Python projects by defining them in a `req
 
 <Tag>Status: Alpha</Tag>
 
-The Ruby Runtime is used by ZEIT Now to compile Ruby Serverless Functions that define a singular HTTP handler from `.rb` files within an `/api` directory at your project's root.
+The Ruby Runtime is used by <ProductName /> to compile Ruby Serverless Functions that define a singular HTTP handler from `.rb` files within an `/api` directory at your project's root.
 
 Ruby files must have one of the following variables defined:
 

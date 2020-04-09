@@ -5,15 +5,17 @@ import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import Note from '~/components/text/note'
+import ProductName from '~/components/product-name'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Serverless Functions',
-  description: 'Learn how to deploy Serverless Functions with ZEIT Now.',
+  description: `Learn how to deploy Serverless Functions with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2020-03-02T22:10:22.000Z'
+  lastEdited: '2020-04-08T07:12:50.000Z'
 }
 
-With ZEIT Now, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
+With <ProductName />, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
 
 You can use Serverless Functions to handle user authentication, form submission, database queries, custom
 slack commands, and more.
@@ -62,7 +64,7 @@ To deploy Serverless Functions without any additional configuration, you can put
   .
 </Note>
 
-Then, push to your connected Git repository using a [ZEIT Now for Git Integration](/docs/v2/git-integrations) to receive a deployment automatically.
+Then, push to your connected Git repository using a [<ProductName /> for Git Integration](/docs/v2/git-integrations) to receive a deployment automatically.
 
 ### An Example Node.js Serverless Function
 
@@ -89,7 +91,7 @@ module.exports = (req, res) => {
 
 The above example echoes the `body`, path `query`, and `cookie`s, passed with the request object, as a JSON object using helper methods provided through the [Request and Response](/docs/v2/serverless-functions/supported-languages/#node.js-request-and-response-objects).
 
-Then, all you need to do, to have a live API, is push to your connected Git repository using a [ZEIT Now for Git Integration](/docs/v2/git-integrations) to receive a deployment automatically.
+Then, all you need to do, to have a live API, is push to your connected Git repository using a [<ProductName /> for Git Integration](/docs/v2/git-integrations) to receive a deployment automatically.
 
 The resulting deployment will contain your Node.js Serverless Function and will provide you with a URL like the following, with your API ready to go: <https://node-echo-api.now-examples.now.sh/api/?name=zeit>
 
@@ -97,9 +99,9 @@ The resulting deployment will contain your Node.js Serverless Function and will 
 
 For all supported languages, see the [Supported Languages for Serverless Functions documentation](/docs/v2/serverless-functions/supported-languages).
 
-More examples of applications you can deploy paired with Serverless Functions can be found in the [ZEIT Now repository on GitHub](https://github.com/zeit/now/tree/master/examples).
+More examples of applications you can deploy paired with Serverless Functions can be found in the [<ProductName /> repository on GitHub](https://github.com/zeit/now/tree/master/examples).
 
-You can get started with many of the ZEIT Now examples by deploying them from the [Quickstarts section](/docs/v2/introduction#quickstarts).
+You can get started with many of the <ProductName /> examples by deploying them from the [Quickstarts section](/docs/v2/introduction#quickstarts).
 
 ## Prevent Endpoint Listing
 
@@ -113,7 +115,7 @@ If you kept your utility functions inside of `/api/utils`, one called `date.js` 
 
 ## Path Segments
 
-Deploying Serverless Functions with ZEIT Now gives you the ability to use path segments through file names instead of a complex routes file.
+Deploying Serverless Functions with <ProductName /> gives you the ability to use path segments through file names instead of a complex routes file.
 
 Creating a file using any of the [supported languages](/docs/v2/serverless-functions/supported-languages) in the `/api` directory and wrapping the filename in square brackets, such as `[name].js` will provide you with a file that takes a path segment and gives it to the function when requested with a value.
 
@@ -156,7 +158,7 @@ The resulting deployment can be found here: <https://path-segment-with-node.now-
 
 ## Local Development
 
-ZEIT Now provides an additional command with [Now CLI](/download) to help you develop Serverless Functions locally by replicating the production environment on ZEIT Now with your localhost.
+​<ProductName /> provides an additional command with [Now CLI](/download) to help you develop Serverless Functions locally by replicating the production environment on <ProductName /> with your localhost.
 
 If you have an `api` directory like the [above examples](#deploying-serverless-functions) on this page, you can run the following command to start a local development environment that supports your serverless API and allows you to develop locally, just make sure to install your project's dependencies first with `npm install`:
 
@@ -214,7 +216,7 @@ For example, with 1,792MB memory configured, a Serverless Function will have the
 For more information on what to do next, we recommend the following articles:
 
 <Card title="Git Integration" href="/docs/v2/git-integrations">
-  Learn more about how ZEIT Now integrates with Git to make your workflow
+  Learn more about how <ProductName /> integrates with Git to make your workflow
   easier.
 </Card>
 

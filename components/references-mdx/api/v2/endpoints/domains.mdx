@@ -2,6 +2,7 @@ import { Code, InlineCode } from '~/components/text/code'
 import Link, { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
+import ProductName from '~/components/product-name'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/domains.mdx',
@@ -39,7 +40,7 @@ The response of this API can be controlled with the following optional query par
 | **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through ZEIT Now, the date when it was purchased.                                                            |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
 | **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
 | **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
 | **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
@@ -93,7 +94,7 @@ The response of this API can be controlled with the following optional query par
 
 <Endpoint method="POST" url="/v4/domains" />
 
-Register a new domain name with ZEIT Now for the authenticating
+Register a new domain name with <ProductName /> for the authenticating
 user. The field `serviceType` selects whether the domains are going to use
 zeit.world DNS or an external nameserver. In the latter case a `CNAME/ALIAS`
 record(s) are expected to point towards `alias.zeit.co`.
@@ -122,7 +123,7 @@ been created, the user may retry the same POST and the endpoint shall return
 | **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                        |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                               |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through ZEIT Now, the date when it was purchased.                                                                        |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                 |
 | **transferStartedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | If transferred into ZEIT, The date when the domain transfer was initiated                                                                    |
 | **transferredAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain was successfully transferred into ZEIT. `null` if the transfer is still processing or was never transferred in. |
 | **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                           |
@@ -205,7 +206,7 @@ Initiate a domain transfer request from an external Registrar to ZEIT.
 | **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through ZEIT Now, the date when it was purchased.                                                            |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
 | **transferStartedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain transfer was initiated                                                                                  |
 | **transferredAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain was successfully transferred into ZEIT. `null` if the transfer is still processing.                 |
 | **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
@@ -283,7 +284,7 @@ Verify a domain after adding either the intended nameservers or DNS TXT verifica
 | **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through ZEIT Now, the date when it was purchased.                                                            |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
 | **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
 | **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
 | **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
@@ -384,7 +385,7 @@ Get information for a single domain in an account or team.
 | **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [ZEIT Smart CDN](/docs/v2/domains-and-aliases/cdn) enabled or not.                                    |
 | **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                            |
 | **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with ZEIT.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through ZEIT Now, the date when it was purchased.                                                            |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                     |
 | **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                               |
 | **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                        |
 | **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                 |
@@ -449,7 +450,7 @@ Get information for a single domain in an account or team.
 
 <Endpoint method="DELETE" url="/v4/domains/:name" />
 
-Delete a previously registered domain name from ZEIT Now.
+Delete a previously registered domain name from <ProductName />.
 Deleting a domain will automatically remove any associated aliases.
 
 #### Response Parameters
