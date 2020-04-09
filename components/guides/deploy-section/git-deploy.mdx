@@ -3,13 +3,14 @@ import { List } from '~/components/list'
 import BitbucketIcon from '~/components/icons/bitbucket'
 import GitLabIcon from '~/components/icons/gitlab'
 import GitHubIcon from '~/components/icons/github'
+import ProductName from '~/components/product-name'
 
 export const Author = ({ name }) => <span>{name}</span>
 export const Type = ({ type }) => <span>{type || 'project'}</span>
 
-To deploy your <Author name={props.name} /> <Type type={props.type} /> with a [ZEIT Now for Git Integration](/docs/v2/git-integrations), make sure it has been pushed to a Git repository.
+To deploy your <Author name={props.name} /> <Type type={props.type} /> with a [<ProductName /> for Git Integration](/docs/v2/git-integrations), make sure it has been pushed to a Git repository.
 
-[Import the project](/import) into ZEIT Now using your Git Integration of choice:
+[Import the project](/import) into <ProductName /> using your Git Integration of choice:
 
 <List columnsDesktop={3} columnsTablet={3} columnsMobile={1}>
   <IconCard
