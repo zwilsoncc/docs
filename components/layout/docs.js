@@ -118,7 +118,7 @@ function Doc({
       <>
         <Head
           titlePrefix=""
-          titleSuffix={` - ZEIT Documentation`}
+          titleSuffix=" - ZEIT Documentation"
           title={`${meta.title}`}
           description={meta.description}
           image={meta.image}
