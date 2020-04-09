@@ -112,7 +112,15 @@ function generateSiteMap() {
         const { node, meta } = xmlUrlNode(pagePath)
 
         if (meta) {
-          guidesMeta.push(meta)
+          guidesMeta.push(
+            // If meta.image (URL) contains a space, replace with '%20'
+            meta.image
+              ? {
+                  ...meta,
+                  image: meta.image.replace(' ', '%20')
+                }
+              : meta
+          )
         }
 
         return node
