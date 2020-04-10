@@ -58,7 +58,7 @@ Specifies the [<ProductName /> Platform version](/docs/v2/platform/overview#vers
 
 **Valid values**: [domain names](/docs/v2/custom-domains) (optionally including subdomains) added to the account, or a string for a suffixed URL using `.now.sh` or a Custom Deployment Suffix ([available on the Enterprise plan](/pricing)).
 
-**Limit**: A maximum of 64 aliases in the array
+**Limit**: A maximum of 64 aliases in the array.
 
 The alias or aliases are applied automatically using [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) when merging or pushing to the default branch.
 
@@ -399,6 +399,11 @@ This is not recommended because it could lead to search engines indexing two dif
 
 **Valid values:** a list of redirect definitions.
 
+**Limits**:
+
+- A maximum of 1,024 redirects in the array.
+- A maximum of string length of 4,096 for the `source` and `destination` values.
+
 **Redirect object definition:**
 
 - `source`: A pattern that matches each incoming pathname (excluding querystring).
@@ -426,6 +431,11 @@ This is not recommended because it could lead to search engines indexing two dif
 
 **Valid values:** a list of rewrite definitions.
 
+**Limits**:
+
+- A maximum of 1,024 rewrites in the array.
+- A maximum of string length of 4,096 for the `source` and `destination` values.
+
 **Rewrite object definition:**
 
 - `source`: A pattern that matches each incoming pathname (excluding querystring).
@@ -452,6 +462,11 @@ This is not recommended because it could lead to search engines indexing two dif
 **Type:** `Array` of header `Object`.
 
 **Valid values:** a list of header definitions.
+
+**Limits**:
+
+- A maximum of 1,024 headers in the array.
+- A maximum of string length of 4,096 for the `source`, `key`, and `value` values.
 
 **Header object definition:**
 
