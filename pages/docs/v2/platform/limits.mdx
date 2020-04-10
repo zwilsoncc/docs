@@ -8,45 +8,29 @@ export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-04-10T09:52:07.000Z'
+  lastEdited: '2020-04-10T20:55:41.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
 
-## Plans
+## General Limits
 
-This section highlights two areas relating to pricing plans, **Usage Allowances**, and **Plan Limits**.
-
-### Usage Allowances
-
-**Usage Allowances** are the maximum limits provided by each pricing plan. They specify a limit for the amount of resources available for use under that plan before deployments are blocked (Hobby plan) or [additional costs](/pricing) are incurred.
-
-<Note>
-  Execution time is calculated in units of 100ms. For example, 36ms will be
-  billed as 100ms and 286ms will be billed as 300ms.
-</Note>
+To prevent abuse of our platform, we apply the following limits to all accounts.
 
 <br />
 
-| Limit                  | Hobby | Pro | Business | Enterprise |
-| ---------------------- | ----- | --- | -------- | ---------- |
-| Bandwidth (GB)         | -     | 100 | 1000     | Custom     |
-| Build Time (Hours)     | -     | 10  | 100      | Custom     |
-| Execution Time (Hours) | -     | 100 | 1,000    | Custom     |
-| Team Seats             | 1     | 3   | 6        | Custom     |
-| Concurrent Builds      | 1     | 3   | 6        | Custom     |
+|                                        | Hobby | Pro  | Enterprise |
+| -------------------------------------- | ----- | ---- | ---------- |
+| Deployments (per day)                  | 100   | 3000 | Custom     |
+| Serverless Functions per Deployment    | 12    | 24   | Custom     |
+| Serverless Functions per Month         | 160   | 640  | Custom     |
+| Serverless Function Duration (Seconds) | 10    | 60   | 900        |
+| Deployments created from CLI per week  | 25    | 25   | Custom     |
 
-### Plan Limits
-
-**Plan Limits** are limitations that apply to specific plans that **cannot** be increased, the only way to do so is to upgrade to a higher tier pricing plan.
-
-| Limit                               | Hobby | Pro  | Business | Enterprise |
-| ----------------------------------- | ----- | ---- | -------- | ---------- |
-| Deployments (per day)               | 100   | 3000 | 3000     | Custom     |
-| Deployment History                  | 10    | -    | -        | -          |
-| Execution Duration (Seconds)        | 10    | 60   | 600      | 900        |
-| Serverless Functions per Deployment | 12    | -    | -        | -          |
-| Serverless Functions per Month      | 160   | -    | -        | -          |
+<Note>
+  Next.js Static Site Generation and Next.js Preview Serverless Functions are
+  excluded from the count for "Maximum Functions per Deployment".
+</Note>
 
 ## Logs
 
