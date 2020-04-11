@@ -3,12 +3,13 @@ import Limits from '~/components/limits'
 import Note from '~/components/text/note'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
+import ProductNameSimple from '~/components/product-name/simple'
 
 export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-04-10T20:55:41.000Z'
+  lastEdited: '2020-04-11T07:31:56.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -52,9 +53,9 @@ The total size of [environment variables](/docs/v2/serverless-functions/env-and-
 
 ## Domains
 
-The maximum amount of domains that can be applied to a single project, either from the ZEIT Dashboard or by using the `alias` key in a `now.json` file is **50**.
+The maximum amount of domains that can be applied to a single project, either from the <ProductNameSimple /> Dashboard or by using the `alias` key in a `now.json` file is **50**.
 
-It is not possible to add more than 50 domains to a project using the ZEIT Dashboard.
+It is not possible to add more than 50 domains to a project using the <ProductNameSimple /> Dashboard.
 
 [Deployments](/docs/v2/platform/deployments) made with more than 50 `alias` in a `now.json` file will fail at the [build step](/docs/v2/build-step/).
 
