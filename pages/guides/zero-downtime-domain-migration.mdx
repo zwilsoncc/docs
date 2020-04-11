@@ -5,7 +5,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
-
+import ProductNameSimple from '~/components/product-name/simple'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -16,18 +16,18 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-11T07:55:06.000Z'
 }
 
-When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to ZEIT and setting it up before migrating the nameservers, ensuring no downtime at any point.
+When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to <ProductNameSimple /> and setting it up before migrating the nameservers, ensuring no downtime at any point.
 
 <Note type="warning">
   We <b>strongly advise against using external verification</b> as it prevents
-  you from receiving the full benefits of ZEIT's platform and services, such as
-  the automatic renewal of wildcard certificates. Furthermore, many DNS
-  providers{' '}
-  <b>do not have a global connection capable of low-latency geo-routing</b>,
-  which is likely to <b>slow down your apps</b>.
+  you from receiving the full benefits of <ProductNameSimple />
+  's platform and services, such as the automatic renewal of wildcard certificates.
+  Furthermore, many DNS providers <b>
+    do not have a global connection capable of low-latency geo-routing
+  </b>, which is likely to <b>slow down your apps</b>.
 </Note>
 
 ## Step 1: Adding and Verifying Your Domain
@@ -35,7 +35,7 @@ When migrating to another set of nameservers, there can often be downtime incurr
 To get the process started, you will need to add your domain to your account or team by using the following command:
 
 <Snippet dark text="now domains add <domain>" />
-<Caption>Adding a domain to a ZEIT account using <Link href="/now">Now CLI</Link>.</Caption>
+<Caption>Adding a domain to a <ProductNameSimple /> account using <Link href="/now">Now CLI</Link>.</Caption>
 
 This command will add the domain to your account and output information you will need in order to verify the domain is yours.
 
@@ -145,7 +145,7 @@ Now, your domain will be pointing to your latest deployment and you're are ready
 
 ## Step 3: Moving the Nameservers
 
-Once your domain is set up correctly and contains all you need for a successful migration, you will be free to change the nameservers of your domain to point to ZEIT DNS via your domain provider.
+Once your domain is set up correctly and contains all you need for a successful migration, you will be free to change the nameservers of your domain to point to <ProductNameSimple /> DNS via your domain provider.
 
 Using `now domains inspect <domain>`, you can find your intended set of nameservers to use with your domain, in case you have forgotten them when you first added the domain.
 

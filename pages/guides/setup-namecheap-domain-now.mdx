@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
-
+import ProductNameSimple from '~/components/product-name/simple'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -15,18 +15,18 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2020-04-08T07:12:50.000Z'
+  lastEdited: '2020-04-11T07:55:06.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as a production domain for your <ProductName /> deployments.
 
 ## Step 1: Adding and Verifying Your Domain
 
-First, you need to add your Namecheap registered domain to your ZEIT account. To get started, use the [Now CLI](/docs/v2/getting-started/installation#now-cli):
+First, you need to add your Namecheap registered domain to your <ProductNameSimple /> account. To get started, use the [Now CLI](/docs/v2/getting-started/installation#now-cli):
 
 <Snippet dark text="now domains add <domain>" />
 
-The command above adds the domain to your ZEIT account. Once it has been added, the [Now CLI](/docs/v2/getting-started/installation#now-cli) outputs some information needed to verify ownership of the domain.
+The command above adds the domain to your <ProductNameSimple /> account. Once it has been added, the [Now CLI](/docs/v2/getting-started/installation#now-cli) outputs some information needed to verify ownership of the domain.
 
 There are two options available for domain verification:
 
@@ -83,7 +83,7 @@ In the page you are directed to, scroll down to the **NAMESERVERS** section, cli
 
 Add the intended nameservers gotten from running the inspect command to the **Custom DNS** form in the order they are given and save the configuration.
 
-Once Namecheap is done propagating the newly changed DNS for your domain, then your domain is ready to be verified. ZEIT automatically checks the domain for verification. However, if you are keen on manually verifying it, then run the following command:
+Once Namecheap is done propagating the newly changed DNS for your domain, then your domain is ready to be verified. <ProductNameSimple /> automatically checks the domain for verification. However, if you are keen on manually verifying it, then run the following command:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -103,7 +103,7 @@ Select `TXT Record` as the record type, add `_now` as the host, and the value yo
 />
 <Caption style={{marginTop: '-64px'}}> Adding a TXT record with Namecheap's domain Advanced DNS settings. </Caption>
 
-Your domain will be verified after adding the TXT record. Once ZEIT verifies your domain, you'll automatically receive an email. You can also manually use the command below to force a domain verification:
+Your domain will be verified after adding the TXT record. Once <ProductNameSimple /> verifies your domain, you'll automatically receive an email. You can also manually use the command below to force a domain verification:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -129,7 +129,7 @@ Learn more about using the [`now dns`](/docs/now-cli#commands/dns) command.
 
 ​<ProductName /> is dedicated to making deployment easy. If you have not yet deployed an app, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started.
 
-Adding your production domain to a project can be done from the [ZEIT Dashboard](/dashboard) by selecting the project's **Domains** tab and entering it there, you can find more information on this in the [custom domains documentation](/docs/v2/custom-domains/#adding-a-domain).
+Adding your production domain to a project can be done from the [<ProductNameSimple /> Dashboard](/dashboard) by selecting the project's **Domains** tab and entering it there, you can find more information on this in the [custom domains documentation](/docs/v2/custom-domains/#adding-a-domain).
 
 You can then deploy to your production domain with **a single command**:
 
@@ -142,7 +142,7 @@ We highly recommend using either the [<ProductName /> for GitHub](/docs/v2/git-i
 
 If you already verified your domain with nameservers, then this step is done.
 
-The final step of migrating your domain to <ProductName /> is to point your domain to ZEIT DNS with the intended nameservers set. Using `now domains inspect <domain>`, you can always find the intended nameservers to use with your domain.
+The final step of migrating your domain to <ProductName /> is to point your domain to <ProductNameSimple /> DNS with the intended nameservers set. Using `now domains inspect <domain>`, you can always find the intended nameservers to use with your domain.
 
 Once Namecheap's propagation of the updated nameservers is complete, your domain will automatically point to the [app you deployed](#adding-a-domain-to-deployments) before.
 
