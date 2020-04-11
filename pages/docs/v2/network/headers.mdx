@@ -3,12 +3,13 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/code'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
+import ProductNameSimple from '~/components/product-name/simple'
 
 export const meta = {
   title: 'Headers',
   description: `The list of headers included with deployments with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/network/headers.mdx',
-  lastEdited: '2020-04-09T01:19:38.000Z'
+  lastEdited: '2020-04-11T07:12:03.000Z'
 }
 
 [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) can be found in both the HTTP Request and HTTP Response.
@@ -90,7 +91,7 @@ A header often abbreviated as [HSTS](https://developer.mozilla.org/en-US/docs/Gl
 
 ### `x-now-cache`
 
-This header's value indicates whether the response was served from ZEIT's edge cache.
+This header's value indicates whether the response was served from <ProductNameSimple />'s edge cache.
 
 The following values are possible when the content being served [is static](/docs/v2/network/caching/#caching-static-files) or uses [a `Cache-Control` header](/docs/v2/network/caching).
 

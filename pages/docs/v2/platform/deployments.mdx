@@ -6,13 +6,15 @@ import Snippet from '~/components/snippet'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import ProductNameSimple from '~/components/product-name/simple'
+import { PRODUCT, PRODUCT_SIMPLE } from '~/lib/constants'
+import ProductNameWrapper from '~/components/product-name/wrapper'
 
 export const meta = {
   title: 'Deployments',
   description: `Understanding and making deployments with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2020-04-08T07:12:50.000Z'
+  lastEdited: '2020-04-11T07:12:03.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -37,7 +39,7 @@ When merging to the default branch (commonly `master`), a [production deployment
 
 ### Deploy Hooks
 
-[Deploy Hooks](/docs/v2/advanced/deploy-hooks/) allow you to create URLs that accept HTTP POST requests to trigger deployments, re-running the [Build Step](/docs/v2/build-step), from outside of ZEIT.
+[Deploy Hooks](/docs/v2/advanced/deploy-hooks/) allow you to create URLs that accept HTTP POST requests to trigger deployments, re-running the [Build Step](/docs/v2/build-step), from outside of <ProductNameSimple />.
 
 There are many use cases for Deploy Hooks, for example, rebuilding your site to reflect changes in a Headless CMS or scheduling deployments with Cron Jobs.
 
@@ -97,19 +99,19 @@ If you request a **preview URL**, the `X-Robots-Tag` HTTP header will be set as 
 
 By making a **production deployment**, the **production domain(s)** will be updated to reflect that of the latest deployment.
 
-The **production domain(s)** are defined from the **Domains** tab of a Project on the ZEIT Dashboard.
+The **production domain(s)** are defined from the **Domains** tab of a Project on the <ProductNameSimple /> Dashboard.
 
 To add a **production domain** to a [Project](/docs/v2/platform/projects/), visit **Domains** from the Project Overview page, you can read more about this in the [custom domains documentation](/docs/v2/custom-domains/).
 
 ## Managing Deployments
 
-You can manage your deployments either via the [ZEIT Dashboard](/dashboard) or, in advanced use cases, [Now CLI](/download).
+You can manage your deployments either via the [<ProductNameSimple /> Dashboard](/dashboard) or, in advanced use cases, [Now CLI](/download).
 
-### ZEIT Dashboard
+### <ProductNameWrapper name={PRODUCT_SIMPLE} /> Dashboard
 
-The [ZEIT Dashboard](/dashboard) is the easiest way for you to manage your deployments.
+The [<ProductNameSimple /> Dashboard](/dashboard) is the easiest way for you to manage your deployments.
 
-Through the ZEIT Dashboard, you can find a variety of settings; including a **Domains** tab where you can add [custom domains](/docs/v2/custom-domains/) to your Project.
+Through the <ProductNameSimple /> Dashboard, you can find a variety of settings; including a **Domains** tab where you can add [custom domains](/docs/v2/custom-domains/) to your Project.
 
 ### Now CLI and API
 
@@ -139,8 +141,8 @@ The only exception to this are **failed requests**. If a request leads to the Se
   If you wish to persist <strong>Runtime</strong> or{' '}
   <strong>Edge Network</strong> logs, you can use a{' '}
   <Link href="/integrations?category=Logging">logging integration</Link>{' '}
-  available from the ZEIT Integrations marketplace. Alternatively, you may build
-  your own service by making use of the{' '}
+  available from the <ProductNameSimple /> Integrations marketplace.
+  Alternatively, you may build your own service by making use of the{' '}
   <Link href="/docs/api#endpoints/log-drains">Log Drains API</Link>.
 </Note>
 

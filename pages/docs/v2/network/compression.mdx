@@ -3,15 +3,16 @@ import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import Link from '~/components/text/link'
 import { PRODUCT } from '~/lib/constants'
+import ProductNameSimple from '~/components/product-name/simple'
 
 export const meta = {
   title: 'Compression',
   description: `How ${PRODUCT} serves content with compression and which methods are used.`,
   editUrl: 'pages/docs/v2/network/compression.mdx',
-  lastEdited: '2020-04-09T01:19:38.000Z'
+  lastEdited: '2020-04-11T07:12:03.000Z'
 }
 
-The ZEIT Network layer implements two compression methods; [Gzip](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) and [Brotli](https://en.wikipedia.org/wiki/Brotli). We highly recommend leveraging ZEIT Network compression over a self hosted solution.
+The <ProductNameSimple /> Network layer implements two compression methods; [Gzip](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) and [Brotli](https://en.wikipedia.org/wiki/Brotli). We highly recommend leveraging <ProductNameSimple /> Network compression over a self hosted solution.
 
 Using the provided compression methods will result in the best performance and least maintenance.
 
