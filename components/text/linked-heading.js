@@ -31,7 +31,9 @@ export default props => {
       // If there are sub components, convert them to text
       text = children
         .map(child => {
-          return typeof child === 'object' ? child.props.children : child
+          return typeof child === 'object'
+            ? child.props.name || child.props.children
+            : child
         })
         .join('')
     }
