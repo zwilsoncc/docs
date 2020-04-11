@@ -1,5 +1,6 @@
 {
   "product": "ZEIT Now",
   "cdnName": "ZEIT Smart CDN",
-  "productSimple": "ZEIT"
+  "productSimple": "ZEIT",
+  "productShort": "Now"
 }

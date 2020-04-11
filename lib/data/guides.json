@@ -30,7 +30,7 @@
     "image": "https://og-image.now.sh/**Error%20Reports**%20for%20Your%20Projects%20with%20URIports%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-error-reports-with-uriports-zeit-now%2Flogo.svg",
     "url": "/guides/client-side-error-reports-with-uriports-zeit-now",
     "editUrl": "pages/guides/client-side-error-reports-with-uriports-zeit-now.mdx",
-    "lastEdited": "2020-04-11T07:35:08.000Z"
+    "lastEdited": "2020-04-11T22:12:24.000Z"
   },
   {
     "title": "Monitor Performance with Calibre and ZEIT Now",
@@ -492,7 +492,7 @@
     "name": "MongoDB",
     "type": "API",
     "editUrl": "pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx",
-    "lastEdited": "2020-04-07T23:46:59.000Z"
+    "lastEdited": "2020-04-11T22:12:24.000Z"
   },
   {
     "title": "Handling Node.js Request Bodies with ZEIT Now",
