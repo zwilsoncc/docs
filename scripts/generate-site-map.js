@@ -2,8 +2,8 @@
 const fs = require('fs')
 const path = require('path')
 const prettier = require('prettier')
+const productNames = require('../lib/product-names.json')
 
-const PRODUCT = 'ZEIT Now'
 const DOMAIN = 'https://zeit.co'
 const SITE_PATHS = [
   '/docs',
@@ -69,7 +69,14 @@ function xmlUrlNode(pagePath) {
   let lastmod
 
   if (match && typeof match[1] === 'string') {
-    meta = eval('(' + match[1].replace(/\${PRODUCT}/g, PRODUCT) + ')')
+    meta = eval(
+      '(' +
+        match[1]
+          .replace(/\${PRODUCT}/g, productNames.product)
+          .replace(/\${PRODUCT_SIMPLE}/g, productNames.productSimple)
+          .replace(/\${CDN_NAME}/g, productNames.cdnName) +
+        ')'
+    )
 
     if (meta.lastEdited) {
       lastmod = meta.lastEdited
