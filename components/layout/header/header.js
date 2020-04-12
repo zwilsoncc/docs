@@ -15,7 +15,7 @@ import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
 import MenuToggle from './menu-toggle'
 import { HeaderFeedback } from '~/components/feedback-input'
-import { API_DOCS_FEEDBACK, ORGANIZATION } from '~/lib/constants'
+import { API_DOCS_FEEDBACK, ORGANIZATION, PRODUCT_SHORT } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 
@@ -305,7 +305,7 @@ class Header extends Component {
                       offsetLeft={-62}
                       primaryList={[
                         {
-                          title: 'Now CLI',
+                          title: `${PRODUCT_SHORT} CLI`,
                           url: '/docs/now-cli'
                         },
                         {
@@ -462,7 +462,7 @@ class Header extends Component {
                   active={router.pathname.startsWith('/docs/now-cli')}
                   onClick={handleIndexClick}
                 >
-                  Now CLI
+                  {PRODUCT_SHORT} CLI
                 </NavigationItem>
               </div>
               <div className="group">

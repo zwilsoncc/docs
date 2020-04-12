@@ -3,7 +3,7 @@ import CLIDeploy from './cli-deploy.mdx'
 import Tabs from '~/components/tabs'
 import Link from '~/components/text/link'
 import { DeployButton } from '~/components/buttons'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT, PRODUCT_SHORT } from '~/lib/constants'
 
 export default function DeploySection({ meta }) {
   return (
@@ -15,7 +15,7 @@ export default function DeploySection({ meta }) {
         </Link>{' '}
         for ease-of-use. Alternatively,{' '}
         <Link href="/download">
-          <a>Now CLI</a>
+          <a>{PRODUCT_SHORT} CLI</a>
         </Link>{' '}
         can be used to generate a manual{' '}
         <Link href="/docs/v2/platform/deployments#preview">
