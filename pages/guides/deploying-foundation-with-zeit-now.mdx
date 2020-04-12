@@ -5,7 +5,7 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-foundation-with-zeit-now.mdx',
   name: 'Foundation',
   type: 'app',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Foundation](https://foundation.zurb.com/) is a family of responsive front-end frameworks that make it easy to design beautiful responsive websites, apps and emails that look amazing on any device.
@@ -45,7 +45,7 @@ PATHS:
   <InlineCode>/my-foundation-app/config.yml</InlineCode> file.
 </Caption>
 
-## Step 2: Deploying Your Foundation App with <ProductName />
+## Step 2: Deploying Your Foundation App with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

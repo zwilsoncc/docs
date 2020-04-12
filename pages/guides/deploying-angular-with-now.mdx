@@ -6,7 +6,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -22,7 +22,7 @@ export const meta = {
   name: 'Angular',
   type: 'app',
   editUrl: 'pages/guides/deploying-angular-with-now.mdx',
-  lastEdited: '2020-04-11T22:06:44.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 Angular is a popular JavaScript framework for building apps across all platforms; web, mobile web, native mobile, and native desktop.
@@ -66,7 +66,7 @@ After a successful scaffolding, `cd` into `my-new-app` directory and run the fol
 
 Your browser will automatically be launched with the served Angular app at <http://localhost:4200/>
 
-## Step 2: Deploy Your Angular Project with <ProductName />
+## Step 2: Deploy Your Angular Project with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

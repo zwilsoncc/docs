@@ -5,7 +5,7 @@ import Caption from '~/components/text/caption'
 import { Image } from '~/components/media'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -21,7 +21,7 @@ export const meta = {
   example: 'preact',
   demo: 'https://preact.now-examples.now.sh',
   image: `https://og-image.now.sh/**Deploy%20a%20Preact%20App**%20%3Cbr%3E%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fwww.stickpng.com%2Fassets%2Fimages%2F584815e7cef1014c0b5e4978.png`,
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Preact](https://preactjs.com/) is a fast 3kB alternative to React with the same modern API.
@@ -40,7 +40,7 @@ Get started by setting up a Preact app with Preact CLI and the following command
 <Snippet dark text="preact create default my-preact-app && cd my-preact-app" />
 <Caption>Bootstrapping a Preact app with <Link href="https://github.com/preactjs/preact-cli">Preact CLI</Link>.</Caption>
 
-## Step 2: Deploying Your Preact Project with <ProductName />
+## Step 2: Deploying Your Preact Project with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

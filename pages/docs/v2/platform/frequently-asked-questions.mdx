@@ -5,12 +5,14 @@ import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 import ProductName from '~/components/product-name'
 import ProductNameSimple from '~/components/product-name/simple'
+import ProductNameWrapper from '~/components/product-name/wrapper'
+import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-11T07:17:23.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 ## Platform Version Detection
@@ -38,7 +40,7 @@ For more information on our cloud partners' Green energy policies, we recommend 
 - [Google Cloud Sustainability](https://cloud.google.com/sustainability/)
 - [Microsoft Environmental Sustainability](https://www.microsoft.com/en-us/corporate-responsibility/sustainability)
 
-## What can I deploy with <ProductName />?
+## What can I deploy with <ProductNameWrapper name={PRODUCT} />?
 
 ​<ProductName /> is best at deploying technologies that can be served over HTTP and distributed through our CDN network:
 

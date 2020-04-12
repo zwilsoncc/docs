@@ -6,7 +6,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import ProductNameSimple from '~/components/product-name/simple'
 import { PRODUCT } from '~/lib/constants'
@@ -23,7 +23,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
   name: 'Next.js + MySQL',
   type: 'app',
-  lastEdited: '2020-04-11T07:55:06.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [<ProductName />](/docs/v2).
@@ -401,7 +401,7 @@ Your `pages/index.js` file performs the following functions:
 
 You now have a **complete app** with both an API and interface, the next section will show you how to deploy it seamlessly with [<ProductName />](https://zeit.co).
 
-## Step 6: Deploy Your Project with <ProductName />
+## Step 6: Deploy Your Project with <ProductNameWrapper name={PRODUCT} />
 
 Getting your project ready to [deploy](/docs/v2/introduction) with [<ProductName />](https://zeit.co) could hardly be simpler, all that's required is the inclusion of [environment variables](/docs/v2/serverless-functions/env-and-secrets).
 

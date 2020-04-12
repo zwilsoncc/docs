@@ -6,7 +6,7 @@ import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -22,7 +22,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-hugo-with-now.mdx',
   name: 'Hugo',
   type: 'site',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -70,7 +70,7 @@ You can add some content to the Hugo project by running the following command:
 Once you are done running the command, edit the `my-first-post.md` file (within the `contents/posts` directories) and add the following content below the generated metadata:
 
 ```markdown
-## Deploying Hugo with <ProductName />
+## Deploying Hugo
 ```
 
 You can now see your project running locally with the following command:
@@ -81,11 +81,11 @@ You can now see your project running locally with the following command:
 <Note>
   Before deploying, ensure the <InlineCode>draft</InlineCode> value in your{' '}
   <InlineCode>my-first-post.md</InlineCode> file is set to{' '}
-  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>,
-  the content of your posts won't show up in production.
+  <InlineCode>false</InlineCode>. If it remains as <InlineCode>true</InlineCode>
+  , the content of your posts won't show up in production.
 </Note>
 
-## Step 2: Deploying Your Hugo Website with <ProductName />
+## Step 2: Deploying Your Hugo Website with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

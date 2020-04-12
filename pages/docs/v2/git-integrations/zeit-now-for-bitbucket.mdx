@@ -7,12 +7,13 @@ import BitbucketEnvironmentVariables from '~/components/git-mdx/bitbucket/enviro
 import BitbucketDisconnecting from '~/components/git-mdx/bitbucket/disconnecting.mdx'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
+import ProductNameWrapper from '~/components/product-name/wrapper'
 
 export const meta = {
   title: `${PRODUCT} for Bitbucket`,
   description: `Deploy each change in your Bitbucket projects with ${PRODUCT} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-bitbucket.mdx',
-  lastEdited: '2020-04-09T06:39:03.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 The <ProductName /> for Bitbucket integration automatically deploys your Bitbucket projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -50,7 +51,7 @@ If you’d like to:
 
 You can do so from [the "Git Integration" fieldset](/docs/v2/platform/projects#git-integration) on [Project Settings](/docs/v2/platform/projects#project-settings).
 
-### More Information About <ProductName /> for Bitbucket
+### More Information About <ProductNameWrapper name={PRODUCT} /> for Bitbucket
 
 For more information, such as a reference for default environment variables, expand the relevant details view below.
 

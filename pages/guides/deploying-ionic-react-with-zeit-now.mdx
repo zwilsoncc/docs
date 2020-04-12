@@ -4,7 +4,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-ionic-react-with-zeit-now.mdx',
   name: 'Ionic',
   type: 'app',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Ionic Framework](https://ionicframework.com/docs/intro) is an open source UI toolkit for building performant, high-quality mobile and desktop apps using web technologies (HTML, CSS, and JavaScript).
@@ -32,7 +32,7 @@ Set up an Ionic React app with [`npx`](https://www.npmjs.com/package/npx) and mo
 <Snippet dark text="npx ionic start [project-name] conference --type react && cd [project-name]" />
 <Caption>Initializing an Ionic app with <Link href="https://www.npmjs.com/package/npx">npx</Link> and moving into the project directory.</Caption>
 
-## Step 2: Deploying Your Ionic React App with <ProductName />
+## Step 2: Deploying Your Ionic React App with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

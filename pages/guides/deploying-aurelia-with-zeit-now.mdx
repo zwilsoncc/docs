@@ -5,7 +5,7 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-aurelia-with-zeit-now.mdx',
   name: 'Aurelia',
   type: 'app',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Aurelia](https://aurelia.io/home) is a JavaScript framework for web, mobile and desktop that leverages simple conventions to empower your creativity.
@@ -49,7 +49,7 @@ In the `./aurelia_project/aurelia.json` file, under the `platform` key, change t
   <InlineCode>/aurelia_project/aurelia.json</InlineCode> file.
 </Caption>
 
-## Step 2: Deploying Your Aurelia App with <ProductName />
+## Step 2: Deploying Your Aurelia App with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

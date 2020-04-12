@@ -9,6 +9,7 @@ import { Image } from '~/components/media'
 import ProductName from '~/components/product-name'
 import ProductNameSimple from '~/components/product-name/simple'
 import ProductNameShort from '~/components/product-name/short'
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -19,7 +20,7 @@ export const meta = {
   image: `https://og-image.now.sh/**Error%20Reports**%20for%20Your%20Projects%20with%20URIports%20and%20${PRODUCT}.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-error-reports-with-uriports-zeit-now%2Flogo.svg`,
   url: '/guides/client-side-error-reports-with-uriports-zeit-now',
   editUrl: 'pages/guides/client-side-error-reports-with-uriports-zeit-now.mdx',
-  lastEdited: '2020-04-11T22:12:24.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 Support for client-side generated reports are the standard for modern web browsers, and enabling this for your projects is a great way to identify and resolve issues, and improve site security, without relying on your users as testers.
@@ -50,7 +51,7 @@ Setting up reports with URIports, you can receive a variety of reports to inform
 - Expect-CT: When browsers fail to detect the presence of Signed Certificate Timestamps (SCTs) in subsequent TLS connections. This prevents the use of misused certificates from going unnoticed.
 - Feature Policy: The visitor triggered a violation of the Feature Policy. A policy that allows you to selectively enable, disable, or modify the behavior of browser features.
 
-## Step 1: Setting up a project on <ProductName />
+## Step 1: Setting up a project on <ProductNameWrapper name={PRODUCT} />
 
 [<ProductName />](/) makes it effortless to deploy any static framework and Serverless Function so that you can focus on your project.
 

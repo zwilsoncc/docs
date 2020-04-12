@@ -6,13 +6,14 @@ import GitLabDefaultBehaviour from '~/components/git-mdx/gitlab/default-behaviou
 import GitLabEnvironmentVariables from '~/components/git-mdx/gitlab/environment-variables.mdx'
 import GitLabDisconnecting from '~/components/git-mdx/gitlab/disconnecting.mdx'
 import ProductName from '~/components/product-name'
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: `${PRODUCT} for GitLab`,
   description: `Deploy each change in your GitLab projects with ${PRODUCT} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-gitlab.mdx',
-  lastEdited: '2020-04-09T05:29:05.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 The <ProductName /> for GitLab integration automatically deploys your GitLab projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -50,7 +51,7 @@ If you’d like to:
 
 You can do so from [the "Git Integration" fieldset](/docs/v2/platform/projects#git-integration) on [Project Settings](/docs/v2/platform/projects#project-settings).
 
-### More Information About <ProductName /> for GitLab
+### More Information About <ProductNameWrapper name={PRODUCT} /> for GitLab
 
 For more information, such as a reference for default environment variables, expand the relevant details view below.
 

@@ -6,6 +6,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import ProductNameSimple from '~/components/product-name/simple'
 import ProductName from '~/components/product-name'
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -15,7 +16,7 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2020-04-11T07:55:06.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as a production domain for your <ProductName /> deployments.
@@ -107,7 +108,7 @@ Your domain will be verified after adding the TXT record. Once <ProductNameSimpl
 
 <Snippet dark text="now domains verify <domain>" />
 
-## Step 2: Configuring your Domain on <ProductName />
+## Step 2: Configuring your Domain on <ProductNameWrapper name={PRODUCT} />
 
 Once your domain has been verified on <ProductName />, you can configure your domain with DNS records and add it as a production domain for deployments.
 
@@ -138,7 +139,7 @@ You can then deploy to your production domain with **a single command**:
 
 We highly recommend using either the [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) apps which will allow your app to be deployed to your production on push to your GitHub repository, GitLab project, or Bitbucket repository.
 
-## Step 3: Pointing to <ProductName />
+## Step 3: Pointing to <ProductNameWrapper name={PRODUCT} />
 
 If you already verified your domain with nameservers, then this step is done.
 

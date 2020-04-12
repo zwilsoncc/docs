@@ -5,7 +5,7 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -21,7 +21,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-docusaurus-with-zeit-now.mdx',
   name: 'Docusaurus',
   type: 'site',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Docusaurus](https://docusaurus.io/) is a documentation framework that makes it easy to maintain open source documentation websites.
@@ -75,7 +75,7 @@ const siteConfig = {
 
 Adding these two lines tells Docusaurus to use the `path` module to define where the `/docs` folder is located.
 
-## Step 2: Deploying Your Docusaurus Website with <ProductName />
+## Step 2: Deploying Your Docusaurus Website with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

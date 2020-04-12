@@ -4,7 +4,7 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
-
+import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-ember-with-zeit-now.mdx',
   name: 'Ember',
   type: 'app',
-  lastEdited: '2020-04-09T15:08:25.000Z'
+  lastEdited: '2020-04-12T01:10:50.000Z'
 }
 
 [Ember](https://emberjs.com/) is a JavaScript framework for creating ambitious web applications.
@@ -32,7 +32,7 @@ export const meta = {
 <Snippet dark text="npx ember-cli new my-ember-project && cd my-ember-project" />
 <Caption>Initializing an Ember project with <Link href="https://ember-cli.com/">ember-cli</Link> and moving into the project directory.</Caption>
 
-## Step 2: Deploying Your Ember App with <ProductName />
+## Step 2: Deploying Your Ember App with <ProductNameWrapper name={PRODUCT} />
 
 <DeploySection meta={meta} />
 

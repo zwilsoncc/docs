@@ -1,6 +1,8 @@
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import ProductName from '~/components/product-name'
+import ProductNameWrapper from '~/components/product-name/wrapper'
+import { PRODUCT } from '~/lib/constants'
 
 To disconnect your personal account or team on <ProductName /> from GitHub, take the following steps:
 
@@ -39,7 +41,7 @@ Then, click on **Installed GitHub Apps**:
 />
 <Caption>Organization Application Settings on GitHub.</Caption>
 
-#### Uninstall <ProductName />
+#### Uninstall <ProductNameWrapper name={PRODUCT} />
 
 Then, find the "Now" application and select the **Configure** button next to it.
 
