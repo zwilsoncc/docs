@@ -2,5 +2,6 @@
   "product": "ZEIT Now",
   "cdnName": "ZEIT Smart CDN",
   "organization": "ZEIT",
-  "productShort": "Now"
+  "productShort": "Now",
+  "productV1": "ZEIT Now 1.0"
 }
