@@ -3,7 +3,7 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 import ProductName from '~/components/product-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
@@ -15,7 +15,7 @@ export const meta = {
   authors: ['arunoda', 'timothy'],
   url: '/guides/getting-started-with-now-for-gitlab',
   editUrl: 'pages/guides/getting-started-with-now-for-gitlab.mdx',
-  lastEdited: '2020-04-12T01:10:50.000Z'
+  lastEdited: '2020-04-12T06:08:47.000Z'
 }
 
 The [<ProductName /> for GitLab integration](/docs/v2/integrations/now-for-gitlab) provides you with automatic deployments for each push to a project, automatic preview URLs for pushes to the default branch, and instant rollbacks for reverts.
@@ -50,7 +50,7 @@ For <ProductName /> to make automatic deployments and preview URLs, it needs acc
 
 Connect your GitLab account through your [account settings](/account).
 
-If you don't have a <ProductNameSimple /> account, visit <https://zeit.co/signup> and click "Sign Up with GitLab".
+If you don't have a <OrgName /> account, visit <https://zeit.co/signup> and click "Sign Up with GitLab".
 
 ### Link Your GitLab Projects
 
@@ -64,7 +64,7 @@ From the [account settings](/account) section where you connected your GitLab ac
 />
 <Caption style={{marginTop: '-64px'}}>Linking a GitLab project.</Caption>
 
-With a project linked, no further setup is required on <ProductNameSimple />.
+With a project linked, no further setup is required on <OrgName />.
 
 ## Step 3: Using <ProductNameWrapper name={PRODUCT} /> for GitLab
 

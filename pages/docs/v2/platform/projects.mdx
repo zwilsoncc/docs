@@ -6,21 +6,21 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { Image } from '~/components/media'
 import ProductName from '~/components/product-name'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-11T07:31:56.000Z'
+  lastEdited: '2020-04-12T06:08:47.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/zeit-now-for-github), [GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) repository.
 
 ## Creating a Project
 
-You can create a new project from the <ProductNameSimple /> Dashboard by clicking on [the New Project button](/new).
+You can create a new project from the <OrgName /> Dashboard by clicking on [the New Project button](/new).
 
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/new-project.png`}
@@ -28,7 +28,7 @@ You can create a new project from the <ProductNameSimple /> Dashboard by clickin
   height={516 / 2}
   shadow
 />
-<Caption>Creating a new project from the <ProductNameSimple /> Dashboard.</Caption>
+<Caption>Creating a new project from the <OrgName /> Dashboard.</Caption>
 
 You can either [import from an existing Git repository](/docs/v2/git-integrations) or use one of our templates.
 
@@ -42,7 +42,7 @@ To edit project settings, choose a project from the [dashboard](https://zeit.co/
   height={410 / 2}
   shadow
 />
-<Caption>Selecting the project from the <ProductNameSimple /> Dashboard.</Caption>
+<Caption>Selecting the project from the <OrgName /> Dashboard.</Caption>
 
 Then, select the **Settings** tab:
 
@@ -148,7 +148,7 @@ To delete a project, choose a project from the [dashboard](https://zeit.co/dashb
   height={410 / 2}
   shadow
 />
-<Caption>Selecting the project from the <ProductNameSimple /> Dashboard.</Caption>
+<Caption>Selecting the project from the <OrgName /> Dashboard.</Caption>
 
 Then, select the **Settings** tab:
 

@@ -3,7 +3,7 @@ import { HelpLink } from '~/components/text/link'
 import Caption from '~/components/text/caption'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/webhooks.mdx',
@@ -12,7 +12,7 @@ export const meta = {
 
 ## Webhooks
 
-Webhooks allow you to subscribe to certain events on <ProductNameSimple /> by providing a destination URL.
+Webhooks allow you to subscribe to certain events on <OrgName /> by providing a destination URL.
 
 We send a `POST` request to that URL with an event `payload` every time an event associated with the webhook happens.
 
@@ -125,7 +125,7 @@ Occurs whenever a deployment is ready.
 
 ### Securing Webhooks
 
-Once your server is configured to receive payloads, it will listen for any payload sent to the endpoint you configured. By knowing the URL of your webhook, anybody can send you requests. It is therefore recommend to check whether the requests are coming from <ProductNameSimple /> or not.
+Once your server is configured to receive payloads, it will listen for any payload sent to the endpoint you configured. By knowing the URL of your webhook, anybody can send you requests. It is therefore recommend to check whether the requests are coming from <OrgName /> or not.
 
 The recommended method to check is to use the `x-zeit-signature` security header you receive with each request. The value of this header corresponds to the `sha1` of the payload body using your [client secret](/docs/api#endpoints/oauth2).
 

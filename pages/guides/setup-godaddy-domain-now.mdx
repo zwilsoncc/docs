@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 import ProductName from '~/components/product-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
@@ -16,7 +16,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-now',
   editUrl: 'pages/guides/setup-godaddy-domain-now.mdx',
-  lastEdited: '2020-04-12T01:10:50.000Z'
+  lastEdited: '2020-04-12T06:08:47.000Z'
 }
 
 With <ProductName />, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to <ProductName />](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
@@ -25,7 +25,7 @@ This guide will cover **how to point your GoDaddy registered domain towards <Pro
 
 ## Step 1: Adding and Verifying Your Domain
 
-The first step of pointing an external domain to <ProductName /> is to add your domain to your <ProductNameSimple /> account or team and verifying ownership.
+The first step of pointing an external domain to <ProductName /> is to add your domain to your <OrgName /> account or team and verifying ownership.
 
 To add a domain with [Now CLI](/docs/v2/getting-started/installation#now-cli), use the following command in your terminal:
 
@@ -69,7 +69,7 @@ Next, click on the "DNS" button on the domain you want to migrate to <ProductNam
 
 Apply the nameservers you received from adding your domain or from the inspect command in the order they are given and then save the configuration.
 
-After GoDaddy has propagated the changed DNS for your domain, your domain is ready to be verified. <ProductNameSimple /> will automatically check the domain periodically for verification, though if you want to verify it yourself, use the following command:
+After GoDaddy has propagated the changed DNS for your domain, your domain is ready to be verified. <OrgName /> will automatically check the domain periodically for verification, though if you want to verify it yourself, use the following command:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -89,7 +89,7 @@ Select `TXT` as the record type to add, `_now` as the host, and the value you we
 />
 <Caption style={{marginTop: '-48px'}}>Adding a TXT record with GoDaddy's domain DNS management settings.</Caption>
 
-Once you have added the TXT record, your domain can be verified. <ProductNameSimple /> will periodically check your domain to see if it is verified, but if you do not want to wait and want to start using your domain with <ProductName /> immediately, use the following command to force a verification check:
+Once you have added the TXT record, your domain can be verified. <OrgName /> will periodically check your domain to see if it is verified, but if you do not want to wait and want to start using your domain with <ProductName /> immediately, use the following command to force a verification check:
 
 <Snippet dark text="now domains verify <domain>" />
 
@@ -122,7 +122,7 @@ For example, adding a set of Gmail MX records with the `now dns add` command:
 
 ​<ProductName /> is dedicated to making deployment easy. If you have not yet deployed an app, take a look at the [Deployment Basics](/docs/v2/deployments/basics) documentation or at some other [guides](/guides) or [examples](/examples) to get started.
 
-Adding your production domain to a project can be done from the [<ProductNameSimple /> Dashboard](/dashboard) by selecting the project's **Domains** tab and entering it there, you can find more information on this in the [custom domains documentation](https://zeit.co/docs/v2/custom-domains/#adding-a-domain).
+Adding your production domain to a project can be done from the [<OrgName /> Dashboard](/dashboard) by selecting the project's **Domains** tab and entering it there, you can find more information on this in the [custom domains documentation](https://zeit.co/docs/v2/custom-domains/#adding-a-domain).
 
 You can then deploy to your production domain with **a single command**:
 
@@ -133,7 +133,7 @@ We highly recommend using either the [<ProductName /> for GitHub](/docs/v2/git-i
 
 ## Step 3: Pointing to <ProductNameWrapper name={PRODUCT} />
 
-As with the ["Verifying with Nameservers"](#verifying-with-nameservers) step, this final part of the migration process will point your domain to <ProductNameSimple /> DNS with the intended nameservers set. If you did not save them when you added your domain, you can see the intended list by running the `now domains inspect <domain>` command.
+As with the ["Verifying with Nameservers"](#verifying-with-nameservers) step, this final part of the migration process will point your domain to <OrgName /> DNS with the intended nameservers set. If you did not save them when you added your domain, you can see the intended list by running the `now domains inspect <domain>` command.
 
 If you verified with nameservers, this step is already complete!
 
@@ -149,7 +149,7 @@ To set your nameservers, on the DNS management page as you added the TXT record,
 
 Once GoDaddy propagates the changes to the domain with the updated nameservers, your domain will then point to the [app you deployed](#adding-a-domain-to-deployments) before.
 
-That's all. Your domain is successfully migrated to using <ProductNameSimple /> DNS and pointing to your <ProductName /> deployed app.
+That's all. Your domain is successfully migrated to using <OrgName /> DNS and pointing to your <ProductName /> deployed app.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 

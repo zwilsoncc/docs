@@ -3,7 +3,7 @@ import Link, { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 import ProductName from '~/components/product-name'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 import CdnName from '~/components/product-name/cdn'
 
 export const meta = {
@@ -32,22 +32,22 @@ The response of this API can be controlled with the following optional query par
 
 #### Response Parameters
 
-| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                       |
-| ----------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                                      |
-| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                                  |
-| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <ProductNameSimple />. |
-| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                               |
-| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                       |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                        |
-| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                             |
-| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <ProductNameSimple />.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                      |
-| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                                |
-| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                                         |
-| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                                  |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <ProductNameSimple /> DNS.                                                          |
-| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                                       |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                             |
+| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                            |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                        |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <OrgName />. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                     |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                             |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                              |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                   |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <OrgName />.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                            |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                      |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                               |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                        |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <OrgName /> DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                             |
 
 ##### Example Request
 
@@ -115,24 +115,24 @@ been created, the user may retry the same POST and the endpoint shall return
 
 #### Response Parameters
 
-| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                                   |
-| ----------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                                                  |
-| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                                              |
-| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <ProductNameSimple />.             |
-| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                                           |
-| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                                   |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                                    |
-| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                                         |
-| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <ProductNameSimple />.                                                               |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                                  |
-| **transferStartedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | If transferred into <ProductNameSimple />, The date when the domain transfer was initiated                                                                    |
-| **transferredAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain was successfully transferred into <ProductNameSimple />. `null` if the transfer is still processing or was never transferred in. |
-| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                                            |
-| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                                                     |
-| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                                              |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <ProductNameSimple /> DNS.                                                                      |
-| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                                                   |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                         |
+| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                                        |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                                    |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <OrgName />.             |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                                 |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                         |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                          |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                               |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <OrgName />.                                                               |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                        |
+| **transferStartedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | If transferred into <OrgName />, The date when the domain transfer was initiated                                                                    |
+| **transferredAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain was successfully transferred into <OrgName />. `null` if the transfer is still processing or was never transferred in. |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                                  |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                                           |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                                    |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <OrgName /> DNS.                                                                      |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                                         |
 
 ##### Example Request
 
@@ -185,7 +185,7 @@ been created, the user may retry the same POST and the endpoint shall return
 
 <Endpoint method="POST" url="/v4/domains" />
 
-Initiate a domain transfer request from an external Registrar to <ProductNameSimple />.
+Initiate a domain transfer request from an external Registrar to <OrgName />.
 
 #### Request Parameters
 
@@ -198,24 +198,24 @@ Initiate a domain transfer request from an external Registrar to <ProductNameSim
 
 #### Response Parameters
 
-| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                       |
-| ----------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                                      |
-| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                                  |
-| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <ProductNameSimple />. |
-| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                               |
-| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                       |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                        |
-| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                             |
-| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <ProductNameSimple />.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                      |
-| **transferStartedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain transfer was initiated                                                                                                   |
-| **transferredAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain was successfully transferred into <ProductNameSimple />. `null` if the transfer is still processing.                 |
-| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                                |
-| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                                         |
-| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                                  |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <ProductNameSimple /> DNS.                                                          |
-| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                                       |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                             |
+| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                            |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                        |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <OrgName />. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                     |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                             |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                              |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                   |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <OrgName />.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                            |
+| **transferStartedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain transfer was initiated                                                                                         |
+| **transferredAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain was successfully transferred into <OrgName />. `null` if the transfer is still processing.                 |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                      |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                               |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                        |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <OrgName /> DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                             |
 
 ##### Example Request
 
@@ -276,25 +276,25 @@ Verify a domain after adding either the intended nameservers or DNS TXT verifica
 
 #### Response Parameters
 
-| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                       |
-| ----------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                                      |
-| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                                  |
-| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <ProductNameSimple />. |
-| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                               |
-| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                       |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                        |
-| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                             |
-| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <ProductNameSimple />.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                      |
-| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                                |
-| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                                         |
-| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                                  |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <ProductNameSimple /> DNS.                                                          |
-| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                                       |
-| **suffix**              | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is used as a Custom Deployment Suffix ([available on the Enterprise plan](/pricing)).                                               |
-| **aliases**             | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of aliases created using the domain.                                                                                                     |
-| **certs**               | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of SSL certificates created for the domain.                                                                                              |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                             |
+| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                            |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                        |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <OrgName />. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                     |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                             |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                              |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                   |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <OrgName />.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                            |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                      |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                               |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                        |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <OrgName /> DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                             |
+| **suffix**              | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is used as a Custom Deployment Suffix ([available on the Enterprise plan](/pricing)).                                     |
+| **aliases**             | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of aliases created using the domain.                                                                                           |
+| **certs**               | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of SSL certificates created for the domain.                                                                                    |
 
 ##### Example Request
 
@@ -377,25 +377,25 @@ Get information for a single domain in an account or team.
 
 #### Response Parameters
 
-| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                       |
-| ----------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                                      |
-| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                                  |
-| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <ProductNameSimple />. |
-| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                               |
-| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                                       |
-| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                                        |
-| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                             |
-| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <ProductNameSimple />.                                                   |
-| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                                      |
-| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                                |
-| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                                         |
-| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                                  |
-| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <ProductNameSimple /> DNS.                                                          |
-| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                                       |
-| **suffix**              | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is used as a Custom Deployment Suffix ([available on the Enterprise plan](/pricing)).                                               |
-| **aliases**             | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of aliases created using the domain.                                                                                                     |
-| **certs**               | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of SSL certificates created for the domain.                                                                                              |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                             |
+| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                  | <HelpLink href="#api-basics/types">ID</HelpLink>           | The unique ID of the domain.                                                                                                            |
+| **name**                | <HelpLink href="#api-basics/types">String</HelpLink>       | The domain name.                                                                                                                        |
+| **serviceType**         | <HelpLink href="#api-basics/types">String</HelpLink>       | The type of service the domain is handled by. `external` if the DNS is externally handled, or `zeit.world` if handled with <OrgName />. |
+| **nsVerifiedAt**        | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's nameservers were verified based on the intended set.                                                     |
+| **txtVerifiedAt**       | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain's TXT DNS record was verified.                                                                             |
+| **cdnEnabled**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | Whether the domain has the [<CdnName />](/docs/v2/domains-and-aliases/cdn) enabled or not.                                              |
+| **createdAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date when the domain was created in the registry.                                                                                   |
+| **expiresAt**           | <HelpLink href="#api-basics/types">Date</HelpLink>         | The date at which the domain is set to expire. `null` if not bought with <OrgName />.                                                   |
+| **boughtAt**            | <HelpLink href="#api-basics/types">Date</HelpLink>         | If it was purchased through <ProductName />, the date when it was purchased.                                                            |
+| **verifiedRecord**      | <HelpLink href="#api-basics/types">ID</HelpLink>           | The ID of the verification record in the registry.                                                                                      |
+| **verified**            | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain has the ownership verified.                                                                                               |
+| **nameservers**         | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the current nameservers of the domain.                                                                                        |
+| **intendedNameservers** | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of the intended nameservers for the domain to point to <OrgName /> DNS.                                                          |
+| **creator**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing information of the domain creator, including the user's `id`, `username`, and `email`.                             |
+| **suffix**              | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | If the domain is used as a Custom Deployment Suffix ([available on the Enterprise plan](/pricing)).                                     |
+| **aliases**             | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of aliases created using the domain.                                                                                           |
+| **certs**               | <HelpLink href="#api-basics/types">List</HelpLink>         | The list of SSL certificates created for the domain.                                                                                    |
 
 ##### Example Request
 

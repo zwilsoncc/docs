@@ -6,7 +6,7 @@ import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import ProductName from '~/components/product-name'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 
 When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
 
@@ -20,7 +20,7 @@ To customize the build settings for your project, choose a project from the [das
   height={410 / 2}
   shadow
 />
-<Caption>Selecting the project from the <ProductNameSimple /> Dashboard.</Caption>
+<Caption>Selecting the project from the <OrgName /> Dashboard.</Caption>
 
 Then, select the **Settings** tab:
 
@@ -399,5 +399,5 @@ For more information on what to do next, we recommend the following articles:
 
 <Card title="Deploy Hooks" href="/docs/v2/advanced/deploy-hooks">
   Use Deploy Hooks to trigger deployments to build content from outside{' '}
-  <ProductNameSimple />.
+  <OrgName />.
 </Card>

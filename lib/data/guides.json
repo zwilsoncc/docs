@@ -7,7 +7,7 @@
     "url": "/guides/monitor-frontend-performance-with-debugbear-and-zeit-now",
     "image": "https://og-image.now.sh/**Track%20website%20performance**%20with%20DebugBear%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fmonitor-frontend-performance-with-debugbear-and-zeit-now%2Fdebubear-logo.png",
     "editUrl": "pages/guides/monitor-frontend-performance-with-debugbear-and-zeit-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create and Deploy a TakeShape Blog with ZEIT Now",
@@ -30,7 +30,7 @@
     "image": "https://og-image.now.sh/**Error%20Reports**%20for%20Your%20Projects%20with%20URIports%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-error-reports-with-uriports-zeit-now%2Flogo.svg",
     "url": "/guides/client-side-error-reports-with-uriports-zeit-now",
     "editUrl": "pages/guides/client-side-error-reports-with-uriports-zeit-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Monitor Performance with Calibre and ZEIT Now",
@@ -40,7 +40,7 @@
     "url": "/guides/monitoring-performance-with-calibre-and-zeit-now",
     "image": "https://og-image.now.sh/**Performance%20Monitoring**%20for%20ZEIT%20Now%20Deployments%20with%20Calibre.png?theme=light&md=1&fontSize=88px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1103494136768847873%2FM6AGVCx4_400x400.png",
     "editUrl": "pages/guides/monitoring-performance-with-calibre-and-zeit-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create and Deploy Vue.js Forms using Formcarry with ZEIT Now",
@@ -53,7 +53,7 @@
     "image": "https://og-image.now.sh/Create%20**Vue.js%20Forms**%20with%20Formcarry%20and%20ZEIT%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fvue-js-html-forms-with-formcarry-zeit-now%2Flogo.png",
     "url": "/guides/vue-js-html-forms-with-formcarry-zeit-now",
     "editUrl": "pages/guides/vue-js-html-forms-with-formcarry-zeit-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Deploy Scully with ZEIT Now",
@@ -250,7 +250,7 @@
     "authors": ["msweeneydev"],
     "url": "/guides/transferring-domains-to-zeit-now",
     "editUrl": "pages/guides/transferring-domains-to-zeit-now.mdx",
-    "lastEdited": "2020-04-11T07:55:06.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create an Ember App and Deploy It with ZEIT Now",
@@ -420,7 +420,7 @@
     "authors": ["msweeneydev"],
     "url": "/guides/zero-downtime-domain-migration",
     "editUrl": "pages/guides/zero-downtime-domain-migration.mdx",
-    "lastEdited": "2020-04-11T07:55:06.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create and Deploy a Next.js and Prismic App with ZEIT Now",
@@ -432,7 +432,7 @@
     "url": "/guides/deploying-next-and-prismic-with-now",
     "image": "https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png",
     "editUrl": "pages/guides/deploying-next-and-prismic-with-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create a Next.js and Storyblok App That Builds and Deploys with ZEIT Now",
@@ -444,7 +444,7 @@
     "url": "/guides/deploying-next-and-storyblok-with-now",
     "image": "https://zeit.co/docs/static/guides/deploying-next-storyblok-with-now/deploying-next-storyblok-with-now.png",
     "editUrl": "pages/guides/deploying-next-and-storyblok-with-now.mdx",
-    "lastEdited": "2020-04-11T07:55:06.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create a Next.js and ButterCMS App That Builds and Deploys with ZEIT Now",
@@ -456,7 +456,7 @@
     "editUrl": "pages/guides/deploying-next-and-buttercms-with-now.mdx",
     "name": "Next.js + ButterCMS",
     "type": "app",
-    "lastEdited": "2020-04-11T07:55:06.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create a Next.js App with Contentful and Deploy It with ZEIT Now",
@@ -468,7 +468,7 @@
     "editUrl": "pages/guides/deploying-next-and-contentful-with-now.mdx",
     "name": "Next.js + Contentful",
     "type": "app",
-    "lastEdited": "2020-04-11T07:55:06.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Deploying Sanity Studio with ZEIT Now",
@@ -513,7 +513,7 @@
     "editUrl": "pages/guides/deploying-next-and-mysql-with-now.mdx",
     "name": "Next.js + MySQL",
     "type": "app",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Create a Charge App That Builds and Deploys with ZEIT Now",
@@ -535,7 +535,7 @@
     "authors": ["arunoda", "timothy"],
     "url": "/guides/getting-started-with-now-for-gitlab",
     "editUrl": "pages/guides/getting-started-with-now-for-gitlab.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "How to Update Now CLI",
@@ -581,7 +581,7 @@
     "authors": ["unicodeveloper"],
     "url": "/guides/setup-namecheap-domain-now",
     "editUrl": "pages/guides/setup-namecheap-domain-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Getting Started with Next.js and ZEIT Now",
@@ -595,7 +595,7 @@
     "demo": "https://nextjs.now-examples.now.sh",
     "image": "https://og-image.now.sh/**Deploy%20Serverless%20Next.js**%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=83px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&heights=250&heights=350",
     "editUrl": "pages/guides/deploying-nextjs-with-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   },
   {
     "title": "Deploy a React App with ZEIT Now and Create React App",
@@ -679,6 +679,6 @@
     "authors": ["timothy"],
     "url": "/guides/setup-godaddy-domain-now",
     "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-12T06:08:47.000Z"
   }
 ]

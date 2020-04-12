@@ -1,6 +1,6 @@
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 
 We require some permissions through our Now for GitHub integration. Below are listed the permissions required and a description for what they are used for.
 
@@ -13,12 +13,12 @@ Repository permissions allow us to interact with repositories belonging to or as
 | `Administration`  | Y    | Y     | Allows us to create repositories on the user's behalf.                                                                    |
 | `Checks`          | Y    | Y     | Allows us to add checks against source code on push.                                                                      |
 | `Contents`        | Y    | Y     | Allows us to fetch and write source code for new project templates for the connected user or organization.                |
-| `Deployments`     | Y    | Y     | Allows us to synchronize deployment status between GitHub and the <ProductNameSimple /> infrastructure.                   |
+| `Deployments`     | Y    | Y     | Allows us to synchronize deployment status between GitHub and the <OrgName /> infrastructure.                             |
 | `Pull Requests`   | Y    | Y     | Allows us create deployments for each Pull Request (PR) and comment on those PR's with status updates.                    |
 | `Issues`          | Y    | Y     | Allows us to interact with Pull Requests as with the `Pull Requests` permissions due to GitHub requiring both for access. |
 | `Metadata`        | Y    | N     | Allows us to read basic repository metadata to provide a detailed dashboard.                                              |
 | `Web Hooks`       | Y    | Y     | Allows us to react to various GitHub events.                                                                              |
-| `Commit Statuses` | Y    | Y     | Allows us to synchronize commit status between GitHub and <ProductNameSimple />.                                          |
+| `Commit Statuses` | Y    | Y     | Allows us to synchronize commit status between GitHub and <OrgName />.                                                    |
 
 #### Organization Permissions
 

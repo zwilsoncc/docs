@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import ProductName from '~/components/product-name'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 
 export const meta = {
   editUrl:
@@ -35,13 +35,13 @@ module.exports = withUiHook(({ payload }) => {
 ```
 
 <Caption>
-  An example <InlineCode>index.js</InlineCode> file for a <ProductNameSimple />{' '}
+  An example <InlineCode>index.js</InlineCode> file for a <OrgName />{' '}
   Integration.
 </Caption>
 
 Inside the [UIHook](/docs/integrations#understanding-uihooks) there is a variable, `count`. Every time the [Button](#component-catalog/action-components/button) is clicked, the UIHook is called, thus updating the counter and **providing the updated HTML as a response**.
 
-This is happening inside the <ProductNameSimple /> Dashboard under a configuration page for this Integration.
+This is happening inside the <OrgName /> Dashboard under a configuration page for this Integration.
 
 <Note>
   You can find more complex examples{' '}
@@ -54,7 +54,7 @@ This is happening inside the <ProductNameSimple /> Dashboard under a configurati
 
 With the [help of `now dev`](/docs/v2/development/basics), you can run your UIHook locally inside a **simulation of the <ProductName /> platform**.
 
-By running your UIHook locally, you can test that your Integration, after creating the Integration with <ProductNameSimple />, behaves as expected before deploying your Integration to production. This will be explored further in the next section.
+By running your UIHook locally, you can test that your Integration, after creating the Integration with <OrgName />, behaves as expected before deploying your Integration to production. This will be explored further in the next section.
 
 To run the UIHook locally, create a `now.json` file and add the following:
 

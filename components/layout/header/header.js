@@ -15,7 +15,7 @@ import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
 import MenuToggle from './menu-toggle'
 import { HeaderFeedback } from '~/components/feedback-input'
-import { API_DOCS_FEEDBACK, PRODUCT_SIMPLE } from '~/lib/constants'
+import { API_DOCS_FEEDBACK, ORGANIZATION } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 
@@ -256,7 +256,7 @@ class Header extends Component {
             <a
               className="logo"
               href={dashboard}
-              aria-label={`${PRODUCT_SIMPLE} Home`}
+              aria-label={`${ORGANIZATION} Home`}
               onContextMenu={this.onLogoRightClick}
             >
               <Logo height="25px" width="28px" />

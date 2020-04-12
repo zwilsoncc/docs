@@ -1,16 +1,16 @@
 import Doc from '~/components/layout/docs'
 import Now from '~/components/text/now'
 import { TerminalInput } from '~/components/text/terminal'
-import ProductNameSimple from '~/components/product-name/simple'
+import OrgName from '~/components/product-name/org-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import { PRODUCT_SIMPLE } from '~/lib/constants'
+import { ORGANIZATION } from '~/lib/constants'
 
 export const meta = {
   title: 'Frequently Asked Questions',
-  description: `The answers to our most frequently asked questions for Now and other ${PRODUCT_SIMPLE} products and services`,
+  description: `The answers to our most frequently asked questions for Now and other ${ORGANIZATION} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-04-11T07:12:03.000Z'
+  lastEdited: '2020-04-12T06:08:47.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -107,20 +107,20 @@ However, due to the stateless nature of our deployments, everything you store wi
 
 We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in Now and scale individually to provide equal service to your database than with your app deployments.
 
-## Can I transfer domains into/out of <ProductNameWrapper name={PRODUCT_SIMPLE} /> Domains?
+## Can I transfer domains into/out of <ProductNameWrapper name={ORGANIZATION} /> Domains?
 
 We are working on a domain transfer tool to make this process easier.
 
-For now, it is not possible to transfer a domain into <ProductNameSimple /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use Now as a DNS.
+For now, it is not possible to transfer a domain into <OrgName /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use Now as a DNS.
 
-If you need to transfer your domain out of <ProductNameSimple /> Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
+If you need to transfer your domain out of <OrgName /> Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
 
-If you would like to move a domain from one <ProductNameSimple /> account to another, you could do so by running the following commands:
+If you would like to move a domain from one <OrgName /> account to another, you could do so by running the following commands:
 
 1. From the current owner of the domain: `now domain rm domain.com`
 2. From the desired owner of the domain: `now domain add domain.com`
 
-After you have done this, the desired owner will be in possession of the domain and will be able to utilize it with <ProductNameSimple /> and Now.
+After you have done this, the desired owner will be in possession of the domain and will be able to utilize it with <OrgName /> and Now.
 
 ## Can I use docker-compose with Now?
 
@@ -162,7 +162,7 @@ If your bot is working in the background, it is recommended that you manually sc
 
 This will ensure the bot is no longer running before you remove it or deploy a new version.
 
-## How do I Change the nameservers of a domain purchased with <ProductNameWrapper name={PRODUCT_SIMPLE} /> Domains?
+## How do I Change the nameservers of a domain purchased with <ProductNameWrapper name={ORGANIZATION} /> Domains?
 
 This is not currently possible to do via the [Now CLI](/docs/clients/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
 
@@ -314,9 +314,9 @@ Both our DNS and HTTP(s) load balancing services have sophisticated DDoS protect
 
 Attacks come in very different forms and sizes. Therefore, we offer more advanced protection in the [enterprise](mailto:enterprise@zeit.co?subject=Advanced%20DDoS%20Protection) tiers.
 
-## How do I set up a password for my <ProductNameWrapper name={PRODUCT_SIMPLE} /> Account?
+## How do I set up a password for my <ProductNameWrapper name={ORGANIZATION} /> Account?
 
-<ProductNameSimple />'s login is serverless. You just need your email address and don't need to remember yet another password.
+<OrgName />'s login is serverless. You just need your email address and don't need to remember yet another password.
 
 For custom requirements, you can contact us at [enterprise@zeit.co](mailto:enterprise@zeit.co?subject=Advanced%20Authentication).
 
@@ -329,7 +329,7 @@ We do not currently offer support for IPv6.
 We block ports 25 and 587 on Now deployments to avoid spam.
 Any other port is available for use.
 
-## Can I Uue a 3-D secure credit card with <ProductNameWrapper name={PRODUCT_SIMPLE} />?
+## Can I Uue a 3-D secure credit card with <ProductNameWrapper name={ORGANIZATION} />?
 
 We do not currently offer support for the 3-D Secure protocol.
 

@@ -1,18 +1,18 @@
 import Doc from '~/components/layout/docs'
 import ProductName from '~/components/product-name'
-import { PRODUCT_SIMPLE } from '~/lib/constants'
-import ProductNameSimple from '~/components/product-name/simple'
+import { ORGANIZATION } from '~/lib/constants'
+import OrgName from '~/components/product-name/org-name'
 
 export const meta = {
   title: 'Network Overview',
-  description: `The ${PRODUCT_SIMPLE} Network layer sits in-between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.`,
+  description: `The ${ORGANIZATION} Network layer sits in-between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.`,
   editUrl: 'pages/docs/v2/network/overview.mdx',
-  lastEdited: '2020-04-11T07:12:03.000Z'
+  lastEdited: '2020-04-12T06:08:47.000Z'
 }
 
-The <ProductNameSimple /> Network layer sits in-between the internet and your <ProductName /> deployments. This type of network topology is sometimes called a [Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network) or CDN.
+The <OrgName /> Network layer sits in-between the internet and your <ProductName /> deployments. This type of network topology is sometimes called a [Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network) or CDN.
 
-The <ProductNameSimple /> Network has many responsibilities, but most importantly, it is responsible for routing requests to the correct **Serverless Function** or **Static File** output of your **Builds**. Since the <ProductNameSimple /> network is a CDN with the ability to execute functions at the edge, the <ProductNameSimple /> Network is a [Smart CDN](/smart-cdn).
+The <OrgName /> Network has many responsibilities, but most importantly, it is responsible for routing requests to the correct **Serverless Function** or **Static File** output of your **Builds**. Since the <OrgName /> network is a CDN with the ability to execute functions at the edge, the <OrgName /> Network is a [Smart CDN](/smart-cdn).
 
 ## Regions
 
@@ -24,7 +24,7 @@ In the event that the **Serverless Function** of your deployment is not created 
 
 ## Caching
 
-The <ProductNameSimple /> Network has multiple layers of caches to ensure that your <ProductName /> deployments are fast around the world. At a high level, the layers of the cache are as follows:
+The <OrgName /> Network has multiple layers of caches to ensure that your <ProductName /> deployments are fast around the world. At a high level, the layers of the cache are as follows:
 
 - L1 - a small per-[process](<https://en.wikipedia.org/wiki/Process_(computing)>) cache
 - L2 - shared cache for processes on a single node
