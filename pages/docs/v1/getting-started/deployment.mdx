@@ -17,7 +17,7 @@ export const meta = {
   lastEdited: '2020-04-13T05:49:46.000Z'
 }
 
-With <Now color="#000"/>, you can deploy any kind of web app by using a single command. <Now color="#000"/> supports three types of deployments:
+With <ProductNameShortV1 />, you can deploy any kind of web app by using a single command. <ProductNameShortV1 /> supports three types of deployments:
 
 - [Static](#static-deployment) - for static web apps
 - [Node.js](#node.js-deployment) - for Node.js apps
@@ -29,11 +29,11 @@ Here is how each of these deployments work:
 
 ## Static Deployment
 
-With static deployment, you can deploy a static web app or a set of assets to <Now color="#000"/>. Visit the directory you want to deploy and run this command:
+With static deployment, you can deploy a static web app or a set of assets to <ProductNameShortV1 />. Visit the directory you want to deploy and run this command:
 
 <TerminalInput>now</TerminalInput>
 
-If that directory contains an `index.html` file, that file will be served. Otherwise, <Now color="#000"/> will show all the files in that directory.
+If that directory contains an `index.html` file, that file will be served. Otherwise, <ProductNameShortV1 /> will show all the files in that directory.
 
 <Image
   src={`${process.env.IMAGE_ASSETS_URL}/docs/deployment/static-dir-listing.png`}
@@ -46,7 +46,7 @@ To learn more about static deployments, read <Link href="/docs/deployment-types/
 
 ## Node.js Deployment
 
-If you have a `package.json` file in your app directory, <Now color="#000"/> considers that a valid Node.js deployment. Here is a simple Node.js deployment with the help of [micro](https://github.com/zeit/micro).
+If you have a `package.json` file in your app directory, <ProductNameShortV1 /> considers that a valid Node.js deployment. Here is a simple Node.js deployment with the help of [micro](https://github.com/zeit/micro).
 
 We have two files in our app directory. They are:
 
@@ -77,13 +77,13 @@ To deploy this app, visit the app directory and run this command:
 
 <TerminalInput>now</TerminalInput>
 
-<Now color="#000"/> will install dependencies and run the `start` NPM script, as mentioned in the above `package.json` file.
+<ProductNameShortV1 /> will install dependencies and run the `start` NPM script, as mentioned in the above `package.json` file.
 
 You can also specify a separate build command, select the Node.js runtime and control dependency installation, and do more. To learn about those, read <Link href="/docs/deployment-types/node">this guide</Link>.
 
 ## Docker Deployment
 
-If your app directory contains a `Dockerfile`, <Now color="#000"/> considers that a valid [Docker](https://www.docker.com/) deployment. It will build a docker image based on the `Dockerfile` and start container(s) based on that.
+If your app directory contains a `Dockerfile`, <ProductNameShortV1 /> considers that a valid [Docker](https://www.docker.com/) deployment. It will build a docker image based on the `Dockerfile` and start container(s) based on that.
 
 To deploy a simple [Go](https://golang.org/) HTTP server, create a directory and add these two files:
 
@@ -164,6 +164,6 @@ Now run this command inside that directory:
 
 That's it. You'll get a URL like this: <https://go-hello-isftssqinn.now.sh>
 
-To learn more about Docker deployments on <Now color="#000"/>, read <Link href="/docs/deployment-types/docker">this guide</Link>.
+To learn more about Docker deployments on <ProductNameShortV1 />, read <Link href="/docs/deployment-types/docker">this guide</Link>.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
