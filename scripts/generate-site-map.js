@@ -77,7 +77,7 @@ function xmlUrlNode(pagePath) {
           .replace(/\${CDN_NAME}/g, productNames.cdnName)
           .replace(/\${PRODUCT_SHORT}/g, productNames.productShort)
           .replace(/\${PRODUCT_V1}/g, productNames.productV1)
-          .replace(/\${ORGANIZATION_V1}/g, productNames.organizationV1)
+          .replace(/\${ORG_NAME_V1}/g, productNames.orgNameV1)
           .replace(
             /\${PRODUCT_SHORT_NAME_V1}/g,
             productNames.productShortNameV1
