@@ -7,6 +7,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
+import ProductNameShort from '~/components/product-name/short'
 
 When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
 
@@ -158,7 +159,7 @@ In some projects, the top-level directory of the repository may not be the root 
 In cases like this, you can specify the project root directory. If you do so, please note the following:
 
 - If you specify a root directory, then your app won’t be able to access files outside of that directory. You also cannot use `..` to move up a level.
-- This setting also applies to [Now CLI](/download). Instead of running `now <directory-name>` to deploy, specify `<directory-name>` here so you can just run `now`.
+- This setting also applies to [<ProductNameShort /> CLI](/download). Instead of running `now <directory-name>` to deploy, specify `<directory-name>` here so you can just run `now`.
 
 <Note>
   If you update this setting, it will be applied starting with your next
@@ -185,27 +186,27 @@ Adding environment variables requires two steps, defining the environment variab
 
 To define an environment variable, you should use **Now Secrets**. By using **Now Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
 
-Adding **Now Secrets** can be done with [Now CLI](/download), providing three options to work with them.
+Adding **Now Secrets** can be done with [<ProductNameShort /> CLI](/download), providing three options to work with them.
 
 <Note>
-  When adding Now Secrets with Now CLI, the secret name is automatically
-  lowercased before being stored.
+  When adding Now Secrets with <ProductNameShort /> CLI, the secret name is
+  automatically lowercased before being stored.
 </Note>
 
 To **define a Now Secret**, use the following command:
 
 <Snippet dark text="now secrets add <secret-name> <secret-value>"/>
-<Caption>Defining a <b>Now Secret</b> using <Link href="/now">Now CLI</Link>.</Caption>
+<Caption>Defining a <b>Now Secret</b> using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
 
 To **remove a Now Secret**, use the following command:
 
 <Snippet dark text="now secrets rm <secret-name>"/>
-<Caption>Removing a <b>Now Secret</b> using <Link href="/now">Now CLI</Link>.</Caption>
+<Caption>Removing a <b>Now Secret</b> using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
 
 To **rename a Now Secret**, use the following command:
 
 <Snippet dark text="now secrets rename <secret-name> <new-name>"/>
-<Caption>Renaming a <b>Now Secret</b> using <Link href="/now">Now CLI</Link>.</Caption>
+<Caption>Renaming a <b>Now Secret</b> using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
 
 ### Providing Environment Variables
 
@@ -343,7 +344,7 @@ This is equivalent to `npm install --only=production` or `yarn install --product
 
 ### Prevent Cache Usage
 
-If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for Now CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
+If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for <ProductNameShort /> CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
 
 ### Framework Versioning
 

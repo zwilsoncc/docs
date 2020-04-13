@@ -7,14 +7,15 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
-import { PRODUCT, ORGANIZATION } from '~/lib/constants'
+import { PRODUCT, ORGANIZATION, PRODUCT_SHORT } from '~/lib/constants'
 import ProductNameWrapper from '~/components/product-name/wrapper'
+import ProductNameShort from '~/components/product-name/short'
 
 export const meta = {
   title: 'Deployments',
   description: `Understanding and making deployments with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2020-04-12T06:08:47.000Z'
+  lastEdited: '2020-04-13T07:39:35.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -23,7 +24,7 @@ This section contains information about making, managing, and understanding the 
 
 ## Making Deployments
 
-There are multiple ways to make deployments with <ProductName />; these include via a [<ProductName /> for Git Integration](#git-integration), [Deploy Hooks](#deploy-hooks), [Now CLI](#now-cli), and the [<ProductName /> API](#now-api).
+There are multiple ways to make deployments with <ProductName />; these include via a [<ProductName /> for Git Integration](#git-integration), [Deploy Hooks](#deploy-hooks), [<ProductNameShort /> CLI](#now-cli), and the [<ProductName /> API](#now-api).
 
 When making deployments, the [Project](/docs/v2/platform/projects/) will be uploaded and transformed into a production-ready output through the use of a [Build Step](/docs/v2/build-step).
 
@@ -52,9 +53,9 @@ To create a Deploy Hook, visit the settings page of your [Project](/docs/v2/plat
 
 You can find more information about Deploy Hooks in the [documentation](/docs/v2/advanced/deploy-hooks/).
 
-### Now CLI
+### <ProductNameWrapper name={PRODUCT_SHORT} /> CLI
 
-By using [Now CLI](/download), you can deploy [Projects](/docs/v2/platform/projects/) with **a single command** from your terminal.
+By using [<ProductNameShort /> CLI](/download), you can deploy [Projects](/docs/v2/platform/projects/) with **a single command** from your terminal.
 
 To make a [preview deployment](/docs/v2/platform/deployments/#preview), use the `now` command:
 
@@ -105,7 +106,7 @@ To add a **production domain** to a [Project](/docs/v2/platform/projects/), visi
 
 ## Managing Deployments
 
-You can manage your deployments either via the [<OrgName /> Dashboard](/dashboard) or, in advanced use cases, [Now CLI](/download).
+You can manage your deployments either via the [<OrgName /> Dashboard](/dashboard) or, in advanced use cases, [<ProductNameShort /> CLI](/download).
 
 ### <ProductNameWrapper name={ORGANIZATION} /> Dashboard
 
@@ -113,11 +114,11 @@ The [<OrgName /> Dashboard](/dashboard) is the easiest way for you to manage you
 
 Through the <OrgName /> Dashboard, you can find a variety of settings; including a **Domains** tab where you can add [custom domains](/docs/v2/custom-domains/) to your Project.
 
-### Now CLI and API
+### <ProductNameWrapper name={PRODUCT_SHORT} /> CLI and API
 
-The [Now CLI](/download) and [Now API](/docs/api/) provide alternative ways to manage your deployments.
+The [<ProductNameShort /> CLI](/download) and [<ProductNameShort /> API](/docs/api/) provide alternative ways to manage your deployments.
 
-You can find a full list of the commands available in the [Now CLI Reference](/docs/now-cli/), along with the deployments section of the [Now API Reference](/docs/api/#endpoints/deployments).
+You can find a full list of the commands available in the [<ProductNameShort /> CLI Reference](/docs/now-cli/), along with the deployments section of the [<ProductNameShort /> API Reference](/docs/api/#endpoints/deployments).
 
 ## Logs
 
@@ -191,7 +192,7 @@ There are two ways to force a **new** deployment to be created when our system w
 
 - **Make any change** to any of the parameters considered by the algorithm, listed above. For example, even changing one character in a comment of a source file yields a new deployment.
 - **Force a new deployment** by instructing your client to do so.
-  - For [Now CLI](/download) you can run `now --force`
+  - For [<ProductNameShort /> CLI](/download) you can run `now --force`
   - If using our API, include the [`forceNew` query parameter](/docs/api/v2#endpoints/deployments/create-a-new-deployment)
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

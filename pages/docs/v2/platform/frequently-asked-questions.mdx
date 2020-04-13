@@ -7,17 +7,18 @@ import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
+import ProductNameShort from '~/components/product-name/short'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-12T06:08:47.000Z'
+  lastEdited: '2020-04-13T07:39:35.000Z'
 }
 
 ## Platform Version Detection
 
-[Now CLI](/download) will automatically upgrade your deployment to the latest platform version if you import a project or if your project meets certain criteria. In order for this to work, you must:
+[<ProductNameShort /> CLI](/download) will automatically upgrade your deployment to the latest platform version if you import a project or if your project meets certain criteria. In order for this to work, you must:
 
 - Remove any Dockerfile.
 - Remove the `type` property from your `now.json` file.
@@ -66,7 +67,10 @@ The [build step](/docs/v2/build-step) will result in an error if the output dire
 
 ## Missing Build Script
 
-<Note>This is only relevant if you’re using Now CLI 16.7.3 or older.</Note>
+<Note>
+  This is only relevant if you’re using <ProductNameShort /> CLI 16.7.3 or
+  older.
+</Note>
 
 If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
 

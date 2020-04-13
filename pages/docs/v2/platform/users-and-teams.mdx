@@ -7,12 +7,13 @@ import Caption from '~/components/text/caption'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 import OrgName from '~/components/product-name/org-name'
+import ProductNameShort from '~/components/product-name/short'
 
 export const meta = {
   title: 'Users and Teams',
   description: `Using ${PRODUCT} with a scope of a user or a team and how to manage them.`,
   editUrl: 'pages/docs/v2/platform/users-and-teams.mdx',
-  lastEdited: '2020-04-12T06:08:47.000Z'
+  lastEdited: '2020-04-13T07:39:35.000Z'
 }
 
 There are identity forms available on <ProductName />, called "scopes": Users and teams.
@@ -68,8 +69,11 @@ If you are part of one or multiple teams, you can choose which to show project i
 <Caption>Switching teams from the account picker in the <Link href="/dashboard">dashboard</Link>.</Caption>
 
 <Note>
-  You can also use <Link href="/docs/now-cli#commands/switch">Now CLI</Link> to
-  switch between users and teams when making{' '}
+  You can also use{' '}
+  <Link href="/docs/now-cli#commands/switch">
+    <ProductNameShort /> CLI
+  </Link>{' '}
+  to switch between users and teams when making{' '}
   <Link href="/docs/v2/platform/deployments#preview">Preview Deployments</Link>.
 </Note>
 

@@ -4,6 +4,7 @@ import { P } from '~/components/text'
 import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import ProductName from '~/components/product-name'
+import ProductNameShort from '~/components/product-name/short'
 
 export const meta = {
   editUrl:
@@ -62,7 +63,7 @@ Specifies the [<ProductName /> Platform version](/docs/v2/platform/overview#vers
 
 The alias or aliases are applied automatically using [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) when merging or pushing to the default branch.
 
-You can deploy to the defined aliases using [Now CLI](/download) by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
+You can deploy to the defined aliases using [<ProductNameShort /> CLI](/download) by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
 
 <Code lang="json">{`{
   "alias": ["my-domain.com", "my-alias"]
@@ -83,7 +84,7 @@ You can deploy to the defined aliases using [Now CLI](/download) by setting the 
 
 **Valid values**: For teams, either an ID or slug. For users, either a email address, username, or ID.
 
-This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by [Now CLI](/download).
+This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by [<ProductNameShort /> CLI](/download).
 
 Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [secrets](/docs/v2/serverless-functions/env-and-secrets/) using `now secrets ls`).
 

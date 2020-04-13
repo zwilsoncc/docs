@@ -10,6 +10,7 @@ import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
 import { PRODUCT } from '~/lib/constants'
+import ProductNameShort from '~/components/product-name/short'
 
 export const meta = {
   title: `Create a Next.js App with a MySQL Database That Builds and Deploys with ${PRODUCT}`,
@@ -23,7 +24,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
   name: 'Next.js + MySQL',
   type: 'app',
-  lastEdited: '2020-04-12T06:08:47.000Z'
+  lastEdited: '2020-04-13T07:39:35.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [<ProductName />](/docs/v2).
@@ -124,7 +125,7 @@ Next, add a build script to your `package.json` file:
   Adding a build script to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/serverless-functions/env-and-secrets) using the [Now CLI](/download#now-cli) to keep them secure:
+Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/serverless-functions/env-and-secrets) using the [<ProductNameShort /> CLI](/download#now-cli) to keep them secure:
 
 <Snippet dark text="now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>

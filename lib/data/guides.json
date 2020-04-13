@@ -20,7 +20,7 @@
     "type": "site",
     "demo": "https://next-blog-takeshape.now.sh/",
     "editUrl": "pages/guides/deploying-takeshape-with-zeit-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Error Reports for Your Projects with URIports and ZEIT Now",
@@ -250,7 +250,7 @@
     "authors": ["msweeneydev"],
     "url": "/guides/transferring-domains-to-zeit-now",
     "editUrl": "pages/guides/transferring-domains-to-zeit-now.mdx",
-    "lastEdited": "2020-04-12T06:08:47.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Create an Ember App and Deploy It with ZEIT Now",
@@ -326,7 +326,7 @@
     "url": "/guides/deploying-pusher-channels-with-zeit-now",
     "image": "https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250",
     "editUrl": "pages/guides/deploying-pusher-channels-with-zeit-now.mdx",
-    "lastEdited": "2020-04-12T01:10:50.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Deploy Gridsome Sites with ZEIT Now",
@@ -420,7 +420,7 @@
     "authors": ["msweeneydev"],
     "url": "/guides/zero-downtime-domain-migration",
     "editUrl": "pages/guides/zero-downtime-domain-migration.mdx",
-    "lastEdited": "2020-04-12T06:08:47.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Create and Deploy a Next.js and Prismic App with ZEIT Now",
@@ -501,7 +501,7 @@
     "authors": ["msweeneydev"],
     "url": "/guides/handling-node-request-body",
     "editUrl": "pages/guides/handling-node-request-body.mdx",
-    "lastEdited": "2020-04-07T23:46:59.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Create a Next.js App with a MySQL Database That Builds and Deploys with ZEIT Now",
@@ -513,7 +513,7 @@
     "editUrl": "pages/guides/deploying-next-and-mysql-with-now.mdx",
     "name": "Next.js + MySQL",
     "type": "app",
-    "lastEdited": "2020-04-12T06:08:47.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Create a Charge App That Builds and Deploys with ZEIT Now",
@@ -544,7 +544,7 @@
     "authors": ["msweeneydev", "timothy"],
     "url": "/guides/updating-now-cli",
     "editUrl": "pages/guides/updating-now-cli.mdx",
-    "lastEdited": "2020-04-07T23:46:59.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Create an Angular App That Builds and Deploys with ZEIT Now",
@@ -581,7 +581,7 @@
     "authors": ["unicodeveloper"],
     "url": "/guides/setup-namecheap-domain-now",
     "editUrl": "pages/guides/setup-namecheap-domain-now.mdx",
-    "lastEdited": "2020-04-12T06:08:47.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   },
   {
     "title": "Getting Started with Next.js and ZEIT Now",
@@ -679,6 +679,6 @@
     "authors": ["timothy"],
     "url": "/guides/setup-godaddy-domain-now",
     "editUrl": "pages/guides/setup-godaddy-domain-now.mdx",
-    "lastEdited": "2020-04-12T06:08:47.000Z"
+    "lastEdited": "2020-04-13T07:39:35.000Z"
   }
 ]
