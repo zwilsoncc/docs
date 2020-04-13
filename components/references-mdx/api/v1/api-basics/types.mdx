@@ -7,7 +7,7 @@ import {
 } from '~/components/api/table'
 import Link from '~/components/text/link'
 import { InlineCode } from '~/components/text/code'
-import OrgName from '~/components/product-name/org-name'
+import OrgNameV1 from '~/components/product-name/org-name-v1'
 import { ORGANIZATION } from '~/lib/constants'
 
 export const meta = {
@@ -40,7 +40,7 @@ Along the documentation we're going to use many different types of data. Here yo
     <Cell>A string is a sequence of characters used to represent text.</Cell>
     <Cell>
       <InlineCode>
-        "<OrgName />"
+        "<OrgNameV1 />"
       </InlineCode>
     </Cell>
   </Row>
@@ -75,7 +75,7 @@ Along the documentation we're going to use many different types of data. Here yo
     <Cell>
       <InlineCode>
         ["
-        <OrgName />
+        <OrgNameV1 />
         ", 1234, 12.34]
       </InlineCode>
     </Cell>
