@@ -18,7 +18,7 @@ In this document, you'll learn the exact specifications and behavior of Docker d
 
 ## Built in the Cloud
 
-<ProductNameShortV1 />'s Dockerfile support represents a significant departure from traditional virtualization solution offered by mainstream cloud providers. Here's why:
+&#8203;<ProductNameShortV1 />'s Dockerfile support represents a significant departure from traditional virtualization solution offered by mainstream cloud providers. Here's why:
 
 The biggest departure is immediately obvious to the user. The entire deployment consisted of a single command. You spend no time with complicated, slow and proprietary (locked-in) workflows.
 
@@ -48,7 +48,7 @@ There are no limitations inside Docker deployments when it comes to the file sys
 
 ## Port Selection
 
-<ProductNameShortV1 /> deployment instances always listen on port `443` (HTTPS) of their given URL. Your server code can expose an HTTP service on **any port** of your choice (not multiple ones). <ProductNameShortV1 /> will then route requests received on port `443` to your HTTP service port and its response will then be returned by the deployment instance.
+&#8203;<ProductNameShortV1 /> deployment instances always listen on port `443` (HTTPS) of their given URL. Your server code can expose an HTTP service on **any port** of your choice (not multiple ones). <ProductNameShortV1 /> will then route requests received on port `443` to your HTTP service port and its response will then be returned by the deployment instance.
 
 The port that listens for incoming HTTP traffic needs to be defined either in the `Dockerfile` that's being used inside the deployment, or the `Dockerfile` it's "inheriting" from.
 

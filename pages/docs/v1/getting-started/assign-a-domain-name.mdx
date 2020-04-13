@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-
+import { PRODUCT_SHORT_V1 } from '~/lib/constants'
 import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
 import Link from '~/components/text/link'
@@ -7,13 +7,12 @@ import ProductNameShortV1 from '~/components/product-name/short-v1'
 
 export const meta = {
   title: 'Assign a Domain Name',
-  description: 'Using Now `alias` to assign a domain to your deployments',
+  description: `Using ${PRODUCT_SHORT_V1} `alias` to assign a domain to your deployments`,
   date: '2 August 2017',
   editUrl: 'pages/docs/v1/getting-started/assign-a-domain-name.mdx',
   lastEdited: '2020-04-13T05:49:46.000Z'
 }
-
-When you deploy an app with <Now color="000"/>, you will have a unique deployment URL like this: <https://my-web-app-avvuiuuwto.now.sh>.
+When you deploy an app with <ProductNameShortV1 />, you will have a unique deployment URL like this: <https://my-web-app-avvuiuuwto.now.sh>.
 
 If you deploy your app multiple times, you will have multiple URLs. With these different deployment URLs, you can easily point users to a specific version of your app.
 
@@ -61,7 +60,7 @@ Your users may now access the above deployment URL using <https://my-web-app.now
 
 ## 2. Using a custom domain, managed by now
 
-If you want to use a custom domain for your app, the easiest method is to buy a domain name for your app using <Now color="000"/>.
+If you want to use a custom domain for your app, the easiest method is to buy a domain name for your app using <ProductNameShortV1 />.
 
 Simply run the following now alias command:
 
@@ -71,7 +70,7 @@ Simply run the following now alias command:
 
 Here, we are attempting to assign the `my-web-app.com` domain name to the above deployment URL. If the domain name is available, you may confirm and buy it without leaving the terminal.
 
-After the confirmation, <Now color="000"/> will handle all the technical details for you and allow your users to access your app using <https://my-web-app.com>.
+After the confirmation, <ProductNameShortV1 /> will handle all the technical details for you and allow your users to access your app using <https://my-web-app.com>.
 
 <Image
   src={`${
@@ -82,11 +81,11 @@ After the confirmation, <Now color="000"/> will handle all the technical details
   caption="Confirmation you'll get after assigning a custom domain."
 />
 
-> In this process, <Now color="000"/> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
+> In this process, <ProductNameShortV1 /> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
 
 ## 3. Using a custom domain, DNS managed by now
 
-If you already have a domain name, this is the best option for you. With this method, <Now color="000"/> will handle all the DNS management for your domain.
+If you already have a domain name, this is the best option for you. With this method, <ProductNameShortV1 /> will handle all the DNS management for your domain.
 
 ### Setup
 
@@ -112,7 +111,7 @@ You can also use a subdomain of `my-custom-domain.com` like this:
   now alias https://my-web-app-avvuiuuwto.now.sh ui.my-custom-domain.com
 </TerminalInput>
 
-> Even in this process, <Now color="000"/> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
+> Even in this process, <ProductNameShortV1 /> will set up a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain automatically.
 
 ## 4. Using a custom domain with a CNAME
 
@@ -139,7 +138,7 @@ You will then have an error like this:
   caption="The error message you'll get when trying to alias a domain for the first time."
 />
 
-<Now color="000"/> wants to verify the ownership of your domain. That's why it throws an error.
+&#8203;<ProductNameShortV1 /> wants to verify the ownership of your domain. That's why it throws an error.
 
 - Next, add the TXT record as mentioned above error message.
 - Run the `now alias` command again:
@@ -150,7 +149,7 @@ You will then have an error like this:
 
 Now you may access your app using <https://ui.my-app.work>
 
-> In this case, <Now color="000"/> will setup a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain. However, before you do that, you need to verify the domain.
+> In this case, <ProductNameShortV1 /> will setup a [Let's Encrypt](https://letsencrypt.org/) SSL certificate for your domain. However, before you do that, you need to verify the domain.
 
 ### Naked domains
 

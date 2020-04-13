@@ -4,12 +4,12 @@ import { Image } from '~/components/media'
 import { TerminalInput } from '~/components/text/terminal'
 import ProductNameV1 from '~/components/product-name/v1'
 import CliV1 from '~/components/product-name/cli-v1'
+import { PRODUCT_SHORT_V1 } from '~/lib/constants'
 import Note from '~/components/text/note'
 
 export const meta = {
   title: 'Global Scaling',
-  description:
-    'Scaling your deployments to be instances in multiple global locations with Now',
+  description: `Scaling your deployments to be instances in multiple global locations with ${PRODUCT_SHORT_V1}`,
   date: '01 Apr 2018',
   editUrl: 'pages/docs/v1/features/scaling.mdx',
   lastEdited: '2020-04-13T06:17:36.000Z'
@@ -50,13 +50,13 @@ following terms (sorted by least granular to most granular):
 
 After you have decided to enable your deployment in
 a certain part of the world, regions are the best way to
-tell Now where exactly it should scale
+tell <ProductNameShortV1 /> where exactly it should scale
 your deployment to.
 
-Now provides a number of regions, each of which
+&#8203;<ProductNameShortV1 /> provides a number of regions, each of which
 consists of one or more [data centers](#data-centers).
 
-​<ProductNameV1 /> runs in two regions:
+&#8203;​<ProductNameV1 /> runs in two regions:
 
 - `bru1` - Brussels, Belgium
 - `sfo1` - San Francisco, USA

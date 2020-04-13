@@ -1,13 +1,12 @@
 import Doc from '~/components/layout/docs'
-
+import { PRODUCT_SHORT_V1 } from '~/lib/constants'
 import { TerminalInput } from '~/components/text/terminal'
 import Link from '~/components/text/link'
 import ProductNameShortV1 from '~/components/product-name/short-v1'
 
 export const meta = {
   title: 'Environment Variables',
-  description:
-    'Setting up environment variables to use in your deployed Now apps',
+  description: `Setting up environment variables to use in your deployed ${PRODUCT_SHORT_V1} apps`,
   date: '6 August 2017',
   editUrl: 'pages/docs/v1/getting-started/environment-variables.mdx',
   lastEdited: '2020-04-13T05:57:53.000Z'
@@ -53,6 +52,6 @@ You can also expose these environment variables with [now.json](https://zeit.co/
 
 After that, `now` will use above environment variables when you deploy your app.
 
-> It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <Link href="/docs/getting-started/secrets"><Now color="#0076FF"/> Secrets</Link>.
+> It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <Link href="/docs/getting-started/secrets"><ProductNameShortV1 /> Secrets</Link>.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

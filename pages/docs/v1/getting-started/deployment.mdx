@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-
+import { PRODUCT_SHORT_V1 } from '~/lib/constants'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
 import { Image } from '~/components/media'
@@ -10,8 +10,7 @@ import { InlineCode } from '~/components/text/code'
 
 export const meta = {
   title: 'Deployment',
-  description:
-    'How to setup and deploy Node.js apps, Docker apps, or static websites with Now',
+  description: `How to setup and deploy Node.js apps, Docker apps, or static websites with ${PRODUCT_SHORT_V1}`,
   date: '1 August 2017',
   editUrl: 'pages/docs/v1/getting-started/deployment.mdx',
   lastEdited: '2020-04-13T05:57:53.000Z'
@@ -77,7 +76,7 @@ To deploy this app, visit the app directory and run this command:
 
 <TerminalInput>now</TerminalInput>
 
-<ProductNameShortV1 /> will install dependencies and run the `start` NPM script, as mentioned in the above `package.json` file.
+&#8203;<ProductNameShortV1 /> will install dependencies and run the `start` NPM script, as mentioned in the above `package.json` file.
 
 You can also specify a separate build command, select the Node.js runtime and control dependency installation, and do more. To learn about those, read <Link href="/docs/deployment-types/node">this guide</Link>.
 
@@ -126,7 +125,7 @@ CMD ["/go-http-microservice"]
 </Caption>
 
 <Note>
-  Without enabling Now Cloud v2 with the following{' '}
+  Without enabling <ProductNameShortV1 /> Cloud v2 with the following{' '}
   <InlineCode>now.json</InlineCode> configuration, the Dockerfile will require
   an <InlineCode>EXPOSE</InlineCode> instruction. In this case it would be{' '}
   <InlineCode>EXPOSE 3000</InlineCode>.
@@ -142,7 +141,9 @@ CMD ["/go-http-microservice"]
 }
 ```
 
-<Caption>Enabling Now Cloud v2 from a `now.json` configuration file.</Caption>
+<Caption>
+  Enabling <ProductNameShortV1 /> Cloud v2 from a `now.json` configuration file.
+</Caption>
 
 ### .dockerignore
 
