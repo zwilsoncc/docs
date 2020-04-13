@@ -247,7 +247,7 @@ class Head extends React.PureComponent {
               }",
               "author": {
                 "@type": "Person",
-                "name": ORGANIZATION
+                "name": "${ORGANIZATION}"
               },
               "publisher": {
                 "@type": "Organization",
@@ -257,7 +257,7 @@ class Head extends React.PureComponent {
                     process.env.IMAGE_ASSETS_URL
                   }/favicon/favicon-96x96.png`}"
                 },
-                "name": ORGANIZATION
+                "name": "${ORGANIZATION}"
               },
               "@context": "http:\/\/schema.org"
             }
