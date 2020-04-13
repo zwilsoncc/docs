@@ -5,16 +5,16 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import CliNameV1 from '~/components/product-name/cli-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import { PRODUCT_SHORT_V1 } from '~/lib/constants'
+import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
 import ProductNameShortV1 from '~/components/product-name/short-v1'
 
 export const meta = {
   title: 'Continuous Integration with Travis CI',
-  description: `Deploy your changes in your GitHub repositories after every push using Travis CI and ${PRODUCT_SHORT_V1}`,
+  description: `Deploy your changes in your GitHub repositories after every push using Travis CI and ${PRODUCT_SHORT_NAME_V1}`,
   date: '13 Mar 2018',
   editUrl: 'pages/docs/v1/continuous-integration/travis.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png',
-  lastEdited: '2020-04-13T15:52:00.000Z'
+  lastEdited: '2020-04-13T15:58:49.000Z'
 }
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
@@ -25,7 +25,7 @@ In this guide, we will set up our Travis CI pipeline to:
 - [Alias](/docs/features/aliases) your deployment made on the master branch with your [custom domain](/docs/getting-started/assign-a-domain-name)
 - Optionally; build an application inside Travis instead of with <ProductNameShortV1 />
 
-## Step 1: Getting a <ProductNameWrapper name={PRODUCT_SHORT_V1} /> Token
+## Step 1: Getting a <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> Token
 
 The first thing you'll need is a token for your account. You can get this in the [Tokens section](/account/tokens) of your Account Settings.
 
@@ -61,7 +61,7 @@ Next, go to the desired repository's settings in Travis (e.g. `https://travis-ci
   like the example above.
 </Note>
 
-## Step 3: Configuring Travis to deploy with <ProductNameWrapper name={PRODUCT_SHORT_V1} /> using your Token
+## Step 3: Configuring Travis to deploy with <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> using your Token
 
 Now that Travis is integrated into your repository, you need to configure your Travis pipeline. In order to do that you need to change your `.travis.yml` file and add the following content:
 
@@ -99,7 +99,7 @@ As you may have noticed, the above script for the master branch uses the `now al
 
 And that's it! Every time you push something new to any branch it will create a new deployment and if the branch is master it will also move the project aliases to it.
 
-## Optional: Avoid building on <ProductNameWrapper name={PRODUCT_SHORT_V1} /> (Instead build on Travis)
+## Optional: Avoid building on <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> (Instead build on Travis)
 
 In some cases, you may prefer to build on Travis CI instead of directly on <ProductNameShortV1 />. If that's the case, this can be achieved by modifying your `.travis.yml` and `now.json` files a little bit.
 

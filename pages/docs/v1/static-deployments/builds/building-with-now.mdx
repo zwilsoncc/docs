@@ -3,17 +3,17 @@ import ProductNameShortV1 from '~/components/product-name/short-v1'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
-import { PRODUCT_SHORT_V1 } from '~/lib/constants'
+import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
 import CliNameV1 from '~/components/product-name/cli-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 
 export const meta = {
   title: 'Static Builds',
-  description: `Using a Dockerfile to build and deploy a static app all from within ${PRODUCT_SHORT_V1}`,
+  description: `Using a Dockerfile to build and deploy a static app all from within ${PRODUCT_SHORT_NAME_V1}`,
   date: '12 July 2018',
   editUrl: 'pages/docs/v1/static-deployments/builds/building-with-now.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/static-builds/tw-card.png',
-  lastEdited: '2020-04-13T15:52:00.000Z'
+  lastEdited: '2020-04-13T15:58:49.000Z'
 }
 
 With <ProductNameShortV1 />, you can build static apps when deploying using a `Dockerfile`. You can build a static app however you wish and then output the content in a directory called `/public` for <ProductNameShortV1 /> to upload after the build.
@@ -26,7 +26,7 @@ To build your static apps and deploy them on <ProductNameShortV1 /> you'll need 
 
 Now let's take a look at a more in-depth example.
 
-## An example of building and deploying a Static Next.js App to <ProductNameWrapper name={PRODUCT_SHORT_V1} />
+## An example of building and deploying a Static Next.js App to <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} />
 
 For this example, we are going to use a [simple Next.js app](https://github.com/zeit/now-static-build-starter) that exports as static HTML.
 
@@ -91,7 +91,7 @@ If you don't want to copy all of your files to the working directory, [create a 
 
 > Note that the `Dockerfile` gives the `export` script an option of `-o /public`. This is necessary because <ProductNameShortV1 /> will use the contents of the `/public` directory as the content for the static deployment.
 
-### Step 3: Configuring <ProductNameWrapper name={PRODUCT_SHORT_V1} /> for Static deployments
+### Step 3: Configuring <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> for Static deployments
 
 For <ProductNameShortV1 /> to recognize our deployment as a static app, we'll need to mark it as a `static` type. To do this, we can add the following to the `now.json` configuration.
 
