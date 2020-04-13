@@ -3,6 +3,7 @@ import { InlineCode } from '~/components/text/code'
 import { TerminalInput } from '~/components/text/terminal'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
+import CliV1 from '~/components/product-name/cli-v1'
 
 export const meta = {
   title: 'Continuous Integration with Travis CI',
@@ -11,7 +12,7 @@ export const meta = {
   date: '13 Mar 2018',
   editUrl: 'pages/docs/v1/continuous-integration/travis.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png',
-  lastEdited: '2019-08-21T09:45:29.000Z'
+  lastEdited: '2020-04-13T05:41:51.000Z'
 }
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
@@ -70,7 +71,7 @@ cache:
   directories:
     - "node_modules" # This will tell Travis CI to cache the dependencies
 script: npm test # Here you could also run the build step of your application
-before_deploy: npm install now --no-save # Install Now CLI on Travis
+before_deploy: npm install now --no-save # Install CLI on Travis
 deploy:
   - provider: script # Run a custom deployment script which we will define below
     script: now --token $NOW_TOKEN

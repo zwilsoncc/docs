@@ -3,14 +3,15 @@ import Now from '~/components/text/now'
 import { InlineCode } from '~/components/text/code'
 import Link from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
+import { CLI_V1 } from '~/lib/constants'
+import CliV1 from '~/components/product-name/cli-v1'
 
 export const meta = {
-  title: "Now's Command Line Interface",
-  description:
-    'Using Now CLI to create new deployments or control existing ones',
+  title: CLI_V1,
+  description: `Using ${CLI_V1} to create new deployments or control existing ones`,
   date: '09 Mar 2017',
   editUrl: 'pages/docs/v1/clients/now-cli.mdx',
-  lastEdited: '2019-11-05T13:14:41.000Z'
+  lastEdited: '2020-04-13T05:41:51.000Z'
 }
 
 The `now` CLI is the main interface to the Now platform.
@@ -22,7 +23,7 @@ commands grouped by different concerns.
 
 ### Cloud Commands
 
-The following are the most important commands in Now CLI:
+The following are the most important commands in <CliV1 />:
 
 | Syntax                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
