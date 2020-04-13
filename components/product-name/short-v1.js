@@ -1,5 +1,5 @@
-import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
+import { PRODUCT_SHORT_V1_NAME } from '~/lib/constants'
 
-const ProductShortNameV1 = () => PRODUCT_SHORT_NAME_V1
+const ProductShortV1Name = () => PRODUCT_SHORT_V1_NAME
 
-export default ProductShortNameV1
+export default ProductShortV1Name

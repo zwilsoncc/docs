@@ -4,14 +4,14 @@ import Content from '~/components/layout/content'
 import Text, { H1, H4 } from '~/components/text'
 import { LinkList } from '~/components/list'
 import Link from '~/components/text/link'
-import { ORGANIZATION } from '~/lib/constants'
+import { ORG_NAME } from '~/lib/constants'
 
 function ErrorPage() {
   return (
     <>
       <Head
         titlePrefix=""
-        titleSuffix={` - ${ORGANIZATION} Documentation`}
+        titleSuffix={` - ${ORG_NAME} Documentation`}
         title="Page Not Found"
         description="The page that has been requested was not found."
       />

@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/tag'
 import { withRouter } from 'next/router'
 import { useAmp } from 'next/amp'
 import debounce from 'lodash.debounce'
-import { HEADER_HEIGHT, PRODUCT, ORGANIZATION } from '~/lib/constants'
+import { HEADER_HEIGHT, PRODUCT, ORG_NAME } from '~/lib/constants'
 import NextLink from 'next/link'
 
 import * as bodyLocker from '~/lib/utils/body-locker'
@@ -132,7 +132,7 @@ function ReferencePage({
           description={description || ''}
           title={title || `${PRODUCT} Reference`}
           titlePrefix=""
-          titleSuffix={` - ${ORGANIZATION}`}
+          titleSuffix={` - ${ORG_NAME}`}
         >
           {versioned && version === 'v1' && (
             <meta name="robots" content="noindex" />

@@ -7,7 +7,7 @@ import NProgress from 'nprogress'
 import debounce from 'lodash.debounce'
 import RouterEvents from '../../lib/router-events'
 import * as metrics from '../../lib/metrics'
-import { ORGANIZATION } from '~/lib/constants'
+import { ORG_NAME } from '~/lib/constants'
 
 let title
 
@@ -73,9 +73,7 @@ class Head extends React.PureComponent {
 
   render() {
     const titlePrefix =
-      null != this.props.titlePrefix
-        ? this.props.titlePrefix
-        : `${ORGANIZATION} – `
+      null != this.props.titlePrefix ? this.props.titlePrefix : `${ORG_NAME} – `
     const titleSuffix =
       null != this.props.titleSuffix ? this.props.titleSuffix : ''
     const ogDescription = this.props.ogDescription || this.props.description
@@ -85,10 +83,7 @@ class Head extends React.PureComponent {
           <title>{titlePrefix + this.props.title + titleSuffix}</title>
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@zeithq" />
-          <meta
-            property="og:site_name"
-            content={`${ORGANIZATION} Documentation`}
-          />
+          <meta property="og:site_name" content={`${ORG_NAME} Documentation`} />
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
@@ -226,7 +221,7 @@ class Head extends React.PureComponent {
                 'https://zeit.co/docs'}",
               "headline": "${this.props.ogTitle ||
                 this.props.title ||
-                `${ORGANIZATION} Documentation`}",
+                `${ORG_NAME} Documentation`}",
               ${
                 this.props.description
                   ? '"description": "' + this.props.description + '",'
@@ -237,7 +232,7 @@ class Head extends React.PureComponent {
               "name": "${titlePrefix +
                 (this.props.ogTitle ||
                   this.props.title ||
-                  `${ORGANIZATION} Documentation`) +
+                  `${ORG_NAME} Documentation`) +
                 titleSuffix}",
               "dateModified": "${
                 this.props.lastEdited ? this.props.lastEdited : null
@@ -247,7 +242,7 @@ class Head extends React.PureComponent {
               }",
               "author": {
                 "@type": "Person",
-                "name": "${ORGANIZATION}"
+                "name": "${ORG_NAME}"
               },
               "publisher": {
                 "@type": "Organization",
@@ -257,7 +252,7 @@ class Head extends React.PureComponent {
                     process.env.IMAGE_ASSETS_URL
                   }/favicon/favicon-96x96.png`}"
                 },
-                "name": "${ORGANIZATION}"
+                "name": "${ORG_NAME}"
               },
               "@context": "http:\/\/schema.org"
             }

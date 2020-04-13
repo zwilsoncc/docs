@@ -1,17 +1,17 @@
 import Doc from '~/components/layout/docs'
-import ProductShortNameV1 from '~/components/product-name/short-v1'
+import ProductShortV1Name from '~/components/product-name/short-v1'
 import { TerminalInput } from '~/components/text/terminal'
-import OrgNameV1 from '~/components/product-name/org-name-v1'
+import OrgV1Name from '~/components/product-name/org-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import { PRODUCT_SHORT_NAME_V1, ORGANIZATION } from '~/lib/constants'
-import CliNameV1 from '~/components/product-name/cli-name-v1'
+import { PRODUCT_SHORT_V1_NAME, ORG_NAME } from '~/lib/constants'
+import CliV1Name from '~/components/product-name/cli-name-v1'
 
 export const meta = {
   title: 'Frequently Asked Questions',
-  description: `The answers to our most frequently asked questions for ${PRODUCT_SHORT_NAME_V1} and other ${ORGANIZATION} products and services`,
+  description: `The answers to our most frequently asked questions for ${PRODUCT_SHORT_V1_NAME} and other ${ORG_NAME} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-04-13T20:57:18.000Z'
+  lastEdited: '2020-04-13T21:11:08.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -20,7 +20,7 @@ Check our [status page](https://zeit-status.co) and [Twitter status account](htt
 
 ## What is the difference between deployments and instances?
 
-Whenever you upload files using <CliNameV1 />, a new deployment is
+Whenever you upload files using <CliV1Name />, a new deployment is
 created. This deployment will only have one instance by default. However, every deployment
 can be scaled to multiple instances.
 
@@ -64,7 +64,7 @@ This command will remove all your non-aliased deployments with the name `my-app`
 
 ## How do I pick the deployment region(s) for my application?
 
-​<ProductShortNameV1 /> will deploy to the nearest region available automatically by default. You can override this behavior by either:
+​<ProductShortV1Name /> will deploy to the nearest region available automatically by default. You can override this behavior by either:
 
 - [Configuring it while deploying](/docs/v1/features/scaling#scaling-while-deploying) or
 - [Configuring it after deploying](/docs/v1/features/scaling#scaling-after-deploying)
@@ -98,38 +98,38 @@ This model offers a few interesting benefits:
 - **Staging and production deployments**<br />
   A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `now alias`.
 - **Zero-Downtime deployment**<br />
-  Most services will require you to restart your server (eg. Node.js). Thanks to <ProductShortNameV1 />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
+  Most services will require you to restart your server (eg. Node.js). Thanks to <ProductShortV1Name />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
 
-## Can I run a database on the <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> platform?
+## Can I run a database on the <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> platform?
 
-​<ProductShortNameV1 /> deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
+​<ProductShortV1Name /> deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
 
 However, due to the stateless nature of our deployments, everything you store will be reset upon the deployment instance getting recycled. The data also won't be shared across instances when [scaling](/docs/v1/getting-started/scaling) and will be reset when unfreezing.
 
-We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in <ProductShortNameV1 /> and scale individually to provide equal service to your database than with your app deployments.
+We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in <ProductShortV1Name /> and scale individually to provide equal service to your database than with your app deployments.
 
-## Can I transfer domains into/out of <ProductNameWrapper name={ORGANIZATION} /> Domains?
+## Can I transfer domains into/out of <ProductNameWrapper name={ORG_NAME} /> Domains?
 
 We are working on a domain transfer tool to make this process easier.
 
-For now, it is not possible to transfer a domain into <OrgNameV1 /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use <ProductShortNameV1 /> as a DNS.
+For now, it is not possible to transfer a domain into <OrgV1Name /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use <ProductShortV1Name /> as a DNS.
 
-If you need to transfer your domain out of <OrgNameV1 /> Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
+If you need to transfer your domain out of <OrgV1Name /> Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
 
-If you would like to move a domain from one <OrgNameV1 /> account to another, you could do so by running the following commands:
+If you would like to move a domain from one <OrgV1Name /> account to another, you could do so by running the following commands:
 
 1. From the current owner of the domain: `now domain rm domain.com`
 2. From the desired owner of the domain: `now domain add domain.com`
 
-After you have done this, the desired owner will be in possession of the domain and will be able to utilize it with <OrgNameV1 />.
+After you have done this, the desired owner will be in possession of the domain and will be able to utilize it with <OrgV1Name />.
 
-## Can I use docker-compose with <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} />?
+## Can I use docker-compose with <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} />?
 
-At the moment <ProductShortNameV1 /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now/issues/294) to know when it will be supported.
+At the moment <ProductShortV1Name /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now/issues/294) to know when it will be supported.
 
 ## How do I disable HTTPS and just use HTTP Instead?
 
-There is no way to disable SSL. All <ProductShortNameV1 /> deployments are HTTPS by default.
+There is no way to disable SSL. All <ProductShortV1Name /> deployments are HTTPS by default.
 
 ## How do I specify an environment variable with a value that starts with `@`?
 
@@ -151,9 +151,9 @@ You can delete a team by going to the 'Identity' section of the team's settings.
 
 ## How do I create a redirect from www.mysite.com to mysite.com?
 
-Check out our [Setting up a Redirect with <ProductShortNameV1 />](/docs/guides/redirect) guide for instructions.
+Check out our [Setting up a Redirect with <ProductShortV1Name />](/docs/guides/redirect) guide for instructions.
 
-## Can I run a bot on <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} />?
+## Can I run a bot on <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} />?
 
 Yes, you can! Remember to expose a single port running an HTTP server.
 
@@ -163,9 +163,9 @@ If your bot is working in the background, it is recommended that you manually sc
 
 This will ensure the bot is no longer running before you remove it or deploy a new version.
 
-## How do I Change the nameservers of a domain purchased with <ProductNameWrapper name={ORGANIZATION} /> Domains?
+## How do I Change the nameservers of a domain purchased with <ProductNameWrapper name={ORG_NAME} /> Domains?
 
-This is not currently possible to do via the [<CliNameV1 />](/docs/clients/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
+This is not currently possible to do via the [<CliV1Name />](/docs/clients/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
 
 ## How can I avoid the prompt about the deployment being public under the OSS Plan?
 
@@ -209,13 +209,13 @@ All the deployments made with a paid account or team are private by default.
 
 If you are logged in to [zeit.co](/login), you can still access the source when going to `_src`.
 
-## Is It possible to host WordPress on the <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> Platform?
+## Is It possible to host WordPress on the <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> Platform?
 
 Check our WordPress example repository.
 
 > <https://github.com/now-examples/wordpress>
 
-## Is it possible to host Ghost on the <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> Platform?
+## Is it possible to host Ghost on the <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> Platform?
 
 Check our Ghost example repository.
 
@@ -223,13 +223,13 @@ Check our Ghost example repository.
 
 ## How do I add my deployments to a list of whitelisted IP Addresses?
 
-The IP addresses of <ProductShortNameV1 /> deployments are too dynamic and for that reason, we don't provide a list of them.
+The IP addresses of <ProductShortV1Name /> deployments are too dynamic and for that reason, we don't provide a list of them.
 
 Our recommendation when connecting to external services (eg. a database) is to use a strong password and SSL.
 
-## How do I set up an email for a domain purchased through <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> Domains?
+## How do I set up an email for a domain purchased through <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> Domains?
 
-​<ProductShortNameV1 /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
+​<ProductShortV1Name /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
 ## How do I use private npm modules or GitHub repositories?
 
@@ -251,7 +251,7 @@ Note that you can not use an alias already used by another user until they remov
 
 The actual deletion of a deployment could take around a minute, but sometimes this could take longer. If your deployment is showing side-effects without a request (eg. a process running every N minutes), we recommend that you first scale it to zero instances and then remove it.
 
-## Does <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> support wildcard subdomains?
+## Does <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> support wildcard subdomains?
 
 We have support for [wildcard SSL certificates](https://zeit.co/blog/wildcard-certs), but wildcard subdomains are not currently supported.
 
@@ -259,7 +259,7 @@ We have support for [wildcard SSL certificates](https://zeit.co/blog/wildcard-ce
 
 Since there is no way to release a domain after it was purchased until the next renewal date, we can not give you a refund.
 
-If you do not want to renew a domain purchased with <ProductShortNameV1 /> Domains, remove it with the following command:
+If you do not want to renew a domain purchased with <ProductShortV1Name /> Domains, remove it with the following command:
 
 <TerminalInput>now domain rm mysite.com</TerminalInput>
 
@@ -275,7 +275,7 @@ This is not currently possible.
 
 It is not possible to download files of a deployment from the CLI nor the web. Contact us at [support@zeit.co](support@zeit.co?subject=Download%20Deployment%20Code) from the personal account's email address or, in the event the request pertains to a team, the team owner's email address, and we can help you.
 
-## How do I run scheduled tasks on the <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> platform?
+## How do I run scheduled tasks on the <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> platform?
 
 While we do not have a built-in way to run scheduled tasks, it is possible.
 
@@ -299,7 +299,7 @@ Your instance limit [(based on your plan)](/pricing/v1) is per account not per d
 
 You can see those metrics on [your account](/dashboard) or team [dashboard](/blog/zeit-dashboard).
 
-## Is it possible to upload files to a running <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> instance?
+## Is it possible to upload files to a running <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> instance?
 
 Yes, it is possible under the `/tmp` folder. Note that each instance has its own temporary directory, which means you can lose those files under following conditions:
 
@@ -315,26 +315,26 @@ Both our DNS and HTTP(s) load balancing services have sophisticated DDoS protect
 
 Attacks come in very different forms and sizes. Therefore, we offer more advanced protection in the [enterprise](mailto:enterprise@zeit.co?subject=Advanced%20DDoS%20Protection) tiers.
 
-## How do I set up a password for my <ProductNameWrapper name={ORGANIZATION} /> Account?
+## How do I set up a password for my <ProductNameWrapper name={ORG_NAME} /> Account?
 
-<OrgNameV1 />'s login is serverless. You just need your email address and don't need to remember yet another password.
+<OrgV1Name />'s login is serverless. You just need your email address and don't need to remember yet another password.
 
 For custom requirements, you can contact us at [enterprise@zeit.co](mailto:enterprise@zeit.co?subject=Advanced%20Authentication).
 
-## Does <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> offer support for IPv6?
+## Does <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> offer support for IPv6?
 
 We do not currently offer support for IPv6.
 
-## Does <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> block outgoing connections in any way?
+## Does <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> block outgoing connections in any way?
 
-We block ports 25 and 587 on <ProductShortNameV1 /> deployments to avoid spam.
+We block ports 25 and 587 on <ProductShortV1Name /> deployments to avoid spam.
 Any other port is available for use.
 
-## Can I Uue a 3-D secure credit card with <ProductNameWrapper name={ORGANIZATION} />?
+## Can I Uue a 3-D secure credit card with <ProductNameWrapper name={ORG_NAME} />?
 
 We do not currently offer support for the 3-D Secure protocol.
 
-## Is <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> GDPR compliant?
+## Is <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> GDPR compliant?
 
 We intend to be fully GDPR compliant. [Check out our privacy policy for more information](https://zeit.co/privacy).
 
@@ -342,13 +342,13 @@ We intend to be fully GDPR compliant. [Check out our privacy policy for more inf
 
 We do not currently offer support for DNSSEC.
 
-## Why does <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> give me random URLs and how can I change it?
+## Why does <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> give me random URLs and how can I change it?
 
 Due to the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `now` you will get a new unique URL. To have a custom static URL you need to use the `now alias` command.
 
 > Read more on [Aliases and Domains](/docs/features/aliases).
 
-## How can I use a separate <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> configuration for staging and production?
+## How can I use a separate <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} /> configuration for staging and production?
 
 You can have a `now.staging.json` file and a `now.json` for production and use the parameter `--local-config=now.staging.json` while deploying (or aliasing) to customize the configuration file to use.
 

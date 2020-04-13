@@ -17,7 +17,7 @@ import MenuToggle from './menu-toggle'
 import { HeaderFeedback } from '~/components/feedback-input'
 import {
   API_DOCS_FEEDBACK,
-  ORGANIZATION,
+  ORG_NAME,
   PRODUCT_SHORT_NAME
 } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
@@ -260,7 +260,7 @@ class Header extends Component {
             <a
               className="logo"
               href={dashboard}
-              aria-label={`${ORGANIZATION} Home`}
+              aria-label={`${ORG_NAME} Home`}
               onContextMenu={this.onLogoRightClick}
             >
               <Logo height="25px" width="28px" />

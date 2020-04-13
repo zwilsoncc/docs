@@ -14,8 +14,8 @@ import {
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 import Note from '~/components/text/note'
-import ProductShortNameV1 from '~/components/product-name/short-v1'
-import CliNameV1 from '~/components/product-name/cli-name-v1'
+import ProductShortV1Name from '~/components/product-name/short-v1'
+import CliV1Name from '~/components/product-name/cli-name-v1'
 
 export const meta = {
   editUrl: 'pages/docs/api/v1/api-docs-mdx/endpoints/deployments.mdx',
@@ -45,7 +45,7 @@ Before you create the deployment, you need to [upload any required files](#endpo
       An object containing the deployment's environment variable names and
       values.{' '}
       <i>
-        <ProductShortNameV1 /> Secret may be referenced by prefixing the value
+        <ProductShortV1Name /> Secret may be referenced by prefixing the value
         with <InlineCode>@</InlineCode>
       </i>
       .
@@ -130,7 +130,7 @@ Before you create the deployment, you need to [upload any required files](#endpo
         local configuration
       </Link>{' '}
       property. Not all of these properties lead to changes in behavior on the
-      platform (some are designed to be used only by <CliNameV1 />
+      platform (some are designed to be used only by <CliV1Name />
       ).
     </Cell>
   </Row>
@@ -171,8 +171,7 @@ In the case you want to inline each file inside the create deployment request ea
     <BooleanCell status={false} />
     <Cell>
       The file encoding, it must be <InlineCode>base64</InlineCode> or{' '}
-      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>
-      .
+      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>.
     </Cell>
   </Row>
 </InputTable>
@@ -380,7 +379,8 @@ Each deployment is an object with the following keys:
     <TypeCell>String</TypeCell>
     <Cell>
       A string with the unique URL of the deployment. If it hasn't finished
-      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
+      .
     </Cell>
   </Row>
   <Row>
@@ -402,10 +402,9 @@ Each deployment is an object with the following keys:
     <Cell>
       A string with the current deployment state, it could be one of the
       following <InlineCode>DEPLOYING</InlineCode>,{' '}
-      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
-      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
-        BUILD_ERROR
-      </InlineCode>, or <InlineCode>FROZEN</InlineCode>.
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>
+      , <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>,{' '}
+      <InlineCode>BUILD_ERROR</InlineCode>, or <InlineCode>FROZEN</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -547,8 +546,7 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
     <TypeCell>String</TypeCell>
     <Cell>
       A string with the unique URL of the deployment. If it hasn't finished
-      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
-      .
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -557,10 +555,9 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
     <Cell>
       A string with the current deployment state, it could be one of the
       following: <InlineCode>DEPLOYING</InlineCode>,{' '}
-      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
-      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
-        BUILD_ERROR
-      </InlineCode>, or <InlineCode>FROZEN</InlineCode>.
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>
+      , <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>,{' '}
+      <InlineCode>BUILD_ERROR</InlineCode>, or <InlineCode>FROZEN</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -789,7 +786,8 @@ Get the list of instances unique URL of a deployment.
     <TypeCell>String</TypeCell>
     <Cell>
       The instance unique url. Is the deployment unique URL with the instance{' '}
-      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>.
+      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>
+      .
     </Cell>
   </Row>
 </OutputTable>

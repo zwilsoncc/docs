@@ -73,16 +73,16 @@ function xmlUrlNode(pagePath) {
       '(' +
         match[1]
           .replace(/\${PRODUCT}/g, productNames.product)
-          .replace(/\${ORGANIZATION}/g, productNames.organization)
+          .replace(/\${ORG_NAME}/g, productNames.orgName)
           .replace(/\${CDN_NAME}/g, productNames.cdnName)
           .replace(/\${PRODUCT_SHORT_NAME}/g, productNames.productShortName)
-          .replace(/\${PRODUCT_NAME_V1}/g, productNames.productNameV1)
-          .replace(/\${ORG_NAME_V1}/g, productNames.orgNameV1)
+          .replace(/\${PRODUCT_V1_NAME}/g, productNames.productV1Name)
+          .replace(/\${ORG_V1_NAME}/g, productNames.orgV1Name)
           .replace(
-            /\${PRODUCT_SHORT_NAME_V1}/g,
-            productNames.productShortNameV1
+            /\${PRODUCT_SHORT_V1_NAME}/g,
+            productNames.productShortV1Name
           )
-          .replace(/\${CLI_NAME_V1}/g, productNames.cliNameV1) +
+          .replace(/\${CLI_V1_NAME}/g, productNames.cliV1Name) +
         ')'
     )
 

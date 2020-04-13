@@ -21,7 +21,7 @@ import Sidebar from '~/components/layout/sidebar'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import VersionSwitcher from '~/components/layout/version-switcher'
 import Main from '~/components/layout/main'
-import { PRODUCT, ORGANIZATION } from '~/lib/constants'
+import { PRODUCT, ORG_NAME } from '~/lib/constants'
 
 const DocH1 = ({ children }) => (
   <>
@@ -118,7 +118,7 @@ function Doc({
       <>
         <Head
           titlePrefix=""
-          titleSuffix={` - ${ORGANIZATION} Documentation`}
+          titleSuffix={` - ${ORG_NAME} Documentation`}
           title={`${meta.title}`}
           description={meta.description}
           image={meta.image}

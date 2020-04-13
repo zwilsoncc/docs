@@ -1,5 +1,5 @@
-import { ORGANIZATION } from '~/lib/constants'
+import { ORG_NAME } from '~/lib/constants'
 
-const OrgName = () => ORGANIZATION
+const OrgName = () => ORG_NAME
 
 export default OrgName

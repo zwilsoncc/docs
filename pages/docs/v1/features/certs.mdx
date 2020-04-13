@@ -1,15 +1,15 @@
 import Doc from '~/components/layout/docs'
-import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
-import ProductShortNameV1 from '~/components/product-name/short-v1'
+import { PRODUCT_SHORT_V1_NAME } from '~/lib/constants'
+import ProductShortV1Name from '~/components/product-name/short-v1'
 import Link from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
   title: 'Managing SSL Certificates',
-  description: `SSL Certificates for your ${PRODUCT_SHORT_NAME_V1} deployments and how you can easily manage them`,
+  description: `SSL Certificates for your ${PRODUCT_SHORT_V1_NAME} deployments and how you can easily manage them`,
   date: '15 Mar 2017',
   editUrl: 'pages/docs/v1/features/certs.mdx',
-  lastEdited: '2020-04-13T20:57:18.000Z'
+  lastEdited: '2020-04-13T21:11:08.000Z'
 }
 
 Each time you create a new deployment, you will get a new unique subdomain. For this address (just like for the custom domains you've added using `now alias` or `now alias`), we're automatically provisioning an SSL certificate for you.
@@ -20,7 +20,7 @@ You can read more about how exactly the certificate provisioning works [here](ht
 
 ## Using the CLI
 
-Let's take a look at how you can use <ProductShortNameV1 />'s command line interface to manage your existing certificates and even upload new ones. In the following examples, `zeit.rocks` represents the domain you'd like to modify.
+Let's take a look at how you can use <ProductShortV1Name />'s command line interface to manage your existing certificates and even upload new ones. In the following examples, `zeit.rocks` represents the domain you'd like to modify.
 
 ### now certs ls
 
@@ -45,7 +45,7 @@ The command can be used to upload a certificate issued by a 3rd party Certificat
 
 When automatic certificate renewal fails, we will send you a notification email. Here are some possible reasons:
 
-1. The domain is no longer used in <ProductShortNameV1 />
+1. The domain is no longer used in <ProductShortV1Name />
 2. A CAA record permitting issuing a certificate is missing or is invalid
 3. Other DNS records are missing or invalid
 4. HTTP requests are being redirected to HTTPS (for example when using Cloudflare)
@@ -54,7 +54,7 @@ When automatic certificate renewal fails, we will send you a notification email.
 
 As of version **0.6.0**, [now-client](https://www.npmjs.com/package/now-client) comes with API wrappers for managing the certificates bound to aliases using a custom domain.
 
-Normally, when a user created an alias with <ProductShortNameV1 /> command line utility, we automatically issued a certificate for it (as previously described in <Link href="/blog/now-alias">this post</Link>). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal, and replacement.
+Normally, when a user created an alias with <ProductShortV1Name /> command line utility, we automatically issued a certificate for it (as previously described in <Link href="/blog/now-alias">this post</Link>). So technically, the API endpoint was already there. But until recently, it only supported issuing new certificates. By now, it also supports renewal, removal, and replacement.
 
 The endpoint is called `/now/certs` and available in our <Link href="/docs/api#endpoints">REST API</Link>.
 

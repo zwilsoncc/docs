@@ -1,15 +1,15 @@
 import Doc from '~/components/layout/docs'
-import OrgNameV1 from '~/components/product-name/org-name-v1'
-import ProductShortNameV1 from '~/components/product-name/short-v1'
+import OrgV1Name from '~/components/product-name/org-name-v1'
+import ProductShortV1Name from '~/components/product-name/short-v1'
 import { TerminalInput } from '~/components/text/terminal'
-import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
+import { PRODUCT_SHORT_V1_NAME } from '~/lib/constants'
 
 export const meta = {
   title: 'Simplifying Microservices with Path Alias',
-  description: `Aliasing microservices to exist in different locations with your domain on ${PRODUCT_SHORT_NAME_V1}`,
+  description: `Aliasing microservices to exist in different locations with your domain on ${PRODUCT_SHORT_V1_NAME}`,
   date: '15 Mar 2017',
   editUrl: 'pages/docs/v1/features/path-aliases.mdx',
-  lastEdited: '2020-04-13T20:57:18.000Z'
+  lastEdited: '2020-04-13T21:11:08.000Z'
 }
 
 With the microservices architecture, we break down the whole app into multiple independent programs: microservices. This architecture gives us a lot of benefits including:
@@ -51,7 +51,7 @@ After this, we will have whole new microservices set up. However, our end users 
 
 ## Path Alias
 
-If you [manage](/docs/getting-started/assign-a-domain-name#2.-using-a-custom-domain,-managed-by-now) your domain inside <OrgNameV1 /> or [point it](/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname) to `alias.zeit.co`, you can hide microservices under a domain as shown above with our "Path Alias" feature.
+If you [manage](/docs/getting-started/assign-a-domain-name#2.-using-a-custom-domain,-managed-by-now) your domain inside <OrgV1Name /> or [point it](/docs/getting-started/assign-a-domain-name#4.-using-a-custom-domain-with-a-cname) to `alias.zeit.co`, you can hide microservices under a domain as shown above with our "Path Alias" feature.
 
 Here's how to do it.
 
@@ -131,7 +131,7 @@ Have a look at the rules we have introduced previously:
 }
 ```
 
-Destinations of these rules are unique <ProductShortNameV1 /> deployment URLs. They will be changed every time you deploy a new version. Therefore, you need to update the rules again and again.
+Destinations of these rules are unique <ProductShortV1Name /> deployment URLs. They will be changed every time you deploy a new version. Therefore, you need to update the rules again and again.
 
 It works, but there is a better way to do this.
 
