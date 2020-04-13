@@ -8,6 +8,7 @@ import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
 import OrgName from '~/components/product-name/org-name'
 import ProductName from '~/components/product-name'
+import ProductNameShort from '~/components/product-name/short'
 import { PRODUCT } from '~/lib/constants'
 
 export const meta = {
@@ -305,7 +306,7 @@ STORYBLOK_API_TOKEN=your-api-token
   Storyblok project.
 </Caption>
 
-Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [Now Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the command below:
+Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [<ProductNameShort /> Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the command below:
 
 <Snippet dark text="now secrets add STORYBLOK_API_TOKEN your-api-token" />
 <Caption>
