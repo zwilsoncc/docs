@@ -184,13 +184,13 @@ Adding environment variables requires two steps, defining the environment variab
 
 ### Adding Secrets
 
-To define an environment variable, you should use **Now Secrets**. By using **Now Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
+To define an environment variable, you should use **<ProductNameShort /> Secrets**. By using **<ProductNameShort /> Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
 
-Adding **Now Secrets** can be done with [<ProductNameShort /> CLI](/download), providing three options to work with them.
+Adding **<ProductNameShort /> Secrets** can be done with [<ProductNameShort /> CLI](/download), providing three options to work with them.
 
 <Note>
-  When adding Now Secrets with <ProductNameShort /> CLI, the secret name is
-  automatically lowercased before being stored.
+  When adding <ProductNameShort /> Secrets with <ProductNameShort /> CLI, the
+  secret name is automatically lowercased before being stored.
 </Note>
 
 To **define a Now Secret**, use the following command:
@@ -243,7 +243,7 @@ Now, whenever the `process.env.VARIABLE_NAME` key is used, it will provide the a
 
 ## During Local Development
 
-When using `now dev` to develop your application locally if you require the use of [Serverless Functions](/docs/v2/serverless-functions/introduction), [Now Secrets](#adding-secrets) are not available. This is a security measure, to prevent accidental use of production secrets during development.
+When using `now dev` to develop your application locally if you require the use of [Serverless Functions](/docs/v2/serverless-functions/introduction), [<ProductNameShort /> Secrets](#adding-secrets) are not available. This is a security measure, to prevent accidental use of production secrets during development.
 
 To use environment variables during local development, create a `.env.build` file at the root of your project directory, for example:
 
