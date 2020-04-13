@@ -4,25 +4,27 @@ import { Image } from '~/components/media'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import CliV1 from '~/components/product-name/cli-v1'
+import { PRODUCT_SHORT_V1 } from '~/lib/constants'
+import ProductName from '~/components/product-name'
+import ProductNameShortV1 from '~/components/product-name/short-v1'
 
 export const meta = {
-  title: 'The Now CDN',
-  description:
-    'Full-featured, flexible, automatic caching for Now deployments, aliases, and domains.',
+  title: `The ${PRODUCT_SHORT_V1} CDN`,
+  description: `Full-featured, flexible, automatic caching for ${PRODUCT_SHORT_V1} deployments, aliases, and domains.`,
   date: '10 July 2018',
   editUrl: 'pages/docs/v1/features/cdn.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/cdn/tw-card.png',
-  lastEdited: '2020-04-13T05:41:51.000Z'
+  lastEdited: '2020-04-13T06:15:21.000Z'
 }
 
 <Note>
-  The Now CDN is now simplified and automatic. Please see the{' '}
-  <Link href="/docs/v2/network/caching/">Now 2.0 CDN documentation</Link> for
-  more information. If you have no upgraded to Now 2.0 yet,{' '}
+  The <ProductNameShortV1 /> CDN is now simplified and automatic. Please see the{' '}
+  <Link href="/docs/v2/network/caching/">latest documentation</Link> for more
+  information. If you have not upgraded yet,{' '}
   <Link href="/guides/migrate-to-zeit-now/">see how</Link>.
 </Note>
 
-Now CDN enabled domains are automatically fronted by over 150 locations, allowing you to immediately optimize all of your Now deployments with a single command.
+​<ProductNameShortV1 /> CDN enabled domains are automatically fronted by over 150 locations, allowing you to immediately optimize all of your <ProductNameShortV1 /> deployments with a single command.
 
 ## Getting Started
 
@@ -50,7 +52,7 @@ Caching directives break down the caching controls into three categories:
 
 ### Purging
 
-When aliasing to any Now CDN enabled domain or `now.sh` alias, we automatically purge the cache so that no stale content is ever delivered.
+When aliasing to any <ProductNameShortV1 /> CDN enabled domain or `now.sh` alias, we automatically purge the cache so that no stale content is ever delivered.
 
 ### Expiration
 
@@ -76,7 +78,7 @@ We recommend leveraging shared caches over client caches. For example, `Cache-Co
 
 ## Bypassing cache
 
-If no `Cache-Control` response header is present, the Now routing layer adds `Cache-Control: s-maxage=0`, to ensure that no shared caches will cache content that wasn't explicitly marked as cacheable.
+If no `Cache-Control` response header is present, the <ProductNameShortV1 /> routing layer adds `Cache-Control: s-maxage=0`, to ensure that no shared caches will cache content that wasn't explicitly marked as cacheable.
 
 Any request where the client appends an `Authorization` or `Pragma` header will bypass the cache.
 
@@ -84,7 +86,7 @@ The cache is also always skipped when an [HTTP cookie](https://developer.mozilla
 
 ## Notes
 
-Currently, the Now CDN can only be enabled for single level of subdomains. This means that, for example, `*.zeit.university` will be fronted by the CDN, while `*.dev.zeit.university` will be routed directly to our origin locations.
+Currently, the <ProductNameShortV1 /> CDN can only be enabled for single level of subdomains. This means that, for example, `*.zeit.university` will be fronted by the CDN, while `*.dev.zeit.university` will be routed directly to our origin locations.
 
 You can disable the CDN for a given domain by running the following command:
 
