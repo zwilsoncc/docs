@@ -2,13 +2,13 @@ import Doc from '~/components/layout/docs'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 import CdnName from '~/components/product-name/cdn'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
   title: 'Regions and Providers',
   description: `A listing and explanation of the regions and providers ${PRODUCT} implements.`,
   editUrl: 'pages/docs/v2/network/regions-and-providers.mdx',
-  lastEdited: '2020-04-13T07:39:35.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 A typical server configuration might begin by selecting the region where the physical server is located. A local business would have no issue selecting the closest region to their store, but businesses with traffic spanning cities, countries, or even the entire globe might struggle to serve all their customers. This is where the <CdnName /> comes in.
@@ -17,7 +17,7 @@ A typical server configuration might begin by selecting the region where the phy
 
 Edge Regions are restricted to serving static files or cached responses from Serverless Functions. Origin Regions do not have this restriction and can therefore host Serverless Functions.
 
-When an application is deployed to <ProductName />, it automatically serves static files and caches responses in [all Regions](#routing) (both Origin and Edge) across the globe. The developer can choose which Origin Regions to deploy Serverless Functions to by using `--regions` in <ProductNameShort /> CLI or the [`regions` key](/docs/configuration#project/regions) in a `now.json` file.
+When an application is deployed to <ProductName />, it automatically serves static files and caches responses in [all Regions](#routing) (both Origin and Edge) across the globe. The developer can choose which Origin Regions to deploy Serverless Functions to by using `--regions` in <ProductShortName /> CLI or the [`regions` key](/docs/configuration#project/regions) in a `now.json` file.
 
 When choosing Origin Regions, consider where your database (if any) is located and choose the Origin Regions closest to where the data is stored.
 
@@ -35,7 +35,7 @@ To further increase our coverage and resiliency, we plan to utilize more cloud p
 
 The <ProductName /> Platform acts as a Universal API and Overlay Network on top of existing cloud infrastructure providers.
 
-| Region ID | Reference Location        | Provider Region (Routing)   | Provider Region (<ProductNameShort /> Serverless Functions) | Origin/Edge |
+| Region ID | Reference Location        | Provider Region (Routing)   | Provider Region (<ProductShortName /> Serverless Functions) | Origin/Edge |
 | --------- | ------------------------- | --------------------------- | ----------------------------------------------------------- | ----------- |
 | arn1      | Stockholm, Sweden         | AWS eu-north-1              | AWS eu-north-1                                              | Origin      |
 | bom1      | Mumbai, India             | AWS ap-south-1              | AWS ap-south-1                                              | Origin      |

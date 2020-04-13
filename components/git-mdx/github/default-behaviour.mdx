@@ -1,11 +1,11 @@
 import ProductName from '~/components/product-name'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 #### A Deployment for Each Push
 
 &#8203;<ProductName /> for GitHub will **deploy every push by default**. This includes pushes and pull requests made to branches. This allows those working within the repository to preview changes made before they are pushed to production.
 
-With each new push, if <ProductNameShort /> is already building a previous commit, the current build will be canceled to build the most recent commit so that you always have the latest changes deployed as quickly as possible.
+With each new push, if <ProductShortName /> is already building a previous commit, the current build will be canceled to build the most recent commit so that you always have the latest changes deployed as quickly as possible.
 
 #### Updating the Production Domain
 
@@ -19,6 +19,6 @@ The latest push to any pull request will automatically be made available at a un
 
 #### Deployment Authorizations for Forks
 
-If you receive a pull request from a fork of your repository and there is either a change to the [`now.json`](/docs/configuration) file or there are [secrets](/docs/v2/serverless-functions/env-and-secrets#adding-secrets) used in your project; <ProductNameShort /> will require an authorization from you or a member of your team to deploy the pull request.
+If you receive a pull request from a fork of your repository and there is either a change to the [`now.json`](/docs/configuration) file or there are [secrets](/docs/v2/serverless-functions/env-and-secrets#adding-secrets) used in your project; <ProductShortName /> will require an authorization from you or a member of your team to deploy the pull request.
 
 This behavior protects you and your project from a leak of sensitive information.

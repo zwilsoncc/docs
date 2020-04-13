@@ -9,7 +9,7 @@ import DeploySection from '~/components/guides/deploy-section'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
   title: `Create and Deploy a TakeShape Blog with ${PRODUCT}`,
@@ -22,7 +22,7 @@ export const meta = {
   type: 'site',
   demo: 'https://next-blog-takeshape.now.sh/',
   editUrl: 'pages/guides/deploying-takeshape-with-zeit-now.mdx',
-  lastEdited: '2020-04-13T07:39:35.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 [TakeShape](https://www.takeshape.io/) provides instant, intuitive, adaptable, and collaborative services to power Jamstack projects of any size, shape, or complexity.
@@ -112,25 +112,25 @@ Set up a Next.js project by Initializing the [project template](https://github.c
 
 From the TakeShape Dashboard, create an API Key with the **Read** permission.
 
-Using [<ProductNameShort /> CLI](/download), create [<ProductNameShort /> Secrets](/docs/v2/serverless-functions/env-and-secrets/) to securely store the API key, the project `id` from the TakeShape dashboard, and a preview secret.
+Using [<ProductShortName /> CLI](/download), create [<ProductShortName /> Secrets](/docs/v2/serverless-functions/env-and-secrets/) to securely store the API key, the project `id` from the TakeShape dashboard, and a preview secret.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_api_key [your-takeshape-api-key]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_api_key</InlineCode> as a <strong><ProductNameShort /> Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_api_key</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
 </Caption>
 
 You can find your project `id` in the URL from the TakeShape dashboard, it will look similar to `a17a8efa-372e-4969-9267-55a9c35a0907`.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_project_id [your-takeshape-project-id]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_project_id</InlineCode> as a <strong><ProductNameShort /> Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_project_id</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
 </Caption>
 
-Create a random string that can be used as a preview secret and add it using <ProductNameShort /> CLI. You can use a string similar to `MY_SECRET`, but remember to change it to make it unique.
+Create a random string that can be used as a preview secret and add it using <ProductShortName /> CLI. You can use a string similar to `MY_SECRET`, but remember to change it to make it unique.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_preview_secret [your-random-string]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong><ProductNameShort /> Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
 </Caption>
 
 ## Step 5: Deploying Your Blog with <ProductNameWrapper name={PRODUCT} />

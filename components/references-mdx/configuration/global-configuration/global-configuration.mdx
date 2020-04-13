@@ -4,7 +4,7 @@ import { P } from '~/components/text'
 import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import ProductName from '~/components/product-name'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
   editUrl:
@@ -14,13 +14,13 @@ export const meta = {
 
 # Global
 
-Using the following files and configuration options, you can configure [<ProductNameShort /> CLI](/download) under your system user.
+Using the following files and configuration options, you can configure [<ProductShortName /> CLI](/download) under your system user.
 
 There are two global configuration files; `config.json` and `auth.json`. By default, these files are held in a directory named `.now` within the user's home directory. For example on Unix based systems they will be found at `~/.now/*.json`.
 
 ## config.json
 
-This file is used for global configuration of <ProductName /> deployments. <ProductNameShort /> CLI uses this file as a way to co-ordinate how deployments should be treated, consistently.
+This file is used for global configuration of <ProductName /> deployments. <ProductShortName /> CLI uses this file as a way to co-ordinate how deployments should be treated, consistently.
 
 The first option is a single `_` that gives a description to the file, if a user should find themselves looking through it without context.
 
@@ -32,7 +32,7 @@ The following options are all of the options that can be used by users to config
 
 **Valid values**: A [team ID](/docs/api/#endpoints/teams/list-all-your-teams).
 
-This option tells [<ProductNameShort /> CLI](/download) which context is currently active. If this property exists and contains a team ID, that team is used as the scope for deployments, otherwise if this property does not exist, the user's personal account is used.
+This option tells [<ProductShortName /> CLI](/download) which context is currently active. If this property exists and contains a team ID, that team is used as the scope for deployments, otherwise if this property does not exist, the user's personal account is used.
 
 <Code lang="json">{`{
   "currentTeam": "team_ofwUZockJlL53hINUGCc1ONW"
@@ -44,7 +44,7 @@ This option tells [<ProductNameShort /> CLI](/download) which context is current
 
 **Valid values**: [An API Origin URL](/docs/api/#api-basics/server-specs/origins).
 
-This option selects which API Origin [<ProductNameShort /> CLI](/download) should use when performing an action requiring the API.
+This option selects which API Origin [<ProductShortName /> CLI](/download) should use when performing an action requiring the API.
 
 <Code lang="json">{`{
   "api": "https://api-sfo1.zeit.co"
@@ -56,7 +56,7 @@ This option selects which API Origin [<ProductNameShort /> CLI](/download) shoul
 
 **Valid values**: `true` (default), `false`.
 
-This option defines whether [<ProductNameShort /> CLI](/download) should collect anonymous metrics about which commands are invoked the most, how long they take to run, and which errors customers are running into.
+This option defines whether [<ProductShortName /> CLI](/download) should collect anonymous metrics about which commands are invoked the most, how long they take to run, and which errors customers are running into.
 
 <Code lang="json">{`{
   "collectMetrics": true

@@ -6,7 +6,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
 import { PRODUCT } from '~/lib/constants'
@@ -23,7 +23,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-contentful-with-now.mdx',
   name: 'Next.js + Contentful',
   type: 'app',
-  lastEdited: '2020-04-13T07:46:04.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [<OrgName /> blog](/blog) by utilizing the [Contentful](https://www.contentful.com/) client, before deploying **with a single command** to [<ProductName />](/docs/v2).
@@ -304,16 +304,16 @@ CONTENTFUL_ACCESS_TOKEN=your-access-token
   Contentful project.
 </Caption>
 
-Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [<ProductNameShort /> Secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the commands below:
+Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [<ProductShortName /> Secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the commands below:
 
 <Snippet dark text="now secrets add CONTENTFUL_SPACE_ID your-space-id" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_SPACE_ID</InlineCode> secret to your project using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets"><ProductNameShort /> Secrets</Link>.
+  Adding the <InlineCode>CONTENTFUL_SPACE_ID</InlineCode> secret to your project using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets"><ProductShortName /> Secrets</Link>.
 </Caption>
 
 <Snippet dark text="now secrets add CONTENTFUL_ACCESS_TOKEN your-access-token" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets"><ProductNameShort /> Secrets</Link>.
+  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets"><ProductShortName /> Secrets</Link>.
 </Caption>
 
 With those steps out the way you are now able to run your app. You can develop your app locally using the following command:

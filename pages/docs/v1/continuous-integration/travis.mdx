@@ -6,7 +6,7 @@ import Note from '~/components/text/note'
 import CliNameV1 from '~/components/product-name/cli-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
-import ProductNameShortV1 from '~/components/product-name/short-v1'
+import ProductShortNameV1 from '~/components/product-name/short-v1'
 
 export const meta = {
   title: 'Continuous Integration with Travis CI',
@@ -14,7 +14,7 @@ export const meta = {
   date: '13 Mar 2018',
   editUrl: 'pages/docs/v1/continuous-integration/travis.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png',
-  lastEdited: '2020-04-13T15:58:49.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
@@ -23,7 +23,7 @@ In this guide, we will set up our Travis CI pipeline to:
 
 - Create a new deployment after each push to any branch
 - [Alias](/docs/features/aliases) your deployment made on the master branch with your [custom domain](/docs/getting-started/assign-a-domain-name)
-- Optionally; build an application inside Travis instead of with <ProductNameShortV1 />
+- Optionally; build an application inside Travis instead of with <ProductShortNameV1 />
 
 ## Step 1: Getting a <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> Token
 
@@ -33,7 +33,7 @@ Head to the tokens page of your dashboard by navigating to your Account Settings
 
 By entering a name into the input labeled "Create a new token..." and subsequently pressing <kbd>Enter</kbd>, a new token will be created which you can copy to your clipboard by clicking `Copy`.
 
-With this token you can use <ProductNameShortV1 /> with your account anywhere with the following command:
+With this token you can use <ProductShortNameV1 /> with your account anywhere with the following command:
 
 <TerminalInput>now --token [TOKEN]</TerminalInput>
 
@@ -46,11 +46,11 @@ The `[TOKEN]` in the example command is replaced with the token you copied from 
 
 ## Step 2: Preparing your project to use Travis
 
-First of all, make sure you've signed up with Travis and synced the repositories you'd like to use with <ProductNameShortV1 /> previous to this. If you have yet to do this, read steps 1 and 2 of the Travis CI's ["To get started with Travis CI" guide](https://docs.travis-ci.com/user/getting-started). If you're configuring a public repository, you can use [travis-ci.org](https://travis-ci.org), otherwise, if the repository is private, you'll need to use the paid version on [travis-ci.com](https://travis-ci.com).
+First of all, make sure you've signed up with Travis and synced the repositories you'd like to use with <ProductShortNameV1 /> previous to this. If you have yet to do this, read steps 1 and 2 of the Travis CI's ["To get started with Travis CI" guide](https://docs.travis-ci.com/user/getting-started). If you're configuring a public repository, you can use [travis-ci.org](https://travis-ci.org), otherwise, if the repository is private, you'll need to use the paid version on [travis-ci.com](https://travis-ci.com).
 
 Now that you have your token and have set up your GitHub account with Travis, you can start integrating Travis into your project. Start by creating a `.travis.yml` file in the root of your repository.
 
-Next, go to the desired repository's settings in Travis (e.g. `https://travis-ci.org/:username/:repository/settings`) and add a new environment variable with the value of your newly created <ProductNameShortV1 /> token. If you call it `NOW_TOKEN` you can then use it inside Travis CI configuration like the following for example:
+Next, go to the desired repository's settings in Travis (e.g. `https://travis-ci.org/:username/:repository/settings`) and add a new environment variable with the value of your newly created <ProductShortNameV1 /> token. If you call it `NOW_TOKEN` you can then use it inside Travis CI configuration like the following for example:
 
 <TerminalInput>now --token $NOW_TOKEN</TerminalInput>
 
@@ -90,7 +90,7 @@ deploy:
 
 <Note>
   If you are deploying using an OSS account you will have to add the{' '}
-  <InlineCode>--public</InlineCode> argument with the <ProductNameShortV1 />{' '}
+  <InlineCode>--public</InlineCode> argument with the <ProductShortNameV1 />{' '}
   commands to avoid being asked if you are sure you want your deployment to be
   public, which will block the build; awaiting user input.
 </Note>
@@ -101,7 +101,7 @@ And that's it! Every time you push something new to any branch it will create a 
 
 ## Optional: Avoid building on <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> (Instead build on Travis)
 
-In some cases, you may prefer to build on Travis CI instead of directly on <ProductNameShortV1 />. If that's the case, this can be achieved by modifying your `.travis.yml` and `now.json` files a little bit.
+In some cases, you may prefer to build on Travis CI instead of directly on <ProductShortNameV1 />. If that's the case, this can be achieved by modifying your `.travis.yml` and `now.json` files a little bit.
 
 ### Defining what to deploy
 
@@ -121,7 +121,7 @@ If you are building a [Next.js](https://github.com/zeit/next.js) application wit
 }
 ```
 
-With this, <ProductNameShortV1 /> will only deploy the files under the directories `.next`, `server`, `static`, and the files `package.json` and `package-lock.json`. You can customize this to add any files which will be required by your application after the build step.
+With this, <ProductShortNameV1 /> will only deploy the files under the directories `.next`, `server`, `static`, and the files `package.json` and `package-lock.json`. You can customize this to add any files which will be required by your application after the build step.
 
 ### Building on Travis
 
@@ -136,7 +136,7 @@ script: npm run build
   can add a prebuild or postbuild step to run tests.
 </Note>
 
-Since you are building your application on Travis, you don't want <ProductNameShortV1 /> to try to build it. To avoid this you can add the following simple script to your `package.json`.
+Since you are building your application on Travis, you don't want <ProductShortNameV1 /> to try to build it. To avoid this you can add the following simple script to your `package.json`.
 
 ```
 {
@@ -146,6 +146,6 @@ Since you are building your application on Travis, you don't want <ProductNameSh
 }
 ```
 
-If the `now-build` script is defined, <ProductNameShortV1 /> will use it instead of `build`. This lets you define it yourself in order to customize the build step on <ProductNameShortV1 /> or just avoid building it on <ProductNameShortV1 /> entirely.
+If the `now-build` script is defined, <ProductShortNameV1 /> will use it instead of `build`. This lets you define it yourself in order to customize the build step on <ProductShortNameV1 /> or just avoid building it on <ProductShortNameV1 /> entirely.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

@@ -3,7 +3,7 @@ import { PRODUCT_SHORT_NAME_V1 } from '~/lib/constants'
 import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
-import ProductNameShortV1 from '~/components/product-name/short-v1'
+import ProductShortNameV1 from '~/components/product-name/short-v1'
 import { InlineCode } from '~/components/text/code'
 import CliNameV1 from '~/components/product-name/cli-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
@@ -13,10 +13,10 @@ export const meta = {
   description: `A quick-start guide to deploying your dynamic and static apps with ${PRODUCT_SHORT_NAME_V1} and what you can do with your deployments.`,
   date: '30 July 2017',
   editUrl: 'pages/docs/v1/getting-started/introduction-to-now.mdx',
-  lastEdited: '2020-04-13T15:58:49.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
-With <ProductNameShortV1 />'s help, you can deploy and publish any kind of web application (or service) in
+With <ProductShortNameV1 />'s help, you can deploy and publish any kind of web application (or service) in
 under five minutes.
 
 This quick-start guide will show you how to deploy an app, connect it to a
@@ -24,7 +24,7 @@ domain name of your choice, and configure an SSL certificate.
 
 ## Step 1: Getting <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} />
 
-The best way to get started with <ProductNameShortV1 /> is by [installing <CliNameV1 />](/download):
+The best way to get started with <ProductShortNameV1 /> is by [installing <CliNameV1 />](/download):
 
 <TerminalInput>npm i -g now</TerminalInput>
 <Caption>
@@ -59,13 +59,13 @@ First, create a directory called `my-web-app` and add the following content to a
 </html>
 ```
 
-> Alternatively, use [Docker to deploy](https://github.com/zeit/now-examples#serverless-docker-v2) your dynamic applications, or use a `Dockerfile` to instruct <ProductNameShortV1 /> to [build and deploy your static applications](/docs/static-deployments/builds/building-with-now).
+> Alternatively, use [Docker to deploy](https://github.com/zeit/now-examples#serverless-docker-v2) your dynamic applications, or use a `Dockerfile` to instruct <ProductShortNameV1 /> to [build and deploy your static applications](/docs/static-deployments/builds/building-with-now).
 
 After you have added the content, change to the `my-web-app` directory in your terminal and run this command:
 
 <TerminalInput>now</TerminalInput>
 
-​<ProductNameShortV1 /> will deploy the app and give you a URL as shown below:
+​<ProductShortNameV1 /> will deploy the app and give you a URL as shown below:
 
 <Image
   src={`${
@@ -135,6 +135,6 @@ Your users can access the updated web app at <https://my-web-app.com>.
 
 ---
 
-These are just a few things you can do with <ProductNameShortV1 />. To do more with <ProductNameShortV1 />, follow the rest of the docs.
+These are just a few things you can do with <ProductShortNameV1 />. To do more with <ProductShortNameV1 />, follow the rest of the docs.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

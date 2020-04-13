@@ -4,8 +4,8 @@ import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import ProductName from '~/components/product-name'
-import ProductNameShort from '~/components/product-name/short'
-import { PRODUCT_SHORT } from '~/lib/constants'
+import ProductShortName from '~/components/product-name/short'
+import { PRODUCT_SHORT_NAME } from '~/lib/constants'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 
 export const meta = {
@@ -13,7 +13,7 @@ export const meta = {
   lastEdited: '2019-10-15T22:03:42.000Z'
 }
 
-## <ProductNameWrapper name={PRODUCT_SHORT} />
+## <ProductNameWrapper name={PRODUCT_SHORT_NAME} />
 
 The `now` command is used to deploy projects and can be used from either the root of the project directory or by providing a path to it.
 
@@ -29,16 +29,17 @@ The `now` command is used to deploy projects and can be used from either the roo
 
 ### Project Linking
 
-When running `now` in a directory for the first time, [<ProductNameShort /> CLI](/download) needs to know which [scope](/docs/now-cli#options/global-options/scope) and [Project](/docs/v2/platform/projects) you
+When running `now` in a directory for the first time, [<ProductShortName /> CLI](/download) needs to know which [scope](/docs/now-cli#options/global-options/scope) and [Project](/docs/v2/platform/projects) you
 want to deploy your directory to. You can choose to either link an existing project or to create a new one.
 
 <Note>
   Project linking requires at least version 17 of{' '}
   <Link href="/download">
-    <ProductNameShort /> CLI
+    <ProductShortName /> CLI
   </Link>
-  . If you have an earlier version, please{' '}
-  <Link href="/guides/updating-now-cli">update</Link> to the latest version.
+  . If you have an earlier version, please <Link href="/guides/updating-now-cli">
+    update
+  </Link> to the latest version.
 </Note>
 
 <br />
@@ -58,7 +59,7 @@ You can use the[`--confirm` option](#commands/now/unique-options/confirm) to ski
 
 ### Framework Detection
 
-When you create a new project, <ProductNameShort /> CLI will automatically detect the framework you are using and offer
+When you create a new project, <ProductShortName /> CLI will automatically detect the framework you are using and offer
 default project settings accordingly.
 
 <Snippet clipboard={false} dark text={`now
@@ -139,7 +140,7 @@ The `--name` option, shorthand `-n`, can be used to provide a project name for a
 
 #### No Clipboard
 
-The `--no-clipboard` option, shorthand `-C`, can be used to prevent <ProductNameShort /> CLI from copying the deployment URL to the clipboard.
+The `--no-clipboard` option, shorthand `-C`, can be used to prevent <ProductShortName /> CLI from copying the deployment URL to the clipboard.
 
 ##### Usage Example
 
@@ -175,7 +176,7 @@ The `--regions` option can be used to specify which regions the deployments [Ser
 
 #### Version
 
-The `--version` option can be used to verify the version of [<ProductNameShort /> CLI](/download) currently being used.
+The `--version` option can be used to verify the version of [<ProductShortName /> CLI](/download) currently being used.
 
 ##### Usage Example
 

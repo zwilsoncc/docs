@@ -8,7 +8,7 @@ import { InlineCode } from '~/components/text/code'
 import OrgName from '~/components/product-name/org-name'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
   title: `Zero-Downtime Domain Migration with ${PRODUCT}`,
@@ -17,7 +17,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/zero-downtime-domain-migration',
   editUrl: 'pages/guides/zero-downtime-domain-migration.mdx',
-  lastEdited: '2020-04-13T07:39:35.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 When migrating to another set of nameservers, there can often be downtime incurred. In this guide we will walk you through adding your domain to <OrgName /> and setting it up before migrating the nameservers, ensuring no downtime at any point.
@@ -36,7 +36,7 @@ When migrating to another set of nameservers, there can often be downtime incurr
 To get the process started, you will need to add your domain to your account or team by using the following command:
 
 <Snippet dark text="now domains add <domain>" />
-<Caption>Adding a domain to a <OrgName /> account using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Adding a domain to a <OrgName /> account using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
 
 This command will add the domain to your account and output information you will need in order to verify the domain is yours.
 
@@ -50,7 +50,7 @@ You will receive two options:
   width={1670/2}
   height={1046/2}
 />
-<Caption>Adding a domain with <Link href="/docs/v2/getting-started/installation"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Adding a domain with <Link href="/docs/v2/getting-started/installation"><ProductShortName /> CLI</Link>.</Caption>
 
 To avoid pointing the nameservers to <ProductName /> prematurely, use the TXT method for verification.
 
@@ -74,7 +74,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   width={1670/2}
   height={1046/2}
 />
-<Caption>Verifying a domain with <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Verifying a domain with <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
 
 ## Step 2: Preparing the Domain with DNS, Certs, and Deploying to Production
 
@@ -82,10 +82,10 @@ Now that your domain is verified, you have more control over it with <ProductNam
 
 ### Generating an SSL Certificate
 
-With [<ProductNameShort /> CLI](/docs/v2/getting-started/installation), you can generate an SSL certificate for your domain and all subdomains, called common names (CNs), with the following command:
+With [<ProductShortName /> CLI](/docs/v2/getting-started/installation), you can generate an SSL certificate for your domain and all subdomains, called common names (CNs), with the following command:
 
 <Snippet dark text="now certs issue \*.<domain> <domain> --challenge-only" />
-<Caption>Generating an SSL certificate for a domain and all subdomains with <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Generating an SSL certificate for a domain and all subdomains with <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
 
 You will then be asked to solve a DNS challenge, required for the Certificate Authority (CA) to prove that <ProductName /> has sufficient permissions, consisting of two TXT records.
 
@@ -95,7 +95,7 @@ Once these TXT records are added to your domain via your domain provider, run th
 
 The next step is to add any DNS records your domain might have had before. For example, MX records.
 
-In this example, we'll take Gmail's current MX records and add them with <ProductNameShort /> CLI:
+In this example, we'll take Gmail's current MX records and add them with <ProductShortName /> CLI:
 
 <Snippet
   dark
@@ -105,7 +105,7 @@ In this example, we'll take Gmail's current MX records and add them with <Produc
 <Caption>
   Adding MX records to a domain with{' '}
   <Link href="/now">
-    <ProductNameShort /> CLI
+    <ProductShortName /> CLI
   </Link>
   .
 </Caption>
@@ -126,10 +126,10 @@ Select a project from your dashboard and click the **Domains** tab. Add your cus
 
 If the domain is **registered to your account and available for use** it will be indicated below the input box and you can continue. Otherwise, if the domain is **not registered to your account**, it will automatically be added and we will attempt to verify it for you.
 
-When the domain is verified, you can deploy your project to production with <ProductNameShort /> CLI:
+When the domain is verified, you can deploy your project to production with <ProductShortName /> CLI:
 
 <Snippet dark text="now --prod" />
-<Caption>Deploying a project to production with <ProductNameShort /> CLI.</Caption>
+<Caption>Deploying a project to production with <ProductShortName /> CLI.</Caption>
 
 <Note>
   Your projects will automatically use your custom domain when merging or

@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import ProductNameShortV1 from '~/components/product-name/short-v1'
+import ProductShortNameV1 from '~/components/product-name/short-v1'
 import { TerminalInput } from '~/components/text/terminal'
 import OrgNameV1 from '~/components/product-name/org-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
@@ -11,7 +11,7 @@ export const meta = {
   description: `The answers to our most frequently asked questions for ${PRODUCT_SHORT_NAME_V1} and other ${ORGANIZATION} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-04-13T15:58:49.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -64,7 +64,7 @@ This command will remove all your non-aliased deployments with the name `my-app`
 
 ## How do I pick the deployment region(s) for my application?
 
-​<ProductNameShortV1 /> will deploy to the nearest region available automatically by default. You can override this behavior by either:
+​<ProductShortNameV1 /> will deploy to the nearest region available automatically by default. You can override this behavior by either:
 
 - [Configuring it while deploying](/docs/v1/features/scaling#scaling-while-deploying) or
 - [Configuring it after deploying](/docs/v1/features/scaling#scaling-after-deploying)
@@ -98,21 +98,21 @@ This model offers a few interesting benefits:
 - **Staging and production deployments**<br />
   A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `now alias`.
 - **Zero-Downtime deployment**<br />
-  Most services will require you to restart your server (eg. Node.js). Thanks to <ProductNameShortV1 />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
+  Most services will require you to restart your server (eg. Node.js). Thanks to <ProductShortNameV1 />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
 
 ## Can I run a database on the <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> platform?
 
-​<ProductNameShortV1 /> deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
+​<ProductShortNameV1 /> deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
 
 However, due to the stateless nature of our deployments, everything you store will be reset upon the deployment instance getting recycled. The data also won't be shared across instances when [scaling](/docs/v1/getting-started/scaling) and will be reset when unfreezing.
 
-We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in <ProductNameShortV1 /> and scale individually to provide equal service to your database than with your app deployments.
+We recommend that you run your database on a database hosting service such as [Cosmos DB](https://azure.microsoft.com/en-gb/services/cosmos-db/), [Redis Labs](https://redislabs.com/), [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), or [Compose](https://www.compose.com/). With these services, you will be able to match the regional locations available in <ProductShortNameV1 /> and scale individually to provide equal service to your database than with your app deployments.
 
 ## Can I transfer domains into/out of <ProductNameWrapper name={ORGANIZATION} /> Domains?
 
 We are working on a domain transfer tool to make this process easier.
 
-For now, it is not possible to transfer a domain into <OrgNameV1 /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use <ProductNameShortV1 /> as a DNS.
+For now, it is not possible to transfer a domain into <OrgNameV1 /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use <ProductShortNameV1 /> as a DNS.
 
 If you need to transfer your domain out of <OrgNameV1 /> Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
 
@@ -125,11 +125,11 @@ After you have done this, the desired owner will be in possession of the domain 
 
 ## Can I use docker-compose with <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} />?
 
-At the moment <ProductNameShortV1 /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now/issues/294) to know when it will be supported.
+At the moment <ProductShortNameV1 /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now/issues/294) to know when it will be supported.
 
 ## How do I disable HTTPS and just use HTTP Instead?
 
-There is no way to disable SSL. All <ProductNameShortV1 /> deployments are HTTPS by default.
+There is no way to disable SSL. All <ProductShortNameV1 /> deployments are HTTPS by default.
 
 ## How do I specify an environment variable with a value that starts with `@`?
 
@@ -151,7 +151,7 @@ You can delete a team by going to the 'Identity' section of the team's settings.
 
 ## How do I create a redirect from www.mysite.com to mysite.com?
 
-Check out our [Setting up a Redirect with <ProductNameShortV1 />](/docs/guides/redirect) guide for instructions.
+Check out our [Setting up a Redirect with <ProductShortNameV1 />](/docs/guides/redirect) guide for instructions.
 
 ## Can I run a bot on <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} />?
 
@@ -223,13 +223,13 @@ Check our Ghost example repository.
 
 ## How do I add my deployments to a list of whitelisted IP Addresses?
 
-The IP addresses of <ProductNameShortV1 /> deployments are too dynamic and for that reason, we don't provide a list of them.
+The IP addresses of <ProductShortNameV1 /> deployments are too dynamic and for that reason, we don't provide a list of them.
 
 Our recommendation when connecting to external services (eg. a database) is to use a strong password and SSL.
 
 ## How do I set up an email for a domain purchased through <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> Domains?
 
-​<ProductNameShortV1 /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
+​<ProductShortNameV1 /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
 ## How do I use private npm modules or GitHub repositories?
 
@@ -259,7 +259,7 @@ We have support for [wildcard SSL certificates](https://zeit.co/blog/wildcard-ce
 
 Since there is no way to release a domain after it was purchased until the next renewal date, we can not give you a refund.
 
-If you do not want to renew a domain purchased with <ProductNameShortV1 /> Domains, remove it with the following command:
+If you do not want to renew a domain purchased with <ProductShortNameV1 /> Domains, remove it with the following command:
 
 <TerminalInput>now domain rm mysite.com</TerminalInput>
 
@@ -327,7 +327,7 @@ We do not currently offer support for IPv6.
 
 ## Does <ProductNameWrapper name={PRODUCT_SHORT_NAME_V1} /> block outgoing connections in any way?
 
-We block ports 25 and 587 on <ProductNameShortV1 /> deployments to avoid spam.
+We block ports 25 and 587 on <ProductShortNameV1 /> deployments to avoid spam.
 Any other port is available for use.
 
 ## Can I Uue a 3-D secure credit card with <ProductNameWrapper name={ORGANIZATION} />?

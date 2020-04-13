@@ -7,7 +7,7 @@ import { InlineCode } from '~/components/text/code'
 import { Image } from '~/components/media'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
 
@@ -159,7 +159,7 @@ In some projects, the top-level directory of the repository may not be the root 
 In cases like this, you can specify the project root directory. If you do so, please note the following:
 
 - If you specify a root directory, then your app won’t be able to access files outside of that directory. You also cannot use `..` to move up a level.
-- This setting also applies to [<ProductNameShort /> CLI](/download). Instead of running `now <directory-name>` to deploy, specify `<directory-name>` here so you can just run `now`.
+- This setting also applies to [<ProductShortName /> CLI](/download). Instead of running `now <directory-name>` to deploy, specify `<directory-name>` here so you can just run `now`.
 
 <Note>
   If you update this setting, it will be applied starting with your next
@@ -184,29 +184,29 @@ Adding environment variables requires two steps, defining the environment variab
 
 ### Adding Secrets
 
-To define an environment variable, you should use **<ProductNameShort /> Secrets**. By using **<ProductNameShort /> Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
+To define an environment variable, you should use **<ProductShortName /> Secrets**. By using **<ProductShortName /> Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
 
-Adding **<ProductNameShort /> Secrets** can be done with [<ProductNameShort /> CLI](/download), providing three options to work with them.
+Adding **<ProductShortName /> Secrets** can be done with [<ProductShortName /> CLI](/download), providing three options to work with them.
 
 <Note>
-  When adding <ProductNameShort /> Secrets with <ProductNameShort /> CLI, the
+  When adding <ProductShortName /> Secrets with <ProductShortName /> CLI, the
   secret name is automatically lowercased before being stored.
 </Note>
 
-To **define a <ProductNameShort /> Secret**, use the following command:
+To **define a <ProductShortName /> Secret**, use the following command:
 
 <Snippet dark text="now secrets add <secret-name> <secret-value>"/>
-<Caption>Defining a <b><ProductNameShort /> Secret</b> using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Defining a <b><ProductShortName /> Secret</b> using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
 
-To **remove a <ProductNameShort /> Secret**, use the following command:
+To **remove a <ProductShortName /> Secret**, use the following command:
 
 <Snippet dark text="now secrets rm <secret-name>"/>
-<Caption>Removing a <b><ProductNameShort /> Secret</b> using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Removing a <b><ProductShortName /> Secret</b> using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
 
-To **rename a <ProductNameShort /> Secret**, use the following command:
+To **rename a <ProductShortName /> Secret**, use the following command:
 
 <Snippet dark text="now secrets rename <secret-name> <new-name>"/>
-<Caption>Renaming a <b><ProductNameShort /> Secret</b> using <Link href="/now"><ProductNameShort /> CLI</Link>.</Caption>
+<Caption>Renaming a <b><ProductShortName /> Secret</b> using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
 
 ### Providing Environment Variables
 
@@ -227,7 +227,7 @@ To provide your project with environment variables during the Build Step, you sh
   application's build step with a defined environment variable.
 </Caption>
 
-When providing environment variables to your application, the value should always be prefixed with `@`, followed by the name of the [<ProductNameShort /> Secret](#adding-secrets) or environment variable name if using a `.env.build` file [during local development](#during-local-development).
+When providing environment variables to your application, the value should always be prefixed with `@`, followed by the name of the [<ProductShortName /> Secret](#adding-secrets) or environment variable name if using a `.env.build` file [during local development](#during-local-development).
 
 To use the environment variable from inside the application you would need to reference it using the correct syntax for the language being used. For example, using Node.js, the syntax would be:
 
@@ -239,11 +239,11 @@ process.env.VARIABLE_NAME
   Accessing a defined environment variable from within a Node.js application.
 </Caption>
 
-Now, whenever the `process.env.VARIABLE_NAME` key is used, it will provide the application's build step with the value declared by the referenced **<ProductNameShort /> Secret**.
+Now, whenever the `process.env.VARIABLE_NAME` key is used, it will provide the application's build step with the value declared by the referenced **<ProductShortName /> Secret**.
 
 ## During Local Development
 
-When using `now dev` to develop your application locally if you require the use of [Serverless Functions](/docs/v2/serverless-functions/introduction), [<ProductNameShort /> Secrets](#adding-secrets) are not available. This is a security measure, to prevent accidental use of production secrets during development.
+When using `now dev` to develop your application locally if you require the use of [Serverless Functions](/docs/v2/serverless-functions/introduction), [<ProductShortName /> Secrets](#adding-secrets) are not available. This is a security measure, to prevent accidental use of production secrets during development.
 
 To use environment variables during local development, create a `.env.build` file at the root of your project directory, for example:
 
@@ -266,7 +266,7 @@ VARIABLE_NAME=variable_value
 
 Environment variables are made available to the build step, meaning that they do not update in the application unless it is redeployed.
 
-If you change the value of a [<ProductNameShort /> Secret](#adding-secrets) or environment variable and want your application to be aware of this, you should create a new deployment.
+If you change the value of a [<ProductShortName /> Secret](#adding-secrets) or environment variable and want your application to be aware of this, you should create a new deployment.
 
 ### Reserved Variables
 
@@ -344,7 +344,7 @@ This is equivalent to `npm install --only=production` or `yarn install --product
 
 ### Prevent Cache Usage
 
-If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for <ProductNameShort /> CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
+If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for <ProductShortName /> CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
 
 ### Framework Versioning
 

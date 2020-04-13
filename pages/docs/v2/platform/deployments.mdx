@@ -7,15 +7,15 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
-import { PRODUCT, ORGANIZATION, PRODUCT_SHORT } from '~/lib/constants'
+import { PRODUCT, ORGANIZATION, PRODUCT_SHORT_NAME } from '~/lib/constants'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import ProductNameShort from '~/components/product-name/short'
+import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
   title: 'Deployments',
   description: `Understanding and making deployments with ${PRODUCT}.`,
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2020-04-13T08:08:21.000Z'
+  lastEdited: '2020-04-13T20:57:18.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -24,7 +24,7 @@ This section contains information about making, managing, and understanding the 
 
 ## Making Deployments
 
-There are multiple ways to make deployments with <ProductName />; these include via a [<ProductName /> for Git Integration](#git-integration), [Deploy Hooks](#deploy-hooks), [<ProductNameShort /> CLI](#now-cli), and the [<ProductName /> API](#now-api).
+There are multiple ways to make deployments with <ProductName />; these include via a [<ProductName /> for Git Integration](#git-integration), [Deploy Hooks](#deploy-hooks), [<ProductShortName /> CLI](#now-cli), and the [<ProductName /> API](#now-api).
 
 When making deployments, the [Project](/docs/v2/platform/projects/) will be uploaded and transformed into a production-ready output through the use of a [Build Step](/docs/v2/build-step).
 
@@ -53,9 +53,9 @@ To create a Deploy Hook, visit the settings page of your [Project](/docs/v2/plat
 
 You can find more information about Deploy Hooks in the [documentation](/docs/v2/advanced/deploy-hooks/).
 
-### <ProductNameWrapper name={PRODUCT_SHORT} /> CLI
+### <ProductNameWrapper name={PRODUCT_SHORT_NAME} /> CLI
 
-By using [<ProductNameShort /> CLI](/download), you can deploy [Projects](/docs/v2/platform/projects/) with **a single command** from your terminal.
+By using [<ProductShortName /> CLI](/download), you can deploy [Projects](/docs/v2/platform/projects/) with **a single command** from your terminal.
 
 To make a [preview deployment](/docs/v2/platform/deployments/#preview), use the `now` command:
 
@@ -74,7 +74,7 @@ To make a [production deployment](/docs/v2/platform/deployments/#preview), use t
 <Snippet dark text="now --prod" />
 <Caption>Making a production deployment with the <InlineCode>now</InlineCode> command.</Caption>
 
-### <ProductNameWrapper name={PRODUCT_SHORT} /> API
+### <ProductNameWrapper name={PRODUCT_SHORT_NAME} /> API
 
 The [<ProductName /> API](/docs/api/) can be used to make deployments by making an HTTP POST request to the relevant endpoint, including the files you wish to deploy as the body.
 
@@ -106,7 +106,7 @@ To add a **production domain** to a [Project](/docs/v2/platform/projects/), visi
 
 ## Managing Deployments
 
-You can manage your deployments either via the [<OrgName /> Dashboard](/dashboard) or, in advanced use cases, [<ProductNameShort /> CLI](/download).
+You can manage your deployments either via the [<OrgName /> Dashboard](/dashboard) or, in advanced use cases, [<ProductShortName /> CLI](/download).
 
 ### <ProductNameWrapper name={ORGANIZATION} /> Dashboard
 
@@ -114,11 +114,11 @@ The [<OrgName /> Dashboard](/dashboard) is the easiest way for you to manage you
 
 Through the <OrgName /> Dashboard, you can find a variety of settings; including a **Domains** tab where you can add [custom domains](/docs/v2/custom-domains/) to your Project.
 
-### <ProductNameWrapper name={PRODUCT_SHORT} /> CLI and API
+### <ProductNameWrapper name={PRODUCT_SHORT_NAME} /> CLI and API
 
-The [<ProductNameShort /> CLI](/download) and [<ProductNameShort /> API](/docs/api/) provide alternative ways to manage your deployments.
+The [<ProductShortName /> CLI](/download) and [<ProductShortName /> API](/docs/api/) provide alternative ways to manage your deployments.
 
-You can find a full list of the commands available in the [<ProductNameShort /> CLI Reference](/docs/now-cli/), along with the deployments section of the [<ProductNameShort /> API Reference](/docs/api/#endpoints/deployments).
+You can find a full list of the commands available in the [<ProductShortName /> CLI Reference](/docs/now-cli/), along with the deployments section of the [<ProductShortName /> API Reference](/docs/api/#endpoints/deployments).
 
 ## Logs
 
@@ -192,7 +192,7 @@ There are two ways to force a **new** deployment to be created when our system w
 
 - **Make any change** to any of the parameters considered by the algorithm, listed above. For example, even changing one character in a comment of a source file yields a new deployment.
 - **Force a new deployment** by instructing your client to do so.
-  - For [<ProductNameShort /> CLI](/download) you can run `now --force`
+  - For [<ProductShortName /> CLI](/download) you can run `now --force`
   - If using our API, include the [`forceNew` query parameter](/docs/api/v2#endpoints/deployments/create-a-new-deployment)
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
