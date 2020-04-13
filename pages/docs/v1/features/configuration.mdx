@@ -1,6 +1,6 @@
 import ProductNameShortV1 from '~/components/product-name/short-v1'
 import Doc from '~/components/layout/docs'
-import CliV1 from '~/components/product-name/cli-v1'
+import CliNameV1 from '~/components/product-name/cli-name-v1'
 import { PRODUCT_SHORT_V1 } from '~/lib/constants'
 
 export const meta = {
@@ -8,16 +8,16 @@ export const meta = {
   description: `Configuring ${PRODUCT_SHORT_V1} so that your deployments are exactly as you need them`,
   date: '22 Feb 2017',
   editUrl: 'pages/docs/v1/features/configuration.mdx',
-  lastEdited: '2020-04-13T08:11:43.000Z'
+  lastEdited: '2020-04-13T15:52:00.000Z'
 }
 
-This guide explains how to use these methods to configure and customize the default behavior of <CliV1 />.
+This guide explains how to use these methods to configure and customize the default behavior of <CliNameV1 />.
 
 In addition to the options available in the command line interface (like `--name` for setting the name of the deployment), we also support saving certain parameters into a config file, `now.json`.
 
 ## Local Configuration
 
-This describes the set of configuration rules that are applied per project. The configuration file always lives in the root directory of the project (except when a custom path is specified using the `--local-config` flag in <CliV1 />).
+This describes the set of configuration rules that are applied per project. The configuration file always lives in the root directory of the project (except when a custom path is specified using the `--local-config` flag in <CliNameV1 />).
 
 ## Configuration
 
@@ -202,7 +202,7 @@ local deployment configuration file and adapt its behavior accordingly.
 
 #### `api` (string)
 
-The URL of the <ProductNameShortV1 /> API which <CliV1 /> should interact with.
+The URL of the <ProductNameShortV1 /> API which <CliNameV1 /> should interact with.
 
 By default, it's pointing to `https://api.zeit.co`, which always points to
 the right location depending on where you're connecting from (Anycast).
@@ -211,19 +211,19 @@ This property takes precedence over `sh.api` in `config.json`.
 
 ## Global Configuration
 
-This describes the set of configuration rules that apply to <CliV1 />.
+This describes the set of configuration rules that apply to <CliNameV1 />.
 
 By default, they live in a directory named `.now` in your
 home directory. Within it, you can find two files (which you
 can learn more about below). If you need to specify a different location of the directory, you can use
-the `--global-config` flag in <CliV1 />, which takes in a
+the `--global-config` flag in <CliNameV1 />, which takes in a
 custom path to a directory containing the two files.
 
 ### config.json
 
 This file can be (if needed) modified manually. It doesn't contain any authentication
 information, but rather only cached account data and configuration rules that
-can apply to <CliV1 />.
+can apply to <CliNameV1 />.
 
 #### `updateChannel` (string)
 
@@ -231,7 +231,7 @@ For our software, we provide two update channels ("stable" and "canary"). This p
 lets you pick either one in order to enjoy a different pace of updates.
 
 Read more [here](/blog/canary) about why these channels exist and what
-they're being used for. As an example, this will make <CliV1 /> receive
+they're being used for. As an example, this will make <CliNameV1 /> receive
 canary updates:
 
 ```
@@ -240,7 +240,7 @@ canary updates:
 
 #### `sh.api` (string)
 
-The URL of the <ProductNameShortV1 /> API which <CliV1 /> should interact with.
+The URL of the <ProductNameShortV1 /> API which <CliNameV1 /> should interact with.
 
 By default, it's pointing to `https://api.zeit.co`, which always points to
 the right location depending on where you're connecting from (Anycast).

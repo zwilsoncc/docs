@@ -3,7 +3,7 @@ import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
-import CliV1 from '~/components/product-name/cli-v1'
+import CliNameV1 from '~/components/product-name/cli-name-v1'
 import { PRODUCT_SHORT_V1 } from '~/lib/constants'
 import ProductNameShortV1 from '~/components/product-name/short-v1'
 
@@ -13,7 +13,7 @@ export const meta = {
   date: '10 July 2018',
   editUrl: 'pages/docs/v1/features/cdn.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/cdn/tw-card.png',
-  lastEdited: '2020-04-13T06:17:14.000Z'
+  lastEdited: '2020-04-13T15:52:00.000Z'
 }
 
 <Note>
@@ -29,7 +29,7 @@ export const meta = {
 
 To use the CDN, you must be on a paid plan. Any new domain or `*.now.sh` alias created under a paid plan will automatically have the CDN enabled.
 
-For any existing domains, added before the CDN was released, or domains that have had the CDN disabled, you can enable the CDN with the <CliV1 /> by running the following command:
+For any existing domains, added before the CDN was released, or domains that have had the CDN disabled, you can enable the CDN with the <CliNameV1 /> by running the following command:
 
 <TerminalInput>now domains add [your domain] --cdn</TerminalInput>
 
