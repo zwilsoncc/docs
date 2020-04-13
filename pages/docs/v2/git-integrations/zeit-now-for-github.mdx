@@ -10,12 +10,13 @@ import GitHubDisconnecting from '~/components/git-mdx/github/disconnecting.mdx'
 import ProductName from '~/components/product-name'
 import { PRODUCT } from '~/lib/constants'
 import ProductNameWrapper from '~/components/product-name/wrapper'
+import GithubAppName from '~/components/product-name/github-app-name'
 
 export const meta = {
   title: `${PRODUCT} for GitHub`,
   description: `Deploy each change in your GitHub repositories with ${PRODUCT} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-github.mdx',
-  lastEdited: '2020-04-12T01:10:50.000Z'
+  lastEdited: '2020-04-13T08:08:21.000Z'
 }
 
 The <ProductName /> for GitHub integration automatically deploys your GitHub projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -31,7 +32,7 @@ The <ProductName /> for GitHub integration automatically deploys your GitHub pro
 
 ### Connecting with GitHub
 
-Link your GitHub account with your personal account or team on <ProductName /> from your dashboard by clicking ["Import Project"](/import) followed by ["From Git Repository"](/import/git). Then, click "Install Now for GitHub".
+Link your GitHub account with your personal account or team on <ProductName /> from your dashboard by clicking ["Import Project"](/import) followed by ["From Git Repository"](/import/git). Then, click "Install <GithubAppName /> for GitHub".
 
 <Image
   src={`${process.env.ASSETS}/docs/common/github-from-existing-code.png`}

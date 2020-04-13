@@ -3,6 +3,7 @@ import Caption from '~/components/text/caption'
 import ProductName from '~/components/product-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT } from '~/lib/constants'
+import GithubAppName from '~/components/product-name/github-app-name'
 
 To disconnect your personal account or team on <ProductName /> from GitHub, take the following steps:
 
@@ -43,7 +44,7 @@ Then, click on **Installed GitHub Apps**:
 
 #### Uninstall <ProductNameWrapper name={PRODUCT} />
 
-Then, find the "Now" application and select the **Configure** button next to it.
+Then, find the "<GithubAppName />" application and select the **Configure** button next to it.
 
 <Image
   src={`${process.env.ASSETS}/docs/git-integrations/configure-now-github.png`}

@@ -14,7 +14,7 @@ export const meta = {
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/upgrade-to-zero-configuration',
   editUrl: 'pages/guides/upgrade-to-zero-configuration.mdx',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-13T08:08:21.000Z'
 }
 
 With zero configuration, it's never been easier to deploy an app with <ProductName />. This guide highlights a set of common scenarios, showing you how to take advantage of these new features.
@@ -78,7 +78,7 @@ Before zero configuration, the [Gatsby default starter](https://github.com/gatsb
 
 The above configuration is no longer required. Instead, for frontend frameworks like Gatsby or Next.js, <ProductName /> will locate the `build` script inside a `package.json` file at your project's root and use it to build and serve the output from the `public` directory.
 
-A set of frontend frameworks are [optimized for Now](/docs/v2/build-step/#optimized-frameworks) with zero configuration. If the framework you are using is not, you must ensure that the build output directory is set to `public`.
+A set of frontend frameworks are optimized with zero configuration. If the framework you are using is not, you must ensure that the build output directory is set to `public`.
 
 If your framework does not support changing the output build directory, you can make an addition to your build script, moving the build output to the `public` folder manually like the example below:
 
