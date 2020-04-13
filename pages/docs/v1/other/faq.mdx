@@ -5,14 +5,13 @@ import OrgNameV1 from '~/components/product-name/org-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import { PRODUCT_SHORT_V1, ORGANIZATION } from '~/lib/constants'
 import CliV1 from '~/components/product-name/cli-v1'
-import ProductNameShortV1 from '~/components/product-name/short-v1'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: `The answers to our most frequently asked questions for ${PRODUCT_SHORT_V1} and other ${ORGANIZATION} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-04-13T05:49:46.000Z'
+  lastEdited: '2020-04-13T08:17:32.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -65,7 +64,7 @@ This command will remove all your non-aliased deployments with the name `my-app`
 
 ## How do I pick the deployment region(s) for my application?
 
-&#8203;<ProductNameShortV1 /> will deploy to the nearest region available automatically by default. You can override this behavior by either:
+​<ProductNameShortV1 /> will deploy to the nearest region available automatically by default. You can override this behavior by either:
 
 - [Configuring it while deploying](/docs/v1/features/scaling#scaling-while-deploying) or
 - [Configuring it after deploying](/docs/v1/features/scaling#scaling-after-deploying)
@@ -103,7 +102,7 @@ This model offers a few interesting benefits:
 
 ## Can I run a database on the <ProductNameWrapper name={PRODUCT_SHORT_V1} /> platform?
 
-&#8203;<ProductNameShortV1 /> deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
+​<ProductNameShortV1 /> deployments **must** expose a [single](/docs/deployment-types/node#port-selection) [port](/docs/deployment-types/docker#port-selection) running an HTTP or WebSocket server. With Docker, however, it is possible to run a database in the same container of the HTTP API consuming it.
 
 However, due to the stateless nature of our deployments, everything you store will be reset upon the deployment instance getting recycled. The data also won't be shared across instances when [scaling](/docs/v1/getting-started/scaling) and will be reset when unfreezing.
 
@@ -230,7 +229,7 @@ Our recommendation when connecting to external services (eg. a database) is to u
 
 ## How do I set up an email for a domain purchased through <ProductNameWrapper name={PRODUCT_SHORT_V1} /> Domains?
 
-&#8203;<ProductNameShortV1 /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
+​<ProductNameShortV1 /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
 ## How do I use private npm modules or GitHub repositories?
 
