@@ -2,7 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const prettier = require('prettier')
-const productNames = require('../lib/product-names.json')
+const productNames = require('../lib/name-constants.json')
 
 const DOMAIN = 'https://zeit.co'
 const SITE_PATHS = [
