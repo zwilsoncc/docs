@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
 
-import Now from '~/components/text/now'
+import ProductNameShortV1 from '~/components/product-name/short-v1'
 import Link from '~/components/text/link'
 import { TerminalInput } from '~/components/text/terminal'
 
@@ -9,12 +9,12 @@ export const meta = {
   description: 'Managing your DNS records for domains used with Now',
   date: '15 Mar 2017',
   editUrl: 'pages/docs/v1/features/dns.mdx',
-  lastEdited: '2019-11-05T13:14:41.000Z'
+  lastEdited: '2020-04-13T05:49:46.000Z'
 }
 
-Thanks to the `now dns` CLI command, managing existing DNS records with <Now color="#000" /> is simple.
+Thanks to the `now dns` CLI command, managing existing DNS records with <ProductNameShortV1 /> is simple.
 
-> However, this only applies to domains you bought via <Now color="#000" /> or domains configured with our [global DNS service](/world).
+> However, this only applies to domains you bought via <ProductNameShortV1 /> or domains configured with our [global DNS service](/world).
 
 In the examples shown below, the placeholder `zeit.rocks` represents a domain of your choice that was registered with `now domains` or `now alias`. Here are the main sub-commands you can use:
 
@@ -73,8 +73,8 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 > In this case, you'll be in charge of certificate management for your domain.<br/>
 > Most probably, you'll need to use `CAA` records to:
 >
-> 1. use a custom certificate for your <Now color="#000" /> deployment with <Link href="/docs/features/certs#now-certs-replace">`now certs replace`</Link>
-> 2. run an app outside of <Now color="#000" /> with TLS for a subdomain
+> 1. use a custom certificate for your <ProductNameShortV1 /> deployment with <Link href="/docs/features/certs#now-certs-replace">`now certs replace`</Link>
+> 2. run an app outside of <ProductNameShortV1 /> with TLS for a subdomain
 
 ### now dns rm &lt;ID>
 

@@ -1,5 +1,5 @@
 import Doc from '~/components/layout/docs'
-import Now from '~/components/text/now'
+import ProductNameShortV1 from '~/components/product-name/short-v1'
 import { TerminalInput } from '~/components/text/terminal'
 import OrgNameV1 from '~/components/product-name/org-name-v1'
 import ProductNameWrapper from '~/components/product-name/wrapper'
@@ -11,7 +11,7 @@ export const meta = {
   description: `The answers to our most frequently asked questions for Now and other ${ORGANIZATION} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-04-13T05:41:51.000Z'
+  lastEdited: '2020-04-13T05:49:46.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -98,7 +98,7 @@ This model offers a few interesting benefits:
 - **Staging and production deployments**<br />
   A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `now alias`.
 - **Zero-Downtime deployment**<br />
-  Most services will require you to restart your server (eg. Node.js). Thanks to <Now color="#000" />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
+  Most services will require you to restart your server (eg. Node.js). Thanks to <ProductNameShortV1 />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
 
 ## Can I run a database on the Now platform?
 
@@ -125,11 +125,11 @@ After you have done this, the desired owner will be in possession of the domain 
 
 ## Can I use docker-compose with Now?
 
-At the moment <Now color="#000" /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now/issues/294) to know when it will be supported.
+At the moment <ProductNameShortV1 /> does not support docker-compose. Keep an eye on the [open issue on GitHub](https://github.com/zeit/now/issues/294) to know when it will be supported.
 
 ## How do I disable HTTPS and just use HTTP Instead?
 
-There is no way to disable SSL. All <Now color="#000" /> deployments are HTTPS by default.
+There is no way to disable SSL. All <ProductNameShortV1 /> deployments are HTTPS by default.
 
 ## How do I specify an environment variable with a value that starts with `@`?
 
@@ -223,13 +223,13 @@ Check our Ghost example repository.
 
 ## How do I add my deployments to a list of whitelisted IP Addresses?
 
-The IP addresses of <Now color="#000" /> deployments are too dynamic and for that reason, we don't provide a list of them.
+The IP addresses of <ProductNameShortV1 /> deployments are too dynamic and for that reason, we don't provide a list of them.
 
 Our recommendation when connecting to external services (eg. a database) is to use a strong password and SSL.
 
 ## How do I set up an email for a domain purchased through Now Domains?
 
-<Now color="#000" /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
+<ProductNameShortV1 /> doesn't provide you with an email server for your custom domains. You can use [`now dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
 ## How do I use private npm modules or GitHub repositories?
 

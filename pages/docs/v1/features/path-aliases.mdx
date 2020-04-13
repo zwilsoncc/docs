@@ -1,6 +1,6 @@
 import Doc from '~/components/layout/docs'
 import OrgNameV1 from '~/components/product-name/org-name-v1'
-import Now from '~/components/text/now'
+import ProductNameShortV1 from '~/components/product-name/short-v1'
 import { TerminalInput } from '~/components/text/terminal'
 
 export const meta = {
@@ -9,7 +9,7 @@ export const meta = {
     'Aliasing microservices to exist in different locations with your domain on Now',
   date: '15 Mar 2017',
   editUrl: 'pages/docs/v1/features/path-aliases.mdx',
-  lastEdited: '2020-04-13T04:41:19.000Z'
+  lastEdited: '2020-04-13T05:49:46.000Z'
 }
 
 With the microservices architecture, we break down the whole app into multiple independent programs: microservices. This architecture gives us a lot of benefits including:
@@ -131,7 +131,7 @@ Have a look at the rules we have introduced previously:
 }
 ```
 
-Destinations of these rules are unique <Now color="#000" /> deployment URLs. They will be changed every time you deploy a new version. Therefore, you need to update the rules again and again.
+Destinations of these rules are unique <ProductNameShortV1 /> deployment URLs. They will be changed every time you deploy a new version. Therefore, you need to update the rules again and again.
 
 It works, but there is a better way to do this.
 
