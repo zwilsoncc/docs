@@ -1,12 +1,13 @@
 import Caption from '~/components/text/caption'
 import { Image } from '~/components/media'
 import ProductName from '~/components/product-name'
+import ProductNameShort from '~/components/product-name/short'
 
 #### A Deployment for Each Push
 
 &#8203;<ProductName /> for Bitbucket will **deploy each push by default**. This includes pushes and pull requests made to branches. This allows those working within the project to preview the changes made before they are pushed to production.
 
-With each new push, if Now is already building a previous commit, the current build will be canceled to build the most recent commit so that you always have the latest changes deployed as quickly as possible.
+With each new push, if <ProductNameShort /> is already building a previous commit, the current build will be canceled to build the most recent commit so that you always have the latest changes deployed as quickly as possible.
 
 #### Updating the Production Domain
 
