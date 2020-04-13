@@ -6,11 +6,11 @@ import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Create a Svelte Component Library Using Storybook and Deploy It with ${PRODUCT}`,
-  description: `Create a Svelte Component Library using Storybook and deploy it with ${PRODUCT}.`,
+  title: `Create a Svelte Component Library Using Storybook and Deploy It with ${PRODUCT_NAME}`,
+  description: `Create a Svelte Component Library using Storybook and deploy it with ${PRODUCT_NAME}.`,
   name: 'Storybook',
   type: 'component library',
   published: '2019-08-21T12:00:00.860Z',
@@ -18,8 +18,8 @@ export const meta = {
   url: '/guides/deploying-storybook-with-zeit-now',
   demo: 'https://storybook.now-examples.now.sh',
   editUrl: 'pages/guides/deploying-storybook-with-zeit-now.mdx',
-  image: `https://og-image.now.sh/**Deploy%20a%20Storybook%20Library**%20%3Cbr%3E%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1100804485616566273%2FsOct-Txm_400x400.png`,
-  lastEdited: '2020-04-12T01:10:50.000Z'
+  image: `https://og-image.now.sh/**Deploy%20a%20Storybook%20Library**%20%3Cbr%3E%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1100804485616566273%2FsOct-Txm_400x400.png`,
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 [Storybook](https://storybook.js.org/) is an open source tool for developing JavaScript UI components in isolation. [Svelte](https://svelte.dev/) is a component framework that allows you to write highly-efficient, imperative code, that surgically updates the DOM to maintain performance.
@@ -62,7 +62,7 @@ With the development dependencies added, extend your `package.json` file by addi
 
 By adding these scripts you are able to start a development server from inside your project directory with `npm storybook`. You are also able to deploy the Storybook component library with [<ProductName />](/) with no additional configuration.
 
-## Step 2: Deploying with <ProductNameWrapper name={PRODUCT} />
+## Step 2: Deploying with <ProductNameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

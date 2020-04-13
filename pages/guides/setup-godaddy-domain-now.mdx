@@ -7,17 +7,17 @@ import Link from '~/components/text/link'
 import OrgName from '~/components/product-name/org-name'
 import ProductName from '~/components/product-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
-  title: `Setup a GoDaddy Domain with ${PRODUCT}`,
-  description: `Use your GoDaddy registered domain for your ${PRODUCT} deployments.`,
+  title: `Setup a GoDaddy Domain with ${PRODUCT_NAME}`,
+  description: `Use your GoDaddy registered domain for your ${PRODUCT_NAME} deployments.`,
   published: '2019-01-23T17:00:00.860Z',
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-now',
   editUrl: 'pages/guides/setup-godaddy-domain-now.mdx',
-  lastEdited: '2020-04-13T20:57:18.000Z'
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 With <ProductName />, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to <ProductName />](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
@@ -102,7 +102,7 @@ Once you have added the TXT record, your domain can be verified. <OrgName /> wil
 />
 <Caption style={{marginTop: '-64px'}}>Verifying a domain with <ProductShortName /> CLI</Caption>
 
-## Step 2: Configuring Your Domain on <ProductNameWrapper name={PRODUCT} />
+## Step 2: Configuring Your Domain on <ProductNameWrapper name={PRODUCT_NAME} />
 
 If you have used either verification method, the next step may be to configure your domain with DNS records and to use it for a deployment.
 
@@ -132,7 +132,7 @@ You can then deploy to your production domain with **a single command**:
 
 We highly recommend using either the [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) apps which will allow your app to be deployed to your production on push to your GitHub repository, GitLab project, or Bitbucket repository.
 
-## Step 3: Pointing to <ProductNameWrapper name={PRODUCT} />
+## Step 3: Pointing to <ProductNameWrapper name={PRODUCT_NAME} />
 
 As with the ["Verifying with Nameservers"](#verifying-with-nameservers) step, this final part of the migration process will point your domain to <OrgName /> DNS with the intended nameservers set. If you did not save them when you added your domain, you can see the intended list by running the `now domains inspect <domain>` command.
 

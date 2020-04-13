@@ -8,19 +8,19 @@ import DeploySection from '~/components/guides/deploy-section'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
 import ProductShortName from '~/components/product-name/short'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Deploying Real-Time Apps with Pusher Channels and ${PRODUCT}`,
-  description: `How to get started building and deploying real-time apps with Channels on ${PRODUCT}.`,
+  title: `Deploying Real-Time Apps with Pusher Channels and ${PRODUCT_NAME}`,
+  description: `How to get started building and deploying real-time apps with Channels on ${PRODUCT_NAME}.`,
   published: '2019-08-28T19:22:52.039Z',
   authors: ['coetry'],
   name: 'Channels',
   type: 'app',
   url: '/guides/deploying-pusher-channels-with-zeit-now',
-  image: `https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250`,
+  image: `https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250`,
   editUrl: 'pages/guides/deploying-pusher-channels-with-zeit-now.mdx',
-  lastEdited: '2020-04-13T20:57:18.000Z'
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 [Pusher Channels](https://pusher.com/channels) is a service that makes it easy to add real-time data and functionality to web and mobile apps by using [WebSockets](https://en.wikipedia.org/wiki/WebSocket).
@@ -236,7 +236,7 @@ module.exports = (req, res) => {
 
 When `channels.trigger` is called, an event will be broadcast to all subscribed clients.
 
-## Step 3: Deploying with <ProductNameWrapper name={PRODUCT} />
+## Step 3: Deploying with <ProductNameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

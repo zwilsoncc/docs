@@ -7,17 +7,17 @@ import Link from '~/components/text/link'
 import OrgName from '~/components/product-name/org-name'
 import ProductName from '~/components/product-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 import ProductShortName from '~/components/product-name/short'
 
 export const meta = {
-  title: `Setup a Namecheap Domain with ${PRODUCT}`,
-  description: `Use your Namecheap registered domain for your ${PRODUCT} deployments.`,
+  title: `Setup a Namecheap Domain with ${PRODUCT_NAME}`,
+  description: `Use your Namecheap registered domain for your ${PRODUCT_NAME} deployments.`,
   published: '2019-02-15T17:00:00.860Z',
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-now',
   editUrl: 'pages/guides/setup-namecheap-domain-now.mdx',
-  lastEdited: '2020-04-13T20:57:18.000Z'
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as a production domain for your <ProductName /> deployments.
@@ -109,7 +109,7 @@ Your domain will be verified after adding the TXT record. Once <OrgName /> verif
 
 <Snippet dark text="now domains verify <domain>" />
 
-## Step 2: Configuring your Domain on <ProductNameWrapper name={PRODUCT} />
+## Step 2: Configuring your Domain on <ProductNameWrapper name={PRODUCT_NAME} />
 
 Once your domain has been verified on <ProductName />, you can configure your domain with DNS records and add it as a production domain for deployments.
 
@@ -140,7 +140,7 @@ You can then deploy to your production domain with **a single command**:
 
 We highly recommend using either the [<ProductName /> for GitHub](/docs/v2/git-integrations/zeit-now-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/zeit-now-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/zeit-now-for-bitbucket) apps which will allow your app to be deployed to your production on push to your GitHub repository, GitLab project, or Bitbucket repository.
 
-## Step 3: Pointing to <ProductNameWrapper name={PRODUCT} />
+## Step 3: Pointing to <ProductNameWrapper name={PRODUCT_NAME} />
 
 If you already verified your domain with nameservers, then this step is done.
 

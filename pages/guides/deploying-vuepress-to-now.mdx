@@ -6,20 +6,20 @@ import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Creating and Deploying a VuePress App with ${PRODUCT}`,
-  description: `Create your VuePress app and deploy it with ${PRODUCT}.`,
+  title: `Creating and Deploying a VuePress App with ${PRODUCT_NAME}`,
+  description: `Create your VuePress app and deploy it with ${PRODUCT_NAME}.`,
   name: 'VuePress',
   type: 'app',
   published: '2019-01-26T03:00:00.860Z',
   authors: ['unicodeveloper'],
   url: '/guides/deploying-vuepress-to-now',
   demo: 'https://vuepress.now-examples.now.sh',
-  image: `https://og-image.now.sh/**Deploying%20VuePress%20Sites**%20%3Cbr%20%2F%3E%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fvuepress.vuejs.org%2Fhero.png&widths=250&widths=300&heights=250&heights=300`,
+  image: `https://og-image.now.sh/**Deploying%20VuePress%20Sites**%20%3Cbr%20%2F%3E%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fvuepress.vuejs.org%2Fhero.png&widths=250&widths=300&heights=250&heights=300`,
   editUrl: 'pages/guides/deploying-vuepress-to-now.mdx',
-  lastEdited: '2020-04-12T01:10:50.000Z'
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 VuePress is a vue-powered static generator. It is used for generating static sites with a focus on writing.
@@ -65,7 +65,7 @@ Create a `.vuepress` folder inside the project directory with a `config.js` file
 ```js
 module.exports = {
   title: `My VuePress Project',
-  description: `A simple VuePress project deployed with ${PRODUCT}.`,
+  description: `A simple VuePress project deployed with ${PRODUCT_NAME}.`,
   themeConfig: {
     nav: [{ text: 'Home', link: '/' }, { text: 'Guide', link: '/guides/' }]
   },
@@ -94,7 +94,7 @@ Next, add both a development and build script to the `package.json` file in the 
   <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-## Step 3: Deploying Your VuePress Project with <ProductNameWrapper name={PRODUCT} />
+## Step 3: Deploying Your VuePress Project with <ProductNameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

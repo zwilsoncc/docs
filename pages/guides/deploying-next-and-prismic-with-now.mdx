@@ -10,11 +10,11 @@ import CdnName from '~/components/product-name/cdn'
 import ProductName from '~/components/product-name'
 import OrgName from '~/components/product-name/org-name'
 import ProductNameWrapper from '~/components/product-name/wrapper'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Create and Deploy a Next.js and Prismic App with ${PRODUCT}`,
-  description: `Create a Next.js and Prismic app that is deployed with ${PRODUCT}.`,
+  title: `Create and Deploy a Next.js and Prismic App with ${PRODUCT_NAME}`,
+  description: `Create a Next.js and Prismic app that is deployed with ${PRODUCT_NAME}.`,
   name: 'Next.js + Prismic',
   type: 'app',
   published: '2019-06-26T14:46:50.000Z',
@@ -22,7 +22,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-now',
   image: `https://zeit.co/docs/static/guides/deploying-next-prismic-with-now/deploying-next-prismic-with-now.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-now.mdx',
-  lastEdited: '2020-04-12T06:08:47.000Z'
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [<ProductName />](/docs/v2).
@@ -264,7 +264,7 @@ const BlogHome = (props) => (
 
 You can now refresh your site at [`localhost:3000`](http://localhost:3000/) and test out the navigation for your blog. It's quite minimalistic, but you've built it from scratch.
 
-## Step 5: Deploying With <ProductNameWrapper name={PRODUCT} />
+## Step 5: Deploying With <ProductNameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

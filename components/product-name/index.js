@@ -1,4 +1,4 @@
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 const ProductName = () => PRODUCT
 

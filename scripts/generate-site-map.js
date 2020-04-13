@@ -72,7 +72,7 @@ function xmlUrlNode(pagePath) {
     meta = eval(
       '(' +
         match[1]
-          .replace(/\${PRODUCT}/g, productNames.product)
+          .replace(/\${PRODUCT_NAME}/g, productNames.productName)
           .replace(/\${ORG_NAME}/g, productNames.orgName)
           .replace(/\${CDN_NAME}/g, productNames.cdnName)
           .replace(/\${PRODUCT_SHORT_NAME}/g, productNames.productShortName)

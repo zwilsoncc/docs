@@ -6,11 +6,11 @@ import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
 import ProductNameWrapper from '~/components/product-name/wrapper'
 import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Deploy UmiJS with ${PRODUCT}`,
-  description: `Create an UmiJS app and deploy it live with ${PRODUCT}.`,
+  title: `Deploy UmiJS with ${PRODUCT_NAME}`,
+  description: `Create an UmiJS app and deploy it live with ${PRODUCT_NAME}.`,
   name: 'UmiJS',
   type: 'app',
   published: '2019-11-04T12:00:00.860Z',
@@ -18,9 +18,9 @@ export const meta = {
   url: '/guides/deploying-umijs-with-zeit-now',
   example: 'umijs',
   demo: 'https://umijs.now-examples.now.sh',
-  image: `https://og-image.now.sh/**Deploy%20UmiJS%20Apps**%20%3Cbr%2F%3E%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fgithub.com%2Fumijs.png%3Fsize%3D200&widths=300&widths=300&heights=300&heights=300`,
+  image: `https://og-image.now.sh/**Deploy%20UmiJS%20Apps**%20%3Cbr%2F%3E%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fgithub.com%2Fumijs.png%3Fsize%3D200&widths=300&widths=300&heights=300&heights=300`,
   editUrl: 'pages/guides/deploying-umijs-with-zeit-now.mdx',
-  lastEdited: '2020-04-12T01:10:50.000Z'
+  lastEdited: '2020-04-13T22:14:13.000Z'
 }
 
 [UmiJS](https://umijs.org/) is a pluggable enterprise-level React application framework.
@@ -32,7 +32,7 @@ Set up an Umi app with [`npm`](https://www.npmjs.com/) and move into the project
 <Snippet dark text="npm init umi my-umi-project && cd my-umi-project" />
 <Caption>Initializing an Umi app with <Link href="https://www.npmjs.com/">npm</Link> and moving into the project directory.</Caption>
 
-## Step 2: Deploying Your Umi App with <ProductNameWrapper name={PRODUCT} />
+## Step 2: Deploying Your Umi App with <ProductNameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 
