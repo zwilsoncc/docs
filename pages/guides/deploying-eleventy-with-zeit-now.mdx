@@ -4,8 +4,8 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-eleventy-with-zeit-now.mdx',
   name: 'Eleventy',
   type: 'site',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [Eleventy](https://www.11ty.io/) is a simpler static site generator, created to be a JavaScript alternative to Jekyll.
@@ -32,7 +32,7 @@ Set up an Eleventy site with [`npx`](https://www.npmjs.com/package/npx) and move
 <Snippet dark text="npx degit 11ty/eleventy-base-blog my-11ty-project && cd my-11ty-project" />
 <Caption>Initializing an Eleventy site with <Link href="https://www.npmjs.com/package/npx">npx</Link> and moving into the project directory.</Caption>
 
-## Step 2: Deploying Your Eleventy Site with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 2: Deploying Your Eleventy Site with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

@@ -4,10 +4,10 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import OrgName from '~/components/name/org-name'
-import ProductName from '~/components/name'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME, ORG_NAME, PRODUCT_SHORT_NAME } from '~/lib/constants'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductShortName from '~/components/name/short'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
   title: `Transferring Domains to ${PRODUCT_NAME}`,
@@ -16,7 +16,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/transferring-domains-to-zeit-now',
   editUrl: 'pages/guides/transferring-domains-to-zeit-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 With <ProductName />, you can [assign a custom domain](/docs/v2/custom-domains#adding-a-domain) to any of your projects. If you want to transfer your domain in from an external registrar to <OrgName />, you can do that painlessly without worrying about domain and DNS configuration.
@@ -48,7 +48,7 @@ After unlocking, **request an authorization code**. The code will be sent to the
 
 When transferring a domain, you will have two options to choose from. Either using the [<OrgName /> Dashboard](https://zeit.co/dashboard/domains) or [<ProductShortName /> CLI](/download).
 
-### Option 1: Using <ProductNameWrapper name={ORG_NAME} /> Dashboard
+### Option 1: Using <NameWrapper name={ORG_NAME} /> Dashboard
 
 Using the [<OrgName /> Dashboard](https://zeit.co/dashboard/domains), you can perform a domain transfer by entering the domain you want to transfer in, and the respective authorization code from the domain registrar via the UI like so:
 
@@ -59,7 +59,7 @@ Using the [<OrgName /> Dashboard](https://zeit.co/dashboard/domains), you can pe
 />
 <Caption>Transferring in a Domain via the <OrgName /> Dashboard.</Caption>
 
-### Option 2: Using <ProductNameWrapper name={PRODUCT_SHORT_NAME} /> CLI
+### Option 2: Using <NameWrapper name={PRODUCT_SHORT_NAME} /> CLI
 
 With [<ProductShortName /> CLI](/download), you can run the following command from your terminal.
 

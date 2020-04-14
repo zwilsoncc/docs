@@ -4,8 +4,8 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import OrgName from '~/components/name/org-name'
-import ProductName from '~/components/name'
-import ProductNameWrapper from '~/components/name/wrapper'
+import ProductName from '~/components/name/product-name'
+import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -15,14 +15,14 @@ export const meta = {
   authors: ['arunoda', 'timothy'],
   url: '/guides/getting-started-with-now-for-gitlab',
   editUrl: 'pages/guides/getting-started-with-now-for-gitlab.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 The [<ProductName /> for GitLab integration](/docs/v2/integrations/now-for-gitlab) provides you with automatic deployments for each push to a project, automatic preview URLs for pushes to the default branch, and instant rollbacks for reverts.
 
 This guide will walk you through how to set up the <ProductName /> for GitLab integration for your projects.
 
-## Step 1: Set Up a <ProductNameWrapper name={PRODUCT_NAME} /> for GitLab Project
+## Step 1: Set Up a <NameWrapper name={PRODUCT_NAME} /> for GitLab Project
 
 To deploy a project with <ProductName /> for GitLab, you must first have a project on GitLab.
 
@@ -44,7 +44,7 @@ Push this file to your GitLab project so you have one file inside of it.
 />
 <Caption style={{marginTop: '-64px'}}>A simple GitLab project setup.</Caption>
 
-## Step 2: Connect <ProductNameWrapper name={PRODUCT_NAME} /> to Your GitLab User and Project
+## Step 2: Connect <NameWrapper name={PRODUCT_NAME} /> to Your GitLab User and Project
 
 For <ProductName /> to make automatic deployments and preview URLs, it needs access to your GitLab account and its associated projects.
 
@@ -66,7 +66,7 @@ From the [account settings](/account) section where you connected your GitLab ac
 
 With a project linked, no further setup is required on <OrgName />.
 
-## Step 3: Using <ProductNameWrapper name={PRODUCT_NAME} /> for GitLab
+## Step 3: Using <NameWrapper name={PRODUCT_NAME} /> for GitLab
 
 With configuration done, all future commits from your linked projects will have [automatic deployments for each push](#deployments-for-each-push), [merge requests](#deployments-and-preview-urls-for-merge-requests), and [automatic updates for production domains](#deploying-to-production).
 

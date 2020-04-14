@@ -4,8 +4,8 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import DeploySection from '~/components/guides/deploy-section'
 import OrgName from '~/components/name/org-name'
-import ProductName from '~/components/name'
-import ProductNameWrapper from '~/components/name/wrapper'
+import ProductName from '~/components/name/product-name'
+import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_NAME, ORG_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -17,18 +17,18 @@ export const meta = {
   image: `https://og-image.now.sh/**Track%20website%20performance**%20with%20DebugBear%20and%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fmonitor-frontend-performance-with-debugbear-and-zeit-now%2Fdebubear-logo.png`,
   editUrl:
     'pages/guides/monitor-frontend-performance-with-debugbear-and-zeit-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [DebugBear](https://www.debugbear.com/) is a website monitoring tool that helps developers keep track of site performance and [Lighthouse](https://developers.google.com/web/tools/lighthouse) scores.
 
 This guide walks you through setting up continuous monitoring for your production sites, as well as automatic testing of every [Preview Deployment](/docs/v2/platform/deployments#preview).
 
-## Step 1: Import and Deploy with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 1: Import and Deploy with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 
-## Step 2: Install the DebugBear <ProductNameWrapper name={ORG_NAME} /> Integration
+## Step 2: Install the DebugBear <NameWrapper name={ORG_NAME} /> Integration
 
 With your project set up with <OrgName />, install the [DebugBear integration](https://zeit.co/integrations/debugbear) from the [<OrgName /> Integrations Marketplace](/integrations) to add it to your account.
 

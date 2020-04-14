@@ -4,8 +4,8 @@ import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
   name: 'Gatsby',
   type: 'app',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
@@ -39,7 +39,7 @@ Then you can run the following command to create a Gatsby project locally:
 
 Next, move into the directory from your terminal with `cd my-gatsby-project`. You can see your new project in a local development environment by using the `npm develop` command, set in the `package.json` by Gatsby CLI.
 
-## Step 2: Deploying Your Gatsby Website with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 2: Deploying Your Gatsby Website with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

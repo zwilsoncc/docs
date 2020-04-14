@@ -1,7 +1,7 @@
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
-import ProductName from '~/components/name'
-import ProductNameWrapper from '~/components/name/wrapper'
+import ProductName from '~/components/name/product-name'
+import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_NAME } from '~/lib/constants'
 import GithubAppName from '~/components/name/github-app-name'
 
@@ -42,7 +42,7 @@ Then, click on **Installed GitHub Apps**:
 />
 <Caption>Organization Application Settings on GitHub.</Caption>
 
-#### Uninstall <ProductNameWrapper name={PRODUCT_NAME} />
+#### Uninstall <NameWrapper name={PRODUCT_NAME} />
 
 Then, find the "<GithubAppName />" application and select the **Configure** button next to it.
 

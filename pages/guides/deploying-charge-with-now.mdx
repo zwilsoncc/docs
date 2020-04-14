@@ -6,8 +6,8 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -21,7 +21,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-charge-with-now.mdx',
   name: 'Charge',
   type: 'app',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [Charge](https://charge.js.org/) is an opinionated, zero-config static site generator written in JavaScript. Charge is fast, simple and behaves the way you expect it to.
@@ -182,7 +182,7 @@ export default () => {
 
 Now that you have a simple Charge site created, you're ready to deploy with [<ProductName />](/docs/v2).
 
-## Step 3: Deploy Your Charge Project with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 3: Deploy Your Charge Project with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

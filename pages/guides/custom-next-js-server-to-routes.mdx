@@ -5,7 +5,7 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import DeploySection from '~/components/guides/deploy-section'
 
-import ProductName from '~/components/name'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -17,7 +17,7 @@ export const meta = {
   type: 'app',
   url: '/guides/custom-next-js-server-to-routes',
   editUrl: 'pages/guides/custom-next-js-server-to-routes.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 Next.js offers developers [a built-in routing system](https://nextjs.org/docs/#routing) that allows you to link to other pages whilst also giving those pages a custom URL. When a user refreshes the custom URL, however, the browser will not be able to load the link because the page was previously routed client-side. To resolve this, we need to also handle routing server-side.

@@ -8,10 +8,10 @@ import Link from '~/components/text/link'
 import Card from '~/components/card'
 import { Code } from '~/components/code'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
-import ProductShortName from '~/components/name/short'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
   title: `Deploy a SendGrid-Powered Contact Form with ${PRODUCT_NAME}`,
@@ -24,7 +24,7 @@ export const meta = {
   image: `https://og-image.now.sh/**Deploy%20a%20Next.js%20and%20SendGrid%20App**%20%3Cbr%2F%3E%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fsendgrid.com%2Fwp-content%2Fthemes%2Fsgdotcom%2Fpages%2Fresource%2Fbrand%2F2016%2FSendGrid-Logomark.png&widths=250&widths=auto&widths=300&heights=250&heights=auto&heights=300`,
   editUrl:
     'pages/guides/deploying-nextjs-nodejs-and-sendgrid-with-zeit-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [SendGrid](https://sendgrid.com/) is a cloud-based SMTP provider that allows you to send email without having to maintain email servers.
@@ -296,7 +296,7 @@ Lastly, to make the [<ProductShortName /> Secret](https://zeit.co/docs/v2/server
   available to the app.
 </Caption>
 
-## Step 4: Deploying the App with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 4: Deploying the App with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

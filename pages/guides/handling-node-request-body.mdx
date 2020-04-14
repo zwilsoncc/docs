@@ -5,8 +5,8 @@ import { Code, InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Request from '~/components/api/request'
 import Link from '~/components/text/link'
-import ProductShortName from '~/components/name/short'
-import ProductName from '~/components/name'
+import ProductShortName from '~/components/name/product-short-name'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -16,7 +16,7 @@ export const meta = {
   authors: ['msweeneydev'],
   url: '/guides/handling-node-request-body',
   editUrl: 'pages/guides/handling-node-request-body.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [<ProductName />](/), without requiring a framework such as Express.

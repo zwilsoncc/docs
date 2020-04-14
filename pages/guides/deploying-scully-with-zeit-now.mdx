@@ -5,8 +5,8 @@ import Link from '~/components/text/link'
 import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -20,7 +20,7 @@ export const meta = {
   example: 'scully',
   demo: 'https://scully.now-examples.now.sh',
   editUrl: 'pages/guides/deploying-scully-with-zeit-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [Scully](https://github.com/scullyio/scully/blob/master/README.md) is the best way to build the fastest Angular apps. Scully is a static site generator for Angular projects looking to embrace the Jamstack.
@@ -47,7 +47,7 @@ Then, use the `ng generate` command to initialize the post module:
 <Snippet dark text="ng generate @scullyio/init:post" />
 <Caption>Initializing the Scully post module.</Caption>
 
-## Step 2: Deploying Your Scully App with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 2: Deploying Your Scully App with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

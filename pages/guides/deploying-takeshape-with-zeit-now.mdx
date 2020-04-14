@@ -6,10 +6,10 @@ import { Image } from '~/components/media'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
-import ProductShortName from '~/components/name/short'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
   title: `Create and Deploy a TakeShape Blog with ${PRODUCT_NAME}`,
@@ -22,7 +22,7 @@ export const meta = {
   type: 'site',
   demo: 'https://next-blog-takeshape.now.sh/',
   editUrl: 'pages/guides/deploying-takeshape-with-zeit-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [TakeShape](https://www.takeshape.io/) provides instant, intuitive, adaptable, and collaborative services to power Jamstack projects of any size, shape, or complexity.
@@ -133,7 +133,7 @@ Create a random string that can be used as a preview secret and add it using <Pr
   Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
 </Caption>
 
-## Step 5: Deploying Your Blog with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 5: Deploying Your Blog with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

@@ -4,8 +4,8 @@ import { Image } from '~/components/media'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductNameWrapper from '~/components/name/wrapper'
-import ProductName from '~/components/name'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-gridsome-with-zeit-now.mdx',
   name: 'Gridsome',
   type: 'site',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [Gridsome](https://gridsome.org/) is an open source Vue.js site generator which gives developers the power to build sites that are fast by default.
@@ -34,7 +34,7 @@ Set up a Gridsome project using the [Gridsome CLI](https://gridsome.org/docs/gri
 <Snippet dark text="gridsome create gridsome-project && cd gridsome-project" />
 <Caption>Creating a Gridsome project and moving into the project directory.</Caption>
 
-## Step 2: Deploying Your Gridsome Project with <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 2: Deploying Your Gridsome Project with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

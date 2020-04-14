@@ -4,14 +4,14 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import { Code } from '~/components/text/code'
 import Link from '~/components/text/link'
-import ProductName from '~/components/name'
+import ProductName from '~/components/name/product-name'
 
 export const meta = {
   title: 'Deploy Hooks',
   description:
     'Deploy Hooks allow you to create URLs that accept HTTP POST requests to trigger deployments. Each URL correspond to a branch of a GitHub or GitLab repository linked to the project.',
   editUrl: 'pages/docs/v2/more/deploy-hooks.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 Deploy Hooks allow you to create URLs that accept HTTP POST requests in order to trigger deployments and re-run the [Build Step](/docs/v2/build-step). These URLs are uniquely linked to your project, repository, and branch, so there is no need to use any authentication mechanism or provide any payload to the POST request.

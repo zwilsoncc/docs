@@ -3,17 +3,17 @@ import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
-import ProductName from '~/components/name'
+import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
-import ProductNameWrapper from '~/components/name/wrapper'
+import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_NAME } from '~/lib/constants'
-import ProductShortName from '~/components/name/short'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 ## Platform Version Detection
@@ -41,7 +41,7 @@ For more information on our cloud partners' Green energy policies, we recommend 
 - [Google Cloud Sustainability](https://cloud.google.com/sustainability/)
 - [Microsoft Environmental Sustainability](https://www.microsoft.com/en-us/corporate-responsibility/sustainability)
 
-## What can I deploy with <ProductNameWrapper name={PRODUCT_NAME} />?
+## What can I deploy with <NameWrapper name={PRODUCT_NAME} />?
 
 ​<ProductName /> is best at deploying technologies that can be served over HTTP and distributed through our CDN network:
 

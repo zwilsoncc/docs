@@ -3,17 +3,17 @@ import { PRODUCT_SHORT_V1_NAME } from '~/lib/constants'
 import { TerminalInput } from '~/components/text/terminal'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
-import ProductShortV1Name from '~/components/name/short-v1'
+import ProductShortV1Name from '~/components/name/product-short-v1-name'
 import { InlineCode } from '~/components/text/code'
-import CliV1Name from '~/components/name/cli-name-v1'
-import ProductNameWrapper from '~/components/name/wrapper'
+import CliV1Name from '~/components/name/cli-v1-name'
+import NameWrapper from '~/components/name/name-wrapper'
 
 export const meta = {
   title: `Introduction to ${PRODUCT_SHORT_V1_NAME}`,
   description: `A quick-start guide to deploying your dynamic and static apps with ${PRODUCT_SHORT_V1_NAME} and what you can do with your deployments.`,
   date: '30 July 2017',
   editUrl: 'pages/docs/v1/getting-started/introduction-to-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 With <ProductShortV1Name />'s help, you can deploy and publish any kind of web application (or service) in
@@ -22,7 +22,7 @@ under five minutes.
 This quick-start guide will show you how to deploy an app, connect it to a
 domain name of your choice, and configure an SSL certificate.
 
-## Step 1: Getting <ProductNameWrapper name={PRODUCT_SHORT_V1_NAME} />
+## Step 1: Getting <NameWrapper name={PRODUCT_SHORT_V1_NAME} />
 
 The best way to get started with <ProductShortV1Name /> is by [installing <CliV1Name />](/download):
 

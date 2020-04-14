@@ -7,8 +7,8 @@ import DeploySection from '~/components/guides/deploy-section'
 import { InlineCode } from '~/components/text/code'
 import Link from '~/components/text/link'
 import OrgName from '~/components/name/org-name'
-import ProductName from '~/components/name'
-import ProductNameWrapper from '~/components/name/wrapper'
+import ProductName from '~/components/name/product-name'
+import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
@@ -22,7 +22,7 @@ export const meta = {
   image: `https://og-image.now.sh/Create%20**Vue.js%20Forms**%20with%20Formcarry%20and%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fvue-js-html-forms-with-formcarry-zeit-now%2Flogo.png`,
   url: '/guides/vue-js-html-forms-with-formcarry-zeit-now',
   editUrl: 'pages/guides/vue-js-html-forms-with-formcarry-zeit-now.mdx',
-  lastEdited: '2020-04-13T23:47:53.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 [Formcarry](https://formcarry.com) provides HTML Form processing for front-end developers and designers.
@@ -213,7 +213,7 @@ Next, replace your `App.vue` file's contents with the following:
 
 You are now ready to deploy your project live and start recieving form submissions.
 
-## Step 3: Deploy With <ProductNameWrapper name={PRODUCT_NAME} />
+## Step 3: Deploy With <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 
