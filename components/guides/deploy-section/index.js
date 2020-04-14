@@ -3,19 +3,19 @@ import CLIDeploy from './cli-deploy.mdx'
 import Tabs from '~/components/tabs'
 import Link from '~/components/text/link'
 import { DeployButton } from '~/components/buttons'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME, PRODUCT_SHORT_NAME } from '~/lib/constants'
 
 export default function DeploySection({ meta }) {
   return (
     <>
       <p>
-        There are two ways to deploy with {PRODUCT}. We recommend using a{' '}
+        There are two ways to deploy with {PRODUCT_NAME}. We recommend using a{' '}
         <Link href="/docs/v2/git-integrations">
-          <a>{PRODUCT} for Git Integration</a>
+          <a>{PRODUCT_NAME} for Git Integration</a>
         </Link>{' '}
         for ease-of-use. Alternatively,{' '}
         <Link href="/download">
-          <a>Now CLI</a>
+          <a>{PRODUCT_SHORT_NAME} CLI</a>
         </Link>{' '}
         can be used to generate a manual{' '}
         <Link href="/docs/v2/platform/deployments#preview">

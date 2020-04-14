@@ -3,6 +3,7 @@ import { HelpLink } from '~/components/text/link'
 import Note from '~/components/text/note'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
+import OrgName from '~/components/name/org-name'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/log-drains.mdx',
@@ -180,7 +181,7 @@ On syslog drains, the signature is computed using an OAuth2 secret and the `MSG`
 All drains support transport-level encryption using `HTTPS` or `TLS` protocols,
 and we strongly recommend using them on production and use others only for development and testing.
 
-When your server starts receiving payloads, it could be a third party sending log messages to your server if they know the URL. Therefore, it is recommended to use HTTP Basic Authentication, or verify messages are sent from ZEIT using an OAuth2 secret and hash signature.
+When your server starts receiving payloads, it could be a third party sending log messages to your server if they know the URL. Therefore, it is recommended to use HTTP Basic Authentication, or verify messages are sent from <OrgName /> using an OAuth2 secret and hash signature.
 
 For example, if you have a basic HTTP server subscribing to Log Drains, the payload can be validated like so:
 

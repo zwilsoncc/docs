@@ -6,7 +6,9 @@ import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
 import Strong from '~/components/text/strong'
 import { Image } from '~/components/media'
-import ProductName from '~/components/product-name'
+import ProductName from '~/components/name/product-name'
+import OrgName from '~/components/name/org-name'
+import ProductShortName from '~/components/name/product-short-name'
 import { SYSTEM_ENVS } from '~/lib/data/v2/system-env-variables'
 import {
   Table,
@@ -29,7 +31,7 @@ To customize the build settings for your project, choose a project from the [das
   height={410 / 2}
   shadow
 />
-<Caption>Selecting the project from the ZEIT Dashboard.</Caption>
+<Caption>Selecting the project from the <OrgName /> Dashboard.</Caption>
 
 Then, select the **Settings** tab:
 
@@ -167,7 +169,7 @@ In some projects, the top-level directory of the repository may not be the root 
 In cases like this, you can specify the project root directory. If you do so, please note the following:
 
 - If you specify a root directory, then your app won’t be able to access files outside of that directory. You also cannot use `..` to move up a level.
-- This setting also applies to [Now CLI](/download). Instead of running `now <directory-name>` to deploy, specify `<directory-name>` here so you can just run `now`.
+- This setting also applies to [<ProductShortName /> CLI](/download). Instead of running `now <directory-name>` to deploy, specify `<directory-name>` here so you can just run `now`.
 
 <Note>
   If you update this setting, it will be applied starting with your next
@@ -222,7 +224,7 @@ It can then be consumed during **Build Step** by the framework of your choice, o
 
 ### Development Environment Variables
 
-Environment Variables created for the Development Environment can be downloaded into a local development setup using the `now env pull` command provided by [Now CLI](/download):
+Environment Variables created for the Development Environment can be downloaded into a local development setup using the `now env pull` command provided by [<ProductShortName /> CLI](/download):
 
 <Snippet clipboard={false} dark text={`now env pull
 Downloading Development Environment Variables for project my-lovely-project
@@ -232,7 +234,7 @@ Downloading Development Environment Variables for project my-lovely-project
 Running the command will create a `.env` file in your project folder. The `.env` file can then be consumed by `now dev` or
 your preferred development command.
 
-Check out the [Now CLI reference](/docs/now-cli#commands/env) to learn more about `now env` commands.
+Check out the [<ProductShortName /> CLI reference](/docs/now-cli#commands/env) to learn more about `now env` commands.
 
 ### Integration Environment Variables
 
@@ -255,7 +257,7 @@ In that case, the Integration Configuration that added it will be displayed:
 
 ### System Environment Variables
 
-ZEIT provides a set of Environment Variables that are optionally populated by the System, such as the URL of the Deployment or the name of the Git branch deployed.
+<ProductName /> provides a set of Environment Variables that are optionally populated by the System, such as the URL of the Deployment or the name of the Git branch deployed.
 
 To apply a System Environment Variable to your Deployment, enter its **Name**, leave the **Value** empty, and click **Add**.
 
@@ -364,7 +366,7 @@ This is equivalent to `npm install --only=production` or `yarn install --product
 
 ### Prevent Cache Usage
 
-If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for Now CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
+If you need to ignore the cache for a deployment, you can do so by using the [`-f` flag for <ProductShortName /> CLI](/docs/now-cli/#commands/now/global-options). This prevents the cache from being used in the deployment and ensures a fresh install for all dependencies.
 
 ### Framework Versioning
 
@@ -419,5 +421,6 @@ For more information on what to do next, we recommend the following articles:
 </Card>
 
 <Card title="Deploy Hooks" href="/docs/v2/advanced/deploy-hooks">
-  Use Deploy Hooks to trigger deployments to build content from outside ZEIT.
+  Use Deploy Hooks to trigger deployments to build content from outside{' '}
+  <OrgName />.
 </Card>

@@ -5,14 +5,14 @@ import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import Note from '~/components/text/note'
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
   title: 'Supported Languages for Serverless Functions',
-  description: `Learn how to deploy Serverless Functions with ${PRODUCT}.`,
+  description: `Learn how to deploy Serverless Functions with ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/serverless-functions/supported-languages.mdx',
-  lastEdited: '2020-04-08T06:29:35.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 Within the `/api` directory of your projects, <ProductName /> will automatically recognize the languages listed on this page, through their file extensions, and serve them as Serverless Function.
@@ -194,9 +194,9 @@ For more information on what to do next, we recommend the following articles:
   title="Serverless Functions"
   href="/docs/v2/serverless-functions/introduction"
 >
-  For more information on how to get started with Serverless Functions on ZEIT
-  Now and how you can develop them further, read the Serverless Functions
-  introduction.
+  For more information on how to get started with Serverless Functions on{' '}
+  <ProductName /> and how you can develop them further, read the Serverless
+  Functions introduction.
 </Card>
 
 <Card title="Introduction to <ProductName />" href="/docs/v2/introduction">

@@ -3,18 +3,22 @@ import Link from '~/components/text/link'
 import Note from '~/components/text/note'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
-import ProductName from '~/components/product-name'
+import ProductName from '~/components/name/product-name'
+import OrgName from '~/components/name/org-name'
+import NameWrapper from '~/components/name/name-wrapper'
+import { PRODUCT_NAME } from '~/lib/constants'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-08T07:12:50.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 ## Platform Version Detection
 
-[Now CLI](/download) will automatically upgrade your deployment to the latest platform version if you import a project or if your project meets certain criteria. In order for this to work, you must:
+[<ProductShortName /> CLI](/download) will automatically upgrade your deployment to the latest platform version if you import a project or if your project meets certain criteria. In order for this to work, you must:
 
 - Remove any Dockerfile.
 - Remove the `type` property from your `now.json` file.
@@ -27,7 +31,7 @@ If you are yet to upgrade to the latest platform version, please read our [upgra
 
 ## Green Energy Policy
 
-ZEIT works with multiple cloud partners in order to provide services to end users.
+​<OrgName /> works with multiple cloud partners in order to provide services to end users.
 
 The Serverless approach is an energy-efficient alternative to traditional servers because your code runs only on-demand.
 
@@ -37,7 +41,7 @@ For more information on our cloud partners' Green energy policies, we recommend 
 - [Google Cloud Sustainability](https://cloud.google.com/sustainability/)
 - [Microsoft Environmental Sustainability](https://www.microsoft.com/en-us/corporate-responsibility/sustainability)
 
-## What can I deploy with <ProductName />?
+## What can I deploy with <NameWrapper name={PRODUCT_NAME} />?
 
 ​<ProductName /> is best at deploying technologies that can be served over HTTP and distributed through our CDN network:
 
@@ -63,7 +67,10 @@ The [build step](/docs/v2/build-step) will result in an error if the output dire
 
 ## Missing Build Script
 
-<Note>This is only relevant if you’re using Now CLI 16.7.3 or older.</Note>
+<Note>
+  This is only relevant if you’re using <ProductShortName /> CLI 16.7.3 or
+  older.
+</Note>
 
 If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
 

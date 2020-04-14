@@ -4,18 +4,18 @@ import Link from '~/components/text/link'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
-
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Migrate to ${PRODUCT}`,
-  description: `Migrate your websites and APIs to the ${PRODUCT} Platform with zero configuration.`,
+  title: `Migrate to ${PRODUCT_NAME}`,
+  description: `Migrate your websites and APIs to the ${PRODUCT_NAME} Platform with zero configuration.`,
   published: '2019-07-31T03:00:00.860Z',
   authors: ['msweeneydev', 'timothy', 'skllcrn'],
   url: '/guides/migrate-to-zeit-now',
   editUrl: 'pages/guides/migrate-to-zeit-now.mdx',
-  lastEdited: '2020-04-08T07:12:50.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 ## Frontend Frameworks
@@ -51,7 +51,7 @@ app.get('/teams/data', function(req, res) {
 
 <Caption>A common routes configuration for serverful Express.js.</Caption>
 
-### Moving to <ProductName /> and Serverless
+### Moving to <NameWrapper name={PRODUCT_NAME} /> and Serverless
 
 With serverless, functionality is split into separate files, called [Serverless Functions](/docs/v2/serverless-functions/introduction). Instead of a file or process growing monolithically, this gives us the ability to break down the app into independently scalable parts.
 

@@ -6,13 +6,15 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
+import OrgName from '~/components/name/org-name'
+import { PRODUCT_NAME } from '~/lib/constants'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
-  title: `Create a Next.js App with a MySQL Database That Builds and Deploys with ${PRODUCT}`,
-  description: `Deploy your Next.js and MySQL app with ${PRODUCT} in a serverless environment.`,
+  title: `Create a Next.js App with a MySQL Database That Builds and Deploys with ${PRODUCT_NAME}`,
+  description: `Deploy your Next.js and MySQL app with ${PRODUCT_NAME} in a serverless environment.`,
   published: '2019-04-26T16:51:04.000Z',
   authors: ['msweeneydev', 'furf'],
   url: '/guides/deploying-next-and-mysql-with-now',
@@ -22,12 +24,12 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-mysql-with-now.mdx',
   name: 'Next.js + MySQL',
   type: 'app',
-  lastEdited: '2020-04-13T18:05:11.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [<ProductName />](/docs/v2).
 
-[Next.js](https://nextjs.org/) from [ZEIT](https://zeit.co) is a production-ready framework that can help you create fast React apps. By using it along with MySQL, you can create a fast, modern web app that interacts with customer data in a performant manner.
+[Next.js](https://nextjs.org/) from [<OrgName />](https://zeit.co) is a production-ready framework that can help you create fast React apps. By using it along with MySQL, you can create a fast, modern web app that interacts with customer data in a performant manner.
 
 We demonstrate the set up via an [example app](https://next-mysql.now.sh), that displays a paginated, gallery view of robot profiles, with individual profiles just a click away. The finished app can be found at <https://next-mysql.now.sh>.
 
@@ -123,7 +125,7 @@ Next, add a build script to your `package.json` file:
   Adding a build script to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [Secrets](/docs/now-cli#commands/secrets) using the [Now CLI](/download#now-cli) to keep them secure:
+Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [Secrets](/docs/now-cli#commands/secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
 
 <Snippet dark text="now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
@@ -400,7 +402,7 @@ Your `pages/index.js` file performs the following functions:
 
 You now have a **complete app** with both an API and interface, the next section will show you how to deploy it seamlessly with [<ProductName />](https://zeit.co).
 
-## Step 6: Deploy Your Project with <ProductName />
+## Step 6: Deploy Your Project with <NameWrapper name={PRODUCT_NAME} />
 
 Getting your project ready to [deploy](/docs/v2/introduction) with [<ProductName />](https://zeit.co) could hardly be simpler, all that's required is the inclusion of [Environment Variables](/docs/v2/build-step#environment-variables).
 

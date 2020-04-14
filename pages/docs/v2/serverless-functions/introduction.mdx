@@ -5,14 +5,15 @@ import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Card from '~/components/card'
 import Note from '~/components/text/note'
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
   title: 'Serverless Functions',
-  description: `Learn how to deploy Serverless Functions with ${PRODUCT}.`,
+  description: `Learn how to deploy Serverless Functions with ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2020-04-13T18:29:16.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 With <ProductName />, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -163,12 +164,12 @@ The resulting deployment can be found here: <https://path-segment-with-node.now-
 
 ## Local Development
 
-​<ProductName /> provides an additional command with [Now CLI](/download) to help you develop Serverless Functions locally by replicating the production environment on <ProductName /> with your localhost.
+​<ProductName /> provides an additional command with [<ProductShortName /> CLI](/download) to help you develop Serverless Functions locally by replicating the production environment on <ProductName /> with your localhost.
 
 If you have an `api` directory like the [above examples](#deploying-serverless-functions) on this page, you can run the following command to start a local development environment that supports your serverless API and allows you to develop locally, just make sure to install your project's dependencies first with `npm install`:
 
 <Snippet dark text="now dev" />
-<Caption>Starting a local development environment using Now CLI, for Serverless Functions.</Caption>
+<Caption>Starting a local development environment using <ProductShortName /> CLI, for Serverless Functions.</Caption>
 
 <Note>
   The <InlineCode>now dev</InlineCode> command is still in beta. If you have any

@@ -6,24 +6,25 @@ import Caption from '~/components/text/caption'
 import { IconCard } from '~/components/card'
 import { List } from '~/components/list'
 import GitHubIcon from '~/components/icons/github'
-
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import OrgName from '~/components/name/org-name'
+import ProductName from '~/components/name/product-name'
+import NameWrapper from '~/components/name/name-wrapper'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Monitor Performance with Calibre and ${PRODUCT}`,
-  description: `Receive performance reports directly in your GitHub Pull Requests, following a ${PRODUCT} deployment.`,
+  title: `Monitor Performance with Calibre and ${PRODUCT_NAME}`,
+  description: `Receive performance reports directly in your GitHub Pull Requests, following a ${PRODUCT_NAME} deployment.`,
   published: '2020-02-24T03:50:35Z',
   authors: ['thefoxis'],
   url: '/guides/monitoring-performance-with-calibre-and-zeit-now',
-  image: `https://og-image.now.sh/**Performance%20Monitoring**%20for%20${PRODUCT}%20Deployments%20with%20Calibre.png?theme=light&md=1&fontSize=88px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1103494136768847873%2FM6AGVCx4_400x400.png`,
+  image: `https://og-image.now.sh/**Performance%20Monitoring**%20for%20${PRODUCT_NAME}%20Deployments%20with%20Calibre.png?theme=light&md=1&fontSize=88px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F1103494136768847873%2FM6AGVCx4_400x400.png`,
   editUrl: 'pages/guides/monitoring-performance-with-calibre-and-zeit-now.mdx',
-  lastEdited: '2020-04-09T15:08:25.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
-[Calibre](https://calibreapp.com/) is a comprehensive monitoring platform that makes it easy to uncover and address performance issues. In this guide, you will learn how to receive performance [Pull Request Reviews](https://calibreapp.com/pull-request-reviews) directly in your pull requests following [ZEIT Deployment Previews](https://zeit.co/features/deployment-previews).
+[Calibre](https://calibreapp.com/) is a comprehensive monitoring platform that makes it easy to uncover and address performance issues. In this guide, you will learn how to receive performance [Pull Request Reviews](https://calibreapp.com/pull-request-reviews) directly in your pull requests following [<OrgName /> Deployment Previews](https://zeit.co/features/deployment-previews).
 
-## Step 1: Deploy with <ProductName />
+## Step 1: Deploy with <NameWrapper name={PRODUCT_NAME} />
 
 To deploy your project with the [<ProductName /> for GitHub Integration](/docs/v2/git-integrations/zeit-now-for-github), make sure your created project has been pushed to a Git repository.
 
@@ -42,8 +43,8 @@ After your project has been imported, all subsequent pushes to branches will gen
 
 <Note type="warning">
   While <ProductName /> supports GitHub, Bitbucket, and GitLab, Calibre Pull
-  Request Reviews currently work with ZEIT and GitHub only. GitLab and Bitbucket
-  are not supported.
+  Request Reviews currently work with <OrgName /> and GitHub only. GitLab and
+  Bitbucket are not supported.
 </Note>
 
 ## Step 2: Add Your Site to Calibre

@@ -6,24 +6,23 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Create an Angular App That Builds and Deploys with ${PRODUCT}`,
-  description: `Deploy your Angular app with ${PRODUCT}.`,
+  title: `Create an Angular App That Builds and Deploys with ${PRODUCT_NAME}`,
+  description: `Deploy your Angular app with ${PRODUCT_NAME}.`,
   published: '2019-02-27T03:00:00.860Z',
   authors: ['unicodeveloper'],
   url: '/guides/deploying-angular-with-now',
   example: 'angular',
   demo: 'https://angular.now-examples.now.sh',
-  image:
-    'https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20Now.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300',
+  image: `https://og-image.now.sh/**Deploy%20an%20Angular%20app**%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fangular.io%2Fassets%2Fimages%2Flogos%2Fangular%2Fangular.svg&heights=250&heights=300`,
   name: 'Angular',
   type: 'app',
   editUrl: 'pages/guides/deploying-angular-with-now.mdx',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 Angular is a popular JavaScript framework for building apps across all platforms; web, mobile web, native mobile, and native desktop.
@@ -67,7 +66,7 @@ After a successful scaffolding, `cd` into `my-new-app` directory and run the fol
 
 Your browser will automatically be launched with the served Angular app at <http://localhost:4200/>
 
-## Step 2: Deploy Your Angular Project with <ProductName />
+## Step 2: Deploy Your Angular Project with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 

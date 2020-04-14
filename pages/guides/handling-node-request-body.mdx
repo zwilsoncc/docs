@@ -5,18 +5,18 @@ import { Code, InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Request from '~/components/api/request'
 import Link from '~/components/text/link'
-
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import ProductShortName from '~/components/name/product-short-name'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `Handling Node.js Request Bodies with ${PRODUCT}`,
-  description: `Parse Node.js request bodies for use inside Serverless Functions deployed with ${PRODUCT}.`,
+  title: `Handling Node.js Request Bodies with ${PRODUCT_NAME}`,
+  description: `Parse Node.js request bodies for use inside Serverless Functions deployed with ${PRODUCT_NAME}.`,
   published: '2019-05-10T09:03:14.819Z',
   authors: ['msweeneydev'],
   url: '/guides/handling-node-request-body',
   editUrl: 'pages/guides/handling-node-request-body.mdx',
-  lastEdited: '2020-04-07T23:46:59.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [<ProductName />](/), without requiring a framework such as Express.
@@ -101,7 +101,7 @@ To verify that the JSON is being parsed correctly, make a POST request to your n
 
 <Note>
   You should change the URL to match the one for your deployment given to you in
-  the Now CLI.
+  the <ProductShortName /> CLI.
 </Note>
 
 You will receive a response similar to the following:

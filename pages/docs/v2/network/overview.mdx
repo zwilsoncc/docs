@@ -1,17 +1,18 @@
 import Doc from '~/components/layout/docs'
-import ProductName from '~/components/product-name'
+import ProductName from '~/components/name/product-name'
+import { ORG_NAME } from '~/lib/constants'
+import OrgName from '~/components/name/org-name'
 
 export const meta = {
   title: 'Network Overview',
-  description:
-    'The ZEIT Network layer sits in-between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.',
+  description: `The ${ORG_NAME} Network layer sits in-between the internet and your deployments. It routes the users requests to the correct files of the requested deployment.`,
   editUrl: 'pages/docs/v2/network/overview.mdx',
-  lastEdited: '2020-04-09T01:04:02.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
-The ZEIT Network layer sits in-between the internet and your <ProductName /> deployments. This type of network topology is sometimes called a [Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network) or CDN.
+The <OrgName /> Network layer sits in-between the internet and your <ProductName /> deployments. This type of network topology is sometimes called a [Content Delivery Network](https://en.wikipedia.org/wiki/Content_delivery_network) or CDN.
 
-The ZEIT Network has many responsibilities, but most importantly, it is responsible for routing requests to the correct **Serverless Function** or **Static File** output of your **Builds**. Since the ZEIT network is a CDN with the ability to execute functions at the edge, the ZEIT Network is a [Smart CDN](/smart-cdn).
+The <OrgName /> Network has many responsibilities, but most importantly, it is responsible for routing requests to the correct **Serverless Function** or **Static File** output of your **Builds**. Since the <OrgName /> network is a CDN with the ability to execute functions at the edge, the <OrgName /> Network is a [Smart CDN](/smart-cdn).
 
 ## Regions
 
@@ -23,7 +24,7 @@ In the event that the **Serverless Function** of your deployment is not created 
 
 ## Caching
 
-The ZEIT Network has multiple layers of caches to ensure that your <ProductName /> deployments are fast around the world. At a high level, the layers of the cache are as follows:
+The <OrgName /> Network has multiple layers of caches to ensure that your <ProductName /> deployments are fast around the world. At a high level, the layers of the cache are as follows:
 
 - L1 - a small per-[process](<https://en.wikipedia.org/wiki/Process_(computing)>) cache
 - L2 - shared cache for processes on a single node

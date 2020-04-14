@@ -1,16 +1,17 @@
 import Doc from '~/components/layout/docs'
 import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
-import { PRODUCT } from '~/lib/constants'
+import { PRODUCT_NAME } from '~/lib/constants'
+import CdnName from '~/components/name/cdn-name'
 
 export const meta = {
   title: 'Caching',
-  description: `A guide for how ${PRODUCT} caches and how to control that caching.`,
+  description: `A guide for how ${PRODUCT_NAME} caches and how to control that caching.`,
   editUrl: 'pages/docs/v2/network/caching.mdx',
-  lastEdited: '2020-04-09T01:19:38.000Z'
+  lastEdited: '2020-04-14T00:08:22.000Z'
 }
 
-Our [Smart CDN](/smart-cdn) caches your content at the edge in order to serve data to your users as fast as possible.
+The [<CdnName />](/smart-cdn) caches your content at the edge in order to serve data to your users as fast as possible.
 
 **Static caching is automatic for all deployments.** This means that no changes need to be made to headers. You get the best performance possible out of the box with zero configuration required.
 

@@ -5,14 +5,15 @@ import Collapse, { CollapseGroup } from '~/components/collapse'
 import GitLabDefaultBehaviour from '~/components/git-mdx/gitlab/default-behaviour.mdx'
 import GitLabEnvironmentVariables from '~/components/git-mdx/gitlab/environment-variables.mdx'
 import GitLabDisconnecting from '~/components/git-mdx/gitlab/disconnecting.mdx'
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import ProductName from '~/components/name/product-name'
+import NameWrapper from '~/components/name/name-wrapper'
+import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
-  title: `${PRODUCT} for GitLab`,
-  description: `Deploy each change in your GitLab projects with ${PRODUCT} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
+  title: `${PRODUCT_NAME} for GitLab`,
+  description: `Deploy each change in your GitLab projects with ${PRODUCT_NAME} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/zeit-now-for-gitlab.mdx',
-  lastEdited: '2020-04-13T14:08:13.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 The <ProductName /> for GitLab integration automatically deploys your GitLab projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -50,7 +51,7 @@ If you’d like to:
 
 You can do so from [the "Git Integration" fieldset](/docs/v2/platform/projects#git-integration) on [Project Settings](/docs/v2/platform/projects#project-settings).
 
-### More Information About <ProductName /> for GitLab
+### More Information About <NameWrapper name={PRODUCT_NAME} /> for GitLab
 
 For more information, such as a reference for default environment variables, expand the relevant details view below.
 

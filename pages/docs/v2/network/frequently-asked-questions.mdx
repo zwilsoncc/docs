@@ -1,11 +1,12 @@
 import Doc from '~/components/layout/docs'
+import { ORG_NAME } from '~/lib/constants'
+import OrgName from '~/components/name/org-name'
 
 export const meta = {
   title: 'Frequently Asked Questions',
-  description:
-    'A list of common questions and answers related to the ZEIT Network.',
+  description: `A list of common questions and answers related to the ${ORG_NAME} Network.`,
   editUrl: 'pages/docs/v2/network/frequently-asked-questions.mdx',
-  lastEdited: '2020-03-19T20:16:39.000Z'
+  lastEdited: '2020-04-13T23:47:53.000Z'
 }
 
 ### What are the CDN defaults?
@@ -74,7 +75,7 @@ The transition is painless. All you have to do is point your NS records to our [
 
 ### How do I use Cloudflare over your CDN (disable it)?
 
-- Use `Origin Control: Off` along with other custom caching rules in Cloudflare, in a `now.json` file, set `s-maxage` to 0 on your routes to disable any caching from ZEIT CDN.
+- Use `Origin Control: Off` along with other custom caching rules in Cloudflare, in a `now.json` file, set `s-maxage` to 0 on your routes to disable any caching from <OrgName /> CDN.
 - When a new deployment is made, you will have to find a way to purge the Cloudflare cache.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

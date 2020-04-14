@@ -6,22 +6,23 @@ import { Image } from '~/components/media'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import DeploySection from '~/components/guides/deploy-section'
-
-import ProductName from '~/components/product-name'
-import { PRODUCT } from '~/lib/constants'
+import NameWrapper from '~/components/name/name-wrapper'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
+import ProductShortName from '~/components/name/product-short-name'
 
 export const meta = {
-  title: `Create and Deploy a TakeShape Blog with ${PRODUCT}`,
-  description: `How to launch a blog site using Next.js and TakeShape on ${PRODUCT} in minutes.`,
+  title: `Create and Deploy a TakeShape Blog with ${PRODUCT_NAME}`,
+  description: `How to launch a blog site using Next.js and TakeShape on ${PRODUCT_NAME} in minutes.`,
   published: '2020-03-24T12:00:00.860Z',
   authors: ['msweeneydev'],
   url: '/guides/deploying-takeshape-with-zeit-now',
-  image: `https://og-image.now.sh/**Deploy%20a%20TakeShape%20Blog**%20%3Cbr%2F%3E%20with%20${PRODUCT}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fph-files.imgix.net%2F3799c380-ef0b-4ce0-946e-2731effd6fa4%3Fauto%3Dformat&widths=200&widths=350&heights=200&heights=350`,
+  image: `https://og-image.now.sh/**Deploy%20a%20TakeShape%20Blog**%20%3Cbr%2F%3E%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fph-files.imgix.net%2F3799c380-ef0b-4ce0-946e-2731effd6fa4%3Fauto%3Dformat&widths=200&widths=350&heights=200&heights=350`,
   name: 'TakeShape',
   type: 'site',
   demo: 'https://next-blog-takeshape.now.sh/',
   editUrl: 'pages/guides/deploying-takeshape-with-zeit-now.mdx',
-  lastEdited: '2020-04-13T18:05:11.000Z'
+  lastEdited: '2020-04-14T06:26:07.000Z'
 }
 
 [TakeShape](https://www.takeshape.io/) provides instant, intuitive, adaptable, and collaborative services to power Jamstack projects of any size, shape, or complexity.
@@ -111,28 +112,28 @@ Set up a Next.js project by Initializing the [project template](https://github.c
 
 From the TakeShape Dashboard, create an API Key with the **Read** permission.
 
-Using [Now CLI](/download), create [Secrets](/docs/now-cli#commands/secrets) to securely store the API key, the project `id` from the TakeShape dashboard, and a preview secret.
+Using [<ProductShortName /> CLI](/download), create [Secrets](/docs/now-cli#commands/secrets) to securely store the API key, the project `id` from the TakeShape dashboard, and a preview secret.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_api_key [your-takeshape-api-key]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_api_key</InlineCode> as a <strong>Now Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_api_key</InlineCode> as a <strong>Secret</strong>.
 </Caption>
 
 You can find your project `id` in the URL from the TakeShape dashboard, it will look similar to `a17a8efa-372e-4969-9267-55a9c35a0907`.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_project_id [your-takeshape-project-id]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_project_id</InlineCode> as a <strong>Now Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_project_id</InlineCode> as a <strong>Secret</strong>.
 </Caption>
 
-Create a random string that can be used as a preview secret and add it using Now CLI. You can use a string similar to `MY_SECRET`, but remember to change it to make it unique.
+Create a random string that can be used as a preview secret and add it using <ProductShortName /> CLI. You can use a string similar to `MY_SECRET`, but remember to change it to make it unique.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_preview_secret [your-random-string]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong>Now Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong>Secret</strong>.
 </Caption>
 
-## Step 5: Deploying Your Blog with <ProductName />
+## Step 5: Deploying Your Blog with <NameWrapper name={PRODUCT_NAME} />
 
 <DeploySection meta={meta} />
 
