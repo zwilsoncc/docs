@@ -6,7 +6,7 @@ You can view this documentation at [ZEIT Docs](https://zeit.co/docs).
 
 ## What is ZEIT Now?
 
-ZEIT Now is a cloud platform for serverless deployment. It enables developers to host websites and web services that deploy instantly, scale automatically, and require no supervision, all with minimal configuration.
+ZEIT Now is a cloud platform for serverless deployment. It enables developers to host Jamstack websites and web services that deploy instantly, scale automatically, and require no supervision, all with minimal configuration.
 
 ## What Does this Repository Contain?
 
