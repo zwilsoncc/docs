@@ -33,7 +33,7 @@
     "type": "site",
     "demo": "https://next-blog-takeshape.now.sh/",
     "editUrl": "pages/guides/deploying-takeshape-with-zeit-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Error Reports for Your Projects with URIports and ZEIT Now",
@@ -116,7 +116,7 @@
     "name": "Crystallize",
     "type": "site",
     "editUrl": "pages/guides/deploying-crystallize-with-zeit-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Deploy Ionic React with ZEIT Now",
@@ -289,7 +289,7 @@
     "url": "/guides/deploying-nextjs-nodejs-and-sendgrid-with-zeit-now",
     "image": "https://og-image.now.sh/**Deploy%20a%20Next.js%20and%20SendGrid%20App**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fsendgrid.com%2Fwp-content%2Fthemes%2Fsgdotcom%2Fpages%2Fresource%2Fbrand%2F2016%2FSendGrid-Logomark.png&widths=250&widths=auto&widths=300&heights=250&heights=auto&heights=300",
     "editUrl": "pages/guides/deploying-nextjs-nodejs-and-sendgrid-with-zeit-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Deploy Docusaurus Sites with ZEIT Now",
@@ -315,7 +315,7 @@
     "url": "/guides/deploying-nextjs-nodejs-and-faunadb-with-zeit-now",
     "image": "https://og-image.now.sh/**Deploy%20a%20FaunaDB-Powered%20Next.js%20app**%20%3Cbr%2F%3E%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=70px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fres-3.cloudinary.com%2Fcrunchbase-production%2Fimage%2Fupload%2Fc_lpad%2Ch_256%2Cw_256%2Cf_auto%2Cq_auto%3Aeco%2Fywnzi0pt0uw9klatmadc",
     "editUrl": "pages/guides/deploying-nextjs-nodejs-and-faunadb-with-zeit-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Deploying React Forms Using Formspree with ZEIT Now",
@@ -339,7 +339,7 @@
     "url": "/guides/deploying-pusher-channels-with-zeit-now",
     "image": "https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20ZEIT%20Now.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250",
     "editUrl": "pages/guides/deploying-pusher-channels-with-zeit-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Deploy Gridsome Sites with ZEIT Now",
@@ -457,7 +457,7 @@
     "url": "/guides/deploying-next-and-storyblok-with-now",
     "image": "https://zeit.co/docs/static/guides/deploying-next-storyblok-with-now/deploying-next-storyblok-with-now.png",
     "editUrl": "pages/guides/deploying-next-and-storyblok-with-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Create a Next.js and ButterCMS App That Builds and Deploys with ZEIT Now",
@@ -505,7 +505,7 @@
     "name": "MongoDB",
     "type": "API",
     "editUrl": "pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx",
-    "lastEdited": "2020-04-14T00:02:08.000Z"
+    "lastEdited": "2020-04-14T06:26:07.000Z"
   },
   {
     "title": "Handling Node.js Request Bodies with ZEIT Now",

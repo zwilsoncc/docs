@@ -9,7 +9,7 @@ export const meta = {
   description: `Setting up environment variables to use in your deployed ${PRODUCT_SHORT_V1_NAME} apps`,
   date: '6 August 2017',
   editUrl: 'pages/docs/v1/getting-started/environment-variables.mdx',
-  lastEdited: '2020-04-14T00:02:08.000Z'
+  lastEdited: '2020-04-14T06:26:07.000Z'
 }
 
 Almost every app needs to get configurations at runtime. These configurations could be anything, including:
@@ -52,6 +52,6 @@ You can also expose these environment variables with [now.json](https://zeit.co/
 
 After that, `now` will use above environment variables when you deploy your app.
 
-> It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <Link href="/docs/getting-started/secrets"><ProductShortV1Name /> Secrets</Link>.
+> It's not a good idea to commit the `now.json` file to [Git](https://en.wikipedia.org/wiki/Git) if it contains secret information. For that, consider using <Link href="/docs/getting-started/secrets">Secrets</Link>.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

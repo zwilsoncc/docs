@@ -22,7 +22,7 @@ export const meta = {
   name: 'MongoDB',
   type: 'API',
   editUrl: 'pages/guides/deploying-a-mongodb-powered-api-with-node-and-now.mdx',
-  lastEdited: '2020-04-14T00:02:08.000Z'
+  lastEdited: '2020-04-14T06:26:07.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [<ProductName />](/).
@@ -82,7 +82,7 @@ You can get the connection string by clicking "Connect" on the Cluster Overview 
 />
 <Caption>Getting the connection string from the MongoDB Atlas connection modal.</Caption>
 
-To use your MongoDB connection string without hard-coding it in your project, you can add your connection string to the project as a [<ProductShortName /> Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
+To use your MongoDB connection string without hard-coding it in your project, you can add your connection string to the project as a [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
 
 <Snippet dark text="now secrets add my-mongodb-uri mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<database-name>?retryWrites=true" />
 <Caption>
@@ -222,7 +222,7 @@ MONGODB_URI=mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<databa
   local development.
 </Caption>
 
-This file allows the <ProductName /> development process to use the environment variable with a value, since you are using a <ProductShortName /> Secret in production which isn't accessible outside of the secure deployment environment.
+This file allows the <ProductName /> development process to use the environment variable with a value, since you are using a Secret in production which isn't accessible outside of the secure deployment environment.
 
 Next, run the <ProductShortName /> CLI development command from the terminal:
 

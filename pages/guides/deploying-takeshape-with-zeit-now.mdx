@@ -22,7 +22,7 @@ export const meta = {
   type: 'site',
   demo: 'https://next-blog-takeshape.now.sh/',
   editUrl: 'pages/guides/deploying-takeshape-with-zeit-now.mdx',
-  lastEdited: '2020-04-14T00:02:08.000Z'
+  lastEdited: '2020-04-14T06:26:07.000Z'
 }
 
 [TakeShape](https://www.takeshape.io/) provides instant, intuitive, adaptable, and collaborative services to power Jamstack projects of any size, shape, or complexity.
@@ -116,21 +116,21 @@ Using [<ProductShortName /> CLI](/download), create [Secrets](/docs/now-cli#comm
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_api_key [your-takeshape-api-key]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_api_key</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_api_key</InlineCode> as a <strong>Secret</strong>.
 </Caption>
 
 You can find your project `id` in the URL from the TakeShape dashboard, it will look similar to `a17a8efa-372e-4969-9267-55a9c35a0907`.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_project_id [your-takeshape-project-id]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_project_id</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_project_id</InlineCode> as a <strong>Secret</strong>.
 </Caption>
 
 Create a random string that can be used as a preview secret and add it using <ProductShortName /> CLI. You can use a string similar to `MY_SECRET`, but remember to change it to make it unique.
 
 <Snippet dark text="now secrets add next_example_cms_takeshape_preview_secret [your-random-string]" />
 <Caption>
-  Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong><ProductShortName /> Secret</strong>.
+  Adding the <InlineCode>next_example_cms_takeshape_preview_secret</InlineCode> as a <strong>Secret</strong>.
 </Caption>
 
 ## Step 5: Deploying Your Blog with <NameWrapper name={PRODUCT_NAME} />
