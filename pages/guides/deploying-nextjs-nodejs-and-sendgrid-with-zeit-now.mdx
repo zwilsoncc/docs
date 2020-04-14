@@ -269,14 +269,14 @@ module.exports = {
   <InlineCode>npm run dev</InlineCode>.
 </Note>
 
-Create a [<ProductShortName /> Secret](/docs/v2/serverless-functions/env-and-secrets/) to securely store the SendGrid API key, this will be used when deploying the app with <ProductName />.
+Create a [Secret](/docs/now-cli#commands/secrets) to securely store the SendGrid API key, this will be used when deploying the app with <ProductName />.
 
 <Snippet dark text="now secrets add sendgrid_api_key [your-sendgrid-api-key]" />
 <Caption>
   Adding the access key as a <strong><ProductShortName /> Secret</strong>.
 </Caption>
 
-Lastly, to make the [<ProductShortName /> Secret](https://zeit.co/docs/v2/serverless-functions/env-and-secrets/) available to the Serverless Function when deployed, create a `now.json` file:
+Lastly, to make the [Secret](/docs/now-cli#commands/secrets) available to the Serverless Function when deployed, create a `now.json` file:
 
 ```json
 {

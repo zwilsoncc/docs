@@ -46,7 +46,7 @@ All other logs are stored in memory only and are **not persisted** between page 
 
 ## Environment Variables
 
-The total size of [environment variables](/docs/v2/serverless-functions/env-and-secrets/) is **limited to 4kb**.
+The total size of [Environment Variables](/docs/v2/build-step#environment-variables) is **limited to 4kb**.
 
 [Deployments](/docs/v2/platform/deployments) made with environment variables exceeding the 4kb limit will fail at the [build step](/docs/v2/build-step/).
 
@@ -116,6 +116,7 @@ When attempting to deploy Serverless Functions to multiple regions on the Hobby 
 
 The following environment variable names are [reserved](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#lambda-environment-variables) and therefore unavailable for use:
 
+- Names starting with `NOW_`
 - `AWS_REGION`
 - `AWS_DEFAULT_REGION`
 - `AWS_ACCESS_KEY_ID`

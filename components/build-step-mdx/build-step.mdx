@@ -4,12 +4,22 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Card from '~/components/card'
 import { InlineCode } from '~/components/text/code'
+import Strong from '~/components/text/strong'
 import { Image } from '~/components/media'
 import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
 import ProductShortName from '~/components/name/product-short-name'
+import { SYSTEM_ENVS } from '~/lib/data/v2/system-env-variables'
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableRowCell,
+  TableHeadCell
+} from '~/components/table'
 
-When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#using-environment-variables-and-secrets) to avoid hardcoding values.
+When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#environment-variables) to avoid hardcoding values.
 
 ## Customizing Build Settings
 
@@ -34,7 +44,7 @@ Then, select the **Settings** tab:
 />
 <Caption>Selecting the <b>Settings</b> tab from the Project Overview page.</Caption>
 
-You can then edit the build settings from the **Build & Development Settings** and **Root Directory** sections.
+You can then edit the build settings from the **Build & Development Settings**, **Root Directory**, and **Environment Variables** sections.
 
 ### Build & Development Settings
 
@@ -166,111 +176,123 @@ In cases like this, you can specify the project root directory. If you do so, pl
   deployment.
 </Note>
 
-## Using Environment Variables and Secrets
+## Environment Variables
 
-When building your project, it may be necessary to use [environment variables](https://en.wikipedia.org/wiki/Environment_variable).
+Environment Variables are accessible during both **Build Step** and **Runtime**, and can be configured for **Production**, **Preview**, and **Development** Environments individually.
 
-Adding environment variables requires two steps, defining the environment variable, then making it available to your projects' build step.
+This allows you to include values that you don't want to share in your code or to change the behavior of your code depending on its Environment.
+
+To declare an Environment Variable for your deployment, head to the **General** page of your **Project Settings** and locate the **Environment Variables** section.
+
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/env-vars-empty.png`}
+  width={1488 / 2}
+  height={824 / 2}
+  shadow
+/>
+<Caption>The Environment Variables settings.</Caption>
+
+First, choose between the following **Environments**:
+
+| Environment     | Description                                                                                                                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Production**  | When selected, the Environment Variable will be applied to your next Production Deployment. To create a Production Deployment, push a commit to the default branch or run `now --prod`.         |
+| **Preview**     | The Environment Variable is applied to your next Preview Deployment. Preview Deployments are created when you push to a branch (for example, `my-new-feature`) or run `now`.                    |
+| **Development** | The Environment Variable is for use when running your project locally, with `now dev` or your preferred development command. To download Development Environment Variables, run `now env pull`. |
+
+Enter the **Name** of the Environment Variable. For example, if you are using Node.js and you create an Environment Variable named `SENTRY_KEY`, it will be available under `process.env.SENTRY_KEY` in your code.
+
+Then, enter the **Value** of the Environment Variable. The value is automatically encrypted and stored as a _Secret_ in our system when you click **Add**.
+
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/env-vars-user.png`}
+  width={1488 / 2}
+  height={632 / 2}
+  shadow
+/>
+<Caption>Adding an Environment Variable in the Project Settings.</Caption>
+
+Once added, the Environment Variable is applied to your subsequent deployment.
+It can then be consumed during **Build Step** by the framework of your choice, or by a Serverless Function at **Runtime**.
 
 <Note>
-  This section covers how to make environment variables available at{' '}
-  <b>Build Time</b>, if you would like to make them available during{' '}
-  <b>Run Time</b>, please see the{' '}
-  <Link href="/docs/v2/serverless-functions/env-and-secrets/">
-    Serverless Functions documentation
-  </Link>
-  .
+  If any Environment Variables differ between Deployments,{' '}
+  <Link href="/docs/v2/platform/deployments#deduplication">deduplication</Link>{' '}
+  will always be bypassed. For example, this means that merging to the default
+  branch will no longer result in an instant deployment.
 </Note>
 
-### Adding Secrets
+### Development Environment Variables
 
-To define an environment variable, you should use **<ProductShortName /> Secrets**. By using **<ProductShortName /> Secrets**, the data will be encrypted and stored securely, no longer directly accessible by anyone, and only exposed to deployments as environment variables.
+Environment Variables created for the Development Environment can be downloaded into a local development setup using the `now env pull` command provided by [<ProductShortName /> CLI](/download):
 
-Adding **<ProductShortName /> Secrets** can be done with [<ProductShortName /> CLI](/download), providing three options to work with them.
+<Snippet clipboard={false} dark text={`now env pull
+Downloading Development Environment Variables for project my-lovely-project
+✅ Created .env file [510ms]`} />
+<Caption>Downloading Development Environment Variables with `now env pull`.</Caption>
+
+Running the command will create a `.env` file in your project folder. The `.env` file can then be consumed by `now dev` or
+your preferred development command.
+
+Check out the [<ProductShortName /> CLI reference](/docs/now-cli#commands/env) to learn more about `now env` commands.
+
+### Integration Environment Variables
+
+[Integrations](/integrations) can automatically add Environment Variables to your Project Settings.
+In that case, the Integration Configuration that added it will be displayed:
+
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/env-vars-integration.png`}
+  width={1488 / 2}
+  height={728 / 2}
+  shadow
+/>
+<Caption>Adding an Integration Environment Variable in the Project Settings.</Caption>
 
 <Note>
-  When adding <ProductShortName /> Secrets with <ProductShortName /> CLI, the
-  secret name is automatically lowercased before being stored.
+  Support for Integration Environment Variables was added on April 10th, 2020.
+  Variables added before that date do not have the <Strong>Integration</Strong>{' '}
+  indication.
 </Note>
 
-To **define a <ProductShortName /> Secret**, use the following command:
+### System Environment Variables
 
-<Snippet dark text="now secrets add <secret-name> <secret-value>"/>
-<Caption>Defining a <b><ProductShortName /> Secret</b> using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
+<ProductName /> provides a set of Environment Variables that are optionally populated by the System, such as the URL of the Deployment or the name of the Git branch deployed.
 
-To **remove a <ProductShortName /> Secret**, use the following command:
+To apply a System Environment Variable to your Deployment, enter its **Name**, leave the **Value** empty, and click **Add**.
 
-<Snippet dark text="now secrets rm <secret-name>"/>
-<Caption>Removing a <b><ProductShortName /> Secret</b> using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
+<Image
+  src={`${process.env.ASSETS}/docs/build-step/env-vars-system.png`}
+  width={1488 / 2}
+  height={632 / 2}
+  shadow
+/>
+<Caption>Adding a System Environment Variable in the Project Settings.</Caption>
 
-To **rename a <ProductShortName /> Secret**, use the following command:
+The following System Environment Variables are available:
 
-<Snippet dark text="now secrets rename <secret-name> <new-name>"/>
-<Caption>Renaming a <b><ProductShortName /> Secret</b> using <Link href="/now"><ProductShortName /> CLI</Link>.</Caption>
+<Table>
+  <TableHead>
+    <TableRow>
+      <TableHeadCell className="head-cell">Name</TableHeadCell>
+      <TableHeadCell className="head-cell">Description</TableHeadCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    {SYSTEM_ENVS.map(systemEnv => (
+      <TableRow key={systemEnv.name}>
+        <TableRowCell>
+          <InlineCode>{systemEnv.name}</InlineCode>
+        </TableRowCell>
+        <TableRowCell>{systemEnv.description}</TableRowCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
 
-### Providing Environment Variables
+### Reserved Environment Variables
 
-To provide your project with environment variables during the Build Step, you should create a `now.json` file like the one below:
-
-```json
-{
-  "build": {
-    "env": {
-      "VARIABLE_NAME": "@secret-name"
-    }
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>now.json</InlineCode> file that provides an
-  application's build step with a defined environment variable.
-</Caption>
-
-When providing environment variables to your application, the value should always be prefixed with `@`, followed by the name of the [<ProductShortName /> Secret](#adding-secrets) or environment variable name if using a `.env.build` file [during local development](#during-local-development).
-
-To use the environment variable from inside the application you would need to reference it using the correct syntax for the language being used. For example, using Node.js, the syntax would be:
-
-```
-process.env.VARIABLE_NAME
-```
-
-<Caption>
-  Accessing a defined environment variable from within a Node.js application.
-</Caption>
-
-Now, whenever the `process.env.VARIABLE_NAME` key is used, it will provide the application's build step with the value declared by the referenced **<ProductShortName /> Secret**.
-
-## During Local Development
-
-When using `now dev` to develop your application locally if you require the use of [Serverless Functions](/docs/v2/serverless-functions/introduction), [<ProductShortName /> Secrets](#adding-secrets) are not available. This is a security measure, to prevent accidental use of production secrets during development.
-
-To use environment variables during local development, create a `.env.build` file at the root of your project directory, for example:
-
-```
-VARIABLE_NAME=variable_value
-```
-
-<Caption>
-  An example <InlineCode>.env.build</InlineCode> file that provides the Build
-  Step with a defined environment variable.
-</Caption>
-
-<Note type="warning">
-  Usage of a <InlineCode>.env.build</InlineCode> file is only possible during
-  local development and will not be made available when deploying for security
-  reasons.
-</Note>
-
-### Updating Environment Variables
-
-Environment variables are made available to the build step, meaning that they do not update in the application unless it is redeployed.
-
-If you change the value of a [<ProductShortName /> Secret](#adding-secrets) or environment variable and want your application to be aware of this, you should create a new deployment.
-
-### Reserved Variables
-
-The <ProductName /> platform reserves the usage of some environment variable names by default. You can find a list of these names in the [limits documentation](/docs/v2/platform/limits/#reserved-variables).
+The <ProductName /> platform reserves the usage of some Environment Variable names by default. You can find a list of these names in the [limits documentation](/docs/v2/platform/limits/#reserved-variables).
 
 ## Ignored Files and Folders
 

@@ -3,25 +3,35 @@ import { InlineCode } from '~/components/text/code'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import ProductName from '~/components/name/product-name'
+import { GITHUB_SYSTEM_ENVS } from '~/lib/data/v2/system-env-variables'
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableRowCell,
+  TableHeadCell
+} from '~/components/table'
 
-You may want to use different workflows and APIs based on Git information. To support this, <ProductName /> will deploy your app with the following built-in environment variables when deploying with <ProductName /> for GitHub.
-
-<Note label="hint">
-  These environment variables are available at both{' '}
-  <Link href="/docs/v2/platform/glossary#run-time">Run Time</Link> and{' '}
-  <Link href="/docs/v2/build-step">the Build Step</Link>.
-</Note>
+You may want to use different workflows and APIs based on Git information. To support this, the following [System Environment Variables](/docs/v2/build-step#system-environment-variables) can be added to your deployment:
 
 <br />
 
-| Variable Key                     | Description                                                                                                         |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `NOW_GITHUB_DEPLOYMENT`          | An indicator for whether the app was deployed by <ProductName /> for GitHub.                                        |
-| `NOW_GITHUB_ORG`                 | The GitHub organization that owns the repository the deployment is triggered from.                                  |
-| `NOW_GITHUB_REPO`                | The origin repository of the app.                                                                                   |
-| `NOW_GITHUB_COMMIT_ORG`          | The organization of which the commit belongs. For example, when submitting a pull request from a forked repository. |
-| `NOW_GITHUB_COMMIT_REPO`         | The repository of which the commit belongs. For example, when submitting a pull request from a forked repository.   |
-| `NOW_GITHUB_COMMIT_REF`          | The branch that the deployment was made from.                                                                       |
-| `NOW_GITHUB_COMMIT_SHA`          | The [sha](https://help.github.com/articles/github-glossary/#commit) of the commit the deployment was triggered by.  |
-| `NOW_GITHUB_COMMIT_AUTHOR_LOGIN` | The username belonging to the author of the commit that the project was deployed by.                                |
-| `NOW_GITHUB_COMMIT_AUTHOR_NAME`  | The name belonging to the author of the commit that the project was deployed by.                                    |
+<Table>
+  <TableHead>
+    <TableRow noTagName>
+      <TableHeadCell className="head-cell">Name</TableHeadCell>
+      <TableHeadCell className="head-cell">Description</TableHeadCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    {GITHUB_SYSTEM_ENVS.map(systemEnv => (
+      <TableRow key={systemEnv.name} noTagName>
+        <TableRowCell>
+          <InlineCode>{systemEnv.name}</InlineCode>
+        </TableRowCell>
+        <TableRowCell>{systemEnv.description}</TableRowCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>

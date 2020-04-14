@@ -125,7 +125,7 @@ Next, add a build script to your `package.json` file:
   Adding a build script to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [secrets](/docs/v2/serverless-functions/env-and-secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
+Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [Secrets](/docs/now-cli#commands/secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
 
 <Snippet dark text="now secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
@@ -174,7 +174,7 @@ exports.query = async query => {
 
 Your `db.js` file performs the following functions:
 
-- Creates a connection to your MySQL database using credentials defined as [secrets](/docs/v2/serverless-functions/env-and-secrets)
+- Creates a connection to your MySQL database using credentials defined as [Secrets](/docs/now-cli#commands/secrets)
 - Exports a function that ensures connections are closed once the query has resolved
 
 <Note>
@@ -404,7 +404,7 @@ You now have a **complete app** with both an API and interface, the next section
 
 ## Step 6: Deploy Your Project with <NameWrapper name={PRODUCT_NAME} />
 
-Getting your project ready to [deploy](/docs/v2/introduction) with [<ProductName />](https://zeit.co) could hardly be simpler, all that's required is the inclusion of [environment variables](/docs/v2/serverless-functions/env-and-secrets).
+Getting your project ready to [deploy](/docs/v2/introduction) with [<ProductName />](https://zeit.co) could hardly be simpler, all that's required is the inclusion of [Environment Variables](/docs/v2/build-step#environment-variables).
 
 Create a [`now.json` file](/docs/configuration) with the following configuration to make the environment variables available to your Serverless Functions:
 

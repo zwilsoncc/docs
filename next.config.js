@@ -183,8 +183,7 @@ module.exports = withMDX({
         {
           source: '/docs/v2/deployments/environment-variables-and-secrets',
           permanent: true,
-          destination:
-            '/docs/v2/build-step/#using-environment-variables-and-secrets'
+          destination: '/docs/v2/build-step#environment-variables'
         },
         {
           source: '/docs/v2/advanced/concepts(.*)',
@@ -265,7 +264,7 @@ module.exports = withMDX({
         {
           source: '/docs/v2/development/environment-variables(.*)',
           permanent: true,
-          destination: '/docs/v2/serverless-functions/env-and-secrets'
+          destination: '/docs/v2/build-step#environment-variables'
         },
         {
           source: '/docs/v2/development/(.*)',
@@ -292,6 +291,11 @@ module.exports = withMDX({
           source: '/docs/v1/guides/how-to-use-cloudflare',
           permanent: true,
           destination: '/docs/v2/custom-domains#cloudflare'
+        },
+        {
+          source: '/docs/v2/serverless-functions/env-and-secrets',
+          permanent: true,
+          destination: '/docs/v2/build-step#environment-variables'
         }
       ]
     }

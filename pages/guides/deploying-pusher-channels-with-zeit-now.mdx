@@ -73,7 +73,7 @@ From your dashboard, find and click on the Channels app you just created.
 />
 <Caption>Selecting the app from the Channels dashboard.</Caption>
 
-Next, click the **App Keys** tab. Copy these values so that you can save them as [<ProductShortName /> Secrets](/docs/v2/serverless-functions/env-and-secrets/#adding-secrets) and then provide them to your app as [environment variables](/docs/v2/serverless-functions/env-and-secrets/#providing-environment-variables).
+Next, click the **App Keys** tab. Copy these values so that you can save them as [Secrets](/docs/now-cli#commands/secrets).
 
 <Image
   src={`${
@@ -160,7 +160,7 @@ async function pushData(data) {
   <InlineCode>/api</InlineCode> endpoint.
 </Caption>
 
-Using [<ProductShortName /> CLI](/download), add the following [<ProductShortName /> Secrets](https://zeit.co/docs/v2/build-step#using-environment-variables-and-secrets) to your account and expose them as environment variables.
+Using [<ProductShortName /> CLI](/download), add the following [Secrets](/docs/now-cli#commands/secrets) to your account and expose them as environment variables.
 
 <Snippet dark text={`now secrets add channels-app-id [Your Channel's app ID]`} />
 <Caption>

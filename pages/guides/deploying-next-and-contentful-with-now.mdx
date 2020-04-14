@@ -6,7 +6,6 @@ import Caption from '~/components/text/caption'
 import Note from '~/components/text/note'
 import Link from '~/components/text/link'
 import DeploySection from '~/components/guides/deploy-section'
-import ProductShortName from '~/components/name/product-short-name'
 import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
 import { PRODUCT_NAME } from '~/lib/constants'
@@ -304,16 +303,16 @@ CONTENTFUL_ACCESS_TOKEN=your-access-token
   Contentful project.
 </Caption>
 
-Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [<ProductShortName /> Secrets](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the commands below:
+Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [Secrets](/docs/now-cli#commands/secrets) with the commands below:
 
 <Snippet dark text="now secrets add CONTENTFUL_SPACE_ID your-space-id" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_SPACE_ID</InlineCode> secret to your project using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets"><ProductShortName /> Secrets</Link>.
+  Adding the <InlineCode>CONTENTFUL_SPACE_ID</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
 </Caption>
 
 <Snippet dark text="now secrets add CONTENTFUL_ACCESS_TOKEN your-access-token" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets"><ProductShortName /> Secrets</Link>.
+  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
 </Caption>
 
 With those steps out the way you are now able to run your app. You can develop your app locally using the following command:
