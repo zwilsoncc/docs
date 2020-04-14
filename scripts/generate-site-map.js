@@ -82,7 +82,10 @@ function xmlUrlNode(pagePath) {
             /\${PRODUCT_SHORT_V1_NAME}/g,
             productNames.productShortV1Name
           )
-          .replace(/\${CLI_V1_NAME}/g, productNames.cliV1Name) +
+          .replace(/\${CLI_V1_NAME}/g, productNames.cliV1Name)
+          .replace(/\${GITHUB_APP_NAME}/g, productNames.githubAppName)
+          .replace(/\${GITLAB_APP_NAME}/g, productNames.gitlabAppName)
+          .replace(/\${BITBUCKET_APP_NAME}/g, productNames.bitbucketAppName) +
         ')'
     )
 
