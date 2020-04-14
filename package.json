@@ -72,6 +72,7 @@
     "@types/react": "16.9.11",
     "babel-eslint": "8.2.3",
     "eslint": "6.1.0",
+    "eslint-config-prettier": "6.10.1",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-import-b5a962": "2.3.0",
     "eslint-plugin-react": "7.14.3",
@@ -96,10 +97,12 @@
     }
   },
   "lint-staged": {
-    "*.{js}": [
-      "eslint"
+    "*.js": [
+      "prettier --write",
+      "eslint",
+      "git add"
     ],
-    "*.{js,json,md,mdx}": [
+    "*.{json,md,mdx}": [
       "prettier --write",
       "git add"
     ]
@@ -122,7 +125,9 @@
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
-      "plugin:import/warnings"
+      "plugin:import/warnings",
+      "prettier",
+      "prettier/react"
     ],
     "overrides": [
       {
@@ -157,7 +162,6 @@
       ],
       "no-console": 1,
       "no-unused-vars": 2,
-      "no-extra-semi": 2,
       "no-useless-escape": 0,
       "react/display-name": 0,
       "react/prop-types": 0,
