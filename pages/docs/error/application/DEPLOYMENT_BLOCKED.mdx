@@ -1,6 +1,7 @@
 import Standard from '~/components/layout/standard'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
+import EmailLink from '~/components/text/email-link'
 
 export const meta = {
   title: 'Deployment Blocked',
@@ -24,7 +25,7 @@ The deployment was blocked by the platform infrastructure layer due to a problem
 #### Troubleshoot
 
 - If you have recently downgraded to the Hobby plan, you will need to redeploy your projects to make them available once again.
-- **[Contact Support](mailto:support@zeit.co)** to see why your deployment was blocked and how to resolve it.
+- **<EmailLink type="support">Contact Support</EmailLink>** to see why your deployment was blocked and how to resolve it.
 
 export default ({ children }) => <Standard meta={meta}>{children}</Standard>
 
