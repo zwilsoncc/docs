@@ -3,7 +3,7 @@ import Link from '~/components/text/link'
 
 const typeToEmail = {
   support: 'support@zeit.co',
-  enterprise: 'enterprise@zeit.co'
+  sales: 'sales@zeit.co'
 }
 
 const EmailLink = ({ children, type, subject }) => (
