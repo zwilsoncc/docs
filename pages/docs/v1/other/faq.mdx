@@ -5,13 +5,14 @@ import OrgV1Name from '~/components/name/org-v1-name'
 import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_SHORT_V1_NAME, ORG_NAME } from '~/lib/constants'
 import CliV1Name from '~/components/name/cli-v1-name'
+import EmailLink from '~/components/text/email-link'
 
 export const meta = {
   title: 'Frequently Asked Questions',
   description: `The answers to our most frequently asked questions for ${PRODUCT_SHORT_V1_NAME} and other ${ORG_NAME} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-04-14T15:19:32.000Z'
+  lastEdited: '2020-04-15T04:12:15.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -85,7 +86,7 @@ The storage limit of any plan is shown under the plan on [the pricing page](/pri
 
 At the moment there is no way to change this. We do have this on the roadmap though!
 
-For [enterprise customers](mailto:enterprise@zeit.co?subject=Custom%20Hardware%20Resources), we offer customizations which include more resources for deployments.
+For <EmailLink type="sales" subject="Custom Hardware Resources">enterprise customers</EmailLink>, we offer customizations which include more resources for deployments.
 
 ## How do I update my deployment's files or code?
 
@@ -114,7 +115,7 @@ We are working on a domain transfer tool to make this process easier.
 
 For now, it is not possible to transfer a domain into <OrgV1Name /> Domains, but you can [change your domain nameservers to point to zeit.world](https://zeit.co/world) to use <ProductShortV1Name /> as a DNS.
 
-If you need to transfer your domain out of <OrgV1Name /> Domains, you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Domain%20Transfer) with the domain you would like to transfer.
+If you need to transfer your domain out of <OrgV1Name /> Domains, you can contact us at <EmailLink type="support" subject="Domain Transfer" /> with the domain you would like to transfer.
 
 If you would like to move a domain from one <OrgV1Name /> account to another, you could do so by running the following commands:
 
@@ -165,7 +166,7 @@ This will ensure the bot is no longer running before you remove it or deploy a n
 
 ## How do I Change the nameservers of a domain purchased with <NameWrapper name={ORG_NAME} /> Domains?
 
-This is not currently possible to do via the [<CliV1Name />](/docs/clients/now-cli), but you can contact us at [support@zeit.co](mailto:support@zeit.co?subject=Change%20Purchased%20Domain%20Nameserver) with your desired nameservers and, after a security verification of the ownership, we can change them for you.
+This is not currently possible to do via the [<CliV1Name />](/docs/clients/now-cli), but you can contact us at <EmailLink type="support" subject="Change Purchased Domain Nameserver" /> with your desired nameservers and, after a security verification of the ownership, we can change them for you.
 
 ## How can I avoid the prompt about the deployment being public under the OSS Plan?
 
@@ -179,7 +180,7 @@ Check ["Why does my deployment occasionally have long response times?"](/docs/ot
 
 ## If I need a special invoice, how do I get it?
 
-We send a receipt to your email address for every card transaction including a link to download the invoice as a PDF. Your invoice can also be downloaded from the [Usage section of your dashboard](https://zeit.co/dashboard/usage). For special invoicing requests, please contact us at [support@zeit.co](support@zeit.co?subject=Invoice) with the following information:
+We send a receipt to your email address for every card transaction including a link to download the invoice as a PDF. Your invoice can also be downloaded from the [Usage section of your dashboard](https://zeit.co/dashboard/usage). For special invoicing requests, please contact us at <EmailLink type="support" subject="Invoice" /> with the following information:
 
 - Company name
 - Billing address
@@ -265,7 +266,7 @@ If you do not want to renew a domain purchased with <ProductShortV1Name /> Domai
 
 ## Do you offer custom support or help with Next.js?
 
-Yes, we do. Let us know if you'd like our help at [enterprise@zeit.co](enterprise@zeit.co?subject=Next.js%20Custom%20Support).
+Yes, we do. Let us know if you'd like our help at <EmailLink type="sales" subject="Next.js Custom Support" />.
 
 ## Is it possible to remove deployment logs?
 
@@ -273,7 +274,7 @@ This is not currently possible.
 
 ## Is it possible to download the files or code of my deployments?
 
-It is not possible to download files of a deployment from the CLI nor the web. Contact us at [support@zeit.co](support@zeit.co?subject=Download%20Deployment%20Code) from the personal account's email address or, in the event the request pertains to a team, the team owner's email address, and we can help you.
+It is not possible to download files of a deployment from the CLI nor the web. Contact us at &lt;EmailLink type="support" subject="Download Deployment Code /> from the personal account's email address or, in the event the request pertains to a team, the team owner's email address, and we can help you.
 
 ## How do I run scheduled tasks on the <NameWrapper name={PRODUCT_SHORT_V1_NAME} /> platform?
 
@@ -313,13 +314,13 @@ We recommend that you only do this for temporary files and use [now-storage](htt
 
 Both our DNS and HTTP(s) load balancing services have sophisticated DDoS protections in place.
 
-Attacks come in very different forms and sizes. Therefore, we offer more advanced protection in the [enterprise](mailto:enterprise@zeit.co?subject=Advanced%20DDoS%20Protection) tiers.
+Attacks come in very different forms and sizes. Therefore, we offer more advanced protection in the <EmailLink type="sales" subject="Advanced DDoS Protection">enterprise</EmailLink> tiers.
 
 ## How do I set up a password for my <NameWrapper name={ORG_NAME} /> Account?
 
 ​<OrgV1Name />'s login is serverless. You just need your email address and don't need to remember yet another password.
 
-For custom requirements, you can contact us at [enterprise@zeit.co](mailto:enterprise@zeit.co?subject=Advanced%20Authentication).
+For custom requirements, you can contact us at <EmailLink type="sales" subject="Advanced Authentication" />.
 
 ## Does <NameWrapper name={PRODUCT_SHORT_V1_NAME} /> offer support for IPv6?
 

@@ -4,15 +4,14 @@ import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import ProductV1Name from '~/components/name/product-v1-name'
 import { PRODUCT_V1_NAME } from '~/lib/constants'
+import EmailLink from '~/components/text/email-link'
 
 export const meta = {
   title: `${PRODUCT_V1_NAME} Internal Slots Query IP Failed`,
   description: 'An error occurred in the platform infrastructure layer.',
   editUrl: 'pages/docs/error/platform/V1_INTERNAL_SLOTS_QUERY_IP_FAILED.mdx',
-  lastEdited: '2020-04-14T00:02:08.000Z'
+  lastEdited: '2020-04-15T02:03:00.000Z'
 }
-
-<br />
 
 <Note type="warning">
   This error is from <ProductV1Name />.{' '}
@@ -38,7 +37,7 @@ An error occurred in the <ProductV1Name /> platform infrastructure layer.
 
 #### Troubleshoot
 
-- **[Contact Support](mailto:support@zeit.co)** along with the ID on the error page from your deployment.
+- **<EmailLink type="support">Contact Support</EmailLink>** along with the ID on the error page from your deployment.
 
 export default ({ children }) => <Standard meta={meta}>{children}</Standard>
 
