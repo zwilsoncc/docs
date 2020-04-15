@@ -2,8 +2,8 @@ import React from 'react'
 import Link from '~/components/text/link'
 
 const typeToEmail = {
-  abuse: 'abuse@zeit.co',
-  support: 'support@zeit.co'
+  support: 'support@zeit.co',
+  enterprise: 'enterprise@zeit.co'
 }
 
 const EmailLink = ({ children, type, subject }) => (
@@ -12,7 +12,7 @@ const EmailLink = ({ children, type, subject }) => (
       subject ? `?subject=${encodeURIComponent(subject)}` : ''
     }`}
   >
-    {children || type}
+    {children || typeToEmail[type]}
   </Link>
 )
 

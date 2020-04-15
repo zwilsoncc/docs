@@ -3,12 +3,13 @@ import Limits from '~/components/limits'
 import Note from '~/components/text/note'
 import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
+import EmailLink from '~/components/text/email-link'
 
 export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-04-14T00:02:08.000Z'
+  lastEdited: '2020-04-15T01:36:00.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -52,7 +53,7 @@ The total size of [Environment Variables](/docs/v2/build-step#environment-variab
 
 ## Domains
 
-The maximum amount of domains that can be applied to a single project is **50**. If your Project requires more than 50 domains, please [contact our enterprise team](mailto:enterprise@zeit.co).
+The maximum amount of domains that can be applied to a single project is **50**. If your Project requires more than 50 domains, please <EmailLink type="enterprise">contact our enterprise team</EmailLink>.
 
 ## Files
 
@@ -94,7 +95,7 @@ You can use the [functions](/docs/configuration#project/functions) property to a
 
 The maximum number of concurrent executions for a [Serverless Function](/docs/v2/serverless-functions/introduction/) is `1000`.
 
-If you require a limit above `1000`, you should [contact our enterprise department](mailto:sales@zeit.co) to discuss custom limits available on an enterprise plan.
+If you require a limit above `1000`, you should <EmailLink type="enterprise">contact our enterprise team</EmailLink> to discuss custom limits available on an enterprise plan.
 
 ## Serverless Function Payload Size Limit
 
