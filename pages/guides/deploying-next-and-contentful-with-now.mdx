@@ -42,7 +42,7 @@ By following this guide, you will create a clone of the [example app](https://ne
 
 ## Step 1: Create your Contentful Content
 
-From your [Contentful Spaces dashboard](https://app.contentful.com/spaces/), create a new **Content Model** called **Post** by clicking the **Add content Type** button.
+From your [Contentful dashboard](https://app.contentful.com/), create a new space. Head to the **Content Model** section and create a new **Content Type** called **Post** by clicking the **Add content type** button.
 
 <Image
   src={`${
@@ -78,7 +78,7 @@ Your **Post Content Model** should look like this:
 
 Next, using the **Content** tab, click the **Add Post** button to create a post, providing the relevant details.
 
-That's it for creating content! You can edit both the **Content** and **Content Model** at any time, giving you complete flexibility over your content.
+That's it for setting up you content structure! You can edit both the **Content** and **Content Model** at any time, giving you complete flexibility over your content.
 
 Next, you will create a set of API keys for use in your app, this will allow you to connect to the [Contentful Client](https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/) to request your posts.
 
@@ -88,7 +88,7 @@ Click the **Settings** tab and choose the **API Keys** option, then click the **
 
 <Note>Use separate keys for each platform you need to deliver content to.</Note>
 
-With the keys created, make a note of both the **Space ID** and the **Content Delivery API - access token**, these will be used later on.
+With the keys created, make a note of both the **Space ID** and the **Content Delivery API - access token**, these will be used later on. The Content Delivery API access token is a read-only token and can be used safely in your frontend applications.
 
 That's all the setup required for [Contentful](https://www.contentful.com/), within **just a few minutes** you have managed to create a **Content Model**, add content and generate a set of API keys.
 
@@ -182,17 +182,9 @@ export default HomePage
 
 Let's take look at what this file achieves.
 
-Firstly, it requires the `contentful` dependency and creates a client, this provides access to many [useful helper methods](https://github.com/contentful/boilerplate-javascript) for retrieving content from [Contentful](https://www.contentful.com/).
+Firstly, it requires the `contentful` dependency and creates a client, this provides access to many [useful helper methods](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries) for retrieving content from [Contentful](https://www.contentful.com/).
 
 Inside the `HomePage` function, two asynchronous functions are defined, these are then called in the `useEffect` hook to retrieve the posts on initial load.
-
-<Note>
-  These functions are simplified versions taken from the{' '}
-  <Link href="https://github.com/contentful/boilerplate-javascript">
-    Contentful JavaScript Boilerplate
-  </Link>
-  .
-</Note>
 
 With the posts retrieved, they are then mapped over to be displayed with a `<Post>` component that you will create next.
 
@@ -313,13 +305,6 @@ Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployme
 <Snippet dark text="now secrets add CONTENTFUL_ACCESS_TOKEN your-access-token" />
 <Caption>
   Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
-</Caption>
-
-With those steps out the way you are now able to run your app. You can develop your app locally using the following command:
-
-<Snippet dark text="now dev" />
-<Caption>
-  Using the <InlineCode>now dev</InlineCode> command to run the app locally.
 </Caption>
 
 ## Step 5: Deploying the App
