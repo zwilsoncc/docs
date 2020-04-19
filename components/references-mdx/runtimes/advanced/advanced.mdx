@@ -320,7 +320,7 @@ const file = readFileSync(join(__dirname, 'config', 'ci.yml'), 'utf8');
     to the current file.
   </Caption>
 
-In some cases, you may wish to include templates or views that are not able to be statically analyzed. Runtimes provide a configuration for `includeFiles` that accepts an array of globs that will always be included in the Serverless Functions output.
+In some cases, you may wish to include templates or views that are not able to be statically analyzed. Runtimes provide a configuration for `includeFiles` that accepts a glob of files that will always be included in the Serverless Functions output.
 
 <Code lang="json">{`{
   "functions": {
