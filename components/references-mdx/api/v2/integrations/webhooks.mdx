@@ -4,6 +4,7 @@ import Caption from '~/components/text/caption'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
 import OrgName from '~/components/name/org-name'
+import { API_ENDPOINT } from '~/lib/constants'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/webhooks.mdx',
@@ -53,7 +54,7 @@ Creates a new webhook subscription.
 
 <Request
   method="POST"
-  url="https://api.zeit.co/v1/integrations/webhooks"
+  url={`${API_ENDPOINT}/v1/integrations/webhooks`}
   headers={{
     'Content-Type': 'application/json'
   }}

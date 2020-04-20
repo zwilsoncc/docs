@@ -2,6 +2,7 @@ import { Code } from '~/components/text/code'
 import { HelpLink } from '~/components/text/link'
 import Endpoint from '~/components/api/endpoint'
 import Request from '~/components/api/request'
+import { API_ENDPOINT } from '~/lib/constants'
 
 export const meta = {
   editUrl: 'pages/docs/api/v2/api-docs-mdx/endpoints/certificates.mdx',
@@ -62,7 +63,7 @@ This is the format of the `pagination` map.
 
 ##### Example Request
 
-<Request url="https://api.zeit.co/v4/now/certs?limit=2" auth />
+<Request url={`${API_ENDPOINT}/v4/now/certs?limit=2`} auth />
 
 ##### Example Response
 
@@ -113,7 +114,7 @@ certificate id specified in the URL.
 
 ##### Example Request
 
-<Request url="https://api.zeit.co/v3/now/certs/oAjf6y9pxZgCJyQfrclN" auth />
+<Request url={`${API_ENDPOINT}/v3/now/certs/oAjf6y9pxZgCJyQfrclN`} auth />
 
 ##### Example Response
 
@@ -151,7 +152,7 @@ The body should contain \`domains\` array and it may contain \`renew\` field to 
 
 <Request
   method="POST"
-  url="https://api.zeit.co/v3/now/certs"
+  url={`${API_ENDPOINT}/v3/now/certs`}
   headers={{
     'Content-Type': 'application/json'
   }}
@@ -195,7 +196,7 @@ The body should contain `cert`, private `key`, and `ca` chain fields in PEM form
 
 <Request
   method="PUT"
-  url="https://api.zeit.co/v3/now/certs"
+  url={`${API_ENDPOINT}/v3/now/certs`}
   headers={{
     'Content-Type': 'application/json'
   }}
@@ -225,6 +226,6 @@ an empty body; Otherwise an error object is returned.
 
 <Request
   method="DELETE"
-  url="https://api.zeit.co/v3/now/certs/zWsFytQUFlkUWaR7nWdwS7xR"
+  url={`${API_ENDPOINT}/v3/now/certs/zWsFytQUFlkUWaR7nWdwS7xR`}
   auth
 />
