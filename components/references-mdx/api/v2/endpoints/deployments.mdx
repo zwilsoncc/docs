@@ -31,7 +31,7 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | **env**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values. _Secrets can be referenced by prefixing the value with `@`_.                                                                                       |
 | **build.env**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values to be passed to Builds. _Secrets can be referenced by prefixing the value with `@`_.                                                                |
 | **functions**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | A list of objects used to configure your Serverless Functions. For example, <InlineCode noWrap>{ "api/test.js": { "memory": 3008 } }</InlineCode>.                                                                              |
-| **routes**          | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                                          |
+| **routes**          | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.example.com" }]`.                                                      |
 | **regions**         | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | An array of the regions the deployment's Serverless Functions should be deployed to. For example, `["sfo", "bru"]`.                                                                                                             |
 | **public**          | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | No       | Whether a deployment's source and logs are available publicly.                                                                                                                                                                  |
 | **target**          | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Either not defined, `staging`, or `production`. If `staging`, a staging alias in the format `<project>.<team>.now.sh` will be assigned. If `production`, any aliases defined in `alias` will be assigned.                       |
@@ -128,7 +128,7 @@ If the `projectSettings` property is not set for the first deployment, the API w
     files: [
       {
         file: 'index.html',
-        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
+        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
       }
     ],
     projectSettings: {
@@ -290,7 +290,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
     files: [
       {
         file: 'index.html',
-        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
+        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
       }
     ]
   }}
@@ -339,7 +339,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
     files: [
       {
         file: 'index.html',
-        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
+        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
       }
     ],
     projectSettings: {
@@ -386,7 +386,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
 | **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                                               |
 | **meta**          | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                                                   |
 | **regions**       | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                                                        |
-| **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.                                    |
+| **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.example.com" }]`.                                |
 | **functions**     | <HelpLink href="#api-basics/types">Map</HelpLink>          | A list of objects used to configure your Serverless Functions. For example, <InlineCode noWrap>{ "api/test.js": { "memory": 3008 } }</InlineCode>.                                                        |
 | **plan**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The pricing plan the deployment was made under.                                                                                                                                                           |
 | **public**        | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | A boolean representing if the deployment is public or not. By default this is `false`.                                                                                                                    |
@@ -415,7 +415,7 @@ To create a new deployment, with a new ID and URL, etc. if nothing has changed w
     files: [
       {
         file: 'index.html',
-        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="https://zeit.co/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
+        data: `<!doctype html>\n<html>\n  <head>\n    <title>A simple deployment with the ${PRODUCT_NAME} API!</title>\n  </head>\n  <body>\n    <h1>Welcome to a simple static file</h1>\n    <p>Deployed with <a href="/docs/api">the ${PRODUCT_NAME} API</a>!</p>\n    </body>\n</html>`
       }
     ],
     projectSettings: {
@@ -558,7 +558,7 @@ One way to obtain a deployment ID is to [list all deployments](#endpoints/deploy
 | **name**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The name of the deployment.                                                                                                                                                    |
 | **meta**          | <HelpLink href="#api-basics/types">Map</HelpLink>          | An object containing the deployment's metadata. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                                        |
 | **regions**       | <HelpLink href="#api-basics/types">List</HelpLink>         | The regions the deployment exists in, e.g. `sfo1`.                                                                                                                             |
-| **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.zeit.co" }]`.         |
+| **routes**        | <HelpLink href="#api-basics/types">List</HelpLink>         | A list of routes objects used to rewrite paths to point towards other internal or external paths. For example; `[{ "src": "/docs", "dest": "https://docs.example.com" }]`.     |
 | **functions**     | <HelpLink href="#api-basics/types">Map</HelpLink>          | A list of objects used to configure your Serverless Functions. For example, <InlineCode noWrap>{ "api/test.js": { "memory": 3008 } }</InlineCode>.                             |
 | **plan**          | <HelpLink href="#api-basics/types">String</HelpLink>       | The pricing plan the deployment was made under.                                                                                                                                |
 | **public**        | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | A boolean representing if the deployment is public or not. By default this is `false`.                                                                                         |

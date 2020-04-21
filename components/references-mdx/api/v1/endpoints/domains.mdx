@@ -113,7 +113,7 @@ Example successful (**200**) response:
     "domains": [
       {
         "uid": "HVXAOskvQK8ILaF8d8gmwdRx",
-        "name": "zeit.rocks",
+        "name": "example.com",
         "created": "2017-09-03T19:48:50.120Z",
         "boughtAt": "2017-09-03T19:48:46.000Z",
         "expiresAt": "2018-09-03T19:48:46.555Z",
@@ -123,7 +123,7 @@ Example successful (**200**) response:
             "tyyBofjOQzbTS5Q8Orif6YS1"
         ],
         "certs": [
-            "zeit.rocks"
+            "example.com"
         ]
       }
     ]
@@ -212,7 +212,7 @@ been created, the user may retry the same POST and the endpoint shall return
     'Content-Type': 'application/json'
   }}
   body={{
-    name: 'zeit.rocks',
+    name: 'example.com',
     serviceType: 'zeit.world'
   }}
 />
@@ -274,7 +274,7 @@ Deleting a domain will automatically remove any associated aliases.
 
 <Request
   method="DELETE"
-  url={`${API_ENDPOINT}/v2/domains/zeit.rocks`}
+  url={`${API_ENDPOINT}/v2/domains/example.com`}
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -309,7 +309,7 @@ Check if a domain name _may_ be available to buy or not. The response is a JSON 
   Example request:
 
 <Request
-  url={`${API_ENDPOINT}/v2/domains/status?name=zeit.rocks`}
+  url={`${API_ENDPOINT}/v2/domains/status?name=example.com`}
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -349,7 +349,7 @@ Check the price to purchase a domain and how long a single purchase period is. T
   Example request:
 
 <Request
-  url={`${API_ENDPOINT}/v2/domains/price?name=zeit.rocks`}
+  url={`${API_ENDPOINT}/v2/domains/price?name=example.com`}
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -403,7 +403,7 @@ In case of a successful purchase the returns with code 200 and an empty body.
     'Content-Type': 'application/json'
   }}
   body={{
-    name: 'zeit.rocks'
+    name: 'example.com'
   }}
 />
 

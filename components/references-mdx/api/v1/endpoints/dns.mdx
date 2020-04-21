@@ -75,7 +75,7 @@ Get a list of DNS records created for a domain name specified in the URL.
   Example request:
 
 <Request
-  url={`${API_ENDPOINT}/v2/domains/zeit.rocks/records`}
+  url={`${API_ENDPOINT}/v2/domains/example.com/records`}
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -89,7 +89,7 @@ Example successful (**200**) response:
     "records": [
       {
         "id": "rec_38OtX1f51szRA03atCybBuZ3",
-        "slug": "zeit.rocks.-address",
+        "slug": "example.com.-address",
         "type": "ALIAS",
         "name": "",
         "value": "alias.zeit.co",
@@ -98,7 +98,7 @@ Example successful (**200**) response:
       },
       {
         "id": "rec_Pxo2HEfutmlIYECtTE4SpDzY",
-        "slug": "*.zeit.rocks.-address",
+        "slug": "*.example.com.-address",
         "type": "CNAME",
         "name": "*",
         "value": "alias.zeit.co",
@@ -172,7 +172,7 @@ field should be set for MX records and left out otherwise.
 
 <Request
   method="POST"
-  url={`${API_ENDPOINT}/v2/domains/zeit.rocks/records`}
+  url={`${API_ENDPOINT}/v2/domains/example.com/records`}
   headers={{
     Authorization: `Bearer ${
       props.testingToken ? props.testingToken.token : '$TOKEN'
@@ -182,7 +182,7 @@ field should be set for MX records and left out otherwise.
   body={{
     name: 'subdomain',
     type: 'MX',
-    value: 'mail.zeit.rocks',
+    value: 'mail.example.com',
     mxPriority: 10
   }}
 />
@@ -207,7 +207,7 @@ successfully the endpoint returns with code 200 and an empty body.
 
 <Request
     method="DELETE"
-    url={`${API_ENDPOINT}/v2/domains/zeit.rocks/records/rec_V0fra8eEgQwEpFhYG2vTzC3K`}
+    url={`${API_ENDPOINT}/v2/domains/example.com/records/rec_V0fra8eEgQwEpFhYG2vTzC3K`}
     headers={{
       Authorization: `Bearer ${(props.testingToken ? props.testingToken.token : '$TOKEN')}`
     }}

@@ -172,8 +172,7 @@ In the case you want to inline each file inside the create deployment request ea
     <BooleanCell status={false} />
     <Cell>
       The file encoding, it must be <InlineCode>base64</InlineCode> or{' '}
-      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>
-      .
+      <InlineCode>utf-8</InlineCode>. Defaults to <InlineCode>utf-8</InlineCode>.
     </Cell>
   </Row>
 </InputTable>
@@ -381,7 +380,8 @@ Each deployment is an object with the following keys:
     <TypeCell>String</TypeCell>
     <Cell>
       A string with the unique URL of the deployment. If it hasn't finished
-      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
+      .
     </Cell>
   </Row>
   <Row>
@@ -403,10 +403,9 @@ Each deployment is an object with the following keys:
     <Cell>
       A string with the current deployment state, it could be one of the
       following <InlineCode>DEPLOYING</InlineCode>,{' '}
-      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
-      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
-        BUILD_ERROR
-      </InlineCode>, or <InlineCode>FROZEN</InlineCode>.
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>
+      , <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>,{' '}
+      <InlineCode>BUILD_ERROR</InlineCode>, or <InlineCode>FROZEN</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -548,8 +547,7 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
     <TypeCell>String</TypeCell>
     <Cell>
       A string with the unique URL of the deployment. If it hasn't finished
-      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>
-      .
+      uploading (is incomplete), the value will be <InlineCode>null</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -558,10 +556,9 @@ You can obtain this, for example, by [listing all deployments](#endpoints/deploy
     <Cell>
       A string with the current deployment state, it could be one of the
       following: <InlineCode>DEPLOYING</InlineCode>,{' '}
-      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>,{' '}
-      <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>, <InlineCode>
-        BUILD_ERROR
-      </InlineCode>, or <InlineCode>FROZEN</InlineCode>.
+      <InlineCode>DEPLOYMENT_ERROR</InlineCode>, <InlineCode>BOOTED</InlineCode>
+      , <InlineCode>BUILDING</InlineCode>, <InlineCode>READY</InlineCode>,{' '}
+      <InlineCode>BUILD_ERROR</InlineCode>, or <InlineCode>FROZEN</InlineCode>.
     </Cell>
   </Row>
   <Row>
@@ -790,7 +787,8 @@ Get the list of instances unique URL of a deployment.
     <TypeCell>String</TypeCell>
     <Cell>
       The instance unique url. Is the deployment unique URL with the instance{' '}
-      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>.
+      <InlineCode>uid</InlineCode> added before <InlineCode>.now.sh</InlineCode>
+      .
     </Cell>
   </Row>
 </OutputTable>

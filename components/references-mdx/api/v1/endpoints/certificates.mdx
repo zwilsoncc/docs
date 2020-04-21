@@ -86,7 +86,7 @@ Example successful (**200**) response:
 <Code lang="json">{`{
     "certs": [
       {
-        "cns": ["testing.zeit.co", "*.zeit.co"],
+        "cns": ["testing.example.com", "*.example.com"],
         "uid": "oAjf6y9pxZgCJyQfrclN",
         "created": "2016-08-23T18:13:09.773Z",
         "expiration": "2016-12-16T16:00:00.000Z",
@@ -148,7 +148,7 @@ certificate id specified in the URL.
 Example successful (200) response:
 
 <Code lang="json">{`{
-    "cns": ["wow.zeit.co"],
+    "cns": ["wow.example.com"],
     "uid": "oAjf6y9pxZgCJyQfrclN",
     "created": "2016-08-23T18:13:09.773Z",
     "expiration": "2016-12-16T16:00:00.000Z",
@@ -206,7 +206,7 @@ The body should contain <InlineCode>domains</InlineCode> array and it may contai
     'Content-Type': 'application/json'
   }}
   body={{
-    domains: ['testing.zeit.co'],
+    domains: ['testing.example.com'],
     renew: true
   }}
 />

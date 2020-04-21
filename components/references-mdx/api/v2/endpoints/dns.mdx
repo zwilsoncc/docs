@@ -62,7 +62,7 @@ This is the format of the `pagination` map.
 
 ##### Example Request
 
-<Request url={`${API_ENDPOINT}/v3/domains/zeit.rocks/records`} auth />
+<Request url={`${API_ENDPOINT}/v3/domains/example.com/records`} auth />
 
 ##### Example Response
 
@@ -70,7 +70,7 @@ This is the format of the `pagination` map.
   "records": [
     {
       "id": "rec_38OtX1f51szRA03atCybBuZ3",
-      "slug": "zeit.rocks.-address",
+      "slug": "example.com.-address",
       "type": "ALIAS",
       "name": "",
       "value": "alias.zeit.co",
@@ -118,16 +118,16 @@ Create a DNS record for a domain specified in the URL.
 
 The following table defines the format of the `value` property for supported record types.
 
-| Type      | Description                                                                                                     | Format                        | Example                     |
-| --------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------- |
-| **A**     | An `A` record pointing to an IPv4 address.                                                                      | `address`                     | `192.0.2.42`                |
-| **AAAA**  | An `AAAA` record pointing to an IPv6 address.                                                                   | `address`                     | `2001:DB8::42`              |
-| **ALIAS** | An `ALIAS` virtual record pointing to a hostname resolved to an `A` record on server side.                      | `host`                        | `alias.zeit.co`             |
-| **CAA**   | A `CAA` record to specify which Certificate Authorities (CAs) are allowed to issue certificates for the domain. | `flags tag value`             | `0 issue "letsencrypt.org"` |
-| **CNAME** | A `CNAME` record mapping to another domain name.                                                                | `domain`                      | `alias.zeit.co`             |
-| **MX**    | An `MX` record specifying the mail server responsible for accepting messages on behalf of the domain name.      | `priority host`               | `10 mail.zeit.rocks.`       |
-| **SRV**   | A `SRV` record defining servers for specified services.                                                         | `priority weight port target` | `10 10 500 sip.zeit.rocks.` |
-| **TXT**   | A `TXT` record containing arbitrary text.                                                                       | `text`                        | `hello`                     |
+| Type      | Description                                                                                                     | Format                        | Example                      |
+| --------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------- |
+| **A**     | An `A` record pointing to an IPv4 address.                                                                      | `address`                     | `192.0.2.42`                 |
+| **AAAA**  | An `AAAA` record pointing to an IPv6 address.                                                                   | `address`                     | `2001:DB8::42`               |
+| **ALIAS** | An `ALIAS` virtual record pointing to a hostname resolved to an `A` record on server side.                      | `host`                        | `alias.zeit.co`              |
+| **CAA**   | A `CAA` record to specify which Certificate Authorities (CAs) are allowed to issue certificates for the domain. | `flags tag value`             | `0 issue "letsencrypt.org"`  |
+| **CNAME** | A `CNAME` record mapping to another domain name.                                                                | `domain`                      | `alias.zeit.co`              |
+| **MX**    | An `MX` record specifying the mail server responsible for accepting messages on behalf of the domain name.      | `priority host`               | `10 mail.example.com.`       |
+| **SRV**   | A `SRV` record defining servers for specified services.                                                         | `priority weight port target` | `10 10 500 sip.example.com.` |
+| **TXT**   | A `TXT` record containing arbitrary text.                                                                       | `text`                        | `hello`                      |
 
 #### Response Parameters
 
@@ -139,7 +139,7 @@ The following table defines the format of the `value` property for supported rec
 
 <Request
   method="POST"
-  url={`${API_ENDPOINT}/v2/domains/zeit.rocks/records`}
+  url={`${API_ENDPOINT}/v2/domains/example.com/records`}
   headers={{
     'Content-Type': 'application/json'
   }}
@@ -147,7 +147,7 @@ The following table defines the format of the `value` property for supported rec
   body={{
     name: 'subdomain',
     type: 'MX',
-    value: '10 mail.zeit.rocks'
+    value: '10 mail.example.com'
   }}
 />
 
@@ -169,6 +169,6 @@ successfully the endpoint returns with code 200 and an empty body.
 
 <Request
   method="DELETE"
-  url={`${API_ENDPOINT}/v2/domains/zeit.rocks/records/rec_V0fra8eEgQwEpFhYG2vTzC3K`}
+  url={`${API_ENDPOINT}/v2/domains/example.com/records/rec_V0fra8eEgQwEpFhYG2vTzC3K`}
   auth
 />
