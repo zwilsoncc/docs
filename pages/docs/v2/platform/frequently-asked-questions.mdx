@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-16T01:25:09.000Z'
+  lastEdited: '2020-04-21T13:58:29.000Z'
 }
 
 ## Platform Version Detection
@@ -103,3 +103,15 @@ In order for this feature to function properly, the custom domain you configured
 - Backed by an active wildcard certificate
 
 The easiest way to satisfy all of these constraints is to ensure the domain is also added to a project located within the same team. This project would ideally contain a single `index.html` that would display when someone visits the bare domain.
+
+## Maximum Team Member Requests
+
+No more than 10 requests of users wanting to join a team can be open at the same time. In order to allow for more requests, the existing ones have to be approved or declined by an owner of the team.
+
+This ensures the list always remains managable and protected against spam.
+
+## Inviting Users to Team Who Requested Access
+
+If a user already requested access to a team, it's not possible to invite them. Instead, their request must be approved by an owner of the team in order for the user to gain acess.
+
+This ensures no requests are accidentally accepted.
