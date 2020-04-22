@@ -7,8 +7,8 @@
     "url": "/guides/deploying-userbase-with-vercel",
     "demo": "https://next-userbase.now.sh",
     "image": "",
-    "editUrl": "pages/guides/deploying-userbase-with-vercel/index.mdx",
-    "lastEdited": "2020-04-22T05:29:18.000Z"
+    "editUrl": "pages/guides/deploying-userbase-with-vercel.mdx",
+    "lastEdited": "2020-04-22T05:50:37.000Z"
   },
   {
     "title": "Deploy Ionic Angular with Vercel",
