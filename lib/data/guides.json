@@ -1,5 +1,16 @@
 [
   {
+    "title": "Deploy Userbase with Vercel",
+    "description": "Create a todo app with Userbase and Next.js and deploy it live with Vercel.",
+    "published": "2020-04-22T12:00:00.860Z",
+    "authors": ["coetry"],
+    "url": "/guides/deploying-userbase-with-vercel",
+    "demo": "https://next-userbase.now.sh",
+    "image": "",
+    "editUrl": "pages/guides/deploying-userbase-with-vercel/index.mdx",
+    "lastEdited": "2020-04-22T05:29:18.000Z"
+  },
+  {
     "title": "Deploy Ionic Angular with Vercel",
     "description": "Create an Ionic Angular app and deploy it live with Vercel.",
     "published": "2020-04-16T12:00:00.860Z",

@@ -1,0 +1,174 @@
+import Guide from '~/components/layout/guide'
+import { Code } from '~/components/code'
+import Snippet from '~/components/snippet'
+import Caption from '~/components/text/caption'
+import Link from '~/components/text/link'
+import { Image } from '~/components/media'
+import DeploySection from '~/components/guides/deploy-section'
+import NameWrapper from '~/components/name/name-wrapper'
+import { PRODUCT_NAME } from '~/lib/constants'
+import {
+  AppJs,
+  Layout,
+  Nav,
+  Modal,
+  TodoForm,
+  HomePage,
+  ButtonStyles,
+  IndexCSS
+} from './code-fragments'
+
+export const meta = {
+  title: `Deploy Userbase with ${PRODUCT_NAME}`,
+  description: `Create a todo app with Userbase and Next.js and deploy it live with ${PRODUCT_NAME}.`,
+  published: '2020-04-22T12:00:00.860Z',
+  authors: ['coetry'],
+  url: '/guides/deploying-userbase-with-vercel',
+  demo: 'https://next-userbase.now.sh',
+  image: '',
+  editUrl: 'pages/guides/deploying-userbase-with-vercel/index.mdx',
+  lastEdited: '2020-04-22T05:29:18.000Z'
+}
+
+[Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
+All Userbase features are accessible through a very simple [JavaScript SDK](https://userbase.com/docs/sdk/), directly from the browser without a backend.
+This guide walks through building a Todo app with Userbase and Next.js.
+
+## Step 1: Create A Userbase Account
+
+First you'll need to create a Userbase account if you don't already have one. You can create one in _less than 10 seconds_ [here](https://v1.userbase.com/#create-admin).
+
+After creating your account, make note of your _App Id_. We'll store it later as an environment variable for our project.
+
+## Step 2: Set Up A New Next.js Project
+
+Let's start off by scaffolding a Next.js project with [Tailwind](https://tailwindcss.com/) for quick styling.
+
+<Snippet dark text="npm init next-app --example with-tailwindcss next-userbase && cd next-userbase" />
+<Caption>Initializing a Next.js + Tailwind app and entering the new project directory</Caption>
+
+Then we'll add the `userbase-js` dependency to our project.
+
+<Snippet dark text="npm install userbase-js" />
+<Caption>Installing the userbase dependency</Caption>
+
+## Step 3: Deploy A Preview and Link Your Project
+
+Although we haven't done anything with our app yet, its a great time to configure our project settings and deploy a preview. With the [Vercel CLI](https://vercel.com/download), we can
+configure project settings and deploy with a single command.
+
+<Snippet dark text="now" />
+<Caption>Configure project settings and deploy</Caption>
+
+## Step 4: Add Environment Variables
+
+We will find our newly created project in the Vercel dashboard and can now navigate to the project settings to add our Userbase _app id_ from earlier as
+an [environment variable](https://vercel.com/docs/v2/build-step#environment-variables).
+
+With the Userbase trial account, we are only given a single _app id_, so we can set the same value for Development, Preview, and Production for now.
+
+Lets add our _app id_ under the `USERBASE_APP_ID` variable for all of our environments.
+
+<Image
+  src={`
+  ${process.env.ASSETS}/guides/deploying-userbase-with-vercel/env-vars.png
+`}
+  width={753}
+  height={594}
+  oversize
+/>
+
+<Caption>
+  Add the `USERBASE_APP_ID` environment variable in the project settings UI.
+</Caption>
+
+Now that we have our _app id_ set across each of our environments. We can securely use them during development
+by running `now env pull` from our project root.
+
+<Snippet dark text="now env pull" />
+<Caption>Pulling development environment variables via the Vercel CLI.</Caption>
+
+Running the command above will automatically create a `.env` variable which our local Next.js dev server can read from.
+
+The last thing we need to do before we can jump into the code, will be to create a `next.config.js` file that makes the environment variable
+available throughout our app.
+
+<Code lang="js">
+  {`
+    module.exports = {
+      env: {
+        USERBASE_APP_ID: process.env.USERBASE_APP_ID,
+      },
+    };
+`}
+</Code>
+<Caption>Add `USERBASE_APP_ID` environment variable to next.config.js</Caption>
+
+## Step 5: Write the App
+
+### Global Styles
+
+First, let's add some global button styles in a `button.css` file within the `styles` directory in the project root. We are composing classes with Tailwind's [apply directive](https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply).
+
+<Code lang="js">{ButtonStyles}</Code>
+<Caption>Global button styles defined in `styles/button.css`</Caption>
+
+We then import our button styles in our main stylesheet.
+
+<Code lang="js">{IndexCSS}</Code>
+<Caption>Importing `button.css` in `styles/index.css`</Caption>
+
+### Application Root
+
+Let's initialize our application with some global state for the user and also let's create
+an effect to start up Userbase.
+
+Your `_app.js` should look like the following:
+
+<Code lang="js">{AppJs}</Code>
+<Caption>`_app.js` file that initializes Userbase, sets up global state, and passes down props to {`<Layout />`} component </Caption>
+
+### Layout Component
+
+Then we'll create a `<Layout />` component to wrap our pages with a few Tailwind classes and a `<Nav />` component, which we pass down our user state and updater function props to.
+
+<Code lang="js">{Layout}</Code>
+<Caption>{`<Layout />`} component in `components/layout.js`</Caption>
+
+### Nav Component
+
+Next, we create the `<Nav />` component where we add two buttons for opening a modal that allows you to log in to an existing account or sign up for a new one.
+
+<Code lang="js">{Nav}</Code>
+<Caption>{`<Nav />`} component in `components/nav.js`</Caption>
+
+### Modal Component
+
+Next, we create the `<LoginModal />` form that allows us to log in or sign up in.
+
+<Code lang="js">{Modal}</Code>
+<Caption>{`<LoginModal />`} component in `components/modal.js`</Caption>
+
+### TodoForm Component
+
+Finally, the last component we'll create is the actual Todo form.
+
+<Code lang="js">{TodoForm}</Code>
+<Caption>{`<TodoForm />`} component in `components/todo-form.js`</Caption>
+
+### Home Page
+
+We tie it all up together by rendering our `<TodoForm />` in our home page.
+
+<Code lang="js">{HomePage}</Code>
+<Caption>Home page in `pages/index.js` rendering {`<TodoForm />`}</Caption>
+
+## Step 6: Deploying To Production
+
+<DeploySection meta={meta} />
+
+export default ({ children }) => <Guide meta={meta}>{children}</Guide>
+
+export const config = {
+  amp: 'hybrid'
+}
