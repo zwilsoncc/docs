@@ -475,12 +475,12 @@
     "description": "Deploy your Next.js and ButterCMS app with Vercel in a serverless environment.",
     "published": "2019-06-21T16:51:04.000Z",
     "authors": ["msweeneydev"],
-    "url": "/guides/deploying-next-and-buttercms-vercel",
-    "image": "undefined/guides/deploying-next-buttercms-vercel/deploying-next-buttercms-vercel.png",
+    "url": "/guides/deploying-next-and-buttercms-with-vercel",
+    "image": "https://vercel.com/docs/static/guides/deploying-next-and-buttercms-with-vercel/deploying-next-and-buttercms-with-vercel.png",
     "editUrl": "pages/guides/deploying-next-and-buttercms-with-vercel.mdx",
     "name": "Next.js + ButterCMS",
     "type": "app",
-    "lastEdited": "2020-04-16T03:22:57.000Z"
+    "lastEdited": "2020-04-23T17:55:59.000Z"
   },
   {
     "title": "Create a Next.js App with Contentful and Deploy It with Vercel",
@@ -488,11 +488,11 @@
     "published": "2019-06-18T16:51:04.000Z",
     "authors": ["msweeneydev"],
     "url": "/guides/deploying-next-and-contentful-with-vercel",
-    "image": "undefined/guides/deploying-next-contentful-with-vercel/deploying-next-contentful-with-vercel.png",
+    "image": "https://vercel.com/docs/static/guides/deploying-next-contentful-with-vercel/deploying-next-contentful-with-vercel.png",
     "editUrl": "pages/guides/deploying-next-and-contentful-with-vercel.mdx",
     "name": "Next.js + Contentful",
     "type": "app",
-    "lastEdited": "2020-04-16T03:22:57.000Z"
+    "lastEdited": "2020-04-23T17:50:44.000Z"
   },
   {
     "title": "Deploying Sanity Studio with Vercel",
@@ -512,11 +512,11 @@
     "published": "2019-05-24T17:53:20.489Z",
     "authors": ["timothy"],
     "url": "/guides/deploying-a-mongodb-powered-api-with-node-and-vercel",
-    "image": "undefined/guides/deploying-a-mongodb-powered-api-with-node-and-vercel/card.png",
+    "image": "https://vercel.com/docs/static/guides/deploying-a-mongodb-powered-api-with-node-and-vercel/card.png",
     "name": "MongoDB",
     "type": "API",
     "editUrl": "pages/guides/deploying-a-mongodb-powered-api-with-node-and-vercel.mdx",
-    "lastEdited": "2020-04-19T05:27:12.000Z"
+    "lastEdited": "2020-04-23T17:50:44.000Z"
   },
   {
     "title": "Handling Node.js Request Bodies with Vercel",
@@ -533,11 +533,11 @@
     "published": "2019-04-26T16:51:04.000Z",
     "authors": ["msweeneydev", "furf"],
     "url": "/guides/deploying-next-and-mysql-with-vercel",
-    "image": "undefined/guides/deploying-next-mysql-with-vercel/deploying-next-mysql-with-vercel.png",
+    "image": "https://vercel.com/docs/static/guides/deploying-next-mysql-with-vercel/deploying-next-mysql-with-vercel.png",
     "editUrl": "pages/guides/deploying-next-and-mysql-with-vercel.mdx",
     "name": "Next.js + MySQL",
     "type": "app",
-    "lastEdited": "2020-04-16T03:22:57.000Z"
+    "lastEdited": "2020-04-23T17:50:44.000Z"
   },
   {
     "title": "Create a Charge App That Builds and Deploys with Vercel",
