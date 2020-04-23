@@ -1,5 +1,5 @@
 import Guide from '~/components/layout/guide'
-import { Code } from '~/components/code'
+import { Code, InlineCode } from '~/components/code'
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
 import Link from '~/components/text/link'
@@ -17,11 +17,11 @@ export const meta = {
   demo: 'https://next-userbase.now-examples.now.sh',
   image: '',
   editUrl: 'pages/guides/deploying-next-and-userbase-with-vercel.mdx',
-  lastEdited: '2020-04-23T21:33:36.000Z'
+  lastEdited: '2020-04-23T22:07:27.000Z'
 }
 
 [Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
-All Userbase features are accessible through a very simple [JavaScript SDK](https://userbase.com/docs/sdk/), directly from the browser without a backend.
+All Userbase features are accessible through a [JavaScript SDK](https://userbase.com/docs/sdk/), directly from the browser, without requring a backend.
 
 ## Step 1: Create A Userbase Account
 
@@ -49,21 +49,21 @@ The scaffolded template expects us to provide a `USERBASE_APP_ID` variable as sh
     };
 `}
 </Code>
-<Caption>`USERBASE_APP_ID` environment variable in next.config.js</Caption>
+<Caption><InlineCode>USERBASE_APP_ID</InlineCode> environment variable in next.config.js</Caption>
 
-For development, you can simply add your Userbase _App ID_ from _Step 1_ as an environment variable in a `.env` file in your project root and run `next dev` to start a development server.
+For development, you can simply add your Userbase _App ID_ from _Step 1_ as an environment variable in a `.env` file at the project root and run `next dev` to start a development server.
 
 <Code lang="bash">
   {`USERBASE_APP_ID=<paste-your-id-here>`}
 </Code>
-<Caption>`USERBASE_APP_ID` environment variable defined in .env</Caption>
+<Caption>Defining the <InlineCode>USERBASE_APP_ID</InlineCode> environment variable in a <InlineCode>.env</InlineCode> file.</Caption>
 
 In order to take your app to production, you can add the _App ID_ as a secret by running the following command:
 
 <Snippet dark text="now secrets add userbase-app-id [paste-your-id-here]" />
-<Caption>Adding a secret to your Vercel account. Make sure to remove the brackets.</Caption>
+<Caption>Adding a secret to your Vercel account.</Caption>
 
-Our template already provides us with a `now.json` that makes use of the secret we added above.
+The project template already provides you with a `now.json` file that makes use of the secret we added above.
 
 <Code lang="json">
   {`
@@ -76,7 +76,7 @@ Our template already provides us with a `now.json` that makes use of the secret 
     }
   `}
 </Code>
-<Caption>`now.json` reading our secret as a build environment variable</Caption>
+<Caption>The <InlineCode>now.json</InlineCode> file that provides the defined secret to the application.</Caption>
 
 ## Step 4: Deploying To Production
 
