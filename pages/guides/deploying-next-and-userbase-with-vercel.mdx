@@ -17,7 +17,7 @@ export const meta = {
   demo: 'https://next-userbase.now-examples.now.sh',
   image: '',
   editUrl: 'pages/guides/deploying-next-and-userbase-with-vercel.mdx',
-  lastEdited: '2020-04-23T22:22:40.000Z'
+  lastEdited: '2020-04-23T22:40:59.000Z'
 }
 
 [Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
@@ -25,20 +25,20 @@ All Userbase features are accessible through a [JavaScript SDK](https://userbase
 
 ## Step 1: Create A Userbase Account
 
-First you'll need to create a Userbase account if you don't already have one. You can create one in _less than 10 seconds_ [here](https://v1.userbase.com/#create-admin).
+First, you'll need to create a Userbase account if you don't already have one. You can create one in _less than 10 seconds_ [here](https://v1.userbase.com/#create-admin).
 
-After creating your account, make note of your _App ID_. We'll store it later as an environment variable for our project.
+After creating your account, make a note of your _App ID_. You'll store it later as an environment variable for your project.
 
-## Step 2: Set Up A New Next.js Project
+## Step 2: Set up a New Next.js Project
 
-Let's start off by scaffolding a Next.js `with-userbase` template from the [Next.js Examples Directory](https://github.com/zeit/next.js/tree/canary/examples/with-userbase)
+Set up a Next.js and Userbase project by initializing the [project template](https://github.com/zeit/next.js/tree/canary/examples/with-userbase) and moving into the project directory:
 
 <Snippet dark text="npm init next-app --example with-userbase userbase-todo-app && cd userbase-todo-app" />
 <Caption>Initializing a Next.js + Userbase app and entering the new project directory</Caption>
 
 ## Step 3: Add Environment Variables
 
-The scaffolded template expects us to provide a `USERBASE_APP_ID` variable as shown in `next.config.js`.
+The scaffolded template expects you to provide a `USERBASE_APP_ID` variable, as shown in the `next.config.js` file.
 
 <Code lang="js">
   {`
@@ -49,7 +49,7 @@ The scaffolded template expects us to provide a `USERBASE_APP_ID` variable as sh
     };
 `}
 </Code>
-<Caption><InlineCode>USERBASE_APP_ID</InlineCode> environment variable in next.config.js</Caption>
+<Caption><Caption>The <InlineCode>next.config.js</InlineCode> file that makes the <InlineCode>USERBASE_APP_ID</InlineCode> environment variable available to the application.</Caption></Caption>
 
 For development, you can simply add your Userbase _App ID_ from _Step 1_ as an environment variable in a `.env` file at the project root and run `next dev` to start a development server.
 
