@@ -140,6 +140,7 @@ module.exports = withMDX({
   target: 'serverless',
 
   experimental: {
+    pageEnv: true,
     pages404: true,
     polyfillsOptimization: true,
 
@@ -446,12 +447,10 @@ module.exports = withMDX({
   assetPrefix: isProd ? '/docs' : '',
 
   env: {
-    NOW_GITHUB_COMMIT_SHA: process.env.NOW_GITHUB_COMMIT_SHA,
-    API_URL: process.env.API_URL,
     IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
     VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',
     RAW_ASSETS_URL: 'https://assets.zeit.co/raw/upload/front',
-    ASSETS: isProd ? '/docs/static' : '/static'
+    ASSETS: process.env.ASSETS
   },
 
   webpack(config, { isServer }) {
