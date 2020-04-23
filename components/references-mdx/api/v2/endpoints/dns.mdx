@@ -13,7 +13,7 @@ export const meta = {
 
 ### List all the DNS records of a domain
 
-<Endpoint method="GET" url="/v3/domains/:domain/records" />
+<Endpoint method="GET" url="/v4/domains/:domain/records" />
 
 Get a list of DNS records created for a domain name specified in the URL. By default it returns 20 records if no `limit` is provided. The rest can be retrieved using the pagination options described below.
 
@@ -62,7 +62,7 @@ This is the format of the `pagination` map.
 
 ##### Example Request
 
-<Request url={`${API_ENDPOINT}/v3/domains/example.com/records`} auth />
+<Request url={`${API_ENDPOINT}/v4/domains/example.com/records`} auth />
 
 ##### Example Response
 
