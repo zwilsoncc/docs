@@ -27,7 +27,7 @@ export const meta = {
   demo: 'https://next-userbase.now.sh',
   image: '',
   editUrl: 'pages/guides/deploying-userbase-with-vercel.mdx',
-  lastEdited: '2020-04-23T21:21:57.000Z'
+  lastEdited: '2020-04-23T21:33:36.000Z'
 }
 
 [Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
@@ -42,7 +42,7 @@ After creating your account, make note of your _App ID_. We'll store it later as
 
 ## Step 2: Set Up A New Next.js Project
 
-Let's start off by scaffolding a Next.js project with [Tailwind](https://tailwindcss.com/) for quick styling.
+Let's start off by scaffolding a Next.js `with-userbase` template from the [Next.js Examples Directory](https://github.com/zeit/next.js/tree/canary/examples/with-userbase)
 
 <Snippet dark text="npm init next-app --example with-userbase userbase-todo-app && cd userbase-todo-app" />
 <Caption>Initializing a Next.js + Userbase app and entering the new project directory</Caption>
@@ -89,7 +89,7 @@ Our template already provides us with a `now.json` that makes use of the secret 
 </Code>
 <Caption>`now.json` reading our secret as a build environment variable</Caption>
 
-## Step 6: Deploying To Production
+## Step 4: Deploying To Production
 
 <DeploySection meta={meta} />
 
