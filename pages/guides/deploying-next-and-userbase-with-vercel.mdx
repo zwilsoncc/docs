@@ -18,7 +18,7 @@ export const meta = {
   image:
     'https://assets.zeit.co/image/upload/v1587744671/twitter-cards/next_userbase_vercel_og_image.png',
   editUrl: 'pages/guides/deploying-next-and-userbase-with-vercel.mdx',
-  lastEdited: '2020-04-24T17:37:31.000Z'
+  lastEdited: '2020-04-24T17:42:43.000Z'
 }
 
 [Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
@@ -42,13 +42,11 @@ Set up a Next.js and Userbase project by initializing the [project template](htt
 The scaffolded template expects you to provide a `USERBASE_APP_ID` variable, as shown in the `next.config.js` file.
 
 <Code lang="js">
-  {`
-    module.exports = {
-      env: {
-        USERBASE_APP_ID: process.env.USERBASE_APP_ID,
-      },
-    };
-`}
+  {`module.exports = {
+  env: {
+  USERBASE_APP_ID: process.env.USERBASE_APP_ID,
+  },
+};`}
 </Code>
 <Caption><Caption>The <InlineCode>next.config.js</InlineCode> file that makes the <InlineCode>USERBASE_APP_ID</InlineCode> environment variable available to the application.</Caption></Caption>
 
@@ -67,15 +65,13 @@ In order to take your app to production, you can add the _App ID_ as a secret by
 The project template already provides you with a `now.json` file that makes use of the secret added above.
 
 <Code lang="json">
-  {`
-    {
-      "build": {
-        "env": {
-          USERBASE_APP_ID: "@userbase-app-id"
-        }
-      }
+  {`{
+  "build": {
+    "env": {
+      USERBASE_APP_ID: "@userbase-app-id"
     }
-  `}
+  }
+}`}
 </Code>
 <Caption>The <InlineCode>now.json</InlineCode> file that provides the defined secret to the application.</Caption>
 
