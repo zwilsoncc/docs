@@ -634,7 +634,7 @@ const Emoji = React.memo(({ code }) => (
     decoding="async"
     width={code === 'f600' || code === 'f62d' || code === 'f615' ? 24.5 : 22}
     height={code === 'f600' || code === 'f62d' || code === 'f615' ? 24.5 : 22}
-    src={`https://assets.zeit.co/twemoji/1${code}.svg`}
+    src={`https://assets.vercel.com/twemoji/1${code}.svg`}
     alt="emoji"
     style={{
       transform:

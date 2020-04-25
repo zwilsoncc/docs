@@ -17,7 +17,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-vercel',
   editUrl: 'pages/guides/setup-godaddy-domain-vercel.mdx',
-  lastEdited: '2020-04-16T03:34:45.000Z'
+  lastEdited: '2020-04-25T00:32:18.000Z'
 }
 
 With <ProductName />, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to <ProductName />](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
@@ -37,7 +37,7 @@ Once you have added the domain, <ProductShortName /> CLI will present you with s
 You will have two options. Either to verify your domain [with nameservers](#verifying-with-nameservers) for immediate migration or [with a TXT record](#verifying-with-a-txt-record) for thorough zero-downtime migration. The method you use is entirely optional.
 
 <Image
-  src="https://assets.zeit.co/image/upload/v1548370520/front/guides/godaddy-migration/now-cli-add-domain.png"
+  src="https://assets.vercel.com/image/upload/v1548370520/front/guides/godaddy-migration/now-cli-add-domain.png"
   width={1562/2}
   height={1318/2}
   oversize
@@ -59,7 +59,7 @@ With the intended set of nameservers, you shall need to apply them to your domai
 Going to GoDaddy.com and logging in will result in a page like this:
 
 <Image
-  src="https://assets.zeit.co/image/upload/v1548370520/front/guides/godaddy-migration/godaddy-dashboard.png"
+  src="https://assets.vercel.com/image/upload/v1548370520/front/guides/godaddy-migration/godaddy-dashboard.png"
   width={1946/2}
   height={1350/2}
   oversize
@@ -83,7 +83,7 @@ You can add the TXT record by going to your GoDaddy domains dashboard, as in the
 Select `TXT` as the record type to add, `_now` as the host, and the value you were given for the record when adding your domain or when using the [`now domains inspect <domain>` <ProductShortName /> CLI command](/docs/v2/custom-domains).
 
 <Image
-  src="https://assets.zeit.co/image/upload/v1548370520/front/guides/godaddy-migration/godaddy-dns-add.png"
+  src="https://assets.vercel.com/image/upload/v1548370520/front/guides/godaddy-migration/godaddy-dns-add.png"
   width={1946/2}
   height={1350/2}
   oversize
@@ -95,7 +95,7 @@ Once you have added the TXT record, your domain can be verified. <OrgName /> wil
 <Snippet dark text="now domains verify <domain>" />
 
 <Image
-  src="https://assets.zeit.co/image/upload/v1548370520/front/guides/godaddy-migration/now-cli-verify-domain.png"
+  src="https://assets.vercel.com/image/upload/v1548370520/front/guides/godaddy-migration/now-cli-verify-domain.png"
   width={1562/2}
   height={808/2}
   oversize
@@ -141,7 +141,7 @@ If you verified with nameservers, this step is already complete!
 To set your nameservers, on the DNS management page as you added the TXT record, at the bottom of that page will be a section that allows you to enter custom nameservers
 
 <Image
-  src="https://assets.zeit.co/image/upload/v1548388022/front/guides/godaddy-migration/godaddy-ns-add.png"
+  src="https://assets.vercel.com/image/upload/v1548388022/front/guides/godaddy-migration/godaddy-ns-add.png"
   width={1946/2}
   height={1350/2}
   oversize
