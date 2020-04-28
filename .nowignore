@@ -7,3 +7,4 @@ README.md
 CONTRIBUTING.md
 CODE_OF_CONDUCT.md
 .github
+!.env.production
