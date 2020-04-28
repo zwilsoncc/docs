@@ -9,7 +9,7 @@ export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-04-17T16:45:50.000Z'
+  lastEdited: '2020-04-26T22:18:16.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -31,7 +31,7 @@ To prevent abuse of our platform, we apply the following limits to all accounts.
 
 <Note>
   Next.js Static Site Generation and Next.js Preview Serverless Functions are
-  excluded from the count for "Maximum Functions per Deployment".
+  excluded from the count for "Serverless Functions per Deployment".
 </Note>
 
 ## Logs
@@ -118,6 +118,7 @@ When attempting to deploy Serverless Functions to multiple regions on the Hobby 
 
 The following environment variable names are [reserved](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#lambda-environment-variables) and therefore unavailable for use:
 
+- Names starting with `VERCEL_`
 - Names starting with `NOW_`
 - `AWS_REGION`
 - `AWS_DEFAULT_REGION`

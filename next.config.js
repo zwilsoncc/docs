@@ -447,9 +447,9 @@ module.exports = withMDX({
   assetPrefix: isProd ? '/docs' : '',
 
   env: {
-    IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
-    VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',
-    RAW_ASSETS_URL: 'https://assets.zeit.co/raw/upload/front',
+    IMAGE_ASSETS_URL: 'https://assets.vercel.com/image/upload/front',
+    VIDEO_ASSETS_URL: 'https://assets.vercel.com/video/upload/front',
+    RAW_ASSETS_URL: 'https://assets.vercel.com/raw/upload/front',
     ASSETS: process.env.ASSETS
   },
 

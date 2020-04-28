@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-21T13:58:29.000Z'
+  lastEdited: '2020-04-27T14:11:35.000Z'
 }
 
 ## Platform Version Detection
@@ -115,3 +115,7 @@ This ensures the list always remains managable and protected against spam.
 If a user already requested access to a team, it's not possible to invite them. Instead, their request must be approved by an owner of the team in order for the user to gain acess.
 
 This ensures no requests are accidentally accepted.
+
+## Unused Project Settings with Non-Zero-Config Deployments
+
+Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.
