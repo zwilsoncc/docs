@@ -1,0 +1,28 @@
+import { Code, InlineCode } from '~/components/text/code'
+import Note from '~/components/text/note'
+import Link from '~/components/text/link'
+import ProductName from '~/components/name/product-name'
+import ProductShortName from '~/components/name/product-short-name'
+
+**Type**: `Array` or `String`.
+
+**Valid values**: [domain names](/docs/v2/custom-domains) (optionally including subdomains) added to the account, or a string for a suffixed URL using `.now.sh` or a Custom Deployment Suffix ([available on the Enterprise plan](/pricing)).
+
+**Limit**: A maximum of 64 aliases in the array.
+
+The alias or aliases are applied automatically using [<ProductName /> for GitHub](/docs/v2/git-integrations/vercel-for-github), [<ProductName /> for GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [<ProductName /> for Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) when merging or pushing to the default branch.
+
+You can deploy to the defined aliases using [<ProductShortName /> CLI](/download) by setting the [production deployment environment target](/docs/v2/custom-domains#deploying-with-your-domain).
+
+<Code lang="json">{`{
+  "alias": ["my-domain.com", "my-alias"]
+}`}</Code>
+
+<Note>
+  Aliases from a <InlineCode>now.json</InlineCode> file will be <b>ignored</b>{' '}
+  when there are domains that have been{' '}
+  <Link href="/docs/v2/custom-domains/#deploying-with-your-domain">
+    configured for the project through the dashboard
+  </Link>
+  .
+</Note>

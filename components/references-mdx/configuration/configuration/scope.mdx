@@ -1,0 +1,25 @@
+import { Code, InlineCode } from '~/components/text/code'
+import Note from '~/components/text/note'
+import Link from '~/components/text/link'
+import ProductName from '~/components/name/product-name'
+import ProductShortName from '~/components/name/product-short-name'
+
+**Type**: `String`.
+
+**Valid values**: For teams, either an ID or slug. For users, either a email address, username, or ID.
+
+This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by [<ProductShortName /> CLI](/download).
+
+Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [Environment Variables](/docs/v2/build-step#environment-variables) using `now secrets ls`).
+
+<Code lang="json">{`{
+  "scope": "my-team"
+}`}</Code>
+
+<Note>
+  Deployments made via{' '}
+  <Link href="/docs/v2/git-integrations">Git Integration</Link> will{' '}
+  <b>ignore</b> the <InlineCode>scope</InlineCode> property because the
+  repository is already connected to a{' '}
+  <Link href="/docs/v2/platform/projects">project</Link>.
+</Note>

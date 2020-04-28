@@ -2,9 +2,22 @@ import Card from '~/components/card'
 import { Code, InlineCode } from '~/components/text/code'
 import { P } from '~/components/text'
 import Link from '~/components/text/link'
+import EmailLink from '~/components/text/email-link'
 import Note from '~/components/text/note'
 import ProductName from '~/components/name/product-name'
 import ProductShortName from '~/components/name/product-short-name'
+import Deprecated from '~/components/text/deprecated'
+import Name from './name.mdx'
+import Version from './version.mdx'
+import Alias from './alias.mdx'
+import Scope from './scope.mdx'
+import Builds from './builds.mdx'
+import Public from './public.mdx'
+import CleanUrls from './clean-urls.mdx'
+import TrailingSlash from './trailing-slash.mdx'
+import Redirects from './redirects.mdx'
+import Rewrites from './rewrites.mdx'
+import Headers from './headers.mdx'
 
 export const meta = {
   editUrl:
@@ -192,3 +205,140 @@ The special value `all` can be used to target all available regions.
 <Code lang="json">{`{
   "regions": ["sfo1", "bru"]
 }`}</Code>
+
+## name
+
+<Note type="alert">
+  The <InlineCode>name</InlineCode> property has been deprecated in favor of{' '}
+  <Link href="/docs/now-cli#commands/overview/project-linking">
+    Project Linking
+  </Link>
+  , which allows you to link a <ProductName /> Project to your local codebase when
+  you run <InlineCode>now</InlineCode>.
+</Note>
+
+<Deprecated>
+  <Name />
+</Deprecated>
+
+## version
+
+<Note type="alert">
+  The <InlineCode>version</InlineCode> property is no longer needed, as Vercel
+  CLI automatically detects the platform version. If you need help, please reach
+  out to the support at <EmailLink type="support" />.
+</Note>
+
+<Deprecated>
+  <Version />
+</Deprecated>
+
+## alias
+
+<Note type="alert">
+  We encourage you to use the{' '}
+  <Link href="/docs/v2/custom-domains">Custom Domains</Link> project settings
+  instead.
+</Note>
+
+<Deprecated>
+  <Alias />
+</Deprecated>
+
+## scope
+
+<Note type="alert">
+  The <InlineCode>scope</InlineCode> property has been deprecated in favor of{' '}
+  <Link href="/docs/now-cli#commands/overview/project-linking">
+    Project Linking
+  </Link>
+  , which allows you to link a <ProductName /> Project to your local codebase when
+  you run <InlineCode>now</InlineCode>.
+</Note>
+
+<Deprecated>
+  <Scope />
+</Deprecated>
+
+## builds
+
+<Note type="alert">
+  The <InlineCode>builds</InlineCode> property has been deprecated in favor of{' '}
+  <Link href="/docs/configuration#project/functions">functions</Link>. In the
+  majority of cases, you are no longer required to specify a{' '}
+  <InlineCode>build</InlineCode>, instead relying on the{' '}
+  <Link href="/docs/v2/build-step/">build step</Link>.
+</Note>
+
+<Deprecated>
+  <Builds />
+</Deprecated>
+
+## public
+
+<Note type="alert">
+  We encourage you to use the{' '}
+  <Link href="/docs/v2/platform/projects#logs-and-source-access">
+    Logs and Source Access
+  </Link>{' '}
+  project settings instead.
+</Note>
+
+<Deprecated>
+  <Public />
+</Deprecated>
+
+## cleanUrls
+
+<Note type="alert">
+  We encourage you to use the <Link href="#project/routes">routes</Link>{' '}
+  property instead.
+</Note>
+
+<Deprecated>
+  <CleanUrls />
+</Deprecated>
+
+## trailingSlash
+
+<Note type="alert">
+  We encourage you to use the <Link href="#project/routes">routes</Link>{' '}
+  property instead.
+</Note>
+
+<Deprecated>
+  <TrailingSlash />
+</Deprecated>
+
+## redirects
+
+<Note type="alert">
+  We encourage you to use the <Link href="#project/routes">routes</Link>{' '}
+  property instead.
+</Note>
+
+<Deprecated>
+  <Redirects />
+</Deprecated>
+
+## rewrites
+
+<Note type="alert">
+  We encourage you to use the <Link href="#project/routes">routes</Link>{' '}
+  property instead.
+</Note>
+
+<Deprecated>
+  <Rewrites />
+</Deprecated>
+
+## headers
+
+<Note type="alert">
+  We encourage you to use the <Link href="#project/routes">routes</Link>{' '}
+  property instead.
+</Note>
+
+<Deprecated>
+  <Headers />
+</Deprecated>

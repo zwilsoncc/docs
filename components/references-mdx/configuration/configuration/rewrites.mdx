@@ -1,0 +1,33 @@
+import { Code } from '~/components/text/code'
+import { P } from '~/components/text'
+import Link from '~/components/text/link'
+
+**Type:** `Array` of rewrite `Object`.
+
+**Valid values:** a list of rewrite definitions.
+
+**Limits**:
+
+- A maximum of 1,024 rewrites in the array.
+- A maximum of string length of 4,096 for the `source` and `destination` values.
+
+**Rewrite object definition:**
+
+- `source`: A pattern that matches each incoming pathname (excluding querystring).
+- `destination`: An absolute pathname to an existing resource or an external URL.
+
+<P>
+  This example configures custom rewrites that map to static files,{' '}
+  <Link href="/docs/v2/serverless-functions/introduction">
+    Serverless Functions
+  </Link>,{' '}
+  automatic query string matching, and a wildcard proxy.
+</P>
+<Code lang="json">{`{
+  "rewrites": [
+    { "source": "/about", "destination": "/about-our-company.html" },
+    { "source": "/resize/:width/:height", "destination": "/api/sharp" },
+    { "source": "/user/:id", "destination": "/api/user" },
+    { "source": "/proxy/(.*)", "destination": "https://example.com/$1" }
+  ]
+}`}</Code>
