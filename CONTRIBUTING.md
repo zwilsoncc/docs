@@ -219,6 +219,6 @@ We believe that these components should be enough to cover usage in nearly all s
 
 A picture is worth a thousand words. Using graphics such as images in guides and documentation can really help the reader understand new concepts, if you'd like to include images, or any other static asset, you should follow this advice.
 
-All static assets should be filed under `public/static` along with their type, docs or guide, and if specific to a particular page, the name of that page. For example, `public/static/guides/deploying-angular-with-now` would be the place to store static assets for a guide on deploying Angular with Vercel.
+All static assets should be filed under `public/static` along with their type, docs or guide, and if specific to a particular page, the name of that page. For example, `public/static/guides/deploying-angular-with-vercel` would be the place to store static assets for a guide on deploying Angular with Vercel.
 
 By following this convention, you will be helping us keep this repository organized and easy to find things within, making life easier for everyone.
