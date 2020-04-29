@@ -353,9 +353,11 @@ Delete a specific project by passing either the project `id` or `name` in the UR
 
 ### Get Project Environment Variables
 
-<Endpoint method="GET" url="/v4/projects/:id/env" />
+<Endpoint method="GET" url="/v5/projects/:id/env" />
 
 Retrieve the environment variables for a given project by passing the project `id` in the URL.
+
+By default, it returns the last updated 20 environment variables. The rest can be retrieved using the pagination options described below.
 
 #### URL Parameters
 
@@ -363,26 +365,60 @@ Retrieve the environment variables for a given project by passing the project `i
 | ------ | ---------------------------------------------------------- | -------- | ------------------------------ |
 | **id** | <HelpLink href="#api-basics/types">ID</HelpLink>           | Yes      | The unique project identifier. |
 
+#### Query Parameters
+
+| Key       | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                         |
+| --------- | ---------------------------------------------------------- | -------- | ------------------------------------------------------------------- |
+| **limit** | <HelpLink href="#api-basics/types">Number</HelpLink>       | No       | Maximum number of environment variables to list from a request.     |
+| **since** | <HelpLink href="#api-basics/types">Number</HelpLink>       | No       | Get environment variables updated after this JavaScript timestamp.  |
+| **until** | <HelpLink href="#api-basics/types">Number</HelpLink>       | No       | Get environment variables updated before this JavaScript timestamp. |
+
 ##### Example Request
 
 <Request
-  url={`${API_ENDPOINT}/v1/projects/QmXtXGhXF6mZQ5ete2AwbeV3zAS17wEj7LYM3LuQ3Y45FF/env`}
+  url={`${API_ENDPOINT}/v5/projects/QmXtXGhXF6mZQ5ete2AwbeV3zAS17wEj7LYM3LuQ3Y45FF/env`}
   auth
 />
 
 ##### Example Response
 
-<Code lang="json">{`[
-  {
-    "key": "API_SECRET",
-    "value": "secret_id_123456789",
-    "target": "production",
-    "system": false,
-    "configurationId": null,
-    "updatedAt": 1557241361455,
-    "createdAt": 1557241361455
+<Code lang="json">{`
+{
+  "envs": [
+    {
+      "key": "API_SECRET_2",
+      "value": "secret_id_123456789",
+      "target": "production",
+      "system": false,
+      "configurationId": null,
+      "updatedAt": 1557241361455,
+      "createdAt": 1557241361455
+    },
+    {
+      "key": "API_SECRET_1",
+      "value": "secret_id_123456788",
+      "target": "production",
+      "system": false,
+      "configurationId": null,
+      "updatedAt": 1557241361445,
+      "createdAt": 1557241361445
+    },
+    {
+      "key": "API_SECRET",
+      "value": "secret_id_123456787",
+      "target": "production",
+      "system": false,
+      "configurationId": null,
+      "updatedAt": 1557241361435,
+      "createdAt": 1557241361435
+    }
+  ], 
+  "pagination": {
+    "count": 3,
+    "next": 1557241361435,
+    "prev": 1557241361455
   }
-]`}</Code>
+}`}</Code>
 
 ### Create a Project Environment Variable
 
