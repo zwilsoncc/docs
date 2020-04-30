@@ -7,13 +7,14 @@ import Note from '~/components/text/note'
 import { Image } from '~/components/media'
 import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
+import DollarSign from '~/components/name/dollar-sign'
 import { PRODUCT_NAME } from '~/lib/constants'
 
 export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-30T06:16:04.000Z'
+  lastEdited: '2020-04-30T07:19:51.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/vercel-for-github), [GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) repository.
@@ -32,7 +33,7 @@ You can create a new project from the <OrgName /> Dashboard by clicking on [the 
 
 You can either [import from an existing Git repository](/docs/v2/git-integrations) or use one of our templates.
 
-## Project Settings
+## Project Settingstu
 
 To edit project settings, choose a project from the [dashboard](/dashboard):
 
@@ -160,6 +161,8 @@ If you turn on **Logs and Source Access**, the following paths for your project 
 
 By using **Password Protection**, you can ensure that visitors of your Preview Deployments must enter a password in order to gain access.
 
+Teams can opt into using this feature by enabling it from the "Optional" badge item and paying <DollarSign />150 per month. Once it’s enabled in one project, you can use it across other projects in the same team:
+
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/enable-password-protection.png`}
   width={790 / 2}
@@ -173,6 +176,64 @@ By using **Password Protection**, you can ensure that visitors of your Preview D
   After enabling the feature, <b>one month</b> has to pass before it can be
   disabled again.
 </Note>
+
+#### Protecting Preview Deployments
+
+To use this feature, turn on the toggle and specify the visitor password.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/adding-visitor-password.png`}
+  width={1274 / 2}
+  height={440 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Turning on the toggle and specifying the visitor password.</Caption>
+
+After clicknig **Save**, all Preview Deployments (existing and future ones) will immediately be protected with a password. If you try to access the page, you’ll be presented with this screen:
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/password-required.png`}
+  width={677 / 2}
+  height={613 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Password is required.</Caption>
+
+After entering the password, a cookie will be set in the visitor’s browser, giving them access to the Preview Deployment.
+
+#### Protecting Production Deployments
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/password-protect-production.png`}
+  width={624 / 2}
+  height={92 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Protecting Production Deployment.</Caption>
+
+To protection Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
+
+#### Technical Details
+
+- If you change the password, visitors who have entered the password before will need to re-enter the password.
+- If you disable the protection and then enable it, visitors who have the cookie set will continue to be able to access the page without re-entering the password.
+- You can use Password Protection in conjunction with [SSO Protection](#sso-protection).
+
+#### Disabling the Feature
+
+To stop using this feature completely, you can do so from your team’s **Settings** → **Billing** page. Click **Edit** next to **Password Protection** and follow the instructions:
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/cancel-password-protection.png`}
+  width={538 / 2}
+  height={108 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Disable the Password Protection Feature.</Caption>
 
 ### SSO Protection
 
