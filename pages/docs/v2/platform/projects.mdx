@@ -14,7 +14,7 @@ export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-30T07:51:06.000Z'
+  lastEdited: '2020-04-30T14:45:52.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/vercel-for-github), [GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) repository.
@@ -33,7 +33,7 @@ You can create a new project from the <OrgName /> Dashboard by clicking on [the 
 
 You can either [import from an existing Git repository](/docs/v2/git-integrations) or use one of our templates.
 
-## Project Settingstu
+## Project Settings
 
 To edit project settings, choose a project from the [dashboard](/dashboard):
 
@@ -139,9 +139,9 @@ To edit your project’s security settings, select the **Security** menu item fr
 />
 <Caption>Selecting the <b>Security</b> menu item from the Project Settings page.</Caption>
 
-### Logs and Source Access
+### Logs and Source Protection
 
-If you turn on **Logs and Source Access**, the following paths for your project will be publicly accessible. Even if this setting is disabled, you can still access these paths by logging in.
+By default, the paths mentioned below can only be accessed by you and members of your Vercel team. Turning off **Logs and Source Protection** will make them publicly accessible.
 
 - `/_src`: Displays the source code and build output.
 - `/_logs`: Displays the build logs.
