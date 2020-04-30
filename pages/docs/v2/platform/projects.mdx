@@ -13,7 +13,7 @@ export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-30T05:07:08.000Z'
+  lastEdited: '2020-04-30T06:10:51.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/vercel-for-github), [GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) repository.
@@ -151,6 +151,30 @@ If you turn on **Logs and Source Access**, the following paths for your project 
 </Note>
 
 ### Password Protection
+
+<Note>
+  This feature is <em>not</em> available for personal accounts. In order to be
+  able to opt into this feature, you must be on a <b>team</b>, and the team must
+  be on the <b>Pro</b> or <b>Enterprise</b> plan.
+</Note>
+
+By using **Password Protection**, you can ensure that visitors of your Preview Deployments must enter a password in order to gain access.
+
+Teams can opt into using this feature by enabling it from the "Optional" badge item and paying \$150 per month:
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/enable-password-protection.png`}
+  width={790 / 2}
+  height={380 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Enabling <b>Password Protection</b>.</Caption>
+
+<Note type="warning">
+  After enabling the feature, <b>one month</b> has to pass before it can be
+  disabled again.
+</Note>
 
 ### SSO Protection
 
