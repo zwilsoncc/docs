@@ -14,7 +14,7 @@ export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-30T22:16:41.000Z'
+  lastEdited: '2020-04-30T22:21:01.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/vercel-for-github), [GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) repository.
@@ -216,9 +216,10 @@ After entering the password, you’ll be redirected to the deployment. Also, a c
 
 To protect Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
 
-#### Technical Details
+#### Details
 
 - If you change the password, visitors who have previously entered the password (and therefore have the cookie set) will need to re-enter the password.
+- If you disable the protection, all existing deployments of the project will become unprotected.
 - If you disable the protection and then enable it, visitors who have the cookie set will continue to be able to access the deployments without re-entering the password.
 - You can use Password Protection in conjunction with [SSO Protection](#sso-protection).
 
@@ -307,8 +308,9 @@ If you log in with a Vercel account that’s a member of your team, you’ll be 
 
 To protect Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
 
-#### Technical Details
+#### Details
 
+- If you disable the protection, all existing deployments of the project will become unprotected.
 - If you disable the protection and then enable it, visitors who have the cookie set will continue to be able to access the page without logging in again.
 - If an account is removed from the team, then that account can no longer be used to access the deployment. The cookie will also become invalid.
 - You can use SSO Protection in conjunction with [Password Protection](#password-protection).
