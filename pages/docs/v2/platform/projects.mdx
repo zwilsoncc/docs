@@ -14,7 +14,7 @@ export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-30T14:45:52.000Z'
+  lastEdited: '2020-04-30T22:01:20.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/vercel-for-github), [GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) repository.
@@ -154,14 +154,14 @@ By default, the paths mentioned below can only be accessed by you and members of
 ### Password Protection
 
 <Note>
-  This feature is <em>not</em> available for personal accounts. In order to be
-  able to opt into this feature, you must be on a <b>team</b>, and the team must
-  be on the <b>Pro</b> or <b>Enterprise</b> plan.
+  This feature is <em>not</em> available for personal accounts. Only{' '}
+  <b>teams</b> can opt into this feature, and the team must be on the <b>Pro</b>{' '}
+  or <b>Enterprise</b> plan.
 </Note>
 
 By using **Password Protection**, you can ensure that visitors of your Preview Deployments must enter a password in order to gain access.
 
-Teams can opt into using this feature by enabling it from the "Optional" badge item and paying <DollarSign />150 per month. Once it’s enabled in one project, you can use it across other projects in the same team:
+Teams can opt into using this feature by enabling it from the "Optional" badge item and paying <DollarSign />150 per month. Once you opt in, you can use it across other projects in the same team:
 
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/enable-password-protection.png`}
@@ -190,7 +190,7 @@ To use this feature, turn on the toggle and specify the visitor password.
 />
 <Caption>Turning on the toggle and specifying the visitor password.</Caption>
 
-After clicknig **Save**, all Preview Deployments (existing and future ones) will immediately be protected with a password. If you try to access the page, you’ll be presented with this screen:
+After clicknig **Save**, all Preview Deployments (existing and future ones) of this project will immediately be protected with a password. If you try to access the page, you’ll be presented with this screen:
 
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/password-required.png`}
@@ -201,7 +201,7 @@ After clicknig **Save**, all Preview Deployments (existing and future ones) will
 />
 <Caption>Password is required.</Caption>
 
-After entering the password, you’ll be redirected to the deployment. Also, u cookie will be set in the visitor’s browser, giving them access to the Preview Deployment.
+After entering the password, you’ll be redirected to the deployment. Also, a cookie will be set in the visitor’s browser, giving them access to all Preview Deployments.
 
 #### Protecting Production Deployments
 
@@ -214,17 +214,17 @@ After entering the password, you’ll be redirected to the deployment. Also, u c
 />
 <Caption>Protecting Production Deployment.</Caption>
 
-To protection Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
+To protect Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
 
 #### Technical Details
 
-- If you change the password, visitors who have entered the password before will need to re-enter the password.
-- If you disable the protection and then enable it, visitors who have the cookie set will continue to be able to access the page without re-entering the password.
+- If you change the password, visitors who have previously entered the password (and therefore have the cookie set) will need to re-enter the password.
+- If you disable the protection and then enable it, visitors who have the cookie set will continue to be able to access the deployments without re-entering the password.
 - You can use Password Protection in conjunction with [SSO Protection](#sso-protection).
 
 #### Disabling the Feature
 
-To stop using this feature completely, you can do so from your team’s **Settings** → **Billing** page. Click **Edit** next to **Password Protection** and follow the instructions:
+To opt out from this feature, you can do so from your team’s **Settings** → **Billing** page. Click **Edit** next to **Password Protection** and follow the instructions:
 
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/cancel-password-protection.png`}
@@ -238,8 +238,8 @@ To stop using this feature completely, you can do so from your team’s **Settin
 ### SSO Protection
 
 <Note>
-  This feature is <em>not</em> available for personal accounts. In order to be
-  able to opt into this feature, you must be on a <b>team</b>, and the team must{' '}
+  This feature is <em>not</em> available for personal accounts. Only{' '}
+  <b>teams</b> can opt into this feature, you and the team must{' '}
   <Link href="/contact/sales">contact our sales team</Link>.
 </Note>
 
@@ -258,7 +258,7 @@ Teams can opt into using this feature by clicking the "Optional" badge and conta
 
 #### Protecting Preview Deployments
 
-To use this feature, turn on the toggle.
+Once your team is opt in, turn on the toggle to use this feature.
 
 <Image
   src={`${process.env.ASSETS}/docs/platform/projects/adding-sso-protection.png`}
@@ -280,7 +280,7 @@ After clicknig **Save**, all Preview Deployments (existing and future ones) will
 />
 <Caption>Logging in with Vercel is required.</Caption>
 
-If you log in with a Vercel account that’s a member of your team, you’ll be redirected to the deployment. Also, a cookie will be set in the visitor’s browser, giving them access to the Preview Deployment.
+If you log in with a Vercel account that’s a member of your team, you’ll be redirected to the deployment. Also, a cookie will be set in the visitor’s browser, giving them access to Preview Deployments.
 
 **Note**: If you’ve also enabled Password Protection, the login UI will look like this:
 
@@ -291,7 +291,7 @@ If you log in with a Vercel account that’s a member of your team, you’ll be 
   shadow
   borderRadius
 />
-<Caption>Logging in with Vercel is required.</Caption>
+<Caption>Logging in using a password or with Vercel is required.</Caption>
 
 #### Protecting Production Deployments
 
@@ -304,7 +304,7 @@ If you log in with a Vercel account that’s a member of your team, you’ll be 
 />
 <Caption>Protecting Production Deployment.</Caption>
 
-To protection Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
+To protect Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
 
 #### Technical Details
 
