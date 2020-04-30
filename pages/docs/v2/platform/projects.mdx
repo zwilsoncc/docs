@@ -14,7 +14,7 @@ export const meta = {
   title: 'Projects',
   description: `Setting up projects with a list of deployments on ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/platform/projects.mdx',
-  lastEdited: '2020-04-30T07:19:51.000Z'
+  lastEdited: '2020-04-30T07:51:06.000Z'
 }
 
 To deploy on <ProductName />, you need to create a **Project**. A Project is a logical structure that groups [deployments](/docs/v2/platform/deployments) and [custom domains](/docs/v2/custom-domains). Each project can be associated to a [GitHub](/docs/v2/git-integrations/vercel-for-github), [GitLab](/docs/v2/git-integrations/vercel-for-gitlab), or [Bitbucket](/docs/v2/git-integrations/vercel-for-bitbucket) repository.
@@ -201,7 +201,7 @@ After clicknig **Save**, all Preview Deployments (existing and future ones) will
 />
 <Caption>Password is required.</Caption>
 
-After entering the password, a cookie will be set in the visitor’s browser, giving them access to the Preview Deployment.
+After entering the password, you’ll be redirected to the deployment. Also, u cookie will be set in the visitor’s browser, giving them access to the Preview Deployment.
 
 #### Protecting Production Deployments
 
@@ -236,6 +236,81 @@ To stop using this feature completely, you can do so from your team’s **Settin
 <Caption>Disable the Password Protection Feature.</Caption>
 
 ### SSO Protection
+
+<Note>
+  This feature is <em>not</em> available for personal accounts. In order to be
+  able to opt into this feature, you must be on a <b>team</b>, and the team must{' '}
+  <Link href="/contact/sales">contact our sales team</Link>.
+</Note>
+
+By using **SSO Protection**, you can ensure that visitors of your Preview Deployments must log in with a Vercel account that is a member of your team to gain access.
+
+Teams can opt into using this feature by clicking the "Optional" badge and contacting [our sales team](/contact/sales).
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/enable-sso-protection.png`}
+  width={686 / 2}
+  height={440 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Enabling <b>SSO Protection</b>.</Caption>
+
+#### Protecting Preview Deployments
+
+To use this feature, turn on the toggle.
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/adding-sso-protection.png`}
+  width={1220 / 2}
+  height={334 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Turning on the toggle.</Caption>
+
+After clicknig **Save**, all Preview Deployments (existing and future ones) will immediately require logging in with a Vercel account, and the account must be a member of your team. If you try to access the page, you’ll be presented with this screen:
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/sso-required.png`}
+  width={684 / 2}
+  height={462 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Logging in with Vercel is required.</Caption>
+
+If you log in with a Vercel account that’s a member of your team, you’ll be redirected to the deployment. Also, a cookie will be set in the visitor’s browser, giving them access to the Preview Deployment.
+
+**Note**: If you’ve also enabled Password Protection, the login UI will look like this:
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/password-or-sso-required.png`}
+  width={692 / 2}
+  height={912 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Logging in with Vercel is required.</Caption>
+
+#### Protecting Production Deployments
+
+<Image
+  src={`${process.env.ASSETS}/docs/platform/projects/password-protect-production.png`}
+  width={624 / 2}
+  height={92 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Protecting Production Deployment.</Caption>
+
+To protection Production Deployments in addition to Preview Deployments, check **“Also protect my Production Deployment"** and click **Save**.
+
+#### Technical Details
+
+- If you disable the protection and then enable it, visitors who have the cookie set will continue to be able to access the page without logging in again.
+- If an account is removed from the team, then that account can no longer be used to access the deployment. The cookie will also become invalid.
+- You can use SSO Protection in conjunction with [Password Protection](#password-protection).
 
 ## Deleting a Project
 
