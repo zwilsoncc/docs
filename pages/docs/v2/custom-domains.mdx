@@ -8,12 +8,14 @@ import { InlineCode } from '~/components/text/code'
 import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
 import { PRODUCT_NAME } from '~/lib/constants'
+import DollarSign from '~/components/name/dollar-sign'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Custom Domains',
   description: 'How to add and use a custom domain with your project.',
   editUrl: 'pages/docs/v2/custom-domains.mdx',
-  lastEdited: '2020-04-17T15:35:52.000Z'
+  lastEdited: '2020-05-01T00:52:25.000Z'
 }
 
 By default, all deployments are assigned a `.now.sh` suffixed domain.
@@ -238,6 +240,71 @@ Once the **Edit** button has been clicked, you will be presented with further op
   shadow
 />
 <Caption>A configured domain on the Project Domains page with the option to remove.</Caption>
+
+## Preview Deployment Suffix
+
+<Note>
+  This feature is <em>not</em> available for personal accounts. Only{' '}
+  <b>teams</b> can opt into this feature, and the team must be on the{' '}
+  <b>
+    <Link href="/pricing">Pro</Link>
+  </b>{' '}
+  or{' '}
+  <b>
+    <Link href="/pricing">Enterprise</Link>
+  </b>{' '}
+  plan.
+</Note>
+
+By default, the URL of every new Preview Deployment ends with `.now.sh`. You can change this by modifying Preview Deployment Suffix.
+
+Teams can opt into using this feature by going to your team’s **Settings** page:
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/team-settings.png`}
+  width={1540 / 2}
+  height={386 / 2}
+  shadow
+/>
+<Caption>Going to your team’s <b>Settings</b> page.</Caption>
+
+Then, from the **Preview Deployment Suffix** fieldset, click the **Optional** badge. The team will be billed <DollarSign />100 per month.
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/enable-preview-deployment-suffix.png`}
+  width={896 / 2}
+  height={372 / 2}
+  shadow
+/>
+<Caption>Enabling <b>Preview Deployment Suffix</b>.</Caption>
+
+**Important**: Only domains that are **already added to one of your team’s projects** can be used for Preview Deployment Suffix.
+
+<Note>
+  Suppose that you’d like to use <InlineCode>preview.example.com</InlineCode> as
+  Preview Deployment Suffix. We suggest creating a project that renders a
+  nice-looking page or redirects somewhere, and assigning{' '}
+  <InlineCode>preview.example.com</InlineCode> to this project. This improves
+  the visitor’s experience if they accidentally access{' '}
+  <InlineCode>preview.example.com</InlineCode>.
+</Note>
+
+### Details
+
+- If you update Preview Deployment Suffix, it will only be applied to **new** deployments.
+
+#### Disabling the Feature
+
+To opt out from this feature, you can do so from your team’s **Settings** → **Billing** page. Click **Edit** next to **Preview Deployment Suffix** and follow the instructions:
+
+<Image
+  src={`${process.env.ASSETS}/docs/custom-domains/cancel-preview-deployment-suffix.png`}
+  width={506 / 2}
+  height={90 / 2}
+  shadow
+  borderRadius
+/>
+<Caption>Disable the Preview Deployment Suffix Feature.</Caption>
 
 ## Provider Specific Instructions
 
