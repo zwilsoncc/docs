@@ -5,6 +5,7 @@ import Collapse, { CollapseGroup } from '~/components/collapse'
 import BitbucketDefaultBehaviour from '~/components/git-mdx/bitbucket/default-behaviour.mdx'
 import BitbucketEnvironmentVariables from '~/components/git-mdx/bitbucket/environment-variables.mdx'
 import BitbucketDisconnecting from '~/components/git-mdx/bitbucket/disconnecting.mdx'
+import BitbucketSignup from '~/components/git-mdx/bitbucket/signup.mdx'
 import ProductName from '~/components/name/product-name'
 import ProductShortName from '~/components/name/product-short-name'
 import { PRODUCT_NAME } from '~/lib/constants'
@@ -14,7 +15,7 @@ export const meta = {
   title: `${PRODUCT_NAME} for Bitbucket`,
   description: `Deploy each change in your Bitbucket projects with ${PRODUCT_NAME} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/vercel-for-bitbucket.mdx',
-  lastEdited: '2020-04-16T03:34:45.000Z'
+  lastEdited: '2020-04-29T22:14:21.000Z'
 }
 
 The <ProductName /> for Bitbucket integration automatically deploys your Bitbucket projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -66,7 +67,11 @@ For more information, such as a reference for default environment variables, exp
 </Collapse>
 
 <Collapse title="Disconnect from Bitbucket">
-    <BitbucketDisconnecting />
+  <BitbucketDisconnecting />
+</Collapse>
+
+<Collapse title="Sign up with another Bitbucket account" id="signup-with-another-bitbucket-account">
+    <BitbucketSignup />
   </Collapse>
 </CollapseGroup>
 

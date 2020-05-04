@@ -5,6 +5,7 @@ import Collapse, { CollapseGroup } from '~/components/collapse'
 import GitLabDefaultBehaviour from '~/components/git-mdx/gitlab/default-behaviour.mdx'
 import GitLabEnvironmentVariables from '~/components/git-mdx/gitlab/environment-variables.mdx'
 import GitLabDisconnecting from '~/components/git-mdx/gitlab/disconnecting.mdx'
+import GitLabSignup from '~/components/git-mdx/gitlab/signup.mdx'
 import ProductName from '~/components/name/product-name'
 import NameWrapper from '~/components/name/name-wrapper'
 import { PRODUCT_NAME } from '~/lib/constants'
@@ -13,7 +14,7 @@ export const meta = {
   title: `${PRODUCT_NAME} for GitLab`,
   description: `Deploy each change in your GitLab projects with ${PRODUCT_NAME} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/vercel-for-gitlab.mdx',
-  lastEdited: '2020-04-16T03:34:45.000Z'
+  lastEdited: '2020-04-29T22:14:21.000Z'
 }
 
 The <ProductName /> for GitLab integration automatically deploys your GitLab projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -65,7 +66,11 @@ For more information, such as a reference for default environment variables, exp
 </Collapse>
 
 <Collapse title="Disconnect from GitLab">
-    <GitLabDisconnecting />
+  <GitLabDisconnecting />
+</Collapse>
+
+<Collapse title="Sign up with another GitLab account" id="signup-with-another-gitlab-account">
+    <GitLabSignup />
   </Collapse>
 </CollapseGroup>
 
