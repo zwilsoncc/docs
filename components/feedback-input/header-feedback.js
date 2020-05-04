@@ -307,7 +307,7 @@ class HeaderFeedback extends Component {
                   --open-height: 174px;
                   --closed-width: 90px;
                   --closed-height: 32px;
-                  --padding: 4px 12px;
+                  --padding: 4px 10px;
 
                   margin-right: 8px;
                   padding: 0;
