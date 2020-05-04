@@ -15,11 +15,7 @@ import LayoutHeader from './header-wrapper'
 import Logo from '~/components/icons/logo'
 import MenuToggle from './menu-toggle'
 import { HeaderFeedback } from '~/components/feedback-input'
-import {
-  API_DOCS_FEEDBACK,
-  ORG_NAME,
-  PRODUCT_SHORT_NAME
-} from '~/lib/constants'
+import { ORG_NAME, PRODUCT_SHORT_NAME } from '~/lib/constants'
 import MenuPopOver from '~/components/layout/header/menu-popover'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 
@@ -30,7 +26,7 @@ function AmpUserFeedback() {
   return (
     <>
       <a href={router.pathname} className="feedback-link">
-        <HeaderFeedback loggedOut />
+        <HeaderFeedback email />
       </a>
       <NavigationItem customLink>
         <a href="/blog">Blog</a>
@@ -121,16 +117,6 @@ class Header extends Component {
     this.setState(() => ({
       menuActive: false
     }))
-  }
-
-  handleFeedbackSubmit = async (feedback, done) => {
-    const res = await fetch(API_DOCS_FEEDBACK, {
-      method: 'POST',
-      body: JSON.stringify(feedback)
-    })
-    if (res.status !== 200) {
-      done('Sorry, something went wrong, please try again.')
-    } else done()
   }
 
   renderMenuTrigger = ({ handleProviderRef, menu }) => {
@@ -356,10 +342,7 @@ class Header extends Component {
                     <Fragment>
                       {!user ? (
                         <Fragment>
-                          <HeaderFeedback
-                            onFeedback={this.handleFeedbackSubmit}
-                            loggedOut
-                          />
+                          <HeaderFeedback email />
                           <NavigationItem href="/blog">Blog</NavigationItem>
                           <NavigationItem className="chat" href="/support">
                             Support
@@ -368,9 +351,7 @@ class Header extends Component {
                         </Fragment>
                       ) : (
                         <Fragment>
-                          <HeaderFeedback
-                            onFeedback={this.handleFeedbackSubmit}
-                          />
+                          <HeaderFeedback />
                           <NavigationItem href="/blog">Blog</NavigationItem>
                           <NavigationItem className="chat" href="/support">
                             Support
@@ -563,10 +544,6 @@ class Header extends Component {
             font-size: 1rem;
           }
 
-          :global(.header .feedback-link) {
-            display: inherit;
-          }
-
           :global(.header .left-nav),
           :global(.header .right-nav) {
             flex: 1 1 100%;
@@ -650,11 +627,6 @@ class Header extends Component {
             visibility: hidden;
             opacity: 0;
             transition: visibility 0s linear 300ms, opacity 300ms;
-          }
-
-          :global(.geist-feedback-input:not(.focused) > textarea) {
-            height: 24px ${isAmp ? '' : '!important'};
-            top: 0 ${isAmp ? '' : '!important'};
           }
 
           @media screen and (max-width: 950px) {
