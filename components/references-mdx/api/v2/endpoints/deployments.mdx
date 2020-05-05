@@ -37,6 +37,7 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | **target**          | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | Either not defined, `staging`, or `production`. If `staging`, a staging alias in the format `<project>.<team>.now.sh` will be assigned. If `production`, any aliases defined in `alias` will be assigned.                       |
 | **alias**           | <HelpLink href="#api-basics/types">List</HelpLink>         | No       | Aliases that will get assigned when the deployment is `READY` and the `target` is `production`. The client needs to make a `GET` request to [its API](#endpoints/deployments/get-a-single-deployment) to ensure the assignment. |
 | **projectSettings** | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | Project settings that will be applied to the deployment. It is required for the first deployment of a project and will be saved for any following deployments.                                                                  |
+| **gitSource**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing information to deploy a git repository. For example, <InlineCode noWrap>{ "type": "github", "repoId": 1238454 }</InlineCode>                                                                               |
 
 ##### Aliases
 
@@ -845,3 +846,53 @@ This API allows you to cancel a deployment, by supplying its `:id` in the URL.
   "aliasError": null,
   "aliasAssigned": false
 }`}</Code>
+
+### Create a Sourceless Deployment
+
+With a sourceless deployment, you can deploy a Git repository with a single API request.
+If Vercel doesn't have access to this repository, we cannot deploy.
+So, make sure related repository has access to Vercel.
+
+#### Deploying a GitHub repository
+
+<Request
+  url={`${API_ENDPOINT}/v12/now/deployments`}
+  method="POST"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
+  auth
+  body={{
+    name: 'my-sourceless-deployment',
+    gitSource: {
+      type: 'github',
+      repoId: 2434855,
+      ref: 'master',
+      sha: '246bd59caef39eb2c2c5097caacc25be31d75b30'
+    }
+  }}
+/>
+
+> `gitSource.sha` field is optional.
+
+#### Deploying a GitLab repository
+
+<Request
+  url={`${API_ENDPOINT}/v12/now/deployments`}
+  method="POST"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
+  auth
+  body={{
+    name: 'my-sourceless-deployment',
+    gitSource: {
+      type: 'gitlab',
+      projectId: 12234855,
+      ref: 'master',
+      sha: '246bd59caef39eb2c2c5097caacc25be31d75b30'
+    }
+  }}
+/>
+
+> `gitSource.sha` field is optional.
