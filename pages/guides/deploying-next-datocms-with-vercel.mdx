@@ -14,16 +14,17 @@ export const meta = {
   published: '2020-04-30T07:47:12.000Z',
   authors: ['stefanoverna'],
   url: '/guides/deploying-next-datocms-with-vercel',
+  example: 'https://github.com/zeit/next.js/tree/canary/examples/cms-datocms',
   image:
     'https://og-image.now.sh/**Create%20and%20Deploy%20a%20Blog**%20with%20Next.js%20and%20DatoCMS.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fwww.datocms.com%2Fimages%2Fbrand-assets%2Fsvg%2Ficon-text%2Fcolor%2Fcolor_full_logo.svg',
   editUrl: 'pages/guides/deploying-next-datocms-with-vercel.mdx',
   name: 'Next.js + DatoCMS',
   type: 'site',
   demo: 'https://next-blog-datocms.now.sh/',
-  lastEdited: '2020-04-29T10:13:34.000Z'
+  lastEdited: '2020-05-05T11:02:18.000Z'
 }
 
-This guide walks you through creating a simple blog using Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature and [DatoCMS](https://www.datocms.com/) through [DatoCMS GraphQL API](https://www.datocms.com/) and deploying the project with [Vercel](/).
+This guide walks you through creating a blog using Next.js' [Static Generation](https://nextjs.org/docs/basic-features/pages) feature and [DatoCMS](https://www.datocms.com/) through the [DatoCMS GraphQL API](https://www.datocms.com/) and deploying the project with [Vercel](/).
 
 <Image
   src="https://og-image.now.sh/**Create%20and%20Deploy%20a%20Blog**%20with%20Next.js%20and%20DatoCMS.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fwww.datocms.com%2Fimages%2Fbrand-assets%2Fsvg%2Ficon-text%2Fcolor%2Fcolor_full_logo.svg"
@@ -31,12 +32,12 @@ This guide walks you through creating a simple blog using Next.js's [Static Gene
   height={1170 / 2.5}
 />
 
-For the frontend of this project, you will be using Next.js – the production-ready React framework. For the backend you will be using [DatoCMS](https://www.datocms.com/) – a powerful headless CMS that allows you to **rapidly create, manage and distribute content** to any platform you like.
+For the frontend of this project, you will be using Next.js – the production-ready React framework. For the backend you will be using [DatoCMS](https://www.datocms.com/) – a powerful headless CMS that allows you to **rapidly create, manage, and distribute content**.
 
-Two of its biggest selling points are:
+Two of the biggest selling points for DatoCMS are:
 
-- **GraphQL API:** which means powerful developer tools and complete control over the data your website downloads;
-- **Out-of-the-box support to responsive, progressive, lazy-loaded images** thanks to the fact that its GraphQL API already exposes [pre-computed low-quality image placeholders](https://www.datocms.com/blog/offer-responsive-progressive-lqip-images-in-2020) (LQIP, or simply blur-up placeholders), allowing webpages to get everything they need in a single request, avoiding content reflows.
+- **GraphQL API** for powerful developer tools and complete control over the data your website downloads;
+- **Out-of-the-box support to responsive, progressive, lazy-loaded images** thanks to the fact that its GraphQL API already exposes [pre-computed low-quality image placeholders](https://www.datocms.com/blog/offer-responsive-progressive-lqip-images-in-2020) (LQIP, or blur-up placeholders), allowing webpages to get everything they need in a single request, avoiding content reflows.
 
 <Image
   src={`${
@@ -77,7 +78,7 @@ Next, add these fields (you don't have to modify the settings):
 
 ### Create a `Post` model
 
-Repeat the process to create a new model: this time we'll call it **Post**.
+Repeat the process to create a new model: this time call it **Post**.
 
 <Note>
   From the "Additional Settings" tab, turn on{' '}
@@ -97,7 +98,7 @@ Next, add these fields (you don't have to modify the settings unless specified):
 
 ### Create a `Blog` model
 
-The last model we need is called **Blog**. Make sure to check the "Single instance?" option for this, as we only want to create a **single record of this type** that will hold the SEO information for the blog page.
+The last model needed is called **Blog**. Make sure to check the "Single instance?" option for this, as you only want to create a **single record of this type** that will hold the SEO information for the blog page.
 
 Next, add these fields (you don't have to modify the settings unless specified):
 
@@ -105,7 +106,7 @@ Next, add these fields (you don't have to modify the settings unless specified):
 
 ### Populate content
 
-From the **Content** menu at the top, select **Author** and then create a new record. Just use dummy data for the text, and you can download one image from [Unsplash](https://unsplash.com/) for the picture.
+From the **Content** menu at the top, select **Author** and then create a new record. In this case, you can use dummy data for the text and download an image from [Unsplash](https://unsplash.com/).
 
 <Image
   src={`${
@@ -125,11 +126,11 @@ Then create a couple of **Post** records. You can write markdown for the **Conte
   If not, the post will be in the draft state.
 </Note>
 
-The last step is to fill in some SEO meta tags for our blog. Go to the **Blog** section, insert a title and a description and click "Save".
+The last step is to fill in some SEO meta tags for your blog. Go to the **Blog** section, insert a title and a description and click "Save".
 
 That's it for creating content! In general, you can edit both **Content** and **Models** at any time, giving you complete flexibility over your content.
 
-Next, create a set of API tokens to be used in your app, these will allow the [DatoCMS Client](https://www.datocms.com/developers/docs/javascript/tutorials/using-js-cda-sdk/) to request your posts from our API.
+Next, create a set of API tokens to be used in your app, these will allow the [DatoCMS Client](https://www.datocms.com/developers/docs/javascript/tutorials/using-js-cda-sdk/) to request your posts from the DatoCMS API.
 
 ## Step 2: Create a read-only API key
 
@@ -153,22 +154,22 @@ Click the **Settings** tab, and choose the **API tokens** option, then click on 
 
 Make a note of the newly created access token, as it will be used later on.
 
-That's all the setup required for [DatoCMS](https://www.datocms.com/)! Within **just a few minutes** you have managed to create a **Content Model**, add content and generate an API token.
+That's all the setup required for [DatoCMS](https://www.datocms.com/)! Within only **a few minutes** you have managed to create a **Content Model**, add content, and generate an API token.
 
-In the next step, you will create your [Next.js](https://nextjs.org/) app.
+## Step 3: Create Your Next.js App
 
-## Step 3: Create your Next.js App
+To display your new blog and content, create a new [Next.js](https://nextjs.org/) application using [create-next-app](https://create-react-app.dev/), then run the following command and follow the wizard:
 
-Create a new Next.js application using [create-next-app](https://create-react-app.dev/), then run the following command and follow the wizard:
+<Snippet dark text="npm init next-app my-datocms-project" />
+<Caption>Bootstrap a Next.js application from your command line.</Caption>
 
-<Snippet dark text="npm init next-app" />
-
-Enter inside the project directory, install the [graphql-request](https://github.com/prisma-labs/graphql-request) and [react-datocms](https://github.com/datocms/react-datocms) package and start the development server:
+Enter inside the project directory, install the [graphql-request](https://github.com/prisma-labs/graphql-request) and [react-datocms](https://github.com/datocms/react-datocms) package, and start the development server:
 
 <Snippet
   dark
-  text="cd my-app && yarn add graphql-request react-datocms && yarn dev"
+  text="cd my-datocms-project && yarn add graphql-request react-datocms && yarn dev"
 />
+<Caption>Moving to your project, installing dependencies, and starting a local development server from the command line.</Caption>
 
 You'll need to setup a GraphQL client pointing to the API of your DatoCMS project. Create a new `lib` directory for that, and inside of it create a file called `datocms.js`:
 
@@ -189,15 +190,22 @@ export function request({ query, variables, preview }) {
 }
 ```
 
-We're using an environment variable starting with `NEXT_` so that it will be automatically read by Next.js. Now we can set the env variable inside a file called `.env`:
+<Caption>
+  Creating a function in <InlineCode>lib/datocms.js</InlineCode> to get data
+  from DatoCMS.
+</Caption>
+
+Using an environment variable starting with `NEXT_` means that it will be automatically read by Next.js. Then, you can set the environment variable inside a `.env` file:
 
 <Snippet dark text="echo 'NEXT_DATOCMS_API_TOKEN=YOUR-API-TOKEN' >> .env" />
+<Caption>Creating an environment variable in a <InlineCode>.env</InlineCode> file for your API token.</Caption>
 
-Make sure that git will ignore it by adding it to `.gitignore`:
+Make sure that Git will ignore it by adding it to `.gitignore`:
 
 <Snippet dark text="echo '.env' >> .gitignore" />
+<Caption>Adding <InlineCode>.env</InlineCode> to the <InlineCode>.gitignore</InlineCode> file to avoid publishing to Git.</Caption>
 
-Next, go to `pages/index.js` — that is, the component that renders the homepage of the project — and copy the following code:
+Next, go to `pages/index.js` — that is, the component that renders the homepage of the project — and replace its contents the following code:
 
 ```jsx
 import { request } from '../lib/datocms'
@@ -273,11 +281,16 @@ export default function Home({ data }) {
 }
 ```
 
-Let's take look at what this file achieves.
+<Caption>
+  An example Next.js <InlineCode>index.js</InlineCode> file for use with
+  DatoCMS.
+</Caption>
 
-First, it requires the GraphQL client we just created. Then, inside the [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) function, we perform the GraphQL request, so that Next.js will **pre-render this page at build time** using the props returned by it.
+#### What the `index.js` Achieves
 
-The `responsiveImage` part of the GraphQL query returns image attributes that will help you set up [responsive images in your frontend](/docs/content-delivery-api/images-and-videos#responsive-images) without any additional manipulation. The page component passes this data to the `<Image/>` component of the [react-datocms](https://github.com/datocms/react-datocms) package to render a **lazy-loaded image with low-quality image placeholder**.
+This `index.js` example requires the GraphQL client you created previously. Then, inside the [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) function, a GraphQL request is performed, so that Next.js will **pre-render this page at build time** using the props returned by it.
+
+The `responsiveImage` part of the GraphQL query returns image attributes that will help you set up [responsive images in your frontend](/docs/content-delivery-api/images-and-videos#responsive-images) without any additional manipulation. The page component passes this data to the `<Image/>` component of the [react-datocms](https://github.com/datocms/react-datocms) package to render a **lazy-loaded image with a low-quality image placeholder**.
 
 Similarly to what DatoCMS offers with responsive images, both the `faviconMetaTags` and `_seoMetaTags` parts of the query return [pre-computed meta tags](https://www.datocms.com/docs/content-delivery-api/seo-and-favicon) based on the content you insert inside DatoCMS. You can easily append such meta tags to the `head` of your page using Next.js's `<Head/>` component and the `renderMetaTags` helper, which is also part of the [react-datocms](https://github.com/datocms/react-datocms) package.
 
@@ -299,9 +312,7 @@ For solving that problem, Next.js has the feature called [Preview Mode](https://
 
 ### Create a preview API route
 
-First, create a preview API route. It can have any name - e.g. `pages/api/preview.js`. In this API route, you need to call `setPreviewData` on the response object. The argument for `setPreviewData` should be an object, and this can be used by `getStaticProps` (more on this later).
-
-For the sake of this example, we’ll just use `{}`:
+This API route file can have any name - e.g. `pages/api/preview.js`, thought it must be within the `pages/api` directory. In this API route, you will call `setPreviewData` on the response object. The argument for `setPreviewData` should be an object, and this can be used by `getStaticProps` ([more on this later](#update-getstaticprops)).
 
 ```jsx
 export default (req, res) => {
@@ -310,6 +321,8 @@ export default (req, res) => {
   res.end()
 }
 ```
+
+<Caption>The contents of a preview API route in Next.js.</Caption>
 
 To test this, manually access the route from your browser by heading to `http://localhost:3000/api/preview`. You’ll notice that you'll be redirected to the homepage with two cookies set: `__prerender_bypass` and `__next_preview_data`.
 
@@ -322,7 +335,7 @@ Furthermore, it will be called with a context object where:
 - `context.preview` will be true.
 - `context.previewData` will be the same as the argument used for `res.setPreviewData`.
 
-In this case, we can use the `https://graphql.datocms.com/preview` endpoint to **access records at their latest version available**, instead of the currently published.
+In this case, use the `https://graphql.datocms.com/preview` endpoint to **access records at their latest version available**, instead of only the currently published.
 
 Both endpoints offer exactly the same queries, the only thing that will change will be the returned content:
 
@@ -340,18 +353,27 @@ export async function getStaticProps(context) {
 }
 ```
 
+<Caption>
+  A Next.js <InlineCode>getStaticProps</InlineCode> function requesting preview
+  content as specified{' '}
+  <Link href="#step-3:-create-your-next.js-app">
+    in <InlineCode>lib/datocms.js</InlineCode>
+  </Link>
+  .
+</Caption>
+
 <Note>
-  This is just a basic example. To learn more about Next.js Preview Mode and its
-  security implications, take a look at the{' '}
+  The above code is a basic example. To learn more about Next.js Preview Mode
+  and its security implications, take a look at the{' '}
   <Link href="https://nextjs.org/docs/advanced-features/preview-mode">
     Next.js documentation
   </Link>
   .
 </Note>
 
-## Step 4: Setup Vercel
+## Step 4: Deploy
 
-To make the DatoCMS API token available with Vercel, first add a `now.json` file at the root of your project directory with the following code:
+Before deploying, make the DatoCMS API token available for your deployment, first add a `now.json` file at the root of your project directory with the following contents:
 
 ```json
 {
@@ -368,18 +390,14 @@ To make the DatoCMS API token available with Vercel, first add a `now.json` file
   project.
 </Caption>
 
-Then create a [Now Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the command below:
+Next, create a [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [Vercel CLI](https://vercel.com/download) with the command below:
 
 <Snippet dark text="now secrets add datocms_api_token YOUR-API-TOKEN" />
 <Caption>
-  Adding the <InlineCode>datocms_api_token</InlineCode> secret to your Vercel account using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Now secrets</Link>.
+  Adding the <InlineCode>datocms_api_token</InlineCode> secret to your Vercel account using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Secrets</Link>.
 </Caption>
 
-## Step 5: Deploying the App
-
-The Github repo with the complete example is available here: <https://github.com/zeit/next.js/tree/master/examples/cms-datocms>
-
-You can see a preview of the result here: <https://next-blog-datocms.now.sh/>
+For a complete look at what you will deploy, see [the example GitHub repository](https://github.com/zeit/next.js/tree/master/examples/cms-datocms).
 
 <DeploySection meta={meta} />
 
