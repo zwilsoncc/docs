@@ -1,0 +1,16 @@
+import Errors from '~/components/layout/errors'
+import { PRODUCT_NAME } from '~/lib/constants'
+
+export const meta = {
+  title: `Broken Preview Deployment Suffix`,
+  description: `Errors on ${PRODUCT_NAME}`,
+  editUrl:
+    'pages/docs/errors/additional-features/broken-preview-deployment-suffix.mdx',
+  lastEdited: '2020-05-06T04:38:20.000Z'
+}
+
+export default ({ children }) => <Errors meta={meta}>{children}</Errors>
+
+export const config = {
+  amp: 'hybrid'
+}

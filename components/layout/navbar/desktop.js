@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import NextLink from 'next/link'
 import cn from 'classnames'
 import qs from 'querystring'
@@ -32,11 +32,12 @@ function findClosestScrollableElement(_elem) {
   }
 }
 
-function Category({ info, level = 1, onClick, ...props }) {
+function Category({ info, level = 1, onClick, basePath, ...props }) {
   const levelClass = `level-${level}`
 
   const categorySelected =
-    props.url.pathname === '/docs' || props.url.pathname === '/docs/v2'
+    props.url.pathname === (basePath || '/docs') ||
+    props.url.pathname === (basePath || '/docs/v2')
       ? info.name === 'Getting Started'
         ? true
         : false
@@ -236,7 +237,15 @@ function Post({ info, level = 1, onClick, ...props }) {
 }
 
 const NavLink = React.memo(
-  ({ info, url, hash, onClick, scrollSelectedIntoView, categorySelected }) => {
+  ({
+    info,
+    url,
+    hash,
+    onClick,
+    scrollSelectedIntoView,
+    level,
+    categorySelected
+  }) => {
     const node = useRef(null)
 
     const getCurrentHref = () => {
@@ -269,14 +278,14 @@ const NavLink = React.memo(
       return false
     }
 
-    const [selected, setSelected] = useState(isSelected())
+    const selected = isSelected()
 
     const onlyHashChange = () => {
       const { pathname } = parse(info.href)
       return pathname === url.pathname && info.href.includes('#')
     }
 
-    const scrollIntoViewIfNeeded = () => {
+    useEffect(() => {
       if (scrollSelectedIntoView && selected && categorySelected) {
         if (node.scrollIntoViewIfNeeded) {
           node.scrollIntoViewIfNeeded()
@@ -284,10 +293,6 @@ const NavLink = React.memo(
           scrollIntoViewIfNeeded(node)
         }
       }
-    }
-
-    useEffect(() => {
-      scrollIntoViewIfNeeded()
     }, [])
 
     return (

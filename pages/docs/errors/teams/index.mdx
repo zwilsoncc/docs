@@ -1,0 +1,31 @@
+import Errors from '~/components/layout/errors'
+import Card from '~/components/card'
+import Snippet from '~/components/snippet'
+import Link from '~/components/text/link'
+import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
+import Quickstarts, { Quickstart } from '~/components/quickstarts'
+import { UserContext } from '~/lib/user-context'
+import { IconCard } from '~/components/card'
+import { List } from '~/components/list'
+import BitbucketIcon from '~/components/icons/bitbucket'
+import GitLabIcon from '~/components/icons/gitlab'
+import GitHubIcon from '~/components/icons/github'
+import ProductName from '~/components/name/product-name'
+import { PRODUCT_NAME } from '~/lib/constants'
+import OrgName from '~/components/name/org-name'
+
+import { quickstarts } from '~/lib/data/v2/quickstarts'
+
+export const meta = {
+  title: `Teams`,
+  description: `An introduction to the ${PRODUCT_NAME} platform and how to get started deploying any kind of application.`,
+  editUrl: 'pages/docs/errors/teams/index.mdx',
+  lastEdited: '2020-05-06T04:38:20.000Z'
+}
+
+export default ({ children }) => <Errors meta={meta}>{children}</Errors>
+
+export const config = {
+  amp: 'hybrid'
+}

@@ -408,6 +408,11 @@ class Header extends Component {
                         data={data}
                         url={router}
                         handleIndexClick={handleIndexClick}
+                        basePath={
+                          router.pathname.startsWith('/docs/errors')
+                            ? '/docs/errors'
+                            : undefined
+                        }
                       />
                     </div>
                   )}
