@@ -19,6 +19,7 @@ import Sidebar from '~/components/layout/sidebar'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import Main from '~/components/layout/main'
 import { PRODUCT_NAME, ORG_NAME } from '~/lib/constants'
+import Snippet from '~/components/snippet'
 
 const DocH1 = ({ children }) => (
   <>
@@ -161,6 +162,16 @@ function Doc({
             <div className="content">
               <SectionIndex title={meta.title} />
               {children}
+              {meta.shortUrl && (
+                <>
+                  <H3>Error URL</H3>
+                  <br />
+                  <Snippet
+                    prompt={false}
+                    text={`https://vercel.link/${meta.shortUrl}`}
+                  />
+                </>
+              )}
             </div>
 
             <NonAmpOnly>

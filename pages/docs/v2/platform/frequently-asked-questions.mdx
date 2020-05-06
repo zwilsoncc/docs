@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-27T14:11:35.000Z'
+  lastEdited: '2020-05-06T06:05:13.000Z'
 }
 
 ## Platform Version Detection
@@ -56,66 +56,3 @@ export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 export const config = {
   amp: 'hybrid'
 }
-
-## Missing Public Directory
-
-The [build step](/docs/v2/build-step) will result in an error if the output directory is missing, empty, or invalid (if it’s actually not a directory). To resolve this error, you can try the following steps:
-
-- Make sure that the output directory is specified correctly in project settings. [Here’s the documentation](/docs/v2/build-step#output-directory).
-- If the output directory is correct, double check the Build Command ([documentation](/docs/v2/build-step#build-command)) or the root directory ([documentation](/docs/v2/build-step#root-directory)).
-- Try running the Build Command locally and make sure that the files are correctly generated in the specified output directory.
-
-## Missing Build Script
-
-<Note>
-  This is only relevant if you’re using <ProductShortName /> CLI 16.7.3 or
-  older.
-</Note>
-
-If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
-
-When properly configured, your `package.json` file would look similar to this:
-
-```json
-{
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>build</InlineCode> script in a{' '}
-  <InlineCode>package.json</InlineCode> file that specifies the output
-  directory.
-</Caption>
-
-Once you have defined the `build` [script](https://docs.npmjs.com/misc/scripts), this error will disappear. Furthermore, it will not be displayed if you are using `package.json` purely to provide dependencies for your Serverless Functions located inside the `api` directory.
-
-## Broken Preview Deployment Suffix
-
-The Preview Deployment Suffix feature (available optionally on the "General" team settings page) allows for replacing the `now.sh` suffix of every freshly created deployment with a custom domain of your choice.
-
-In order for this feature to function properly, the custom domain you configured must be:
-
-- Active (not deleted)
-- Available within the team that enabled the Preview Deployment Suffix
-- Backed by an active wildcard certificate
-
-The easiest way to satisfy all of these constraints is to ensure the domain is also added to a project located within the same team. This project would ideally contain a single `index.html` that would display when someone visits the bare domain.
-
-## Maximum Team Member Requests
-
-No more than 10 requests of users wanting to join a team can be open at the same time. In order to allow for more requests, the existing ones have to be approved or declined by an owner of the team.
-
-This ensures the list always remains managable and protected against spam.
-
-## Inviting Users to Team Who Requested Access
-
-If a user already requested access to a team, it's not possible to invite them. Instead, their request must be approved by an owner of the team in order for the user to gain acess.
-
-This ensures no requests are accidentally accepted.
-
-## Unused Project Settings with Non-Zero-Config Deployments
-
-Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.

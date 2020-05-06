@@ -5,8 +5,19 @@ export const meta = {
   title: `Missing Public Directory`,
   description: `Errors on ${PRODUCT_NAME}`,
   editUrl: 'pages/docs/errors/build-step/missing-public-directory.mdx',
-  lastEdited: '2020-05-06T04:38:20.000Z'
+  lastEdited: '2020-05-06T06:05:13.000Z',
+  shortUrl: 'missing-public-directory'
 }
+
+### Explanation
+
+The [build step](/docs/v2/build-step) will result in an error if the output directory is missing, empty, or invalid (if it’s actually not a directory).
+
+### How to Resolve This Error
+
+- Make sure that the output directory is specified correctly in project settings. [Here’s the documentation](/docs/v2/build-step#output-directory).
+- If the output directory is correct, double check the Build Command ([documentation](/docs/v2/build-step#build-command)) or the root directory ([documentation](/docs/v2/build-step#root-directory)).
+- Try running the Build Command locally and make sure that the files are correctly generated in the specified output directory.
 
 export default ({ children }) => <Errors meta={meta}>{children}</Errors>
 

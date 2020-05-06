@@ -6,8 +6,15 @@ export const meta = {
   description: `Errors on ${PRODUCT_NAME}`,
   editUrl:
     'pages/docs/errors/teams/inviting-users-to-team-who-requested-access.mdx',
-  lastEdited: '2020-05-06T04:38:20.000Z'
+  lastEdited: '2020-05-06T06:05:13.000Z',
+  shortUrl: 'inviting-users-to-team-who-requested-access'
 }
+
+### Explanation
+
+If a user already requested access to a team, it's not possible to invite them. Instead, their request must be approved by an owner of the team in order for the user to gain acess.
+
+This ensures no requests are accidentally accepted.
 
 export default ({ children }) => <Errors meta={meta}>{children}</Errors>
 

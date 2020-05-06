@@ -6,8 +6,13 @@ export const meta = {
   description: `Errors on ${PRODUCT_NAME}`,
   editUrl:
     'pages/docs/errors/build-step/unused-project-settings-with-non-zero-config-deployments.mdx',
-  lastEdited: '2020-05-06T04:38:20.000Z'
+  lastEdited: '2020-05-06T06:05:13.000Z',
+  shortUrl: 'unused-project-settings-with-non-zero-config-deployments'
 }
+
+### Explanation
+
+Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.
 
 export default ({ children }) => <Errors meta={meta}>{children}</Errors>
 

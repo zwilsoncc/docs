@@ -6,8 +6,23 @@ export const meta = {
   description: `Errors on ${PRODUCT_NAME}`,
   editUrl:
     'pages/docs/errors/additional-features/broken-preview-deployment-suffix.mdx',
-  lastEdited: '2020-05-06T04:38:20.000Z'
+  lastEdited: '2020-05-06T06:05:13.000Z',
+  shortUrl: 'broken-preview-deployment-suffix'
 }
+
+### Explanation
+
+The Preview Deployment Suffix feature (available optionally on the "General" team settings page) allows for replacing the `now.sh` suffix of every freshly created deployment with a custom domain of your choice.
+
+### How to Resolve This Error
+
+In order for this feature to function properly, the custom domain you configured must be:
+
+- Active (not deleted)
+- Available within the team that enabled the Preview Deployment Suffix
+- Backed by an active wildcard certificate
+
+The easiest way to satisfy all of these constraints is to ensure the domain is also added to a project located within the same team. This project would ideally contain a single `index.html` that would display when someone visits the bare domain.
 
 export default ({ children }) => <Errors meta={meta}>{children}</Errors>
 
