@@ -65,7 +65,7 @@ export class MenuPopOver extends Component {
                             noPadding
                             separated={item.separated}
                             fullWidth
-                            active={router.pathname === item.url}
+                            active={router.pathname.startsWith(item.url)}
                           >
                             <Link href={item.href || item.url} as={item.url}>
                               {item.title}

@@ -262,6 +262,7 @@ class Header extends Component {
                     href="/docs"
                     active={
                       router.pathname.startsWith('/docs') &&
+                      !router.pathname.startsWith('/docs/errors') &&
                       !router.pathname.startsWith('/docs/api') &&
                       !router.pathname.startsWith('/docs/integrations') &&
                       !router.pathname.startsWith('/docs/now-cli') &&
@@ -287,7 +288,8 @@ class Header extends Component {
                         router.pathname.startsWith('/docs/integrations') ||
                         router.pathname.startsWith('/docs/now-cli') ||
                         router.pathname.startsWith('/docs/runtimes') ||
-                        router.pathname.startsWith('/docs/configuration')
+                        router.pathname.startsWith('/docs/configuration') ||
+                        router.pathname.startsWith('/docs/errors')
                     })}
                   >
                     <MenuPopOver
@@ -313,6 +315,10 @@ class Header extends Component {
                         {
                           title: 'Integrations API',
                           url: '/docs/integrations'
+                        },
+                        {
+                          title: 'Errors',
+                          url: '/docs/errors'
                         }
                       ]}
                     />
@@ -387,6 +393,7 @@ class Header extends Component {
                   href="/docs"
                   active={
                     router.pathname.startsWith('/docs') &&
+                    !router.pathname.startsWith('/docs/errors') &&
                     !router.pathname.startsWith('/docs/api') &&
                     !router.pathname.startsWith('/docs/integrations') &&
                     !router.pathname.startsWith('/docs/now-cli') &&
@@ -398,6 +405,7 @@ class Header extends Component {
                   Docs
                 </NavigationItem>
                 {router.pathname.startsWith('/docs') &&
+                  !router.pathname.startsWith('/docs/errors') &&
                   !router.pathname.startsWith('/docs/api') &&
                   !router.pathname.startsWith('/docs/integrations') &&
                   !router.pathname.startsWith('/docs/now-cli') &&
@@ -408,11 +416,6 @@ class Header extends Component {
                         data={data}
                         url={router}
                         handleIndexClick={handleIndexClick}
-                        basePath={
-                          router.pathname.startsWith('/docs/errors')
-                            ? '/docs/errors'
-                            : undefined
-                        }
                       />
                     </div>
                   )}
@@ -472,6 +475,25 @@ class Header extends Component {
                 >
                   Configuration
                 </NavigationItem>
+              </div>
+              <div className="group has-nav">
+                <NavigationItem
+                  href="/docs/errors"
+                  active={router.pathname.startsWith('/docs/errors')}
+                  onClick={handleIndexClick}
+                >
+                  Errors
+                </NavigationItem>
+                {router.pathname.startsWith('/docs/errors') && (
+                  <div className="navigation">
+                    <DocsNavbarDesktop
+                      data={data}
+                      url={router}
+                      handleIndexClick={handleIndexClick}
+                      basePath="/docs/errors"
+                    />
+                  </div>
+                )}
               </div>
             </div>
 
