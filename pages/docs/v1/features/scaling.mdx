@@ -13,7 +13,7 @@ export const meta = {
   description: `Scaling your deployments to be instances in multiple global locations with ${PRODUCT_SHORT_V1_NAME}`,
   date: '01 Apr 2018',
   editUrl: 'pages/docs/v1/features/scaling.mdx',
-  lastEdited: '2020-04-16T01:25:09.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 In this feature guide, you will learn how to globally distribute
@@ -134,7 +134,7 @@ project in multiple regions, you can pre-define scaling rules in
 your local configuration file [like this](</docs/features/configuration#scale-(object)>).
 
 Once that has been done, these rules will be automatically
-applied when `now` is run. In turn,
+applied when `vercel` is run. In turn,
 passing `--regions` to the command
 while `scale` is defined in your
 configuration file will lead to an error.
@@ -145,7 +145,7 @@ You only need one of the two.
 
 If you want to manually set scaling rules for your deployment
 after it has been created, you can do so by using
-the `now scale` command.
+the `vercel scale` command.
 
 By default, every deployment receives the following scaling
 rules from our system:
@@ -159,7 +159,7 @@ rules from our system:
 In order to lock the number of [instances](#instances) of a specific
 deployment, you can run this command:
 
-<TerminalInput>{`now scale <deployment> 4`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> 4`}</TerminalInput>
 
 The above example will result in your deployment always
 having 4 [instances](#instances) running in
@@ -169,7 +169,7 @@ In order to let <ProductShortV1Name /> scale the deployment
 within a range, pass another argument with the maximum
 number of instances:
 
-<TerminalInput>{`now scale <deployment> 4 7`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> 4 7`}</TerminalInput>
 
 After running this command, the deployment you passed will
 always have **at least 4 instances** running,
@@ -179,33 +179,33 @@ To revert back to the default scaling rules and
 let <ProductShortV1Name /> scale your deployment automatically
 as requests come in, pass `auto`:
 
-<TerminalInput>{`now scale <deployment> auto`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> auto`}</TerminalInput>
 
 This also works for just one of the two scaling rules. As an example, this
 command will ensure your deployment always has **at least
 1 instance** running (therefore never freezes) but allows
 it to **scale indefinitely**:
 
-<TerminalInput>{`now scale <deployment> 1 auto`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> 1 auto`}</TerminalInput>
 
 ### Enabling Additional Locations after Deploying
 
-Using `now scale`, you can
+Using `vercel scale`, you can
 also scale your deployment to additional regions
 or data centers after it has been created.
 
 As an example, this command will scale your deployment to
 the [SFO region](https://sfo.now.sh):
 
-<TerminalInput>{`now scale <deployment> sfo`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> sfo`}</TerminalInput>
 
 Alternatively, you can also scale to all available [regions](#regions)...
 
-<TerminalInput>{`now scale <deployment> all`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> all`}</TerminalInput>
 
 ...or specify multiple:
 
-<TerminalInput>{`now scale <deployment> sfo,bru`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> sfo,bru`}</TerminalInput>
 
 You can also use this command to enable your deployment in
 a specific [data center](#datacenter) of your choice, by passing
@@ -225,7 +225,7 @@ In order to lock a region or data center to specific scaling rules, you
 can still append them as you would do
 without passing a location:
 
-<TerminalInput>{`now scale <deployment> <regions|datacenters> 1 5`}</TerminalInput>
+<TerminalInput>{`vercel scale <deployment> <regions|datacenters> 1 5`}</TerminalInput>
 
 As an example, the above command would set the following rules:
 

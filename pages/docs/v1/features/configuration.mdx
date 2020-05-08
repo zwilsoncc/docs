@@ -9,7 +9,7 @@ export const meta = {
   description: `Configuring ${PRODUCT_SHORT_V1_NAME} so that your deployments are exactly as you need them`,
   date: '22 Feb 2017',
   editUrl: 'pages/docs/v1/features/configuration.mdx',
-  lastEdited: '2020-04-20T22:15:55.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 This guide explains how to use these methods to configure and customize the default behavior of <CliV1Name />.
@@ -62,7 +62,7 @@ The prefix for all new deployment instances. The CLI usually generates this fiel
 
 #### `alias` (string|array)
 
-Aliases which will be assigned to the latest deployment when running `now alias` (with no arguments).
+Aliases which will be assigned to the latest deployment when running `vercel alias` (with no arguments).
 
 ```
 "alias": "example.com"
@@ -154,7 +154,7 @@ Note that this will act as a whitelist of files and folders to upload. Any file 
 
 #### `type` (string)
 
-A field for specifying the deployment type ("npm", "docker" or "static") if both `package.json` and `Dockerfile` exist. This will prevent `now` from asking you to choose the type in these cases.
+A field for specifying the deployment type ("npm", "docker" or "static") if both `package.json` and `Dockerfile` exist. This will prevent `vercel` from asking you to choose the type in these cases.
 
 ```
 "type": "npm"

@@ -10,7 +10,7 @@ export const meta = {
   description: `Using ${PRODUCT_SHORT_V1_NAME} \`alias\` to assign a domain to your deployments`,
   date: '2 August 2017',
   editUrl: 'pages/docs/v1/getting-started/assign-a-domain-name.mdx',
-  lastEdited: '2020-04-16T01:25:09.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 When you deploy an app with <ProductShortV1Name />, you will have a unique deployment URL like this: <https://my-web-app-avvuiuuwto.now.sh>.
@@ -29,9 +29,9 @@ Hence, you need a fixed domain name.
   caption="Our sample static app with a fixed domain name."
 />
 
-In this guide, we are going to map a domain name into one of those deployment URLs of your app by using the `now alias` command.
+In this guide, we are going to map a domain name into one of those deployment URLs of your app by using the `vercel alias` command.
 
-The four different ways to use the `now alias` command are:
+The four different ways to use the `vercel alias` command are:
 
 1. <Link href="#1.-using-a-now.sh-domain">Using a now.sh domain</Link>
 2. <Link href="#2.-using-a-custom-domain,-managed-by-now">
@@ -97,7 +97,7 @@ First of all, you need to point your domain's nameservers to our [global DNS ser
 
 For example, assume that your domain name is `my-custom-domain.com`.
 
-After you have set up the nameservers, simply run the following `now alias` command:
+After you have set up the nameservers, simply run the following `vercel alias` command:
 
 <TerminalInput>
   now alias https://my-web-app-avvuiuuwto.now.sh my-custom-domain.com
@@ -141,7 +141,7 @@ You will then have an error like this:
 ​<ProductShortV1Name /> wants to verify the ownership of your domain. That's why it throws an error.
 
 - Next, add the TXT record as mentioned above error message.
-- Run the `now alias` command again:
+- Run the `vercel alias` command again:
 
 <TerminalInput>
   now alias https://my-web-app-avvuiuuwto.now.sh ui.my-app.work
