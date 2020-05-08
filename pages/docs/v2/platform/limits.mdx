@@ -9,7 +9,7 @@ export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-04-26T22:18:16.000Z'
+  lastEdited: '2020-05-06T13:25:03.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -113,6 +113,8 @@ When attempting to deploy Serverless Functions to multiple regions on the Hobby 
 ## Streaming Responses
 
 ​<ProductName /> does not support streaming responses from Serverless Functions due to an upstream limitation from AWS.
+
+This means that background tasks, also known as "fire-and-forget" is not supported. Once the function returns the response payload, it stops processing including any pending background tasks.
 
 ## Reserved Variables
 
