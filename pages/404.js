@@ -11,7 +11,7 @@ function ErrorPage() {
     <>
       <Head
         titlePrefix=""
-        titleSuffix={` - ${ORG_NAME} Documentation`}
+        titleSuffix={` - ${ORG_NAME} Documentation 222`}
         title="Page Not Found"
         description="The page that has been requested was not found."
       />
