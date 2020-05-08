@@ -2,6 +2,7 @@
   "cdnName": "Vercel Edge Network",
   "cdnShortName": "Edge Network",
   "productName": "Vercel",
+  "productDomain": "vercel.com",
   "orgName": "Vercel",
   "productShortName": "Vercel",
   "productV1Name": "ZEIT Now 1.0",

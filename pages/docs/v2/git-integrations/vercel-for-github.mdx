@@ -7,6 +7,7 @@ import GitHubEnvironmentVariables from '~/components/git-mdx/github/environment-
 import GitHubPermissions from '~/components/git-mdx/github/permissions.mdx'
 import GitHubWorkflowExtension from '~/components/git-mdx/github/extended-workflow.mdx'
 import GitHubDisconnecting from '~/components/git-mdx/github/disconnecting.mdx'
+import GitHubSignup from '~/components/git-mdx/github/signup.mdx'
 import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 import NameWrapper from '~/components/name/name-wrapper'
@@ -16,7 +17,7 @@ export const meta = {
   title: `${PRODUCT_NAME} for GitHub`,
   description: `Deploy each change in your GitHub repositories with ${PRODUCT_NAME} to share and test with your colleagues. Instant share-able links to your work with each push. Automatically make your changes available from production domains.`,
   editUrl: 'pages/docs/v2/git-integrations/vercel-for-github.mdx',
-  lastEdited: '2020-04-15T05:43:14.000Z'
+  lastEdited: '2020-04-29T22:14:21.000Z'
 }
 
 The <ProductName /> for GitHub integration automatically deploys your GitHub projects with [<ProductName />](/), providing [Preview Deployment URLs](/docs/v2/platform/deployments#preview), and automatic [Custom Domain](/docs/v2/custom-domains) updates.
@@ -87,7 +88,11 @@ For more information, such as a reference for default environment variables, exp
 </Collapse>
 
 <Collapse title="Disconnect from GitHub">
-    <GitHubDisconnecting />
+  <GitHubDisconnecting />
+</Collapse>
+
+<Collapse title="Sign up with another GitHub Account" id="signup-with-another-github-account">
+    <GitHubSignup />
   </Collapse>
 </CollapseGroup>
 
