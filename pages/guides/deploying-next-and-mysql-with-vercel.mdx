@@ -22,7 +22,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-mysql-with-vercel.mdx',
   name: 'Next.js + MySQL',
   type: 'app',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-09T00:03:56.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [<ProductName />](/docs/v2).
@@ -125,7 +125,7 @@ Next, add a build script to your `package.json` file:
 
 Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [Secrets](/docs/now-cli#commands/secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
 
-<Snippet dark text="vercel secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
+<Snippet dark text="vc secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
   Adding <Link href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secrets</Link> to the project.
 </Caption>

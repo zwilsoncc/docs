@@ -21,7 +21,7 @@ export const meta = {
   url: '/guides/deploying-next-and-storyblok-with-vercel',
   image: `https://vercel.com/docs/static/guides/deploying-next-storyblok-with-vercel/deploying-next-storyblok-with-vercel.png`,
   editUrl: 'pages/guides/deploying-next-and-storyblok-with-vercel.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-09T00:03:56.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [<OrgName /> blog](/blog) by utilizing the [Storyblok](https://www.storyblok.com/) headless CMS, before deploying **with a single command** to [<ProductName />](/docs/v2).
@@ -308,7 +308,7 @@ STORYBLOK_API_TOKEN=your-api-token
 
 Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) with the command below:
 
-<Snippet dark text="vercel secrets add STORYBLOK_API_TOKEN your-api-token" />
+<Snippet dark text="vc secrets add STORYBLOK_API_TOKEN your-api-token" />
 <Caption>
   Adding the <InlineCode>STORYBLOK_API_TOKEN</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
 </Caption>

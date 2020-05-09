@@ -11,7 +11,7 @@ export const meta = {
 
 ## Certs
 
-The `vercel certs` command is used to manage certificates for domains, providing functionality to list, issue, and remove them.
+The `vc certs` command is used to manage certificates for domains, providing functionality to list, issue, and remove them.
 
 <Note type="warning">
   This command is intended for <b>advanced use only</b>. <ProductName /> manages
@@ -20,20 +20,20 @@ The `vercel certs` command is used to manage certificates for domains, providing
 
 ### Basic Usage
 
-<Snippet dark text="vercel certs ls" />
-<Caption>Using the <InlineCode>vercel certs</InlineCode> command to list all certificates under an account.</Caption>
+<Snippet dark text="vc certs ls" />
+<Caption>Using the <InlineCode>vc certs</InlineCode> command to list all certificates under an account.</Caption>
 
 ### Extended Usage
 
-<Snippet dark text="vercel certs issue [domain1, domain2, domain3]" />
-<Caption>Using the <InlineCode>vercel certs</InlineCode> command to issue certificates for multiple domains.</Caption>
+<Snippet dark text="vc certs issue [domain1, domain2, domain3]" />
+<Caption>Using the <InlineCode>vc certs</InlineCode> command to issue certificates for multiple domains.</Caption>
 
-<Snippet dark text="vercel certs rm [certificate-id]" />
-<Caption>Using the <InlineCode>vercel certs</InlineCode> command to remove a certificate by ID.</Caption>
+<Snippet dark text="vc certs rm [certificate-id]" />
+<Caption>Using the <InlineCode>vc certs</InlineCode> command to remove a certificate by ID.</Caption>
 
 ### Global Options
 
-The following [global options](#options) can be passed when using the `vercel certs` command:
+The following [global options](#options) can be passed when using the `vc certs` command:
 
 - `--debug`
 - `--force`
@@ -47,7 +47,7 @@ For more information on global options and their usage, refer to the [options se
 
 ### Unique Options
 
-These are options that only apply to the `vercel certs` command, therefore, more information is provided.
+These are options that only apply to the `vc certs` command, therefore, more information is provided.
 
 #### Challenge Only
 
@@ -55,8 +55,8 @@ The `--challenge-only` option can be used to only show the challenges needed to 
 
 ##### Usage Example
 
-<Snippet dark text="vercel certs issue foo.com --challenge-only" />
-<Caption>Using the <InlineCode>vercel certs</InlineCode> command with the <InlineCode>--challenge-only</InlineCode> option.</Caption>
+<Snippet dark text="vc certs issue foo.com --challenge-only" />
+<Caption>Using the <InlineCode>vc certs</InlineCode> command with the <InlineCode>--challenge-only</InlineCode> option.</Caption>
 
 #### Certificate Files
 
@@ -64,7 +64,7 @@ The `--crt`, `--key` and `--ca` options must be used together to upload certific
 
 ##### Usage Example
 
-<Snippet dark text="vercel certs add foo.com --crt foo.crt --key bar.pem --ca foobar.ca" />
-<Caption>Using the <InlineCode>vercel certs</InlineCode> command with the <InlineCode>--crt</InlineCode>, <InlineCode>--key</InlineCode>, and <InlineCode>--ca</InlineCode> options.</Caption>
+<Snippet dark text="vc certs add foo.com --crt foo.crt --key bar.pem --ca foobar.ca" />
+<Caption>Using the <InlineCode>vc certs</InlineCode> command with the <InlineCode>--crt</InlineCode>, <InlineCode>--key</InlineCode>, and <InlineCode>--ca</InlineCode> options.</Caption>
 
 <br />

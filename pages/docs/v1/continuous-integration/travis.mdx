@@ -14,7 +14,7 @@ export const meta = {
   date: '13 Mar 2018',
   editUrl: 'pages/docs/v1/continuous-integration/travis.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/ogp/travis-ci-guide.png',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-09T00:03:56.000Z'
 }
 
 Travis Ci is a Continuous Integration tool that lets you automate the build and deployment of your project when something new is pushed to a GitHub repository.
@@ -95,7 +95,7 @@ deploy:
   public, which will block the build; awaiting user input.
 </Note>
 
-As you may have noticed, the above script for the master branch uses the `vercel alias` command without providing the deployment URL and the alias to use. This can be achieved [using a configuration file](/docs/features/configuration). You can read more about it in ["How Do I Deploy and Alias in a Single Command?"](/docs/other/faq#how-do-i-deploy-and-alias-in-a-single-command) on our FAQ page.
+As you may have noticed, the above script for the master branch uses the `vc alias` command without providing the deployment URL and the alias to use. This can be achieved [using a configuration file](/docs/features/configuration). You can read more about it in ["How Do I Deploy and Alias in a Single Command?"](/docs/other/faq#how-do-i-deploy-and-alias-in-a-single-command) on our FAQ page.
 
 And that's it! Every time you push something new to any branch it will create a new deployment and if the branch is master it will also move the project aliases to it.
 

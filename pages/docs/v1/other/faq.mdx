@@ -12,7 +12,7 @@ export const meta = {
   description: `The answers to our most frequently asked questions for ${PRODUCT_SHORT_V1_NAME} and other ${ORG_NAME} products and services`,
   date: '30 Jan 2018',
   editUrl: 'pages/docs/v1/other/faq.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-09T00:03:56.000Z'
 }
 
 ## Where can I see the current status of the platform?
@@ -59,7 +59,7 @@ But if you still want to remove it, run the following command:
 
 <TerminalInput>now rm my-app --safe --yes</TerminalInput>
 
-This command will remove all your non-aliased deployments with the name `my-app`. This can be run after the `vercel alias` command to remove the previous deployment of the project.
+This command will remove all your non-aliased deployments with the name `my-app`. This can be run after the `vc alias` command to remove the previous deployment of the project.
 
 <TerminalInput>now && now alias && now rm my-app --safe --yes</TerminalInput>
 
@@ -90,14 +90,14 @@ For <EmailLink type="sales" subject="Custom Hardware Resources">enterprise custo
 
 ## How do I update my deployment's files or code?
 
-Deployments are immutable. This means they cannot be modified after being created. To update your application, you need to deploy the new version using the command `vercel`. After that, you will get a new unique deployment URL similar to `my-app-hjrehxuuih.now.sh`.
+Deployments are immutable. This means they cannot be modified after being created. To update your application, you need to deploy the new version using the command `vc`. After that, you will get a new unique deployment URL similar to `my-app-hjrehxuuih.now.sh`.
 
 This model offers a few interesting benefits:
 
 - **Easy rollback**<br />
   You can just move your alias to an older deployment to have immediate rollbacks.
 - **Staging and production deployments**<br />
-  A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `vercel alias`.
+  A new deployment gives you a unique URL you can use as staging to share with co-workers or clients. After it is confirmed that it works, you can upgrade it to production with a single command: `vc alias`.
 - **Zero-Downtime deployment**<br />
   Most services will require you to restart your server (eg. Node.js). Thanks to <ProductShortV1Name />, you get a new deployment. You can wait until the deployment is ready to change the alias and avoid any downtime during the deployment process.
 
@@ -119,8 +119,8 @@ If you need to transfer your domain out of <OrgV1Name /> Domains, you can contac
 
 If you would like to move a domain from one <OrgV1Name /> account to another, you could do so by running the following commands:
 
-1. From the current owner of the domain: `vercel domain rm domain.com`
-2. From the desired owner of the domain: `vercel domain add domain.com`
+1. From the current owner of the domain: `vc domain rm domain.com`
+2. From the desired owner of the domain: `vc domain add domain.com`
 
 After you have done this, the desired owner will be in possession of the domain and will be able to utilize it with <OrgV1Name />.
 
@@ -144,7 +144,7 @@ Deployments have a [default scale configuration](/docs/v1/getting-started/scalin
 
 This lets you have any amount of deployments without worrying about your currently running instances. They will be unfrozen when a new request comes and keeps the instance running for a while (eventually freezing from inactivity with no requests again).
 
-This behavior can be completely avoided using the `vercel scale` command as described in the [previous link](/docs/v1/getting-started/scaling#default-scaling).
+This behavior can be completely avoided using the `vc scale` command as described in the [previous link](/docs/v1/getting-started/scaling#default-scaling).
 
 ## Can I remove or delete a team?
 
@@ -230,7 +230,7 @@ Our recommendation when connecting to external services (eg. a database) is to u
 
 ## How do I set up an email for a domain purchased through <NameWrapper name={PRODUCT_SHORT_V1_NAME} /> Domains?
 
-​<ProductShortV1Name /> doesn't provide you with an email server for your custom domains. You can use [`vercel dns`](/docs/features/dns) to setup MX records pointing to any external service.
+​<ProductShortV1Name /> doesn't provide you with an email server for your custom domains. You can use [`vc dns`](/docs/features/dns) to setup MX records pointing to any external service.
 
 ## How do I use private npm modules or GitHub repositories?
 
@@ -244,7 +244,7 @@ For private GitHub repositories you can follow the GitHub guide:
 
 ## Is it possible to reuse an existing alias?
 
-Yes, you can use `vercel alias` to move an existing alias from a deployment to another the same way you use it to assign it the first time.
+Yes, you can use `vc alias` to move an existing alias from a deployment to another the same way you use it to assign it the first time.
 
 Note that you can not use an alias already used by another user until they remove it.
 
@@ -345,7 +345,7 @@ We do not currently offer support for DNSSEC.
 
 ## Why does <NameWrapper name={PRODUCT_SHORT_V1_NAME} /> give me random URLs and how can I change it?
 
-Due to the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `vercel` you will get a new unique URL. To have a custom static URL you need to use the `vercel alias` command.
+Due to the [immutable nature of deployments](/docs/other/faq#how-do-i-update-my-deployment's-files-or-code), each time you run `vc` you will get a new unique URL. To have a custom static URL you need to use the `vc alias` command.
 
 > Read more on [Aliases and Domains](/docs/features/aliases).
 

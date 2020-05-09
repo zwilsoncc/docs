@@ -9,12 +9,12 @@ export const meta = {
   description: `What counts as a Node.js App for ${PRODUCT_SHORT_V1_NAME} deployments and more information about them`,
   date: '09 March 2017',
   editUrl: 'pages/docs/v1/deployment-types/node.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-09T00:03:56.000Z'
 }
 
 If your project contains a `package.json` (and no `Dockerfile`) file, it will always be treated as a [Node.js](https://nodejs.org/en/) deployment.
 
-This means that when you run `vercel`, your code will be launched into a 64-bit Node.js environment running on Alpine Linux (using [musl](https://www.musl-libc.org/) instead of [glibc](https://www.gnu.org/software/libc/) for the core libraries).
+This means that when you run `vc`, your code will be launched into a 64-bit Node.js environment running on Alpine Linux (using [musl](https://www.musl-libc.org/) instead of [glibc](https://www.gnu.org/software/libc/) for the core libraries).
 
 In this document, you'll learn the exact specifications and behavior of Node.js deployments running on now.
 
@@ -82,7 +82,7 @@ It will allow you to specify all of these things inside a `Dockerfile`. This res
 
 ## Deployment Inactivity
 
-Old deployments always stay around forever if you don't remove them using `vercel remove`.
+Old deployments always stay around forever if you don't remove them using `vc remove`.
 
 However, if your deployment doesn't receive any HTTP(S) requests for a long time, it will most likely be added to the list of deployments that will fall into a light sleep if the platform experiences a lot of load.
 
