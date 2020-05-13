@@ -9,7 +9,7 @@ export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-05-06T13:25:03.000Z'
+  lastEdited: '2020-05-13T14:38:41.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -48,9 +48,12 @@ All other logs are stored in memory only and are **not persisted** between page 
 
 ## Environment Variables
 
-The total size of [Environment Variables](/docs/v2/build-step#environment-variables) is **limited to 4kb**.
+The maximum number of [Environment Variables](/docs/v2/build-step#environment-variables) per Environment per Project is **100**. For example, you can not
+have more than 100 Production Environment Variables.
 
-[Deployments](/docs/v2/platform/deployments) made with environment variables exceeding the 4kb limit will fail at the [build step](/docs/v2/build-step/).
+Moreover, the total size of [Environment Variables](/docs/v2/build-step#environment-variables) applied to a Deployment
+(including all the Environment Variables Names and Values) is **limited to 4kb**. [Deployments](/docs/v2/platform/deployments)
+made with Environment Variables exceeding the 4kb limit will fail during the [Build Step](/docs/v2/build-step/).
 
 ## Domains
 
