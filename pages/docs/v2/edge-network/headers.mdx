@@ -89,6 +89,10 @@ Similar to `[now: 1](/docs/v2/edge-network/headers/#now:-1)`. This header can b
 
 A header often abbreviated as [HSTS](https://developer.mozilla.org/en-US/docs/Glossary/HSTS) that tells browsers that the resource should only be requested over HTTPS. The default value is `strict-transport-security: max-age=63072000` (2 years)
 
+### `x-robots-tag`
+
+This header is automatically added with `noindex` to [Preview Deployments](/docs/v2/platform/deployments#preview) to prevent search engines from crawling them. A deployment without this header can be created by [pointing a production domain to it](https://vercel.com/docs/v2/custom-domains#adding-a-domain). If this is not desired, one can always disable the header manually using the [headers configuration](https://vercel.com/docs/configuration#project/headers).
+
 ### `x-now-cache`
 
 This header's value indicates whether the response was served from <OrgName />'s edge cache.
