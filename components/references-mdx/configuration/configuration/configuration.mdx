@@ -265,6 +265,14 @@ For more information on Runtimes, see the documentation:
 
 ## routes
 
+<Note type="warning">
+  It is not possible to use <InlineCode>routes</InlineCode> in combination with
+  the following properties:{' '}
+  <Link href="/docs/configuration#project/redirects">redirects</Link>,{' '}
+  <Link href="/docs/configuration#project/rewrites">rewrites</Link>, and{' '}
+  <Link href="/docs/configuration#project/headers">headers</Link>.
+</Note>
+
 **Type:** `Array` of route `Object`.
 
 **Valid values:** a list of route definitions.
