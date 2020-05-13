@@ -10,14 +10,7 @@ import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
 import ProductShortName from '~/components/name/product-short-name'
 import { SYSTEM_ENVS } from '~/lib/data/v2/system-env-variables'
-import {
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableRowCell,
-  TableHeadCell
-} from '~/components/table'
+import SystemEnvVariablesTable from '~/components/env-variables/system-env-variables-table'
 
 When you trigger a deploy, <ProductName /> **builds** your project. For many frontend frameworks, <ProductName /> automatically configures the build settings, but you can also [customize](#customizing-build-settings) them. You can also use [environment variables](#environment-variables) to avoid hardcoding values.
 
@@ -271,24 +264,7 @@ To apply a System Environment Variable to your Deployment, enter its **Name**, l
 
 The following System Environment Variables are available:
 
-<Table>
-  <TableHead>
-    <TableRow>
-      <TableHeadCell className="head-cell">Name</TableHeadCell>
-      <TableHeadCell className="head-cell">Description</TableHeadCell>
-    </TableRow>
-  </TableHead>
-  <TableBody>
-    {SYSTEM_ENVS.map(systemEnv => (
-      <TableRow key={systemEnv.name}>
-        <TableRowCell>
-          <InlineCode>{systemEnv.name}</InlineCode>
-        </TableRowCell>
-        <TableRowCell>{systemEnv.description}</TableRowCell>
-      </TableRow>
-    ))}
-  </TableBody>
-</Table>
+<SystemEnvVariablesTable envs={SYSTEM_ENVS} />
 
 ### Reserved Environment Variables
 
