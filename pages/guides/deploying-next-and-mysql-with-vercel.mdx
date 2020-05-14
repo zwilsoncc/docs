@@ -22,7 +22,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-mysql-with-vercel.mdx',
   name: 'Next.js + MySQL',
   type: 'app',
-  lastEdited: '2020-05-09T14:31:59.000Z'
+  lastEdited: '2020-05-14T23:00:11.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/introduction) a [Next.js](https://nextjs.org/) app with the most popular open source database in the world, [MySQL](https://www.mysql.com/), on [<ProductName />](/docs/v2).
@@ -123,7 +123,7 @@ Next, add a build script to your `package.json` file:
   Adding a build script to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [Secrets](/docs/now-cli#commands/secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
+Now, add your database credentials from [step 1](#step-1:-populating-your-mysql-database) to the project as [Secrets](/docs/cli#commands/secrets) using the [<ProductShortName /> CLI](/download) to keep them secure:
 
 <Snippet dark text="vercel secrets add MYSQL_HOST $database-hostname && now secrets add MYSQL_USER $database-username && now secrets add MYSQL_DATABASE $database-name && now secrets add MYSQL_PASSWORD $database-password" />
 <Caption>
@@ -172,7 +172,7 @@ exports.query = async query => {
 
 Your `db.js` file performs the following functions:
 
-- Creates a connection to your MySQL database using credentials defined as [Secrets](/docs/now-cli#commands/secrets)
+- Creates a connection to your MySQL database using credentials defined as [Secrets](/docs/cli#commands/secrets)
 - Exports a function that ensures connections are closed once the query has resolved
 
 <Note>

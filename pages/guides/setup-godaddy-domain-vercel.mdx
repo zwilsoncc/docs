@@ -17,7 +17,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/setup-godaddy-domain-vercel',
   editUrl: 'pages/guides/setup-godaddy-domain-vercel.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-14T23:00:11.000Z'
 }
 
 With <ProductName />, you can [assign a domain name](/docs/v2/custom-domains#deploying-with-your-domain) to any of your [deployments](/docs/v2/deployments/basics/) in. If you have a domain registered on another service, such as GoDaddy, you must first [point your domain to <ProductName />](/guides/zero-downtime-domain-migration/) in order to use it for your deployments.
@@ -28,7 +28,7 @@ This guide will cover **how to point your GoDaddy registered domain towards <Pro
 
 The first step of pointing an external domain to <ProductName /> is to add your domain to your <OrgName /> account or team and verifying ownership.
 
-To add a domain with [<ProductShortName /> CLI](/docs/v2/getting-started/installation#now-cli), use the following command in your terminal:
+To add a domain with [<ProductShortName /> CLI](/download), use the following command in your terminal:
 
 <Snippet dark text="vercel domains add <domain>" />
 
@@ -117,7 +117,7 @@ For example, adding a set of Gmail MX records with the `vercel dns add` command:
   text="vercel dns add <domain> @ MX ASPMX.L.GOOGLE.COM 1 && now dns add <domain> @ MX ALT1.ASPMX.L.GOOGLE.COM 5 && now dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5 && now dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10 && now dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10"
 />
 
-[Read more about `vercel dns` to learn about the format of the command](/docs/now-cli#commands/dns).
+[Read more about `vercel dns` to learn about the format of the command](/docs/cli#commands/dns).
 
 ### Adding a Domain to Deployments
 

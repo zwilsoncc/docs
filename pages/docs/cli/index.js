@@ -1,4 +1,4 @@
-import NowCLIDocs from '~/components/references-mdx/now-cli/index.mdx'
+import NowCLIDocs from '~/components/references-mdx/cli/index.mdx'
 import ReferenceLayout from '~/components/layout/reference'
 import { PRODUCT_SHORT_NAME } from '~/lib/constants'
 

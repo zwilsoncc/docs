@@ -443,6 +443,11 @@ module.exports = withMDX({
           source: '/docs/v2/serverless-functions/env-and-secrets',
           permanent: true,
           destination: '/docs/v2/build-step#environment-variables'
+        },
+        {
+          source: '/docs/now-cli/:path*',
+          permanent: true,
+          destination: '/docs/cli/:path*'
         }
       ]
     }

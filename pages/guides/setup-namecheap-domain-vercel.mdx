@@ -17,18 +17,18 @@ export const meta = {
   authors: ['unicodeveloper'],
   url: '/guides/setup-namecheap-domain-vercel',
   editUrl: 'pages/guides/setup-namecheap-domain-vercel.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-05-14T23:00:11.000Z'
 }
 
 In this guide, we will cover how to use your Namecheap registered domain as a production domain for your <ProductName /> deployments.
 
 ## Step 1: Adding and Verifying Your Domain
 
-First, you need to add your Namecheap registered domain to your <OrgName /> account. To get started, use the [<ProductShortName /> CLI](/docs/v2/getting-started/installation#now-cli):
+First, you need to add your Namecheap registered domain to your <OrgName /> account. To get started, use the [<ProductShortName /> CLI](/download):
 
 <Snippet dark text="vercel domains add <domain>" />
 
-The command above adds the domain to your <OrgName /> account. Once it has been added, the [<ProductShortName /> CLI](/docs/v2/getting-started/installation#now-cli) outputs some information needed to verify ownership of the domain.
+The command above adds the domain to your <OrgName /> account. Once it has been added, the [<ProductShortName /> CLI](/download) outputs some information needed to verify ownership of the domain.
 
 There are two options available for domain verification:
 
@@ -95,7 +95,7 @@ This option is great if you intend to verify your domain, but not point to <Prod
 
 In your Namecheap **Domain List** dashboard, on the domain you want to migrate, click on the **Advanced DNS** tab. Now, scroll down to the **Host Records** section, and click on the **Add New Record** button.
 
-Select `TXT Record` as the record type, add `_now` as the host, and the value you were given for the record when adding your domain. You can fetch the value again using the `vercel domains inspect <domain>` via the [<ProductShortName /> CLI](/docs/v2/getting-started/installation#now-cli).
+Select `TXT Record` as the record type, add `_now` as the host, and the value you were given for the record when adding your domain. You can fetch the value again using the `vercel domains inspect <domain>` via the [<ProductShortName /> CLI](/download).
 
 <Image
   src={`${process.env.ASSETS}/guides/setup-namecheap-domain-vercel/txtrecord.png`}
@@ -125,7 +125,7 @@ now dns add <domain> '@' MX ALT3.ASPMX.L.GOOGLE.COM 10
 now dns add <domain> '@' MX ALT4.ASPMX.L.GOOGLE.COM 10
 ```
 
-Learn more about using the [`vercel dns`](/docs/now-cli#commands/dns) command.
+Learn more about using the [`vercel dns`](/docs/cli#commands/dns) command.
 
 ### Adding a Domain to Deployments
 

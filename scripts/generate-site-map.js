@@ -9,7 +9,7 @@ const SITE_PATHS = [
   '/docs',
   '/docs/api',
   '/docs/integrations',
-  '/docs/now-cli',
+  '/docs/cli',
   '/docs/configuration',
   '/docs/runtimes'
 ]

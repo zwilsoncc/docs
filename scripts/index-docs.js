@@ -43,7 +43,7 @@ async function main() {
       'dist/docs/v2/**/*.html',
       'dist/docs/api.html',
       'dist/docs/integrations.html',
-      'dist/docs/now-cli.html',
+      'dist/docs/cli.html',
       'dist/docs/configuration.html',
       'dist/docs/runtimes.html'
     ])
@@ -57,7 +57,7 @@ async function main() {
   files.forEach(file => {
     const isAPISection = !!file.startsWith('dist/docs/api')
     const isRefSection =
-      !!file.startsWith('dist/docs/now-cli') ||
+      !!file.startsWith('dist/docs/cli') ||
       !!file.startsWith('dist/docs/runtimes') ||
       !!file.startsWith('dist/docs/configuration') ||
       !!file.startsWith('dist/docs/integrations')
