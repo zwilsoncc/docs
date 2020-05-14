@@ -133,6 +133,10 @@ const guidesRedirects = [
   [
     'vue-js-html-forms-with-formcarry-zeit-now',
     'vue-js-html-forms-with-formcarry-vercel'
+  ],
+  [
+    'prevent-uploading-sourcepaths-with-nowignore',
+    'prevent-uploading-sourcepaths-with-vercelignore'
   ]
 ].map(([before, after]) => ({
   source: `/guides/${before}{/}?`,

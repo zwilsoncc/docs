@@ -19,7 +19,7 @@ export const meta = {
   url: '/guides/deploying-sanity-studio-with-vercel',
   image: `https://og-image.now.sh/Deploy%20Sanity%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3do82whm%2Fproduction%2F32ad3bafc3c20872754ca164eece005c6827fac4-186x247.svg`,
   editUrl: 'pages/guides/deploying-sanity-studio-with-vercel.mdx',
-  lastEdited: '2020-04-25T00:32:18.000Z'
+  lastEdited: '2020-05-09T14:31:59.000Z'
 }
 
 [Sanity.io](https://www.sanity.io) is a platform for structured content with an open source editing environment. Sanity Studio is a single page app written in React, where you can configure the document types and input fields, with simple JavaScript objects. The Studio connects to Sanity’s hosted real-time APIs. You can also customize the Studio with your own input components, plugins, and tools.
@@ -58,7 +58,7 @@ Check out [Sanity’s documentation](https://sanity.io/docs) to learn more about
 
 ## Step 2: Preparing for Deployment
 
-To provide <ProductName /> with routing information for the app, add a `now.json` file with the following content:
+To provide <ProductName /> with routing information for the app, add a `vercel.json` file with the following content:
 
 ```json
 {
@@ -71,7 +71,7 @@ To provide <ProductName /> with routing information for the app, add a `now.json
 ```
 
 <Caption>
-  An example <InlineCode>now.json</InlineCode> file that adds routes to the
+  An example <InlineCode>vercel.json</InlineCode> file that adds routes to the
   project.
 </Caption>
 

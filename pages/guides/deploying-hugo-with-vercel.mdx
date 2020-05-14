@@ -22,7 +22,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-hugo-with-vercel.mdx',
   name: 'Hugo',
   type: 'site',
-  lastEdited: '2020-04-25T00:32:18.000Z'
+  lastEdited: '2020-05-09T14:31:59.000Z'
 }
 
 [Hugo](https://gohugo.io) is a very popular framework for creating static websites. It's fast and flexible.
@@ -91,7 +91,7 @@ You can now see your project running locally with the following command:
 
 ## Optional: Defining a Hugo Version
 
-If you want to use a specific version of Hugo, you can create a `now.json` file containing a`HUGO_VERSION` [build environment variable](/docs/v2/build-step#providing-environment-variables).
+If you want to use a specific version of Hugo, you can create a `vercel.json` file containing a`HUGO_VERSION` [build environment variable](/docs/v2/build-step#providing-environment-variables).
 
 ```json
 {
@@ -104,8 +104,8 @@ If you want to use a specific version of Hugo, you can create a `now.json` file 
 ```
 
 <Caption>
-  An optional <InlineCode>now.json</InlineCode> configuration file that selects
-  Hugo version 0.61.0 for the build step.
+  An optional <InlineCode>vercel.json</InlineCode> configuration file that
+  selects Hugo version 0.61.0 for the build step.
 </Caption>
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>

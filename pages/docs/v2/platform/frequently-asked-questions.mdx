@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-27T14:11:35.000Z'
+  lastEdited: '2020-05-09T14:31:59.000Z'
 }
 
 ## Platform Version Detection
@@ -21,11 +21,11 @@ export const meta = {
 [<ProductShortName /> CLI](/download) will automatically upgrade your deployment to the latest platform version if you import a project or if your project meets certain criteria. In order for this to work, you must:
 
 - Remove any Dockerfile.
-- Remove the `type` property from your `now.json` file.
+- Remove the `type` property from your `vercel.json` file.
 - Remove the `start` script from your `package.json` file.
 - Remove the `server.js` file from the root of your project.
 
-It is possible to opt out of this behavior by creating a `now.json` file with a `version` property.
+It is possible to opt out of this behavior by creating a `vercel.json` file with a `version` property.
 
 If you are yet to upgrade to the latest platform version, please read our [upgrade guide](/guides/migrate-to-zeit-now/).
 
@@ -72,7 +72,7 @@ The [build step](/docs/v2/build-step) will result in an error if the output dire
   older.
 </Note>
 
-If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
+If your project contains a `package.json` file, no `api` directory, and no `vercel.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
 
 When properly configured, your `package.json` file would look similar to this:
 
