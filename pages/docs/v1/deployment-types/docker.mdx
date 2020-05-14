@@ -7,12 +7,12 @@ export const meta = {
   description: `Docker apps with ${PRODUCT_SHORT_V1_NAME} and all about the deployments`,
   date: '09 March 2017',
   editUrl: 'pages/docs/v1/deployment-types/docker.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-04-16T01:25:09.000Z'
 }
 
 If your project contains a `Dockerfile` file, it will always be treated as a [Docker](https://www.docker.com/) deployment.
 
-This means that - when running `vercel` inside your terminal - your project will be launched into a secure Docker container on our platform, completely isolated from other customers and even your other containers.
+This means that - when running `now` inside your terminal - your project will be launched into a secure Docker container on our platform, completely isolated from other customers and even your other containers.
 
 In this document, you'll learn the exact specifications and behavior of Docker deployments running on now.
 
@@ -56,7 +56,7 @@ Additionally, visitors will be redirected from `http` to `https` automatically.
 
 ## Deployment Inactivity
 
-Old deployments always stay around forever if you don't remove them using `vercel remove`.
+Old deployments always stay around forever if you don't remove them using `now remove`.
 
 However, if your deployment doesn't receive any HTTP(S) requests for a long time, it will most likely be added to the list of deployments that will fall into a light sleep if the platform experiences a lot of load.
 

@@ -9,14 +9,14 @@ export const meta = {
   description: `Managing your DNS records for domains used with ${PRODUCT_SHORT_V1_NAME}`,
   date: '15 Mar 2017',
   editUrl: 'pages/docs/v1/features/dns.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-04-17T15:35:52.000Z'
 }
 
-Thanks to the `vercel dns` CLI command, managing existing DNS records with <ProductShortV1Name /> is simple.
+Thanks to the `now dns` CLI command, managing existing DNS records with <ProductShortV1Name /> is simple.
 
 > However, this only applies to domains you bought via <ProductShortV1Name /> or domains configured with our [global DNS service](/world).
 
-In the examples shown below, the placeholder `example.com` represents a domain of your choice that was registered with `vercel domains` or `vercel alias`. Here are the main sub-commands you can use:
+In the examples shown below, the placeholder `example.com` represents a domain of your choice that was registered with `now domains` or `now alias`. Here are the main sub-commands you can use:
 
 ### now dns ls
 
@@ -35,7 +35,7 @@ Adds a DNS record to a domain of your choice. The following record types are cur
 - SRV
 - TXT
 
-This is the syntax for the `vercel dns` command.
+This is the syntax for the `now dns` command.
 
 <TerminalInput>
   now dns add &lt;domain&gt; &lt;name&gt; &lt;record type&gt; &lt;value&gt;
@@ -73,11 +73,11 @@ Creates a [CAA record](https://letsencrypt.org/docs/caa/) that allows issuing ce
 > In this case, you'll be in charge of certificate management for your domain.<br/>
 > Most probably, you'll need to use `CAA` records to:
 >
-> 1. use a custom certificate for your <ProductShortV1Name /> deployment with <Link href="/docs/features/certs#now-certs-replace">`vercel certs replace`</Link>
+> 1. use a custom certificate for your <ProductShortV1Name /> deployment with <Link href="/docs/features/certs#now-certs-replace">`now certs replace`</Link>
 > 2. run an app outside of <ProductShortV1Name /> with TLS for a subdomain
 
 ### now dns rm &lt;ID>
 
-Removes a record by ID, which is shown in the `vercel dns ls` listing. Note that it may take a couple of hours before the change is fully propagated across our infrastructure.
+Removes a record by ID, which is shown in the `now dns ls` listing. Note that it may take a couple of hours before the change is fully propagated across our infrastructure.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

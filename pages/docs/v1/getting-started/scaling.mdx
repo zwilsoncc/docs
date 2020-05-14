@@ -10,7 +10,7 @@ export const meta = {
   description: `Handling increased traffic by scaling your ${PRODUCT_SHORT_V1_NAME} deployments`,
   date: '10 August 2017',
   editUrl: 'pages/docs/v1/getting-started/scaling.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 Deploying an app is just the start. We need to scale our app as our user base grows. It could be a linear growth or random spikes in certain times.
@@ -55,9 +55,9 @@ In this case, <ProductShortV1Name /> will set the `min` and `max` instance setti
   caption="The deployment is scaled to 3 instances and you can see the URLs for each of those instances."
 />
 
-### With `vercel alias`
+### With `now alias`
 
-Here, `hello-node-lwbxweoqjo.now.sh` is one of our deployment URL. Instead, you can scale a "domain name" you mapped with `vercel alias`.
+Here, `hello-node-lwbxweoqjo.now.sh` is one of our deployment URL. Instead, you can scale a "domain name" you mapped with `now alias`.
 
 For an example:
 
@@ -65,7 +65,7 @@ For an example:
 
 Then it'll scale the deployment behind the alias. (in this case, the alias is `hnode.now.sh`).
 
-If you run `vercel alias` again, it'll scale the new deployment accordingly and scale down the old deployment to the <Link href="/docs/getting-started/scaling#default-scaling">default scaling setup</Link>.
+If you run `now alias` again, it'll scale the new deployment accordingly and scale down the old deployment to the <Link href="/docs/getting-started/scaling#default-scaling">default scaling setup</Link>.
 
 <Image
   src={`${process.env.IMAGE_ASSETS_URL}/docs/scaling/now-alias.png`}
@@ -98,6 +98,6 @@ Now the deployment behind `hnode.now.sh` runs with a minimum of 2 instances and 
 ## Static Deployments
 
 All the static deployments are infinitely scalable and they are auto scaled by default on all plans.
-So, you don't need to invoke `vercel scale` for static deployments.
+So, you don't need to invoke `now scale` for static deployments.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

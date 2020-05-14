@@ -10,7 +10,7 @@ export const meta = {
   description: `Targeting and deploying a Git repository with ${PRODUCT_SHORT_V1_NAME}`,
   date: '12 Mar 2017',
   editUrl: 'pages/docs/v1/features/repositories.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-04-14T00:02:08.000Z'
 }
 
 If you're developing a project that requires local changes before it can be deployed (like a regular application), running just now is the right way to move your code into the cloud.
@@ -27,7 +27,7 @@ From there on, it will work just like any other deployment: You'll get a unique 
 
 Thanks to the process I've explained earlier, configuring the deployment of a Git repository is just as easy as doing the same for one that's not being handled automatically by <ProductShortV1Name /> in the hidden.
 
-If you want, you can either use `now.json` or the `vercel` property inside `package.json` within your repository for customizing the deployments. But please note that these settings can't be interfered with by the user. They're fixed.
+If you want, you can either use `now.json` or the `now` property inside `package.json` within your repository for customizing the deployments. But please note that these settings can't be interfered with by the user. They're fixed.
 
 For the cases in which the user needs to specify his own settings, <Link href="/docs/features/env-and-secrets">environment variables</Link> can be used.
 

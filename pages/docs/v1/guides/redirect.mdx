@@ -7,7 +7,7 @@ export const meta = {
   description: `Redirecting your ${PRODUCT_SHORT_V1_NAME} deployed app using ${PRODUCT_SHORT_V1_NAME} Alias or from within your app`,
   date: '5 Nov 2017',
   editUrl: 'pages/docs/v1/guides/redirect.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-04-13T21:11:08.000Z'
 }
 
 You usually want your users to access your site with or without `www`. The best way to achieve this is to redirect all the traffic coming to the `www` domain to your app's naked domain.
@@ -86,6 +86,6 @@ Now, add an additional [alias](/docs/getting-started/assign-a-domain-name) to re
 }
 ```
 
-Then, every time you run `vercel alias`, it will alias your app into both of your aliases.
+Then, every time you run `now alias`, it will alias your app into both of your aliases.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

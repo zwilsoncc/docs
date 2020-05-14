@@ -13,7 +13,7 @@ export const meta = {
   date: '12 July 2018',
   editUrl: 'pages/docs/v1/static-deployments/builds/building-with-now.mdx',
   image: process.env.IMAGE_ASSETS_URL + '/docs/static-builds/tw-card.png',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-04-16T01:25:09.000Z'
 }
 
 With <ProductShortV1Name />, you can build static apps when deploying using a `Dockerfile`. You can build a static app however you wish and then output the content in a directory called `/public` for <ProductShortV1Name /> to upload after the build.
@@ -22,7 +22,7 @@ This works incredibly well with our [GitHub integration](/github). You can use t
 
 ## Quickstart
 
-To build your static apps and deploy them on <ProductShortV1Name /> you'll need to create a `Dockerfile` that exports a static app to the `/public` directory. There must also be a `now.json` file with `"type": "static"` for <ProductShortV1Name /> to recognize that it should be built and deployed as a static app. Running `vercel` with this configuration will result in a static app built and deployed on <ProductShortV1Name />.
+To build your static apps and deploy them on <ProductShortV1Name /> you'll need to create a `Dockerfile` that exports a static app to the `/public` directory. There must also be a `now.json` file with `"type": "static"` for <ProductShortV1Name /> to recognize that it should be built and deployed as a static app. Running `now` with this configuration will result in a static app built and deployed on <ProductShortV1Name />.
 
 Now let's take a look at a more in-depth example.
 
@@ -266,7 +266,7 @@ RUN echo "All tests passed!" > index.txt
 
 ## Using Environment Variables and Secrets
 
-You can use a `now.json` configuration file and the `vercel secrets` command in tandem for use with the build step for static deployments.
+You can use a `now.json` configuration file and the `now secrets` command in tandem for use with the build step for static deployments.
 
 [Read more about how to configure them and use them](/docs/features/build-env-and-secrets).
 
