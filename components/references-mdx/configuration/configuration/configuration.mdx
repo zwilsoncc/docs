@@ -417,7 +417,7 @@ This is not recommended because it could lead to search engines indexing two dif
 
 - `source`: A pattern that matches each incoming pathname (excluding querystring).
 - `destination`: A location destination defined as an absolute pathname or external URL.
-- `statusCode`: An optional HTTP status code in the [301-308](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections) range (default 308).
+- `permanent`: A boolean to toggle between permanent and temporary redirect (default true). When `true`, the status code is [308](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308). When `false` the status code is [307](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307).
 
 <P>
   This example configures custom redirects that map to static files,{' '}
@@ -429,10 +429,12 @@ This is not recommended because it could lead to search engines indexing two dif
 <Code lang="json">{`{
   "redirects": [
     { "source": "/me", "destination": "/profile.html" },
-    { "source": "/user", "destination": "/api/user", "statusCode": 307 },
+    { "source": "/user", "destination": "/api/user", "permanent": false },
     { "source": "/view-source", "destination": "https://github.com/zeit/now" }
   ]
 }`}</Code>
+
+In some rare cases, you might need to assign a custom status code for older HTTP Clients to properly redirect. In these cases, you can use the `statusCode` property instead of the `permanent` property, but not both.
 
 ## rewrites
 
