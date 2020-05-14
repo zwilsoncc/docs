@@ -21,6 +21,10 @@ const docsRedirects = [
   [
     'v2/git-integrations/zeit-now-for-gitlab',
     'v2/git-integrations/vercel-for-gitlab'
+  ],
+  [
+    'error/application/NO_STATUS_CODE_FROM_FUNCTION',
+    'error/application/NO_RESPONSE_FROM_FUNCTION'
   ]
 ].map(([before, after]) => ({
   source: `/docs/${before}{/}?`,
