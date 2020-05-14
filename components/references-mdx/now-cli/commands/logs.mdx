@@ -11,7 +11,7 @@ export const meta = {
 
 ## Logs
 
-The `vc logs` command is used to retrieve logs data for a specific deployment.
+The `vercel logs` command is used to retrieve logs data for a specific deployment.
 
 <Note type="warning">
   This command is for <b>advanced use only</b>. You can find more detailed logs
@@ -20,12 +20,12 @@ The `vc logs` command is used to retrieve logs data for a specific deployment.
 
 ### Basic Usage
 
-<Snippet dark text="vc logs [deployment-url]" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command to retrieve logs for a specific deployment.</Caption>
+<Snippet dark text="vercel logs [deployment-url]" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command to retrieve logs for a specific deployment.</Caption>
 
 ### Global Options
 
-The following [global options](#options) can be passed when using the `vc logs` command:
+The following [global options](#options) can be passed when using the `vercel logs` command:
 
 - `--debug`
 - `--global-config`
@@ -38,7 +38,7 @@ For more information on global options and their usage, refer to the [options se
 
 ### Unique Options
 
-These are options that only apply to the `vc logs` command, therefore, more information is provided.
+These are options that only apply to the `vercel logs` command, therefore, more information is provided.
 
 #### All
 
@@ -46,8 +46,8 @@ The `--all` option, shorthand `-a`, can be used to receive access logs in additi
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --all" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--all</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --all" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--all</InlineCode> option.</Caption>
 
 #### Follow
 
@@ -55,8 +55,8 @@ The `--follow` option, shorthand `-f`, can be used to watch for additional logs 
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --follow" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--follow</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --follow" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--follow</InlineCode> option.</Caption>
 
 #### Number
 
@@ -64,8 +64,8 @@ The `--number` option, shorthand `-n`, can be used to specify the number of log 
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --number 10" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--number</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --number 10" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--number</InlineCode> option.</Caption>
 
 #### Output
 
@@ -73,8 +73,8 @@ The `--output` option, shorthand `-o`, can be used to specify the format of the 
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --output raw" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--output</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --output raw" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--output</InlineCode> option.</Caption>
 
 #### Since
 
@@ -82,8 +82,8 @@ The `--since` option can be used to return logs only after a specific date, usin
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --since 2019-09-04T07:05:43+00:00" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--since</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --since 2019-09-04T07:05:43+00:00" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--since</InlineCode> option.</Caption>
 
 #### Query
 
@@ -91,8 +91,8 @@ The `--query` option, shorthand `-q`, can be used to return logs against a searc
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --query foo" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--query</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --query foo" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--query</InlineCode> option.</Caption>
 
 #### Until
 
@@ -100,5 +100,5 @@ The `--until` option can be used to return logs only up until a specific date, u
 
 ##### Usage Example
 
-<Snippet dark text="vc logs --until 2019-09-04T07:05:43+00:00" />
-<Caption>Using the <InlineCode>vc logs</InlineCode> command with the <InlineCode>--until</InlineCode> option.</Caption>
+<Snippet dark text="vercel logs --until 2019-09-04T07:05:43+00:00" />
+<Caption>Using the <InlineCode>vercel logs</InlineCode> command with the <InlineCode>--until</InlineCode> option.</Caption>

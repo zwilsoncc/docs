@@ -9,24 +9,24 @@ export const meta = {
 
 ## List
 
-The `vc list` command, which can be shortened to `vc ls`, is used to provide a list of your deployments along with information about them.
+The `vercel list` command, which can be shortened to `vercel ls`, is used to provide a list of your deployments along with information about them.
 
 ### Basic Usage
 
-<Snippet dark text="vc list" />
-<Caption>Using the <InlineCode>vc list</InlineCode> command to retrieve information about multiple deployments.</Caption>
+<Snippet dark text="vercel list" />
+<Caption>Using the <InlineCode>vercel list</InlineCode> command to retrieve information about multiple deployments.</Caption>
 
 ### Extended Usage
 
-<Snippet dark text="vc list [project-name]" />
-<Caption>Using the <InlineCode>vc list</InlineCode> command to retrieve information about deployments for a specific project.</Caption>
+<Snippet dark text="vercel list [project-name]" />
+<Caption>Using the <InlineCode>vercel list</InlineCode> command to retrieve information about deployments for a specific project.</Caption>
 
-<Snippet dark text="vc list [project-name] [--meta foo=bar]" />
-<Caption>Using the <InlineCode>vc list</InlineCode> command to retrieve information about deployments filtered by metadata.</Caption>
+<Snippet dark text="vercel list [project-name] [--meta foo=bar]" />
+<Caption>Using the <InlineCode>vercel list</InlineCode> command to retrieve information about deployments filtered by metadata.</Caption>
 
 ### Global Options
 
-The following [global options](#options) can be passed when using the `vc list` command:
+The following [global options](#options) can be passed when using the `vercel list` command:
 
 - `--debug`
 - `--global-config`
@@ -39,7 +39,7 @@ For more information on global options and their usage, refer to the [options se
 
 ### Unique Options
 
-These are options that only apply to the `vc list` command, therefore, more information is provided.
+These are options that only apply to the `vercel list` command, therefore, more information is provided.
 
 #### Listen
 
@@ -47,5 +47,5 @@ The `--meta` option, shorthand `-m`, can be used to filter results based on proj
 
 ##### Usage Example
 
-<Snippet dark text="vc list --meta key1=value1 key2=value2" />
-<Caption>Using the <InlineCode>vc list</InlineCode> command with the <InlineCode>--meta</InlineCode> option.</Caption>
+<Snippet dark text="vercel list --meta key1=value1 key2=value2" />
+<Caption>Using the <InlineCode>vercel list</InlineCode> command with the <InlineCode>--meta</InlineCode> option.</Caption>

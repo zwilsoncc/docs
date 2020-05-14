@@ -13,7 +13,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: `Learn how to deploy Serverless Functions with ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2020-05-09T00:03:56.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 With <ProductName />, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -168,15 +168,15 @@ The resulting deployment can be found here: <https://path-segment-with-node.now-
 
 If you have an `api` directory like the [above examples](#deploying-serverless-functions) on this page, you can run the following command to start a local development environment that supports your serverless API and allows you to develop locally, just make sure to install your project's dependencies first with `npm install`:
 
-<Snippet dark text="vc dev" />
+<Snippet dark text="vercel dev" />
 <Caption>Starting a local development environment using <ProductShortName /> CLI, for Serverless Functions.</Caption>
 
 <Note>
-  The <InlineCode>vc dev</InlineCode> command is still in beta. If you have any
-  feedback, <Link href="/feedback">please let us know</Link>.
+  The <InlineCode>vercel dev</InlineCode> command is still in beta. If you have
+  any feedback, <Link href="/feedback">please let us know</Link>.
 </Note>
 
-If you have a statically generated frontend that supports its own development environment, such as Next.js, we recommend creating a `dev` script within a `package.json` file at the root of your project that `vc dev` can use and extend:
+If you have a statically generated frontend that supports its own development environment, such as Next.js, we recommend creating a `dev` script within a `package.json` file at the root of your project that `vercel dev` can use and extend:
 
 ```json
 {
@@ -195,13 +195,14 @@ If you have a statically generated frontend that supports its own development en
 <Note>
   The above script example uses <InlineCode>--port $PORT</InlineCode> in the{' '}
   <InlineCode>dev</InlineCode> command. This uses the framework's – in this case
-  Next.js – port argument to pass the port from <InlineCode>vc dev</InlineCode>{' '}
-  so that it can properly fetch the running framework.
+  Next.js – port argument to pass the port from{' '}
+  <InlineCode>vercel dev</InlineCode> so that it can properly fetch the running
+  framework.
 </Note>
 
 ### Using Environment Variables Locally
 
-During local development with `vc dev`, you may wish to provide your application with environment variables. You can find instructions on how to do this in the [Environment Variables section of the Build Step documentation](/docs/v2/build-step#environment-variables).
+During local development with `vercel dev`, you may wish to provide your application with environment variables. You can find instructions on how to do this in the [Environment Variables section of the Build Step documentation](/docs/v2/build-step#environment-variables).
 
 ## Advanced Usage
 

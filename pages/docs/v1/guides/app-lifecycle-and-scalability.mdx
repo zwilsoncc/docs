@@ -9,7 +9,7 @@ export const meta = {
   description: `A guide for your app's deployment lifecycle on ${PRODUCT_SHORT_V1_NAME} and how to scale that deployment`,
   date: '09 March 2017',
   editUrl: 'pages/docs/v1/guides/app-lifecycle-and-scalability.mdx',
-  lastEdited: '2020-05-09T00:03:56.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 In this guide, we are going to have a look at how <ProductShortV1Name /> deploy and manage your app inside its infrastructure.
@@ -40,7 +40,7 @@ The deployment can also permanently move to a `DEPLOYMENT_ERROR` state if it sta
 
 ## Instances & Scaling
 
-A deployment by default runs between zero to one instance, meaning it either run one copy of the application or is frozen due to lack of traffic. This amount of instances can be decided manually using the `vc scale` command.
+A deployment by default runs between zero to one instance, meaning it either run one copy of the application or is frozen due to lack of traffic. This amount of instances can be decided manually using the `vercel scale` command.
 
 If the minimum and maximum amount of instances are not the same, the deployment will be automatically scaled between those values depending on the amount of traffic and its throughput. For example, if an application has been scaled with the following command:
 

@@ -9,7 +9,7 @@ export const meta = {
   description: `Using ${PRODUCT_SHORT_V1_NAME} logs to keep track of your deployment activity`,
   date: '4 August 2017',
   editUrl: 'pages/docs/v1/getting-started/logs.mdx',
-  lastEdited: '2020-05-09T00:03:56.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 Logs are important because it allows you to see what's happening inside the app, especially when a crisis happens. <ProductShortV1Name /> keeps logs of all of your deployments and allows you to search them.
@@ -18,7 +18,7 @@ Let's have a look at how you can access logs.
 
 ## Via CLI
 
-Accessing logs via the `vc` CLI is simple as invoking this command:
+Accessing logs via the `vercel` CLI is simple as invoking this command:
 
 <TerminalInput>now logs [deployment-url]</TerminalInput>
 
@@ -26,7 +26,7 @@ You can also use the domain name of your app to search logs:
 
 <TerminalInput>now logs my-web-app.com</TerminalInput>
 
-For more information on `vc logs`, run the help command with:
+For more information on `vercel logs`, run the help command with:
 
 <TerminalInput>now logs --help</TerminalInput>
 
@@ -37,7 +37,7 @@ For more information on `vc logs`, run the help command with:
   caption="The help command output of the 'now logs' command"
 />
 
-Here's an advanced `vc logs` command to let you inspect the last 10 HTTP GET requests.
+Here's an advanced `vercel logs` command to let you inspect the last 10 HTTP GET requests.
 
 <TerminalInput>now logs -a -q "GET" -n 10 my-web-app.com</TerminalInput>
 

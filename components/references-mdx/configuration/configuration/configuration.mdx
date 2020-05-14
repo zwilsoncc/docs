@@ -22,7 +22,7 @@ export const meta = {
     Project Linking
   </Link>
   , which allows you to link a <ProductName /> Project to your local codebase when
-  you run <InlineCode>vc</InlineCode>.
+  you run <InlineCode>vercel</InlineCode>.
 </Note>
 
 **Type**: `String`.
@@ -88,7 +88,7 @@ You can deploy to the defined aliases using [<ProductShortName /> CLI](/download
 
 This property determines the scope ([user or team](/docs/v2/platform/users-and-teams/)) under which the project will be deployed by [<ProductShortName /> CLI](/download).
 
-Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [Environment Variables](/docs/v2/build-step#environment-variables) using `vc secrets ls`).
+Furthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing [Environment Variables](/docs/v2/build-step#environment-variables) using `vercel secrets ls`).
 
 <Code lang="json">{`{
   "scope": "my-team"

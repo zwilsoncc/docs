@@ -16,7 +16,7 @@ export const meta = {
   description: `All you need to know about assigning domains to your ${PRODUCT_SHORT_V1_NAME} deployments`,
   date: '21 Feb 2017',
   editUrl: 'pages/docs/v1/features/aliases.mdx',
-  lastEdited: '2020-05-09T00:03:56.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 This guide covers how to assign two types of domains to your <ProductShortV1Name /> deployments.
@@ -48,7 +48,7 @@ These URLs are ideal for development and staging, but not ideal for end users.
 
 ## Creating Aliases
 
-Aliases are managed by invoking the command `vc alias`, which has the following syntax:
+Aliases are managed by invoking the command `vercel alias`, which has the following syntax:
 
 <TerminalInput>
   now alias &lt;SOURCE URL | ID&gt; &lt;TARGET SUBDOMAIN | DOMAIN&gt;
@@ -97,13 +97,13 @@ Notice that we omitted `.now.sh` at the end of the target subdomain. When one is
 
 As seen in the output, each alias receives a unique identifier. In the example above, it's `xpvB6GZWMR6Q9Oxe3c64Htgq`.
 
-It's usually known as the **deployment ID**, which is also accessible when you list your deployments with `vc ls`. It can be used in substitution of the URL when running `vc alias`:
+It's usually known as the **deployment ID**, which is also accessible when you list your deployments with `vercel ls`. It can be used in substitution of the URL when running `vercel alias`:
 
 <TerminalInput>
   now alias <b>xpvB6GZWMR6Q9Oxe3c64Htgq</b> get-started-basic
 </TerminalInput>
 
-For convenience, we parse the URLs you supply as parameters to `vc alias` to extract the hostname, which means the following are all valid **source URLs**:
+For convenience, we parse the URLs you supply as parameters to `vercel alias` to extract the hostname, which means the following are all valid **source URLs**:
 
 - Just the hostname: `get-started-basic-etjnigdrkz.now.sh`
 - Including http(s): `http://get-started-basic-etjnigdrkz.now.sh`
@@ -131,7 +131,7 @@ We ensure that **your domains are fully protected and only you can alias to them
 
 When you add an alias to a certain domain name, we first verify its ownership. If it's not been claimed by anyone, we associate it with your account.
 
-After executing the `alias` above, just run `vc domains ls` to see all the domains in your account:
+After executing the `alias` above, just run `vercel domains ls` to see all the domains in your account:
 
 <TerminalInput>now domains ls</TerminalInput>
 
@@ -150,8 +150,8 @@ After executing the `alias` above, just run `vc domains ls` to see all the domai
 As you can see, there are two types of domains:
 
 - **external**: the domain is associated with a third-party nameserver provider like DNSimple.
-- **zeit.world**: the domain is hosted with <Link href="/world">zeit.world</Link> and `vc alias` automatically sets up records.
+- **zeit.world**: the domain is hosted with <Link href="/world">zeit.world</Link> and `vercel alias` automatically sets up records.
 
-Once a domain appears under `vc domains ls`, **only you can point aliases to it** until you remove it from your account.
+Once a domain appears under `vercel domains ls`, **only you can point aliases to it** until you remove it from your account.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
