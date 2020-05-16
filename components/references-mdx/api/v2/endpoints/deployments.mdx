@@ -896,3 +896,26 @@ So, make sure related repository has access to Vercel.
 />
 
 > `gitSource.sha` field is optional.
+
+#### Deploying a Bitbucket repository
+
+<Request
+  url={`${API_ENDPOINT}/v12/now/deployments`}
+  method="POST"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
+  auth
+  body={{
+    name: 'my-sourceless-deployment',
+    gitSource: {
+      type: 'bitbucket',
+      owner: 'bitbucket-owner'
+      slug: 'bitbucket-slug',
+      ref: 'master',
+      sha: '246bd59caef39eb2c2c5097caacc25be31d75b30'
+    }
+  }}
+/>
+
+> `gitSource.sha` field is optional.
