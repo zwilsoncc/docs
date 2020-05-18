@@ -249,7 +249,7 @@ class Header extends Component {
               aria-label={`${ORG_NAME} Home`}
               onContextMenu={this.onLogoRightClick}
             >
-              <Logo height="25px" width="28px" />
+              <Logo height={25} />
             </a>
 
             {!isAmp && (
