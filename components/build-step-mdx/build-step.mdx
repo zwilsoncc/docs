@@ -85,12 +85,17 @@ If you’d like to override the Build Command, you can turn on the **Override** 
   deployment.
 </Note>
 
-**If build is not required**: Some projects do not require building. An example of this would be a website with basic HTML/CSS/JS/assets that can be deployed directly without building (For example, you might just have a single `index.html` file).
+##### Skip Build Step
+
+Some static projects do not require building. An example of this would be a website with only HTML/CSS/JS source files that can be served as-is (For example, you might just have a single `index.html` file).
 
 In such cases, you should:
 
 - Specify "Other" as the framework preset, and
-- Override the Build Command and leave it empty. This will make <ProductName /> to skip the build step.
+- Enable the Override option for the Build Command, and
+- Leave the Build Command empty.
+
+This will prevent the build from being attempted and serve your content as-is.
 
 #### Output Directory
 
