@@ -31,7 +31,7 @@ You can also use the terminal to check the nameservers for your domain according
 <Snippet dark text="dig @1.1.1.1 +short NS vercel.com" />
 <Caption>Querying Cloudflare DNS for the <InlineCode>vercel.com</InlineCode> nameservers.</Caption>
 
-<Snippet dark text="dig @8.8.8.8 +short NS vercel.com" />
+<Snippet dark text="dig @ns1.vercel-dns.com +short NS vercel.com" />
 <Caption>Querying Vercel DNS for the <InlineCode>vercel.com</InlineCode> nameservers.</Caption>
 
 ## CNAME Changes
@@ -48,7 +48,7 @@ You can also use the terminal to check the CNAME record for your domain accordin
 <Snippet dark text="dig @1.1.1.1 +short CNAME www.vercel.com" />
 <Caption>Querying Cloudflare DNS for the <InlineCode>www.vercel.com</InlineCode> CNAME record value.</Caption>
 
-<Snippet dark text="dig @a.zeit-world.com +short CNAME www.vercel.com" />
+<Snippet dark text="dig @ns1.vercel-dns.com +short CNAME www.vercel.com" />
 <Caption>Querying Vercel DNS for the <InlineCode>www.vercel.com</InlineCode> CNAME record value.</Caption>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>

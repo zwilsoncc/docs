@@ -29,7 +29,7 @@ You can also use the terminal to check the nameservers for your domain according
 <Snippet dark text="dig @1.1.1.1 +short NS vercel.com" />
 <Caption>Querying Cloudflare DNS for the <InlineCode>vercel.com</InlineCode> nameservers.</Caption>
 
-<Snippet dark text="dig @8.8.8.8 +short NS vercel.com" />
+<Snippet dark text="dig @ns1.vercel-dns.com +short NS vercel.com" />
 <Caption>Querying Vercel DNS for the <InlineCode>vercel.com</InlineCode> nameservers.</Caption>
 
 ### Other Records
@@ -57,8 +57,8 @@ You can also use the terminal to check the these records for your domain accordi
 <Snippet dark text="dig @1.1.1.1 +short SRV www.vercel.com" />
 <Caption>Querying Cloudflare DNS for the <InlineCode>www.vercel.com</InlineCode> SRV record value.</Caption>
 
-<Snippet dark text="dig @a.zeit-world.com +short ALIAS www.vercel.com" />
-<Caption>Querying Vercel DNS for the <InlineCode>www.vercel.com</InlineCode> ALIAS record value.</Caption>
+<Snippet dark text="dig @ns1.vercel-dns.com +short ALIAS vercel.com" />
+<Caption>Querying Vercel DNS for the <InlineCode>vercel.com</InlineCode> ALIAS record value.</Caption>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
