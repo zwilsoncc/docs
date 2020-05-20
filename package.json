@@ -92,7 +92,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node scripts/generate-site-map.js && git add lib/data/guides.json && lint-staged",
+      "pre-commit": "node scripts/generate-site-map.js && git add lib/data/guides.json && git add lib/data/knowledge.json && lint-staged",
       "post-commit": "yarn run update-mdx-meta post-commit"
     }
   },

@@ -1,7 +1,7 @@
 # Learn how to add code owners here:
 # https://help.github.com/en/articles/about-code-owners
 
-*                                            @chibicode
+*                                            @chibicode @mcsdevv
 pages/docs/v2/introduction.mdx               @joecohens @paulogdm @chibicode
 pages/docs/v2/build-step.mdx                 @leo @AndyBitz @TooTallNate @chibicode
 pages/docs/v2/custom-domains.mdx             @anatrajkovska @javivelasco @mglagola @joecohens @chibicode
@@ -16,3 +16,4 @@ pages/docs/api/                              @anatrajkovska @arunoda @javivelasc
 pages/docs/integrations/                     @arunoda @chibicode
 pages/docs/error/                            @juancampa @dav-is @joecohens @chibicode
 pages/guides/                                @timothyis @mcsdevv @coetry @chibicode
+pages/knowledge                              @mcsdevv @paulogdm @coetry @samsisle @williamli

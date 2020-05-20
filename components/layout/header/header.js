@@ -419,6 +419,13 @@ class Header extends Component {
               >
                 Guides
               </NavigationItem>
+              <NavigationItem
+                href="/knowledge"
+                active={router.pathname.startsWith('/knowledge')}
+                onClick={handleIndexClick}
+              >
+                Knowledge
+              </NavigationItem>
             </div>
 
             <div className="section">

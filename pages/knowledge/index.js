@@ -3,35 +3,37 @@ import formatDate from 'date-fns/format'
 import Head from '~/components/layout/head'
 import Wrapper from '~/components/layout/wrapper'
 import { H1, H3, P } from '~/components/text'
-import { AvatarGroup } from '~/components/avatar'
 import Link from '~/components/text/link'
 import Button from '~/components/buttons'
-import guides from '~/lib/data/guides.json'
+import knowledge from '~/lib/data/knowledge.json'
 import { PRODUCT_NAME } from '~/lib/constants'
+import Footer from '~/components/footer'
 
-const Guides = () => (
+const Knowledge = () => (
   <>
     <Head
       titlePrefix=""
       titleSuffix=""
-      title={`${PRODUCT_NAME} Guides`}
+      title={`${PRODUCT_NAME} Knowledge`}
       description={`Learn how to quickly deploy with ${PRODUCT_NAME} in any situation.`}
     />
 
-    <div className="guides">
-      <div className="guide-heading">
+    <div className="knowledge">
+      <div className="knowledge-heading">
         <Wrapper>
-          <H1>Guides</H1>
-          <P>A list of guides for using {PRODUCT_NAME} with any project.</P>
+          <H1>Knowledge Base</H1>
+          <P>
+            A collection of knowledge for using the {PRODUCT_NAME} platform.
+          </P>
 
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
             <Link
-              href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Guides&template=guide-report-or-request.md"
+              href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Knowledge.md"
               underlineOnHover={false}
             >
-              <Button secondary small>
-                Request a Guide
+              <Button type="secondary" small>
+                Request an Article
               </Button>
             </Link>
           </div>
@@ -39,73 +41,53 @@ const Guides = () => (
       </div>
 
       <Wrapper>
-        <div className="guide-list">
-          {guides.map((guide, i) => (
-            <Link href={guide.url} key={`${guide.title}.${i}`}>
+        <div className="knowledge-list">
+          {knowledge.map((k, i) => (
+            <Link href={k.url} key={`${k.title}.${i}`}>
               <article className="guide">
                 <div className="titles">
-                  <H3>{guide.title}</H3>
-                  <P>{guide.description}</P>
+                  <H3>{k.title}</H3>
+                  <P>{k.description}</P>
                 </div>
                 <div className="meta">
                   <span className="date">
-                    Created on {formatDate(guide.published, 'MMMM Do YYYY')}
+                    Added on {formatDate(k.published, 'MMMM Do YYYY')}
                   </span>
-                  <AvatarGroup
-                    size={24}
-                    members={guide.authors.map(author => {
-                      return { username: author }
-                    })}
-                  />
                 </div>
               </article>
             </Link>
           ))}
-
-          <Link href="https://github.com/zeit/docs/blob/master/CONTRIBUTING.md#guides">
-            <article className="guide contribute">
-              <div className="titles">
-                <H3>Write Your Guide →</H3>
-                <P>
-                  Write about using {PRODUCT_NAME} in combination with a
-                  technology of your choosing and get featured!
-                </P>
-              </div>
-              <div className="meta">
-                <span className="date" />
-                <div className="avatar">You</div>
-              </div>
-            </article>
-          </Link>
         </div>
       </Wrapper>
     </div>
+
+    <Footer />
 
     <style jsx>{`
       .titles {
         margin-right: var(--geist-gap);
       }
 
-      .guides {
+      .knowledge {
         min-height: 100vh;
         padding-bottom: 64px;
       }
 
-      .guides :global(span a) {
+      .knowledge :global(span a) {
         width: 100%;
       }
 
-      .guide-heading {
+      .knowledge-heading {
         border-bottom: 1px solid #eaeaea;
         padding-top: 48px;
         padding-bottom: 16px;
       }
 
-      .guide-heading :global(h1) {
+      .knowledge-heading :global(h1) {
         margin-bottom: 8px;
       }
 
-      .guide-heading :global(p) {
+      .knowledge-heading :global(p) {
         font-size: 16px;
         margin-top: 8px;
         color: #444444;
@@ -125,32 +107,18 @@ const Guides = () => (
         margin-right: 5px;
       }
 
-      .guide-list {
+      .knowledge-list {
         display: flex;
         flex-direction: column;
         width: 100%;
         padding-top: 8px;
       }
 
-      .guide-list > :global(*:not(:last-child)) .guide {
+      .knowledge-list > :global(*:not(:last-child)) .guide {
         border-bottom: 1px solid #eaeaea;
       }
 
-      .guide-list > :global(*:nth-last-child(2)) .guide {
-        border-color: transparent;
-      }
-
-      .guide-list > :global(*:nth-last-child(2)) .guide:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background-image: linear-gradient(to right, transparent 50%, #ddd 50%);
-        background-size: 8px 100%;
-      }
-
-      .guide-list :global(a):hover {
+      .knowledge-list :global(a):hover {
         text-decoration: none;
       }
 
@@ -177,7 +145,7 @@ const Guides = () => (
         width: auto;
       }
 
-      .guide:hover :global(h3) {
+      .guide:hover :global(h4) {
         text-decoration: underline;
       }
 
@@ -185,7 +153,7 @@ const Guides = () => (
         margin-top: 24px;
       }
 
-      .guide.contribute :global(h3) {
+      .guide.contribute :global(h4) {
       }
 
       .guide.contribute :global(p) {
@@ -207,8 +175,8 @@ const Guides = () => (
 
       .meta {
         display: flex;
-        flex: 1 0 auto;
-        flex-direction: column;
+        flex: 0 1 auto;
+        flex-direction: column-reverse;
         justify-content: space-between;
         align-items: flex-end;
       }
@@ -217,6 +185,7 @@ const Guides = () => (
         color: #666;
         font-size: var(--font-size-small);
         line-height: var(--line-height-primary);
+        margin-bottom: 2px;
       }
 
       @media (max-width: 768px) {
@@ -232,16 +201,12 @@ const Guides = () => (
           flex-direction: row;
           margin-top: 24px;
         }
-
-        .guide.contribute .meta .avatar {
-          display: none;
-        }
       }
     `}</style>
   </>
 )
 
-export default Guides
+export default Knowledge
 
 export const config = {
   amp: 'hybrid'

@@ -40,6 +40,7 @@ async function main() {
   try {
     files = await globby([
       'dist/guides/**/*.html',
+      'dist/knowledge/**/*.html',
       'dist/docs/v2/**/*.html',
       'dist/docs/api.html',
       'dist/docs/integrations.html',
@@ -63,6 +64,7 @@ async function main() {
       !!file.startsWith('dist/docs/integrations')
     const isDocs = !!file.startsWith('dist/docs/v2')
     const isGuides = !!file.startsWith('dist/guides')
+    const isKnowledge = !!file.startsWith('dist/knowledge')
 
     // Fetch file contents and load it with cheerio
     const content = fs.readFileSync(file)
@@ -132,7 +134,8 @@ async function main() {
             (isAPISection && 'api') ||
               (isRefSection && 'reference') ||
               (isDocs && 'docs') ||
-              (isGuides && 'guide')
+              (isGuides && 'guide') ||
+              (isKnowledge && 'knowledge')
           ]
         }
 
@@ -146,6 +149,7 @@ async function main() {
   })
 
   // Test file
+  // Before uncommenting the next line, make sure all Algolia lines are commented out. (18 -> 21, 156 -> 167)
   // fs.writeFileSync(`test.json`, JSON.stringify(index))
 
   // Get settings of main index and set them to the temp index
