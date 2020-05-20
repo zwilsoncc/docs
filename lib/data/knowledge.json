@@ -1,5 +1,85 @@
 [
   {
+    "title": "How long will it take for my Vercel DNS records to update?",
+    "description": "Information on the length of time it may take for Vercel DNS changes to take place.",
+    "editUrl": "pages/docs/knowledge/how-long-to-update-dns-records.mdx",
+    "url": "/knowledge/how-long-to-update-dns-records",
+    "published": "2020-05-20T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "Does Vercel offer a free trial?",
+    "description": "Information on Vercel pricing and how your team can get started free of charge.",
+    "editUrl": "pages/docs/knowledge/does-vercel-offer-free-trial.mdx",
+    "url": "/knowledge/does-vercel-offer-free-trial",
+    "published": "2020-05-19T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "How do I use a Cloudflare domain with Vercel?",
+    "description": "Information on how to use a Cloudflare domain with a Vercel deployment.",
+    "editUrl": "pages/docs/knowledge/using-cloudflare-with-vercel.mdx",
+    "url": "/knowledge/using-cloudflare-with-vercel",
+    "published": "2020-05-19T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "How do I use email with my Vercel purchased domain?",
+    "description": "Information on how to receive email with a domain purchased from Vercel.",
+    "editUrl": "pages/docs/knowledge/using-email-with-your-vercel-domain.mdx",
+    "url": "/knowledge/using-email-with-your-vercel-domain",
+    "published": "2020-05-18T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "Why is my Vercel domain not verified?",
+    "description": "Information on why a Vercel domain may not be verified and how to verify it.",
+    "editUrl": "pages/docs/knowledge/why-is-my-vercel-domain-unverified.mdx",
+    "url": "/knowledge/why-is-my-vercel-domain-unverified",
+    "published": "2020-05-17T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "What is the best way to get support from Vercel?",
+    "description": "Information on how to get help from Vercel Support through the available channels.",
+    "editUrl": "pages/docs/knowledge/how-to-get-vercel-support.mdx",
+    "url": "/knowledge/how-to-get-vercel-support",
+    "published": "2020-05-16T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "How can I manage my Vercel DNS records?",
+    "description": "Information on how to view, add, and remove Vercel DNS records.",
+    "editUrl": "pages/docs/knowledge/how-to-manage-vercel-dns-records.mdx",
+    "url": "/knowledge/how-to-manage-vercel-dns-records",
+    "published": "2020-05-15T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "How do I use private dependencies with Vercel?",
+    "description": "Information on how to use private dependencies with a Vercel deployment.",
+    "editUrl": "pages/docs/knowledge/using-private-dependencies-with-vercel.mdx",
+    "url": "/knowledge/using-private-dependencies-with-vercel",
+    "published": "2020-05-15T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "Where can I find my logs on Vercel?",
+    "description": "Information on where to find Vercel logs and how they work.",
+    "editUrl": "pages/docs/knowledge/where-are-vercel-logs.mdx",
+    "url": "/knowledge/where-are-vercel-logs",
+    "published": "2020-05-14T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "Why am I unable to signup to the Vercel platform?",
+    "description": "Information on what to do if you are experiencing issues signing up to the Vercel platform.",
+    "editUrl": "pages/docs/knowledge/why-can-i-not-signup.mdx",
+    "url": "/knowledge/why-can-i-not-signup",
+    "published": "2020-05-14T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "How do I create a minimal reproducible example for Vercel Support?",
     "description": "Information on how to create a minimal reproducible example for Vercel Support.",
     "editUrl": "pages/docs/knowledge/creating-a-minimal-reproducible-example.mdx",
@@ -8,42 +88,10 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
-    "title": "Does Vercel offer a free trial?",
-    "description": "Information on Vercel pricing and how your team can get started free of charge.",
-    "editUrl": "pages/docs/knowledge/does-vercel-offer-free-trial.mdx",
-    "url": "/knowledge/does-vercel-offer-free-trial",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "How long will it take for my Vercel DNS records to update?",
-    "description": "Information on the length of time it may take for Vercel DNS changes to take place.",
-    "editUrl": "pages/docs/knowledge/how-long-to-update-dns-records.mdx",
-    "url": "/knowledge/how-long-to-update-dns-records",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
     "title": "How do I debug a 502 error from a Vercel Serverless Function?",
     "description": "Information on how to debug a 502 error from a Vercel Serverless Function.",
     "editUrl": "pages/docs/knowledge/how-to-debug-a-502-error.mdx",
     "url": "/knowledge/how-to-debug-a-502-error",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "What is the best way to get support from Vercel?",
-    "description": "Information on how to get help from Vercel Support through the available channels.",
-    "editUrl": "pages/docs/knowledge/how-to-get-vercel-support.mdx",
-    "url": "/knowledge/how-to-get-vercel-support",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "How can I manage my Vercel DNS records?",
-    "description": "Information on how to view, add, and remove Vercel DNS records.",
-    "editUrl": "pages/docs/knowledge/how-to-manage-vercel-dns-records.mdx",
-    "url": "/knowledge/how-to-manage-vercel-dns-records",
     "published": "2020-05-13T18:54:36.000Z",
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
@@ -64,30 +112,6 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
-    "title": "How do I use a Cloudflare domain with Vercel?",
-    "description": "Information on how to use a Cloudflare domain with a Vercel deployment.",
-    "editUrl": "pages/docs/knowledge/using-cloudflare-with-vercel.mdx",
-    "url": "/knowledge/using-cloudflare-with-vercel",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "How do I use email with my Vercel purchased domain?",
-    "description": "Information on how to receive email with a domain purchased from Vercel.",
-    "editUrl": "pages/docs/knowledge/using-email-with-your-vercel-domain.mdx",
-    "url": "/knowledge/using-email-with-your-vercel-domain",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "How do I use private dependencies with Vercel?",
-    "description": "Information on how to use private dependencies with a Vercel deployment.",
-    "editUrl": "pages/docs/knowledge/using-private-dependencies-with-vercel.mdx",
-    "url": "/knowledge/using-private-dependencies-with-vercel",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
     "title": "How long does it take to get a response from Vercel Support?",
     "description": "Information on how long it might take Vercel Support to respond to your request.",
     "editUrl": "pages/docs/knowledge/vercel-support-queue-time.mdx",
@@ -96,34 +120,10 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
-    "title": "Where can I find my logs on Vercel?",
-    "description": "Information on where to find Vercel logs and how they work.",
-    "editUrl": "pages/docs/knowledge/where-are-vercel-logs.mdx",
-    "url": "/knowledge/where-are-vercel-logs",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "Why am I unable to signup to the Vercel platform?",
-    "description": "Information on what to do if you are experiencing issues signing up to the Vercel platform.",
-    "editUrl": "pages/docs/knowledge/why-can-i-not-signup.mdx",
-    "url": "/knowledge/why-can-i-not-signup",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
     "title": "Why has my account or deployment been blocked?",
     "description": "Information on why a Vercel account or deployment may have been blocked.",
     "editUrl": "pages/docs/knowledge/why-is-my-account-deployment-blocked.mdx",
     "url": "/knowledge/why-is-my-account-deployment-blocked",
-    "published": "2020-05-13T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "Why is my Vercel domain not verified?",
-    "description": "Information on why a Vercel domain may not be verified and how to verify it.",
-    "editUrl": "pages/docs/knowledge/why-is-my-vercel-domain-unverified.mdx",
-    "url": "/knowledge/why-is-my-vercel-domain-unverified",
     "published": "2020-05-13T18:54:36.000Z",
     "lastEdited": "2020-05-13T18:54:36.000Z"
   }
