@@ -1,5 +1,13 @@
 [
   {
+    "title": "Why does npm run start not work on Vercel?",
+    "description": "Information on why commands that start servers may not work with Vercel.",
+    "editUrl": "pages/knowledge/npm-run-start-not-working.mdx",
+    "url": "/knowledge/npm-run-start-not-working",
+    "published": "2020-05-21T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "How long will it take for my Vercel DNS records to update?",
     "description": "Information on the length of time it may take for Vercel DNS changes to take place.",
     "editUrl": "pages/knowledge/how-long-to-update-dns-records.mdx",
