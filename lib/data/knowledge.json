@@ -1,5 +1,13 @@
 [
   {
+    "title": "Can I deploy a locally built Next.js app to Vercel?",
+    "description": "Information on deploying a locally built Next.js app to Vercel.",
+    "editUrl": "pages/knowledge/deploying-locally-built-nextjs.mdx",
+    "url": "/knowledge/deploying-locally-built-nextjs",
+    "published": "2020-05-21T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "Why does npm run start not work on Vercel?",
     "description": "Information on why commands that start servers may not work with Vercel.",
     "editUrl": "pages/knowledge/npm-run-start-not-working.mdx",
