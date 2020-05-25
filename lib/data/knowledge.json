@@ -1,5 +1,13 @@
 [
   {
+    "title": "How do I choose which region to deploy my Serverless Functions in?",
+    "description": "Information on selecting a region to deploy your Serverless Functions to.",
+    "editUrl": "pages/knowledge/choosing-deployment-regions.mdx",
+    "url": "/knowledge/choosing-deployment-regions",
+    "published": "2020-05-25T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "How do I reverse a Vercel account deletion?",
     "description": "Information on reversing a recent account deletion.",
     "editUrl": "pages/knowledge/how-to-reverse-account-deletion.mdx",
