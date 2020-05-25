@@ -1,5 +1,13 @@
 [
   {
+    "title": "How do I reverse an account deletion?",
+    "description": "Information on reversing a recent account deletion.",
+    "editUrl": "pages/knowledge/how-to-reverse-account-deletion.mdx",
+    "url": "/knowledge/how-to-reverse-account-deletion",
+    "published": "2020-05-24T18:54:36.000Z",
+    "lastEdited": "2020-05-24T18:54:36.000Z"
+  },
+  {
     "title": "Can I deploy a locally built Next.js app to Vercel?",
     "description": "Information on deploying a locally built Next.js app to Vercel.",
     "editUrl": "pages/knowledge/deploying-locally-built-nextjs.mdx",
