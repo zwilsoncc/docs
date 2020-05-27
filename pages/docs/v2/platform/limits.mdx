@@ -4,15 +4,22 @@ import Note from '~/components/text/note'
 import ProductName from '~/components/name/product-name'
 import { PRODUCT_NAME } from '~/lib/constants'
 import EmailLink from '~/components/text/email-link'
+import Link from '~/components/text/link'
 
 export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-05-13T17:43:01.000Z'
+  lastEdited: '2020-05-27T09:23:46.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
+
+<Note>
+  If your project is likely to exceed these limits, please{' '}
+  <Link href="/support/request">contact Vercel Support</Link> to discuss an
+  increase.
+</Note>
 
 ## General Limits
 
