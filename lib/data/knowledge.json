@@ -1,5 +1,13 @@
 [
   {
+    "title": "Can Vercel sponsor my project?",
+    "description": "Information on how Vercel can sponsor your project and how to apply.",
+    "editUrl": "pages/knowledge/can-vercel-sponsor-my-project.mdx",
+    "url": "/knowledge/can-vercel-sponsor-my-project",
+    "published": "2020-05-27T18:54:36.000Z",
+    "lastEdited": "2020-05-24T18:54:36.000Z"
+  },
+  {
     "title": "Why am I no longer receiving email after verifying my Vercel domain?",
     "description": "Information on why you may not be receiving email after verifying your domain with Vercel.",
     "editUrl": "pages/knowledge/why-has-email-stopped-working.mdx",
