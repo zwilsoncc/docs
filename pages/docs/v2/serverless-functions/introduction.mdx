@@ -13,7 +13,7 @@ export const meta = {
   title: 'Serverless Functions',
   description: `Learn how to deploy Serverless Functions with ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/serverless-functions/introduction.mdx',
-  lastEdited: '2020-05-09T14:31:59.000Z'
+  lastEdited: '2020-05-27T09:15:23.000Z'
 }
 
 With <ProductName />, you can deploy Serverless Functions, which are pieces of code written with [backend languages](/docs/v2/serverless-functions/supported-languages/#supported-languages) that take an HTTP request and provide a response.
@@ -108,16 +108,6 @@ You can get started with many of the <ProductName /> examples by deploying them 
 
 You can configure Environment Variables for your Serverless Functions directly from Project Settings.
 Check out [the Environment Variables section of our Build Step documentation](/docs/v2/build-step#environment-variables) to learn more.
-
-## Prevent Endpoint Listing
-
-By default, all files inside of the `/api` directory will be made available as Serverless Functions.
-
-If this behavior is not desired, for example you want a utilities folder inside of the `/api` directory, you can prefix files or folders with either `_` or `.` to prevent them from being created as Serverless Functions.
-
-Therefore, if you keep your utility functions inside of `/api/_utils`, none of them will be created as Serverless Functions. This is because the parent folder is prefixed with `_`.
-
-If you kept your utility functions inside of `/api/utils`, one called `date.js` and the other `_time.js`, only `date.js` would be created as a Serverless Function.
 
 ## Path Segments
 
