@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-05-09T14:31:59.000Z'
+  lastEdited: '2020-05-28T23:06:10.000Z'
 }
 
 ## Platform Version Detection
@@ -119,3 +119,53 @@ This ensures no requests are accidentally accepted.
 ## Unused Project Settings with Non-Zero-Config Deployments
 
 Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.
+
+## Invalid Route Source Pattern
+
+The `source` property follows the syntax from [path-to-regexp](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0), not the `RegExp` syntax.
+
+For example, negative lookaheads must be wrapped in a group.
+
+**Before**
+
+```json
+{
+  "source": "/feedback/(?!general)",
+  "destination": "/api/feedback/general"
+}
+```
+
+**After**
+
+```json
+{
+  "source": "/feedback/((?!general).*)",
+  "destination": "/api/feedback/general"
+}
+```
+
+## Invalid Route Destination Segment
+
+The `source` property follows the syntax from [path-to-regexp](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0).
+
+This means that a colon (`:`) defines the start of a [named segment parameter](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0#named-parameters).
+
+A named segment parameter defined in the `destination` property must also be defined in the `source` property.
+
+**Before**
+
+```json
+{
+  "source": "/feedback/:type",
+  "destination": "/api/feedback/:id"
+}
+```
+
+**After**
+
+```json
+{
+  "source": "/feedback/:id",
+  "destination": "/api/feedback/:id"
+}
+```
