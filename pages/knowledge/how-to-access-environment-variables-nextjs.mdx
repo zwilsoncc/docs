@@ -1,0 +1,42 @@
+import Layout from '~/components/layout/knowledge'
+import Code from '~/components/code/code'
+import Note from '~/components/text/note'
+import Link from '~/components/text/link'
+
+export const meta = {
+  title: 'How do I access my environment variables in my Next.js deployment?',
+  description:
+    'Information on how to access your environment variables in your Next.js deployment.',
+  editUrl: 'pages/knowledge/how-to-access-environment-variables-nextjs.mdx',
+  url: '/knowledge/how-to-access-environment-variables-nextjs',
+  published: '2020-05-28T18:54:36.000Z',
+  lastEdited: '2020-05-28T18:54:36.000Z'
+}
+
+The recommended method for defining environment variables in Next.js deployments is via the [Environment Variables UI](/docs/v2/build-step#environment-variables). There are two things to understand for environment variables in Next.js — build time and runtime.
+
+## Build Time
+
+<Code>Hello World!</Code>
+
+## Runtime
+
+TODO
+
+<Note type="secondary">
+  This Knowledge Base article is for Next.js versions 9.4 and up. If you're
+  using an older version of Next.js, refer to{' '}
+  <Link
+    href="https://nextjs.org/docs/basic-features/environment-variables"
+    underline={true}
+  >
+    Environment Variables in next.config.js
+  </Link>
+  .
+</Note>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+
+export const config = {
+  amp: 'hybrid'
+}
