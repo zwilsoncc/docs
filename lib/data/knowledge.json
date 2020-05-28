@@ -1,11 +1,19 @@
 [
   {
+    "title": "How do I access my environment variables in my Next.js deployment?",
+    "description": "Information on how to access your environment variables in your Next.js deployment.",
+    "editUrl": "pages/knowledge/how-to-access-environment-variables-nextjs.mdx",
+    "url": "/knowledge/how-to-access-environment-variables-nextjs",
+    "published": "2020-05-28T18:54:36.000Z",
+    "lastEdited": "2020-05-28T18:54:36.000Z"
+  },
+  {
     "title": "Can Vercel sponsor my project?",
     "description": "Information on how Vercel can sponsor your project and how to apply.",
     "editUrl": "pages/knowledge/can-vercel-sponsor-my-project.mdx",
     "url": "/knowledge/can-vercel-sponsor-my-project",
     "published": "2020-05-27T18:54:36.000Z",
-    "lastEdited": "2020-05-24T18:54:36.000Z"
+    "lastEdited": "2020-05-27T18:54:36.000Z"
   },
   {
     "title": "Why am I no longer receiving email after verifying my Vercel domain?",
