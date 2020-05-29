@@ -1,0 +1,33 @@
+import Layout from ‘~/components/layout/knowledge’
+import { InlineCode } from ‘~/components/text/code’
+import Caption from ‘~/components/text/caption’
+import Snippet from ‘~/components/snippet’
+import Note from ‘~/components/text/note’
+
+export const meta = {
+  title: ‘Can I receive emails when my site is hosted on Vercel? Is there a Vercel SMTP server that I can access for sending out transactional emails? Can I run a SMTP server on Vercel to handle email blasts? Can I send emails out from my app deployed on Vercel?’,
+  description:
+    ‘Information related to the handling of emails when your domain is pointed to Vercel.’,
+  editUrl: ‘pages/knowledge/email-on-vercel.mdx’,
+  url: ‘/knowledge/email-on-vercel’,
+  published: ‘’,
+  lastEdited: ‘2020-05-29T09:47:00.000Z’
+}
+
+## Email Hosting Solutions
+
+Contrary to traditional web hosting services, Vercel does not provide email hosting to domains pointed to our platform. A separate third-party email hosting solution is required for your domains to send and receive emails. Your domains will need to have their DNS records mapped to the selected email hosting solution provider. For domains using the Vercel nameservers, you can manage your DNS records by using the [Vercel CLI](/download) and the [`vercel dns` commands](/docs/cli#commands/dns). 
+
+## Sending Out Transactional Emails from Deployed Apps
+
+Vercel is a cloud platform for *static sites* and *Serverless Functions* only. We do not provide SMTP service nor allow SMTP servers to run on our platform. Please consider using third-party transactional email solutions like SendGrid and Amazon SES instead.
+
+<Note type=“warning”>
+  When migrating your domain over to our platform, please ensure all your mail-related DNS records have been correctly set to avoid disruption to your email service.
+</Note>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+
+export const config = {
+  amp: ‘hybrid’
+}
