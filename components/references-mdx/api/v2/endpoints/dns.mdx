@@ -113,7 +113,7 @@ Create a DNS record for a domain specified in the URL.
 | **name**  | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A subdomain name or an empty string for the root domain.                                                        |
 | **type**  | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | The type of record, it could be [any valid DNS record](https://en.wikipedia.org/wiki/List_of_DNS_record_types). |
 | **value** | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | The record value.                                                                                               |
-| **ttl**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | No       | The TTL value. Default value is 60.                                                                             |
+| **ttl**   | <HelpLink href="#api-basics/types">Number</HelpLink>       | No       | The TTL value. Must be a number between 60 and 2147483647. Default value is 60.                                 |
 
 ##### Value
 
