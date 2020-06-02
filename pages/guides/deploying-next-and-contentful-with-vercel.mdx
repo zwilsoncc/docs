@@ -123,8 +123,8 @@ import Head from 'next/head'
 import Post from '../components/post'
 
 const client = require('contentful').createClient({
-  space: process.env.SPACE_ID,
-  accessToken: process.env.ACCESS_TOKEN
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 })
 
 function HomePage() {
@@ -250,8 +250,8 @@ Add a `vercel.json` file at the root of your project directory with the followin
 {
   "build": {
     "env": {
-      "CONTENTFUL_SPACE_ID": "@contentful_space_id",
-      "CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
+      "NEXT_PUBLIC_CONTENTFUL_SPACE_ID": "@contentful_space_id",
+      "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
     }
   }
 }
@@ -284,8 +284,8 @@ Next, you will make your API keys available to your app during local development
 Create a `.env.build` file at the root of your project directory with the following code, adding your API keys where instructed:
 
 ```bash
-CONTENTFUL_SPACE_ID=your-space-id
-CONTENTFUL_ACCESS_TOKEN=your-access-token
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID=your-space-id
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=your-access-token
 ```
 
 <Caption>
@@ -295,12 +295,12 @@ CONTENTFUL_ACCESS_TOKEN=your-access-token
 
 Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [Secrets](/docs/cli#commands/secrets) with the commands below:
 
-<Snippet dark text="vercel secrets add CONTENTFUL_SPACE_ID your-space-id" />
+<Snippet dark text="vercel secrets add contentful_space_id your-space-id" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_SPACE_ID</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
+  Adding the <InlineCode>contentful_space_id</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
 
-<Snippet dark text="vercel secrets add CONTENTFUL_ACCESS_TOKEN your-access-token" />
+<Snippet dark text="vercel secrets add contentful_access_token your-access-token" />
 <Caption>
   Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
