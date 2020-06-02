@@ -1,5 +1,45 @@
 [
   {
+    "title": "How can I move a domain to a Vercel team?",
+    "description": "Information on how to move domains between accounts on Vercel.",
+    "editUrl": "pages/knowledge/how-can-i-move-a-domain-to-a-team.mdx",
+    "url": "/knowledge/how-can-i-move-a-domain-to-a-team",
+    "published": "2020-06-02T17:56:25.312Z",
+    "lastEdited": "2020-06-02T17:56:25.312Z"
+  },
+  {
+    "title": "How can I enable CORS on Serverless Functions?",
+    "description": "Information on how to enable CORS on Vercel Serverless Functions.",
+    "editUrl": "pages/knowledge/how-to-enable-cors.mdx",
+    "url": "/knowledge/how-to-enable-cors",
+    "published": "2020-06-02T17:45:25.312Z",
+    "lastEdited": "2020-06-02T17:45:25.312Z"
+  },
+  {
+    "title": "How can I use files in Serverless Functions on Vercel?",
+    "description": "Information on how to import files at runtime when using Serverless Functions on Vercel.",
+    "editUrl": "pages/knowledge/how-can-i-use-files-in-serverless-functions.mdx",
+    "url": "/knowledge/how-can-i-use-files-in-serverless-functions",
+    "published": "2020-06-02T17:29:25.312Z",
+    "lastEdited": "2020-06-02T17:29:25.312Z"
+  },
+  {
+    "title": "Can I use SMTP with Vercel?",
+    "description": "Information on SMTP and email usage in Serverless Functions.",
+    "editUrl": "pages/knowledge/serverless-functions-and-smtp.mdx",
+    "url": "/knowledge/serverless-functions-and-smtp",
+    "published": "2020-06-02T17:29:25.312Z",
+    "lastEdited": "2020-06-02T17:29:25.312Z"
+  },
+  {
+    "title": "What is the status of the Vercel platform?",
+    "description": "Information on the status of the Vercel platform.",
+    "editUrl": "pages/knowledge/what-is-the-vercel-platform-status.mdx",
+    "url": "/knowledge/what-is-the-vercel-platform-status",
+    "published": "2020-06-02T17:24:25.312Z",
+    "lastEdited": "2020-06-02T17:24:25.312Z"
+  },
+  {
     "title": "Can Vercel sponsor my project?",
     "description": "Information on how Vercel can sponsor your project and how to apply.",
     "editUrl": "pages/knowledge/can-vercel-sponsor-my-project.mdx",
