@@ -21,6 +21,10 @@ const docsRedirects = [
   [
     'v2/git-integrations/zeit-now-for-gitlab',
     'v2/git-integrations/vercel-for-gitlab'
+  ],
+  [
+    'error/application/NO_STATUS_CODE_FROM_FUNCTION',
+    'error/application/NO_RESPONSE_FROM_FUNCTION'
   ]
 ].map(([before, after]) => ({
   source: `/docs/${before}{/}?`,
@@ -129,6 +133,10 @@ const guidesRedirects = [
   [
     'vue-js-html-forms-with-formcarry-zeit-now',
     'vue-js-html-forms-with-formcarry-vercel'
+  ],
+  [
+    'prevent-uploading-sourcepaths-with-nowignore',
+    'prevent-uploading-sourcepaths-with-vercelignore'
   ]
 ].map(([before, after]) => ({
   source: `/guides/${before}{/}?`,
@@ -435,6 +443,11 @@ module.exports = withMDX({
           source: '/docs/v2/serverless-functions/env-and-secrets',
           permanent: true,
           destination: '/docs/v2/build-step#environment-variables'
+        },
+        {
+          source: '/docs/now-cli/:path*',
+          permanent: true,
+          destination: '/docs/cli/:path*'
         }
       ]
     }
@@ -447,10 +460,9 @@ module.exports = withMDX({
 
   env: {
     NOW_GITHUB_COMMIT_SHA: process.env.NOW_GITHUB_COMMIT_SHA,
-    API_URL: process.env.API_URL,
-    IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
-    VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',
-    RAW_ASSETS_URL: 'https://assets.zeit.co/raw/upload/front',
+    IMAGE_ASSETS_URL: 'https://assets.vercel.com/image/upload/front',
+    VIDEO_ASSETS_URL: 'https://assets.vercel.com/video/upload/front',
+    RAW_ASSETS_URL: 'https://assets.vercel.com/raw/upload/front',
     ASSETS: isProd ? '/docs/static' : '/static'
   },
 

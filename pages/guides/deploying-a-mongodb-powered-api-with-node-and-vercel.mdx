@@ -21,7 +21,7 @@ export const meta = {
   type: 'API',
   editUrl:
     'pages/guides/deploying-a-mongodb-powered-api-with-node-and-vercel.mdx',
-  lastEdited: '2020-04-23T17:50:44.000Z'
+  lastEdited: '2020-05-14T23:00:11.000Z'
 }
 
 In this guide, we will walk you through creating and [deploying](/docs/v2/deployments/basics/) a [Node.js](https://nodejs.org/) API powered by [MongoDB](https://www.mongodb.com/), on [<ProductName />](/).
@@ -72,9 +72,9 @@ You can get the connection string by clicking "Connect" on the Cluster Overview 
 />
 <Caption>Getting the connection string from the MongoDB Atlas connection modal.</Caption>
 
-To use your MongoDB connection string without hard-coding it in your project, you can add your connection string to the project as a [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [<ProductShortName /> CLI](/download#now-cli) to keep them secure:
+To use your MongoDB connection string without hard-coding it in your project, you can add your connection string to the project as a [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [<ProductShortName /> CLI](/download) to keep them secure:
 
-<Snippet dark text="now secrets add my-mongodb-uri mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<database-name>?retryWrites=true" />
+<Snippet dark text="vercel secrets add my-mongodb-uri mongodb+srv://<user>:<password>@my-cluster-uf345.mongodb.net/<database-name>?retryWrites=true" />
 <Caption>
   Adding a <Link href="/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">secret</Link>, using the MongoDB connection string, to the project.
 </Caption>
@@ -84,7 +84,7 @@ To use your MongoDB connection string without hard-coding it in your project, yo
   string.
 </Note>
 
-Finally, set up [the `now.json` configuration file](/docs/configuration) that instructs <ProductName /> to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
+Finally, set up [the `vercel.json` configuration file](/docs/configuration) that instructs <ProductName /> to make available the [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) you defined:
 
 ```json
 {
@@ -99,7 +99,7 @@ Finally, set up [the `now.json` configuration file](/docs/configuration) that in
 <Caption>
   A{' '}
   <Link href="/docs/configuration">
-    <InlineCode>now.json</InlineCode> configuration file
+    <InlineCode>vercel.json</InlineCode> configuration file
   </Link>{' '}
   for development and deployment.
 </Caption>
@@ -189,8 +189,8 @@ module.exports = async (req, res) => {
   In the code snippet above, you probably noticed that we used{' '}
   <InlineCode>res.status()</InlineCode> and <InlineCode>res.json()</InlineCode>{' '}
   to send a response. These methods are automatically added for you when you use
-  <InlineCode>@now/node</InlineCode>. Read more about this in the <Link href="/docs/v2/deployments/official-runtimes/node-js-now-node#helpers">
-    <InlineCode>@now/node</InlineCode> Runtime documentation page
+  <InlineCode>@vercel/node</InlineCode>. Read more about this in the <Link href="/docs/v2/deployments/official-runtimes/node-js-now-node#helpers">
+    <InlineCode>@vercel/node</InlineCode> Runtime documentation page
   </Link>.
 </Note>
 
@@ -198,7 +198,7 @@ module.exports = async (req, res) => {
 
 Now that you have your MongoDB database, an API endpoint, and configuration all done, you can start to [develop your API, and apps, locally](/docs/v2/development/basics).
 
-Using <ProductShortName /> CLI, you can start a development process from your terminal that mimics your production environment using the configuration you provided in your `now.json` file.
+Using <ProductShortName /> CLI, you can start a development process from your terminal that mimics your production environment using the configuration you provided in your `vercel.json` file.
 
 To start developing, create a `.env` file containing the `MONGODB_URI` environment variable and the connection string you want to use locally:
 
@@ -216,7 +216,7 @@ This file allows the <ProductName /> development process to use the environment 
 
 Next, run the <ProductShortName /> CLI development command from the terminal:
 
-<Snippet dark text="now dev" />
+<Snippet dark text="vercel dev" />
 <Caption>Starting <ProductShortName /> CLI's dev process from the terminal.</Caption>
 
 After starting the development process, <ProductShortName /> CLI will provide you with a localhost address for where your app is running. This is commonly <http://localhost:3000> unless the port is taken.

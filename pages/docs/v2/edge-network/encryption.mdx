@@ -11,7 +11,7 @@ export const meta = {
   title: 'Encryption',
   description: `Every ${PRODUCT_NAME} deployment is served of a HTTPS Connection.`,
   editUrl: 'pages/docs/v2/edge-network/encryption.mdx',
-  lastEdited: '2020-04-15T21:13:16.000Z'
+  lastEdited: '2020-05-08T23:58:00.000Z'
 }
 
 Out of the box, every **Deployment** on <ProductName /> is served over an HTTPS connection. The [SSL](https://en.wikipedia.org/wiki/Transport_Layer_Security) certificates for these unique URLs are automatically generated free of charge.
@@ -104,7 +104,7 @@ Theoretically, you could set the `max-age` parameter to a different value (it 
 
 The unique URLs generated when creating a deployment are handled using a wildcard certificate issued for the `.now.sh` domain. The **<ProductName />** platform generates wildcard certificates using [LetsEncrypt](https://letsencrypt.org/) and keeps them updated automatically.
 
-When custom certificates are generated using `now certs issue`, however, their keys are placed in our database and [encrypted at rest](https://en.wikipedia.org/wiki/Data_at_rest#Encryption) within the Network layer.
+When custom certificates are generated using `vercel certs issue`, however, their keys are placed in our database and [encrypted at rest](https://en.wikipedia.org/wiki/Data_at_rest#Encryption) within the Network layer.
 
 Then, once a hostname is requested, the certificate and key are read from the database and used for establishing the secure connection. In addition, both are cached in memory for optimal SSL termination performance.
 

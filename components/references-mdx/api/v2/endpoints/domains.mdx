@@ -100,7 +100,7 @@ The response of this API can be controlled with the following optional query par
 Register a new domain name with <ProductName /> for the authenticating
 user. The field `serviceType` selects whether the domains are going to use
 zeit.world DNS or an external nameserver. In the latter case a `CNAME/ALIAS`
-record(s) are expected to point towards `alias.zeit.co`.
+record(s) are expected to point towards `cname.vercel-dns.com`.
 
 If an external nameserver is used the user must verify the domain name
 by creating a TXT record for `_now` subdomain containing a

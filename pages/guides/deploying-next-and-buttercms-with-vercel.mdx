@@ -14,13 +14,13 @@ export const meta = {
   title: `Create a Next.js and ButterCMS App That Builds and Deploys with ${PRODUCT_NAME}`,
   description: `Deploy your Next.js and ButterCMS app with ${PRODUCT_NAME} in a serverless environment.`,
   published: '2019-06-21T16:51:04.000Z',
-  authors: ['msweeneydev'],
+  authors: ['mcsdev'],
   url: '/guides/deploying-next-and-buttercms-with-vercel',
   image: `https://vercel.com/docs/static/guides/deploying-next-and-buttercms-with-vercel/deploying-next-and-buttercms-with-vercel.png`,
   editUrl: 'pages/guides/deploying-next-and-buttercms-with-vercel.mdx',
   name: 'Next.js + ButterCMS',
   type: 'app',
-  lastEdited: '2020-04-23T17:55:59.000Z'
+  lastEdited: '2020-06-02T23:37:58.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [<OrgName /> blog](/blog) by utilizing the [ButterCMS](https://buttercms.com/) content management system, before deploying **with a single command** to [<ProductName />](/docs/v2).
@@ -223,7 +223,7 @@ Now that your page and component files have been created, the next step will sho
 
 ## Step 3: Adding an Environment Variable
 
-Add a `now.json` file at the root of your project directory with the following code:
+Add a `vercel.json` file at the root of your project directory with the following code:
 
 ```json
 {
@@ -236,11 +236,11 @@ Add a `now.json` file at the root of your project directory with the following c
 ```
 
 <Caption>
-  An example <InlineCode>now.json</InlineCode> file for your Next.js + ButterCMS
-  project.
+  An example <InlineCode>vercel.json</InlineCode> file for your Next.js +
+  ButterCMS project.
 </Caption>
 
-With your `now.json` file created, you should add a `next.config.js` file at the root of your project directory with the code below:
+With your `vercel.json` file created, you should add a `next.config.js` file at the root of your project directory with the code below:
 
 ```js
 module.exports = {
@@ -273,24 +273,24 @@ Now, add the following build script to your `package.json` file:
   your Next.js + ButterCMS project.
 </Caption>
 
-Next, you will make your API key available to your app during local development by creating a `.env.build` file.
+Next, you will make your API key available to your app during local development by creating a `.env.local` file.
 
-Create a `.env.build` file at the root of your project directory with the following code, adding your API key obtained in [step 1](#step-1:-create-your-buttercms-content) where instructed:
+Create a `.env.local` file at the root of your project directory with the following code, adding your API key obtained in [step 1](#step-1:-create-your-buttercms-content) where instructed:
 
 ```bash
 BUTTER_API_TOKEN=your-api-token
 ```
 
 <Caption>
-  An example <InlineCode>.env.build</InlineCode> file for your Next.js +
+  An example <InlineCode>.env.local</InlineCode> file for your Next.js +
   ButterCMS project.
 </Caption>
 
-Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [Secret](/docs/now-cli#commands/secrets) with the command below:
+Lastly, to make your API key available for [cloud deployment](/docs/v2/deployments/basics/), create a [Secret](/docs/cli#commands/secrets) with the command below:
 
-<Snippet dark text="now secrets add BUTTER_API_TOKEN your-space-id" />
+<Snippet dark text="vercel secrets add BUTTER_API_TOKEN your-space-id" />
 <Caption>
-  Adding the <InlineCode>BUTTER_API_TOKEN</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
+  Adding the <InlineCode>BUTTER_API_TOKEN</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
 
 With those steps out the way you are now able to run your app. You can develop your app locally using the following command:

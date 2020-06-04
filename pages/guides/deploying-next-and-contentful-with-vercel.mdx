@@ -14,13 +14,13 @@ export const meta = {
   title: `Create a Next.js App with Contentful and Deploy It with ${PRODUCT_NAME}`,
   description: `Deploy your Next.js and Contentful app with ${PRODUCT_NAME} in a serverless environment.`,
   published: '2019-06-18T16:51:04.000Z',
-  authors: ['msweeneydev'],
+  authors: ['mcsdev'],
   url: '/guides/deploying-next-and-contentful-with-vercel',
   image: `https://vercel.com/docs/static/guides/deploying-next-contentful-with-vercel/deploying-next-contentful-with-vercel.png`,
   editUrl: 'pages/guides/deploying-next-and-contentful-with-vercel.mdx',
   name: 'Next.js + Contentful',
   type: 'app',
-  lastEdited: '2020-04-23T17:50:44.000Z'
+  lastEdited: '2020-06-02T23:37:58.000Z'
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [<OrgName /> blog](/blog) by utilizing the [Contentful](https://www.contentful.com/) client, before deploying **with a single command** to [<ProductName />](/docs/v2).
@@ -123,8 +123,8 @@ import Head from 'next/head'
 import Post from '../components/post'
 
 const client = require('contentful').createClient({
-  space: process.env.SPACE_ID,
-  accessToken: process.env.ACCESS_TOKEN
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 })
 
 function HomePage() {
@@ -244,21 +244,21 @@ Now that your page and component files have been created, the next step will sho
 
 ## Step 4: Adding Environment Variables
 
-Add a `now.json` file at the root of your project directory with the following code:
+Add a `vercel.json` file at the root of your project directory with the following code:
 
 ```json
 {
   "build": {
     "env": {
-      "CONTENTFUL_SPACE_ID": "@contentful_space_id",
-      "CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
+      "NEXT_PUBLIC_CONTENTFUL_SPACE_ID": "@contentful_space_id",
+      "NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN": "@contentful_access_token"
     }
   }
 }
 ```
 
 <Caption>
-  An example <InlineCode>now.json</InlineCode> file for your Next.js +
+  An example <InlineCode>vercel.json</InlineCode> file for your Next.js +
   Contentful project.
 </Caption>
 
@@ -279,30 +279,30 @@ Now, add the following scripts to your `package.json` file:
   to your <InlineCode>package.json</InlineCode> file.
 </Caption>
 
-Next, you will make your API keys available to your app during local development by creating a `.env.build` file.
+Next, you will make your API keys available to your app during local development by creating a `.env.local` file.
 
-Create a `.env.build` file at the root of your project directory with the following code, adding your API keys where instructed:
+Create a `.env.local` file at the root of your project directory with the following code, adding your API keys where instructed:
 
 ```bash
-CONTENTFUL_SPACE_ID=your-space-id
-CONTENTFUL_ACCESS_TOKEN=your-access-token
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID=your-space-id
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=your-access-token
 ```
 
 <Caption>
-  An example <InlineCode>.env.build</InlineCode> file for your Next.js +
+  An example <InlineCode>.env.local</InlineCode> file for your Next.js +
   Contentful project.
 </Caption>
 
-Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [Secrets](/docs/now-cli#commands/secrets) with the commands below:
+Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [Secrets](/docs/cli#commands/secrets) with the commands below:
 
-<Snippet dark text="now secrets add CONTENTFUL_SPACE_ID your-space-id" />
+<Snippet dark text="vercel secrets add contentful_space_id your-space-id" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_SPACE_ID</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
+  Adding the <InlineCode>contentful_space_id</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
 
-<Snippet dark text="now secrets add CONTENTFUL_ACCESS_TOKEN your-access-token" />
+<Snippet dark text="vercel secrets add contentful_access_token your-access-token" />
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/now-cli#commands/secrets">Secrets</Link>.
+  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
 
 ## Step 5: Deploying the App

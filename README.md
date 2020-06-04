@@ -1,6 +1,6 @@
 # Vercel Documentation
 
-This is the public documentation for **Vercel** and other related services.
+This is the public documentation for [**Vercel**](https://vercel.com) and other related services.
 
 You can view this documentation at https://vercel.com/docs.
 

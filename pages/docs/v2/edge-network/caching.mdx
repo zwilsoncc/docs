@@ -8,7 +8,7 @@ export const meta = {
   title: 'Caching',
   description: `A guide for how ${PRODUCT_NAME} caches and how to control that caching.`,
   editUrl: 'pages/docs/v2/edge-network/caching.mdx',
-  lastEdited: '2020-04-15T21:17:19.000Z'
+  lastEdited: '2020-05-09T14:31:59.000Z'
 }
 
 The [<CdnName />](/edge-network) caches your content at the edge in order to serve data to your users as fast as possible.
@@ -32,7 +32,7 @@ Static files are **automatically cached at the edge** after the first request. T
 
 Static files are cached for 31 days. However, when you redeploy the cache is effectively invalidated so we always serve the latest version.
 
-By default we return a `Cache-Control` header containing `public, max-age=0, must-revalidate` to prevent clients (e.g. browsers) from caching the file locally. This gives you the most flexibility as users get the latest file from our Global CDN immediately after deploying. This can be overridden with the [Routes](/docs/configuration#routes/headers) property in your `now.json` file.
+By default we return a `Cache-Control` header containing `public, max-age=0, must-revalidate` to prevent clients (e.g. browsers) from caching the file locally. This gives you the most flexibility as users get the latest file from our Global CDN immediately after deploying. This can be overridden with the [Routes](/docs/configuration#routes/headers) property in your `vercel.json` file.
 
 ## Serverless Functions (Lambdas)
 
