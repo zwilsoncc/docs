@@ -1,5 +1,13 @@
 [
   {
+    "title": "How do I identify my Vercel deployment IP address?",
+    "description": "Information on how to handle IP allowlisting for a Vercel deployment.",
+    "editUrl": "pages/knowledge/how-to-allowlist-deployment-ip-address.mdx",
+    "url": "/knowledge/how-to-allowlist-deployment-ip-address",
+    "published": "2020-06-04T18:54:36.000Z",
+    "lastEdited": "2020-05-24T18:54:36.000Z"
+  },
+  {
     "title": "How can I move a domain to a Vercel team?",
     "description": "Information on how to move domains between accounts on Vercel.",
     "editUrl": "pages/knowledge/how-can-i-move-a-domain-to-a-team.mdx",
