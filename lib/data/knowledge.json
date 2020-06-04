@@ -112,22 +112,6 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
-    "title": "How do I use a Cloudflare domain with Vercel?",
-    "description": "Information on how to use a Cloudflare domain with a Vercel deployment.",
-    "editUrl": "pages/knowledge/using-cloudflare-with-vercel.mdx",
-    "url": "/knowledge/using-cloudflare-with-vercel",
-    "published": "2020-05-19T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "How do I send and receive emails with my Vercel purchased domain?",
-    "description": "Information on how to send and receive email with a domain purchased from Vercel.",
-    "editUrl": "pages/knowledge/using-email-with-your-vercel-domain.mdx",
-    "url": "/knowledge/using-email-with-your-vercel-domain",
-    "published": "2020-05-18T18:54:36.000Z",
-    "lastEdited": "2020-05-29T11:52:03.000Z"
-  },
-  {
     "title": "Why is my Vercel domain not verified?",
     "description": "Information on why a Vercel domain may not be verified and how to verify it.",
     "editUrl": "pages/knowledge/why-is-my-vercel-domain-unverified.mdx",
@@ -152,6 +136,36 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
+    "title": "How do I create a minimal reproducible example for Vercel Support?",
+    "description": "Information on how to create a minimal reproducible example for Vercel Support.",
+    "editUrl": "pages/knowledge/creating-a-minimal-reproducible-example.mdx",
+    "url": "/knowledge/creating-a-minimal-reproducible-example",
+    "published": "2020-05-13T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "Can I receive emails when my site is hosted on Vercel? Is there a Vercel SMTP server that I can access for sending out transactional emails? Can I run a SMTP server on Vercel to handle email blasts? Can I send emails out from my app deployed on Vercel?,",
+    "description": "Information related to the handling of emails when your domain is pointed to Vercel.",
+    "editUrl": "pages/knowledge/email-on-vercel.mdx",
+    "url": "/knowledge/email-on-vercel"
+  },
+  {
+    "title": "How do I use a Cloudflare domain with Vercel?",
+    "description": "Information on how to use a Cloudflare domain with a Vercel deployment.",
+    "editUrl": "pages/knowledge/using-cloudflare-with-vercel.mdx",
+    "url": "/knowledge/using-cloudflare-with-vercel",
+    "published": "2020-05-19T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "How do I send and receive emails with my Vercel purchased domain?",
+    "description": "Information on how to send and receive email with a domain purchased from Vercel.",
+    "editUrl": "pages/knowledge/using-email-with-your-vercel-domain.mdx",
+    "url": "/knowledge/using-email-with-your-vercel-domain",
+    "published": "2020-05-18T18:54:36.000Z",
+    "lastEdited": "2020-05-29T11:52:03.000Z"
+  },
+  {
     "title": "How do I use private dependencies with Vercel?",
     "description": "Information on how to use private dependencies with a Vercel deployment.",
     "editUrl": "pages/knowledge/using-private-dependencies-with-vercel.mdx",
@@ -173,14 +187,6 @@
     "editUrl": "pages/knowledge/why-can-i-not-signup.mdx",
     "url": "/knowledge/why-can-i-not-signup",
     "published": "2020-05-14T18:54:36.000Z",
-    "lastEdited": "2020-05-13T18:54:36.000Z"
-  },
-  {
-    "title": "How do I create a minimal reproducible example for Vercel Support?",
-    "description": "Information on how to create a minimal reproducible example for Vercel Support.",
-    "editUrl": "pages/knowledge/creating-a-minimal-reproducible-example.mdx",
-    "url": "/knowledge/creating-a-minimal-reproducible-example",
-    "published": "2020-05-13T18:54:36.000Z",
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
