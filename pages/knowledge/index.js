@@ -29,7 +29,7 @@ const Knowledge = () => (
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
             <Link
-              href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Knowledge.md"
+              href="https://github.com/vercel/docs/issues/new?labels=Section%3A+Knowledge"
               underlineOnHover={false}
             >
               <Button type="secondary" small>
