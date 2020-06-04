@@ -1,33 +1,52 @@
-import Layout from ‘~/components/layout/knowledge’
-import { InlineCode } from ‘~/components/text/code’
-import Caption from ‘~/components/text/caption’
-import Snippet from ‘~/components/snippet’
-import Note from ‘~/components/text/note’
+import Layout from '~/components/layout/knowledge'
+import { InlineCode } from '~/components/text/code'
+import Caption from '~/components/text/caption'
+import Snippet from '~/components/snippet'
 
 export const meta = {
-  title: ‘Can I receive emails when my site is hosted on Vercel? Is there a Vercel SMTP server that I can access for sending out transactional emails? Can I run a SMTP server on Vercel to handle email blasts? Can I send emails out from my app deployed on Vercel?’,
+  title: 'How do I send and receive emails with my Vercel purchased domain?',
   description:
-    ‘Information related to the handling of emails when your domain is pointed to Vercel.’,
-  editUrl: ‘pages/knowledge/email-on-vercel.mdx’,
-  url: ‘/knowledge/email-on-vercel’,
-  published: ‘’,
-  lastEdited: ‘2020-05-29T09:47:00.000Z’
+    'Information on how to send and receive email with a domain purchased from Vercel.',
+  editUrl: 'pages/knowledge/email-on-vercel.mdx',
+  url: '/knowledge/email-on-vercel'
 }
 
-## Email Hosting Solutions
+As Vercel is a platform focused on deployments, it does not provide a mail service for domains purchase with or transferred into it.
 
-Contrary to traditional web hosting services, Vercel does not provide email hosting to domains pointed to our platform. A separate third-party email hosting solution is required for your domains to send and receive emails. Your domains will need to have their DNS records mapped to the selected email hosting solution provider. For domains using the Vercel nameservers, you can manage your DNS records by using the [Vercel CLI](/download) and the [`vercel dns` commands](/docs/cli#commands/dns). 
+## Third-Party Services
 
-## Sending Out Transactional Emails from Deployed Apps
+Because many domain providers do not offer a mail service, there are a number of third-party services that specifically offer this type of functionality and are enabled by adding DNS records.
 
-Vercel is a cloud platform for *static sites* and *Serverless Functions* only. We do not provide SMTP service nor allow SMTP servers to run on our platform. Please consider using third-party transactional email solutions like SendGrid and Amazon SES instead.
+Examples of this type of service include [ImproxMX](https://improvmx.com/) and [Forward Email](https://forwardemail.net/en), however there are many more options available. For each provider, different DNS records are required to be added.
 
-<Note type=“warning”>
-  When migrating your domain over to our platform, please ensure all your mail-related DNS records have been correctly set to avoid disruption to your email service.
-</Note>
+## ImprovMX
+
+For ImprovMX, you need to add the following DNS records, replacing `example.com` with your domain:
+
+<Snippet dark text="vercel dns add example.com '@' MX mx1.improvmx.com 10" />
+<Caption>Adding an MX record to a custom domain using the Vercel CLI.</Caption>
+
+<Snippet dark text="vercel dns add example.com '@' MX mx2.improvmx.com 20" />
+<Caption>Adding an MX record to a custom domain using the Vercel CLI.</Caption>
+
+<Snippet dark text="vercel dns add example.com '@' TXT 'v=spf1 include:spf.improvmx.com ~all'" />
+<Caption>Adding a TXT record to a custom domain using the Vercel CLI.</Caption>
+
+## Forward Email
+
+For Forward Email, you need to add the following DNS records, replacing `example.com` with your domain:
+
+<Snippet dark text="vercel dns add example.com '@' MX mx1.forwardemail.net 10" />
+<Caption>Adding an MX record to a custom domain using the Vercel CLI.</Caption>
+
+<Snippet dark text="vercel dns add example.com '@' MX mx2.forwardemail.net 20" />
+<Caption>Adding an MX record to a custom domain using the Vercel CLI.</Caption>
+
+<Snippet dark text="vercel dns add example.com '@' TXT forward-email=example.com" />
+<Caption>Adding a TXT record to a custom domain using the Vercel CLI.</Caption>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
 export const config = {
-  amp: ‘hybrid’
+  amp: 'hybrid'
 }
