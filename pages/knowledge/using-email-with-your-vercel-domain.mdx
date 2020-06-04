@@ -4,13 +4,13 @@ import Caption from '~/components/text/caption'
 import Snippet from '~/components/snippet'
 
 export const meta = {
-  title: 'How do I use email with my Vercel purchased domain?',
+  title: 'How do I send and receive emails with my Vercel purchased domain?',
   description:
-    'Information on how to receive email with a domain purchased from Vercel.',
+    'Information on how to send and receive email with a domain purchased from Vercel.',
   editUrl: 'pages/knowledge/using-email-with-your-vercel-domain.mdx',
   url: '/knowledge/using-email-with-your-vercel-domain',
   published: '2020-05-18T18:54:36.000Z',
-  lastEdited: '2020-05-13T18:54:36.000Z'
+  lastEdited: '2020-05-29T11:52:03.000Z'
 }
 
 As Vercel is a platform focused on deployments, it does not provide a mail service for domains purchase with or transferred into it.
@@ -31,7 +31,7 @@ For ImprovMX, you need to add the following DNS records, replacing `example.com`
 <Snippet dark text="vercel dns add example.com '@' MX mx2.improvmx.com 20" />
 <Caption>Adding an MX record to a custom domain using the Vercel CLI.</Caption>
 
-<Snippet dark text="vercel dns add example.com '@' TXT v=spf1 include:spf.improvmx.com ~all" />
+<Snippet dark text="vercel dns add example.com '@' TXT 'v=spf1 include:spf.improvmx.com ~all'" />
 <Caption>Adding a TXT record to a custom domain using the Vercel CLI.</Caption>
 
 ## Forward Email
