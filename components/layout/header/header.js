@@ -493,9 +493,9 @@ class Header extends Component {
             transition: all 0.1s ease;
             position: fixed;
             overflow-y: auto;
-            top: 80px;
-            z-index: 1000;
-            max-height: calc(100vh - 80px);
+            top: 64px;
+            z-index: 1;
+            max-height: calc(100vh - 64px);
             background: var(--geist-background);
           }
 

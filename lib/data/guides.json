@@ -482,7 +482,7 @@
     "url": "/guides/deploying-next-and-storyblok-with-vercel",
     "image": "https://vercel.com/docs/static/guides/deploying-next-storyblok-with-vercel/deploying-next-storyblok-with-vercel.png",
     "editUrl": "pages/guides/deploying-next-and-storyblok-with-vercel.mdx",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-02T23:37:58.000Z"
   },
   {
     "title": "Create a Next.js and ButterCMS App That Builds and Deploys with Vercel",
@@ -494,7 +494,7 @@
     "editUrl": "pages/guides/deploying-next-and-buttercms-with-vercel.mdx",
     "name": "Next.js + ButterCMS",
     "type": "app",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-02T23:37:58.000Z"
   },
   {
     "title": "Create a Next.js App with Contentful and Deploy It with Vercel",
@@ -506,7 +506,7 @@
     "editUrl": "pages/guides/deploying-next-and-contentful-with-vercel.mdx",
     "name": "Next.js + Contentful",
     "type": "app",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-02T23:37:58.000Z"
   },
   {
     "title": "Deploying Sanity Studio with Vercel",

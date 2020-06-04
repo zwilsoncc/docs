@@ -70,9 +70,6 @@ export default class GuidesFeedback extends Component {
 
   setSuccessState = state => {
     this.setState({ success: state })
-    if (state === true) {
-      this.setState({ feedbackSent: true })
-    }
   }
 
   onKeyDown = e => {
@@ -429,7 +426,6 @@ export default class GuidesFeedback extends Component {
             }
 
             .geist-feedback-input.error.focused .textarea-wrapper .input,
-            .geist-feedback-input.loading.focused .textarea-wrapper .input,
             .geist-feedback-input.success.focused .textarea-wrapper .input {
               pointer-events: none;
               opacity: 0;

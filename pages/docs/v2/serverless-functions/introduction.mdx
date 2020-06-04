@@ -38,7 +38,7 @@ To create a Serverless Function, create a file in an `/api` directory from your 
 For example, to create a TypeScript function, you can create a file called `get-user.ts` like below.
 
 ```ts
-import { NowRequest, NowResponse } from '@now/node'
+import { NowRequest, NowResponse } from '@vercel/node'
 
 export default (req: NowRequest, res: NowResponse) => {
   res.json({ name: 'John', email: 'john@example.com' })

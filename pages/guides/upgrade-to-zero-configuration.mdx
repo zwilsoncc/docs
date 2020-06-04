@@ -30,8 +30,8 @@ Using [the Next.js example project from the <ProductName /> repository](https://
   "version": 2,
   "name": "my-nextjs-project",
   "builds": [
-    { "src": "package.json", "use": "@now/next" },
-    { "src": "backend/**/*.js", "use": "@now/node" }
+    { "src": "package.json", "use": "@vercel/next" },
+    { "src": "backend/**/*.js", "use": "@vercel/node" }
   ]
 }
 ```
@@ -63,7 +63,7 @@ Before zero configuration, the [Gatsby default starter](https://github.com/gatsb
   "builds": [
     {
       "src": "package.json",
-      "use": "@now/static-build",
+      "use": "@vercel/static-build",
       "config": { "distDir": "public" }
     }
   ]
@@ -120,7 +120,7 @@ The following `vercel.json` was previously needed to deploy a [Go Serverless Fun
   "builds": [
     {
       "src": "/api/date.go",
-      "use": "@now/go"
+      "use": "@vercel/go"
     }
   ],
   "routes": [

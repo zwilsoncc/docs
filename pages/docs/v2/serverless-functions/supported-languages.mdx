@@ -57,10 +57,10 @@ Example deployment: <https://node-api.now-examples.now.sh/api/hello?name=reader>
 
 Deploying a Node.js function with the `.ts` extension will automatically be recognized as a [TypeScript](https://www.typescriptlang.org/) file and compiled to a Serverless Function.
 
-As an example; a file called `hello.ts` in the `api` directory, and importing types for the <ProductName /> platform Request and Response objects from the `@now/node` module:
+As an example; a file called `hello.ts` in the `api` directory, and importing types for the <ProductName /> platform Request and Response objects from the `@vercel/node` module:
 
 ```ts
-import { NowRequest, NowResponse } from '@now/node'
+import { NowRequest, NowResponse } from '@vercel/node'
 
 export default (request: NowRequest, response: NowResponse) => {
   const { name = 'World' } = request.query
@@ -75,10 +75,10 @@ export default (request: NowRequest, response: NowResponse) => {
 
 Example deployment: <https://ts-api.now-examples.now.sh/api/hello?name=reader>
 
-You can install the `@now/node` module for type definitions through npm:
+You can install the `@vercel/node` module for type definitions through npm:
 
-<Snippet dark text="npm i -D @now/node" />
-<Caption>Installing the <InlineCode>@now/node</InlineCode> module for Type definitions of <InlineCode>NowRequest</InlineCode> and <InlineCode>NowResponse</InlineCode></Caption>
+<Snippet dark text="npm i -D @vercel/node" />
+<Caption>Installing the <InlineCode>@vercel/node</InlineCode> module for Type definitions of <InlineCode>NowRequest</InlineCode> and <InlineCode>NowResponse</InlineCode></Caption>
 
 You can also define a `tsconfig.json` to configure the <ProductName /> TypeScript compiler.
 

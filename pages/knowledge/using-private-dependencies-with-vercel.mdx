@@ -22,7 +22,7 @@ Select the desired Environment tab (Production or Preview) and add the key `NPM_
 
 To use private packages from registries other than npm, add the contents of your `.npmrc` file as an Environment Variable to your project from the Vercel dashboard. This can be found by selecting the project, and viewing the general tab under the project settings.
 
-Select the desired Environment tab (Production or Preview) and add the key `NPM_RC` with the contents of your `.npmrc` file as the value. Since this file typically has newlines, it might be easier to use the CLI: `vc add env NPM_RC production < ~/.npmrc`
+Select the desired Environment tab (Production or Preview) and add the key `NPM_RC` with the contents of your `.npmrc` file as the value. Since this file typically has newlines, it might be easier to use the CLI: `vc env add NPM_RC production < ~/.npmrc`
 
 Also note that Vercel Runtimes are installed from the canonical npm registry so [`registry.npmjs.org`](http://registry.npmjs.org/) must be one of the lines in your `.npmrc` file.
 
