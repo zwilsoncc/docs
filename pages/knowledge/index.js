@@ -133,6 +133,7 @@ const Knowledge = () => (
       .guide :global(h3) {
         color: #000;
         margin: 0;
+        padding-right: 64px;
       }
 
       .guide :global(p) {
@@ -175,7 +176,7 @@ const Knowledge = () => (
 
       .meta {
         display: flex;
-        flex: 0 1 auto;
+        flex: 0 0 auto;
         flex-direction: column-reverse;
         justify-content: space-between;
         align-items: flex-end;
