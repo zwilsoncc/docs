@@ -22,11 +22,11 @@ export const meta = {
 }
 
 [Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
-All Userbase features are accessible through a [JavaScript SDK](https://userbase.com/docs/sdk/), directly from the browser, without requring a backend.
+All Userbase features are accessible through a [JavaScript SDK](https://userbase.com/docs/sdk/), directly from the browser, without requiring a backend.
 
 ## Step 1: Create A Userbase Account
 
-First, you'll need to create a Userbase account if you don't already have one. You can create one in _less than 10 seconds_ [here](https://v1.userbase.com/#create-admin).
+First, you'll need to create a Userbase account. If you don't already have one, you can create one [here](https://v1.userbase.com/#create-admin).
 
 After creating your account, make a note of your _App ID_. You'll store it later as an environment variable for your project.
 
@@ -57,12 +57,12 @@ For development, you can add your Userbase _App ID_ from [Step 1](#step-1:-creat
 </Code>
 <Caption>Defining the <InlineCode>USERBASE_APP_ID</InlineCode> environment variable in a <InlineCode>.env</InlineCode> file.</Caption>
 
-In order to take your app to production, you can add the _App ID_ as a secret by running the following command:
+To take your app into production, you can add the _App ID_ as a secret by running the following command:
 
-<Snippet dark text="now secrets add userbase-app-id [paste-your-id-here]" />
-<Caption>Adding a secret to your Vercel account.</Caption>
+<Snippet dark text="vercel secrets add userbase-app-id [paste-your-id-here]" />
+<Caption>Adding a secret to your <ProductName /> account.</Caption>
 
-The project template already provides you with a `now.json` file that makes use of the secret added above.
+The project template already provides you with a `vercel.json` file that makes use of the secret added above.
 
 <Code lang="json">
   {`{
@@ -73,7 +73,7 @@ The project template already provides you with a `now.json` file that makes use 
   }
 }`}
 </Code>
-<Caption>The <InlineCode>now.json</InlineCode> file that provides the defined secret to the application.</Caption>
+<Caption>The <InlineCode>vercel.json</InlineCode> file that provides the defined secret to the application.</Caption>
 
 ## Step 4: Deploying To Production
 
