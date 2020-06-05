@@ -2,7 +2,9 @@ import Logo from '~/components/icons/logo-light'
 import Button from './button'
 
 export default function DeployButton({ url }) {
-  const deployUrl = url.includes('github.com/zeit/now/tree/master/examples')
+  const deployUrl = url.includes(
+    'github.com/vercel/vercel/tree/master/examples'
+  )
     ? `https://vercel.com/import/project?template=${url}`
     : `https://vercel.com/import/${url}`
 

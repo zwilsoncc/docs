@@ -315,7 +315,7 @@ module.exports = withMDX({
             '/docs/v2/((?:deployments|advanced))/builders/developer-guide(.*)',
           permanent: true,
           destination:
-            'https://github.com/zeit/now/blob/master/DEVELOPING_A_RUNTIME.md'
+            'https://github.com/vercel/vercel/blob/master/DEVELOPING_A_RUNTIME.md'
         },
         {
           source: '/docs/v2/deployments/((?:builders|official-builders))/(.*)',
@@ -385,12 +385,12 @@ module.exports = withMDX({
         {
           source: '/examples(.*)',
           permanent: true,
-          destination: 'https://github.com/zeit/now/tree/master/examples'
+          destination: 'https://github.com/vercel/vercel/tree/master/examples'
         },
         {
           source: '/docs/v1/examples/(.*)',
           permanent: true,
-          destination: 'https://github.com/zeit/now/tree/master/examples'
+          destination: 'https://github.com/vercel/vercel/tree/master/examples'
         },
         {
           source: '/docs/v2/platform/global-configuration(.*)',
