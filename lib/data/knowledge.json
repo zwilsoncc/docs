@@ -8,6 +8,14 @@
     "lastEdited": "2020-05-24T18:54:36.000Z"
   },
   {
+    "title": "Can I upgrade to a paid plan on my personal account?",
+    "description": "Information on upgrading to a paid plan on a personal account.",
+    "editUrl": "pages/knowledge/upgrading-personal-account.mdx",
+    "url": "/knowledge/upgrading-personal-account",
+    "published": "2020-06-04T18:54:36.000Z",
+    "lastEdited": "2020-06-04T18:54:36.000Z"
+  },
+  {
     "title": "How can I move a domain to a Vercel team?",
     "description": "Information on how to move domains between accounts on Vercel.",
     "editUrl": "pages/knowledge/how-can-i-move-a-domain-to-a-team.mdx",
