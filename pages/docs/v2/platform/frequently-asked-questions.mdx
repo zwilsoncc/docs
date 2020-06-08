@@ -169,3 +169,15 @@ A named segment parameter defined in the `destination` property must also be def
   "destination": "/api/feedback/:id"
 }
 ```
+
+## npm Install Error
+
+When running the `vercel dev` command, you may experience an `npm install` error. This happens when the dev command invokes `npm` to install Runtimes that are defined in your `vercel.json` file.
+
+`npm install` may fail if:
+
+ * `npm` is not installed
+ * Your internet connection is down
+ * The Runtime that is defined in your configuration is not published to the npm registry
+
+Please double-check that the name and version of the Runtime you are requesting is correct.
