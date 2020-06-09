@@ -55,7 +55,7 @@ Set the value of the environment variable inside `.env.local` to your Userbase _
 
 To take your app into production, you can add the _App ID_ as a secret by running the following command:
 
-<Snippet dark text="vercel secrets add userbase-app-id [paste-your-id-here]" />
+<Snippet dark text="vercel env add NEXT_PUBLIC_USERBASE_APP_ID" />
 <Caption>Adding a secret to your <ProductName /> account.</Caption>
 
 The project template already provides you with a `vercel.json` file that makes use of the secret added above.
