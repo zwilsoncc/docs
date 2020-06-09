@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-21T13:58:29.000Z'
+  lastEdited: '2020-05-28T23:06:10.000Z'
 }
 
 ## Platform Version Detection
@@ -21,11 +21,11 @@ export const meta = {
 [<ProductShortName /> CLI](/download) will automatically upgrade your deployment to the latest platform version if you import a project or if your project meets certain criteria. In order for this to work, you must:
 
 - Remove any Dockerfile.
-- Remove the `type` property from your `now.json` file.
+- Remove the `type` property from your `vercel.json` file.
 - Remove the `start` script from your `package.json` file.
 - Remove the `server.js` file from the root of your project.
 
-It is possible to opt out of this behavior by creating a `now.json` file with a `version` property.
+It is possible to opt out of this behavior by creating a `vercel.json` file with a `version` property.
 
 If you are yet to upgrade to the latest platform version, please read our [upgrade guide](/guides/migrate-to-zeit-now/).
 
@@ -72,7 +72,7 @@ The [build step](/docs/v2/build-step) will result in an error if the output dire
   older.
 </Note>
 
-If your project contains a `package.json` file, no `api` directory, and no `now.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
+If your project contains a `package.json` file, no `api` directory, and no `vercel.json` configuration, it is expected to provide a `build` [script](https://docs.npmjs.com/misc/scripts) that performs a static build of your frontend and outputs it to a `public` directory at the root of your project.
 
 When properly configured, your `package.json` file would look similar to this:
 
@@ -115,3 +115,69 @@ This ensures the list always remains managable and protected against spam.
 If a user already requested access to a team, it's not possible to invite them. Instead, their request must be approved by an owner of the team in order for the user to gain acess.
 
 This ensures no requests are accidentally accepted.
+
+## Unused Project Settings with Non-Zero-Config Deployments
+
+Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.
+
+## Invalid Route Source Pattern
+
+The `source` property follows the syntax from [path-to-regexp](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0), not the `RegExp` syntax.
+
+For example, negative lookaheads must be wrapped in a group.
+
+**Before**
+
+```json
+{
+  "source": "/feedback/(?!general)",
+  "destination": "/api/feedback/general"
+}
+```
+
+**After**
+
+```json
+{
+  "source": "/feedback/((?!general).*)",
+  "destination": "/api/feedback/general"
+}
+```
+
+## Invalid Route Destination Segment
+
+The `source` property follows the syntax from [path-to-regexp](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0).
+
+This means that a colon (`:`) defines the start of a [named segment parameter](https://github.com/pillarjs/path-to-regexp/tree/v6.1.0#named-parameters).
+
+A named segment parameter defined in the `destination` property must also be defined in the `source` property.
+
+**Before**
+
+```json
+{
+  "source": "/feedback/:type",
+  "destination": "/api/feedback/:id"
+}
+```
+
+**After**
+
+```json
+{
+  "source": "/feedback/:id",
+  "destination": "/api/feedback/:id"
+}
+```
+
+## npm Install Error
+
+When running the `vercel dev` command, you may experience an `npm install` error. This happens when `npm` is invoked to install Runtimes that are defined in your `vercel.json` file.
+
+`npm install` may fail if:
+
+- `npm` is not installed (retrieve it from [here](https://www.npmjs.com/get-npm))
+- Your internet connection is unavailable
+- The Runtime that is defined in your configuration is not published to the npm registry
+
+Please double-check that the name and version of the Runtime you are requesting is correct.

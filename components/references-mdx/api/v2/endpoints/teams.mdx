@@ -328,9 +328,11 @@ Request to join a team as a <InlineCode>MEMBER</InlineCode>. An <InlineCode>OWNE
 
 #### Request Parameters
 
-| Key            | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                                                                                                                                                                                                    |
-| -------------- | ---------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **joinedFrom** | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | Where the member has joined the team from. Either <InlineCode>mail</InlineCode>, <InlineCode>link</InlineCode>, <InlineCode>import</InlineCode>, <InlineCode>onboarding</InlineCode>, <InlineCode>github</InlineCode>, <InlineCode>gitlab</InlineCode>, or <InlineCode>bitbucket</InlineCode>. |
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Required | Description                                                                                                                                                                                                                                                                                    |
+| ----------------------- | ---------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **joinedFrom.origin**   | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Yes      | Where the member has joined the team from. Either <InlineCode>mail</InlineCode>, <InlineCode>link</InlineCode>, <InlineCode>import</InlineCode>, <InlineCode>onboarding</InlineCode>, <InlineCode>github</InlineCode>, <InlineCode>gitlab</InlineCode>, or <InlineCode>bitbucket</InlineCode>. |
+| **joinedFrom.commitId** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | This field is required for GitHub, GitLab, and Bitbucket. The SHA of the commit that will be deployed.                                                                                                                                                                                         |
+| **joinedFrom.repoId**   | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | This field is required for GitHub, GitLab, and Bitbucket. The ID of the repository that will be deployed.                                                                                                                                                                                      |
 
 ##### Example Request
 
@@ -345,6 +347,45 @@ Request to join a team as a <InlineCode>MEMBER</InlineCode>. An <InlineCode>OWNE
   }}
   auth
 />
+
+### Check status of a join request
+
+<Endpoint method="GET" url="/v1/teams/:id/request" />
+
+Returns the status of a join request. It'll respond with a 404 if the request has been declined.
+
+#### Response Parameters
+
+| Key                     | <HelpLink href="#api-basics/types" hasIcon>Type</HelpLink> | Description                                                                                                                                                                                                                                                                                    |
+| ----------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **confirmed**           | <HelpLink href="#api-basics/types">Boolean</HelpLink>      | The value is `true` for users that were already accepted. If they are in a pending state it'll be `false`.                                                                                                                                                                                     |
+| **accessRequestedAt**   | <HelpLink href="#api-basics/types">Date</HelpLink>         | Timestamp in milliseconds that indicates when the user requested access.                                                                                                                                                                                                                       |
+| **joinedFrom.origin**   | <HelpLink href="#api-basics/types">Enum</HelpLink>         | Where the member has joined the team from. Either <InlineCode>mail</InlineCode>, <InlineCode>link</InlineCode>, <InlineCode>import</InlineCode>, <InlineCode>onboarding</InlineCode>, <InlineCode>github</InlineCode>, <InlineCode>gitlab</InlineCode>, or <InlineCode>bitbucket</InlineCode>. |
+| **joinedFrom.commitId** | <HelpLink href="#api-basics/types">String</HelpLink>       | This field is set for GitHub, GitLab, and Bitbucket. The SHA of the commit that will be deployed.                                                                                                                                                                                              |
+| **joinedFrom.repoId**   | <HelpLink href="#api-basics/types">String</HelpLink>       | This field is set for GitHub, GitLab, and Bitbucket. The ID of the repository that will be deployed. For GitHub and Bitbucket it can be a number.                                                                                                                                              |
+
+##### Example Request
+
+<Request
+  method="GET"
+  url="https://api.zeit.co/v1/teams/team_ofwUZockJlL53hINUGCc1ONW/request"
+  headers={{
+    'Content-Type': 'application/json'
+  }}
+  auth
+/>
+
+##### Example Response
+
+<Code lang="json">{`{
+  "confirmed": false,
+  "accessRequestedAt": 1591279968068,
+  "joinedFrom": {
+    "origin": "github",
+    "commitId": "9aef718917d938f51cbb031006ff5b943a55f774",
+    "repoId": 67753070
+  }
+}`}</Code>
 
 ### Remove user from team
 

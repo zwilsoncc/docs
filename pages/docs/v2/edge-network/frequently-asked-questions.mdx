@@ -6,12 +6,12 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: `A list of common questions and answers related to the ${ORG_NAME} Network.`,
   editUrl: 'pages/docs/v2/edge-network/frequently-asked-questions.mdx',
-  lastEdited: '2020-04-16T01:25:09.000Z'
+  lastEdited: '2020-05-09T14:31:59.000Z'
 }
 
 ### What are the CDN defaults?
 
-- Static files are cached by all Regions for 31 days by default. If you need to configure this duration, you can set a `Cache-Control` header in your `now.json` file.
+- Static files are cached by all Regions for 31 days by default. If you need to configure this duration, you can set a `Cache-Control` header in your `vercel.json` file.
 - Dynamic responses (from Serverless Functions) are not cached unless they contain a `Cache-Control` header with specific directives (e.g. `s-maxage`).
 - Read more about this in the [caching documentation](/docs/v2/edge-network/caching).
 
@@ -34,7 +34,7 @@ The transition is painless. All you have to do is point your NS records to our [
 
 ### Can I run the CDN logic on my local development machine?
 
-- `now dev` allows you to run your applications locally just like it does in production, but make sure to install your project's dependencies first.
+- `vercel dev` allows you to run your applications locally just like it does in production, but make sure to install your project's dependencies first.
 
 ### How exactly does `stale-while-revalidate` work for the first and subsequent requests?
 
@@ -75,7 +75,7 @@ The transition is painless. All you have to do is point your NS records to our [
 
 ### How do I use Cloudflare over your CDN (disable it)?
 
-- Use `Origin Control: Off` along with other custom caching rules in Cloudflare, in a `now.json` file, set `s-maxage` to 0 on your routes to disable any caching from <OrgName /> CDN.
+- Use `Origin Control: Off` along with other custom caching rules in Cloudflare, in a `vercel.json` file, set `s-maxage` to 0 on your routes to disable any caching from <OrgName /> CDN.
 - When a new deployment is made, you will have to find a way to purge the Cloudflare cache.
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>

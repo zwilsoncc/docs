@@ -28,7 +28,7 @@ if (global.document) {
   const info = [
     ...(process.env.NOW_GITHUB_COMMIT_SHA
       ? [
-          `Commit: https://github.com/zeit/docs/commit/${
+          `Commit: https://github.com/vercel/docs/commit/${
             process.env.NOW_GITHUB_COMMIT_SHA
           }`
         ]
@@ -80,6 +80,13 @@ class Head extends React.PureComponent {
     return (
       <>
         <NextHead>
+          <link
+            rel="preload"
+            href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
           <title>{titlePrefix + this.props.title + titleSuffix}</title>
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@zeithq" />
@@ -115,7 +122,7 @@ class Head extends React.PureComponent {
               this.props.image ||
               `https://og-image.now.sh/${encodeURIComponent(
                 this.props.ogTitle || this.props.title
-              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg`
+              )}.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg`
             }
           />
           {this.props.image ? (
@@ -194,7 +201,7 @@ class Head extends React.PureComponent {
           />
           <link
             rel="manifest"
-            href="https://assets.zeit.co/raw/upload/v1573246315/front/favicon/round-2/site.webmanifest"
+            href="https://assets.vercel.com/raw/upload/v1573246315/front/favicon/round-2/site.webmanifest"
           />
           <link
             rel="mask-icon"

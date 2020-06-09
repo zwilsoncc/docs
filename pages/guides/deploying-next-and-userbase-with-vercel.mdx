@@ -39,43 +39,37 @@ Set up a Next.js and Userbase project by initializing the [project template](htt
 
 ## Step 3: Add Environment Variables
 
-The scaffolded template expects you to provide a `USERBASE_APP_ID` variable, as shown in the `next.config.js` file.
+The scaffolded template provides you with an `.env.local.example` file. Make a copy of that file to a new file named `.env.local` by running the snippet below:
 
-<Code lang="js">
-  {`module.exports = {
-  env: {
-  USERBASE_APP_ID: process.env.USERBASE_APP_ID,
-  },
-};`}
+<Snippet dark text="cp .env.local.example .env.local" />
+<Caption>Copying example <InlineCode>.env.local.example</InlineCode> file to new <InlineCode>.env.local</InlineCode> file.</Caption>
+
+Set the value of the environment variable inside `.env.local` to your Userbase _App ID_ from [Step 1](#step-1:-create-a-userbase-account).
+
+<Code lang="shell">
+  {`NEXT_PUBLIC_USERBASE_APP_ID=<your-userbase-app-id`}
 </Code>
-<Caption><Caption>The <InlineCode>next.config.js</InlineCode> file that makes the <InlineCode>USERBASE_APP_ID</InlineCode> environment variable available to the application.</Caption></Caption>
+<Caption><Caption>The <InlineCode>env.local</InlineCode> file that makes the <InlineCode>NEXT_PUBLIC_USERBASE_APP_ID</InlineCode> environment variable available to the application.</Caption></Caption>
 
-For development, you can add your Userbase _App ID_ from [Step 1](#step-1:-create-a-userbase-account) as an environment variable in a `.env` file at the project root and run `next dev` to start a development server.
-
-<Code lang="bash">
-  {`USERBASE_APP_ID=<paste-your-id-here>`}
-</Code>
-<Caption>Defining the <InlineCode>USERBASE_APP_ID</InlineCode> environment variable in a <InlineCode>.env</InlineCode> file.</Caption>
+## Step 4: Deploying To Production
 
 In order to take your app to production, you can add the _App ID_ as a secret by running the following command:
 
-<Snippet dark text="now secrets add userbase-app-id [paste-your-id-here]" />
+<Snippet dark text="vercel secrets add userbase-app-id [paste-your-id-here]" />
 <Caption>Adding a secret to your Vercel account.</Caption>
 
-The project template already provides you with a `now.json` file that makes use of the secret added above.
+The project template already provides you with a `vercel.json` file that makes use of the secret added above.
 
 <Code lang="json">
   {`{
   "build": {
     "env": {
-      USERBASE_APP_ID: "@userbase-app-id"
+      NEXT_PUBLIC_USERBASE_APP_ID: "@userbase-app-id"
     }
   }
 }`}
 </Code>
-<Caption>The <InlineCode>now.json</InlineCode> file that provides the defined secret to the application.</Caption>
-
-## Step 4: Deploying To Production
+<Caption>The <InlineCode>vercel.json</InlineCode> file that provides the defined secret to the application.</Caption>
 
 <DeploySection meta={meta} />
 
