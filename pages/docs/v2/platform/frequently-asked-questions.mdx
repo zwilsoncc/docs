@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-05-28T23:06:10.000Z'
+  lastEdited: '2020-06-08T23:37:00.000Z'
 }
 
 ## Platform Version Detection
@@ -176,8 +176,16 @@ When running the `vercel dev` command, you may experience an `npm install` error
 
 `npm install` may fail if:
 
- * `npm` is not installed (retrieve it from [here](https://www.npmjs.com/get-npm))
- * Your internet connection is unavailable
- * The Runtime that is defined in your configuration is not published to the npm registry
+- `npm` is not installed (retrieve it from [here](https://www.npmjs.com/get-npm))
+- Your internet connection is unavailable
+- The Runtime that is defined in your configuration is not published to the npm registry
 
 Please double-check that the name and version of the Runtime you are requesting is correct.
+
+## Mixed Routing Properties
+
+If you have [`rewrites`](/docs/configuration#project/rewrites), [`redirects`](/docs/configuration#project/redirects), [`headers`](/docs/configuration#project/headers), [`cleanUrls`](/docs/configuration#project/cleanurls) or [`trailingSlash`](/docs/configuration#project/trailingslash) defined in your [configuration](/docs/configuration) file, then [`routes`](/docs/configuration#project/routes) cannot be defined.
+
+This is a necessary limitation because `routes` is a lower-level primitive that contains all of the other types. Therefore, it cannot be merged safely with the new properties.
+
+See the [Advanced Routing](/docs/configuration#routes/advanced) section for examples of `routes` compared to the new properties.
