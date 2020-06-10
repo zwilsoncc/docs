@@ -5,8 +5,8 @@
 pages/docs/v2/introduction.mdx               @joecohens @paulogdm @chibicode
 pages/docs/v2/build-step.mdx                 @leo @AndyBitz @TooTallNate @chibicode
 pages/docs/v2/custom-domains.mdx             @anatrajkovska @javivelasco @mglagola @joecohens @chibicode
-pages/docs/v2/serverless-functions/          @leo @AndyBitz @TooTallNate @chibicode
-pages/docs/v2/edge-network/                  @juancampa @hharnisc @dav-is @joecohens @chibicode
+pages/docs/v2/serverless-functions/          @leo @AndyBitz @TooTallNate @chibicode @matheuss
+pages/docs/v2/edge-network/                  @juancampa @hharnisc @dav-is @joecohens @chibicode @matheuss
 pages/docs/v2/platform/                      @leo @styfle @joecohens @chibicode
 pages/docs/v2/git-integrations/              @arunoda @chibicode
 pages/docs/configuration                     @leo @styfle @AndyBitz @joecohens @chibicode
