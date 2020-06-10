@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-06-08T23:37:00.000Z'
+  lastEdited: '2020-06-10T00:10:58.000Z'
 }
 
 ## Platform Version Detection
@@ -189,3 +189,14 @@ If you have [`rewrites`](/docs/configuration#project/rewrites), [`redirects`](/d
 This is a necessary limitation because `routes` is a lower-level primitive that contains all of the other types. Therefore, it cannot be merged safely with the new properties.
 
 See the [Advanced Routing](/docs/configuration#routes/advanced) section for examples of `routes` compared to the new properties.
+
+## Conflicting Configuration Files
+
+For backwards compatability purposes, there are two naming conventions for configuration files used by Vercel CLI (for example `vercel.json` and `now.json`). Both naming conventions are supported, however only _one_ may be defined at a time. The CLI will output an error message if both naming conventions are used at the same time.
+
+These conflicting configuration errors occur if:
+
+- Both `vercel.json` and `now.json` exist in your project.<br />**Solution:** Delete the `now.json` file.
+- Both `.vercel` and `.now` directories exist in your project.<br />**Solution:** Delete the `.now` directory.
+- Both `.vercelignore` and `.nowignore` files exist in your project.<br />**Solution:** Delete the `.nowignore` file.
+- Environment Variables that begin with `VERCEL_` have a conflicting Environment Variable that begins with `NOW_`.<br />**Solution:** Only define the `VERCEL_` prefixed Environment Variable.
