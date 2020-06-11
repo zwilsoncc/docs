@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-06-10T00:10:58.000Z'
+  lastEdited: '2020-06-11T14:07:33.000Z'
 }
 
 ## Platform Version Detection
@@ -116,9 +116,13 @@ If a user already requested access to a team, it's not possible to invite them. 
 
 This ensures no requests are accidentally accepted.
 
-## Unused Project Settings with Non-Zero-Config Deployments
+## Unused Build & Development Settings
 
-Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.
+A [Project](/docs/v2/platform/projects) has several settings that can be found in the dashboard. One of those sections is called "Build & Development Settings" and is used to change the way a Project is built.
+
+However, the Build & Development Settings are only applied to [zero-configuration](/guides/upgrade-to-zero-configuration) Deployments.
+
+If a Deployment defines the [`builds`](/docs/configuration#project/builds) configuration property, the Build & Development Settings are ignored.
 
 ## Invalid Route Source Pattern
 
