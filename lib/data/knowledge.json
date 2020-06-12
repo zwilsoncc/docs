@@ -1,5 +1,13 @@
 [
   {
+    "title": "Can I get a fixed IP address for my deployments?",
+    "description": "Information on fixed IP support on Vercel.",
+    "editUrl": "pages/knowledge/can-i-get-a-fixed-ip-address.mdx",
+    "url": "/knowledge/can-i-get-a-fixed-ip-address",
+    "published": "2020-06-12T07:54:36.000Z",
+    "lastEdited": "2020-06-12T07:54:36.000Z"
+  },
+  {
     "title": "How do I use a domain from a recently deleted account or team?",
     "description": "Information on reusing a domain after recently deleting it from a Hobby account or team.",
     "editUrl": "pages/using-domain-after-deleting-account.mdx",
