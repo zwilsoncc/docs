@@ -1,5 +1,6 @@
 import Snippet from '~/components/snippet'
 import Caption from '~/components/text/caption'
+import Note from '~/components/text/note'
 import ProductShortName from '~/components/name/product-short-name'
 
 export const Author = ({ name }) => <span>{name}</span>
@@ -13,3 +14,10 @@ Using [<ProductShortName /> CLI](/download), deploy your <Type type={props.type}
 <Caption>Deploying your <Author name={props.name} /> <Type type={props.type} /> with <ProductShortName /> CLI.</Caption>
 
 After your project has been deployed, you will be provided with a link to the Preview Deployment, this can be shared immediately.
+
+You will also be able to add project scoped [environment variables](/docs/v2/build-step#environment-variables) with the [`vercel env add` command](/docs/cli#commands/env) after the project has been [linked](/docs/cli#commands/overview/project-linking).
+
+<Note type="warning">
+  For environment variables to take effect, the project must be redeployed once
+  they have been added.
+</Note>

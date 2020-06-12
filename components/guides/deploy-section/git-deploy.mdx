@@ -33,4 +33,6 @@ To deploy your <Author name={props.name} /> <Type type={props.type} /> with a [<
   />
 </List>
 
+During the import flow, you will be prompted to add environment variables. Adding them at this stage, rather than using [secrets](/docs/cli#commands/secrets), will allow them to be project scoped.
+
 After your project has been imported, all subsequent pushes to branches will generate [Preview Deployments](/docs/v2/platform/deployments#preview), and all changes made to the default branch (commonly "master") will result in a [Production Deployment](/docs/v2/platform/deployments#production).

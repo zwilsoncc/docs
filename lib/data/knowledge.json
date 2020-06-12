@@ -1,6 +1,6 @@
 [
   {
-    "title": "Can I get a fixed IP address for my deployments?",
+    "title": "Can I Get a Fixed IP Address for My Vercel Deployments?",
     "description": "Information on fixed IP support on Vercel.",
     "editUrl": "pages/knowledge/can-i-get-a-fixed-ip-address.mdx",
     "url": "/knowledge/can-i-get-a-fixed-ip-address",
