@@ -1,5 +1,19 @@
 [
   {
+    "title": "Deploy Next.js and Userbase with Vercel",
+    "description": "Create a todo app with Next.js and Userbase and deploy it live with Vercel.",
+    "published": "2020-06-12T12:00:00.860Z",
+    "authors": ["coetry"],
+    "url": "/guides/deploying-next-and-userbase-with-vercel",
+    "example": "https://github.com/vercel/next.js/tree/canary/examples/with-userbase&env=NEXT_PUBLIC_USERBASE_APP_ID&envDescription=The Userbase app ID, found in the Userbase dashboard.&envLink=https://v1.userbase.com/#",
+    "image": "https://assets.zeit.co/image/upload/v1587744671/twitter-cards/next_userbase_vercel_og_image.png",
+    "editUrl": "pages/guides/deploying-next-and-userbase-with-vercel.mdx",
+    "name": "Next.js + Userbase",
+    "type": "app",
+    "demo": "https://next-userbase.now-examples.now.sh",
+    "lastEdited": "2020-06-12T11:58:23.000Z"
+  },
+  {
     "title": "Create a Next.js App with DatoCMS and Deploy It with Vercel",
     "description": "Deploy your Next.js and DatoCMS app with Vercel in a serverless environment.",
     "published": "2020-04-30T07:47:12.000Z",
@@ -12,17 +26,6 @@
     "type": "site",
     "demo": "https://next-blog-datocms.now.sh/",
     "lastEdited": "2020-06-04T20:10:32.000Z"
-  },
-  {
-    "title": "Deploy Next.js and Userbase with Vercel",
-    "description": "Create a todo app with Next.js and Userbase and deploy it live with Vercel.",
-    "published": "2020-06-09T12:00:00.860Z",
-    "authors": ["coetry"],
-    "url": "/guides/deploying-next-and-userbase-with-vercel",
-    "demo": "https://next-userbase.now-examples.now.sh",
-    "image": "https://assets.zeit.co/image/upload/v1587744671/twitter-cards/next_userbase_vercel_og_image.png",
-    "editUrl": "pages/guides/deploying-next-and-userbase-with-vercel.mdx",
-    "lastEdited": "2020-06-09T17:58:24.000Z"
   },
   {
     "title": "Deploy Ionic Angular with Vercel",

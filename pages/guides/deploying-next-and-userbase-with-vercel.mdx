@@ -11,17 +11,22 @@ import { PRODUCT_NAME } from '~/lib/constants'
 export const meta = {
   title: `Deploy Next.js and Userbase with ${PRODUCT_NAME}`,
   description: `Create a todo app with Next.js and Userbase and deploy it live with ${PRODUCT_NAME}.`,
-  published: '2020-04-24T12:00:00.860Z',
+  published: '2020-06-12T12:00:00.860Z',
   authors: ['coetry'],
   url: '/guides/deploying-next-and-userbase-with-vercel',
-  demo: 'https://next-userbase.now-examples.now.sh',
+  example:
+    'https://github.com/vercel/next.js/tree/canary/examples/with-userbase&env=NEXT_PUBLIC_USERBASE_APP_ID&envDescription=The Userbase app ID, found in the Userbase dashboard.&envLink=https://v1.userbase.com/#',
   image:
     'https://assets.zeit.co/image/upload/v1587744671/twitter-cards/next_userbase_vercel_og_image.png',
   editUrl: 'pages/guides/deploying-next-and-userbase-with-vercel.mdx',
-  lastEdited: '2020-04-24T17:58:24.000Z'
+  name: 'Next.js + Userbase',
+  type: 'app',
+  demo: 'https://next-userbase.now-examples.now.sh',
+  lastEdited: '2020-06-12T11:58:23.000Z'
 }
 
 [Userbase](https://userbase.com/) is the easiest way to add user accounts and data persistence to your static site.
+
 All Userbase features are accessible through a [JavaScript SDK](https://userbase.com/docs/sdk/), directly from the browser, without requiring a backend.
 
 ## Step 1: Create A Userbase Account
@@ -37,7 +42,7 @@ Set up a Next.js and Userbase project by initializing the [project template](htt
 <Snippet dark text="npm init next-app --example with-userbase userbase-todo-app && cd userbase-todo-app" />
 <Caption>Initializing a Next.js + Userbase app and entering into the project directory.</Caption>
 
-## Step 3: Add Environment Variables
+## Step 3: Local Environment Variables
 
 The scaffolded template provides you with an `.env.local.example` file. Make a copy of that file to a new file named `.env.local` by running the snippet below:
 
@@ -47,29 +52,16 @@ The scaffolded template provides you with an `.env.local.example` file. Make a c
 Set the value of the environment variable inside `.env.local` to your Userbase _App ID_ from [Step 1](#step-1:-create-a-userbase-account).
 
 <Code lang="shell">
-  {`NEXT_PUBLIC_USERBASE_APP_ID=<your-userbase-app-id`}
+  {`NEXT_PUBLIC_USERBASE_APP_ID=<your-userbase-app-id>`}
 </Code>
-<Caption><Caption>The <InlineCode>env.local</InlineCode> file that makes the <InlineCode>NEXT_PUBLIC_USERBASE_APP_ID</InlineCode> environment variable available to the application.</Caption></Caption>
+<Caption>Updating the <InlineCode>env.local</InlineCode> file with the <InlineCode>NEXT_PUBLIC_USERBASE_APP_ID</InlineCode> environment variable value.</Caption>
 
-## Step 4: Deploying To Production
+You are now able to run and develop your Next.js + Userbase app locally with the following command:
 
-To take your app into production, you can add the _App ID_ as a secret by running the following command:
+<Snippet dark text="yarn dev" />
+<Caption>Running the app locally with the <InlineCode>yarn dev</InlineCode> command.</Caption>
 
-<Snippet dark text="vercel env add NEXT_PUBLIC_USERBASE_APP_ID" />
-<Caption>Adding a secret to your <ProductName /> account.</Caption>
-
-The project template already provides you with a `vercel.json` file that makes use of the secret added above.
-
-<Code lang="json">
-  {`{
-  "build": {
-    "env": {
-      NEXT_PUBLIC_USERBASE_APP_ID: "@userbase-app-id"
-    }
-  }
-}`}
-</Code>
-<Caption>The <InlineCode>vercel.json</InlineCode> file that provides the defined secret to the application.</Caption>
+## Step 4: Deploying to Production
 
 <DeploySection meta={meta} />
 
