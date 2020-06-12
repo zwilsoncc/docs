@@ -1,5 +1,17 @@
 [
   {
+    "title": "Deploying a Next.js app with Analytics using Fathom and Vercel",
+    "description": "Create a Next.js app and add Fathom for analytics to get started with your new website or app.",
+    "name": "Next.js with Fathom Analytics",
+    "type": "project",
+    "published": "2020-06-09T02:00:05.464Z",
+    "authors": ["timothy"],
+    "url": "/guides/deploying-nextjs-using-fathom-analytics-with-vercel",
+    "image": "https://og-image.now.sh/Deploy%20a%20**Next.js%20app%20with%20Fathom%20Analytics**.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fassets.usefathom.com%2Ffathom-analytics.svg",
+    "editUrl": "pages/guides/deploying-nextjs-using-fathom-analytics-with-vercel.mdx",
+    "lastEdited": "2020-06-12T22:46:35.000Z"
+  },
+  {
     "title": "Create a Next.js App with DatoCMS and Deploy It with Vercel",
     "description": "Deploy your Next.js and DatoCMS app with Vercel in a serverless environment.",
     "published": "2020-04-30T07:47:12.000Z",
