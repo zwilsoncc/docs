@@ -118,11 +118,11 @@ Once your domain has been verified on <ProductName />, you can configure your do
 ​<ProductName /> provides an easy to use command that allows you to add DNS records from the CLI. In this example, you can configure your domain with a set of Gmail MX records via the `vercel dns add` command:
 
 ```
-now dns add <domain> '@' MX ASPMX.L.GOOGLE.COM 1
-now dns add <domain> '@' MX ALT1.ASPMX.L.GOOGLE.COM 5
-now dns add <domain> '@' MX ALT2.ASPMX.L.GOOGLE.COM 5
-now dns add <domain> '@' MX ALT3.ASPMX.L.GOOGLE.COM 10
-now dns add <domain> '@' MX ALT4.ASPMX.L.GOOGLE.COM 10
+vercel dns add <domain> '@' MX ASPMX.L.GOOGLE.COM 1
+vercel dns add <domain> '@' MX ALT1.ASPMX.L.GOOGLE.COM 5
+vercel dns add <domain> '@' MX ALT2.ASPMX.L.GOOGLE.COM 5
+vercel dns add <domain> '@' MX ALT3.ASPMX.L.GOOGLE.COM 10
+vercel dns add <domain> '@' MX ALT4.ASPMX.L.GOOGLE.COM 10
 ```
 
 Learn more about using the [`vercel dns`](/docs/cli#commands/dns) command.
