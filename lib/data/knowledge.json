@@ -8,6 +8,14 @@
     "lastEdited": "2020-06-15T07:54:36.000Z"
   },
   {
+    "title": "Where can I submit Vercel feature requests?",
+    "description": "Information on how to make feature requests for the Vercel platform.",
+    "editUrl": "pages/knowledge/where-to-submit-feature-requests.mdx",
+    "url": "/knowledge/where-to-submit-feature-requests",
+    "published": "2020-06-15T07:54:36.000Z",
+    "lastEdited": "2020-06-15T07:54:36.000Z"
+  },
+  {
     "title": "Can I Get a Fixed IP Address for My Vercel Deployments?",
     "description": "Information on fixed IP support on Vercel.",
     "editUrl": "pages/knowledge/can-i-get-a-fixed-ip-address.mdx",
