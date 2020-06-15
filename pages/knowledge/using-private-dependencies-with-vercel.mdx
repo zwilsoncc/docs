@@ -1,4 +1,5 @@
 import Layout from '~/components/layout/knowledge'
+import Note from '~/components/text/note'
 
 export const meta = {
   title: 'How do I use private dependencies with Vercel?',
@@ -31,6 +32,11 @@ Also note that Vercel Runtimes are installed from the canonical npm registry so 
 At build time, Vercel will dynamically create a `.npmrc` file and then install your dependencies from `package.json`.
 
 This allows you access to private packages without having to commit your own `.npmrc` file to source control.
+
+<Note type="warning">
+  We do not currently support private dependencies over SSH. For now you will
+  need to retrieve them from a registry as described above.
+</Note>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 

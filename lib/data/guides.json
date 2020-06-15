@@ -1,6 +1,6 @@
 [
   {
-    "title": "Deploying a Next.js app with Analytics using Fathom and Vercel",
+    "title": "Deploy a Next.js App with Analytics Using Fathom and Vercel",
     "description": "Create a Next.js app and add Fathom for analytics to get started with your new website or app.",
     "name": "Next.js with Fathom Analytics",
     "type": "project",
@@ -459,7 +459,7 @@
     "description": "Migrate your websites and APIs to the Vercel Platform with zero configuration.",
     "published": "2019-07-31T03:00:00.860Z",
     "authors": ["mcsdev", "timothy", "skllcrn"],
-    "url": "/guides/migrate-to-zeit-now",
+    "url": "/guides/migrate-to-vercel",
     "editUrl": "pages/guides/migrate-to-vercel.mdx",
     "lastEdited": "2020-05-08T23:58:00.000Z"
   },
