@@ -1,6 +1,14 @@
 [
   {
-    "title": "Can I get a fixed IP address for my deployments?",
+    "title": "Can I Connect a Pro Team to a Personal Git Account?",
+    "description": "Information on connecting personal Git accounts to a Vercel team.",
+    "editUrl": "pages/knowledge/connecting-teams-with-personal-git-accounts.mdx",
+    "url": "/knowledge/connecting-teams-with-personal-git-accounts",
+    "published": "2020-06-15T07:54:36.000Z",
+    "lastEdited": "2020-06-15T07:54:36.000Z"
+  },
+  {
+    "title": "Can I Get a Fixed IP Address for My Vercel Deployments?",
     "description": "Information on fixed IP support on Vercel.",
     "editUrl": "pages/knowledge/can-i-get-a-fixed-ip-address.mdx",
     "url": "/knowledge/can-i-get-a-fixed-ip-address",
