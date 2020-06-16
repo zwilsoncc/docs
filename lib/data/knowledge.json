@@ -1,5 +1,13 @@
 [
   {
+    "title": "How does Vercel provide DDOS protection?",
+    "description": "Information on security measures taken by Vercel to prevent DDOS attacks.",
+    "editUrl": "pages/knowledge/how-does-vercel-provide-ddos-protection.mdx",
+    "url": "/knowledge/how-does-vercel-provide-ddos-protection",
+    "published": "2020-06-15T18:54:36.000Z",
+    "lastEdited": "2020-06-13T18:54:36.000Z"
+  },
+  {
     "title": "Can I Connect a Pro Team to a Personal Git Account?",
     "description": "Information on connecting personal Git accounts to a Vercel team.",
     "editUrl": "pages/knowledge/connecting-teams-with-personal-git-accounts.mdx",
