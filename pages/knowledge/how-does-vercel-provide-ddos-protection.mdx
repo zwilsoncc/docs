@@ -1,22 +1,18 @@
 import Layout from '~/components/layout/knowledge'
 
 export const meta = {
-  title: 'How does Vercel provide DDOS protection?',
+  title: 'How does Vercel provide DDoS protection?',
   description:
-    'Information on security measures taken by Vercel to prevent DDOS attacks.',
+    'Information on security measures taken by Vercel to prevent DDoS attacks.',
   editUrl: 'pages/knowledge/how-does-vercel-provide-ddos-protection.mdx',
   url: '/knowledge/how-does-vercel-provide-ddos-protection',
   published: '2020-06-15T18:54:36.000Z',
-  lastEdited: '2020-06-13T18:54:36.000Z'
+  lastEdited: '2020-06-16T06:54:36.000Z'
 }
 
-Security is one of our top concerns at Vercel. JAMStack deployments are naturally designed to be far more secure than traditional server deployments
-since it is architected in a de-coupled manner where the frontend is seperated from critical backend services like your database. While this inherent
-protection exists. [Distributed Denial of Service (DDOS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attacks are real threats that still need
-to be addressed.
+Security is one of our top concerns at Vercel. JAMStack deployments are naturally designed to be far more secure than traditional server deployments since it is architected in a de-coupled manner where the frontend is seperated from critical backend services like your database. Despite this inherent protection, [Distributed Denial of Service (DDoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attacks still threatern the performance and stability of your deployments and need to be addressed carefully.
 
-While our customers don't have to manage a thing, Vercel engineers work around the clock to monitor traffic patterns across all of our edges to take quick action
-if any abnormal traffic patterns arise. We also have our own [Web Application Firewall (WAF)](https://en.wikipedia.org/wiki/Web_application_firewall) to block any malicious IP ranges.
+Vercel engineers work around the clock to monitor traffic patterns across our infrastructures to product your deployments against abnormal traffic patterns, we also have our own [Web Application Firewall (WAF)](https://en.wikipedia.org/wiki/Web_application_firewall) in place to block any malicious IP ranges. **By deploying on Vercel, your deployments are protected against most DDoS without additional setup.**
 
 We never take a complacent attitude when it comes to security and always strive to further fortify the measures that are already in place.
 
