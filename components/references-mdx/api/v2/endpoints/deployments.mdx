@@ -27,6 +27,7 @@ Before creating a deployment, [upload any required files](#endpoints/deployments
 | ------------------- | ---------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **name**            | <HelpLink href="#api-basics/types">String</HelpLink>       | Yes      | A string with the project name used in the deployment URL. The name string has a maximum length of `52` characters.                                                                                                             |
 | **files**           | <HelpLink href="#api-basics/types">List</HelpLink>         | Yes      | A list of objects with the files to be deployed.                                                                                                                                                                                |
+| **project**         | <HelpLink href="#api-basics/types">ID</HelpLink>           | No       | The target project identifier in which the deployment will be created. When defined, this parameter overrides **name**.                                                                                                         |
 | **meta**            | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's metadata. Multiple key-value pairs can be attached to a deployment. For example, <InlineCode>{ "foo": "bar" }</InlineCode>.                                                               |
 | **env**             | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values. _Secrets can be referenced by prefixing the value with `@`_.                                                                                       |
 | **build.env**       | <HelpLink href="#api-basics/types">Map</HelpLink>          | No       | An object containing the deployment's environment variable names and values to be passed to Builds. _Secrets can be referenced by prefixing the value with `@`_.                                                                |
@@ -80,7 +81,7 @@ They can be changed on the dashboard or through the projects API.
 | **outputDirectory** | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The name of a directory or relative path to the output of the build.                                   |
 | **rootDirectory**   | <HelpLink href="#api-basics/types">String</HelpLink>       | No       | The path of a directory that contains the source code if your deployment or `null` for auto detection. |
 
-If the `projectSettings` property is not set for the first deployment, the API will return an error containing information about the detected framework from <Link href="https://github.com/zeit/now/tree/master/packages/frameworks">`@now/frameworks`</Link>, which can be used for the next request to complete the deployment.
+If the `projectSettings` property is not set for the first deployment, the API will return an error containing information about the detected framework from <Link href="https://github.com/vercel/vercel/tree/master/packages/frameworks">`@now/frameworks`</Link>, which can be used for the next request to complete the deployment.
 
 <Code lang="json">{`{
   "error": {
@@ -90,7 +91,7 @@ If the `projectSettings` property is not set for the first deployment, the API w
       "name": "Next.js",
       "slug": "nextjs",
       "demo": "https://nextjs.now-examples.now.sh",
-      "logo": "https://raw.githubusercontent.com/zeit/now/master/packages/frameworks/logos/next.svg",
+      "logo": "https://raw.githubusercontent.com/vercel/vercel/master/packages/frameworks/logos/next.svg",
       "tagline": "Next.js makes you productive with React instantly — whether you want to build static or dynamic sites. ",
       "description": "A Next.js app and a Serverless Function API.",
       "website": "https://nextjs.org",

@@ -12,12 +12,12 @@ Vercel is a cloud platform for serverless deployment. It enables developers to h
 
 This repository is broken down into several sections, these include:
 
-- [Components](https://github.com/zeit/docs/tree/master/components) - a collection of reusable components to be used when creating documentation
-- [Documentation](https://github.com/zeit/docs/tree/master/pages/docs) - the documentation for Vercel
-- [Guides](https://github.com/zeit/docs/tree/master/pages/guides) - guides created to show how to use Vercel in a variety of ways
-- [Static Assets](https://github.com/zeit/docs/tree/master/public/static/guides) - the location for static assets, such as images, to be used in guides
-- [Code of Conduct](https://github.com/zeit/docs/blob/master/CODE_OF_CONDUCT.md) - our Code of Conduct, adapted from the [Contributor Covenant](http://contributor-covenant.org)
-- [Contributing Guidelines](https://github.com/zeit/docs/blob/master/CONTRIBUTING.md) - a guide on how to contribute to the Vercel documentation
+- [Components](https://github.com/vercel/docs/tree/master/components) - a collection of reusable components to be used when creating documentation
+- [Documentation](https://github.com/vercel/docs/tree/master/pages/docs) - the documentation for Vercel
+- [Guides](https://github.com/vercel/docs/tree/master/pages/guides) - guides created to show how to use Vercel in a variety of ways
+- [Static Assets](https://github.com/vercel/docs/tree/master/public/static/guides) - the location for static assets, such as images, to be used in guides
+- [Code of Conduct](https://github.com/vercel/docs/blob/master/CODE_OF_CONDUCT.md) - our Code of Conduct, adapted from the [Contributor Covenant](http://contributor-covenant.org)
+- [Contributing Guidelines](https://github.com/vercel/docs/blob/master/CONTRIBUTING.md) - a guide on how to contribute to the Vercel documentation
 
 The above sections provide quick access to the most important parts of the repository, helping you navigate as easily as possible.
 
@@ -27,7 +27,7 @@ You can run the documentation site locally by cloning this repository, installin
 
 ## How to Contribute
 
-Contributing to the Vercel documentation should be an enjoyable experience, as such we have created a set of [contributing guidelines](https://github.com/zeit/docs/blob/master/CONTRIBUTING.md) to help you do so.
+Contributing to the Vercel documentation should be an enjoyable experience, as such we have created a set of [contributing guidelines](https://github.com/vercel/docs/blob/master/CONTRIBUTING.md) to help you do so.
 
 The guidelines cover important information such as the difference between documentation and guides, how to use the provided components and where to put static assets.
 
@@ -43,7 +43,7 @@ If your issue doesn't fit with any of the templates then that's okay, please sub
 
 ## License
 
-The Vercel documentation is an open source project released under the [MIT License](https://github.com/zeit/docs/blob/master/LICENSE.md).
+The Vercel documentation is an open source project released under the [MIT License](https://github.com/vercel/docs/blob/master/LICENSE.md).
 
 The Vercel documentation uses the emojis from [Twemoji](https://twemoji.twitter.com). Copyright 2020 Twitter, Inc and other contributors. Licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0).
 

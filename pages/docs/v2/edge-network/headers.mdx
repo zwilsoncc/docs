@@ -9,7 +9,7 @@ export const meta = {
   title: 'Headers',
   description: `The list of headers included with deployments with ${PRODUCT_NAME}.`,
   editUrl: 'pages/docs/v2/edge-network/headers.mdx',
-  lastEdited: '2020-05-09T14:31:59.000Z'
+  lastEdited: '2020-06-10T14:22:52.000Z'
 }
 
 [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) can be found in both the HTTP Request and HTTP Response.
@@ -22,9 +22,9 @@ The following headers are sent to each <ProductName /> deployment and can be use
 
 This header represents the domain name as it was accessed by the client. If the deployment has been assigned to a preview URL or production domain and the client visits the domain URL, it contains the custom domain instead of the underlying deployment URL.
 
-### `x-now-id`
+### `x-vercel-id`
 
-A unique identifier for each request.
+A unique identifier for each request. Contains a list of [regions](/docs/v2/platform/regions/) through which the request has traversed, usually the region closest to the visitor.
 
 ### `x-forwarded-host`
 
@@ -38,26 +38,11 @@ This header represents the protocol of the forwarded server, typically `https`�
 
 The public `ip address` of the client that made the request.
 
-### `x-now-deployment-url`
+### `x-vercel-deployment-url`
 
 This header represents the unique deployment, not the preview URL or production domain. For example, `test-5uyfnapzg.now.sh`.
 
-### `x-now-trace`
-
-Contains a list of [regions](/docs/v2/platform/regions/) through which the request has traversed, usually the region closest to the visitor.
-
-<Note>
-  The trace is where a request was processed, it is not necessarily where a
-  Serverless Function was executed, this could be different if you defined 
-  <InlineCode>regions</InlineCode> in your <InlineCode>vercel.json</InlineCode>
-   file.
-</Note>
-
 ### `x-real-ip`
-
-This header is identical to the `x-forwarded-for` header.
-
-### `x-zeit-co-forwarded-for`
 
 This header is identical to the `x-forwarded-for` header.
 
@@ -81,9 +66,9 @@ The [media type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTT
 
 A timestamp indicating when the response was generated.
 
-### `server: now`
+### `server: Vercel`
 
-Similar to `[now: 1](/docs/v2/edge-network/headers/#now:-1)`. This header can be overridden by other proxies (e.g., Cloudflare).
+Shows where the request came from. This header can be overridden by other proxies (e.g., Cloudflare).
 
 ### `strict-transport-security`
 
@@ -93,7 +78,7 @@ A header often abbreviated as [HSTS](https://developer.mozilla.org/en-US/docs/Gl
 
 This header is automatically added with `noindex` to [Preview Deployments](/docs/v2/platform/deployments#preview) to prevent search engines from crawling them. A deployment without this header can be created by [pointing a production domain to it](https://vercel.com/docs/v2/custom-domains#adding-a-domain). If this is not desired, one can always disable the header manually using the [headers configuration](https://vercel.com/docs/configuration#project/headers).
 
-### `x-now-cache`
+### `x-vercel-cache`
 
 This header's value indicates whether the response was served from <OrgName />'s edge cache.
 
@@ -107,19 +92,9 @@ The following values are possible when the content being served [is static](/do
 | `STALE`       | The response is stale (served from the edge). A background request to the origin was made to get a fresh version. (see [Stale-While-Revalidate](/docs/v2/edge-network/caching/#stale-while-revalidate) for more info) |
 | `REVALIDATED` | A stale response was found in the edge but revalidated synchronously due to `Pragma: no-cache`.                                                                                                                       |
 
-### `x-now-id`
+### `x-vercel-id`
 
-The unique identifier for each request.
-
-### `x-now-trace`
-
-Contains a list of [regions](/docs/v2/platform/regions/) through which the request has traversed, usually the region center closest to you.
-
-<Note>
-  The trace is where a request was processed, it is not necessarily where a
-  Serverless Function was executed, this could be different if you
-  defined `regions` in your `vercel.json` file.
-</Note>
+The unique identifier for each request. Contains a list of [regions](/docs/v2/platform/regions/) through which the request has traversed, usually the region center closest to the visitor.
 
 ## Cache-Control Header
 
@@ -143,7 +118,7 @@ This instructs the Network Layer cache to:
 - Return a stale request (if requested after 1 second).
 - Update the cache in the background asynchronously (if requested after 1 second).
 
-If you need to do a synchronous revalidation you can set the `pragma: no-cache` header along with the `cache-control` header. This can be used to get an idea of how long the background revalidation is taking and sets the `x-now-cache` header to `REVALIDATED`.
+If you need to do a synchronous revalidation you can set the `pragma: no-cache` header along with the `cache-control` header. This can be used to get an idea of how long the background revalidation is taking and sets the `x-vercel-cache` header to `REVALIDATED`.
 
 <Note>
   Many browser developer tools set <InlineCode>pragma: no-cache</InlineCode> by

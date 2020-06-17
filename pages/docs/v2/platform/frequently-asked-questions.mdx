@@ -13,7 +13,7 @@ export const meta = {
   title: 'Frequently Asked Questions',
   description: 'A list of frequently asked questions relating to deployments.',
   editUrl: 'pages/docs/v2/platform/frequently-asked-questions.mdx',
-  lastEdited: '2020-05-28T23:06:10.000Z'
+  lastEdited: '2020-06-11T18:32:05.000Z'
 }
 
 ## Platform Version Detection
@@ -116,9 +116,13 @@ If a user already requested access to a team, it's not possible to invite them. 
 
 This ensures no requests are accidentally accepted.
 
-## Unused Project Settings with Non-Zero-Config Deployments
+## Unused Build & Development Settings
 
-Project settings are only applied to zero-configuration deployments. A deployment that uses the `builds` property will not apply the settings or take them into consideration.
+A [Project](/docs/v2/platform/projects) has several settings that can be found in the dashboard. One of those sections is called "Build & Development Settings" and is used to change the way a Project is built.
+
+However, the Build & Development Settings are only applied to [zero-configuration](/guides/upgrade-to-zero-configuration) Deployments.
+
+If a Deployment defines the [`builds`](/docs/configuration#project/builds) configuration property, the Build & Development Settings are ignored.
 
 ## Invalid Route Source Pattern
 
@@ -169,3 +173,34 @@ A named segment parameter defined in the `destination` property must also be def
   "destination": "/api/feedback/:id"
 }
 ```
+
+## Failed to Install Dependencies in Development
+
+When running the `vercel dev` command, you may experience an `npm install` error. This happens when `npm` is invoked to install Runtimes that are defined in your `vercel.json` file.
+
+`npm install` may fail if:
+
+- `npm` is not installed (retrieve it from [here](https://www.npmjs.com/get-npm))
+- Your internet connection is unavailable
+- The Runtime that is defined in your configuration is not published to the npm registry
+
+Please double-check that the name and version of the Runtime you are requesting is correct.
+
+## Mixed Routing Properties
+
+If you have [`rewrites`](/docs/configuration#project/rewrites), [`redirects`](/docs/configuration#project/redirects), [`headers`](/docs/configuration#project/headers), [`cleanUrls`](/docs/configuration#project/cleanurls) or [`trailingSlash`](/docs/configuration#project/trailingslash) defined in your [configuration](/docs/configuration) file, then [`routes`](/docs/configuration#project/routes) cannot be defined.
+
+This is a necessary limitation because `routes` is a lower-level primitive that contains all of the other types. Therefore, it cannot be merged safely with the new properties.
+
+See the [Advanced Routing](/docs/configuration#routes/advanced) section for examples of `routes` compared to the new properties.
+
+## Conflicting Configuration Files
+
+For backwards compatability purposes, there are two naming conventions for configuration files used by Vercel CLI (for example `vercel.json` and `now.json`). Both naming conventions are supported, however only _one_ may be defined at a time. The CLI will output an error message if both naming conventions are used at the same time.
+
+These conflicting configuration errors occur if:
+
+- Both `vercel.json` and `now.json` exist in your project.<br />**Solution:** Delete the `now.json` file.
+- Both `.vercel` and `.now` directories exist in your project.<br />**Solution:** Delete the `.now` directory.
+- Both `.vercelignore` and `.nowignore` files exist in your project.<br />**Solution:** Delete the `.nowignore` file.
+- Environment Variables that begin with `VERCEL_` have a conflicting Environment Variable that begins with `NOW_`.<br />**Solution:** Only define the `VERCEL_` prefixed Environment Variable.

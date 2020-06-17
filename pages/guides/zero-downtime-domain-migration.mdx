@@ -60,7 +60,7 @@ With your domain provider, create the TXT record using the `name` (also known as
   If you have forgotten or misplaced the value before verifying the domain, you
   can use{' '}
   <InlineCode>
-    now domains inspect <b>domain</b>
+    vercel domains inspect <b>domain</b>
   </InlineCode>{' '}
   to retrieve the verification methods and value again.
 </Note>
@@ -99,7 +99,7 @@ In this example, we'll take Gmail's current MX records and add them with <Produc
 
 <Snippet
   dark
-  text="vercel dns add <domain> @ MX ASPMX.L.GOOGLE.COM 1 && now dns add <domain> @ MX ALT1.ASPMX.L.GOOGLE.COM 5 && now dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5 && now dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10 && now dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10"
+  text="vercel dns add <domain> @ MX ASPMX.L.GOOGLE.COM 1 && vercel dns add <domain> @ MX ALT1.ASPMX.L.GOOGLE.COM 5 && vercel dns add <domain> @ MX ALT2.ASPMX.L.GOOGLE.COM 5 && vercel dns add <domain> @ MX ALT3.ASPMX.L.GOOGLE.COM 10 && vercel dns add <domain> @ MX ALT4.ASPMX.L.GOOGLE.COM 10"
 />
 
 <Caption>

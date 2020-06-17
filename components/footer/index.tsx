@@ -201,7 +201,7 @@ const Footer = ({ light }: FooterProps) => {
             <li>
               <a
                 className={styles.github}
-                href={`https://github.com/zeit`}
+                href={`https://github.com/vercel`}
                 rel="noopener"
                 target="_blank"
                 aria-label="GitHub"
