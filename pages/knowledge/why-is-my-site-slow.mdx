@@ -1,0 +1,67 @@
+import Layout from '~/components/layout/knowledge'
+import Snippet from '~/components/snippet'
+import Caption from '~/components/text/caption'
+import { InlineCode } from '~/components/text/code'
+
+export const meta = {
+  title: 'Why is my site slow?',
+  description: 'Information on how to debug site performance',
+  editUrl: 'pages/knowledge/why-is-my-site-slow.mdx',
+  url: '/knowledge/why-is-my-site-slow',
+  published: '2020-06-19T18:54:36.000Z',
+  lastEdited: '2020-06-19T18:54:36.000Z'
+}
+
+## Is Everything Static?
+
+Static assets are cached on our global edge network by default. Anything served from these servers will have the lowest amount
+of latency whereas trips to the origin mean that your requests need to travel further before it can respond. Before any other consideration,
+you want to observe your network response headers to ensure that you are hitting Vercel's edge cache.
+
+### Inspect HTTP Response Headers
+
+Run the following command (on Linux / macOS) to view your response headers:
+
+<Snippet dark text="curl -I <website-url>" />
+<Caption>Running <InlineCode>curl</InlineCode> command to inspect response headers.</Caption>
+
+You will receive headers similar to the following:
+
+```
+HTTP/2.0 200 OK
+Server: Vercel
+Access-Control-Allow-Origin: *
+Age: 24934
+Cache-Control: public, max-age=0, must-revalidate
+Content-Disposition: inline; filename="index"
+Content-Type: text/html; charset=utf-8
+Date: Fri, 19 Jun 2020 15:43:17 GMT
+Etag: W/"75b7226e3fcf16ccb276333efc05a6dce39a18b49de95ebab0a73ff28cf9e0d6"
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Vercel-Cache: HIT
+X-Vercel-Id: cle1::k2fpx-1592581397342-c40d56312565
+X-Vercel-Trace: cle1
+```
+
+<Caption>
+  HTTP Response headers displayed after running <InlineCode>curl</InlineCode>
+</Caption>
+
+Notice that `X-Vercel-Cache` has the value of `HIT`, which means that your request was served from our edge cache instead of from the origin.
+
+## Are You Serving From a Function?
+
+If your site is being rendered from a [Serverless Function](https://vercel.com/docs/v2/serverless-functions/introduction), such as when using [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering) with Next.js, then
+there is a great chance that it is incurring performance penalties. Not only do Serverless Functions have a small boot-up cost, but they are served from our [SFO](https://vercel.com/docs/v2/edge-network/regions#routing) region. Visitors further away from the U.S. West Coast will
+experience fare greater load times.
+
+Serverless Functions also don't cache their responses by default, which means that running the `curl` command above will reveal that the `X-Vercel-Cache` header is a `MISS`.
+
+If you _do_ need to use Serverless Functions,
+we highly recommend configuring the [cache control](https://vercel.com/docs/v2/serverless-functions/edge-caching#cache-control) accordingly.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
+
+export const config = {
+  amp: 'hybrid'
+}
