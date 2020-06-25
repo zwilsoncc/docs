@@ -1,5 +1,15 @@
 [
   {
+    "title": "Debug and Troubleshoot Logs with Vercel and Sematext",
+    "description": "Automatically send all Vercel logs to Sematext to understand how your application is running.",
+    "published": "2020-06-18T17:18:39.807Z",
+    "authors": ["adnanrahic"],
+    "url": "/guides/debugging-and-troubleshooting-vercel-logs-with-sematext",
+    "image": "https://og-image.now.sh/**Debug%20and%20Troubleshoot%20Logs**%20with%20Vercel%20and%20Sematext.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1592497724%2Ffront%2Fguides%2Fogp%2Fsematext-icon.svg",
+    "editUrl": "pages/guides/debugging-and-troubleshooting-vercel-logs-with-sematext.mdx",
+    "lastEdited": "2020-06-18T16:33:15.000Z"
+  },
+  {
     "title": "Deploy a Next.js App with Analytics Using Fathom and Vercel",
     "description": "Create a Next.js app and add Fathom for analytics to get started with your new website or app.",
     "name": "Next.js with Fathom Analytics",
@@ -10,6 +20,19 @@
     "image": "https://og-image.now.sh/Deploy%20a%20**Next.js%20app%20with%20Fathom%20Analytics**.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fassets.usefathom.com%2Ffathom-analytics.svg",
     "editUrl": "pages/guides/deploying-nextjs-using-fathom-analytics-with-vercel.mdx",
     "lastEdited": "2020-06-12T22:46:35.000Z"
+  },
+  {
+    "title": "Getting started with Next.js, TypeScript, and Stripe Checkout",
+    "description": "Add payments functionality to your Next.js applications with Stripe and deploy to Vercel.",
+    "published": "2020-06-07T13:00:32.000Z",
+    "authors": ["thorwebdev"],
+    "url": "/guides/getting-started-with-nextjs-typescript-stripe",
+    "example": "https://github.com/vercel/next.js/tree/canary/examples/with-stripe-typescript",
+    "editUrl": "pages/guides/getting-started-with-nextjs-typescript-stripe.mdx",
+    "name": "Next.js + Stripe Checkout",
+    "type": "site",
+    "demo": "https://nextjs-typescript-react-stripe-js.now.sh/",
+    "lastEdited": "2020-06-18T12:07:45.000Z"
   },
   {
     "title": "Create a Next.js App with DatoCMS and Deploy It with Vercel",
@@ -65,12 +88,12 @@
     "published": "2020-03-24T12:00:00.860Z",
     "authors": ["mcsdev"],
     "url": "/guides/deploying-takeshape-with-vercel",
-    "image": "https://og-image.now.sh/**Deploy%20a%20TakeShape%20Blog**%20%3Cbr%2F%3E%20with%20Vercel.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fph-files.imgix.net%2F3799c380-ef0b-4ce0-946e-2731effd6fa4%3Fauto%3Dformat&widths=200&widths=350&heights=200&heights=350",
+    "image": "https://og-image.now.sh/**Deploy%20a%20TakeShape%20Blog**%20with%20Next.js%20%26%20Vercel.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1592998293%2Ffront%2Fguides%2Fogp%2Ftakeshape.svg",
     "name": "TakeShape",
     "type": "site",
     "demo": "https://next-blog-takeshape.now.sh/",
     "editUrl": "pages/guides/deploying-takeshape-with-vercel.mdx",
-    "lastEdited": "2020-06-04T20:10:32.000Z"
+    "lastEdited": "2020-06-24T11:51:44.000Z"
   },
   {
     "title": "Error Reports for Your Projects with URIports and Vercel",
@@ -317,18 +340,6 @@
     "lastEdited": "2020-05-05T11:51:28.000Z"
   },
   {
-    "title": "Deploy a SendGrid-Powered Contact Form with Vercel",
-    "description": "Create a SendGrid-Powered Next.js and Node.js Contact Form and deploy it with Vercel.",
-    "name": "Next.js + Sendgrid",
-    "type": "app",
-    "published": "2019-10-10T17:00:00.000Z",
-    "authors": ["mcsdev"],
-    "url": "/guides/deploying-nextjs-nodejs-and-sendgrid-with-vercel",
-    "image": "https://og-image.now.sh/**Deploy%20a%20Next.js%20and%20SendGrid%20App**%20%3Cbr%2F%3E%20with%20Vercel.png?theme=light&md=1&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fsendgrid.com%2Fwp-content%2Fthemes%2Fsgdotcom%2Fpages%2Fresource%2Fbrand%2F2016%2FSendGrid-Logomark.png&widths=250&widths=auto&widths=300&heights=250&heights=auto&heights=300",
-    "editUrl": "pages/guides/deploying-nextjs-nodejs-and-sendgrid-with-vercel.mdx",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
-  },
-  {
     "title": "Deploy Docusaurus Sites with Vercel",
     "description": "Docusaurus with Vercel makes it easy to create and deploy open source project documentation.",
     "published": "2019-10-09T12:00:00.860Z",
@@ -542,7 +553,7 @@
     "name": "MongoDB",
     "type": "API",
     "editUrl": "pages/guides/deploying-a-mongodb-powered-api-with-node-and-vercel.mdx",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-24T16:39:53.000Z"
   },
   {
     "title": "Handling Node.js Request Bodies with Vercel",

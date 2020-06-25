@@ -1,5 +1,13 @@
 [
   {
+    "title": "Why Is My Domain Not Automatically Generating an SSL Certificate?",
+    "description": "Information on why a domain may not be automatically generating an SSL certificate.",
+    "editUrl": "pages/knowledge/domain-not-generating-ssl-certificate.mdx",
+    "url": "/knowledge/domain-not-generating-ssl-certificate",
+    "published": "2020-06-19T13:46:54.155Z",
+    "lastEdited": "2020-06-18T13:46:54.155Z"
+  },
+  {
     "title": "Can I Use My Domain on Vercel with A Records?",
     "description": "Information on how to use A records with Vercel to verify a domain.",
     "editUrl": "pages/knowledge/a-record-and-caa-with-vercel.mdx",
@@ -19,7 +27,7 @@
     "title": "How Can I Do a \"Zero Downtime\" DNS Migration to Vercel?",
     "description": "Information about how to migrate your DNS records to Vercel without downtime.",
     "editUrl": "pages/knowledge/zero-downtime-migration-for-dns.mdx",
-    "url": "/knowledge/zero-downtime-migration-for-dns.mdx",
+    "url": "/knowledge/zero-downtime-migration-for-dns",
     "published": "2020-06-17T13:46:54.155Z",
     "lastEdited": "2020-06-15T13:46:54.155Z"
   },
