@@ -10,7 +10,7 @@ export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-07-03T08:17:07.000Z'
+  lastEdited: '2020-07-03T19:28:05.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -47,15 +47,11 @@ Below are two examples that provide further information on how general limits wo
 
 #### Serverless Functions per Deployment (Hobby)
 
-You are able to deploy up to `12` different [Serverless Functions](/docs/v2/serverless-functions/introduction/) per [Deployment](/docs/v2/platform/deployments). Should you exceed this general limit, you will come across this error message:
-
-`No more than 12 Serverless Functions can be added to a Deployment on the Hobby plan. Create a team (Pro plan) to deploy more.`
+You are able to deploy up to `12` unique [Serverless Functions](/docs/v2/serverless-functions/introduction/) per [Deployment](/docs/v2/platform/deployments). Should you exceed this general limit, you will receive an error telling you this.
 
 #### Serverless Functions per Month (Hobby)
 
-You are able to deploy a total of `160` [Serverless Functions](/docs/v2/serverless-functions/introduction/) per month. Each [Deployment](/docs/v2/platform/deployments)'s number of Serverless Functions will count toward the `160` Serverless Functions per month. Should you exceed this general limit, you will come across this error message:
-
-`Deployment <deploymentId> exceeded the max Lambda count per month for account <UserTeamId>.`
+You are able to deploy a total of `160` [Serverless Functions](/docs/v2/serverless-functions/introduction/) per month. Each [Deployment](/docs/v2/platform/deployments)'s number of Serverless Functions will count toward the `160` Serverless Functions per month. Should you exceed this general limit, you will need to wait till the current month ends before you can deploy more Serverless Functions.
 
 ## Logs
 
@@ -198,9 +194,9 @@ You are able to change your username up to `6` times every `604800` seconds (1 w
 You are able to build `32` [Deployments](/docs/v2/platform/deployments) every `3600` seconds (1 hour). Shoulds you hit the rate limit, you will need to wait another hour before before you can build a deployment again.
 
 <Note>
-  Using Next.js or any similar framework to build your deployment is considered
-  a build. Hosting static files such as an index.html file does not count as a
-  build.
+  Using Next.js or any similar framework to build your deployment is classed as
+  a build. Each Serverless Function is also classed as a build. Hosting static
+  files such as an index.html file is not classed as a build.
 </Note>
 
 #### Deployments per day (Free)
