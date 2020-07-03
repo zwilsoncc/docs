@@ -10,7 +10,7 @@ export const meta = {
   title: 'Limits',
   description: `A list of limits and limitations that apply on the ${PRODUCT_NAME} platform.`,
   editUrl: 'pages/docs/v2/platform/limits.mdx',
-  lastEdited: '2020-07-03T01:59:02.000Z'
+  lastEdited: '2020-07-03T08:17:07.000Z'
 }
 
 This page outlines all relevant limits and limitations present when using the <ProductName /> platform.
@@ -53,9 +53,9 @@ You are able to deploy up to `12` different [Serverless Functions](/docs/v2/serv
 
 #### Serverless Functions per Month (Hobby)
 
-You are able to deploy up to `160` different [Serverless Functions](/docs/v2/serverless-functions/introduction/) per month. Each [Deployment](/docs/v2/platform/deployments)'s number of Serverless Functions will count toward the `160` Serverless Functions per month. Should you exceed this general limit, you will come across this error message:
+You are able to deploy a total of `160` [Serverless Functions](/docs/v2/serverless-functions/introduction/) per month. Each [Deployment](/docs/v2/platform/deployments)'s number of Serverless Functions will count toward the `160` Serverless Functions per month. Should you exceed this general limit, you will come across this error message:
 
-`Deployment <deploymentId> exceeded the max. lambda count per month for account <UserTeamId>.`
+`Deployment <deploymentId> exceeded the max Lambda count per month for account <UserTeamId>.`
 
 ## Logs
 
@@ -72,7 +72,7 @@ All other logs are stored in memory only and are not persisted between page view
 ## Environment Variables
 
 The maximum number of [Environment Variables](/docs/v2/build-step#environment-variables) per environment per [Project](/docs/v2/platform/glossary#project)
-is `100`. For example, you cannot have more than `100` production environment variables.
+is `100`. For example, you cannot have more than `100` Production Environment Variables.
 
 Moreover, the total size of Environment Variables applied to a [Deployment](/docs/v2/platform/deployments), including all the Environment Variables names and values, is limited to **4 KB**. Deployments made with Environment Variables exceeding the **4 KB** limit will fail during the [Build Step](/docs/v2/build-step/).
 
@@ -179,19 +179,33 @@ The **rate limits** table consists of the following four columns:
 
 ### Rate Limit Examples
 
-Below are three examples that provide further information on how rate limits work.
+Below are five examples that provide further information on how rate limits work.
 
 #### Domain Deletion
 
-You are able to delete up to `60` domains every `60` seconds (1 minute). Should you hit the rate limit, you will need to wait another minute before deleting another domain.
+You are able to delete up to `60` domains every `60` seconds (1 minute). Should you hit the rate limit, you will need to wait another minute before you can delete another domain.
 
 #### Team Deletion
 
-You are able to delete up to `20` teams every `3600` seconds (1 hour). Should you hit the rate limit, you will need to wait another hour before deleting another team.
+You are able to delete up to `20` teams every `3600` seconds (1 hour). Should you hit the rate limit, you will need to wait another hour before you can delete another team.
 
 #### Username Change
 
-You are able to change your username up to `6` times every `604800` seconds (1 week). Should you hit the rate limit, you will need to wait another week before changing your username again.
+You are able to change your username up to `6` times every `604800` seconds (1 week). Should you hit the rate limit, you will need to wait another week before you can change your username again.
+
+#### Builds per Hour (Free)
+
+You are able to build `32` [Deployments](/docs/v2/platform/deployments) every `3600` seconds (1 hour). Shoulds you hit the rate limit, you will need to wait another hour before before you can build a deployment again.
+
+<Note>
+  Using Next.js or any similar framework to build your deployment is considered
+  a build. Hosting static files such as an index.html file does not count as a
+  build.
+</Note>
+
+#### Deployments per day (Free)
+
+You are able to deploy `100` times every `86400` seconds (1 day). Should you hit the rate limit, you will need to wait another day before you can deploy again.
 
 ---
 
